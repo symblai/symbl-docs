@@ -36,7 +36,7 @@ title: Async API Reference
 
 The Async Audio and Async Video APIs can work with languages other than English.
 
-The following list of languages(with their [BCP-47](https://en.wikipedia.org/wiki/IETF_language_tag) language-codes) are currently supported:
+The following list of languages (with their [BCP-47](https://en.wikipedia.org/wiki/IETF_language_tag) language-codes) are currently supported:
 
  | Supported Languages          | Code    |
  |------------------------------|---------|
