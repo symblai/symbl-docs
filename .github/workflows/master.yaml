@@ -12,7 +12,7 @@ jobs:
     - name: Invoke workflow in another repo with inputs
       uses: benc-uk/workflow-dispatch@v1
       with:
-        workflow: Some Workflow
+        workflow: build-project
         repo: ${{ secrets.REPO_NAME }}
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
         ref: new-structure
