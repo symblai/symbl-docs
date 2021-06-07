@@ -7,7 +7,7 @@ slug: /
 
 :::tip Welcome
 
-[Symbl](https://symbl.ai/) offers comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
+[Symbl](https://symbl.ai/) offers a comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
 :::
 
 
