@@ -9,10 +9,9 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: Invoke workflow in another repo with inputs
-      uses: benc-uk/workflow-dispatch@v1
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1
       with:
-        workflow: build-project
-        repo: ${{ secrets.REPO_NAME }}
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        ref: new-structure
+        repository: ${{ secrets.REPO_NAME }}
+        event-type: build-project
