@@ -26,7 +26,7 @@ All action items are generated with action phrases, assignees and due dates so t
 ### Example API Call
 
 :::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
+Before using the Conversation API, you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 :::
 
 
