@@ -10,12 +10,13 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 
 You can use the GET Tracker API in two ways:
 - [GET Tracker by ID](#get-tracker-by-id)
-- [GET Tracker by query params](#get-tracker)
+- [GET Tracker by name](#get-tracker-by-name)
 
 ## GET Tracker by ID
 This API gets the Tracker entity against the `trackerId` provided which can then be consumed in Symbl APIs. 
 
-:::info Currently, this Tracker entity can be consumed in the [Async APIs](/docs/async-api/introduction) only. Support for the other APIs will be added soon.
+:::info 
+Currently, the Tracker entity can be consumed in the [Async APIs](/docs/async-api/introduction) only. Support for the other APIs will be added soon.
 :::
 
 ### API Endpoint 
@@ -30,10 +31,9 @@ Header Name  | Required | Description
 ```Content-Type	``` | Yes | `application/json`
 ```x-api-key``` | No | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
-### Request Query Parameter
+### Request Parameter
 
-The following request parameter (query-param) is accepted in the URI.
-`trackerId`- The unique identifier of the Tracker to be fetched.
+The `trackerId`- the unique identifier of the Tracker to be fetched is accepted as a request parameter (path-param) in the URI.
 
 ### Response Body
 
@@ -41,13 +41,12 @@ The following request parameter (query-param) is accepted in the URI.
 {
     "tracker": {
         "id": "4476908732794496",
-        "name": "COVID-19",
+        "name": "Promotion Mention",
         "vocabulary": [
-            "covid",
-            "cover your mouth with a mask",
-            "coughing",
-            "social distancing",
-            "vaccine"
+            "We have a special promotion going on if you book this before",
+            "I can offer you a discount of 10 20 percent you being a new customer for us",
+            "We have our month special this month",
+            "We have a sale right now on"
         ]
     }
 }
@@ -64,9 +63,9 @@ Error Code  | Description | Resolution
 `502 - Bad Gateway` | The 502 response code specifies that the server failed to acknowledge the request. This may happen due to multiple reasons. | Please reach out to support@symbl.ai if it persists even after multiple attempts.
 `504 - Gateway Timeout` | The 504 response code specifies that the server failed to respond within the timeout duration. | Please reach out to support@symbl.ai if it persists even after multiple attempts.
 
-## Get Tracker
+## Get Tracker by Name
 
-This API endpoint gets all the Tracker entities against the provided query-params. You can get the Tracker entity using the query parameter`name`.
+This API endpoint gets all the Tracker entities against the provided query parameter: `name`.
 
 :::info
 Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-api/introduction) only. Support for the other APIs will be available soon.
@@ -93,26 +92,23 @@ The following request parameter (query-param) is accepted in the URI:
 If no query-params are passed, then this API will return all the Trackers available in that account.
 :::
 
-## Sample Response Body
+### Sample Response 
+`trackers` is an array of JSON Objects containing a Tracker entity that meets the criteria specified by the query-params.
 
 ```javascript
 {
     "trackers": [{
         "id": "4476908732794496",
-        "name": "COVID-19",
+        "name": "Promotion Mention",
         "vocabulary": [
-            "covid",
-            "cover your mouth with a mask", 
-            "coughing",
-            "social distancing",
-            "vaccine"
+            "We have a special promotion going on if you book this before",
+            "I can offer you a discount of 10 20 percent you being a new customer for us",
+            "We have our month special this month",
+            "We have a sale right now on"
         ]
     }]
 }
 ```
-
-`trackers`
-This is an array of JSON Objects containing a Tracker entity that meets the criteria specified by the query-params.
 
 ### Error Codes
 In case of unsuccessful responses, the following error codes will be returned from the API

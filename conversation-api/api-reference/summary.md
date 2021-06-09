@@ -28,6 +28,7 @@ This API works best on audio/video conversations that are at least 10 mins in du
 :::
 
 
+
 ### API Endpoint
 **<font color="orange">GET</font> `https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary`**
 
@@ -85,6 +86,7 @@ You can use the `refresh` query parameter in the Summary API for any of the foll
 
 - **Regenerating the Summary (Async APIs)** <br/> 
 Summaries can be generated again when you have new discussion items. Use `refresh=true` in Summary API as a query param. This will delete the previous Summary and will create a new one. 
+
 
 - **Creating Summary (Telephony and Streaming APIs)** <br/> 
 If you are using Telephony or Streaming API, after the conversation has ended, use the `refresh=true` parameter in the Summary API to generate the Summary.
@@ -221,6 +223,5 @@ Parameter | Description |
 
 :::note
 In case of Streaming API and Telephony API, if a conversation is still in-progress or in case of Async API, the job is still in-progress while this API is invoked, it would treat it as “Not Found” error by returning `404 Not Found` HTTP status code with a message indicating that it is in progress. <br/>
-
 For example, if a conversation with `conversationId` ‘48948598475’ is still in progress, the Summary for it can be generated only after the conversation is complete. Please call this API after the conversation has ended. If you need more help, reach out to us at support@symbl.ai.
 :::

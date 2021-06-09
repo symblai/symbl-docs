@@ -11,7 +11,6 @@ import TabItem from '@theme/TabItem';
 
 Symbl offers state-of-the-art Speech-to-Text capability (also called transcription). You can convert audio and video conversations into text in real-time or after the conversation has ended.
 
-
 ## Key Features
 
 - **Real-time transcripting**: Transcribe your content from real-time and stored files.
@@ -35,6 +34,8 @@ Each continuous sentence spoken by a speaker in a conversation is referred to as
 :::
 
 To see Messages API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID**.  A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the speech-to-text transcription from the conversation.
+
+Using the conversation API, you can get a pre-formatted transcript in markdown language or in standard transcription or closed captioning format like SRT. See [Formatted Transcript](/docs/conversation-api/transcript) section for more.  
 
 👉 [Messages API](/docs/conversation-api/messages)
 

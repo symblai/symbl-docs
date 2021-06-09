@@ -182,5 +182,5 @@ ws.send(JSON.stringify({
 </Tabs>
 
 :::info Termination due to elongated silence
-If a meeting is silent for more than 30 minutes, it will be automatically terminated. The charges towards the silent minutes apply. 
+If the meeting is silent for more than 30 minutes, it will be automatically terminated. The charges towards the silent minutes apply. 
 :::

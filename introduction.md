@@ -7,7 +7,7 @@ slug: /
 
 :::tip Welcome
 
-[Symbl](https://symbl.ai/) offers a comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
+[Symbl](https://symbl.ai/) offers comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
 :::
 
 
@@ -22,7 +22,7 @@ Async APIs provide the functionality for processing ** stored recordings audio/v
 👉 &nbsp; [Process an audio file using Async API](/docs/getting-started-with-async-api)
 
 ### 📞 Telephony API
-Based on **PSTN and SIP protocols**, this API provides an interface for developers to have **Symbl join VoIP calls** and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights, and topics in a single page web application.<br/>
+Based on **PSTN and SIP protocols**, this API provides an interface for the developers to have **Symbl join VoIP calls** and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights, and topics in a single page web application.<br/>
 👉 &nbsp; [Get a transcription from your Zoom call](/docs/getting-started-with-telephony-api)
 
 ### 📊 Pre-Built UI

@@ -14,9 +14,8 @@ import TabItem from '@theme/TabItem';
 ## Contents
 
 * [Enabling the Diarization](#enabling-the-diarization)
-    * [Identifying Unique Speakers](#identifying-unique-speakers)
     * [Getting the Speaker Separated Results](#getting-the-speaker-separated-results)
-    * [Gain Insights](#gain-insights)
+    * [Identifying Unique Speakers](#identifying-unique-speakers)
 * [Updating the Detected Members](#updating-the-detected-members)
     * [GET members](#get-members)
     * [PUT members](#put-members)
@@ -27,22 +26,38 @@ import TabItem from '@theme/TabItem';
 
 ## Enabling the Diarization
 
-To enable Speaker Separation in the Async Audio or Video API is as simple as adding the `enableSpeakerDiarization=true` and `diarizationSpeakerCount=<NUMBER_OF_UNIQUE_SPEAKERS>` query parameters of the request URL.
+To enable Speaker Separation in the Async Audio or Video API is as simple as adding these query parameters to the URL:
+
+Parameter Name  | Type | Description
+---------- | ------- |  ------- |
+`enableSpeakerDiarization` | Boolean | Will enable the speaker separation for the audio or video data under consideration.
+`diarizationSpeakerCount` | Integer | Sets the number of unique speakers in the audio or video data under consideration.
 
 This snippet shows a cURL command for consuming the Async Video URL-based API which takes in the URL for a publicly available URL of a Video File:
+
+:::info
+The below example uses the Async Video URL API, but Speaker Separation can be achieved with other Async Audio/Video APIs in the same way.
+:::
+
+* `AUTH_TOKEN` needs to be replaced with the Bearer token generated during [our authentication process](/docs/developer-tools/authentication).
+
+* For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
+
+#### Code Example
 
 <Tabs
   defaultValue="curl"
   values={[
-    { label: 'cURL', value: 'curl', }
+    { label: 'cURL', value: 'curl', },
+    { label: 'Javascript', value: 'javascript', },
+    { label: 'Python', value: 'python', }
   ]
 }>
 <TabItem value="curl">
 
 ```shell
 curl --location --request POST "https://api.symbl.ai/v1/process/video/
-url?enableSpeakerDiarization=true&diarizationSpeakerCount=$NUMBER_OF_UNIQUE_SPEAKERS
-&webhookUrl=$WEBHOOK_URL"
+url?enableSpeakerDiarization=true&diarizationSpeakerCount=$NUMBER_OF_UNIQUE_SPEAKERS"
 --header 'Content-Type: application/json'
 --header "Authorization: Bearer $AUTH_TOKEN"
 --data-raw '{
@@ -52,63 +67,111 @@ url?enableSpeakerDiarization=true&diarizationSpeakerCount=$NUMBER_OF_UNIQUE_SPEA
 
 </TabItem>
 
-<TabItem value="nodejs">
+<TabItem value="javascript">
+
+```js
+const authToken = AUTH_TOKEN;
+const numberOfUniqueSpeakers = NUMBER_OF_UNIQUE_SPEAKERS;
+
+const payload = {
+  "url": "https://storage.googleapis.com/demo-conversations/interview-prep.mp4"
+}
+
+const responses = {
+  400: 'Bad Request! Please refer docs for correct input fields.',
+  401: 'Unauthorized. Please generate a new access token.',
+  404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+  429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+  500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+const fetchData = {
+  method: "POST",
+  headers: {
+    'Authorization': `Bearer ${authToken}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+}
+
+fetch(`https://api.symbl.ai/v1/process/video/url?enableSpeakerDiarization=true&diarizationSpeakerCount=${numberOfUniqueSpeakers}`, fetchData).then(response => {
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw new Error(responses[response.status]);
+  }
+}).then(response => {
+  console.log('response', response);
+}).catch(error => {
+  console.error(error);
+});
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+```py
+import json
+import requests
+
+url = "https://api.symbl.ai/v1/process/video/url?enableSpeakerDiarization=true&diarizationSpeakerCount=" + NUMBER_OF_UNIQUE_SPEAKERS
+
+payload = {
+    "url": "https://storage.googleapis.com/demo-conversations/interview-prep.mp4"
+}
+
+# set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+access_token = 'your_access_token'
+
+headers = {
+    'Authorization': 'Bearer ' + access_token,
+    'Content-Type': 'application/json'
+}
+
+# webhookUrl = <Optional, string| your_webhook_url| Webhook url on which job updates to be sent. (This should be post API)>" e.g https://yourdomain.com/jobs/callback
+# if webhookUrl is not None:
+#   url += "?webhookUrl" + webhookUrl  
+
+responses = {
+    400: 'Bad Request! Please refer docs for correct input fields.',
+    401: 'Unauthorized. Please generate a new access token.',
+    404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+    429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+    500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+
+if response.status_code == 201:
+    # Successful API execution
+    print("conversationId => " + response.json()['conversationId'])  # ID to be used with Conversation API.
+    print("jobId => " + response.json()['jobId'])  # ID to be used with Job API.
+elif response.status_code in responses.keys():
+    print(responses[response.status_code])  # Expected error occurred
+else:
+    print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+exit()
+```
+
 </TabItem>
 
 </Tabs>
 
-:::info
-The above example uses the Async Video URL API, but Speaker Separation can be achieved with other Async Audio/Video APIs in the same way.
-:::
-
-* `AUTH_TOKEN` needs to be replaced with the Bearer token generated during [our authentication process](/docs/developer-tools/authentication).
-
-* `WEBHOOK_URL` can be replaced with a WebHook URL for receiving the status for the Job created after calling the API.
-
-* For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
-
-The above URL has two query parameters:
-
-Parameter Name  | Type | Description
----------- | ------- |  ------- |
-`enableSpeakerDiarization` | Boolean | Will enable the speaker separation for the audio or video data under consideration.
-`diarizationSpeakerCount` | Integer | Sets the number of unique speakers in the audio or video data under consideration.
-
-
-### Identifying Unique Speakers
-
-Invoking the `members` call in the Conversation API will return the uniquely identified speakers for this conversation when Speaker Diarization is enabled.
-
-#### Code Example
-
-View the API Reference for information on how to get member information.
-
-👉 [GET Member Information](/docs/conversation-api/api-reference/members/)
 
 #### JSON Response Example
 
 ```js
 {
-    "members": [
-        {
-            "id": "9d6d34d9-5019-4694-9c9a-8ba7bfc8cfab",
-            "name": "Speaker 1"
-        },
-        {
-            "id": "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325",
-            "name": "Speaker 2"
-        }
-    ]
+    "conversationId": "4601416062599168",
+    "jobId": "e33d764c-c663-488f-8581-d7182ad0d7a0"
 }
 ```
 
-The `name` assigned to a uniquely identified speaker/member from a separated audio/video will follow the format `Speaker <number>` where `<number>` is arbitrary and does not necessarily reflect in what order someone spoke.
-
-The `id` can be used to identify a speaker/member for that specific conversation and can be used to update the details for the specific member demonstrated below in the [**Updating Detected Members**](#updating-the-detected-members) section.
-
 ### Getting the Speaker Separated Results
 
-Invoking the `messages` call in the [Conversation API](/docs/conversation-api/introduction) would return the speaker-separated results.
+Now that you have a `conversationId` from the above response you can invoke the `messages` call in the [Conversation API](/docs/conversation-api/introduction) which returns the speaker-separated results.
 
 
 #### Code Example
@@ -156,65 +219,37 @@ The above snippet shows the speaker in the `from` object with a unique ID. These
 Reminder: The speaker number in the above snippet is arbitrary and the number doesn’t necessarily reflect the order in which someone spoke.
 :::
 
-### Gain insights
 
-Similarly, invoking the `insights` call in the [Conversation API](/docs/conversation-api/api-reference/insights) would also reflect the identified speakers in the detected insights.
+### Identifying Unique Speakers
 
+You can then invoke the `members` call in the Conversation API, which will return the uniquely identified speakers for the conversation when Speaker Diarization is enabled.
 
 #### Code Example
 
-View the API Reference for information on how to get insights from the conversation.
+View the API Reference for information on how to get member information.
 
-👉 [GET Insights](/docs/conversation-api/api-reference/insights)
+👉 [GET Member Information](/docs/conversation-api/members)
 
 #### JSON Response Example
 
-
 ```js
 {
-    "insights": [
+    "members": [
         {
-            "id": "5501181057040384",
-            "text": "We need to go over three more common interview questions.",
-            "type": "action_item",
-            "score": 1,
-            "messageIds": [
-                "5710067261243392"
-            ],
-            "entities": [],
-            "phrases": [
-                {
-                    "type": "action_phrase",
-                    "text": "go over three more common interview questions"
-                }
-            ],
-            "from": {
-                "id": "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325",
-                "name": "Speaker 2"
-            },
-            "definitive": true,
-            "assignee": {
-                "id": "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325",
-                "name": "Speaker 2"
-            }
+            "id": "9d6d34d9-5019-4694-9c9a-8ba7bfc8cfab",
+            "name": "Speaker 1"
         },
         {
-            "id": "5519156904460288",
-            "text": "How did you hear about this position?",
-            "type": "question",
-            "score": 0.999988666660899,
-            "messageIds": [
-                "4616389407014912"
-            ],
-            "from": {
-                "id": "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325",
-                "name": "Speaker 2"
-            }
-        },
-        ...
+            "id": "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325",
+            "name": "Speaker 2"
+        }
     ]
 }
 ```
+
+The `name` assigned to a uniquely identified speaker/member from a separated audio/video will follow the format `Speaker <number>` where `<number>` is arbitrary and does not necessarily reflect in what order someone spoke.
+
+The `id` can be used to identify a speaker/member for that specific conversation and can be used to update the details for the specific member demonstrated below in the [**Updating Detected Members**](#updating-the-detected-members) section.
 
 
 ## Updating the Detected Members
@@ -257,6 +292,8 @@ We can now use the `PUT members` call to update the details of a specific member
   defaultValue="curl"
   values={[
     { label: 'CURL', value: 'curl', },
+    { label: 'Javascript', value: 'javascript', },
+    { label: 'Python', value: 'python', }
   ]
 }>
 
@@ -273,7 +310,98 @@ $ curl --location --request PUT "https://api.symbl.ai/v1/conversations/$CONVERSA
         }'
 ```
 </TabItem>
-<TabItem value="nodejs">
+
+<TabItem value="javascript">
+
+```js
+const authToken = AUTH_TOKEN;
+const conversationId = 'your_conversation_id'  // Generated using Submit text end point
+const memberId = 'your_member_id'  // MemberId of members fetched using fetchMember API
+const url = `https://api.symbl.ai/v1/conversations/${conversationId}/members/${memberId}`;
+
+payload = {
+    'id': "UUID_to_be_updated",  // Should be a valid UUID e.g. f170371e-d9db-4d55-9d49-a111a89cf078
+    'email': "email_id_to_be_updated",  // Should be a valid emailId e.g. John@domain.com
+    'name': "name_to_be_updated"  // Should be a valid string e.g. John
+}
+
+const responses = {
+  400: 'Bad Request! Please refer docs for correct input fields.',
+  401: 'Unauthorized. Please generate a new access token.',
+  404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+  429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+  500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+const fetchData = {
+  method: "PUT",
+  headers: {
+    'Authorization': `Bearer ${authToken}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+}
+
+fetch(url, fetchData).then(response => {
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw new Error(responses[response.status]);
+  }
+}).then(response => {
+  console.log('response', response);
+}).catch(error => {
+  console.error(error);
+});
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+```py
+import json
+import requests
+
+baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/members/{memberId}"
+conversationId = 'your_conversation_id'  # Generated using Submit text end point
+memberId = 'your_member_id'  # MemberId of members fetched using fetchMember API
+
+url = baseUrl.format(conversationId=conversationId, memberId=memberId)
+
+# set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+access_token = 'your_access_token'
+
+headers = {
+    'Authorization': 'Bearer ' + access_token,
+    'Content-Type': 'application/json'
+}
+
+payload = {
+    'id': "UUID_to_be_updated",  # Should be a valid UUID e.g. f170371e-d9db-4d55-9d49-a111a89cf078
+    'email': "email_id_to_be_updated",  # Should be a valid emailId e.g. John@domain.com
+    'name': "name_to_be_updated"  # Should be a valid string e.g. John
+}
+
+responses = {
+    401: 'Unauthorized. Please generate a new access token.',
+    404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+    500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
+
+if response.status_code == 200:
+    # Successful API execution
+    print(response.json()['message'])  # message containing status of response
+elif response.status_code in responses.keys():
+    print(responses[response.status_code])  # Expected error occurred
+else:
+    print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+exit()
+```
+
 </TabItem>
 </Tabs>
 
@@ -435,7 +563,9 @@ If we were to execute a `PUT members` call with the below body where `74001a1d-4
 <Tabs
   defaultValue="curl"
   values={[
-    { label: 'CURL', value: 'curl', }
+    { label: 'CURL', value: 'curl', },
+    { label: 'Javascript', value: 'javascript', },
+    { label: 'Python', value: 'python', }
   ]
 }>
 
@@ -453,7 +583,98 @@ $ curl --location --request PUT "https://api.symbl.ai/v1/conversations/$CONVERSA
 ```
 
 </TabItem>
-<TabItem value="nodejs">
+
+<TabItem value="javascript">
+
+```js
+const authToken = AUTH_TOKEN;
+const conversationId = 'your_conversation_id'  // Generated using Submit text end point
+const memberId = '74001a1d-4e9e-456a-84ed-81bbd363333a'  // MemberId of members fetched using fetchMember API
+const url = `https://api.symbl.ai/v1/conversations/${conversationId}/members/${memberId}`;
+
+payload = {
+    'id': "74001a1d-4e9e-456a-84ed-81bbd363333a",  // Should be a valid UUID e.g. f170371e-d9db-4d55-9d49-a111a89cf078
+    'email': "john@example.com",  // Should be a valid emailId e.g. John@domain.com
+    'name': "John Doe"  // Should be a valid string e.g. John
+}
+
+const responses = {
+  400: 'Bad Request! Please refer docs for correct input fields.',
+  401: 'Unauthorized. Please generate a new access token.',
+  404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+  429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+  500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+const fetchData = {
+  method: "PUT",
+  headers: {
+    'Authorization': `Bearer ${authToken}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+}
+
+fetch(url, fetchData).then(response => {
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw new Error(responses[response.status]);
+  }
+}).then(response => {
+  console.log('response', response);
+}).catch(error => {
+  console.error(error);
+});
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+```py
+import json
+import requests
+
+baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/members/{memberId}"
+conversationId = 'your_conversation_id'  # Generated using Submit text end point
+memberId = '74001a1d-4e9e-456a-84ed-81bbd363333a'  # MemberId of members fetched using fetchMember API
+
+url = baseUrl.format(conversationId=conversationId, memberId=memberId)
+
+# set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+access_token = 'your_access_token'
+
+headers = {
+    'Authorization': 'Bearer ' + access_token,
+    'Content-Type': 'application/json'
+}
+
+payload = {
+    'id': "74001a1d-4e9e-456a-84ed-81bbd363333a",  # Should be a valid UUID e.g. f170371e-d9db-4d55-9d49-a111a89cf078
+    'email': "john@example.com",  # Should be a valid emailId e.g. John@domain.com
+    'name': "John Doe"  # Should be a valid string e.g. John
+}
+
+responses = {
+    401: 'Unauthorized. Please generate a new access token.',
+    404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+    500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
+
+if response.status_code == 200:
+    # Successful API execution
+    print(response.json()['message'])  # message containing status of response
+elif response.status_code in responses.keys():
+    print(responses[response.status_code])  # Expected error occurred
+else:
+    print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+exit()
+```
+
 </TabItem>
 </Tabs>
 

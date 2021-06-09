@@ -196,7 +196,7 @@ Parameter | Required | Type | Description
 ``` mode``` | Optional | String | Accepts `phone` or `default`. `phone` mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).<br />`default` mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).<br />When you don't pass this parameter `default` is selected automatically.
 ```enableSeparateRecognitionPerChannel```| Optional | Boolean | Enables Speaker Separated Channel video processing. Accepts `true` or `false` values.
 ```channelMetadata```| Optional | Object[] | This object parameter contains two variables `speaker` and `channel` to specify which speaker corresponds to which channel. This object only works when `enableSeparateRecognitionPerChannel` query param is set to `true`. Read more in the [Channel Metadata](#channelmetadata) section below. 
-```trackers``` <font color="orange"> BETA</font> | Optional | String | A list of words to be tracked using the [Tracker API.](/docs/concepts/trackers)
+```trackers``` <font color="orange"> BETA</font> | Optional | String | A list of key words or/and phrases to be tracked using the [Tracker API.](/docs/concepts/trackers)
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use the base URL as `https://api-labs.symbl.ai`.
 
 ### Speaker Separation

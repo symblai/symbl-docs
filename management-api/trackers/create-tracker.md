@@ -10,10 +10,10 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 
 The endpoints given below creates a Tracker entity which can be consumed in Symbl APIs. 
 
-To create Trackers in bulk, see [**Bulk Create Trackers**](#bulk-create-trackers) section.  
+Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-api/code-snippets/track-phrases-in-a-conversation) and [Streaming APIs](/docs/streamingapi/code-snippets/detect-key-phrases) only. Support for the other APIs will be added soon.
 
-:::note 
-Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-api/introduction) only. Support for the other APIs will be added soon.
+:::info Create Trackers in Bulk
+You can also several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#bulk-create-trackers) section.  
 :::
 
 ### API Endpoint
@@ -28,17 +28,20 @@ Header Name  | Required | Description
 ```Content-Type	``` | Mandatory | `application/json`
 ```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
+:::info
+For better tracking use prominent keywords and phrases along with few longer utterances which represent the Tracker.
+:::
+
 ### Sample Request Body
 
 ```javascript
 {
-    "name": "COVID-19",
+    "name": "Promotion Mention",
     "vocabulary": [
-      "covid",
-      "cover your mouth with a mask", 
-      "coughing",
-      "social distancing",
-      "vaccine"
+       "We have a special promotion going on if you book this before",
+       "I can offer you a discount of 10 20 percent you being a new customer for us",
+       "We have our month special this month",
+       "We have a sale right now on"
     ]
 }
 ```
@@ -46,8 +49,8 @@ Header Name  | Required | Description
 
 Parameter  | Description
 ---------- | -------
-```name```| The name acts as a unique identifier assigned to the Tracker. It is case-sensitive which means that a Tracker can be created with the same name but with different cases.
-```vocabulary```| The vocabulary contains the set of phrases/keywords which signify the context of the Tracker. In other words, these are a set of sentences that are commonly used while talking about the said Tracker in different contexts. 
+```name```| This member specifies a uniquely identifiable name given to the group/set of phrases defined by the `vocabulary` member. It is case-sensitive which means that a Tracker can be created with the same name but with different cases.
+```vocabulary```| It specifies the set of phrases or keywords that need to be tracked in a conversation. Note that the Trackers API finds the matches for the given vocabulary throughout a conversation. For example, the Tracker Voice Message shown above can be used for detecting if the entire conversation is itself an automated reply or contains “contextually similar” phrases in it.
 
 :::caution
 Note that the vocabulary cannot have duplicate phrases/keywords.
@@ -63,13 +66,12 @@ This API accepts a request body size up to 1MB. Request bodies exceeding this li
 {
 	"tracker": {
 		"id": "4476908732794496",
-		"name": "COVID-19",
+		"name": "Promotion Mention",
 		"vocabulary": [
-			"covid",
-			"cover your mouth with a mask",
-			"coughing",
-			"social distancing",
-			"vaccine"
+			"We have a special promotion going on if you book this before",
+            "I can offer you a discount of 10 20 percent you being a new customer for us",
+            "We have our month special this month",
+            "We have a sale right now on"
 		]
 	}
 }
@@ -102,10 +104,6 @@ Error Code  | Description | Resolution
 
 This API allows you to create all the trackers to be sent in one array. This helps you perform bulk operations to create Trackers.
 
-:::note
-Currently, the tracker entities can be consumed in the [Async APIs](/docs/async-api/introduction) only. Support for the other APIs will be made available soon.
-:::
-
 ## Request Headers
 
 Header Name  | Required | Description
@@ -113,6 +111,7 @@ Header Name  | Required | Description
 ```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
 ```Content-Type	``` | Mandatory | `application/json`
 ```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+
 ## Sample Request Body
 
 ```javascript
@@ -216,7 +215,6 @@ This API has a maximum concurrency of 1 request.
 
 ### Error Codes
 In case of unsuccessful responses, the following error codes will be returned from the API:
-
 
 Error Code  | Description | Resolution
 ---------- | ------- | -------

@@ -26,9 +26,9 @@ Header Name  | Required | Description
 ```Content-Type	``` | Yes | `application/json`
 ```x-api-key``` | No | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
-### Request Query Parameters
-The following request parameter (query-param) is accepted in the URI:
-`trackerId` - The unique ID of the Tracker to be deleted.
+### Request Parameters
+The request parameter `trackerId` (the unique ID of the Tracker to be deleted) is accepted as a path param in the URI.
+
 
 ### Sample Response Body
 ```javascript

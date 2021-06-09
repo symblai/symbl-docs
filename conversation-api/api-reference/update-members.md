@@ -43,6 +43,7 @@ curl --location --request PUT "https://api.symbl.ai/v1/conversations/$CONVERATIO
     "id": "'$MEMBER_ID'",
     "email": "john@example.com",
     "name": "John"
+}'
 ```
 
 </TabItem>

@@ -44,7 +44,9 @@ The Streaming API allows you to easily use Symbl's Language Insights capabilitie
 * [Request Parameters](/docs/streaming-api/api-reference#request-parameters)
 * [Connection Establishment](/docs/streaming-api/api-reference#connection-establishment)
 * [Messages](/docs/streaming-api/api-reference#messages)
+* [Subscribe API](/docs/subscribe-api)
 
 :::info Termination due to elongated silence
 If a meeting is silent for more than 30 minutes, it will be automatically terminated. The charges towards the silent minutes apply. 
 :::
+

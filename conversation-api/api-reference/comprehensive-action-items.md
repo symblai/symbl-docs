@@ -110,11 +110,37 @@ exit()
 ### Response
 
 ```javascript
+=======
+:::note Symbl Labs
+We at Symbl believe in building with continuous innovation, keeping simplicity and originality at the core. Labs at Symbl is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
+
+Note: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
+
+Please contact labs@symbl.ai if you wish to access these features. 
+:::
+
+The Comprehensive Action Items API gives you a list of action items.  The Action Items object contains the references to all the messages which are in scope. The text of the Action Items are a summary of all the messages.
+
+### API Endpoint
+**<font color="orange">GET</font> https://api-labs.symbl.ai/v1/conversations/{conversationId}/comprehensive/action-items** 
+
+### Request Header
+
+Header Name | Required |Description
+--------- | --------- | --------- 
+```Authorization``` (Recommended) | Mandatory | This header should contain a valid Bearer token generated using the `token:generate` API Endpoint by passing in the credentials. You can read more about authentication [here](/docs/developer-tools/authentication).
+```Content-Type```| Mandatory| This header must contain the MIME Type `application/json`. 
+```X-API-KEY``` (Legacy)| Optional| Use the `Authorization` header. This has been deprecated. This header should contain a valid authentication token generated using the `token:generate` API Endpoint by passing in the credentials. These can be obtained by signing up on the [Platform](https://platform.symbl.ai/).
+
+### Response Body Sample
+```js
+
 {
     "actionItems": [
         {
             "id": "4875991597973504",
             "text": "Stella and John need to shift their focus more towards dev. John will go ahead and set up a discussion with product.",
+            "text": "Anton wants to have all the data from his database in their database.",
             "type": "action_item",
             "score": 0.8735619108573252,
             "messageRefs": [
@@ -135,6 +161,7 @@ exit()
             "definitive": true,
             "assignee": {
                 "id": "10aa881e-4c70-4060-8886-66a5e5c9b788",
+
                 "name": "John",
                 "email": "john@example.com"
             }
@@ -156,3 +183,17 @@ Field  | Description
 ```definitive``` | Boolean indicating if the action item is definitive or not.
 ```phrases``` | List of detected phrases with `type` - phrase type and `text` - corresponding text. The `action_phrase` type represents the actionable part of an insight.
 ```assignee``` | This field contains the name and email of the person to whom the action item is assigned.
+
+### Response Object
+
+Field  | Description
+---------- | ------- |
+```id``` | Unique conversation identifier.
+```text``` | Text of the Conversation.
+```type``` | Response type. Default is `action_item`.
+```score``` | Confidence score of the generated topic. Value from 0 - 1.
+```messageIds``` | Unique message identifiers of the corresponding messages.
+```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
+```definitive``` | Boolean indicating if the action-item is definitive or not.
+```phrases``` | List of detected phrases with `type` - phrase type and `text` - corresponding text. The `action_phrase` type represents the actionable part of an insight.
+```assignee``` | This field contains the name and email of the person assigned to the Action Item.

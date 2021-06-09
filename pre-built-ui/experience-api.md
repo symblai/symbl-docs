@@ -147,7 +147,6 @@ Field  | REQUIRED  | Type | Description
 ```favicon```| false | String |  This field accepts public URL for setting custom favicon in Video Summary UI (`video-summary`) or Summary UI(`verbose-text-summary`).
 ```color```| false | Object | This option can be used to customise the colors of UI background, topics filter and insights filter elements in UI.
 ```font``` | false | Object | You can directly set any [Google Fonts](https://fonts.google.com/) by passing the name of the font.
-```disableSummaryURLAuthentication``` | false | Boolean | Default is `false`, this API generates a secured URL, enabling this field it would override it. When the URL is secure you can notice `o={token}` being added to URL. Supports `true` or `false`.
 ```summaryURLExpiresIn``` | false | Number | This sets the expiry time for the summary URL. It is interpreted as seconds. If the value 0 is passed the URL will never expire. Default time for a URL to expire is 2592000 which is 30 days.
 
 #### color object
@@ -163,3 +162,7 @@ Field  | Description
 Field  | Description
 ---------- | -------
 ```family``` | The name of the font available in [Google Fonts](https://fonts.google.com/). This key changes the font family of the whole UI. For example: `"roboto"`
+
+:::caution
+`disableSummaryURLAuthentication` is not supported as we accept only secure URL generation to comply with the mandatory security requirements. 
+:::

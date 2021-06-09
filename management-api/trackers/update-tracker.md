@@ -28,25 +28,22 @@ Header Name  | Required | Description
 
 ### Request Parameter
 
-The following request parameter (query-param) is accepted in the URI:
-`trackerId` - The unique identifier of the Tracker to be updated.
+The request parameter `trackerId` (the unique identifier of the Tracker to be updated) is accepted as path param in the URI:
 
 ### Sample Request Body
 
 ```javascript
 {
     "id": "4476908732794496",
-    "name": "COVID-19",
+    "name": "Promotion Mention",
     "vocabulary": [
-      "covid",
-      "cover your mouth with a mask", 
-      "coughing",
-      "social distancing",
-      "vaccine"
+      "A flat 10 20 percent sale is",
+      "Flash sale is available right now",
+      "Lifestyle discount is available"
     ]
 }
 ```
-## Request Body Parameters
+### Request Body Parameters
 
 Parameter  | Description
 ---------- | -------
@@ -67,13 +64,15 @@ This API accepts a request body size up to 1MB. Sizes exceeding this limit will 
 {
    "tracker":{
       "id":"4476908732794496",
-      "name":"COVID-19",
+      "name":"Promotion Mention",
       "vocabulary":[
-         "covid",
-         "cover your mouth with a mask",
-         "coughing",
-         "social distancing",
-         "vaccine"
+         "A flat 10 20 percent sale is",
+         "Flash sale is available right now",
+         "Lifestyle discount is available",
+         "We have a special promotion going on if you book this before",
+         "I can offer you a discount of 10 20 percent you being a new customer for us",
+         "We have our month special this month",
+         "We have a sale right now on"
       ]
    }
 }
