@@ -7,7 +7,7 @@ slug: /telephony/introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights and topics in a single page Web Application.
+Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well. Optionally, you can also trigger an email at the end of the conversation containing the URL to view the transcription, insights and topics in a single page Web Application.
 
 ### Tutorials
 
