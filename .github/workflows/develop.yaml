@@ -1,9 +1,10 @@
 
-on:
-  push:
-    branches:
-    - 'develop'
+# on:
+#   push:
+#     branches:
+#     - 'develop'
 
+<<<<<<< HEAD
 jobs:
   trigger-circleci:
     runs-on: ubuntu-latest
@@ -15,3 +16,16 @@ jobs:
           branch: develop
           org: rammerai
           repo: docs-v1
+=======
+# jobs:
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Repository Dispatch
+#       uses: peter-evans/repository-dispatch@v1
+#       with:
+#         token: ${{ secrets.REPO_ACCESS_TOKEN }}
+#         repository: ${{ secrets.REPO_NAME }}
+#         event-type: build-staging
+>>>>>>> 690806d (only run build process when pushed to docs-v1.)
