@@ -11,10 +11,13 @@ In this guide you will learn how to get started with Symbl’s native Streaming 
 
 You can view the complete code sample for this tutorial on [GitHub](https://github.com/symblai/real-time-speech-recognition-with-websockets):
 
-:::info
-NOTE: The code sample you use today runs entirely in the browser without Node.js.
+:::note 
+The code sample you use today runs entirely in the browser without Node.js.
 :::
 
+:::info Identification and Redaction of PII data
+Symbl allows you to identify and redact Personally Identifiable Information (PII) from messages and insights with Streaming APIs. Learn more in the [PII Identification and Redaction](/docs/concepts/redaction-pii) page.
+:::
 ## Contents
 
 In this guide you will learn the following:
