@@ -11,6 +11,10 @@ import TabItem from '@theme/TabItem';
 
 Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time. It can be integrated directly via the browser or server.
 
+:::info Identification and Redaction of PII data
+Symbl allows you to identify and redact Personally Identifiable Information (PII) from messages and insights with Streaming APIs. Learn more in the [PII Identification and Redaction](/docs/concepts/redaction-pii) page.
+:::
+
 ### Tutorials
 
 We have prepared a list of tutorials to help you understand how to use Symbl's Streaming API API

@@ -11,7 +11,6 @@ import TabItem from '@theme/TabItem';
 Pushing events is optional. If you don't have audio to process, then you can skip this step.
 :::
 
-
 #### How to connect to a PSTN endpoint, create a speakerEvent instance and push events on connection.
 
 <Tabs
