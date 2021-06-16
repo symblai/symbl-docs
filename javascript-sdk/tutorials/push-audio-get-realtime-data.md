@@ -17,6 +17,11 @@ Key  | Description
 
 [View the full example on GitHub](
 https://github.com/symblai/receive-ai-insights-with-real-time-websockets)
+
+:::info Identification and Redaction of PII data
+Symbl allows you to identify and redact Personally Identifiable Information (PII) from messages and insights with Streaming APIs. Learn more in the [PII Identification and Redaction](/docs/concepts/redaction-pii) page.
+:::
+
 ## Contents
 
 In this guide you will learn the following:
