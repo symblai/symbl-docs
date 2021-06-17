@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: What is Symbl.ai?
-sidebar_label: What is Symbl.ai?
+sidebar_label: Guides
 slug: /
 ---
 
