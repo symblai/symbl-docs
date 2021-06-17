@@ -72,8 +72,7 @@ const connection = await sdk.startRealtimeRequest({
           config: {
               meetingTitle: 'My Redaction Test meeting',
               timezoneOffset: 480, // Offset in minutes from UTC
-              languageCode: 'en-US',
-              sampleRateHertz: 16000
+              languageCode: 'en-US'
           },
           speaker: {
               name: "John Doe"
