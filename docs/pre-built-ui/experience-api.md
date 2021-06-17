@@ -10,7 +10,12 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+<<<<<<< HEAD:docs/pre-built-ui/experience-api.md
 This API returns the URL of the [Video Summary UI](#video-summary-ui) and [Text Summary UI](#text-summary-ui).
+=======
+
+### Types of Summary UI
+>>>>>>> 9c2887c (Update experience-api.md):pre-built-ui/experience-api.md
 
 #### Video Summary UI Sample
 ![Video Summary UI](/img/videosummaryUI.gif)
