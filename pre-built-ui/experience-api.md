@@ -56,6 +56,7 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
     },
   "font": {
     "family": "roboto"
+  "readOnly": "true"
   }
 }'
 
@@ -75,6 +76,7 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
     },
   "font": {
     "family": "roboto"
+  "readOnly": "true"
   }
 }'
 ```
@@ -141,15 +143,16 @@ Method  | REQUIRED  | Value
 
 Field  | REQUIRED  | Type | Description
 ---------- | ------- | ------- |  -------
-```name``` | true | String |  For Summary UI use `verbose-text-summary` and for Video Summary UI use `video-summary`.
-```videoUrl```| false | String |  This field is only required when the field `name` is set to `video-summary`.
-```logo```| false | String |  This field accepts public URL for setting custom logo in Video Summary UI(`video-summary`) or Summary UI(`verbose-text-summary`).
-```favicon```| false | String |  This field accepts public URL for setting custom favicon in Video Summary UI (`video-summary`) or Summary UI(`verbose-text-summary`).
-```color```| false | Object | This option can be used to customise the colors of UI background, topics filter and insights filter elements in UI.
-```font``` | false | Object | You can directly set any [Google Fonts](https://fonts.google.com/) by passing the name of the font.
-```summaryURLExpiresIn``` | false | Number | This sets the expiry time for the summary URL. It is interpreted as seconds. If the value 0 is passed the URL will never expire. Default time for a URL to expire is 2592000 which is 30 days.
+```name``` | Mandatory | String |  For Summary UI use `verbose-text-summary` and for Video Summary UI use `video-summary`.
+```videoUrl```| Optional | String |  This field is only required when the field `name` is set to `video-summary`.
+```logo```| Optional | String |  This field accepts public URL for setting custom logo in Video Summary UI(`video-summary`) or Summary UI(`verbose-text-summary`).
+```favicon```| Optional | String |  This field accepts public URL for setting custom favicon in Video Summary UI (`video-summary`) or Summary UI(`verbose-text-summary`).
+```color```| Optional | Object | This option can be used to customise the colors of UI background, topics filter and insights filter elements in UI.
+```font``` | Optional | Object | You can directly set any [Google Fonts](https://fonts.google.com/) by passing the name of the font.
+```summaryURLExpiresIn``` | Optional | Number | This sets the expiry time for the summary URL. It is interpreted as seconds. If the value 0 is passed the URL will never expire. Default time for a URL to expire is 2592000 which is 30 days.
+```readOnly``` | Optional | Boolean | Setting this parameter to `true` generates a non-editable, read-only version of the video-summary and verbose-text-summary. It is defaulted to `false`. Note that this feature does not have any impact on the existing summary URLs that have already been generated. 
 
-#### color object
+#### `color` object
 
 Field  | Description
 ---------- | -------
@@ -157,7 +160,7 @@ Field  | Description
 ``` topicsFilter``` | This field changes the color of the topics filter element. It accept color in Hex Color Code. For example ``"#FF0000"``.
 ``` insightsFilter``` | This field changes the color of the insights(includes action items, follow-ups, ideas, etc.) filter element. It accept color in Hex Color Code. For example ``"#FF0000"``.
 
-#### font object
+#### `font` object
 
 Field  | Description
 ---------- | -------
