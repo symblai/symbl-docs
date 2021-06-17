@@ -24,7 +24,7 @@ In any conversation, there can be multiple related topics that get discussed and
 
 *If in a meeting “Sales Conversation” was talked about and after that, discussions around “Activity Call logs”, “Salesforce”, “Draft”, “Custom Integration” and “Jira” took place, the Topic Hierarchy will make Sales Conversation as the parent topic and the rest of the topics as the child topics under it.*
 
-Topic hierarchy understands customer conversation and returns the parent (global) topic and its child topics.
+Topic Hierarchy understands customer conversation and returns the parent (global) topic and its child topics.
 
 * <strong>Parent Topic</strong>: The highest-level abstraction of a meeting. These are the key points on which the speakers of the meeting expanded and discussed at length.
 
@@ -103,7 +103,7 @@ Remember to replace the `conversationId` in the API call with the Conversation I
   values={[
     { label: 'cURL', value: 'cURL', },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Javascript', value: 'javascript', }
+    { label: 'JavaScript', value: 'javascript', }
   ]
 }>
 <TabItem value="cURL">
