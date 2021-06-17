@@ -10,6 +10,7 @@ import TabItem from '@theme/TabItem';
 
 This API returns the URL of the Video Summary and Text Summary UI depending upon the user request body.
 
+
 ### Types of Summary UI
 
 #### Video Summary UI
