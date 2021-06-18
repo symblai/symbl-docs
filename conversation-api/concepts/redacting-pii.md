@@ -1,14 +1,25 @@
 ---
 id: redaction-pii
-title: Identifying and Redacting PII 
-sidebar_label: PII Identification and Redaction
+title: Identifying and Redacting PII (Labs)
+sidebar_label: PII Identification and Redaction (Labs)
 slug: /concepts/redaction-pii
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Personally Identifiable Information (PII) is any information about an individual that can be used to distinguish or trace the individual's identity, such as name, social security number, email address, phone number, etc.
+:::info Symbl Labs
+This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
+
+
+You can access the Labs features using your Symbl App ID and Secret.  If you don't already have it, sign up on our [platform](https://platform.symbl.ai/#/login) to get your credentials.
+
+**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
+
+For any queries or feedback, please contact us at labs@symbl.ai.
+:::
+
+**Personally Identifiable Information (PII)** is any information about an individual that can be used to distinguish or trace the individual's identity, such as name, social security number, email address, phone number, etc.
 
 Although, sensitive, they can appear in conversations such as account verification by customer care agents that requires the customer to share their name, email address or other confidential information. 
 

@@ -13,7 +13,7 @@ The endpoints given below creates a Tracker entity which can be consumed in Symb
 Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-api/code-snippets/track-phrases-in-a-conversation) and [Streaming APIs](/docs/streamingapi/code-snippets/detect-key-phrases) only. Support for the other APIs will be added soon.
 
 :::info Create Trackers in Bulk
-You can also several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#bulk-create-trackers) section.  
+You can also add several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section.  
 :::
 
 ### API Endpoint
