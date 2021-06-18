@@ -8,11 +8,9 @@ sidebar_label: Create Pre-built UI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This API returns the URL of the Video Summary and Text Summary UI depending upon the user request body.
+This API returns the URL of the [Video Summary UI](#video-summary-ui) and [Text Summary UI](#text-summary-ui).
 
-### Types of Summary UI
-
-#### Video Summary UI
+#### Video Summary UI Sample
 ![Video Summary UI](/img/videosummaryUI.gif)
 
 <!-- #### Text Summary UI
@@ -23,12 +21,13 @@ This API returns the URL of the Video Summary and Text Summary UI depending upon
 
 ```POST```  `https://api.symbl.ai/v1/conversations/{conversationId}/experiences`
 
-### Example API Call
+### Sample Request
 
 :::info
 Before using the API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 :::
 
+#### Video Summary UI 
 
 <Tabs
   defaultValue="cURL"
@@ -40,7 +39,6 @@ Before using the API you must get the authentication token (`AUTH_TOKEN`) from [
 <TabItem value="cURL">
 
 ```bash
-// Video Summary
 curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/experiences" \
 --header 'Content-Type: application/json' \
 --header "Authorization: Bearer $AUTH_TOKEN" \
@@ -56,12 +54,61 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
     },
   "font": {
     "family": "roboto"
-  "readOnly": "true"
+  "readOnly": true
   }
 }'
+```
 
+</TabItem>
 
-// Verbose text summary
+<TabItem value="nodejs">
+
+```js
+
+const request = require('request');
+const authToken = AUTH_TOKEN;
+const conversationId = CONVERSATION_ID;
+
+request.post({
+    url: `https://api.symbl.ai/v1/conversations/${conversationId}/experiences`,
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      "name": "video-summary",
+      "videoUrl": "https://storage.googleapis.com/rammer-transcription-bucket/small.mp4",
+      "logo": "https://symblsanitydata.s3.us-east-2.amazonaws.com/symbl-logo.png",
+      "favicon" :"https://symblsanitydata.s3.us-east-2.amazonaws.com/symbl-favicon.png",
+      "color": {
+        "background": "#0A2136",
+        "topicsFilter": "#FF0000",
+        "insightsFilter": "#FF0000"
+         },
+      "font": {
+        "family": "roboto"
+      "readOnly": true
+    }),
+}, (err, response, body) => {
+    console.log(body);
+});
+```
+
+</TabItem>
+</Tabs>
+
+#### Text Summary UI 
+<Tabs
+  defaultValue="cURL"
+  values={[
+    { label: 'cURL', value: 'cURL', },
+    { label: 'Node.js', value: 'nodejs', }
+  ]
+}>
+<TabItem value="cURL">
+
+```bash
+
 curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/experiences" \
 --header 'Content-Type: application/json' \
 --header "Authorization: Bearer $AUTH_TOKEN" \
@@ -76,18 +123,15 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
     },
   "font": {
     "family": "roboto"
-  "readOnly": "true"
+  "readOnly": true
   }
 }'
+
 ```
-
 </TabItem>
-
 <TabItem value="nodejs">
 
 ```js
-
-// Video Summary
 const request = require('request');
 const authToken = AUTH_TOKEN;
 const conversationId = CONVERSATION_ID;
@@ -99,9 +143,17 @@ request.post({
       'Content-type': 'application/json',
     },
     body: JSON.stringify({
-      "name": "video-summary",
-      "videoUrl": "https://storage.googleapis.com/rammer-transcription-bucket/small.mp4",
-      "logo": "https://symblsanitydata.s3.us-east-2.amazonaws.com/symbl-logo.pngp"
+      "name": "verbose-text-summary",
+      "logo": "https://symblsanitydata.s3.us-east-2.amazonaws.com/symbl-logo.png",
+      "favicon" :"https://symblsanitydata.s3.us-east-2.amazonaws.com/symbl-favicon.png",
+      "color": {
+        "background": "#0A2136",
+        "topicsFilter": "#FF0000",
+        "insightsFilter": "#FF0000"
+         },
+      "font": {
+        "family": "roboto"
+      "readOnly": true
     }),
 }, (err, response, body) => {
     console.log(body);
@@ -111,8 +163,8 @@ request.post({
 </TabItem>
 </Tabs>
 
-
 ### Response
+
 >Response for verbose-text-summary
 
 ```javascript
