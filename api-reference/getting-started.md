@@ -4,16 +4,43 @@ title: Symbl APIs
 sidebar_label: Getting Started
 slug: /api-reference/getting-started
 ---
-
+---
  
 Symbl APIs accepts HTTPS REST that supports CURD operations.
 While the main API that Symbl provides to get the Conversation insights is the Conversation APIs, the Channel APIs provide a host of functionalities. You can view them below:
+
+<div class="row">
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Async APIs</a> <br/><br/> The Async API provides a REST interface to allow you to run a job asynchronously in order to process insights out of audio and video files and textual conversations (Transcripts, Chats, Emails etc.).
+    Use Async APIs to: <br/>
  
+- Send and update text conversations
+- Send and update recorded audio/video conversation
+- Get your data processed by Symbl
+- Return `conversationId`  </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Streaming APIs</a><br/> Streaming API is a WebSocket based real-time API by Symbl that provides the direct, fastest and most accurate of all other interfaces to push the audio stream in real-time, and get the results back as soon as they're available.
  
-<div class="card"><h3></h3> 
+- Connect Symbl with live video conversation via WebSocket protocol. [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
+  </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Conversation API</a><br/>
+- Get Conversation data such as speaker participants,
+- Get `conversationId` using which you can then get all the conversation insights. </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Guides</a><br/>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</div>
+  </div>
+</div>
+
  
-### Async API
-The Async API provides a REST interface to allow you to run a job asynchronously in order to process insights out of audio and video files and textual conversations (Transcripts, Chats, Emails etc.).
+<div class="card.card1"><h3></h3> 
+ <div class="row">
+  <div class="column">
+<h4>Async API</h4>
+- The Async API provides a REST interface to allow you to run a job asynchronously in order to process insights out of audio and video files and textual conversations (Transcripts, Chats, Emails etc.).
  
 The primary reasons for using the Async APIs are:
  
@@ -25,8 +52,10 @@ The primary reasons for using the Async APIs are:
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
  
 </div>
- 
-<div class="card"><h3></h3> 
+ </div>
+ </div>
+<div class="column">
+<div class="card.card1"><h3></h3> 
  
 ### Streaming API
 Streaming API is a WebSocket based real-time API by Symbl that provides the direct, fastest and most accurate of all other interfaces to push the audio stream in real-time, and get the results back as soon as they're available.
@@ -35,11 +64,11 @@ Streaming API is a WebSocket based real-time API by Symbl that provides the dire
  
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
  
- 
+ </div>
 </div>
  
- 
-<div class="card"><h3></h3> 
+<div class="column">
+<div class="card.card1"><h3></h3> 
  
 ### Telephony API
  
@@ -54,7 +83,9 @@ Streaming API is a WebSocket based real-time API by Symbl that provides the dire
  
 </div>
  
- 
+</div>
+
+<div class="column">
 <div class="card"><h3></h3> 
  
 ### Conversation API
@@ -65,4 +96,4 @@ Streaming API is a WebSocket based real-time API by Symbl that provides the dire
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
  
 </div>
-
+</div>
