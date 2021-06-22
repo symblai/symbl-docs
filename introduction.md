@@ -5,58 +5,83 @@ sidebar_label: Guides
 slug: /
 ---
 ---
-```js
+
 👋 Welcome to Symbl documentation! 
 
-Whether you're looking to understand Symbl's capabilities or get started with our APIs, 
-we have you covered!
-
-```
+Whether you're looking to understand Symbl's capabilities or get started with 
+our APIs, we have you covered!
 
 <div class="row">
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">API Reference</a> <br/> Browse through our APIs, learn how they work and get detailed descriptions of each API endpoint.   </div>
+    <div class="card"><a href="/docs/api-reference/getting-started"><h4>API Reference</h4>Browse through our APIs, learn how they work and get detailed descriptions of each API endpoint. </a></div>
   </div>
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">SDK</a><br/> Add Symbl capabilities directly to your web and mobile applications with our robust Python and JavaScript SDKs. 
+    <div class="card"><a href="/docs/api-reference/getting-started"><h4>SDK</h4>Add Symbl capabilities directly to your web and mobile applications with our robust Python and JavaScript SDKs. </a>
   </div>
   </div>
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Tutorials</a><br/>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools. </div>
+    <div class="card"><a href="/docs/api-reference/getting-started"><h4>Tutorials</h4>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools. </a></div>
   </div>
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Guides</a><br/>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</div>
+    <div class="card"><a href="/docs/api-reference/getting-started"><h4>Guides</h4>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</a></div>
   </div>
 </div>
-
 <br/>
 
 ## What is Symbl.ai?
-[Symbl](https://symbl.ai/) offers comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
+---
 
-```
+[Symbl.ai](https://symbl.ai/) is an AI-powered Conversational Intelligence Platform that offers a suite of comprehensive APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers. 
 
-## ❇️ Explore our APIs
+## How does it work?
+---
+Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversational Intelligence. 
+The **Channel APIs** makes it easy to send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
-### 💻  Streaming API
-Streaming API is based on Web Socket protocol and is used for **real-time** use-cases where both the audio and its results are available in real-time. It can be integrated directly via the **browser or server**.<br/>
-👉 &nbsp; [Process live speech-to-text from your computer's microphone](/docs/getting-started-with-streaming-api)
+Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a pre-built UI with insights for your conversations. 
 
-### 🎥  Async API
-Async APIs provide the functionality for processing ** stored recordings audio/video** from files or public/signed URLs or textual content from a conversation.<br/>
-👉 &nbsp; [Process an audio file using Async API](/docs/getting-started-with-async-api)
+![symblflow](/img/how-symbl.png)
+## Getting Started 
+### Step 1: Get Symbl API Credentials
+---
 
-### 📞 Telephony API
-Based on **PSTN and SIP protocols**, this API provides an interface for the developers to have **Symbl join VoIP calls** and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights, and topics in a single page web application.<br/>
-👉 &nbsp; [Get a transcription from your Zoom call](/docs/getting-started-with-telephony-api)
+Sign up on [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
+Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make an API call to Symbl. 
+&nbsp;
 
-### 📊 Pre-Built UI
-Pre-Built UI is an **interface for the user to interact** with the Symbl's APIs output and understand the conversation better. You can interact with speech-to-text transcription, action items, follow-ups, topics and other APIs. You can generate these API with a simple API call using Experience API after you have processed a conversation using any above-mentioned APIs.
+### Step 2: Send Recorded Conversation OR Connect Live
+---
 
-👉 &nbsp; [Experience API](/docs/pre-built-ui/experience-api)
+Using Channel APIs send conversation data in real-time or asynchronously. 
 
+ &nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/getting-started-with-streaming-api) allow you to send text, audio or video conversations after it has taken place. <br/>
+&nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/getting-started-with-streaming-api) allow you to connect Symbl on a live video call.<br/>
+&nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/getting-started-with-streaming-api) allow you to connect Symbl on a audio conversation.<br/>
 
-### 🔌 Run on Postman
-Easy **Graphic User Interface to run APIs**.
+### Step 3: Get Conversation Intelligence
+---
 
-👉 &nbsp; [Postman](/docs/developer-tools/postman)
+The Channel APIs return a `conversationID`. Use this in the **Conversation API** to generate any of the following Conversation Intelligence:
+
+&nbsp; &nbsp;👉 &nbsp; [Speech-to-Text](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Topics](/docs/getting-started-with-async-api) <br/>
+&nbsp; &nbsp;👉 &nbsp; [Action Items](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Follow Ups](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Sentiment Analysis](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Trackers](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Questions](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Summary](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Topic Hierarchy](/docs/getting-started-with-async-api)<br/>
+<br/>
+
+<div class="row">
+  <div class="column">
+    <div class="card1"> <h4><br/>Try it on Postman</h4> Our public collection in Postman is available with pre-configured parameters so you can be up and running with you first API call to Symbl in a jiffy! <br/>
+<br/>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
+
+   </div>
+  </div>
+  </div>
+
