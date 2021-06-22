@@ -1,15 +1,40 @@
 ---
 id: introduction
-title: What is Symbl.ai?
+title: Documentation
 sidebar_label: Guides
 slug: /
 ---
+---
+```js
+👋 Welcome to Symbl documentation! 
 
-:::tip Welcome
+Whether you're looking to understand Symbl's capabilities or get started with our APIs, 
+we have you covered!
 
+```
+
+<div class="row">
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">API Reference</a> <br/> Browse through our APIs, learn how they work and get detailed descriptions of each API endpoint.   </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">SDK</a><br/> Add Symbl capabilities directly to your web and mobile applications with our robust Python and JavaScript SDKs. 
+  </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Tutorials</a><br/>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools. </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Guides</a><br/>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</div>
+  </div>
+</div>
+
+<br/>
+
+## What is Symbl.ai?
 [Symbl](https://symbl.ai/) offers comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
-:::
 
+```
 
 ## ❇️ Explore our APIs
 
