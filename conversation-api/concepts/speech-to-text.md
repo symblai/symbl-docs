@@ -69,7 +69,7 @@ const conversationId = "conversationId";
 
 request.get({
     url: `https://api.symbl.ai/v1/conversations/${conversationId}/messages`,
-    headers: { 'Authorization': `Bearer: ${authToken}` },
+    headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
     console.log(body);
