@@ -8,12 +8,12 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The Programmable Javascript SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. With the Javascript SDK, you can generate intelligent insights such as action items, topics and questions. Currently, the Symbl Javascript SDK only works with the [Telephony API](/docs/telephony/introduction) and [Streaming API](/docs/streamingapi/overview/introduction)
+The Programmable JavaScript SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. With the JavaScript SDK, you can generate intelligent insights such as action items, topics and questions. Currently, the Symbl JavaScript SDK only works with the [Telephony API](/docs/telephony/introduction) and [Streaming API](/docs/streamingapi/overview/introduction)
 
 
 ### Installation
 
-First, start by installing our Javascript SDK:
+First, start by installing our JavaScript SDK:
 
 ```bash
 $ npm install --save symbl-node
@@ -65,11 +65,11 @@ import { sdk } from 'symbl-node';
 
 ### Tutorials
 
-We have prepared a list of tutorials to help you understand how to use Symbl's Javascript SDK.
+We have prepared a list of tutorials to help you understand how to use Symbl's JavaScript SDK.
 
 #### Telephony API Tutorials
 
-* [Real-time Output with PSTN Dialing using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/get-real-time-transcription-js-sdk)
+* [Real-time Output with PSTN Dialing using Symbl's JavaScript SDK](/docs/javascript-sdk/tutorials/get-real-time-transcription-js-sdk)
 * [How to pass different audio codecs to Symbl endpoint](/docs/javascript-sdk/tutorials/pass-audio-codecs)
 * [Using Symbl SDK (Node.js) To Push Speaker Events](/docs/javascript-sdk/tutorials/push-speakerevents-get-summary-url)
 
@@ -96,7 +96,7 @@ We have prepared a list of tutorials to help you understand how to use Symbl's J
 
 ### Javascript SDK Reference
 
-Supported methods and events for the Symbl Javascript SDK are listed below:
+Supported methods and events for the Symbl JavaScript SDK are listed below:
 
 * [Public Endpoints](/docs/javascript-sdk/reference#public-methods)
     * [init](/docs/javascript-sdk/reference#init)
