@@ -54,6 +54,7 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
     },
   "font": {
     "family": "roboto"
+    },
   "readOnly": true
   }
 }'
@@ -87,6 +88,7 @@ request.post({
          },
       "font": {
         "family": "roboto"
+      },
       "readOnly": true
     }),
 }, (err, response, body) => {
@@ -123,6 +125,7 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
     },
   "font": {
     "family": "roboto"
+    },
   "readOnly": true
   }
 }'
@@ -153,6 +156,7 @@ request.post({
          },
       "font": {
         "family": "roboto"
+      },
       "readOnly": true
     }),
 }, (err, response, body) => {
