@@ -20,6 +20,10 @@ While users connected on websocket are charged per user, the listen-only partici
 
 This can be turned on or off for a conversation, on demand. 
 
+:::info
+The Subscribe APIs does not have a limit to the number of participants that can join. You can seamlessly add upto 10,000 participants. 
+:::
+
 ### API Endpoint
 
 `wss://api.symbl.ai/v1/subscribe/{connectionId}?access_token={accessToken}`
