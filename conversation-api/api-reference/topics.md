@@ -27,7 +27,7 @@ All you need to do is pass `sentiment=true` as a query parameter. [Read more abo
 You can enable topic hierarchy in Topics API by passing `parentRefs=true`. Topic Hierarchy breaks conversation
 in parent and child topics which helps outline the entire conversation faster. Read more about it [here](/docs/concepts/topic-hierarchy)
 
-#### Refreshing Topics<font color="orange"> LABS</font>
+#### Refreshing Topics
 
 Topics can be generated again when you have new discussion items. Use `refresh=true` in the Topics API as a query param. This will delete the previous Topics and will create a new one.
 
