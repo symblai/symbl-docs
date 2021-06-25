@@ -1,7 +1,7 @@
 ---
 id: errors
 title: Errors
-sidebar_label: Errors
+sidebar_label: Error Codes
 ---
 
 ```bash

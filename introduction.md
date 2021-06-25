@@ -13,17 +13,17 @@ our APIs, we have you covered!
 
 <div class="row">
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>API Reference</h4>Browse through our APIs, learn how they work and get detailed descriptions of each API endpoint. </a></div>
+    <div class="card"><a href="/docs/api-reference/getting-started"><h4>API Reference</h4>Browse through our APIs, learn how they work and get detailed descriptions of each API endpoint.</a></div>
   </div>
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>SDK</h4>Add Symbl capabilities directly to your web and mobile applications with our robust Python and JavaScript SDKs. </a>
+    <div class="card"><a href="/docs/sdk-intro"><h4>SDK</h4>Add Symbl capabilities directly to your web and mobile applications with our robust Python and JavaScript SDKs. </a>
   </div>
   </div>
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>Tutorials</h4>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools. </a></div>
+    <div class="card"><a href="/docs/tutorials"><h4>Tutorials</h4>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools. </a></div>
   </div>
   <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>Guides</h4>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</a></div>
+    <div class="card"><a href="/docs"><h4>Guides</h4>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</a></div>
   </div>
 </div>
 <br/>
@@ -31,16 +31,10 @@ our APIs, we have you covered!
 ## What is Symbl.ai?
 ---
 
-[Symbl.ai](https://symbl.ai/) is an AI-powered Conversational Intelligence Platform that offers a suite of comprehensive APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers. 
+[Symbl.ai](https://symbl.ai/) is an AI-powered, API first, Conversational Intelligence platform for natural human conversations that works on audio, video, and textual content in real-time or recorded files. Symbl’s APIs let you generate real-time Topics, Action Items, Trackers, Sentiment Analysis and much more in your applications.
 
-## How does it work?
----
-Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversational Intelligence. 
-The **Channel APIs** makes it easy to send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
+<div><a href="/docs/what-is-symbl">Learn more ➡️ &nbsp;</a></div>
 
-Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a pre-built UI with insights for your conversations. 
-
-![symblflow](/img/how-symbl.png)
 ## Getting Started 
 ### Step 1: Get Symbl API Credentials
 ---
@@ -76,7 +70,7 @@ The Channel APIs return a `conversationID`. Use this in the **Conversation API**
 
 <div class="row">
   <div class="column">
-    <div class="card1"> <h4><br/>Try it on Postman</h4> Our public collection in Postman is available with pre-configured parameters so you can be up and running with you first API call to Symbl in a jiffy! <br/>
+    <div class="card2"> <h4><br/>Try it on Postman</h4> Our public collection in Postman is available with pre-configured parameters so you can be up and running with you first API call to Symbl in a jiffy! <br/>
 <br/>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
