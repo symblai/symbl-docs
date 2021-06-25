@@ -6,122 +6,64 @@ slug: /api-reference/getting-started
 ---
 ---
  
-Symbl APIs accepts HTTPS REST that supports CURD operations.
-While the main API that Symbl provides to get the Conversation insights is the Conversation APIs, the Channel APIs provide a host of functionalities. You can view them below:
+Symbl APIs are built around [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) interface and are served over secure HTTPS protocol.
+
+Our APIs support all HTTP verbs (or methods, as they are referred to in REST APIs): POST, GET, PUT, PATCH, and DELETE.
 
 
-## ❇️ Explore our APIs
-
-### 💻  Streaming API
-Streaming API is based on Web Socket protocol and is used for **real-time** use-cases where both the audio and its results are available in real-time. It can be integrated directly via the **browser or server**.<br/>
-👉 &nbsp; [Process live speech-to-text from your computer's microphone](/docs/getting-started-with-streaming-api)
-
-### 🎥  Async API
-Async APIs provide the functionality for processing ** stored recordings audio/video** from files or public/signed URLs or textual content from a conversation.<br/>
-👉 &nbsp; [Process an audio file using Async API](/docs/getting-started-with-async-api)
-
-### 📞 Telephony API
-Based on **PSTN and SIP protocols**, this API provides an interface for the developers to have **Symbl join VoIP calls** and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights, and topics in a single page web application.<br/>
-👉 &nbsp; [Get a transcription from your Zoom call](/docs/getting-started-with-telephony-api)
-
-### 📊 Pre-Built UI
-Pre-Built UI is an **interface for the user to interact** with the Symbl's APIs output and understand the conversation better. You can interact with speech-to-text transcription, action items, follow-ups, topics and other APIs. You can generate these API with a simple API call using Experience API after you have processed a conversation using any above-mentioned APIs.
-
-👉 &nbsp; [Experience API](/docs/pre-built-ui/experience-api)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
 
 
-### 🔌 Run on Postman
-Easy **Graphic User Interface to run APIs**.
+### Base URL and Endpoints
+---
+All our APIs use the base URL definition give below for all our services:
 
-👉 &nbsp; [Postman](/docs/developer-tools/postman)
+```shell
+`https://api.symbl.ai/` 
+``` 
+However, if you are accessing the Labs feature, you must replace the URL with 
 
+Given below is a list of APIs endpoints we currently support based on the service you are accessing.
 
-<div class="row">
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Async APIs</a> <br/><br/> The Async API provides a REST interface to allow you to run a job asynchronously in order to process insights out of audio and video files and textual conversations (Transcripts, Chats, Emails etc.).
-    Use Async APIs to: <br/>
- 
-- Send and update text conversations
-- Send and update recorded audio/video conversation
-- Get your data processed by Symbl
-- Return `conversationId`  </div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Streaming APIs</a><br/> Streaming API is a WebSocket based real-time API by Symbl that provides the direct, fastest and most accurate of all other interfaces to push the audio stream in real-time, and get the results back as soon as they're available.
- 
-- Connect Symbl with live video conversation via WebSocket protocol. [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
-  </div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Conversation API</a><br/>
-- Get Conversation data such as speaker participants,
-- Get `conversationId` using which you can then get all the conversation insights. </div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Guides</a><br/>Learn about our capabilities, understand business use-case and discover applicabilities across industries.</div>
-  </div>
-</div>
+ |  |
+---------- | ------- |  
+`v1/process` | Processes all types of text, audio and video data.  
+`v1/append` | Performs append function on a data that is already processed by Symbl.
+`v1/conversation` | Returns the conversation resource.
+`v1/job` | Returns the status of the ongoing job request. Read more about `jobId` below. 
+`v1/endpoint:connect` | Connects Symbl via Telephony APIs over PSTN or SIP protocols. 
+`v1/conversations/{conversationId}` |  Gets your processed Speech-to-Text data(also known as Transcripts) and Conversational Insights.
+`v1/manage`  <font color="orange"> BETA</font> | Accessing and managing various resources against your Symbl account. 
 
- 
-<div class="card.card1"><h3></h3> 
- <div class="row">
-  <div class="column">
-<h4>Async API</h4>
-- The Async API provides a REST interface to allow you to run a job asynchronously in order to process insights out of audio and video files and textual conversations (Transcripts, Chats, Emails etc.).
- 
-The primary reasons for using the Async APIs are:
- 
-- Send and update text conversations
-- Send and update recorded audio/video conversation
-- Get your data processed by Symbl
-- Return `conversationId`
- 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
- 
-</div>
- </div>
- </div>
-<div class="column">
-<div class="card.card1"><h3></h3> 
- 
-### Streaming API
-Streaming API is a WebSocket based real-time API by Symbl that provides the direct, fastest and most accurate of all other interfaces to push the audio stream in real-time, and get the results back as soon as they're available.
- 
-- Connect Symbl with live video conversation via WebSocket protocol
- 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
- 
- </div>
-</div>
- 
-<div class="column">
-<div class="card.card1"><h3></h3> 
- 
-### Telephony API
- 
-- Connect Symbl with live audio conversation via SIP/PSTN protocol.
- 
-- Use the Start Connection endpoint to start a connection with Symbl either over a phone call or conference over PSTN or a SIP using a Dial-in Phone Number or SIP URI with support for DTMF.
- 
-- Use the Stop Connection endpoint to end the call and close the connection. This will send you an email with all the generated insights from your conversation.
- 
- 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
- 
-</div>
- 
-</div>
+### API Parameters
+---
 
-<div class="column">
-<div class="card"><h3></h3> 
- 
-### Conversation API
- 
-- Get Conversation data such as speaker participants,
-- Get `conversationId` using which you can then get all the conversation insights.
- 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5f215bfc2a64aa314279)
- 
-</div>
-</div>
+We provide a host of mandatory and optional parameters that you send in the request body or as a query param. Here's a list of how each of the type of APIs accept parameters:
+
+In request body:
+
+- Async Text API
+- Async Audio URL API
+- Async Video URL API
+
+As query: 
+
+- Async Text API
+- Async Audio API- file
+- Async Video API - file
+- Conversation API for Speaker Diarization and other select features
+
+### Request and Response Format
+---
+Symbl APIs use standard HTTPS requests and responses. Our reponses are returned in the standard [JSON](https://www.json.org/json-en.html) format. 
+
+### 
+### Using conversationId
+(TO DO)
+When you process any conversation through Symbl whether it's from Async API, Javascript SDK, Telephony or Streaming API, you'll always receive a unique Conversation ID (conversationId), which consists of numerical digits.
+
+### JobId
+(TO DO)
+As soon as you upload one of your files, or send one of your text for processing to Symbl, You get a jobId (and a conversationId) in response. This jobId is a unique identifier for the job processing the payload you sent.
+A job can have a particular status at a time wiz. IN_PROGRESS, SCHEDULED, COMPLETED or FAILED. You can only use a conversationId for the conversation_api class functions once, the job payload is completed.
 

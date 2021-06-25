@@ -9,18 +9,19 @@ slug: /sdk-intro
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
-<div class="row">
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>JavaScript SDK</h4></a> Add Conversational Intelligence directly into your web applications and meeting platforms with the Javascript SDK. <br/> 
-</div>
-  </div>
+## Programatically use Symbl APIs and integrate it with your web applications and meeting platforms
 
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>Python SDK</h4></a>Add Conversational Intelligence directly into your web applications and meeting platforms with the Python SDK.<br/>
-  </div>
-  </div>
-</div>
-
+Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing platforms. It is available in popular programming languages
+ &nbsp;  
  
+<button class="button button1"><a href="/docs/javascript-sdk/introduction">Get Started with JavaScript SDK</a></button><br/>
+
+<button class="button button2"><a href="/docs/python-sdk/overview">Get Started with Python SDK</a></button>
+
+ &nbsp;  
+ &nbsp; 
+
+---
 
