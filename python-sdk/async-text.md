@@ -7,13 +7,21 @@ slug: /python-sdk/async-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Python SDK generates speech-to-text, action items and topics from your text conversations. 
 
+The Python SDK allow you to asynchronously send conversation data and generate the following:
+
+- Speech-to-Text
+- Action Items
+- Questions
+- Topics
+- Follow-ups
+- Sentiment Analysis.
+
+You can also utilize the `parameters` function to send additional parameters supported in the [Async Text API](https://docs.symbl.ai/docs/async-api/overview/text/post-text#query-params).
+
+### Sample Code
 ```python
 import symbl
-
-conversation = symbl.Text.process(payload=dictionary)
-
 dictionary ={
    "name": "Business Meeting",
    "confidenceThreshold": 0.6,
@@ -35,14 +43,20 @@ dictionary ={
      }
    ]
  }
+conversation = symbl.Text.process(payload=dictionary)
 
-print(conversation.action_items()) # Returns action items arising out of the conversation
+print(conversation.get_action_items()) # Returns action items arising out of the conversation
 
-# print(conversation.topics()) # Returns topics of the conversation
-# print(conversation.messages()) # Creates a transcript response
+# print(conversation.get_action_items()) 
+# print(conversation.get_topics()) 
+# print(conversation.get_questions())
+# print(conversation.get_messages(parameters={'sentiment': True})) # This returns Sentiment score in the messages due to the parameter sentiment. 
 ```
+### Using Parameters
 
-Click [here](https://github.com/symblai/symbl-python/blob/main/symbl/readme.md#text-class) for more details about the Text class. 
+Any parameter that is supported for Async text API can be provided in the dictionary format.
+
+See the complete list of supported parameters [here](/docs/async-api/overview/text/post-text). 
 
 ### Appending Text API
 
@@ -75,11 +89,12 @@ conversation = symbl.Text.append(payload=dictionary, conversation_id='5274326339
    ]
  }
 
-print(conversation.action_items())
+print(conversation.get_action_items())
 
-# print(conversation.topics())
-# print(conversation.messages())
+# print(conversation.get_topics())
+# print(conversation.get_messages())
 ```
+
 
 #### Utilizing the `wait` Parameter
 
@@ -89,3 +104,11 @@ Example:
 ```py
 conversation = symbl.Text.process(payload=dictionary, wait=False)
 ```
+### Python SDK Reference
+
+For a complete list of supported classes and objects in the Python SDK, see the [Python SDK Reference](/docs/python-sdk/python-sdk-reference) page. 
+
+You can view more capabilities added to Async API in the following sections:
+
+- [Text Class](/docs/python-sdk/python-sdk-reference#text-class)<br/>
+- [Conversation Object](/docs/python-sdk/python-sdk-reference#conversation-object)
