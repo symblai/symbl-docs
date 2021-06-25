@@ -1,6 +1,6 @@
 ---
 id: get-real-time-transcription-js-sdk
-title: Real-time Output With PSTN Dialing Using Symbl's Javascript SDK
+title: Real-time Output With PSTN Dialing Using Symbl's JavaScript SDK
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 In this example let's walk through how to get the real-time transcription and insights events in a Telephone call.
 
-Throughout the documentation you'll find various references to these variable names, which you will have to replace with your values:
+Throughout the documentation you'll find various references to the following variable names, which you will have to replace with your values:
 
 Key  | Description
 ---------- | -------
@@ -25,7 +25,7 @@ Key  | Description
 
 To get started using this API, you need to sign up for the [Symbl Developer Platform](https://platform.symbl.ai/#/login) and receive your API credentials.
 
-For this example, you will be using Node.js and the Symbl Javascript SDK. You can install this using the Node Package Manager:
+For this example, you will be using Node.js and the Symbl JavaScript SDK. You can install this using the Node Package Manager:
 
 ```js
 npm install symbl-node
@@ -91,7 +91,7 @@ endpoint: {
 
 Symbl provides various insights from the call. The main insights categories are
 `question` and `action_item`. To include insights in processing, you
-need to specify them in the configuration like so:
+need to specify them in the configuration as follows:
 
 
 ```js
@@ -102,7 +102,7 @@ need to specify them in the configuration like so:
 
 ### Actions
 
-You can specify different actions to happen during the call. you will define just
+You can specify different actions to happen during the call. You will define just
 one, which defines an email which Symbl will use to send a summary email of the conversation to.
 
 
@@ -120,8 +120,8 @@ actions: [
 
 ## Getting the Connection ID
 
-For subscribing to the data, we will need to use `connectionId` unique to each
-active connection. to get it you can simply retrieve it from connection
+For subscribing to the data, you will need to use `connectionId` unique to each
+active connection. To get it you can simply retrieve it from connection
 response:
 
 
@@ -186,7 +186,7 @@ if (type === 'insight_response') {
 
 We can send different speaker events to our connection indicating that different
 speakers started speaking. That will give us more personalized insights and get a
-better meeting summary
+better meeting summary.
 
 In our example, we will do it by calling the helper function `getScheduleEvent`, which we will review in a bit. We pass SpeakerEvent type to it by using
 `SpeakerEvent.types` enum from `symbl-node`, passing user data and timestamp:
@@ -383,7 +383,7 @@ const users = {
 
 ## Running The Example
 
-Create a javascript file named app.js and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install symbl-node. Now in the terminal run
+Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node1`. In the terminal, run the following command:
 
 ```bash
 $ node app.js
