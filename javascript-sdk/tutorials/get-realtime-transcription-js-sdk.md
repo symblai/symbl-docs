@@ -383,7 +383,7 @@ const users = {
 
 ## Running The Example
 
-Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node1`. In the terminal, run the following command:
+Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node`. In the terminal, run the following command:
 
 ```bash
 $ node app.js
