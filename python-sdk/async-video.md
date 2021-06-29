@@ -39,9 +39,9 @@ To append a video call to an already processed video file, use the code given be
 import symbl
 
 conversation = symbl.Video.append_file(file_path=r'c:/Users/john/Downloads/video.mp4', conversation_id='')
-​print(conversation.action_items())
-# print(conversation.topics())
-# print(conversation.messages())
+​print(conversation.get_action_items())
+# print(conversation.get_topics())
+# print(conversation.get_messages())
 ```
 ### Using Parameters
 
