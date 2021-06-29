@@ -65,8 +65,6 @@ Use the code given below to append text conversation already processed.
 ```py 
 import symbl
 
-conversation = symbl.Text.append(payload=dictionary, conversation_id='5274326339158016')
-
  dictionary ={
    "name": "Business Meeting",
    "confidenceThreshold": 0.6,
@@ -88,6 +86,7 @@ conversation = symbl.Text.append(payload=dictionary, conversation_id='5274326339
      }
    ]
  }
+conversation = symbl.Text.append(payload=dictionary, conversation_id='5274326339158016')
 
 print(conversation.get_action_items())
 

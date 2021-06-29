@@ -41,7 +41,7 @@ To append an audio coversation to an already processed audio file, use the code 
 ```py
 import symbl
 
-conversation = symbl.Audio.append_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3')
+conversation = symbl.Audio.append_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3', conversation_id='5973791156994048')
 print(conversation.get_topics())
 # You can use the same code to generate other insights such as:
 # print(conversation.get_follow_ups())
@@ -101,11 +101,11 @@ import symbl
 
 conversation = symbl.Audio.append_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav', conversation_id='5973791156994048')
 ​
-print(conversation.topics())
-# print(conversation.follow_ups())
-# print(conversation.action_items())
-# print(conversation.questions())
-# print(conversation.messages())
+print(conversation.get_topics())
+# print(conversation.get_follow_ups())
+# print(conversation.get_action_items())
+# print(conversation.get_questions())
+# print(conversation.get_messages())
 ```
 #### Utilizing the `wait` Parameter
 
