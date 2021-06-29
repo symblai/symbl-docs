@@ -7,24 +7,27 @@ slug: /python-sdk/python-sdk-telephony-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This tutorial provides code snippets and instructions on how to utilize Python SDK to call Symbl's Telephony API using PSTN. To view the source code, go to the [open-source repository](https://github.com/symblai/symbl-python) in GitHub. 
+This tutorial provides code snippets and instructions on how to utilize Python SDK to call Symbl's Telephony API using PSTN protocol. <br/>
+To view the source code, go to the [open-source repository](https://github.com/symblai/symbl-python) in GitHub. 
 
 The Python SDK provides the following capabilities:
 
-- [Dialing in using PSTN](#dial-in-using-pstn)<br/>
+- [Start connection using PSTN](#start-pstn-connection)<br/>
 
-- [Subscribing to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
+- [Stop connection](#stop-connection)
 
-- [Receiving Analytics on Email](#receive-insights-on-email).
+- [Get Conversation Intelligence and receive it on Email](#receive-insights-on-email).
+
+- [Subscribe to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
 
-## Dial in using PSTN
+## Start PSTN Connection
 
-The code snippet below allows you to start a Telephony connection with Symbl via PSTN: 
+The code snippet below allows you to start a Telephony connection with Symbl via PSTN protocol: 
 ```py
 import symbl
 
-cconnection = symbl.Telephony.start_pstn(
+connection = symbl.Telephony.start_pstn(
     phone_number="+19663600xxxx"
     dtmf = ",,9950361741#,,645641#") #",,{}#,,{}#".format(meetingId, password)
 print(connection)
@@ -35,6 +38,20 @@ Parameter  | Required | Description | Value
 ----------- | ------- |  ------- | ------- | 
 `phone_number` | Mandatory | Phone number including country code. If you are dailing in via phone to a conference tool, e.g., Zoom, Google hangouts, use the dail-in numbers provided. | `"+11234567890"`
 `dtmf`| Optional | The DTMF details for dailing into your conference tool in the format `",,{}#,,{}#".format(meetingId, password)` | `meetingId`- Your meeting ID of your conference tool. Example`"12345"`. &nbsp; &nbsp; `password` - Your meeting password of your conference tool. Example: `"A1B2C3D4"`.&nbsp;&nbsp;`emailId`- Your email ID you wish to receive the analytics on. Example: `"john@example.com"`|
+
+
+## Stop Connection
+
+To stop an active Telephony connection, use the code given below:
+
+```py
+import symbl
+
+stop(connectionId)
+```
+
+Add the `connectionId` of the connection you want to terminate.<br/>
+Optionally, you can also use parameters supported with [Telephony API](/docs/telephony-api/api-reference/#request-parameters). This returns an updated connection object which will have the `conversationId` in the response.
 
 ## Subscribe to Events
 
@@ -52,6 +69,7 @@ Event  | Description
 `insight_response` | Generates an event whenever an `action_item` or `question` is identified in the message. 
 `tracker_response`| Generates an event whenever a tracker is identified in the transcription.
 `transcript_response` | Also generates transcription values, however these will include an `isFinal` property which will be False initially meaning the transcription are not finalized.
+`topic_response` | Generates an event whenever a topic is identified in any transcription.
 
 ### Usage of Subscribe Event
 
@@ -65,7 +83,7 @@ print(connection)
 ```
 ## Receive Insights on Email
 
-After the call has ended, you can trigger an email containing the URL to view the transcription, insights and topics in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
+After the call has ended, you can trigger an email containing the URL to view the Transcripts, Topics, Speaker analytics, Follow-ups, Action Items and meeting insights in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
 
 To receive the insights via email, use the code given below:
 
@@ -124,11 +142,11 @@ connection.subscribe({
 print(connection)
 ```
 
-:::info Stop Connection
-You can also utilize `connection.stop()` function to stop a live Telephony connection after a specific time. 
-:::
+### Python SDK Reference
 
-### Additional Resources on GitHub
+For a complete list of supported classes and objects in the Python SDK, see the [Python SDK Reference](/docs/python-sdk/python-sdk-reference) page. 
 
-- [Telephony Class](https://github.com/symblai/symbl-python/blob/main/symbl/readme.md#telephony-class)<br/>
-- [Connection Object](https://github.com/symblai/symbl-python/blob/main/symbl/readme.md#connection-object)
+You can view more capabilities added to Telephony API in the following sections:
+
+- [Telephony Class](/docs/python-sdk/python-sdk-reference#telephony-class)<br/>
+- [Connection Object](/docs/python-sdk/python-sdk-reference#connection-object)

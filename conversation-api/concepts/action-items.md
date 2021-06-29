@@ -22,11 +22,6 @@ Essentially, the action items provides you with the insights of ‘who has to do
 
 - *"I will make sure that all the bugs are fixed before the start of the next Sprint". Here, the person is committed to fixing the relevant bugs in a time-bound manner.*
 
-
-- *"We can resize these little icons here and that would be a much better UI". Here, the person is proposing an idea that can potentially be taken up in the future, and which would be acted upon.*
-
-- *"I think we have to work on the other priority issues and then move on to this one." Here, the person thinks that other issues are to be worked on, which may be the final action item, depending on how the conversation progresses.*
-
 ## Key Features 
 
 - Recognition of the **assignee and assignor** of an action item when possible.
