@@ -228,7 +228,7 @@ Notice that the trackers member follows the same structure as the Trackers secti
 
 You can create and consume Trackers in real-time using the Streaming APIs. 
 
-To view the detailed documentation go to the Trackers with [Streaming API](docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) page. 
+To view the detailed documentation go to the Trackers with [Streaming API](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) page. 
 
 
 ## Create Trackers using Tracker Management API

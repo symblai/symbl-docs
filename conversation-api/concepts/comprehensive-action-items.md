@@ -1,19 +1,16 @@
 ---
 id: comprehensive-action-items
-title: Comprehensive Action Items
-sidebar_label: Comprehensive Action Items
+title: Comprehensive Action Items (Labs)
+sidebar_label: Comprehensive Action Items (Labs)
 slug: /concepts/comprehensive-action-items
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Comprehensive Action Items (Labs)
----
-::: info Symbl Labs
+:::info Symbl Labs
 This API is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. You can access the Labs features using your Symbl App Id and Secret. If you don't already have it, sign up on our platform to get your credentials. <br/><br/>
 For any queries or feedback, please contact us at labs@symbl.ai.
-
 :::
 
 The **Comprehensive Action Items API** is similar to the Action Items API except that the Comprehensive Action Items API returns a rephrased form of the original action item message that's enriched with its corresponding context.
