@@ -273,6 +273,7 @@ Parameters | Required | Type | Description
 ```enableSeparateRecognitionPerChannel``` | No | Boolean | Enables Speaker Separated Channel audio processing. Accepts `true` or `false`.
 ```channelMetadata``` | No | Object[] | This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` is set to `true`.
 ```trackers``` <font color="orange"> BETA</font> | No | String | A list of key words and/or phrases to be tracked using the [Tracker API.](/docs/management-api/trackers/overview)
+```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
 
 
