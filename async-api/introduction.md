@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Async API
+title: Async API Documentation
 sidebar_label: Introduction
 slug: /async-api/introduction
 ---
