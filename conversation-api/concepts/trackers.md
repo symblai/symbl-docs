@@ -58,6 +58,13 @@ The tracker names used in the example below are only for explanatory purposes. Y
 
 ## Trackers API 
 
+<div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">API Reference</a><br/>Learn about Trackers API and view all the capabilities that solve for your business use-case.</div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started">Tutorials</a><br/>View step-by-step information about our capabilities, understand business use-case and discover applicabilities across industries.</div>
+  </div>
+
 For step-by-step instructions on how to use Trackers API see the [Using Trackers API](/docs/management-api/trackers/overview) page. The Tracker API endpoints are given below:
 
 Operation  | Endpoint
@@ -78,6 +85,7 @@ Currently, Trackers is supported with Symbl’s Async APIs and Streaming APIs.
 The Trackers APIs can be consumed via the [Management API](/docs/management-api/introduction), which takes the onus of maintaining these entities from the developer and shifts it to Symbl’s backend. The Management API provides an easy-to-consume REST interface for managing these entities. 
 
 Click [here](/docs/management-api/introduction) to read about the capabilities of Management APIs. 
+
 
 ## Related Topics
 

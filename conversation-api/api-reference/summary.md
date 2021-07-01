@@ -7,17 +7,7 @@ slug: /conversation-api/summary
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info Symbl Labs
-This API is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
-
-You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on our [platform](https://platform.symbl.ai/#/login) to get your credentials.
-
-**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
-
-For any queries or feedback, please contact us at labs@symbl.ai.
-:::
-
-## GET Summary
+---
 
 This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
@@ -26,7 +16,6 @@ Currently, the Summary can be enabled with Async APIs. Support for Summarization
 :::note
 This API works best on audio/video conversations that are at least 10 mins in duration. For text conversations, there must be more than 60 lines of conversation for the Summary to get generated.
 :::
-
 
 
 ### API Endpoint
