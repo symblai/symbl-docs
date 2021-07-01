@@ -9,10 +9,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+<<<<<<< HEAD:docs/conversation-api/api-reference/summary.md
 :::note In Alpha Phase
 This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
+=======
+>>>>>>> b213858 (Adds more changes):conversation-api/api-reference/summary.md
 This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
 Currently, Summaries cannot be generated in real-time. Support for creating Summary in real-time will be added soon.  
@@ -23,6 +26,7 @@ The Summary API generates high-quality Summaries for longer meetings so it is re
 
 :::note recommendations
 
+<<<<<<< HEAD:docs/conversation-api/api-reference/summary.md
 For generating Summarization, we recommend the following:
 - The number of words in the conversation should be above 85 words. 
 - The speaker information should be passed in generate Summary request. Learn how to provide speaker information in [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/) page. 
@@ -32,6 +36,8 @@ For generating Summarization, we recommend the following:
 
 Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
+=======
+>>>>>>> b213858 (Adds more changes):conversation-api/api-reference/summary.md
 ### API Endpoint
 **<font color="orange">GET</font> `https://api.symbl.ai/v1/conversations/{conversationId}/summary`**
 
