@@ -18,13 +18,13 @@ Longer length meetings are broken down by our algorithm in contextually relevant
 high-quality topic hierarchy.
 :::
 
-In any conversation, there can be multiple related topics that gets discussed and it is possible to organize them in a hierarchy for better insights and consumption. Symbl's Topic Hierarchy algorithm finds a pattern in the conversation and creates parent (global) topics and each parent topic to have multiple child topics in it. 
+In any conversation, there can be multiple related topics that get discussed and it is possible to organize them in a hierarchy for better insights and consumption. Symbl's Topic Hierarchy algorithm finds a pattern in the conversation and creates parent (global) topics with each parent topic having multiple child topics nested within it. 
 
 #### Example
 
-*If in a meeting “Sales Conversation” was talked about and after that, discussions around “Activity Call logs”, “Salesforce”, “Draft”, “Custom Integration” and “Jira” took place, the Topic Hierarchy will make Sales Conversation as the parent topics and the rest of the topics as the child topics under it.*
+*If in a meeting “Sales Conversation” was talked about and after that, discussions around “Activity Call logs”, “Salesforce”, “Draft”, “Custom Integration” and “Jira” took place, the Topic Hierarchy will make Sales Conversation as the parent topic and the rest of the topics as the child topics under it.*
 
-Topic hierarchy understands customer conversation and returns the parent (global) topic and its child topics.
+Topic Hierarchy understands customer conversation and returns the parent (global) topic and its child topics.
 
 * <strong>Parent Topic</strong>: The highest-level abstraction of a meeting. These are the key points on which the speakers of the meeting expanded and discussed at length.
 
@@ -103,7 +103,7 @@ Remember to replace the `conversationId` in the API call with the Conversation I
   values={[
     { label: 'cURL', value: 'cURL', },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Javascript', value: 'javascript', }
+    { label: 'JavaScript', value: 'javascript', }
   ]
 }>
 <TabItem value="cURL">
@@ -124,7 +124,7 @@ const conversationId = "conversationId";
 
 request.get({
     url: `https://api.symbl.ai/v1/conversations/${conversationId}/topics`,
-    headers: { 'Authorization': `Bearer: ${authToken}` },
+    headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
     console.log(body);

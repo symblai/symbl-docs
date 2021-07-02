@@ -1,6 +1,7 @@
 ---
 id: topics
-title:  Topics
+title:  Topics API- Extracting Relevant Topics 
+description: Automatically identify and extract topics from conversations with Symbl.ai's Topic API. 
 sidebar_label:  Topics
 slug: /concepts/topics
 ---
@@ -64,7 +65,7 @@ const conversationId = "conversationId";
 
 request.get({
     url: `https://api.symbl.ai/v1/conversations/${conversationId}/topics`,
-    headers: { 'Authorization': `Bearer: ${authToken}` },
+    headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
     console.log(body);

@@ -1,26 +1,27 @@
 ---
-id: python-sdk-telephony-sip
-title: Using Python SDK with Telephony API on SIP 
-sidebar_label: Using SIP
-slug: /python-sdk/python-sdk-telephony-sips
+id: python-streaming-api
+title: Streaming API
+sidebar_label: Streaming API
+slug: /python-sdk/streaming-api
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This tutorial provides code snippets and instructions on how to utilize Python SDK to call Symbl's Telephony API using SIP. To view the source code, browse the [open-source repository](https://github.com/symblai/symbl-python) in GitHub. 
+The Streaming API is based on WebSocket protocol and can be used for real-time use cases where both the audio and its results from Symbl need to be available in real-time.
+
 
 The Python SDK provides the following capabilities: 
 
-- [Start SIP Connection](#start-sip-connection)<br/>
+- [Start Connection](#start-connection)<br/>
 
-- [Stop connection](#stop-connection) <br/>
+- [Stop connection](#stop-connection)<br/>
 
-- [Geting Conversation Intelligence and receive Insights on Email](#receive-insights-on-email).<br/>
+- [Send audio from Mic](#send-audio-from-mic)<br/>
 
 - [Subscribing to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
 
-## Start SIP Connection
+## Start Connection
 
 The code snippet below allows you to start a Telephony connection with Symbl via SIP. It can make an outbound call to a phone number using SIP endpoints that can be accessed over the internet using a SIP URI:
 ```py
@@ -45,9 +46,9 @@ Optionally, you can also use parameters supported with [Telephony API](/docs/tel
 
 ## Subscribe to Events
 
-Once the SIP connection is established, you can get live updates on conversation events such as generation of transcript, action items or questions, etc.
+Once the WebSocket connection is established, you can get live updates on conversation events such as generation of transcript, action items or questions, etc.
 
-The `connection.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
+The `connection.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and its value can be a callback function that should be executed on the occurrence of that event.
 
 ### Supported Events 
 
@@ -71,31 +72,33 @@ connection.subscribe({
     )
 print(connection)
 ```
-## Receive Insights on Email
+## Send Audio from Mic
 
-After the call has ended, you can trigger an email containing the URL to view the Transcripts, Topics, Speaker analytics, Follow-ups, Action Items and meeting insights in a single page Web Application in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
+This allows you to send data to WebSocket directly via your mic. It is a recommended function for first time users sending audio to Symbl.   
 
 To receive the insights via email, use the code given below:
 
 ```py
-      actions = [
-        {
-          "invokeOn": "stop",
-          "name": "sendSummaryEmail",
-          "parameters": {
-            "emails": [
-              emailId
-            ],
-          },
-        },
-      ]
+import symbl
+
+connection = symbl.Streaming.start_connection()
+
+connection.subscribe({'message_response': lambda response: print('got this response from callback', response)})
+
+connection.send_audio_from_mic()
 ```
 
-`emailId` is the email address where Symbl will send the Conversation Insights. 
+`send_audio_from_mic` function can be used with Streaming class only.
 
-A sample of the Insights email is given below:
+## Stop Connection
 
-![Summary UI Email](/img/python-sdk-email.png)
+To stop an active WebSocket connection, use the code given below:
+
+```py
+import symbl
+
+stop(connectionId)
+```
 
 ## Complete Sample Code
 

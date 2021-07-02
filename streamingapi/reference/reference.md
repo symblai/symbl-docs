@@ -43,7 +43,7 @@ Field | Required | Supported value | Default Value | Description
 ---------- | ------- | ------- |  ------- |  ------- |
 ```confidenceThreshold``` | false  | 0.0 - 1.0 | 0.5 | Minimum Confidence score that should be met for API to consider it as valid insight, if not provided defaults to 0.5 i.e. 50% or more
 ```languageCode``` | false | | en-US | The language code as per the BCP 47 specification
-```speechRecognition``` | false | | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. See below.
+```speechRecognition``` | false | | | See Speech Recognition section [below](#speech-recognition).
 ```meetingTitle``` | false | | | The name of the meeting.
 
 ##### <a name="config-example"></a>Code Example

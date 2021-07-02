@@ -1,6 +1,6 @@
 ---
 id: update-tracker
-title: Update Tracker 
+title: Update Tracker (Beta)
 sidebar_label: PUT Tracker 
 slug: /management-api/trackers/update-tracker
 ---
@@ -8,7 +8,7 @@ slug: /management-api/trackers/update-tracker
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-The Update Tracker API updates a Tracker entity against the `trackerId` which can be consumed in Symbl APIs.
+To update an existing Tracker, send a PUT Tracker API request with Management API. This updates a Tracker entity against the `trackerId` which can be consumed in Symbl APIs.
 
 ### API Endpoint 
 
