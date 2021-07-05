@@ -8,8 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
----
-
 --- 
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.

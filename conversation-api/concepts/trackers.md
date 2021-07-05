@@ -58,13 +58,6 @@ The tracker names used in the example below are only for explanatory purposes. Y
 
 ## Trackers API 
 
-<div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">API Reference</a><br/>Learn about Trackers API and view all the capabilities that solve for your business use-case.</div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started">Tutorials</a><br/>View step-by-step information about our capabilities, understand business use-case and discover applicabilities across industries.</div>
-  </div>
-
 For step-by-step instructions on how to use Trackers API see the [Using Trackers API](/docs/management-api/trackers/overview) page. The Tracker API endpoints are given below:
 
 Operation  | Endpoint
