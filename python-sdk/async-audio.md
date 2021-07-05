@@ -180,7 +180,7 @@ request_body = {
 # print(conversation_object.get_members())
 ```
 
-### Python SDK Reference
+## Python SDK Reference
 
 For a complete list of supported classes and objects in the Python SDK, see the [Python SDK Reference](/docs/python-sdk/python-sdk-reference) page. 
 
