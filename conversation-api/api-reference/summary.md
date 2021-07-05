@@ -37,7 +37,7 @@ This API works best on audio/video conversations that are at least 10 mins in du
 Header Name  | Required | Value
 ----------- | ------- |  ------- |
 ```Authorization```| Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type``` | Mandatory | This header must contain the MIME Type `application/json`. 
+```Content-Type``` | Optional | This header must contain the MIME Type `application/json`. 
 
 :::info
 If you are using `x-api-key` we recommend that you use `Authorization` header instead as `x-api-key` is deprecated. 
