@@ -48,18 +48,18 @@ the real-time PII identification and redaction while starting the connection to 
 ```json
 // sample payload of start_request message
 {
-  "type": "start_request",
-  "config": {
-    "languageCode": "en-US"
-  },
-  "redaction": {
-  // Enable identification of PII information
-  "identifyContent": true, // By default false
-  // Enable redaction of PII information
-  "redactContent": true, // By default false
-  // Use custom string "[PII_ENTITY]" to replace PII information with
-  "redactionString": "[PII_ENTITY]" // By default ****
-  },
+    "type": "start_request",
+    "config": {
+        "languageCode": "en-US",
+        "redaction": {
+            // Enable identification of PII information
+            "identifyContent": true, // By default false
+            // Enable redaction of PII information
+            "redactContent": true, // By default false
+            // Use custom string "[PII_ENTITY]" to replace PII information with
+            "redactionString": "[PII_ENTITY]" // By default ****
+        }
+    },
 }
 ```
 

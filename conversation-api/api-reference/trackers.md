@@ -23,7 +23,7 @@ This API allows you to get all the [Trackers](/docs/concepts/trackers) from your
     
 2.  `X-API-KEY` (Legacy) - Use the `Authorization` header. This has been deprecated. This header should contain a valid authentication token generated using the `token:generate` API Endpoint by passing in the credentials. These can be obtained by signing up on the [Platform](https://platform.symbl.ai/).
     
-3.  `Content-Type` (Required) - This header must contain the MIME Type `application/json`.
+3.  `Content-Type` (Optional) - This header must contain the MIME Type `application/json`.
 
 
 ### Example API Call
