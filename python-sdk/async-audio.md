@@ -7,28 +7,31 @@ slug: /python-sdk/async-audio
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Python SDK allow you to asynchronously send conversation data and generate the following:
+The Python SDK allow you to asynchronously send audio conversation data and generate the following:
 
-- Speech-to-Text
+- Speech-to-Text (messages)
 - Action Items
 - Questions
 - Topics
 - Follow-ups
-- Sentiment Analysis. 
+- Members (a list of participants in a conversation).
 
-You can also utilize the `parameters` function to send additional parameters supported in the Async Audio API- for [file](/docs/async-api/overview/audio/post-audio) and [url](/docs/async-api/overview/audio/post-audio-url) upload.
+You can also utilize the `parameters` function to send additional parameters supported in the Async Audio API- for [file](/docs/async-api/overview/audio/post-audio#query-params) and [url](/docs/async-api/overview/audio/post-audio-url#request-body) upload.
 
 ### Sample Code
+
 ```python
 import symbl
  
-conversation = symbl.Audio.process_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3')
-print(conversation.topics())
+conversation_object = symbl.Audio.process_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
 # You can use the same code to generate other insights such as:
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 :::info
 Always prefix "r" before the file location in the code if you are using Windows system. Example: `file_path=r'c:/Users/john/Downloads/business_meeting.mp3`
@@ -36,30 +39,36 @@ Always prefix "r" before the file location in the code if you are using Windows 
 
 ### Appending Audio API
 
-To append an audio coversation to an already processed audio file, use the code given below:
+To append an audio coversation to an already processed audio file, use the `.append` function as shown below:
 
+```python
+conversation_object = symbl.Audio.append_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3', conversation_id='5973791156994048')
+```
+A complete sample code for the append function is given below:
 ```py
 import symbl
 
-conversation = symbl.Audio.append_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3', conversation_id='5973791156994048')
-print(conversation.get_topics())
+conversation_object = symbl.Audio.append_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3', conversation_id='5973791156994048')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
 # You can use the same code to generate other insights such as:
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 ### Using Parameters
 
-In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. In the REST APIs for Audio file upload, these parameters are sent as a part of the query params, here, you must use `parameters` as shown below. <br/>
+In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. The query parameters for Async Audio File API can be sent using `parameters` variable as shown below. <br/>
 You can use these parameters in the `.append` functionality as well. 
 
 See the complete list of supported parameters [here](/docs/async-api/overview/audio/post-audio/#query-params). 
 
-```py
+```python
 import symbl
 
-conversation = symbl.Audio.process_file(file_path='/users/jon/Downloads/Welcome.mp3', 
+conversation_object = symbl.Audio.process_file(file_path='/users/jon/Downloads/Welcome.mp3', 
 parameters={
     'name':'new meeting', 
     'detectPhrases': True, 
@@ -68,8 +77,14 @@ parameters={
     'channelMetadata': [
       {"channel": 1,"speaker": {"name": "Jon Snow","email": "Jon@example.com"}}
      ]})
-print(conversation.get_messages())
-# print(conversation.get_members()) # Returns a list of participants of the conversation.
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 
 ## Async Audio URL API
@@ -80,32 +95,57 @@ Use the code given below to process audio (sent via URL) conversations with the 
 The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
-```py
-import symbl
-
-conversation = symbl.Audio.process_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav')
-​print(conversation.get_topics())
-
-# You can use the same code to generate other insights such as:
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
-```
-### Appending Audio URL API
-
-To append an audio coversation to an already processed audio file, use the code given below:
-
 ```python
 import symbl
 
-conversation = symbl.Audio.append_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav', conversation_id='5973791156994048')
-​
-print(conversation.get_topics())
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+request_body = {
+   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/playground_sample_audio.mp3’,
+   'name': 'Python SDK Test Meeting',
+ }
+
+
+conversation_object = symbl.Audio.process_url(payload = request_body)
+# conversation = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
+```
+### Appending Audio URL API
+
+To append an audio coversation to an already processed audio file, use the `.append` function with the `conversation_id` as shown below:
+
+```python
+conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+```
+
+A complete sample of the `.append` function is given below:
+
+```py
+
+import symbl
+
+request_body = {
+   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/playground_sample_audio.mp3’,
+   'name': 'Business Meeting',
+ }
+
+
+
+conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
+
 ```
 #### Utilizing the `wait` Parameter
 
@@ -114,27 +154,30 @@ Use the `wait` parameter (by default set to `True`) while making concurrent API 
 Example:
 
 ```python
-conversation = symbl.Audio.process_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav', wait=False)
+conversation_object = symbl.Audio.process_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav', wait=False)
 ```
 ### Using Parameters
 
-In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. In the REST APIs, these parameters are sent as a part of the request body, here, these parameters must be sent as a part of the `payload` function. <br/>
+In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. In the REST APIs, these parameters are sent as a part of the request body, here, these parameters must be sent as a part of the `request_body` function. <br/>
 You can also use parameters while using the `.append` functionality. 
 
 See the complete list of supported parameters [here](/docs/async-api/overview/audio/post-audio-url#request-body). 
 
-```py
-payload = {
+```python
+request_body = {
      'url':'https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav', 
      'detectPhrases': True, 
      'channelMetadata': [{"channel": 1,"speaker": {"name": "Jon Snow","email": "jon@example.com"}}]
      }
- conversation = symbl.Audio.process_url(payload=payload)
- print(conversation.get_topics())
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+ conversation_object = symbl.Audio.process_url(payload=request_body)
+ print(conversation_object.get_messages())
+ print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 
 ### Python SDK Reference

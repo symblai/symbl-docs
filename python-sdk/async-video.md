@@ -7,14 +7,14 @@ slug: /python-sdk/async-video
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Python SDK allow you to asynchronously send conversation data and generate the following:
+The Python SDK allow you to asynchronously send video conversation data and generate the following:
 
-- Speech-to-Text
+- Speech-to-Text (messages)
 - Action Items
 - Questions
 - Topics
 - Follow-ups
-- Sentiment Analysis. 
+- Members (a list of members in a conversation).
 
 You can also utilize the `parameters` function to send additional parameters supported in the Async Video API for [file](/docs/async-api/overview/video/post-video#query-params) and [url](/docs/async-api/overview/video/post-video-url#request-body) upload. 
 
@@ -22,10 +22,15 @@ You can also utilize the `parameters` function to send additional parameters sup
 ```python
 import symbl
 
-conversation = symbl.Video.process_file(file_path=r'c:/Users/john/Downloads/video.mp4')
-​print(conversation.get_action_items())
-# print(conversation.get_topics())
-# print(conversation.get_messages())
+conversation_object = symbl.Video.process_file(file_path=r'c:/Users/john/Downloads/video.mp4')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 :::note
 Always prefix "r" before the file location in the code if you are using Windows system. Example: `file_path=r'c:/Users/john/Downloads/business_meeting.mp3`
@@ -33,19 +38,29 @@ Always prefix "r" before the file location in the code if you are using Windows 
 
 ### Appending Video API 
 
-To append a video call to an already processed video file, use the code given below:
+To append a video call to an already processed video file, use the `.append` function with the `conversation_id` as shown below:
+
+```py
+conversation_object = symbl.Video.append_file(file_path=r'c:/Users/john/Downloads/video.mp4', conversation_id='')
+```
+A complete sample of the `.append` function is given below:
 
 ```py
 import symbl
 
-conversation = symbl.Video.append_file(file_path=r'c:/Users/john/Downloads/video.mp4', conversation_id='')
-​print(conversation.get_action_items())
-# print(conversation.get_topics())
-# print(conversation.get_messages())
+conversation_object = symbl.Video.append_file(file_path=r'c:/Users/john/Downloads/video.mp4', conversation_id='')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 ### Using Parameters
 
-In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. In the REST APIs for Video file upload, these parameters are sent as a part of the query params. Here, you must define it in `parameters` as shown below. <br/>
+In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. You must pass the query parameters as `parameters` as shown below. <br/>
 You can use these parameters in the `.append` functionality as well. 
 
 See the complete list of supported parameters [here](/docs/async-api/overview/video/post-video#query-params). 
@@ -53,17 +68,23 @@ See the complete list of supported parameters [here](/docs/async-api/overview/vi
 ```py
 import symbl
 
-conversation = symbl.Video.process_file(file_path='/users/jon/Downloads/Welcome.mp4', 
+conversation_object = symbl.Video.process_file(file_path='/users/jon/Downloads/Welcome.mp4', 
 parameters={
-    'name':'new meeting', 
+    'name':'Business Meeting', 
     'detectPhrases': True, 
     'enableSpeakerDiarization': True, 
     'diarizationSpeakerCount': 3, 
     'channelMetadata': [
       {"channel": 1,"speaker": {"name": "Jon Snow","email": "Jon@example.com"}}
      ]})
-print(conversation.get_messages())
-# print(conversation.get_members()) # Returns a list of participants of the conversation.
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 ## Async Video URL API
 
@@ -76,49 +97,71 @@ The URL provided must be a publicly available URL. Currently we do not any suppo
 ```py
 import symbl
 
-conversation = symbl.Video.process_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4')
-​print(conversation.get_topics())
+request_body = {
+   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/playground_sample_audio.mp3’,
+   'name': 'Business Meeting',
+ }
+
+
+conversation_object = symbl.Audio.process_url(payload = request_body )
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
 
 # You can use the same code to generate other insights such as:
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 ### Appending Video URL API
 
-To append an already processed video file via URL, use the code given below:
+To append an already processed video file via URL, use the `.append` function with `conversation_id` as shown below:
 
+```py
+conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+```
+A complete sample for the `.append` function is given below:
 ```py
 import symbl
 
-conversation = symbl.Video.append_url(url='https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4', conversation_id='5973791150094048')
-​
-print(conversation.get_topics())
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+request_body = {
+   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/playground_sample_audio.mp3’,
+   'name': 'Business Meeting',
+ }
+
+
+conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+print(conversation_object.get_messages())
+print(conversation_object.get_topics())
+
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
+
 ```
 ### Using Parameters
 
-In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. In the REST APIs, these parameters are sent as a part of the request body. Here, these parameters must be sent as a part of the `payload` function. <br/>
+In the sample below, the optional parameters such as `name`, `detectPhrases`, etc. have been used. The supported parameters must be sent as a part of the `request_body` function. <br/>
 You can also use parameters while using the `.append` functionality. 
 
 See the complete list of supported parameters [here](/docs/async-api/overview/video/post-video-url#request-body). 
 
 ```py
-payload = {
+request_body = {
      'url':'https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4', 
      'detectPhrases': True, 
      'channelMetadata': [{"channel": 1,"speaker": {"name": "Jon Snow","email": "jon@example.com"}}]
      }
- conversation = symbl.Video.process_url(payload=payload)
- print(conversation.get_topics())
-# print(conversation.get_follow_ups())
-# print(conversation.get_action_items())
-# print(conversation.get_questions())
-# print(conversation.get_messages())
+ conversation_object = symbl.Video.process_url(payload=request_body)
+ print(conversation_object.get_topics())
+ print(conversation_object.get_messages())
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_follow_ups())
+# print(conversation_object.get_action_items())
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
 
 #### Utilizing the `wait` Parameter
@@ -128,7 +171,7 @@ Use the `wait` parameter (by default set to `True`) while making concurrent API 
 Example:
 
 ```py
-conversation = symbl.Video.process_file(file_path=r'c:/Users/john/Downloads/video.mp4', wait=False)
+conversation_object = symbl.Video.process_file(file_path=r'c:/Users/john/Downloads/video.mp4', wait=False)
 ```
 ### Python SDK Reference
 
