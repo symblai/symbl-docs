@@ -23,9 +23,10 @@ The Python SDK provides the following capabilities:
 ## Start SIP Connection
 
 The code snippet below allows you to start a Telephony connection with Symbl via SIP. It can make an outbound call to a phone number using SIP endpoints that can be accessed over the internet using a SIP URI:
+
 ```py
 import symbl
-connection = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com") # A valid SIP URI to dial in
+connection_object = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com") # A valid SIP URI to dial in
 
 ```
 The `uri` is the SIP addressing scheme that communicates who to call via the SIP.   
@@ -37,7 +38,7 @@ To stop an active Telephony connection, use the code given below:
 ```py
 import symbl
 
-stop(connectionId)
+connection_object.stop()
 ```
 
 Add the `connectionId` of the connection you want to terminate.<br/>
@@ -64,12 +65,12 @@ Event  | Description
 ### Usage of Subscribe Event
 
 ```py
-connection.subscribe({
+connection_object.subscribe({
     'transcript_response': lambda response: print('printing the first response ' + str(response)), 
     'insight_response': lambda response: print('printing the first response ' + str(response))
     }
     )
-print(connection)
+print(connection_object)
 ```
 ## Receive Insights on Email
 
@@ -106,7 +107,7 @@ import symbl
 
 emailId = "john@example.com" #Your registered email ID on the conference tool. 
 
-connection = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com",
+connection_object = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com",
   actions = [
         {
           "invokeOn": "stop",
@@ -119,7 +120,7 @@ connection = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com",
         },
       ]
 )
-connection.subscribe({'transcript_response': lambda response: print('printing the first response ' + str(response)), 'insight_response': lambda response: print('printing the first response ' + str(response))})
+connection_object.subscribe({'transcript_response': lambda response: print('printing the first response ' + str(response)), 'insight_response': lambda response: print('printing the first response ' + str(response))})
 ```
 
 

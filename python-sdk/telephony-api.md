@@ -24,15 +24,26 @@ The Python SDK provides the following capabilities:
 ## Start PSTN Connection
 
 The code snippet below allows you to start a Telephony connection with Symbl via PSTN protocol: 
+
 ```py
 import symbl
 
-connection = symbl.Telephony.start_pstn(
-    phone_number="+19663600xxxx"
-    dtmf = ",,9950361741#,,645641#") #",,{}#,,{}#".format(meetingId, password)
-print(connection)
+phoneNumber = "" #Zoom phone number. Can be found in invitation 
+meetingId = "" # Your zoom meetingId
+password = "" # Your zoom meeting passcode
+emailId = ""
+
+
+connection_object = symbl.Telephony.start_pstn(
+      phone_number=phoneNumber,
+      dtmf = ",,{}#,,{}#".format(meetingId, password) #do not change these variables
+    )
+
+print(connection_object)
 ```
 To establish a successful connection, the `phone_number` is mandatory. While connecting from a conference tool, you can use the DTMF details provided by the tool. 
+
+See complete sample [below](#complete-sample-code). 
 
 Parameter  | Required | Description | Value
 ----------- | ------- |  ------- | ------- | 
@@ -47,7 +58,7 @@ To stop an active Telephony connection, use the code given below:
 ```py
 import symbl
 
-stop(connectionId)
+connection_object.stop()
 ```
 
 Add the `connectionId` of the connection you want to terminate.<br/>
@@ -114,14 +125,14 @@ The sample code given below shows the usage of subscribe function and email acti
 ```py
 import symbl
 
-phone_number = "+919663xxxxx" # Phone number for connecting on your conference call, e.g., Zoom, Google hangouts. 
+phone_number = "+1123456789" # Phone number for connecting on your conference call, e.g., Zoom, Google hangouts. 
 meetingId = "8931167232" #Your meeting ID.
 password = "447891" #Your meeting passcode.
 emailId = "john@example.com" #Your registered email ID on the conference tool.
 
-connection = symbl.Telephony.start_pstn(
-    phone_number= phone_number,
-    dtmf = ",,9950361741#,,645641#", #",,{}#,,{}#".format(meetingId, password)
+connection_object = symbl.Telephony.start_pstn(
+    phone_number= phoneNumber,
+    dtmf = ",,{}#,,{}#".format(meetingId, password), #",,{}#,,{}#".format(meetingId, password) Do NOT change the variables
     actions = [
         {
           "invokeOn": "stop",
@@ -134,12 +145,12 @@ connection = symbl.Telephony.start_pstn(
         },
       ]
   )
-connection.subscribe({
+connection_object.subscribe({
     'transcript_response': lambda response: print('printing the first response ' + str(response)), 
     'insight_response': lambda response: print('printing the first response ' + str(response))
     }
     )
-print(connection)
+print(connection_object)
 ```
 
 ### Python SDK Reference
