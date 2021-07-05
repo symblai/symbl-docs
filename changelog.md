@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 --- 
 
-We are continuously adding new features and enhancements, fixing critical bugs and regularly deploying changes to improve performance. Keep a tab of our lastest updates on this page. 
+We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
 ### 29 June 2021
 
@@ -23,10 +23,8 @@ We are continuously adding new features and enhancements, fixing critical bugs a
 ![summary](/img/summary-ui-icon.png)
 
 - **Trackers and Analytics UI**: Availability of the Trackers and Analytics UI that provides a waveform visualization with conversation insights. [Read more here](/docs/pre-built-ui/trackers-and-analytics-ui).
-
-- Support for the `readOnly`  parameter has been added to avoid unintended editing of the **Summary UI**.
-
-- Customers can now share their own configured URL with their domain name in iframe implementation.
+- Support for the `readOnly` parameter has been added to avoid unintended editing of the **Summary UI**.
+- User can now share their own configured URL with their domain name in iframe implementation.
 
 ---
 
@@ -41,13 +39,13 @@ We are continuously adding new features and enhancements, fixing critical bugs a
 ### 22 April 2021
 
 ![api update](/img/api-update.png)
-- Added Support for Speaker `userID` in the Analytics API. 
-- Availability of Trackers API (Beta) that allows you to track the occurrence of certain key words or phrases in a conversation. [Read more here](/docs/concepts/trackers).
+- Added support for Speaker `userID` in the Analytics API. 
+- Availability of Trackers API (Beta) that allows you to track the occurrence of certain keywords or phrases in a conversation. [Read more here](/docs/concepts/trackers).
 - Availability of Management API (for Trackers) in Beta. [Read more here](/docs/management-api/introduction).
-- Support for speaker channel separation for Async Video APIs. [Read more here](/docs/async-api/overview/video/post-video#speaker-separation).
-- Support for Summary API (Labs). [Read more here](docs/concepts/summarization).
-- Support for Refresh flag in Summary API (Labs).
-- Support for Comprehensive API (Labs). [Read more here](docs/concepts/action-items#comprehensive-action-items-labs.).
+- Added support for speaker channel separation for Async Video APIs. [Read more here](/docs/async-api/overview/video/post-video#speaker-separation).
+- Availability of Summary API (Labs). [Read more here](/docs/concepts/summarization).
+- Added support for `refresh` flag in the Summary API (Labs) that allows a previously generated Summary to be regenerated.
+- Added support for Comprehensive Action Items API (Labs). [Read more here](/docs/concepts/action-items#comprehensive-action-items-labs.).
 
 
 ---

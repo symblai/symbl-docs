@@ -1,6 +1,7 @@
 ---
 id: topics
-title:  Topics
+title:  Topics API- Extracting Relevant Topics 
+description: Automatically identify and extract topics from conversations with Symbl.ai's Topic API. 
 sidebar_label:  Topics
 slug: /concepts/topics
 ---
