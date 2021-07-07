@@ -8,7 +8,7 @@ slug: /concepts/redaction-pii
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::info Symbl Labs
+:::note Symbl Labs
 This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
 
 
@@ -33,7 +33,7 @@ This feature will allow you to:
 
 A list of supported PII data that Symbl can identify and redact are given in [Supported PII Entities](#supported-pii-entities) section.
 
-:::note 
+:::info
 Currently, the PII identification and redaction is only supported for English for the [Streaming API](/docs/streamingapi/introduction).
 :::
 
@@ -68,47 +68,125 @@ the real-time PII identification and redaction while starting the connection to 
 For SDK client, add payload in the `sdk.startRealtimeRequest` method. 
 
 ```js
-const uuid = require('uuid').v4;
-const connection = await sdk.startRealtimeRequest({
-          id: uuid(),
-        // @This is additional request attributes enables PII feature
-          redaction: {
-              // Enable identification of PII information
-              identifyContent: true, // By default false
-              // Enable redaction of PII information
-              redactContent: true, // By default false
-              // Use custom string "[PII_ENTITY]" to replace PII information with 
-              redactionString: "[PII_ENTITY]" // By default ****
-          },
-          config: {
-              meetingTitle: 'My Redaction Test meeting',
-              timezoneOffset: 480, // Offset in minutes from UTC
-              languageCode: 'en-US'
-          },
-          speaker: {
-              name: "John Doe"
-          },
-          handlers: {
-              /**
-               * This will return live speech-to-text transcription of the call.
-               */
-              onSpeechDetected: (data) => {
-                  if (data) {
-                      const {punctuated} = data
-                      console.log('Live: ', punctuated && punctuated.transcript)
-                      console.log('');
-                  }
-                  console.log('onSpeechDetected ', JSON.stringify(data, null, 2));
-              },
-              /**
-               * When processed messages are available, this callback will be called.
-               */
-              onMessageResponse: (data) => {
-                  // Identified Entities and Redacted Text can be obtained here.
-                  console.log('onMessageResponse', JSON.stringify(data, null, 2));
-              }
-          }
-      });
+/**
+ * To Test this script - start speaking when you run the script.
+ */
+const WebSocketClient = require('websocket').client;
+
+const mic = require('mic');
+
+const micInstance = mic({
+    rate: '16000',
+    channels: '2',
+    debug: false,
+    exitOnSilence: 6
+});
+
+const micInputStream = micInstance.getAudioStream();
+
+let connection = undefined;
+
+const ws = new WebSocketClient();
+ws.on('connectFailed', (e) => {
+    console.error('Connection Failed.', e);
+});
+ws.on('connect', (conn) => {
+
+    connection = conn;
+    connection.on('close', () => {
+        console.log('WebSocket closed.')
+    });
+    connection.on('error', (err) => {
+        console.log('WebSocket error.', err)
+    });
+    connection.on('message', (data) => {
+        let response = JSON.stringify(data);
+        let utf8Data = JSON.parse(data["utf8Data"]);
+        //console.log(utf8Data);
+        if (utf8Data && utf8Data.type === "message_response") {
+            console.log("Payload ====");
+            console.log(utf8Data.messages[0].payload);
+            console.log("Entities ====");
+            console.log("metadata ====");
+            console.log(utf8Data.messages[0].metadata);
+            if (utf8Data.messages[0].entities) {
+                console.log("Entities found ");
+                console.log(utf8Data.messages[0].entities);
+            } else {
+                console.log("No entities found ");
+            }
+        }
+
+        // console.log('data: ', data);
+    });
+    console.log('Connection established.');
+
+    connection.send(JSON.stringify({
+        "type": "start_request",
+        "insightTypes": ["action_item", "question", "follow_up", "topic"],
+        "config": {
+            "confidenceThreshold": 0.1,
+            timezoneOffset: 480, // Offset in minutes from UTC
+            languageCode: 'en-US',
+            "speechRecognition": {
+                "engine": "google",
+                "encoding": "LINEAR16",
+                "sampleRateHertz": 44100,
+            },
+            // this option enables redaction PII feature. This is optional
+            redaction: {
+                identifyContent: true, // By default false
+                redactContent: true, // By default false
+                redactionString: '*****' // By default ****
+            },
+        },
+        "speaker": {
+            "userId": "john@example.com",
+            "name": "John"
+        },
+        trackers: [{
+            name: 'Budget',
+            vocabulary: [
+                'a budget conversation',
+                'budget', 'budgeted', 'budgeting decision', 'budgeting decisions',
+                'money',
+                'budgets', 'funding', 'funds', 'I have the budget', 'my budget', 'our budget', 'your budget',
+                "we don't have budget for this", "don't think I have budget", "I think we have budget",
+                "not sure if I have budget"
+            ]
+        },
+            {
+                name: 'Approval',
+                vocabulary: ['sounds great', 'yes', 'okay, sounds good', "agree", "yeah"],
+            },
+            {
+                name: 'Denial',
+                vocabulary: ['No', 'Not necessary', 'Not a good idea', "don't agree"],
+            }
+
+        ]
+
+    }));
+
+    micInputStream.on('data', function(data) {
+        connection.send(data);
+    });
+
+    // below action can stop meeting
+    setTimeout(() => {
+        micInstance.stop();
+        connection.sendUTF(JSON.stringify({
+            "type": "stop_recognition"
+        }));
+    }, 4 * 40 * 1000);
+
+    micInstance.start();
+
+});
+// Use auth token here and point to correct server
+ws.connect('wss://api-labs.symbl.ai/v1/realtime/insights/MeetingID', null, null, {
+    'x-api-key': ""
+});
 
 ```
 Field Name  | Data Type | Description | Required | Default vaule | Allowed values
@@ -228,6 +306,88 @@ PII or sensitive content will be identified and will be made available in the me
 
 </Tabs>
 
+## Sample with Conversation Response
+
+Given below is a sample of using PII Identification and Redaction with Get Conversation Insights call for `questions`. 
+
+`GET https://api.symbl.ai/v1/conversations/CONVERSATION_ID/questions`
+
+Response with enable redaction configuration:
+
+```json
+{
+    "questions": [
+        {
+            "id": "5845327161589760",
+            "text": "What would that be in  ***** ?",
+            "type": "question",
+            "score": 0.97763958889475,
+            "messageIds": [
+                "6371692449366016"
+            ],
+            "from": {
+                "id": "6af1e59a-4824-476a-b2ad-2908cb38c2f4",
+                "name": "john",
+                "userId": "john@example.com"
+            }
+        },
+        {
+            "id": "6228200813232128",
+            "text": "But, how did you know, I was  ***** ?",
+            "type": "question",
+            "score": 0.9919246735147544,
+            "messageIds": [
+                "4505288909520896"
+            ],
+            "from": {
+                "id": "6af1e59a-4824-476a-b2ad-2908cb38c2f4",
+                "name": "john",
+                "userId": "john@example.com"
+            }
+        }
+    ]
+}
+```
+#### Getting Conversation Insights without Redaction configuration
+
+`GET https://api.symbl.ai/v1/conversations/CONVERSATION_ID/questions`
+
+Response with disable redaction configuration:
+
+```json
+{
+    "questions": [
+        {
+            "id": "5216057812844544",
+            "text": "But, how did you know, I was English?",
+            "type": "question",
+            "score": 0.9919246735147544,
+            "messageIds": [
+                "4913495486234624"
+            ],
+            "from": {
+                "id": "8081de20-b855-46ad-b2d7-fb04774d9d67",
+                "name": "john",
+                "userId": "john@example.com"
+            }
+        },
+        {
+            "id": "5912470251110400",
+            "text": "What would that be in England?",
+            "type": "question",
+            "score": 0.97763958889475,
+            "messageIds": [
+                "6334186244800512"
+            ],
+            "from": {
+                "id": "8081de20-b855-46ad-b2d7-fb04774d9d67",
+                "name": "john",
+                "userId": "john@example.com"
+            }
+        }
+    ]
+}
+```
 
 ### Supported PII Entities
 
