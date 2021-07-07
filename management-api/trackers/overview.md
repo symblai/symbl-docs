@@ -69,11 +69,11 @@ This creates a Tracker and returns the following response. Note that every Track
 ```
 
 To create Trackers with Async APIs, see detailed documentation in the links given below. 
-- [Create Trackers- Async Audio File API](docs/management-api/trackers/create-tracker#async-audio-file-api)
+- [Create Trackers- Async Audio File API](/docs/management-api/trackers/create-tracker#async-audio-file-api)
 - [Create Trackers- Async Audio URL API](/docs/management-api/trackers/create-tracker#async-audio-url-api)
 - [Create Trackers- Async Video File API](/docs/management-api/trackers/create-tracker#async-video-file-api)
 - [Create Tracker- Async Video URL API](/docs/management-api/trackers/create-tracker#async-video-url-api)
-- [Create Trackers- Async Text API](docs/management-api/trackers/create-tracker#async-text-api)
+- [Create Trackers- Async Text API](/docs/management-api/trackers/create-tracker#async-text-api)
 
 
 After creating the Tracker, you can: 
@@ -210,6 +210,7 @@ You can define the phrases and keywords in the **vocabulary** of the request bod
 }
 ```
 This creates a Tracker and returns the following response. Note that every Tracker has a unique `id`. 
+
 ```json
 {
     "tracker": {
