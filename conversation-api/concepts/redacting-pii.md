@@ -233,22 +233,22 @@ PII or sensitive content will be identified and will be made available in the me
 
 When you enable the PII identification and redaction feature, the following PII data will be supported: 
 
-Category  | PII Entity | Description 
+PII Entity  | Category | Description 
 ---------- | ------- | ------ |
-Finance | Credit/Debit Card Number. | A credit or debit card number is 12 to 19 digits long, used for payment transactions.
-Finance | Credit/Debit Card CVV Number. | A 3-digit or 4-digit security code of a credit or debit card.
-Finance | Credit/Debit Card Expiration Date. | The month and year a card expires.
-Finance | Credit/Debit Card PIN. | A security code issued by a bank or credit union for authenticating the transaction. Not to be confused with CVV code.
-Finance | IBAN Code | An [International Bank Account Number (IBAN)](https://en.wikipedia.org/wiki/International_Bank_Account_Number) is an international system for identifying bank accounts across national borders. It defined under the ISO-13616:2007 standard. An IBAN consists of up to 34 alphanumeric characters. 
-Finance | SWIFT Code | A [SWIFT code](https://en.wikipedia.org/wiki/Society_for_Worldwide_Interbank_Financial_Telecommunication) is a unique identification code for a particular bank. These codes are used when transferring money between banks, particularly for international wire transfers.
-Finance | US Bank Routing Number | The American Bankers Association (ABA) [Routing Number](https://en.wikipedia.org/wiki/ABA_routing_transit_number) (also called the transit number) is a nine-digit code. It is used to identify the financial institution that's responsible to credit or entitled to receive credit for a check or electronic transaction.
-Finance | US Bank Account Number | US Bank Account Number.
-Personal | Name | A person's full name, which can include first names, middle names or initials, and last names. 
-Personal | Email | An email address to a mailbox.
-Personal | Age | Age measured in months or years.
-Personal | Phone Number, Address, Date of Birth. | Phone number, address and date of birth. 
-National ID | Social Security Number | A United States [Social Security number (SSN)](https://en.wikipedia.org/wiki/Social_Security_number) is a 9-digit number issued to US citizens, permanent residents, and temporary residents.
-National ID | Passport Number | A passport number.
-National ID | US Drivers License Number | A driver's license number for the United States. Format can vary depending on the issuing state.
-General | Date | Detects date mentions, including the names of common world holidays.
-General | Domain Name | A domain name as defined by [DNS standard](https://datatracker.ietf.org/doc/html/rfc1035).
+Credit/Debit Card Number | Finance | A credit or debit card number is 12 to 19 digits long, used for payment transactions.
+Credit/Debit Card CVV Number | Finance | A 3-digit or 4-digit security code of a credit or debit card.
+Credit/Debit Card Expiration Date | Finance  | The month and year a card expires.
+Credit/Debit Card PIN. | Finance | A security code issued by a bank or credit union for authenticating the transaction. Not to be confused with CVV code.
+IBAN Code | Finance | An [International Bank Account Number (IBAN)](https://en.wikipedia.org/wiki/International_Bank_Account_Number) is an international system for identifying bank accounts across national borders. It defined under the ISO-13616:2007 standard. An IBAN consists of up to 34 alphanumeric characters. 
+SWIFT Code | Finance | A [SWIFT code](https://en.wikipedia.org/wiki/Society_for_Worldwide_Interbank_Financial_Telecommunication) is a unique identification code for a particular bank. These codes are used when transferring money between banks, particularly for international wire transfers.
+US Bank Routing Number | Finance | The American Bankers Association (ABA) [Routing Number](https://en.wikipedia.org/wiki/ABA_routing_transit_number) (also called the transit number) is a nine-digit code. It is used to identify the financial institution that's responsible to credit or entitled to receive credit for a check or electronic transaction.
+US Bank Account Number | Finance |  US Bank Account Number.
+Name | Personal | A person's full name, which can include first names, middle names or initials, and last names. 
+Email | Personal | An email address to a mailbox.
+Age | Personal |Age measured in months or years.
+Phone Number, Address, Date of Birth | Personal | Phone number, address and date of birth. 
+Social Security Number | National ID | A United States [Social Security number (SSN)](https://en.wikipedia.org/wiki/Social_Security_number) is a 9-digit number issued to US citizens, permanent residents, and temporary residents.
+Passport Number | National ID | A passport number.
+US Drivers License Number | National ID | A driver's license number for the United States. Format can vary depending on the issuing state.
+Date | General | Detects date mentions, including the names of common world holidays.
+Domain Name | General | A domain name as defined by [DNS standard](https://datatracker.ietf.org/doc/html/rfc1035).
