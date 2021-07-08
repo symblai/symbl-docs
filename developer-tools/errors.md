@@ -1,6 +1,6 @@
 ---
 id: errors
-title: Errors
+title: Error Codes
 sidebar_label: Error Codes
 ---
 

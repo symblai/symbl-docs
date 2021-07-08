@@ -9,7 +9,7 @@ slug: /concepts/summarization
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Symbl's Conversational Intelligence distills important conversation messages and creates succinct Summaries. 
+Symbl's Conversation Intelligence distills important conversation messages and creates succinct Summaries. 
 
 Summaries helps you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages. 
 
