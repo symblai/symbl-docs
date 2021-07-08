@@ -10,6 +10,19 @@ import TabItem from '@theme/TabItem';
 ---
 The Job Status API is used to retrieve the status of an ongoing Async API request. You can use the Job ID (`jobId`) received in the successful response of the Async API.
 
+:::note Using Job ID
+**What is a Job ID?**<br/>
+As soon as you upload one of your files, or send one of your text, audio or video file for processing to Symbl, you get a `jobId` (and a `conversationId`) in response. This `jobId` is a unique identifier for the job processing the payload you sent.
+
+A job can have a particular status at a time 
+ 
+ - `IN_PROGRESS` 
+ - `SCHEDULED`
+ - `COMPLETED`  
+ - `FAILED` 
+ 
+You can only use a `conversationId` with the Conversation API once the job payload is completed.
+:::
 
 ## <span class="get">GET</span> Job Status
 

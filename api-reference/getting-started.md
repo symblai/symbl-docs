@@ -64,42 +64,31 @@ For Transcript generation, we return a formatted transcript in [Markdown](/docs/
 ---
 
 ## Getting Conversation Intelligence
-### Real time and Asynchronous Flow
 
-You can connect Symbl live on your on-going call and get Conversation Intelligence in real-time. 
-Alternatively, you can get insights after the conversation has ended (as long as you have processed your data and have your unique `conversationId`.)
-<br/>
-
-![async-realtime](/img/async-realtime-flow-diagram.png)
-
----
-
-### Using Conversation ID
+### Conversation ID
 #### What is a Conversation ID?
-When you process any conversation through Symbl whether it's from Async, Telephony, Streaming API, or SDKs you'll always receive a unique `conversationId` which consists of numerical digits. <br/>
-For example: `4639962491256832`.
+A Conversation ID is a 16-digit numeric value that is a unique identifier of a conversation. It is very important to have the `conversationId` handy as you need it while getting the Conversation Intelligence. The `conversationId` has to be passed in the Conversation API to fetch Transcripts, Topics, Action Items etc. 
 
-#### How do I use a Conversation ID?
-The `conversationId` that is returned by default in the response for Async, Telephony, Streaming API and SDKs allow you to maintain a unique identification for a conversation and generate any insight supported by the Conversation API for the same. 
-Having your Conversation ID handly can be useful in the following scenarios:
+When you process any conversation through Symbl using Async, Telephony or Streaming APIs and SDKs, you will always receive a unique `conversationId` specific to that request. 
 
-- While appending previously processed data. For example, if you wish to append the transcription of the previous conversation, you will add the extra data and make a PUT request. 
+#### Why do I need it?
+Use the Conversation ID for:
+
+- Getting Conversation Intelligence (using Conversation API) such as Transcripts, Topics, Action Items and others. 
+
+- Appending already processed data. For example, if you wish to append the transcript of a conversation, you have to send the `conversationId`. 
 
 - While in most cases, the `conversationId` is used for non-real-time data gathering, it is also useful when you want to extract the conversation insights of real-time conversations again.
 
 ![conversation_id](/img/conversation_id.png)
 
----
-### Using Job ID
-#### What is a Job ID?
-As soon as you upload one of your files, or send one of your text, audio or video file for processing to Symbl, you get a `jobId` (and a `conversationId`) in response. This `jobId` is a unique identifier for the job processing the payload you sent.
 
-A job can have a particular status at a time 
- 
- - `IN_PROGRESS` 
- - `SCHEDULED`
- - `COMPLETED`  
- - `FAILED` 
- 
-You can only use a `conversationId` with the Conversation API once the job payload is completed.
-To learn about how to get the Job Status, go to the [Job Status](/docs/async-api/overview/jobs-api) page. 
+### Real time and Asynchronous Flow
+
+You can connect Symbl live on your on-going call and get Conversation Intelligence in real-time. 
+Alternatively, you can get insights after the conversation has ended (as long as you have your unique `conversationId`.)
+<br/>
+
+![async-realtime](/img/async-realtime-flow-diagram.png)
+
+---
