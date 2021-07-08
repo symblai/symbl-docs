@@ -189,7 +189,7 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
   },
   "speakerAvatarURLs": {
     "9d6d34d9-5019-4694-9c9a-8ba7bfc8cfab": "https://gravatar.com/avatar/4908e2307fdc3350084daaf702d17a60?s=400&d=robohash&r=x", 
-    "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325": "https://gravatar.com/avatar/9839b07ba341232442f17282d4d67869?s=400&d=robohash&r=x",
+    "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325": "https://gravatar.com/avatar/9839b07ba341232442f17282d4d67869?s=400&d=robohash&r=x"
   },
   "font": {
     "family": "Roboto"
