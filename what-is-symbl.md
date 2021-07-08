@@ -1,33 +1,54 @@
 ---
 id: what-is-symbl
-title: What is symbl.ai?
-sidebar_label: What is Symbl.ai?
+title: What is Symbl?
+sidebar_label: What is Symbl?
 slug: /what-is-symbl
 ---
 
 ---
 
-[Symbl.ai](https://symbl.ai/) is an AI-powered, API first, Conversational Intelligence platform for natural human conversations that works on audio, video, and textual content in real-time or recorded files. Symbl’s APIs let you generate real-time Topics, Action Items, Trackers, Sentiment Analysis and much more in your applications.
+[Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence platform for natural human conversations that works on audio, video, and textual content in real-time or recorded files. Symbl’s APIs let you generate real-time Topics, Action Items, Trackers, Sentiment Analysis and much more in your applications.
 
 ## How Symbl Works
 ---
-Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversational Intelligence. 
+Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversationa Intelligence. 
 The **Channel APIs** makes it easy to send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
 Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a pre-built UI with insights for your conversations. 
 
-![symblflow](/img/how-symbl.png)
+![how-symbl-works](/img/flow-flow.png)
 
 ## Symbl’s Key Capabilities
 ---
+
+### ❇️ Speech-to-Text (Transcripts)
+
+Symbl provides access to a searchable transcript with timecodes and speaker information. The transcript is a refined output of the speech-to-text conversion. 
+
+The transcript is one of the easiest ways to navigate through the entire conversation. It can be sorted using speaker-specific or topic-specific filters. Additionally, each insight or action item can also lead to related parts of the transcript.
+
+Transcripts can be generated in real-time for voice and video conversations or using a recorded file. They can also be accessed through the post-conversation summary UI. The post-conversation summary page enables editing, copying and sharing of transcripts from the conversation.
+
+<div><h4><a href="/docs/concepts/speech-to-text"> Learn more about Transcripts ➡️ &nbsp;</a></h4></div>
+<br/>
+
 ### ❇️ Topics
 
-Summary topics provide a quick overview of the key things that were talked about in the conversation. 
-They are not detected based on the frequency of their occurrences in the conversation, they are instead detected contextually, and each summary topic is an indication of one or more important topics of discussion in the conversation.
+Topics provide a quick overview of the key things that were talked about in the conversation. 
+They are not detected based on the frequency of their occurrences in the conversation, they are instead detected contextually, and each Topic is an indication of one or more important topics of discussion in the conversation.
 
-Each summary topic has a score that indicates the importance of that topic in the context of the entire meeting. It is not that rare that even less frequently mentioned things are of higher importance in the conversation, and this will be reflected in a higher score for those topics, even if other summary topics have a high number of mentions in the overall conversation.
+Each Topic has a score that indicates the importance of that topic in the context of the entire meeting. It is not that rare that even less frequently mentioned things are of higher importance in the conversation, and this will be reflected in a higher score for those topics, even if other Topics have a high number of mentions in the overall conversation.
 
-<div><h4><a href="url">Learn more about Topics ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="/docs/concepts/topics">Learn more about Topics ➡️ &nbsp;</a></h4></div>
+<br/>
+
+### ❇️ Sentiment Analysis
+
+Sentiment Analysis is the interpretation of the general thought, feeling, or sense of an object or a situation.
+
+Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect). With Symbl's Sentiment Analysis feature, you can get the intensity of the sentiment and suggested sentiment type as negative, neutral or positive.
+
+<div><h4><a href="/docs/concepts/sentiment-analysis">Learn more about Sentiment Analysis ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Action Items
@@ -37,7 +58,25 @@ Examples:
 
 *“This was a great conversation, I will summarize this meeting and send a follow-up to all the stakeholders”*
 
-<div><h4><a href="url"> Learn more about Action Items ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="/docs/concepts/action-items"> Learn more about Action Items ➡️ &nbsp;</a></h4></div>
+<br/>
+
+### ❇️ Comprehensive Action Items (Labs)
+The Comprehensive Action Items API is similar to the Action Items API except that the Comprehensive Action Items API returns a rephrased form of the original action item message that's enriched with its corresponding context.
+
+While both are equally powerful in providing Action Items that relate to a discussion, the Comprehensive Action Items API is designed to provide more details such as references to speaker names, context in which the action item was mentioned and an overall comprehensive description of the action items.
+
+<div><h4><a href="/docs/concepts/comprehensive-action-items"> Learn more about Comprehensive Action Items ➡️ &nbsp;</a></h4></div>
+<br/>
+
+### ❇️ Follow-Ups
+Symbl can recognize if an action item has a connotation, which requires following up in general or by someone in particular - which usually includes setting up a calendar invite. Follow-ups have details of assignee, datetime ranges entities and is regenerated with speaker context with reference to the transcription or message. The Summary UI comes with an out-of-the-box calendar integration for this follow-up insight type. 
+
+Example: 
+
+*“John, let’s set a time to discuss the board updates tomorrow evening”*
+
+<div><h4><a href="/docs/concepts/follow-ups"> Learn more about Follow-Ups ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Questions
@@ -47,34 +86,25 @@ Examples:
 
 *“What features are most relevant for our use case?” “How are we planning to design the systems?”*
 
-<div><h4><a href="url"> Learn more about Action Items ➡️ &nbsp;</a></h4></div>
-<br/>
-
-### ❇️ Follow-Ups
-The platform can recognize if an action item has a connotation, which requires following up in general or by someone in particular - which usually includes setting up a calendar invite. Follow ups have details of assignee, datetime ranges entities and is regenerated with speaker context with reference to the transcription or message. The Summary UI comes with an out of the box calendar integration for this follow-up insight type. 
-
-Example: 
-
-*“John, let’s set a time to discuss the board updates tomorrow evening”*
-
-<div><h4><a href="url"> Learn more about Action Items ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="url"> Learn more about Questions ➡️ &nbsp;</a></h4></div>
 <br/>
 
 
-### ❇️ Transcripts
+### ❇️ Trackers (Beta)
+When it comes to detecting specific or “contextually similar” occurrences of a particular context in any conversation, the most commonly faced challenge is when the speakers talk about the context in general but do not speak the exact phrases. The Trackers API will however detect both exact and similar phrases.
 
-The platform provides access to a searchable transcript with timecodes and speaker information. The transcript is a refined output of the speech-to-text conversion. 
+For example “I don’t have any money” is contextually similar to “I ran out of budget” as both represent similar inherent meaning.
 
-The transcript is one of the easiest ways to navigate through the entire conversation. It can be sorted using speaker-specific or topic-specific filters. Additionally, each insight or action item can also lead to related parts of the transcript.
+However, after listening/hearing the conversation, it is understood that it indeed has the context that was meant to be detected.
 
-Transcripts can be generated in real-time for voice and video conversations or using a recorded file. They can also be accessed through the post-conversation summary UI. The post-conversation summary page enables editing, copying and sharing of transcripts from the conversation.
+The Trackers solve the above problem by providing the API with the capability to “track” the exact or “contextually similar” occurrences in a conversation.
 
-<div><h4><a href="url"> Learn more about Action Items ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="/docs/concepts/trackers"> Learn more about Trackers ➡️ &nbsp;</a></h4></div>
 <br/>
 
-### ❇️ Insights
+### ❇️ Conversation Analytics
 
-Insights are the important parts of the conversation that enables users to get to the right places in the transcription or trigger actions based on the aspects of the insight items. Today insights are categorized as question, action item and follow-up.  
+Conversation Analytics are the important parts of the conversation that enables users to get to the right places in the transcription or trigger actions based on the aspects of the insight items. Today insights are categorized as question, action item and follow-up.  
 
 Some of the other characteristics of insights include: 
 
@@ -90,19 +120,34 @@ Some of the other characteristics of insights include:
 
 - Built-in punctuation and sentence boundary detection.
 
-<div><h4><a href="url"> Learn more about Insights ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="/docs/concepts/conversational-analytics"> Learn more about Conversation Analytics ➡️ &nbsp;</a></h4></div>
+<br/>
+
+### ❇️ Summarization (Labs)
+
+Symbl's Conversational Intelligence distills important conversation messages and creates succinct Summaries.
+
+Summaries helps you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages.
+
+<div><h4><a href="/docs/concepts/summarization"> Learn more about Summary ➡️ &nbsp;</a></h4></div>
+<br/>
+
+### ❇️ Topic Hierarchy (Beta)
+In any conversation, there can be multiple related topics that get discussed and it is possible to organize them in a hierarchy for better insights and consumption. Symbl's Topic Hierarchy algorithm finds a pattern in the conversation and creates parent (global) topics with each parent topic having multiple child topics nested within it.
+
+<div><h4><a href="/docs/concepts/topic-hierarchy"> Learn more about Topic Hierarchy ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Entities
 
 A word or phrase that provides information necessary to fulfill a particular intent. Each entity belongs to a category specified by the entity's associated type.  The platform generates entities related to the insight types for datetime and person.
 
-<div><h4><a href="url"> Learn more about Entities ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="/docs/conversation-api/entities"> Learn more about Entities ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Work Tool Integrations
 
-The platform currently offers email and calendar as out-of-box integrations. The calendar integration is only available as part of the Summary UI. However, the conversation data can be extended to any work tool where the actionable insights need to be pushed to enhance productivity and reduce the time taken by users to manually enter information from conversations. This can be implemented by using the Websocket or Webhook in real time or asynchronous communication channels. 
+Symbl currently offers email and calendar as out-of-box integrations. The calendar integration is only available as part of the Summary UI. However, the conversation data can be extended to any work tool where the actionable insights need to be pushed to enhance productivity and reduce the time taken by users to manually enter information from conversations. This can be implemented by using the Websocket or Webhook in real time or asynchronous communication channels. 
 
 Some of the examples of these work tools can be:
 
@@ -116,7 +161,7 @@ Some of the examples of these work tools can be:
 
 - Collaboration platforms such as Slack, Flock.
 
-<div><h4><a href="url"> Learn more about Pre-built Summary UI ➡️ &nbsp;</a></h4></div>
+<div><h4><a href="/docs/pre-built-ui/tuning-summary-page"> Learn more about Pre-built Summary UI ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Summary Page UI
@@ -135,10 +180,12 @@ The Summary page UI includes the following components:
 
 - Any Insights, action items or questions from the transcript. Insights can also be edited, shared or dismissed, date/assignee for action item to be modified.
 
-- Calendar integration to set a follow-up meeting with Outlook, iCal and Google 
+- Calendar integration to set a follow-up meeting with Outlook, iCal and Google. 
 
 - Email Integration to share the link of the page with other meeting participants. The email is auto-populated and can be customized on request. 
 
 - The post conversation summary page is also fully customizable, as per the use case or product requirement. This customization is on request only, please connect with to enable this for your account. 
 
-<div><h4><a href="url"> Learn more about Pre-built UI ➡️ &nbsp;</a></h4></div>
+- Trackers and Analytics UI that provides details on the Trackers you have defined for the conversation.
+
+<div><h4><a href="/docs/pre-built-ui/summary-ui"> Learn more about Pre-built UI ➡️ &nbsp;</a></h4></div>

@@ -6,7 +6,7 @@ slug: /tutorials
 ---
 
 ---
-Find detailed tutorials on how to implement Conversational Intelligence on your conversation platform. 
+Find detailed tutorials on how to implement Conversation Intelligence on your conversation platform. 
 
 ## Streaming API
 
@@ -33,7 +33,7 @@ Find detailed tutorials on how to implement Conversational Intelligence on your 
 
 #### Symbl Javascript SDK
 
-The Programmable Javascript SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. With the Javascript SDK, you can generate intelligent insights such as action items, topics and questions.
+The Programmable Javascript SDK allows you to add Conversation Intelligence directly into your web applications and meeting platforms. With the Javascript SDK, you can generate intelligent insights such as action items, topics and questions.
 
 [Learn more about Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction)
 

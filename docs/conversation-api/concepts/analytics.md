@@ -1,17 +1,27 @@
 ---
 id: analytics
+<<<<<<< HEAD:docs/conversation-api/concepts/analytics.md
 title: Conversational Analytics
 sidebar_label: Introduction
 slug: /concepts/conversational-analytics/
 pagination_label: Conversation Analytics
+=======
+title: Conversation Analytics
+sidebar_label: Conversation Analytics
+slug: /concepts/conversational-analytics
+>>>>>>> a168d5a (New updates):conversation-api/concepts/analytics.md
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<<<<<<< HEAD:docs/conversation-api/concepts/analytics.md
 ---
 
 Conversational Analytics is an understanding of a conversation between two or more people to gain insights on the customer behavior.
+=======
+Conversation Analytics is an understanding of a conversation between two or more people to gain insights on the customer behavior.
+>>>>>>> a168d5a (New updates):conversation-api/concepts/analytics.md
 
 #### Example
 
@@ -31,8 +41,8 @@ If John and Arya talked over the phone for 60 mins where John talked for 40 mins
 
 
 
-## Conversational Analytics API
+## Conversation Analytics API
 
-To see Conversational Analytics API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID**.  A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the analytics from the conversation.
+To see Conversation Analytics API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID**.  A Conversation ID is the key to receiving conversation insights from any conversation. As an example, here's a simple API call which grabs the analytics from the conversation.
 
-👉 [Conversational Analytics API](/docs/conversation-api/analytics)
+👉 [Conversation Analytics API](/docs/conversation-api/analytics)
