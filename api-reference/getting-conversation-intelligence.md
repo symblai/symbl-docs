@@ -1,7 +1,7 @@
 ---
 id: getting-conversation-intelligence
-title: Get Conversation Intelligence
-sidebar_label: Get Conversation Intelligence
+title: Getting Conversation Intelligence
+sidebar_label: Getting Conversation Intelligence
 slug: /api-reference/getting-conversation-intelligence
 ---
 ---
