@@ -34,6 +34,7 @@ connection = symbl.Streaming.start_connection(
 
 ```
 Parameter | Required | Description |
+---- | ----- | ----- | 
 `credentials`| Optional| Don't add this parameter if you have symbl.conf file in your home directory or working directory.
 `speaker` | Optional | Speaker object containing `name` and `email` field.
 `insight_types` | Optional | The insights to be returned in the WebSocket connection.
