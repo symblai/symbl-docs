@@ -22,7 +22,6 @@ The Python SDK provides the following capabilities:
 
 - [Subscribing to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
-
 ## Start Connection
 
 The code snippet below allows you to a Streaming API connection with Symbl via WebSocket. This returns a connection object:
