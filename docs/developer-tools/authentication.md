@@ -8,8 +8,13 @@ slug: /developer-tools/authentication/
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<<<<<<< HEAD:docs/developer-tools/authentication.md
 
 ---
+=======
+---
+
+>>>>>>> ad5866b (Feedback from Toshish):developer-tools/authentication.md
 Symbl uses the [OAuth2.0 Protocol](https://datatracker.ietf.org/doc/html/rfc6749) for Authentication. 
 To begin, get your API Credentials from [Symbl Platform](https://platform.symbl.ai/). Using these credentials you can then generate the Access Token to invoke Symbl API calls. 
 
