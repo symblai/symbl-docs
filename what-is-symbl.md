@@ -9,18 +9,18 @@ slug: /what-is-symbl
 
 [Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence platform that analyzes conversation data and lets you generate:
 
-- **Speech-to-text capabilities** like [Transcription](/docs/concepts/speech-to-text), [Speaker Separation](/docs/async-api/overview/audio/post-audio#speaker-separation) and [Speaker Diarization](docs/async-api/overview/audio/post-audio#speaker-separation). 
+- **Speech-to-text capabilities** like Transcription, Speaker Separation and Speaker Diarization. 
 - Works with **multi-channel data**: Video, Audio, Text and Streaming. 
 - Generates **Conversation Intelligence** like Sentiment Analysis, Action Items, Topics, Trackers, Summary and much more in your applications.
 
 ## How Symbl Works
 ---
-Symbl ingests conversation data from different sources: [text](/docs/async-api/overview/text/post-text), audio and **video** and processes them in real-time as well as asynchronously to return Conversationa Intelligence. 
-The **Channel APIs** makes it easy to send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
+Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversation Intelligence. 
+You can send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
-Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a pre-built UI with insights for your conversations. 
+Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a **Customizable Pre-built UI**.
 
-![how-symbl-works](/img/flow-flow.png)
+![how-symbl-works](/img/symbl-page.png)
 
 ## Symbl’s Key Capabilities
 ---

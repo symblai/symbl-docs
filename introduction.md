@@ -46,11 +46,11 @@ Using the Symbl credentials, you can [generate the authentication token](/docs/d
 ### Step 2: Send Recorded Conversation OR Connect Live
 ---
 
-Using **Channel APIs**, send conversation data in real-time or after the conversation has taken place (asynchronously). 
+Using the following APIs, send conversation data in real-time or after the conversation has taken place (async). 
 
- &nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/introduction) allow you to send text, audio or video conversations in recorded format. <br/>
-&nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call.<br/>
-&nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on an live audio conversation.<br/>
+ &nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/reference/reference) allow you to send text, audio or video conversations in recorded format. <br/>
+&nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call via WebSocket protocol.<br/>
+&nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on an live audio conversation via SIP and PSTN.<br/>
 
 ### Step 3: Get Conversation Intelligence
 ---

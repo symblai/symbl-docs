@@ -6,6 +6,8 @@ slug: /api-reference/getting-conversation-intelligence
 ---
 ---
 
+This page contains a step-by-step explanation of getting Conversation Intelligence with Symbl's APIs as well as introduction to our APIs. For code snippets and sample requests, head to the individual sections of the API Reference. 
+
 To get Conversation Intelligence, 
 
 &nbsp;&nbsp; [Step 1: Process conversation with Real-time APIs or Async API](#1-process-conversation-with-real-time-or-async-api) <br/>
@@ -15,15 +17,13 @@ To get Conversation Intelligence,
 ### 1. Process conversation with Real-time OR Async API
 ---
 You can process your text, audio or video conversation with Symbl using: 
-- **Real-time APIs** for connecting Symbl on live calls<br/>
+- [Real-time APIs](#real-time-apis) for connecting Symbl on live audio and video conversations<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or
-- **Async APIs** for sending conversation data after the conversation has ended.
+- [Async APIs](#async-apis) for sending recorded conversation data after the conversation has ended.
 
-This step always returns a unique Conversation ID. The Conversation ID is used in [Step 2](#2-get-conversation-intelligence-with-conversation-api) for getting Conversation Intelligence. <br/>
+This step always returns a unique Conversation ID. The Conversation ID is used in [Step 2](#2-get-conversation-intelligence-with-conversation-api) for getting Conversation Intelligence. Read more in the [Conversation ID](#what-is-a-conversation-id) section. 
 
-Read more in the [Conversation ID](#what-is-a-conversation-id) section. 
-
-![async-realtime](/img/async-realtime-flow-diagram1.png)
+![async-realtime](/img/real-time-async-flow-diagram.png)
 
 
 :::tip Real-time API vs Async APIs
@@ -38,45 +38,44 @@ Both these API types process your conversation with Symbl effectively and the ch
 
 To connect in realtime, you can use the Real-time APIs: **Streaming API** or **Telephony API**. 
 
-- [Streaming API](/docs/streamingapi/introduction) <br/>
+- [Streaming API](/docs/streamingapi/introduction): 
 Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time. It can be integrated directly via the browser or server.
-- [Telephony API](/docs/telephony/introduction) <br/>
+- [Telephony API](/docs/telephony/introduction):
 Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well. 
 
 #### Async APIs
-The Async API provides a REST interface that helps you submit any recorded or saved conversations to Symbl. Its is supported for all data sources:
+The Async API provides a REST interface that helps you submit any recorded or saved conversations to Symbl. Its is supported for all data sources mentioned below:
 
-- [Text API](/docs/async-api/overview/text/post-text)
-- [Audio API](/docs/async-api/overview/audio/post-audio)
-- [Video API](/docs/async-api/overview/video/post-video)
+- [Text API](/docs/async-api/overview/text/post-text) for processing saved conversations via emails, sms and chat.
+- [Audio API](/docs/async-api/overview/audio/post-audio) for processing recorded conversations via VoIP, voice mails, and audio calls.
+- [Video API](/docs/async-api/overview/video/post-video) for processing recorded conversations via video calls. 
 
 ### 2. Get Conversation Intelligence with Conversation API
 ---
 
 In this step, you will use the **Conversation API** to fetch Transcripts, Topics, Action Items and all the supported insights.
 
-The **Conversation ID** you received in Step 1 is mandatory in the Conversation API and is the most important value you will need for performing all the operations.  
+In the Conversation API, you must send the **Conversation ID** that you received in Step 1. The Conversation ID is mandatory and is required everytime you generate Conversation Intelligence with Symbl. 
 
 ![conversation_id](/img/conversation_id.png)
 
 :::note Conversation ID
 #### What is a Conversation ID?
-A Conversation ID is a 16-digit numeric value that is a unique identifier of a conversation. Since the Conversation ID is a unique stamp of a conversation, Symbl mandatorily requires you to send the Conversation ID for a personalized result. 
+A Conversation ID is a 16-digit numeric value that is a unique identifier of a conversation. Since the Conversation ID is a unique stamp of a conversation, Symbl mandatorily requires you to send the Conversation ID for a more personalized result. 
 
 It is therefore the most important value that you need to keep handy for not only getting Conversation Intelligence but also performing other important operations described below. 
 
 #### Why do I need it?
 You can use the Conversation ID for the following use-cases:
 
-- **Getting Conversation Intelligence**: This is perhaps the most important use-case of the Conversation ID as it helps you generate Symbl's AI powered Conversation Intelligence such as Transcripts, Topics, Action Items and others. To get any Conversation Intelligence, you must pass the `conversationId` in the Conversation API endpoint.
+- **Getting Conversation Intelligence**: This is perhaps the most important use-case of the Conversation ID as it helps you generate Symbl's AI powered Conversation Intelligence such as Transcripts, Topics, Action Items and others. 
 
-- **Appending already processed data**: For conversations processed by Symbl, you can append data to it and have Symbl generate intelligence on it again. This requires a Conversation ID so that Symbl identifies the said conversation and appends the same. For example, if you wish to append the transcript of a conversation, you have to send the appending text with the `conversationId`.
+- **Appending already processed data**: For conversations processed by Symbl, you can append data to it and have Symbl generate intelligence on it again. This requires a Conversation ID so that Symbl can identify the said conversation and append the same. For example, if you wish to append the transcript of a conversation, you have to send the appending text along with the `conversationId`.
 
-- **With real-time APIs**: While in most cases, the `conversationId` is used for non-real-time data gathering, it is also useful when you want to extract the conversation insights of real-time conversations again. For example, after a conversation via WebSocket protocol (Streaming API) has ended, you can use the Conversation ID to fetch Topics, Action Items, Questions, etc. afterwards. 
+- **For conversation processed using Real-time APIs**: While in most cases, the `conversationId` is used for non-real-time data gathering, it is also useful when you want to extract the conversation insights of real-time conversations again. For example, after a conversation via WebSocket protocol (Streaming API) has ended, you can use the Conversation ID to fetch Topics, Action Items, Questions, etc. again later. 
 
 
 #### How to generate a Conversation ID 
 
-Everytime you process a conversation using Async, Telephony or Streaming APIs (and SDKs), you will automatically receive a unique Conversation ID specific to that request. 
-
+Everytime you process a conversation using Async, Telephony or Streaming APIs (and SDKs), you will by default receive a unique Conversation ID specific to that request. 
 :::
