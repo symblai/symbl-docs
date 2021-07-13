@@ -62,7 +62,7 @@ The Channel APIs return a `conversationId`. Use this in the **Conversation API**
 &nbsp; &nbsp;👉 &nbsp; [Sentiment Analysis](/docs/concepts/sentiment-analysis) <br/>
 &nbsp; &nbsp;👉 &nbsp; [Action Items](/docs/concepts/action-items)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Follow Ups](/docs/concepts/follow-ups)<br/>
-&nbsp; &nbsp;👉 &nbsp; [Questions](/docs/getting-started-with-async-api)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Questions](/docs/concepts/questions)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Trackers](/docs/concepts/trackers)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Conversation Analytics](/docs/concepts/conversational-analytics)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Summary (Labs)](/docs/concepts/summarization)<br/>

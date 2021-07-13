@@ -1,7 +1,7 @@
 ---
 id: ui-components
 title: Reusable and Customizable UI Components
-sidebar_label: Reusable and Customizable UI Components
+sidebar_label: Introduction
 ---
 
 import Tabs from '@theme/Tabs';
