@@ -26,19 +26,19 @@ https://api.symbl.ai/v1/
 However, if you are accessing the Labs feature, you must use the base URL `https://api-labs.symbl.ai`. Read more about Symbl Labs [here](/docs/labs). 
 
 ---
-### Endpoint Resources
+### Endpoints
 
 Given below is a list of API resources and their corresponding services:
 
- | Resource  | Service
+ | Endpoint  | Description | 
 ---------- | ------- |  
-`v1/process` | Processes text, audio and video data.  
-`v1/append` | Performs append function on a data that is already processed by Symbl.
-`v1/conversation` | Returns the conversation resource that provides Conversation Intelligence like Topics, Action Items, Questions, etc. 
-`v1/job` | Returns the status of the ongoing job request. Read more about `jobId` below. 
-`v1/endpoint:connect` | Connects Symbl via Telephony APIs over PSTN or SIP protocols. 
-`v1/conversations/{conversationId}` |  Gets your processed Speech-to-Text data(also known as Transcripts) and Conversation Insights.
-`v1/manage`  <font color="orange"> BETA</font> | Accessing and managing various resources against your Symbl account. 
+`/v1/process` | Processes text, audio and video data.  
+`/v1/append` | Performs append function on a data that is already processed by Symbl.
+`/v1/conversation` | Returns the conversation resource that provides Conversation Intelligence like Topics, Action Items, Questions, etc. 
+`/v1/job` | Returns the status of the ongoing job request. Read more about `jobId` below. 
+`/v1/endpoint:connect` | Connects Symbl via Telephony APIs over PSTN or SIP protocols. 
+`/v1/conversations/{conversationId}` |  Gets your processed Speech-to-Text data(also known as Transcripts) and Conversation Insights.
+`/v1/manage`  <font color="orange"> BETA</font> | Accessing and managing various resources against your Symbl account. 
 
 ---
 ### API Parameters

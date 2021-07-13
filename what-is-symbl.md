@@ -9,13 +9,13 @@ slug: /what-is-symbl
 
 [Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence platform that analyzes conversation data and lets you generate:
 
-- **Speech-to-text capabilities** like Transcription, Speaker Separation and Speaker Diarization, 
-- Works with **multi-channel data**: Video, Audio, Text and Telephony. 
-- Generates **Conversation Intelligence** like Sentiment Analysis, Action Items, Trackers, and much more in your applications.
+- **Speech-to-text capabilities** like [Transcription](/docs/concepts/speech-to-text), [Speaker Separation](/docs/async-api/overview/audio/post-audio#speaker-separation) and [Speaker Diarization](docs/async-api/overview/audio/post-audio#speaker-separation). 
+- Works with **multi-channel data**: Video, Audio, Text and Streaming. 
+- Generates **Conversation Intelligence** like Sentiment Analysis, Action Items, Topics, Trackers, Summary and much more in your applications.
 
 ## How Symbl Works
 ---
-Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversationa Intelligence. 
+Symbl ingests conversation data from different sources: [text](/docs/async-api/overview/text/post-text), audio and **video** and processes them in real-time as well as asynchronously to return Conversationa Intelligence. 
 The **Channel APIs** makes it easy to send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
 Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a pre-built UI with insights for your conversations. 
@@ -147,25 +147,6 @@ In any conversation, there can be multiple related topics that get discussed and
 A word or phrase that provides information necessary to fulfill a particular intent. Each entity belongs to a category specified by the entity's associated type.  The platform generates entities related to the insight types for datetime and person.
 
 <div><h4><a href="/docs/conversation-api/entities"> Learn more about Entities ➡️ &nbsp;</a></h4></div>
-<br/>
-
-### ❇️ Work Tool Integrations
-
-Symbl currently offers email and calendar as out-of-box integrations. The calendar integration is only available as part of the Summary UI. However, the conversation data can be extended to any work tool where the actionable insights need to be pushed to enhance productivity and reduce the time taken by users to manually enter information from conversations. This can be implemented by using the Websocket or Webhook in real time or asynchronous communication channels. 
-
-Some of the examples of these work tools can be:
-
-- Sales platforms such as Salesforce, Hubspot
-
-- Task management solutions such as Trello, Google Tasks
-
-- Calendars such as Outlook, Google
-
-- Project Management Tools such as Monday, Asana
-
-- Collaboration platforms such as Slack, Flock.
-
-<div><h4><a href="/docs/pre-built-ui/tuning-summary-page"> Learn more about Pre-built Summary UI ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Summary Page UI
