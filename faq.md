@@ -27,7 +27,7 @@ If you are looking to scale, and need more concurrent jobs than this limit, plea
 
 ### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) support?  
 
-As of this writing, the API accepts files that are 2 hours or less in duration.
+The API accepts files that are 4 hours or less in duration.
 
 ### What audio formats and channels does [Async Audio API](/docs/async-api/overview/introduction) support?
 

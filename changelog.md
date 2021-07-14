@@ -11,6 +11,16 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 13 July 2021
+
+![summary](/img/summary-ui-icon.png)
+- **Customizable Trackers and Summary UI**: You can now customize the look and feel of Trackers and Analytics UI to match your brand identity.<br/>
+[Read more here](https://docs.symbl.ai/docs/pre-built-ui/trackers-and-analytics-ui/#customizing-trackers-and-analytics-ui).
+
+---
+
+![summary](/img/summary-ui-icon.png)
+
 ### 29 June 2021
 
 ![api update](/img/api-update.png)
