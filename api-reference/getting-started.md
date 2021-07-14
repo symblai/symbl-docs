@@ -24,7 +24,7 @@ Symbl provides a suite of APIs for different usecases. Some of them are listed b
 
 ---
 ### Base URL
-All our APIs use the base URL as `https://api.symbl.ai/` and endpoint definition as given below for all our services:
+All our APIs use the base URL `https://api.symbl.ai/` and endpoint definition as given below for all our services:
 
 ```shell
 https://api.symbl.ai/v1/
@@ -69,7 +69,7 @@ Conversation API <br/>(for Sentiment, verbose, etc.) | | ![tick](/img/tick-mark.
 ---
 ### Request and Response Format
 
-Symbl APIs use standard HTTPS requests and responses. Our reponses are returned in the standard [JSON](https://www.json.org/json-en.html) format. 
+Symbl APIs use standard HTTPS requests and responses. Our responses are returned in the standard [JSON](https://www.json.org/json-en.html) format. 
 
 For Transcript generation, we return a formatted transcript in [Markdown](/docs/conversation-api/transcript/#create-transcript-in-markdown) and [SRT](/docs/conversation-api/transcript/#create-transcript-in-srt) format.
 
