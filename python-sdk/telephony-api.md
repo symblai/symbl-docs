@@ -125,7 +125,7 @@ The sample code given below shows the usage of subscribe function and email acti
 ```py
 import symbl
 
-phone_number = "+1123456789" # Phone number for connecting on your conference call, e.g., Zoom, Google hangouts. 
+phoneNumber = "+1123456789" # Phone number for connecting on your conference call, e.g., Zoom, Google hangouts. 
 meetingId = "8931167232" #Your meeting ID.
 password = "447891" #Your meeting passcode.
 emailId = "john@example.com" #Your registered email ID on the conference tool.
