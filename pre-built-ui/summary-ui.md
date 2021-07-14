@@ -11,9 +11,17 @@ import VideoDemoButton from '@site/src/components/Button';
 
 The Summary UI provides users with a translated meeting summary page with transcript, attendees, topics, action items, follows ups, and more.
 
-You can view a demo of the Summary UI here:
+You can generate the following types of Summary UI:
 
-[Demo of Sample Summary UI](https://oob-prod.rammer.ai/meeting/?__hstc=142565997.f13e6f687289922af636bba5b8ac2aab.1598766952817.1606472347899.1606474504198.210&__hssc=142565997.1.1606474504198&__hsfp=1690225618#/eyJ1c2VySWQiOiJzdXJiaGlyYXRob3JlQHJhbW1lci5haSIsIm5hbWUiOiJTdXJiaGkiLCJzZXNzaW9uSWQiOiI2MzA0NTA2NTcyNzAxNjk2In0)
+- [Text Summary UI](/docs/pre-built-ui/experience-api#text-summary-ui)
+- [Video Summary UI](/docs/pre-built-ui/experience-api#video-summary-ui)
+
+:::note Demo links
+
+[Sample Text Summary UI](https://oob-prod.symbl.ai/meeting/?__hstc=142565997.f13e6f687289922af636bba5b8ac2aab.1598766952817.1606472347899.1606474504198.210&__hssc=142565997.1.1606474504198&__hsfp=1690225618&_ga=2.9776305.580174444.1626193486-1247610446.1617102437#/eyJ1c2VySWQiOiJzdXJiaGlyYXRob3JlQHJhbW1lci5haSIsIm5hbWUiOiJTdXJiaGkiLCJzZXNzaW9uSWQiOiI2MzA0NTA2NTcyNzAxNjk2In0)
+
+<VideoDemoButton href="https://meetinginsights.symbl.ai/meeting/#/eyJzZXNzaW9uSWQiOiI2NTA0OTI1MTg4MDYzMjMyIiwidmlkZW9VcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcmFtbWVyLXRyYW5zY3JpcHRpb24tYnVja2V0LzE5MzE0MjMwMjMubXA0In0=?showVideoSummary=true" text="Sample Video Summary UI" />
+:::
 
 ## Contents
 
