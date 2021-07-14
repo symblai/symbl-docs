@@ -11,8 +11,9 @@ import TabItem from '@theme/TabItem';
 
 The **Trackers and Analytics UI** provides a waveform visualization with conversation insights. The waveform highlights Topics in the timeline using color coded timestamps allowing you to get a snapshot of when they occured in the course of the conversation. You can view Trackers with sentiment score, transcripts, speaker information, and other conversation insights described below.
 
-In this version, the Tracker and Analytics UI is supported for audio conversations. 
+👉 &nbsp; [See Trackers and Analytics UI sample](https://meetinginsights-experience.symbl.ai/?_ga=2.9776305.580174444.1626193486-1247610446.1617102437#/eyJjb252ZXJzYXRpb25JZCI6IjU5NDg0ODUwNDUwNTk1ODQiLCJhdWRpb1VybCI6Imh0dHBzOi8vc3ltYmwtdGVzdC1jb252ZXJzYXRpb24uczMuYW1hem9uYXdzLmNvbS80X2NvbWNhc3RfY3VzdG9tZXJfc2VydmljZV85bWluMDNzZWMubXAzIn0.?o=fb5a99d192b2821a40639c5c7af86021db2ed6c7e32b3a8fccf6967b7e126c4ed6bd1e4636082ba3fc3a3da3980e5b99272c241e9d44c518715bf5c9772fe3bc405efb43e2cd11ef9c6e106215034ee3ac91c8dda4c09263032103519e56c690980c1c3f07604c183b1a4ddbcfca5df6cee1f7841492017eb2bb28b761cf57f218f05e233a2f34d223d4e0e4d8615fb2fca9c31fa534237c82e276ef4c4ec2c77f4fa320a7c00cded9e897d879b0f77d819475c0383f677214fa366d85bd6b99b10e1b7f56410d1c5813fd71d8f7f441de040f0bddfe2253c6161cb9990ca47f69e052ae5553a33b3cb0fd9dff80c009b466953f671d0ddefcf4534a17b56b2a89b671c07f0bc51daa85939494423b394ada8fabd44b91efc1817e77566ead15ab69e61fe2773a4eb4086d3ae0ca6bceda3274c5361e5ad389)
 
+In this version, the Tracker and Analytics UI is supported for audio conversations. 
 
 ![Waveform](/img/trackers-and-analytics-ui.png)
 
