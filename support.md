@@ -7,7 +7,7 @@ slug: /support
 
 --- 
 
-Reach out to our Support team for integration queries or help by [sumbitting a ticket](https://symbl-ai.zendesk.com/hc/en-us/requests/new). 
+Reach out to our Support team for integration queries or help by [submitting a ticket](https://symbl-ai.zendesk.com/hc/en-us/requests/new). 
 
 Refer to our Knowledge Base articles that provide comprehensive information on how to use Symbl and tackle errors. 
 
