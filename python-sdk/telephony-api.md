@@ -68,7 +68,7 @@ Optionally, you can also use parameters supported with [Telephony API](/docs/tel
 
 Once the PSTN connection is established, you can get live updates on conversation events such as generation of transcript, action items or questions, etc.
 
-The `connection.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
+The `connection_object.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
 
 ### Supported Events 
 
@@ -85,12 +85,12 @@ Event  | Description
 ### Usage of Subscribe Event
 
 ```py
-connection.subscribe({
+connection_object.subscribe({
     'transcript_response': lambda response: print('printing the first response ' + str(response)), 
     'insight_response': lambda response: print('printing the first response ' + str(response))
     }
     )
-print(connection)
+print(connection_object)
 ```
 ## Receive Insights on Email
 
@@ -125,7 +125,7 @@ The sample code given below shows the usage of subscribe function and email acti
 ```py
 import symbl
 
-phone_number = "+1123456789" # Phone number for connecting on your conference call, e.g., Zoom, Google hangouts. 
+phoneNumber = "+1123456789" # Phone number for connecting on your conference call, e.g., Zoom, Google hangouts. 
 meetingId = "8931167232" #Your meeting ID.
 password = "447891" #Your meeting passcode.
 emailId = "john@example.com" #Your registered email ID on the conference tool.

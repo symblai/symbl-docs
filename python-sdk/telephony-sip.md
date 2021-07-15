@@ -48,7 +48,7 @@ Optionally, you can also use parameters supported with [Telephony API](/docs/tel
 
 Once the SIP connection is established, you can get live updates on conversation events such as generation of transcript, action items or questions, etc.
 
-The `connection.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
+The `connection_object.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
 
 ### Supported Events 
 

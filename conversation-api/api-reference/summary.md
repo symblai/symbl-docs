@@ -21,7 +21,7 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
-Currently, the Summary can be enabled with Async APIs. Support for Summarization in real-time will be added soon. However, if you are using Streaming or Telephony API, you can use the `refresh` parameter to generate the Summary after the conversation has ended. To read about how to use it, see the [Refresh Parameter](#refresh-parameter) section below. 
+Currently, the Summary can be enabled with Async APIs. Support for Summarization in real-time will be added soon. However, if you are using Streaming or Telephony API, you can use the `refresh` parameter to generate the Summary after the conversation has ended. To read about how to use it, see the [Refresh Parameter](#using-refresh-parameter) section below. 
 
 :::note
 This API works best on audio/video conversations that are at least 10 mins in duration. For text conversations, there must be more than 60 lines of conversation for the Summary to get generated.
@@ -80,16 +80,23 @@ request.get({
 </TabItem>
 </Tabs>
 
-### Refresh Parameter
+:::important
 
-You can use the `refresh` query parameter in the Summary API for any of the following use-cases:
+The Conversation ID you receive after processing conversations with production Endpoint can be used to process Summary using the Labs Endpoint.
+:::
 
-- **Regenerating the Summary (Async APIs)** <br/> 
-Summaries can be generated again when you have new discussion items. Use `refresh=true` in Summary API as a query param. This will delete the previous Summary and will create a new one. 
+### Using Refresh Parameter
 
+You can use the `refresh=true` as query parameter in the Summary API for any of the following use-cases:
 
-- **Creating Summary (Telephony and Streaming APIs)** <br/> 
-If you are using Telephony or Streaming API, after the conversation has ended, use the `refresh=true` parameter in the Summary API to generate the Summary.
+- **To Regenerate the Summary (Async APIs)** <br/> 
+Summaries can be generated again when you have new discussion items. Use `refresh=true` in [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) as a query param. This will delete the previous Summary and will create a new one. 
+
+- **To create Summary (Telephony and Streaming APIs)** <br/> 
+If you are using Telephony or Streaming API, after the conversation has ended, use the `refresh=true` parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) to generate the Summary.
+
+- **To generate Summary for already processed Conversations** <br/>
+If you have already processed a conversation using Async or Real-time APIs (without `EnableSummary` flag) and would like to generate a Summary for it, you can use `refresh=true` as query parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) and use the `conversationId` to get the Summary. 
 
 ### Response Body Sample
 
