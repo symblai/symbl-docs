@@ -118,6 +118,7 @@ print(conversation_object.get_messages()) # Returns the transcript of the conver
 ## Supported APIs
 
 In this Python SDK release, you can utilize the following Symbl APIs:  
+- [Streaming API (in Real-time)](/docs/python-sdk/streaming-api/)
 - [Telephony API (in Real-time)](/docs/python-sdk/python-sdk-telephony-api)
 - [Async Text API](/docs/python-sdk/async-api)
 - [Async Audio (File) API](/docs/python-sdk/async-audio)  
