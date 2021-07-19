@@ -36,7 +36,55 @@ Parameter | Required  | Value
 `connectionId` | Mandatory | The same `connectionId` that is generated with the Streaming API can be used to subscribe to this API.  
 `accessToken` | Mandatory | The Symbl's Authentication token you get from the [Authentication process](/docs/developer-tools/authentication/).
 
+### Request Body
 
+``` js
+const WebSocket = require('ws');​
+const accessToken = "<Your Token>"
+const connectionId = "<Your connectionId>"
+const symblEndpoint = `wss://api.symbl.ai/v1/subscribe/${connectionId}?access_token=${accessToken}`;
+
+const ws = new WebSocket(symblEndpoint);
+
+// Fired when a message is received from the WebSocket server
+ws.onmessage = (event) => {
+    // You can find the conversationId in event.message.data.conversationId;
+    const data = JSON.parse(event.data);
+    if (data.type === 'message' && data.message.hasOwnProperty('data')) {
+        console.log('conversationId', data.message.data.conversationId);
+    }
+    if (data.type === 'message_response') {
+        for (let message of data.messages) {
+            console.log('Transcript (more accurate): ', message.payload.content);
+        }
+    }
+    if (data.type === 'topic_response') {
+        for (let topic of data.topics) {
+            console.log('Topic detected: ', topic.phrases)
+        }
+    }
+    if (data.type === 'insight_response') {
+        for (let insight of data.insights) {
+            console.log('Insight detected: ', insight.payload.content);
+        }
+    }
+    if (data.type === 'message' && data.message.hasOwnProperty('punctuated')) {
+        console.log('Live transcript (less accurate): ', data.message.punctuated.transcript)
+    }
+    console.log(`Response type: ${data.type}. Object: `, data);
+};
+
+// Fired when the WebSocket closes unexpectedly due to an error or lost connetion
+ws.onerror = (err) => {
+    console.error(err);
+};
+
+// Fired when the WebSocket connection has been closed
+ws.onclose = (event) => {
+    console.info('Connection to websocket closed');
+};
+
+```
 ### Response Body 
 
 Example of the `message_response` object:
