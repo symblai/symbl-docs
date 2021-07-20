@@ -240,15 +240,15 @@ POST "https://api.symbl.ai/v1/process/audio?enableAllTrackers=true"
 
 The `enableAllTrackers` parameter will enable detection of all the Trackers maintained for a Symbl’s account by the [Management API](#tracker-consumption-with-management-api). 
 
-`enableAllTrackers` accepts a boolean value which must be passed in the Async APIs as the following:
+`enableAllTrackers` accepts a boolean value which must be passed in the Async APIs either as a query param or in the request body depending on which Async API you are using. See the complete list below:
 
- |
+ |  
 ---------- | ------- 
 As a query-param | Async Audio File API, Async Video File API. 
 In Request Body | Async Audio URL API, Async Video URL API, Async Text API. 
 
-
 :::
+
 
 You will get the `conversationId` and the `jobId` as shown below:
 
