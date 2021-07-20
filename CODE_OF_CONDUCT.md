@@ -1,6 +1,6 @@
-## Code of Conduct
+# Code of Conduct 
 
-We love open-sourced projects since we can connect and collaborate with enthusiasts all over the world and bring in new perspectives. We welcome everyone to participate in improving our docs and increasing its impact. Be it a documentation edit or pointing out an error, we need to be mindful of our community members while doing so and avoid hurting sentiments or creating friction. 
+We love open-sourcing since we can connect and collaborate with enthusiasts all over the world and bring in new perspectives. We welcome everyone to participate in improving our docs and increasing its impact. Be it a documentation edit or pointing out an error, we need to be mindful of our community members while doing so and avoid hurting sentiments or creating friction. 
 
 This code of conduct applies to only issues and pull requests for the Symbl docs repo. 
 
@@ -21,6 +21,5 @@ In a collaborative environment, oftentimes we are faced with disagreements and c
 We hope you adhere to these guidelines and help our open source community operate smoothly and frictionlessly.
 
 For any feedback or suggestions, reach out to us on [Slack](https://symbldotai.slack.com/join/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA#/shared-invite/email)! 
-
 
 
