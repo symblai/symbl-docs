@@ -40,8 +40,8 @@ Parameter | Required  | Value
 
 ``` js
 const WebSocket = require('ws');​
-const accessToken = "<Your Token>"
-const connectionId = "<Your connectionId>"
+const accessToken = "<Your Token>";
+const connectionId = "<Your connectionId>";
 const symblEndpoint = `wss://api.symbl.ai/v1/subscribe/${connectionId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);

@@ -114,14 +114,17 @@ exit()
     "endTime": "2020-02-12T11:37:31.134Z",
     "members": [
         {
+            "id": "5118221462011904",
             "name": "John",
             "email": "John@example.com"
         },
         {
+            "id": "50123212234535645",
             "name": "Mary",
             "email": "Mary@example.com"
         },
         {
+            "id": "63475698234689238",
             "name": "Roger",
             "email": "Roger@example.com"
         }
@@ -138,4 +141,4 @@ Field  | Description
 ```name``` | name of the conversation
 ```startTime``` | DateTime value
 ```endTime``` | DateTime value
-```members``` | list of member objects containing name and email if detected
+```members``` | list of member objects containing ID, name and email (if detected).
