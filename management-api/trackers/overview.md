@@ -114,7 +114,9 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
     ...
 ]
 ```
+
 ## Consuming Trackers with Streaming API 
+---
 
 Below is an example that shows how to pass Trackers in the config object for the `startRealtimeRequest` of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
 
@@ -182,6 +184,7 @@ const connection = await sdk.startRealtimeRequest({
 For detailed description of the parameters, see [Streaming API for Trackers](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) documentation. 
 
 ## Consuming Trackers with Management API 
+---
 
 The Trackers APIs can be consumed via the [Management API](/docs/management-api/introduction), which takes the onus of maintaining these entities from the developer and shifts it to Symbl’s backend. The Management API provides an easy-to-consume REST interface for managing these entities. 
 
@@ -210,6 +213,7 @@ You can define the phrases and keywords in the **vocabulary** of the request bod
 }
 ```
 This creates a Tracker and returns the following response. Note that every Tracker has a unique `id`. 
+
 ```json
 {
     "tracker": {
@@ -236,15 +240,15 @@ POST "https://api.symbl.ai/v1/process/audio?enableAllTrackers=true"
 
 The `enableAllTrackers` parameter will enable detection of all the Trackers maintained for a Symbl’s account by the [Management API](#tracker-consumption-with-management-api). 
 
-`enableAllTrackers` accepts a boolean value which must be passed in the Async APIs as the following:
+`enableAllTrackers` accepts a boolean value which must be passed in the Async APIs either as a query param or in the request body depending on which Async API you are using. See the complete list below:
 
- |
+ |  
 ---------- | ------- 
 As a query-param | Async Audio File API, Async Video File API. 
 In Request Body | Async Audio URL API, Async Video URL API, Async Text API. 
 
-
 :::
+
 
 You will get the `conversationId` and the `jobId` as shown below:
 

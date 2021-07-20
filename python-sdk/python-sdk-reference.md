@@ -14,10 +14,9 @@ This page contains detailed descriptions of the class and objects supported by t
 - [Text Class](#text-class)
 - [Conversation Object](#conversation-object)
 - [Telephony Class](#telephony-class)
+- [Streaming Class](#streaming-class)
 
-
-
-## Audio class
+## Audio Class
 Symbl's Async APIs provide the functionality for processing audio recordings from files or public/signed URLs. The data processed for these conversations are available via the Conversation APIs once the APIs have completed the processing.
 
 You can utilize different functions of Async APIs by directly utilizing `symbl.Audio`.
@@ -66,7 +65,7 @@ Name | Required | Description
 `parameters` | Optional | By default {}) Dictionary, Any parameter and it's value can be provided in the dictionary format. For getting a list of value check [here](/docs/async-api/overview/audio/put-audio-url#query-params).
 
 
-## Video class
+## Video Class
 Symbl's Async APIs provide the functionality for processing video recordings from files or public/signed URLs. The data processed for these conversations are available via the Conversation APIs once the APIs have completed the processing.
 
 You can utilize different functions of Async APIs by directly utilizing `symbl.Video`.
@@ -114,7 +113,7 @@ Name | Required | Description
 `parameters` | Optional | By default {}) Dictionary, Any parameter and it's value can be provided in the dictionary format. For getting a list of value check [here](/docs/async-api/overview/video/put-video-url#query-params).
 
 
-## Text class
+## Text Class
 Symbl's Async APIs provide the functionality for processing textual content from a conversation. The data processed for these conversations are available via the Conversation APIs once the APIs have completed the processing.
 
 You can utilize different functions of Async APIs by directly utilizing symbl.Text.
@@ -170,7 +169,7 @@ Returns explicit question or request for information that comes up during the co
 
 Returns The most relevant topics of discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 
-## Conversations class
+## Conversations Class
 The Conversation API provides a REST API interface for getting your processed Speech to Text data(also known as Transcripts) and conversational insights.
 
 These APIs require a `conversationId`.
@@ -205,7 +204,7 @@ Returns explicit question or request for information that comes up during the co
 
 Returns The most relevant topics of discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 
-## Telephony class
+## Telephony Class
 Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights and topics in a single page Web Application.
 
 ### start_pstn(phoneNumber, dtmf, actions, data):
@@ -248,3 +247,76 @@ For more details check documentation [here](/docs/telephony-api/api-reference#en
 Only `connectionId` parameter is required. Other optional parameters can be added as defined in the [Telephony API Documentation](/telephony-api/api-reference#endpoint).
 
 Return an updated connection object which will have the `conversationId` in the response.
+
+## Streaming Class
+
+Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time.
+
+### start_connection(credentials=None, speaker=None, insight_types=None):
+
+Returns a connection object.
+
+Parameter | Required | Description 
+---- | ------- | ------ |
+`credentials`| Optional| Don't add this parameter if you have symbl.conf file in your home directory or working directory.
+`speaker` | Optional | Speaker object containing `name` and `email` field.
+`insight_types` | Optional | The insights to be returned in the WebSocket connection.
+`config` | Optional | Use this parameter to pass `confidenceThreshold`, `languageCode` For more details, see the Config parameter documentation [here](/docs/streaming-api/api-reference/#config). 
+
+### connection object
+
+The connection object is returned by telephony API's start_pstn & start_sip or Streaming API' start_connection function. A connection object can be utilized for communicating with Symbl Server through underlying websocket implementation.
+
+1. connection.subscribe({'event': callback, ...}):
+    >
+    >**subscribe function can be used with both Telephony as well as Streaming class**
+    >
+    >takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
+    >
+    >The list of events that can be subscribed by connection object are:-
+    >
+    > 1. **insight_response** :- generates an event whenever a question or an action_item is found.
+    > 2. **message_response**:- generates an event whenever a transcription is available.
+    > 3. **tracker_response**:- It will generate an event whenever a tracker is identified in any transcription.
+    > 4. **topic_response**:- It will generate an event whenever a topic is identified in any transcription.
+    > 5. **message**:- (Part of stremaing API), It will generate an event for live transcriptions. It will include isFinal property which will be False initially, meaning the transcription is not finalized.
+
+2. connection.stop():
+    >
+    >**stop function can be used with both Telephony as well as Streaming class**
+    >
+    >used to stop the telephony connection.
+
+3. connection.send_audio_from_mic(device=None):
+    >
+    >**send_audio_from_mic function can be used with Streaming class only**
+    >
+    >Uses sounddevice library to take input from User's mic and send data to websocket directly. Recommended function for first time users.
+    >
+    >device parameter can take the deviceId (integer) as input, for more information see sd.query_devices() [here][sound_device-query_devices]
+    >
+    >If this function is not running correctly, please make sure the sounddevice library is installed correctly and has access to your microphone. For more details, check [here][sound_device-installation]
+
+4. connection.send_audio(data):
+    >
+    >**send_audio function can be used with Streaming class only**
+    >
+    >Can be used when user is willing to send custom audio data from some other library.
+    >
+    >send_audio function sends audio data to websockets in binary format.
+
+5. Conversation Object :- 
+    >Connection object has a conversation parameter, through which you can directly query the conversation api with the provided conversationId.
+    >
+
+    ```python
+
+    import symbl
+
+    connection = symbl.Streaming.start_connection()
+
+    ...
+
+    connection.conversation.get_topics()
+
+    ```

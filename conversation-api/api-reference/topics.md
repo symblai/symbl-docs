@@ -262,6 +262,5 @@ Field  | Description
 ```type``` | Response type. Default is topics.
 ```score``` | Confidence score of the generated topic. value from 0 - 1.
 ```messageIds``` | Unique message identifiers of the corresponding messages.
-```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
 ```parentRefs``` | This is enabled when `parentRefs` is set to true in request.
 ```sentiment```| Shows the [sentiment](/docs/concepts/sentiment-analysis) polarity (the intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral).

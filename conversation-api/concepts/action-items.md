@@ -13,7 +13,6 @@ An action item is a specific outcome recognized in the conversation that require
 
 Essentially, the action items provides you with the insights of ‘who has to do what, by when’. The definition of 'when' is optional for detecting action items.
 
-
 <!-- ![Action Items](/img/action_items_image.jpg) -->
 
 #### Examples
@@ -34,7 +33,7 @@ Essentially, the action items provides you with the insights of ‘who has to do
 
 - Ability to control the confidence threshold for the insight. Confidence Threshold refers to a number between `0.0 - 1.0` where a decimal value closer to 1.0 means the detected phrase is an action item.
 
-## Action Item APIs
+## Action Items APIs
 
 To see Action Items API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID** which is passed in Action Item API. A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the detected action items from the conversation.
 
