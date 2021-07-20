@@ -114,7 +114,9 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
     ...
 ]
 ```
+
 ## Consuming Trackers with Streaming API 
+---
 
 Below is an example that shows how to pass Trackers in the config object for the `startRealtimeRequest` of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
 
@@ -182,6 +184,7 @@ const connection = await sdk.startRealtimeRequest({
 For detailed description of the parameters, see [Streaming API for Trackers](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) documentation. 
 
 ## Consuming Trackers with Management API 
+---
 
 The Trackers APIs can be consumed via the [Management API](/docs/management-api/introduction), which takes the onus of maintaining these entities from the developer and shifts it to Symbl’s backend. The Management API provides an easy-to-consume REST interface for managing these entities. 
 
