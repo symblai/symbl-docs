@@ -280,9 +280,7 @@ For more information about our supported languages, [check here](#supported-lang
 ##### Code Example
 
 ```js
-{
-  "language": ["ja-JP"]
-}
+{ "languages": ["ja-JP"] }
 ```
 
 #### Timezone

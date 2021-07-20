@@ -97,48 +97,43 @@ exit()
 
 ```json
 {
-    "questions": [
-        {
-            "id": "5179649407582208",
-            "text": "Push them for the two weeks delivery, right?",
-            "type": "question",
-            "score": 0.9730208796076476,
-            "messageIds": [
-                "5019269922291712"
-            ],
-            "entities": []
-        },
-        {
-            "id": "5642466493464576",
-            "text": "I think what is the Bahamas?",
-            "type": "question",
-            "score": 0.9119608386876195,
-            "messageIds": [
-                "5019269922291712"
-            ],
-            "entities": []
-        },
-        {
-            "id": "5756718797553664",
-            "text": "Okay need be detained, or we can go there in person and support them?",
-            "type": "question",
-            "score": 0.893303149769215,
-            "messageIds": [
-                "5019269922291712"
-            ],
-            "entities": []
-        },
-        {
-            "id": "6235991715086336",
-            "text": "Why is that holiday in US from 17?",
-            "type": "question",
-            "score": 0.9998053310511206,
-            "messageIds": [
-                "5019269922291712"
-            ],
-            "entities": []
-        }
-    ]
+	"questions": [{
+			"id": "5179649407582208",
+			"text": "Push them for the two weeks delivery, right?",
+			"type": "question",
+			"score": 0.9730208796076476,
+			"messageIds": [
+				"5019269922291712"
+			]
+		},
+		{
+			"id": "5642466493464576",
+			"text": "I think what is the Bahamas?",
+			"type": "question",
+			"score": 0.9119608386876195,
+			"messageIds": [
+				"5019269922291712"
+			]
+		},
+		{
+			"id": "5756718797553664",
+			"text": "Okay need be detained, or we can go there in person and support them?",
+			"type": "question",
+			"score": 0.893303149769215,
+			"messageIds": [
+				"5019269922291712"
+			]
+		},
+		{
+			"id": "6235991715086336",
+			"text": "Why is that holiday in US from 17?",
+			"type": "question",
+			"score": 0.9998053310511206,
+			"messageIds": [
+				"5019269922291712"
+			]
+		}
+	]
 }
 ```
 
@@ -151,4 +146,4 @@ Field  | Description
 ```type``` | Response type. Default is `question`.
 ```score``` | Confidence score of the generated question. Value from 0 - 1. A score of 1 is likely an exact match, while a score of 0 means that no match was found. 
 ```messageIds``` | Unique message identifiers of the corresponding messages.
-```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
+
