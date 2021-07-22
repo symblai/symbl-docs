@@ -17,6 +17,8 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 - **Customizable Trackers and Summary UI**: You can now customize the look and feel of Trackers and Analytics UI to match your brand identity.<br/>
 [Read more here](https://docs.symbl.ai/docs/pre-built-ui/trackers-and-analytics-ui/#customizing-trackers-and-analytics-ui).
 
+![api update](/img/api-update.png)
+- Additional fixes on request validations
 ---
 
 ![summary](/img/summary-ui-icon.png)
