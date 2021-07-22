@@ -26,7 +26,7 @@ You can also add several Trackers at the same time as a bulk operation. To learn
 
 ## Create Trackers using Async APIs
 
-Symbl provides a diverse set of Async APIs based on Audio/Video or Textual content. For more details on Async APIs refer to the documentation [here](docs/async-api/introduction). 
+Symbl provides a diverse set of Async APIs based on Audio/Video or Textual content. For more details on Async APIs refer to the documentation [here](/docs/async-api/introduction). 
 
 The Trackers once ingested via the request, will then try to detect these in the Conversation. Once the job is complete, you can fetch the Trackers from the Conversation API through the `/trackers` endpoint described below.
 
