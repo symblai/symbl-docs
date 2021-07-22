@@ -30,7 +30,7 @@ Refer to our Knowledge Base articles that provide comprehensive information on h
  - [Use Async Audio API in your React App](https://symbl-ai.zendesk.com/hc/en-us/articles/1500004471482-Use-Async-Audio-API-in-your-React-App)
  - [Get Started with Postman for Recorded Audio Files](https://symbl-ai.zendesk.com/hc/en-us/articles/1500003977321-Get-Started-with-Postman-for-Recorded-Audio-Files)
 
-<button class="button button1"><a href=" https://symbl-ai.zendesk.com/hc/en-us/sections/1500000646502-Getting-Started
+<button class="button button1"><a href="https://symbl-ai.zendesk.com/hc/en-us/sections/1500000646502-Getting-Started
 ">View Getting Started Articles</a></button><br/>
 
 ### Best Practices
