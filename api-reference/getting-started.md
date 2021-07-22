@@ -24,7 +24,7 @@ Symbl provides a suite of APIs for different usecases. Some of them are listed b
 
 ---
 ### Base URL
-All our APIs use the base URL `https://api.symbl.ai/` and endpoint definition as given below for all our services:
+All our APIs use the base URL as given below for all our services:
 
 ```shell
 https://api.symbl.ai/v1/
@@ -42,8 +42,7 @@ Given below is a list of API endpoints and their corresponding services:
  | Endpoint  | Description | Supported APIs |
 ---------- | ------- |  ----- |
 `/v1/process` | Processes text, audio, and video data.  | [Async Text API](/docs/async-api/reference/reference) <br/> [Streaming APIs](/docs/streamingapi/introduction) <br/> [Telephony APIs](/docs/telephony/introduction)
-`/v1/append` | Performs append function on data that is already processed by Symbl. | [Append Text API](/docs/async-api/overview/text/put-text) <br/> [Append Audio File](/docs/async-api/overview/audio/put-audio) <br/> [Append Audio with URL](/docs/async-api/overview/audio/put-audio-url) <br/> [Append Video File](/docs/async-api/overview/video/put-video) <br/> [Append Video with URL](/docs/async-api/overview/video/put-video-url)
-`/v1/conversation` | Returns the conversation object that provides Conversation Intelligence like Topics, Action Items, Questions, etc. | [Conversation API](/docs/conversation-api/introduction)
+`/v1/conversations` | Returns the conversation object that provides Conversation Intelligence like Topics, Action Items, Questions, etc. | [Conversation API](/docs/conversation-api/introduction)
 `/v1/job` | Returns the status of the ongoing job request. Read more about `jobId` below. | [Job API](/docs/async-api/overview/jobs-api)
 `/v1/endpoint:connect` | Connects Symbl via Telephony APIs over PSTN or SIP protocols. | [Telephony API](/docs/telephony-api/api-reference#endpoint)
 `/v1/manage`  <font color="orange"> BETA</font> | Accessing and managing various resources against your Symbl account. | [Management API](/docs/management-api/introduction) <br/> [Trackers via Management API](/docs/management-api/trackers/overview)
