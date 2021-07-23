@@ -17,9 +17,20 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 - **Customizable Trackers and Summary UI**: You can now customize the look and feel of Trackers and Analytics UI to match your brand identity.<br/>
 [Read more here](https://docs.symbl.ai/docs/pre-built-ui/trackers-and-analytics-ui/#customizing-trackers-and-analytics-ui).
 
----
+![api update](/img/api-update.png)
 
-![summary](/img/summary-ui-icon.png)
+- Improved validations and error handling in Async API.
+- Quality check for Summarization.
+- Availability of Interim Trackers. 
+- Added Real-time API optimizations. 
+- Bug fixes: 
+  - Issue with incorrect Speaker Diarization in the Spanish language was fixed.
+  - Issue with retrieving entities such as trackers in bulk in management API has been fixed.
+
+![sdk](/img/sdk-icon.png)
+- Availability of Streaming API with Python SDK. [Read more here](/docs/python-sdk/streaming-api). 
+
+---
 
 ### 29 June 2021
 

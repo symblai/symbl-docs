@@ -17,14 +17,13 @@ You can access the Labs features using your Symbl App Id and Secret.  If you don
 For any queries or feedback, please contact us at labs@symbl.ai.
 :::
 
-## GET Summary
-
 This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
 Currently, the Summary can be enabled with Async APIs. Support for Summarization in real-time will be added soon. However, if you are using Streaming or Telephony API, you can use the `refresh` parameter to generate the Summary after the conversation has ended. To read about how to use it, see the [Refresh Parameter](#using-refresh-parameter) section below. 
 
-:::note
-This API works best on audio/video conversations that are at least 10 mins in duration. For text conversations, there must be more than 60 lines of conversation for the Summary to get generated.
+:::caution
+The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
+If the number of words in a conversation is below 50 and the number of sentences below 5, the Summary will not be created.
 :::
 
 
