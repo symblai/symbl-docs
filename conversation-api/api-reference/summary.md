@@ -23,7 +23,7 @@ Currently, the Summary can be enabled with Async APIs. Support for Summarization
 
 :::caution
 The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
-If the number of words in a conversation is below 50 and the number of sentences below 5, the Summary will not be created.
+If the number of words in a conversation is below 50 or the number of sentences below 3, the Summary will not be created.
 :::
 
 
