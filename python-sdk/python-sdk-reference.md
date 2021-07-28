@@ -141,6 +141,13 @@ Name | Required | Description
 ## Conversation object
 Conversation object is returned by Async API Text, Audio and Video classes. The conversation object is a shorthand for conversation API and can be utilized for fetching multiple insights.
 
+### conversation.get_conversation_id():
+
+Returns a unique Conversation Id of the conversation which you are currently processing.
+
+### conversation.get_job_id():
+
+Returns a Job Id of the conversation which you are currently processing.
 ### conversation.get_action_items():
 
 Returns Action Items which are some specific outcomes recognized in the conversation that requires one or more people in the conversation to act in the future
@@ -169,12 +176,24 @@ Returns explicit question or request for information that comes up during the co
 
 Returns The most relevant topics of discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 
+### get_conversation(conversation_id):
+
+Returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting id.
+
 ## Conversations Class
 The Conversation API provides a REST API interface for getting your processed Speech to Text data(also known as Transcripts) and conversational insights.
 
 These APIs require a `conversationId`.
 
 You can utilize different functions of Conversation APIs by directly utilizing `symbl.Conversations`.
+
+### get_conversation_id():
+
+Returns a unique Conversation Id of the conversation which you are currently processing.
+
+### get_job_id():
+
+Returns a Job Id of the conversation which you are currently processing.
 
 ### get_action_items(conversation_id):
 
@@ -203,6 +222,10 @@ Returns explicit question or request for information that comes up during the co
 `parameters`:- (Optional) dictionary, takes a dictionary of parameters. For list of parameters accepted, please click [here](/docs/conversation-api/get-topics#query-params).
 
 Returns The most relevant topics of discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
+
+### get_conversation(conversation_id):
+
+Returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting id.
 
 ## Telephony Class
 Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights and topics in a single page Web Application.
