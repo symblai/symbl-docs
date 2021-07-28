@@ -29,6 +29,8 @@ You can utilize different functions of Conversation APIs by directly utilizing `
 
   Function | Description 
 ----------- |------- |
+`get_conversation_id()` | Returns a unique Conversation Id of the conversation which you are currently processing.
+`get_job_id()` | Returns a Job Id of the conversation which you are currently processing.
 `get_messages(conversation_id)` | `parameters`:- (Optional) dictionary, takes a dictionary of parameters. For list of parameters accepted, click [here](/docs/conversation-api/messages#query-params). Returns a list of messages (sentences spoken by speakers) in a conversation. You can use this for providing transcription for video conference, meeting or telephone call. Example: 
 `get_topics(conversation_id)` | `parameters`:- (Optional) dictionary, takes a dictionary of parameters. For list of parameters accepted, click [here](/docs/conversation-api/get-topics#query-params). Returns the most relevant topics of discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 `get_action_items(conversation_id)` | Returns Action Items which are some specific outcomes recognized in the conversation that requires one or more people in the conversation to act in the future.
