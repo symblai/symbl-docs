@@ -1,7 +1,7 @@
 ---
 id: user-engagement-analytics
 title: User Engagement Analytics
-sidebar_label: User Engagement Analytics
+sidebar_label: Getting Engagement Analytics
 slug: /pre-built-ui/user-engagement-analytics
  
 ---
@@ -10,13 +10,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
-You can track your user’s interaction on the Summary UI and view analytics on what your users are clicking on the Summary UI and how they are engaging with the interface. 
+You can track your user’s interaction on the Summary UI and view analytics on what your users are clicking on and how they are engaging with the interface. 
 
 After enabling the user-engagement analytics for Summary UI, you can log into your Segment- analytics platform account and view event logs fired from the Summary URLs.
 
 To get the user engagement data, follow the steps given below: 
 
-&nbsp;&nbsp;  [Step 1: Add a Source in the Segment app that references the Summary URL](#1-add-a-source-in-segment)<br/>
+&nbsp;&nbsp;  [Step 1: Add a Source in the Segment](#1-add-a-source-in-segment)<br/>
 
 &nbsp;&nbsp;  [Step 2: Register your “Segment Key” in Symbl Platform](#2-register-your-segment-key-with-symbl)<br/>
 
@@ -32,14 +32,12 @@ The Segment data will only be available for the summary URLs that have been gene
 The very first step is to add a Source for the Summary URL in the Segment application.  
 
 **To add a source in Segment,**  
-1. Log in to your **Segment** ((https://segment.com/) account. 
+1. Log in to your **Segment** (https://segment.com/) account. 
 2. Go to **Sources** and click **Add Source**. 
 3. Select **JavaScript website** from the source catalog page.  
 4. Click **Add Source** once again 
 5. Enter the **Name** and **Labels**, as required. 
-5. In the **Website URL**, enter the URL of the Summary UI for which you’d like to get the user-engagement analytics. 
-
-This adds the Summary UI URL as a source in Segment. 
+6. Click **Add Source**.
 
 ![segment](/img/source-set-up.png)
 
@@ -47,13 +45,13 @@ This adds the Summary UI URL as a source in Segment.
 When a new Source is created, Segment generates a unique key. This is a unique identifier that is used to track the analytics data for the Summary URL. We call this the Segment Key.
 :::
 
-
-6. Go to **Settings** tab > **API Keys**
-7. Copy the **Write Key**. 
-
-You must use the value of Write Key as the Segment Key in Symbl.
+7. Go to **Settings** tab > **API Keys**
+8. Copy the **Write Key**. 
 
 ![segment-key](/img/segment-key.png)
+
+The **Write Key** is what you will register with Symbl in the next step.
+
 
 ### 2. Register your Segment Key with Symbl
 ---
