@@ -11,6 +11,11 @@ import TabItem from '@theme/TabItem';
 
 [Symbl's Async API](/docs/async-api/introduction) allows you to process stored recordings of audio or video from files or URLs or even textual content from a conversation. In this guide, we will walk you through how to implement [Speaker Separation](/docs/async-api/reference/reference/#speaker-separation) with audio or video files. Speaker Separation, in short, is the ability to detect and separate unique speakers in a single stream of audio & video without the need for separate speaker events.
 
+:::info Speaker Diarization Language Support
+
+Currently, Speaker Diarization is available for English and Spanish languages only.
+:::
+
 ## Contents
 
 * [Enabling the Diarization](#enabling-the-diarization)

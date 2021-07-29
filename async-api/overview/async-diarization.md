@@ -12,6 +12,11 @@ The `diarizationSpeakerCount` should be equal to the number of unique speakers i
 
 If you’re looking for similar capability in Real-Time APIs, please refer to [Active Speaker Events](/docs/javascript-sdk/code-snippets/active-speaker-events) and Speaker Separation in WebSocket API sections.
 
+:::info Speaker Diarization Language Support
+
+Currently, Speaker Diarization is available for English and Spanish languages only.
+:::
+
 ### Query Params
 
 Parameter | Required | Value
