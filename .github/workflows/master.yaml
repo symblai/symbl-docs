@@ -1,17 +1,17 @@
 
-on:
-  push:
-    branches:
-    - 'master'
+# on:
+#   push:
+#     branches:
+#     - 'master'
 
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v1
-      with:
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: ${{ secrets.REPO_NAME }}
-        event-type: build-production
+# jobs:
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Repository Dispatch
+#       uses: peter-evans/repository-dispatch@v1
+#       with:
+#         token: ${{ secrets.REPO_ACCESS_TOKEN }}
+#         repository: ${{ secrets.REPO_NAME }}
+#         event-type: build-production
