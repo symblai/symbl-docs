@@ -11,28 +11,44 @@ This tutorial provides code snippets and instructions on how to utilize Python S
 
 The Python SDK provides the following capabilities: 
 
-- [Dialing in using SIP](#dial-in-using-sip)<br/>
+- [Start SIP Connection](#start-sip-connection)<br/>
+
+- [Stop connection](#stop-connection) <br/>
+
+- [Geting Conversation Intelligence and receive Insights on Email](#receive-insights-on-email).<br/>
 
 - [Subscribing to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
-- [Receiving Insights on Email](#receive-insights-on-email).
 
-
-## Dial in using SIP
+## Start SIP Connection
 
 The code snippet below allows you to start a Telephony connection with Symbl via SIP. It can make an outbound call to a phone number using SIP endpoints that can be accessed over the internet using a SIP URI:
+
 ```py
 import symbl
-connection = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com") # A valid SIP URI to dial in
+connection_object = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com") # A valid SIP URI to dial in
 
 ```
 The `uri` is the SIP addressing scheme that communicates who to call via the SIP.   
+
+## Stop Connection
+
+To stop an active Telephony connection, use the code given below:
+
+```py
+import symbl
+
+connection_object.stop()
+```
+
+Add the `connectionId` of the connection you want to terminate.<br/>
+Optionally, you can also use parameters supported with [Telephony API](/docs/telephony-api/api-reference/#request-parameters). This returns an updated connection object which will have the `conversationId` in the response.
 
 ## Subscribe to Events
 
 Once the SIP connection is established, you can get live updates on conversation events such as generation of transcript, action items or questions, etc.
 
-The `connection.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
+The `connection_object.subscribe` is a function of the `connection` object that listens to the events of a live call and let's you subscribe to them in real-time. It takes a dictionary parameter, where the key can be an event and it's value can be a callback function that should be executed on the occurrence of that event.
 
 ### Supported Events 
 
@@ -44,20 +60,21 @@ Event  | Description
 `insight_response` | Generates an event whenever an `action_item` or `question` is identified in the message. 
 `tracker_response`| Generates an event whenever a tracker is identified in the transcription.
 `transcript_response` | Also generates transcription values, however these will include an `isFinal` property which will be False initially meaning the transcription are not finalized.
+`topic_response` | Generates an event whenever a topic is identified in any transcription.
 
 ### Usage of Subscribe Event
 
 ```py
-connection.subscribe({
+connection_object.subscribe({
     'transcript_response': lambda response: print('printing the first response ' + str(response)), 
     'insight_response': lambda response: print('printing the first response ' + str(response))
     }
     )
-print(connection)
+print(connection_object)
 ```
 ## Receive Insights on Email
 
-After the call has ended, you can trigger an email containing the URL to view the transcription, insights and topics in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
+After the call has ended, you can trigger an email containing the URL to view the Transcripts, Topics, Speaker analytics, Follow-ups, Action Items and meeting insights in a single page Web Application in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
 
 To receive the insights via email, use the code given below:
 
@@ -90,7 +107,7 @@ import symbl
 
 emailId = "john@example.com" #Your registered email ID on the conference tool. 
 
-connection = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com",
+connection_object = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com",
   actions = [
         {
           "invokeOn": "stop",
@@ -103,14 +120,15 @@ connection = symbl.Telephony.start_sip(uri="sip:8002@sip.example.com",
         },
       ]
 )
-connection.subscribe({'transcript_response': lambda response: print('printing the first response ' + str(response)), 'insight_response': lambda response: print('printing the first response ' + str(response))})
+connection_object.subscribe({'transcript_response': lambda response: print('printing the first response ' + str(response)), 'insight_response': lambda response: print('printing the first response ' + str(response))})
 ```
 
-:::info Stop Connection
-You can also utilize `connection.stop()` function to stop a live Telephony connection after a specific time. 
-:::
 
-### Additional Resources on GitHub
+### Python SDK Reference
 
-- [Telephony Class](https://github.com/symblai/symbl-python/blob/main/symbl/readme.md#telephony-class)<br/>
-- [Connection Object](https://github.com/symblai/symbl-python/blob/main/symbl/readme.md#connection-object)
+For a complete list of supported classes and objects in the Python SDK, see the [Python SDK Reference](/docs/python-sdk/python-sdk-reference) page. 
+
+You can view more capabilities added to Telephony API in the following sections:
+
+- [Telephony Class](/docs/python-sdk/python-sdk-reference#telephony-class)<br/>
+- [Connection Object](/docs/python-sdk/python-sdk-reference#connection-object)

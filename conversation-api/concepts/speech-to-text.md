@@ -1,7 +1,8 @@
 ---
 id: speech-to-text
-title: Speech-to-Text
-sidebar-label: Speech-to-Text
+title: Transcribe Speech-to-Text in Real-Time
+description: Get real-time speech-to-text data and analytics from your conversations with Symbl.ai APIs. Learn more.
+sidebar_label: Speech-to-Text
 slug: /concepts/speech-to-text
 ---
 
@@ -69,7 +70,7 @@ const conversationId = "conversationId";
 
 request.get({
     url: `https://api.symbl.ai/v1/conversations/${conversationId}/messages`,
-    headers: { 'Authorization': `Bearer: ${authToken}` },
+    headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
     console.log(body);

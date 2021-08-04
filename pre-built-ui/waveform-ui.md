@@ -11,8 +11,9 @@ import TabItem from '@theme/TabItem';
 
 The **Trackers and Analytics UI** provides a waveform visualization with conversation insights. The waveform highlights Topics in the timeline using color coded timestamps allowing you to get a snapshot of when they occured in the course of the conversation. You can view Trackers with sentiment score, transcripts, speaker information, and other conversation insights described below.
 
-In this version, the Tracker and Analytics UI is supported for audio conversations. 
+👉 &nbsp; [See Trackers and Analytics UI sample](https://meetinginsights-experience.symbl.ai/?_ga=2.9776305.580174444.1626193486-1247610446.1617102437#/eyJjb252ZXJzYXRpb25JZCI6IjU5NDg0ODUwNDUwNTk1ODQiLCJhdWRpb1VybCI6Imh0dHBzOi8vc3ltYmwtdGVzdC1jb252ZXJzYXRpb24uczMuYW1hem9uYXdzLmNvbS80X2NvbWNhc3RfY3VzdG9tZXJfc2VydmljZV85bWluMDNzZWMubXAzIn0.?o=fb5a99d192b2821a40639c5c7af86021db2ed6c7e32b3a8fccf6967b7e126c4ed6bd1e4636082ba3fc3a3da3980e5b99272c241e9d44c518715bf5c9772fe3bc405efb43e2cd11ef9c6e106215034ee3ac91c8dda4c09263032103519e56c690980c1c3f07604c183b1a4ddbcfca5df6cee1f7841492017eb2bb28b761cf57f218f05e233a2f34d223d4e0e4d8615fb2fca9c31fa534237c82e276ef4c4ec2c77f4fa320a7c00cded9e897d879b0f77d819475c0383f677214fa366d85bd6b99b10e1b7f56410d1c5813fd71d8f7f441de040f0bddfe2253c6161cb9990ca47f69e052ae5553a33b3cb0fd9dff80c009b466953f671d0ddefcf4534a17b56b2a89b671c07f0bc51daa85939494423b394ada8fabd44b91efc1817e77566ead15ab69e61fe2773a4eb4086d3ae0ca6bceda3274c5361e5ad389)
 
+In this version, the Tracker and Analytics UI is supported for audio conversations. 
 
 ![Waveform](/img/trackers-and-analytics-ui.png)
 
@@ -166,3 +167,61 @@ Field  | Required  | Type | Description
 }
 ```
 The `url` returned in the response body can then be opened in the browser to view the Trackers and Analytics UI. 
+
+## Customizing Trackers and Analytics UI
+
+---
+
+You can customize the Trackers and Analytics UI by adding your own logo, favicon, and other components to match your brand identity.
+
+When generating the Trackers and Analytics with Experience API endpoint mentioned [above](/docs/pre-built-ui/trackers-and-analytics-ui#3-send-post-request-to-experience-api), pass the following parameters in the request body:
+
+```shell
+curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/experiences" \
+--header 'Content-Type: application/json' \
+--header "Authorization: Bearer $AUTH_TOKEN" \
+--data-raw '{
+  "name": "audio-summary",
+  "audioUrl": "https://cors-enabled-audio.mp3",
+  "logo": "https://my-logo.png",
+  "favicon": "https://my-favicon.png",
+  "color": {
+    "background": "#FFFF00"
+  },
+  "speakerAvatarURLs": {
+    "9d6d34d9-5019-4694-9c9a-8ba7bfc8cfab": "https://gravatar.com/avatar/4908e2307fdc3350084daaf702d17a60?s=400&d=robohash&r=x", 
+    "2f69f1c8-bf0a-48ef-b47f-95ae5a4de325": "https://gravatar.com/avatar/9839b07ba341232442f17282d4d67869?s=400&d=robohash&r=x"
+  },
+  "font": {
+    "family": "Roboto"
+    }
+}'
+```
+
+### Request Parameters
+
+Field  | Required  | Type | Description
+---------- | ------- | ------- |  -------
+```logo```| Optional | String |  URL string where the logo image file is hosted. This needs to be publicly accessible.
+```favicon```| Optional | String |  URL string where the favicon file is hosted. This needs to be publicly accessible.
+```color```| Optional | Object | Color object can customize the background color. Refer [below](#color-object) for object schema.
+```font``` | Optional | Object | Font can be customized to any valid [Google Fonts](https://fonts.google.com/). Refer [below](#font-object) for object schema.
+```speakerAvatarURLs``` | Optional | Object | Speaker avatar in the Transcript component can be customized to accept an avatar image. Refer [below](#speakeravatarurls-object) for object schema.
+
+#### `color` object
+
+Field  | Required | Type | Description
+---------- | ------- | ------ | ------
+```background ``` | Optional | String | Changes the background color of the app bar. Accepts color in Hex color code. Default background color is #333333.
+
+#### `font` object
+
+Field  | Required | Type | Description
+---------- | ------- | ------- | ------
+```family``` | Optional | String | The name of the font available in [Google Fonts](https://fonts.google.com/). The font type will be applied globally.
+
+#### `speakerAvatarURLs` object
+Field  | Required | Type | Description
+---------- | ------- | ------- | ------
+```family``` | Optional | String | The `speakerAvatarURL` object is a collection of key-value pairs, where the unique `speakerId` is the key and the public URL (to the avatar image) is the value. <br/> Example: `9d6d34d9-5019-4694-9c9a-8ba7bfc8cfab` is the key and `https://gravatar.com/avatar/4908e2307fdc3350084daaf702d17a60?s=400&d=robohash&r=x` is the value. There is a one-to-one mapping between `speakerId` and the avatar URL. <br/>**Note**: All of the `speakerIds` can be fetched via a GET request to the `/conversations/:id/members` endpoint.
+

@@ -1,6 +1,6 @@
 ---
 id: delete-tracker
-title: Delete Tracker 
+title: Delete Tracker (Beta)
 sidebar_label: DELETE Tracker 
 slug: /management-api/trackers/delete-tracker
 ---

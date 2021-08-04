@@ -1,6 +1,6 @@
 ---
 id: get-tracker
-title: GET Tracker 
+title: Get Tracker (Beta)
 sidebar_label: GET Tracker 
 slug: /management-api/trackers/get-tracker
 ---
@@ -8,9 +8,65 @@ slug: /management-api/trackers/get-tracker
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-You can use the GET Tracker API in two ways:
+You can GET Trackers in the following ways with the Management API:
+- [GET All Trackers](#get-all-trackers)
 - [GET Tracker by ID](#get-tracker-by-id)
 - [GET Tracker by name](#get-tracker-by-name)
+
+## GET All Trackers
+
+This API call lists all the Trackers registered to the Management API at the account level. 
+
+### API Endpoint 
+
+**<font color="orange">GET</font> `https://api.symbl.ai/v1/manage/trackers`**
+
+### Request Headers
+
+Header Name  | Required | Description
+---------- | ------- |  ------- |
+```Authorization``` | Yes | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type	``` | Yes | `application/json`
+```x-api-key``` | No | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+
+### Response Body
+
+```json
+{
+    "tracker": {
+        "id": "4476908732794496",
+        "name": "Voice Message",
+        "vocabulary": [
+              "At the tone please record",
+            "Please leave message after tome",
+            "Call back during normal office hours",
+            "If you are calling about an emergency",
+            "Our offices are currently closed",
+            "Our repesentatives are unavailable at this time",
+            "Please leave message",
+            "start recording message",
+            "Begin recording message",
+            "sending you to his voicemail",
+            "Leave Name and contact info",
+            "Leave name and number",
+            "I can call after",
+            "Leave message with name",
+            "leave message with number",
+            "press to listen",
+            "press to record",
+            "press to send",
+            "Record your message",
+            "Return call ASAP",
+            "return your call as soon as possible",
+            "get back soon",
+            "get back as quickly as possible",
+            "Sorry we missed your call",
+            "sorry we missed you",
+            "You have reached office"
+        ]
+    }
+}
+```
 
 ## GET Tracker by ID
 This API gets the Tracker entity against the `trackerId` provided which can then be consumed in Symbl APIs. 
@@ -37,7 +93,7 @@ The `trackerId`- the unique identifier of the Tracker to be fetched is accepted 
 
 ### Response Body
 
-```javascript
+```json
 {
     "tracker": {
         "id": "4476908732794496",
@@ -73,7 +129,7 @@ Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-
 
 ### API Endpoint
 
-**<font color="orange">GET</font> `https://api.symbl.ai/v1/manage/trackers?&name={trackerName}`**
+**<font color="orange">GET</font> `https://api.symbl.ai/v1/manage/trackers?name={trackerName}`**
 
 ### Request Headers
 
@@ -95,7 +151,7 @@ If no query-params are passed, then this API will return all the Trackers availa
 ### Sample Response 
 `trackers` is an array of JSON Objects containing a Tracker entity that meets the criteria specified by the query-params.
 
-```javascript
+```json
 {
     "trackers": [{
         "id": "4476908732794496",

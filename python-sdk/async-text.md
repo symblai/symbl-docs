@@ -7,14 +7,23 @@ slug: /python-sdk/async-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Python SDK generates speech-to-text, action items and topics from your text conversations. 
 
+The Python SDK allow you to asynchronously send text conversation and generate the following insights:
+
+- Speech-to-Text (messages)
+- Action Items
+- Questions
+- Topics
+- Follow-ups
+- Members (a list of participants in a conversation).
+
+You can also utilize the `parameters` function to send additional parameters supported in the [Async Text API](/docs/async-api/overview/text/post-text/#request-body). You can pass any [query parameter](/docs/async-api/overview/text/post-text#query-params) using `parameters`.
+
+
+### Sample Code
 ```python
 import symbl
-
-conversation = symbl.Text.process(payload=dictionary)
-
-dictionary ={
+request_body ={
    "name": "Business Meeting",
    "confidenceThreshold": 0.6,
    "detectPhrases": True,
@@ -35,25 +44,37 @@ dictionary ={
      }
    ]
  }
+conversation_object = symbl.Text.process(payload=request_body)
 
-print(conversation.action_items()) # Returns action items arising out of the conversation
+print(conversation_object.get_messages()) 
+print(conversation_object.get_topics()) 
 
-# print(conversation.topics()) # Returns topics of the conversation
-# print(conversation.messages()) # Creates a transcript response
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_action_items()) 
+# print(conversation_object.get_follow_ups()) 
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
+### Using Parameters
 
-Click [here](https://github.com/symblai/symbl-python/blob/main/symbl/readme.md#text-class) for more details about the Text class. 
+Any parameter that is supported for Async text API can be provided in the `request_body` format.
+
+See the complete list of supported parameters [here](/docs/async-api/overview/text/post-text/#request-body). 
 
 ### Appending Text API
 
-Use the code given below to append text conversation already processed. 
+To append text conversation already processed by Symbl, you must use the `.append` function as shown below: 
+
+```py
+conversation_object = symbl.Text.append(payload=request_body, conversation_id='5274326339158016')
+``` 
+
+A complete sample of the append function is given below: 
 
 ```py 
 import symbl
 
-conversation = symbl.Text.append(payload=dictionary, conversation_id='5274326339158016')
-
- dictionary ={
+ request_body ={
    "name": "Business Meeting",
    "confidenceThreshold": 0.6,
    "detectPhrases": True,
@@ -74,12 +95,18 @@ conversation = symbl.Text.append(payload=dictionary, conversation_id='5274326339
      }
    ]
  }
+conversation_object = symbl.Text.append(payload=request_body, conversation_id='5274326339158016')
 
-print(conversation.action_items())
+print(conversation_object.get_messages())
+print(conversation_object.get_topics()) 
 
-# print(conversation.topics())
-# print(conversation.messages())
+# You can use the same code to generate other insights such as:
+# print(conversation_object.get_action_items()) 
+# print(conversation_object.get_follow_ups()) 
+# print(conversation_object.get_questions())
+# print(conversation_object.get_members())
 ```
+
 
 #### Utilizing the `wait` Parameter
 
@@ -87,5 +114,13 @@ Use the `wait` parameter (by default set to `True`) while making concurrent API 
 
 Example:
 ```py
-conversation = symbl.Text.process(payload=dictionary, wait=False)
+conversation_object = symbl.Text.process(payload=request_body, wait=False)
 ```
+## Python SDK Reference
+
+For a complete list of supported classes and objects in the Python SDK, see the [Python SDK Reference](/docs/python-sdk/python-sdk-reference) page. 
+
+You can view more capabilities added to Async text API in the following sections:
+
+- [Text Class](/docs/python-sdk/python-sdk-reference#text-class)<br/>
+- [Conversation Object](/docs/python-sdk/python-sdk-reference#conversation-object)
