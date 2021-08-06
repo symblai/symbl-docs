@@ -152,6 +152,13 @@ Name | Required | Description
 ## Conversation object
 Conversation object is returned by Async API Text, Audio and Video classes. The conversation object is a shorthand for conversation API and can be utilized for fetching multiple insights.
 
+### conversation.get_conversation_id():
+
+Returns a unique Conversation Id of the conversation which you are currently processing.
+
+### conversation.get_job_id():
+
+Returns a Job Id of the conversation which you are currently processing.
 ### conversation.get_action_items():
 
 Returns Action Items which are some specific outcomes recognized in the conversation that requires one or more people in the conversation to act in the future
@@ -206,6 +213,14 @@ The Conversation API provides a REST API interface for getting your processed Sp
 These APIs require a `conversationId`.
 
 You can utilize different functions of Conversation APIs by directly utilizing `symbl.Conversations`.
+
+### get_conversation_id():
+
+Returns a unique Conversation Id of the conversation which you are currently processing.
+
+### get_job_id():
+
+Returns a Job Id of the conversation which you are currently processing.
 
 ### get_action_items(conversation_id):
 
