@@ -45,7 +45,8 @@ Given below is an example of a multi-line transcript and its corresponding Summa
 
 
 :::info Points to Note
-- The Summary API is capable of generating Summaries for short meetings. However, the quality of Summaries created for longer meetings is of much higher quality so it is recommended that you use longer meetings with Summary API. 
+- The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
+If the number of words in a conversation is below 50 or the number of sentences below 3, the Summary will not be created. 
 - If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary will use temporary labels to assign speakers. For example, it will assign the speakers with labels such as "Speaker 1", "Speaker 2" and so on. In this case, we recommend you to update the labels with actual names using [Speaker Events API](/docs/conversation-api/speaker-events) so you can get a more personalized summary. 
 - Currently, Summarization can be enabled directly with Async APIs only. Support for Summarization in real-time will be added soon. However, for Telephony API or Streaming API, it can be generated after the conversation has ended. 
 :::

@@ -11,15 +11,36 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 30 July 2021
+
+![summary](/img/summary-ui-icon.png)
+- **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
+[Read more here](https://docs.symbl.ai/docs/pre-built-ui/user-engagement-analytics).
+
+![api update](/img/api-update.png)
+- Bug Fixes:
+  - Incorrect usage recorded due to internal issue in Telephony API is fixed. 
+
 ### 13 July 2021
 
 ![summary](/img/summary-ui-icon.png)
 - **Customizable Trackers and Summary UI**: You can now customize the look and feel of Trackers and Analytics UI to match your brand identity.<br/>
 [Read more here](https://docs.symbl.ai/docs/pre-built-ui/trackers-and-analytics-ui/#customizing-trackers-and-analytics-ui).
 
----
+![api update](/img/api-update.png)
 
-![summary](/img/summary-ui-icon.png)
+- Improved validations and error handling in Async API.
+- Quality check for Summarization.
+- Availability of Interim Trackers. 
+- Added Real-time API optimizations. 
+- Bug Fixes: 
+  - Issue with incorrect Speaker Diarization in the Spanish language is fixed.
+  - Issue with retrieving entities such as trackers in bulk in management API is fixed.
+
+![sdk](/img/sdk-icon.png)
+- Availability of Streaming API with Python SDK. [Read more here](/docs/python-sdk/streaming-api). 
+
+---
 
 ### 29 June 2021
 
