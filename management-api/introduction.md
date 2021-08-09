@@ -14,9 +14,11 @@ While the Conversation API is used for managing the data associated with the con
 
 ### Supported Entities
 
-At the moment, we provide Management API support for the Trackers entities only. We will be adding support for more entities soon: 
+The following entities are currently supported with Management API:
 
 - **Trackers**: Trackers allow you to get “contextually similar” occurrences in a conversation so you can identify emerging trends and gauge the nature of the interactions. Read about Trackers and its capabilities, in the [**Trackers**](/concepts/trackers) section. 
+
+- **Conversation Groups**: You can create and manage conversations by logically grouping them by defining a criteria that suits your business need such as grouping based on speaker agent, company name, labels such as internal, external, sales, etc. Read more in the [Conversation Groups](/concepts/conversation-groups). 
 
 ### Tracker Management APIs
 
@@ -30,3 +32,16 @@ Get Tracker with ID| [`GET`v1/manage/tracker/{trackerId}](/management-api/tracke
 Get Tracker with name | [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+
+### Conversation Management APIs
+
+Following are the API endpoints supported for managing Conversation Groups entity:
+
+| Operation | Endpoint | 
+|--------|----------|
+Create Conversation Group | [`POST` /v1/manage/group](/docs/management-api/conversation-groups/create-conversation-groups) |
+Create Multiple Conversation Groups | [`POST` /v1/manage/groups](/docs/management-api/conversation-groups/create-conversation-groups#creating-multiple-conversation-groups) |
+Get Conversation Group with ID | [`GET` /v1/manage/group/{groupId}](/docs/management-api/conversation-groups/get-conversation-groups) | 
+Get Multiple Conversation Groups | [`GET` /v1/manage/groups](/docs/management-api/conversation-groups/get-conversation-groups#get-multiple-conversation-groups) |
+Update Conversation Group | [`PUT` /v1/manage/group/{groupId}](/docs/management-api/conversation-groups/put-conversation-groups) | 
+Delete Group | [`DELETE` /v1/manage/group/{groupId}](/docs/management-api/conversation-groups/delete-conversation-groups) |

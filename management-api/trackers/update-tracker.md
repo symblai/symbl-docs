@@ -1,9 +1,12 @@
 ---
 id: update-tracker
-title: Update Tracker (Beta)
+title: Update Tracker 
 sidebar_label: PUT Tracker 
 slug: /management-api/trackers/update-tracker
 ---
+
+----
+
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::

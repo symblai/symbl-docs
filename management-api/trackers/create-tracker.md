@@ -1,6 +1,6 @@
 ---
 id: create-tracker
-title: Create Trackers (Beta)
+title: Create Trackers 
 sidebar_label: POST Tracker
 slug: /management-api/trackers/create-tracker
 ---
