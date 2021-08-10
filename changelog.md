@@ -13,19 +13,24 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 
 ### 30 July 2021
 
-![summary](/img/summary-ui-icon.png)
-- **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
-[Read more here](https://docs.symbl.ai/docs/pre-built-ui/user-engagement-analytics).
-
 ![api update](/img/api-update.png)
+- **Conversation Groups availability**: You can now create logical groups of conversations by setting the grouping criteria such as speaker agent, company name, call type such as internal, external, sales, etc.<br/>
+[Read more here](/docs/concepts/conversation-groups).
+
 - Bug Fixes:
   - Incorrect usage recorded due to internal issue in Telephony API is fixed. 
+
+![summary](/img/summary-ui-icon.png)
+- **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
+[Read more here](/docs/pre-built-ui/user-engagement-analytics).
+
+
 
 ### 13 July 2021
 
 ![summary](/img/summary-ui-icon.png)
 - **Customizable Trackers and Summary UI**: You can now customize the look and feel of Trackers and Analytics UI to match your brand identity.<br/>
-[Read more here](https://docs.symbl.ai/docs/pre-built-ui/trackers-and-analytics-ui/#customizing-trackers-and-analytics-ui).
+[Read more here](/docs/pre-built-ui/trackers-and-analytics-ui/#customizing-trackers-and-analytics-ui).
 
 ![api update](/img/api-update.png)
 
