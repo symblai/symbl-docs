@@ -122,16 +122,16 @@ ws.on('connect', (conn) => {
     console.log('Connection established.');
 
     connection.send(JSON.stringify({
-        "type": "start_request",
-        "insightTypes": ["action_item", "question", "follow_up", "topic"],
-        "config": {
-            "confidenceThreshold": 0.1,
+        type: "start_request",
+        insightTypes: ["action_item", "question", "follow_up", "topic"],
+        config: {
+            confidenceThreshold: 0.1,
             timezoneOffset: 480, // Offset in minutes from UTC
             languageCode: 'en-US',
-            "speechRecognition": {
-                "engine": "google",
-                "encoding": "LINEAR16",
-                "sampleRateHertz": 44100,
+            speechRecognition: {
+                engine: "google",
+                encoding: "LINEAR16",
+                sampleRateHertz: 44100,
             },
             // this option enables redaction PII feature. This is optional
             redaction: {
@@ -140,9 +140,9 @@ ws.on('connect', (conn) => {
                 redactionString: '*****' // By default ****
             },
         },
-        "speaker": {
-            "userId": "john@example.com",
-            "name": "John"
+        speaker: {
+            userId: "john@example.com",
+            name: "John"
         },
         trackers: [{
             name: 'Budget',
