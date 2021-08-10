@@ -287,23 +287,23 @@ Header Name  | Required | Description
 
 Field | Required | Type |  Description
 ---------- | ------- | ------- |  ------- |
-```name``` | Optional | string | Your meeting name. Default name set to `conversationId`.
-```detectPhrases```| Optional | boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
-```confidenceThreshold``` | Optional | double | Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5 .
-```customEntities``` | Optional | *list* | Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities).
+```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
+```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
+```confidenceThreshold``` | Optional | Double | Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5 .
+```customEntities``` | Optional | List | Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities).
 ```messages``` | Mandatory | list |  Input Messages to look for insights. [See the messages section below for more details.](#messages)
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
-```trackers```<font color="orange"> BETA </font> | Optional | List | A `tracker` entity containing name and vocabulary(a list of key words and/or phrases to be tracked) Read more in the[Tracker API](/docs/management-api/trackers/overview) section. 
-```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
+```trackers```<font color="orange"> BETA </font> | Optional | List | A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
+```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
 
 #### messages
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
-```payload``` | Yes | object | Input Messages to look for insights. [See the payload section below for more details.](#payload)
-```from``` | No | object | Information about the User information produced the content of this message.
-```duration``` | No | object | Duration object containing `startTime` and `endTime` for the transcript.
+```payload``` | Yes | Object | Input Messages to look for insights. [See the payload section below for more details.](#payload)
+```from``` | No | Object | Information about the User information produced the content of this message.
+```duration``` | No | Object | Duration object containing `startTime` and `endTime` for the transcript.
 
 ```js
 { 
@@ -339,7 +339,7 @@ Field | Required | Type | Description
 
 Field | Required | Type | Default | Description
 ---------- | ------- | ------- |  ------- | -------
-```content``` | Mandatory | string | | The text content that you want the API to parse.
+```content``` | Mandatory | String | | The text content that you want the API to parse.
 
 ```js
 {
@@ -353,8 +353,8 @@ Field | Required | Type | Default | Description
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
-```name``` | Optional | string | Name of the user.
-```userId``` | Optional | string | A unique identifier of the user. E-mail ID is usually a preferred identifier for the user.
+```name``` | Optional | String | Name of the user.
+```userId``` | Optional | String | A unique identifier of the user. E-mail ID is usually a preferred identifier for the user.
 
 ```js
 {

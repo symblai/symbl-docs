@@ -304,13 +304,13 @@ Parameter | Value
 
 Field | Required | Type |  Description
 ---------- | ------- | ------- |  ------- |
-```name``` | Optional | string | Your meeting name. Default name set to `conversationId`.
-```messages``` | Mandatory | list | Input Messages to look for insights. [See the messages section below for more details.](#messages)
-```confidenceThreshold``` | Optional | double | Minimum required confidence for the insight to be recognized. Value ranges from  0.0 to 1.0. Default 0.5.
-```detectPhrases```| Optional | boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
-```customEntities``` | Optional | *list* |  Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
+```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
+```messages``` | Mandatory | List | Input Messages to look for insights. [See the messages section below for more details.](#messages)
+```confidenceThreshold``` | Optional | Double | Minimum required confidence for the insight to be recognized. Value ranges from  0.0 to 1.0. Default 0.5.
+```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
+```customEntities``` | Optional | List |  Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
-```trackers``` <font color="orange"> BETA</font> | Optional | String | A list of key words and/or phrases to be tracked using the [Tracker API.](/docs/management-api/trackers/overview)
+```trackers``` <font color="orange"> BETA</font> | Optional | String | A `tracker` entity containing name and vocabulary (a list of key words and/or phrases to be tracked). Read more in the[Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation. Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag).
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
 
@@ -339,9 +339,9 @@ Field | Required | Type |  Description
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
-```payload``` | Mandatory | object | Input Messages to look for insights. [See the payload section below for more details.](#payload)
-```from``` | Optional | object | Information about the User information produced the content of this message.
-```duration``` | Optional | object | Duration object containing `startTime` and `endTime` for the transcript.
+```payload``` | Mandatory | Object | Input Messages to look for insights. [See the payload section below for more details.](#payload)
+```from``` | Optional | Object | Information about the User information produced the content of this message.
+```duration``` | Optional | Object | Duration object containing `startTime` and `endTime` for the transcript.
 
 ##### Code Example
 
@@ -379,7 +379,7 @@ Field | Required | Type | Description
 
 Field | Required | Type | Default | Description
 ---------- | ------- | ------- |  ------- | -------
-```content``` | Mandatory | string | | The text content that you want the API to parse.
+```content``` | Mandatory | String | | The text content that you want the API to parse.
 
 
 ##### Code Example
@@ -396,8 +396,8 @@ Field | Required | Type | Default | Description
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
-```name``` | Optional | string | Name of the user.
-```userId``` | Optional | string | A unique identifier of the user. E-mail ID is usually a preferred identifier for the user.
+```name``` | Optional | String | Name of the user.
+```userId``` | Optional | String | A unique identifier of the user. E-mail ID is usually a preferred identifier for the user.
 
 ##### Code Example
 
@@ -431,14 +431,14 @@ Field | Required | Type | Description
 #### Query Params
 Parameter | Required | Value
 ---------- | ------- | -------
-```webhookUrl``` | Optional | Webhook url on which job updates to be sent. (This should be post API).
+```webhookUrl``` | Optional | Webhook url on which job updates to be sent. This should be post API.
 
 `webhookUrl` will be used to send the status of job created for uploaded audio. Every time the status of the job changes it will be notified on the `webhookUrl`.
 
 #### Webhook Payload
 Field | Description
 ---------- | ------- |
-`jobId` | ID to be used with Job API
+`jobId` | ID to be used with Job API.
 `status` | Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed` ])
 
 ##### Code Example
@@ -457,7 +457,7 @@ Field | Description
 Field | Description
 ---------- | ------- |
 `conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
-`jobId` | ID to be used with Job API
+`jobId` | ID to be used with Job API.
 
 ##### Code Example
 
@@ -477,4 +477,4 @@ Field | Description
 }
 ```
 
-Here value of `X` can be found in [FAQ](/docs/faq). 
+Here, the value of `X` can be found in [FAQ](/docs/faq). 
