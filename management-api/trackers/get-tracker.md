@@ -1,9 +1,12 @@
 ---
 id: get-tracker
-title: Get Tracker (Beta)
+title: Get Tracker 
 sidebar_label: GET Tracker 
 slug: /management-api/trackers/get-tracker
 ---
+
+---
+
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::

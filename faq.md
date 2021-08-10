@@ -19,7 +19,7 @@ We store transcripts, insights, and metadata about the conversation, which is pe
 [Read More](https://symbl.ai/security/)
 
 
-### How many concurrent API calls can I do?
+### How many concurrent API calls can I make?
 
 For trial, this API has a limit of 20 concurrent jobs. After you upgrade your account, it has a limit of 50 concurrent jobs.
 If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai
@@ -40,3 +40,7 @@ If you have any other type of file and/or stereo audio, you need to first conver
 ### What languages do you support for Async APIs?
 
 All our APIs support the same range of languages. [Languages Supported](/docs/async-api/overview/async-api-supported-languages)
+
+### What happens when Speaker Diarization and Speaker recognition per Channel are both set to "True"?
+
+If the Diarization feature is set to true, it will take priority over Speaker recognition per Channel. 

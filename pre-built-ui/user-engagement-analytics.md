@@ -69,4 +69,3 @@ You can now log into your Segment app and view user activities in all of the Sum
 
 ![analytics](/img/segment-analytics.png)
 
-
