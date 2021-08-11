@@ -33,9 +33,9 @@ To create a conversation group, make a POST request to Symbl using the following
 
 ```json
 {
-  "name": "John's Calls",
+  "name": "Calls made by John",
   "description": "All the conversations of agent John Doe are captured in this Group.",
-   "criteria": "conversation.metadata.agentId=='johndoe'"
+   "criteria": "conversation.metadata.agentId==johndoe"
 }
 ```
 
@@ -43,7 +43,7 @@ To create a conversation group, make a POST request to Symbl using the following
 
 | Parameter | Data Type | Description | Required | Values Accepted | 
 |--------|----------|---- | --- | ------| 
-`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `- -`, `_`, `'` and `”`. The maximum length of string allowed 128 characters.
+`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
 `description` | String | Description to capture any additional details of the group and its purpose. | Optional | The maximum length of string allowed 512 characters.
 `criteria` | String / RSQL format | Criteria in RSQL format that should be applied to group conversations under this group. | Mandatory | Valid RSQL string. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
 
@@ -51,10 +51,12 @@ To create a conversation group, make a POST request to Symbl using the following
 
 ```json
 {
-  "id": "4931769134481408",
-  "name": "John's Calls",
-  "description": "All the conversations of agent John Doe are captured in this Group.",
-  "criteria": "conversation.metadata.agentId=='johndoe'"
+  "group": {
+    "id": 4931769134481408,
+    "name": "Calls made by John",
+    "description": "All the conversations made by agent John Doe are captured in this Group.",
+    "criteria": "conversation.metadata.agentId==johndoe"
+  }
 }
 ```
 
@@ -109,7 +111,7 @@ To add metadata, modify an already processed conversation using Conversation API
 {
   "id": "4931769134481408",
   "type": "meeting",
-  "name": "My Test Meeting",
+  "name": "My Business Meeting",
   "startTime": "2021-02-24T15:53:05.594Z",
   "endTime": "2021-02-24T16:18:05.048Z",
   "members": [

@@ -1,13 +1,15 @@
 ---
 id: summarization
-title: Summarization API- Capturing Key Points (Labs)
+title: Summarization API- Capturing Key Points 
 description: Use Symbl.ai’s summarization API to capture key points in a conversation and create succinct summaries. Learn more.
-sidebar_label: Summarization (Labs)
+sidebar_label: Summarization 
 slug: /concepts/summarization
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+---
 
 :::info Symbl Labs
 This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
@@ -22,20 +24,7 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 Symbl's Conversational Intelligence distills important conversation messages and creates succinct Summaries. 
 
-Summaries helps you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages. 
-
-
-#### Example
-
-**Note:** The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
-
-Please contact labs@symbl.ai if you wish to access these features. 
-:::
-
-**Summarization** is capturing key discussion points in a conversation that helps you shorten the time to grasp the contents of the conversation. 
-Using Summary API, you can create Summaries that are succinct and context-based. 
-
-Symbl's Conversational Intelligence identifies important conversation messages and creates Summaries even for long conversations that might have multiple speakers. 
+Summaries help you the save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. 
 
 ### Example
 
