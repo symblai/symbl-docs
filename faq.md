@@ -22,7 +22,7 @@ We store transcripts, insights, and metadata about the conversation, which is pe
 ### How many concurrent API calls can I make?
 
 For trial, this API has a limit of 20 concurrent jobs. After you upgrade your account, it has a limit of 50 concurrent jobs.
-If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai
+If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai.
 
 
 ### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) support?  
