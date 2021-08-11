@@ -25,7 +25,7 @@ Make a POST request to the following API:
 
 **<font color="orange">POST</font> `https://api.symbl.ai/v1/manage/group`**
 
-## Request Headers
+### Request Headers
 
 Header Name  | Required | Description
 ---------- | ------- |  ------- |
@@ -37,16 +37,29 @@ Header Name  | Required | Description
 
 ```json
 {
-  "name": "John's Calls",
-  "description": "All the conversations done by the agent John Doe are captured under this Group.",
-  "criteria": "conversation.metadata.agentId=='johndoe'"
+  "name": "Calls made by John",
+  "description": "All the conversations made by the agent John Doe are captured in this Group.",
+  "criteria": "conversation.metadata.agentId==johndoe"
 }
 ```
+:::note Using multiple Criteria
+Given below is another sample request containing more than one `criteria`. You can add upto 2 parameters per criteria, however, there are no restrictions on the number of criterions you can use. Here, we use `agentId` and `customerId`:
+
+```json
+{
+  "id": "4931769134481408",
+  "name": "Calls made by John to Acme Corp",
+  "description": "All the conversations by the agent John Doe with customer Acme Corp are captured in this Group.",
+  "criteria": "conversation.metadata.agentId==johndoe and conversation.metadata.customerId==88338833"
+}
+```
+:::
+
 ### Request Parameters
 
 | Parameter | Data Type | Description | Required | Values Accepted | 
 |--------|----------|---- | --- | ------| 
-`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `- -`, `_`, `'` and `”`. The maximum length of string allowed 128 characters.
+`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
 `description` | String | Description to capture any additional details of the group and its purpose. | Optional | The maximum length of string allowed 512 characters.
 `criteria` | String / RSQL format | Criteria in RSQL format that should be applied to group conversations under this group. | Mandatory | Valid RSQL string. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
 
@@ -56,13 +69,15 @@ The newly created Group object is returned in the response body.
 
 ```json
 {
-  "id": "4931769134481408",
-  "name": "John's Calls",
-  "description": "All the conversations done by the agent John Doe are captured under this Group.",
-  "criteria": "conversation.metadata.agentId=='johndoe'"
+    "group": {
+        "id": "4931769134481408",
+        "name": "Calls made by John",
+        "description": "All the conversations made by the agent John Doe are captured in this Group.",
+        "criteria": "conversation.metadata.agentId==johndoe"
+    }
 }
 ```
-The `id` returned in the Response is the Group ID which is a unique identifier of the Conversation Group.
+The `id` returned in the Response is the Group ID which is a unique identifier of the Conversation Group created.
 
 ## Create Multiple Conversation Groups
 
@@ -75,3 +90,20 @@ This API creates multiple Conversation Groups at the same time.
 :::info 
 While working with multiple Conversation Groups, notice the use of plural `groups` versus `group` used in singular Conversation Group operations.
 :::
+
+### Request Body
+
+```json
+[
+  {
+    "name": "Group for all Internal calls",
+    "description": "Group for sales team meetings",
+    "criteria": "conversation.metadata.label==Internal"
+  },
+  {
+    "name": "Group for all conversations with Acme Corp company",
+    "description": "Group for Acme Corp conversations",
+    "criteria": "conversation.metadata.label==External"
+  }
+]
+```

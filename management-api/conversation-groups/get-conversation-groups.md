@@ -44,12 +44,15 @@ The requested Group object is returned in the response body.
 
 ```json
 {
-  "id": "4931769134481408",
-  "name": "John's Calls for Acme Corp",
-  "description": "All the conversations by the agent John Doe with customer Acme Corp are captured in this Group",
-  "criteria": "conversation.metadata.agentId=='johndoe' and conversation.metadata.customerId=='88338833'"
+    "group": {
+        "id": "4931769134481408",
+        "name": "Calls made by John",
+        "description": "All the conversations made by the agent John Doe are captured in this Group.",
+        "criteria": "conversation.metadata.agentId==johndoe"
+    }
 }
 ```
+
 ## Get Multiple Conversation Groups
 
 To get multiple Conversation Groups in a single call, make a GET request to the following API endpoint:

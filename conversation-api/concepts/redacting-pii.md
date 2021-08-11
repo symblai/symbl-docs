@@ -1,18 +1,20 @@
 ---
 id: redaction-pii
-title: Identifying and Redacting PII (Labs)
-sidebar_label: PII Identification and Redaction (Labs)
+title: Identifying and Redacting PII 
+sidebar_label: PII Identification and Redaction 
 slug: /concepts/redaction-pii
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-:::note Symbl Labs
+---
+
+:::info Symbl Labs
 This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
 
 
-You can access the Labs features using your Symbl App ID and Secret.  If you don't already have it, sign up on our [platform](https://platform.symbl.ai/#/login) to get your credentials.
+You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
 
 **Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
 
