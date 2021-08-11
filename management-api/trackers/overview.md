@@ -46,11 +46,12 @@ POST https://api.symbl.ai/v1/process/audio/url
     "timezoneOffset": 0,
     "trackers": [
         {
-            "name": "COVID-19",
+            "name": "Promotion Mention",
             "vocabulary": [
-                "social distancing",
-                "cover your face with mask",
-                "vaccination"
+                "We have a special promotion going on if you book this before",
+                "I can offer you a discount of 10 20 percent you being a new customer for us",
+                "We have our month special this month",
+                "We have a sale right now on"
             ]
         }
     ]
@@ -126,16 +127,17 @@ const connection = await sdk.startRealtimeRequest({
     insightTypes: ['action_item', 'question'],
     trackers: [
         {
-            name: "COVID-19",
+            name: "Promotion Mention",
             vocabulary: [
-                "social distancing",
-                "cover your face with mask",
-                "vaccination"
+                "We have a special promotion going on if you book this before",
+                "I can offer you a discount of 10 20 percent you being a new customer for us",
+                "We have our month special this month",
+                "We have a sale right now on"
             ]
         }
     ],
     config: {
-        meetingTitle: "My Awesome Meeting",
+        meetingTitle: "My Meeting",
         confidenceThreshold: 0.7,
         languageCode: "en-US",
         sampleRateHertz: 48000,

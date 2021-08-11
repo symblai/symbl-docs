@@ -114,7 +114,6 @@ exit()
         {
             "id": "4875991597973504",
             "text": "Stella and John need to shift their focus more towards dev. John will go ahead and set up a discussion with product.",
-            "text": "Anton wants to have all the data from his database in their database.",
             "type": "action_item",
             "score": 0.8735619108573252,
             "messageRefs": [

@@ -29,7 +29,7 @@ Operation  | Endpoint
 Create Tracker | [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
 Create Trackers in Bulk | [`POST` v1/manage/trackers](/management-api/trackers/create-tracker/#create-trackers-in-bulk)
 Get Tracker with ID| [`GET`v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
-Get Tracker with name | [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
+Get Tracker with name | [`GET` v1/manage/trackers?name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
 

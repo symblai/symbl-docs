@@ -72,11 +72,12 @@ Header Name  | Required | Description
     "timezoneOffset": 0,
     "trackers": [
         {
-            "name": "COVID-19",
+            "name": "Promotion Mention",
             "vocabulary": [
-                "social distancing",
-                "cover your face with mask",
-                "vaccination"
+                "We have a special promotion going on if you book this before",
+                "I can offer you a discount of 10 20 percent you being a new customer for us",
+                "We have our month special this month",
+                "We have a sale right now on"
             ]
         }
     ]
@@ -144,11 +145,12 @@ Header Name  | Required | Description
     "timezoneOffset": 0,
     "trackers": [
         {
-            "name": "COVID-19",
+            "name": "Promotion Mention",
             "vocabulary": [
-                "social distancing",
-                "cover your face with mask",
-                "vaccination"
+                "We have a special promotion going on if you book this before",
+                "I can offer you a discount of 10 20 percent you being a new customer for us",
+                "We have our month special this month",
+                "We have a sale right now on"
             ]
         }
     ]
@@ -185,7 +187,7 @@ Header Name  | Required | Description
 
 ```json
 {
-    "name": "My Awesome Sales Conversation",
+    "name": "My Sales Conversation",
     "conversationType": [
         "sales"
     ],
@@ -203,11 +205,12 @@ Header Name  | Required | Description
     ],
     "trackers": [
         {
-            "name": "COVID-19",
+            "name": "Promotion Mention",
             "vocabulary": [
-                "social distancing",
-                "cover your face with mask",
-                "vaccination"
+                "We have a special promotion going on if you book this before",
+                "I can offer you a discount of 10 20 percent you being a new customer for us",
+                "We have our month special this month",
+                "We have a sale right now on"
             ]
         }
     ]

@@ -41,7 +41,7 @@ Header Name  | Required | Description
 ```json
 {
   "id": "4931769134481408",
-  "name": "John's Calls for Acme Corp",
+  "name": "John's Calls with Acme Corp",
   "description": "All the conversations by the agent John Doe with customer Acme Corp are captured in this Group.",
   "criteria": "conversation.metadata.agentId=='johndoe' and conversation.metadata.customerId=='88338833'"
 }
@@ -62,8 +62,8 @@ The updated Group object is returned in the response body.
 ```json
 {
   "id": "4931769134481408",
-  "name": "John's Calls for Comcast",
-  "description": "All the conversations by the agent John Doe with customer Acme Corp are captured in this Group",
+  "name": "John's Calls with Acme Corp",
+  "description": "All the conversations by the agent John Doe with customer Acme Corp are captured in this Group.",
   "criteria": "conversation.metadata.agentId=='johndoe' and conversation.metadata.customerId=='88338833'"
 }
 ```
