@@ -5,6 +5,7 @@ title: PUT Text API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 The PUT Async Text API allows you to process any text payload to append the transcription of the previous conversation.
 
@@ -14,15 +15,14 @@ It can be useful in cases where you have new information like chats, emails or m
 If there are multiple requests are submitted for the same Conversation ID, all the requests will be processed synchronously in order to maintain the order of the requests for the conversation.
 :::
 
-### HTTP REQUEST
+### API Endpoint
 
 `PUT https://api.symbl.ai/v1/process/text/:conversationId`
 
 ### Example API Call
 
-:::info
 Before using the Async Text API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
+
 
 <Tabs
   defaultValue="cURL"
@@ -294,7 +294,7 @@ Header Name | Required | Value
 `Content-Type` | Mandatory | `application/json`
 ```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
-### Path Params
+### Path Parameter
 
 Parameter | Value
 ---------- | ------- |
@@ -302,46 +302,49 @@ Parameter | Value
 
 ### Request Body
 
+```json
+{
+  "name": "Afternoon Business Meeting",
+  "detectPhrases": true,
+  "confidenceThreshold": 0.6,
+  "entities": [
+    {
+      "customType": "Company Executives",
+      "value": "Marketing director",
+      "text": "Marketing director"
+    }
+  ],
+  "detectEntities": true,
+  "messages": [],
+  "trackers": [
+    {
+      "name": "Promotion Mention",
+      "vocabulary": [
+        "We have a special promotion going on if you book this before",
+        "I can offer you a discount of 10 20 percent you being a new customer for us",
+        "We have our month special this month",
+        "We have a sale right now on"
+      ]
+    }
+  ]
+}
+```
+
+### Request Body Parameters
+
 Field | Required | Type |  Description
 ---------- | ------- | ------- |  ------- |
 ```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
 ```messages``` | Mandatory | List | Input Messages to look for insights. [See the messages section below for more details.](#messages)
 ```confidenceThreshold``` | Optional | Double | Minimum required confidence for the insight to be recognized. Value ranges from  0.0 to 1.0. Default 0.5.
 ```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
-```customEntities``` | Optional | List |  Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
+```entities``` | Optional | List |  Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
 ```trackers``` <font color="orange"> BETA</font> | Optional | String | A `tracker` entity containing name and vocabulary (a list of key words and/or phrases to be tracked). Read more in the[Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation. Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag).
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
 
-
-##### Code Example
-
-```js
-{
-  "name": "Afternoon Business Meeting",
-  "detectPhrases":true,
-  "confidenceThreshold": 0.6,
-  "customEntities": [{"entityName": "entityValue"}],
-  "messages": []  // See messages section below.
-  "trackers": [{
-    "name": "COVID-19",
-    "vocabulary": [
-      "social distancing",
-      "cover your face with mask",
-      "vaccination"
-    ]
-  }]
-}
-```
-
 #### messages
-
-Field | Required | Type | Description
----------- | ------- | ------- |  -------
-```payload``` | Mandatory | Object | Input Messages to look for insights. [See the payload section below for more details.](#payload)
-```from``` | Optional | Object | Information about the User information produced the content of this message.
-```duration``` | Optional | Object | Duration object containing `startTime` and `endTime` for the transcript.
 
 ##### Code Example
 
@@ -375,12 +378,17 @@ Field | Required | Type | Description
 }
 ```
 
+Field | Required | Type | Description
+---------- | ------- | ------- |  -------
+```payload``` | Mandatory | Object | Input Messages to look for insights. [See the payload section below for more details.](#payload)
+```from``` | Optional | Object | Information about the User information produced the content of this message.
+```duration``` | Optional | Object | Duration object containing `startTime` and `endTime` for the transcript.
+
 #### payload
 
 Field | Required | Type | Default | Description
 ---------- | ------- | ------- |  ------- | -------
 ```content``` | Mandatory | String | | The text content that you want the API to parse.
-
 
 ##### Code Example
 
@@ -391,7 +399,6 @@ Field | Required | Type | Default | Description
   }
 }
 ```
-
 #### from(user)
 
 Field | Required | Type | Description
@@ -452,21 +459,18 @@ Field | Description
 
 ### Response
 
-#### Response object
-
-Field | Description
----------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
-`jobId` | ID to be used with Job API.
-
-##### Code Example
-
 ```js
 {
   "conversationId": "5815170693595136",
   "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
 }
 ```
+#### Response object
+
+Field | Description
+---------- | ------- |
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
+`jobId` | ID to be used with Job API.
 
 ### API Limit Error
 
