@@ -18,7 +18,7 @@ The following entities are currently supported with Management API:
 
 - **Trackers**: Trackers allow you to get “contextually similar” occurrences in a conversation so you can identify emerging trends and gauge the nature of the interactions. Read about Trackers and its capabilities, in the [**Trackers**](/concepts/trackers) section. 
 
-- **Conversation Groups**: You can create and manage conversations by logically grouping them by defining a criteria that suits your business need such as grouping based on speaker agent, company name, labels such as internal, external, sales, etc. Read more in the [Conversation Groups](/concepts/conversation-groups). 
+- **Conversation Groups**: You can create and manage conversations by logically grouping them by defining a criteria that suits your business need such as grouping based on speaker agent, company name, labels such as internal, external, sales, etc. Read more in the [**Conversation Groups**](/concepts/conversation-groups). 
 
 ### Tracker Management APIs
 
@@ -33,7 +33,7 @@ Get Tracker with name | [`GET` v1/manage/trackers?name={trackerName}](/managemen
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
 
-### Conversation Management APIs
+### Conversation Groups Management APIs
 
 Following are the API endpoints supported for managing Conversation Groups entity:
 
