@@ -38,6 +38,12 @@ You can utilize different functions of Conversation APIs by directly utilizing `
 `get_members(conversation_id)` | Returns a list of all the members in a conversation. A Member is referred to a participant in the conversation that is uniquely identified as a speaker. Identifying different participants in the meetings can be done by implementing speaker separation.
 `get_questions(conversation_id)` | Returns explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question.
 `get_conversation(conversation_id)` | Returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting id.
+`get_entities(conversation_id)` | Extracts entities (such as custom entities, location, person, date, number, organization,datetime,daterange, etc.) from the conversation.
+`get_trackers(conversation_id)` | Returns the occurrence of certain key words or phrases from the conversation.
+`get_analytics(conversation_id)` | Returns the speaker ratio, talk time, silence, pace and overlap from the conversation.
+
+
+
 
 
 
