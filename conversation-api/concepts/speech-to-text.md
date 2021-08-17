@@ -2,7 +2,7 @@
 id: speech-to-text
 title: Transcribe Speech-to-Text in Real-Time
 description: Get real-time speech-to-text data and analytics from your conversations with Symbl.ai APIs. Learn more.
-sidebar_label: Speech-to-Text
+sidebar_label: Introduction
 slug: /concepts/speech-to-text
 ---
 
@@ -27,6 +27,9 @@ Symbl offers state-of-the-art Speech-to-Text capability (also called transcripti
 
 - **[Speaker Diarization](https://en.wikipedia.org/wiki/Speaker_diarisation)**: Know who said what by receiving automatic predictions about which of the speakers in a conversation spoke each utterance this is called Speaker Diarization. This process is fairly accurate but not 100% accurate. If you want near 100% accuracy with who said what, please use audio streams and passing the audio files in channels.
 
+- **Paragraph generation**
+- **Support for formats like Mardown and SRT**
+- **Action Phrases within the transcription**
 
 ## Speech-to-Text API
 

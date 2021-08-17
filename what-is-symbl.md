@@ -15,10 +15,11 @@ slug: /what-is-symbl
 
 ## How Symbl Works
 ---
-Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in real-time as well as asynchronously to return Conversation Intelligence. 
+Symbl ingests conversation data from different sources: **text**, **audio** and **video** and processes them in **real-time** as well as **asynchronously** with Symbl's APIs. 
+
 You can send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
-Using the **Conversation APIs** you can then get any Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, or generate a **Customizable Pre-built UI**.
+Once the conversation is ingested by Symbl, you can use the **Conversation APIs** to get Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, and also generate a **Customizable Pre-built UI**.
 
 ![how-symbl-works](/img/symbl-page.png)
 

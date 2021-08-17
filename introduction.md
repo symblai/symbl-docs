@@ -1,6 +1,6 @@
 ---
 id: introduction
-title: Documentation
+title: Symbl Documentation
 sidebar_label: Guides
 slug: /
 ---
@@ -40,7 +40,7 @@ our APIs, we've got you covered!
 ---
 
 Sign up on [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
-Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make a Symbl API call. 
+Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make Symbl API calls. 
 &nbsp;
 
 ### Step 2: Send Recorded Conversation OR Connect Live
@@ -71,7 +71,7 @@ Step 2 returns a `conversationId` by default. Use this in the **Conversation API
 
 <div class="row">
   <div class="column">
-    <div class="card2"> <h4><br/>Try it on Postman</h4> Our public collection in Postman is available with pre-configured API requests that allow you to be up and running in a jiffy!<br/>
+    <div class="card2"> <h4><br/>Try it in Postman</h4> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
 <br/>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
