@@ -1,4 +1,4 @@
-![logo](/img/logo.png)
+![logo](https://user-images.githubusercontent.com/81958801/129763344-cd250502-7f54-4b62-961a-5604ea9520fb.png)
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/symbldotai?style=social)
 
@@ -11,10 +11,10 @@ Our documentation site is built using [Docusaurus 2](https://v2.docusaurus.io/),
 
 ## Table of Contents
 - [Points to Note](#points-to-note)
-- [How to Contribute](how-to-contribute)
-- [Setup Docs Locally](set-up-docs-locally)
-- [Installation](installation)
-- [Local Development](local-development)
+- [How to Contribute](#how-to-contribute)
+- [Setup Docs Locally](#set-up-docs-locally)
+- [Installation](#installation)
+- [Local Development](#local-development)
 
 ## Points to Note
 
@@ -41,7 +41,7 @@ If you wish to suggest a new topic, want to request for additional details or ra
 - Using SSH:
   
 ```js
-$ git clone git@github.com:sendgrid/docs.git
+$ git clone git@github.com:symblai/symbl-docs.git
 ```
   
    OR 
@@ -49,7 +49,7 @@ $ git clone git@github.com:sendgrid/docs.git
 - Using HTTPS:
 
 ```js
-$ git clone https://github.com/sendgrid/docs.git
+$ git clone https://github.com/symblai/symbl-docs.git
 ```
 
 2. Open your local directory where you cloned the docs
