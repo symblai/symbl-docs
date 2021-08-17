@@ -55,7 +55,7 @@ $ git clone https://github.com/symblai/symbl-docs.git
 2. Open your local directory where you cloned the docs
   
 ```js
-$ cd docs
+$ cd symbl-docs
 ```
 
 3. Switch to develop branch to make changes
