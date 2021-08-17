@@ -150,7 +150,7 @@ Name | Required | Description
 `parameters` | Optional | By default {}) Dictionary, Any parameter and it's value can be provided in the dictionary format. For getting a list of value check [here](/docs/async-api/overview/text/put-text#query-params).
 
 ## Conversation object
-Conversation object is returned by Async API Text, Audio and Video classes. The conversation object is a shorthand for conversation API and can be utilized for fetching multiple insights.
+The Text, Audio, and Video classes of the Async API return the Conversation object. The conversation object is a shorthand for conversation API and can be utilized for fetching multiple insights.
 
 ### conversation_object.get_conversation_id():
 
