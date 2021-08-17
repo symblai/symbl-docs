@@ -11,7 +11,7 @@ slug: /
 :::
 
 
-## ❇️ Explore Symbl's APIs
+## ❇️ Explore our APIs
 
 ### 💻  Streaming API
 Streaming API is based on Web Socket protocol and is used for **real-time** use-cases where both the audio and its results are available in real-time. It can be integrated directly via the **browser or server**.<br/>
