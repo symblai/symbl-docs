@@ -1,4 +1,4 @@
-<img width="217" alt="Screenshot 2021-08-17 at 11 12 41 AM" src="https://user-images.githubusercontent.com/81958801/129669928-de8f0fdc-c01c-411b-9e0b-f5dce549bd32.png">
+![logo](/img/logo.png)
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/symbldotai?style=social)
 
@@ -40,7 +40,7 @@ If you wish to suggest a new topic, want to request for additional details or ra
 
 - Using SSH:
   
-```
+```js
 $ git clone git@github.com:sendgrid/docs.git
 ```
   
@@ -48,29 +48,30 @@ $ git clone git@github.com:sendgrid/docs.git
 
 - Using HTTPS:
 
-```
+```js
 $ git clone https://github.com/sendgrid/docs.git
 ```
 
 2. Open your local directory where you cloned the docs
   
-```
+```js
 $ cd docs
 ```
 
 3. Switch to develop branch to make changes
-```
+
+```js
 $ git checkout develop
 ```
 ### Installation
 
-```
+```js
 $ yarn
 ```
 
 ### Local Development
 
-```
+```js
 $ yarn start
 ```
 
@@ -78,7 +79,7 @@ This command starts a local development server and open up a browser window. Mos
 
 ### Build
 
-```
+```js
 $ yarn build
 ```
 
@@ -86,7 +87,7 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-```
+```js
 $ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
