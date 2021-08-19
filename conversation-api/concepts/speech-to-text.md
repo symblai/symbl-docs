@@ -9,6 +9,7 @@ slug: /concepts/speech-to-text
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 Symbl offers state-of-the-art Speech-to-Text capability (also called transcription). You can convert audio and video conversations into text in real-time or after the conversation has ended.
 

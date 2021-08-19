@@ -1,13 +1,15 @@
 ---
 id: sentiment
 title: Sentiment API- Analysing Texts in Real-time (Beta)
-sidebar_label: Sentiment Analysis
+sidebar_label: Introduction
 description: Sentiment API enables developers to detect positive or negative sentiment from conversations in real-time. Learn more.
 slug: /concepts/sentiment-analysis
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+---
 
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.

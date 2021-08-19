@@ -10,7 +10,7 @@ This page contains a step-by-step explanation of how to get Conversation Intelli
  
 To get Conversation Intelligence,
  
-&nbsp;&nbsp; [Step 1: Process conversation with Real-time APIs or Async API](#1-process-conversation-with-real-time-or-async-api) <br/>
+&nbsp;&nbsp;[Step 1: Process conversation with Real-time APIs or Async APIs](#1-process-conversation-with-real-time-or-async-api) <br/>
  
 &nbsp;&nbsp;[Step 2: Get Conversation Intelligence with Conversation API.](#2-get-conversation-intelligence-with-conversation-api)
  
@@ -34,7 +34,7 @@ This step always returns a unique Conversation ID. The Conversation ID is used i
 Both these API types process your conversation with Symbl effectively and the choice of using either of them will depend on whether you want the insights in real time or on-demand i.e., non-real time.
 :::
  
-#### Real-time APIs
+### Real-time APIs
  
 To connect in real time, you can use the Real-time APIs: **Streaming API** or **Telephony API**.
  
@@ -43,7 +43,7 @@ Symbl's Streaming API is based on WebSocket protocol and can be used for real-ti
 - [Telephony API](/docs/telephony/introduction):
 Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well.
  
-#### Async APIs
+### Async APIs
 The Async API provides a REST interface that helps you submit any recorded or saved conversations to Symbl. Its is supported for all data sources mentioned below:
  
 - [Text API](/docs/async-api/overview/text/post-text) for processing saved conversations via emails, sms and chat.

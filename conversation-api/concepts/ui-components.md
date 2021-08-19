@@ -7,6 +7,7 @@ sidebar_label: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 Symbl provides reusable and customizable UI Components that can be widely divided into two types:
 

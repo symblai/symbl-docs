@@ -8,6 +8,8 @@ slug: /concepts/conversational-analytics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Conversational Analytics is an understanding of a conversation between two or more people to gain insights on the customer behavior.
 
 #### Example
