@@ -263,23 +263,28 @@ In addition to being able to log topics, action items, or follow-ups, you can al
 
 ## Logging Sentiments
 
-The first step to creating a function for logging sentiments is to ensure that you log the `conversationId`. Earlier you log the `conversationId` through the following log: `console.log('conversationId', data.message.data.conversationId)`. Since the `ws.onmessage` method logs events, the events contain data. Through a parse of the event's message data, you access the `conversationId` :  `data.message.data.conversationId`
+The first step to creating a function for logging sentiments is to ensure that you log the `conversationId`. Earlier you log the `conversationId` through the following log: `console.log('conversationId', data.message.data.conversationId)`. 
+
+Since the `ws.onmessage` method logs events, the events contain data. Through a parse of the event's message data, you access the `conversationId` :  `data.message.data.conversationId`
 
 After parsing the event data, the next step is to cache the `conversationId`, you save the `conversationId` to a constant in JavaScript. 
 
-```JavaScript
-
+```js
 const conversationId = data.message.data.conversationId;
-
 ```
-With the `conversationId` cached, you set up a `POST` request to the Symbl.ai's Conversation API's Message API with a query parameter together with the cached `conversationId`.  
 
-To create the `POST` request, you use an HTTP library. The library used here is `XMLHttpRequest()` but you are free to use any library you like. To set up the request, indicate the response type, the `POST` request type, configure the headers. Create a log. Configure the request to make a call to `.send()`. 
+With the `conversationId` cached, you can set up a `POST` request to the Symbl's Conversation API's- Message API with a query parameter together with the cached `conversationId`.  
 
+To create the `POST` request, 
+
+1. Use an HTTP library. The library used here is `XMLHttpRequest()` but you are free to use any library you like. 
+2. Set up the request, indicate the response type, the `POST` request type, and configure the headers. 
+3. Create a log.
+4. Configure the request to make a call to `.send()`. 
 
 Here is the full sample of the function for logging sentiments in real-time over the WebSocket. 
 
-```JavaScript
+```js
 
 // Fired when a message is received from the WebSocket server
 ws.onmessage = (event) => {// You can find the conversationId in event.message.data.conversationId;
@@ -300,8 +305,8 @@ if (data.type === 'message' && data.message.hasOwnProperty('data')) {
     }
 
 };
-
 ```
+
 ## Full Code Sample
 
 Here's the complete code sample below which you can also [view on GitHub](https://github.com/symblai/real-time-speech-recognition-with-websockets):
@@ -425,4 +430,4 @@ const handleSuccess = (stream) => {
 handleSuccess(stream);
 ```
 
-If you properly implemented the code, the code runs in the browser without anything else.
+If you properly implemented the code, the code runs successfully in the browser!

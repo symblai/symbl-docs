@@ -129,7 +129,7 @@ To make a phone call, call the `startEndpoint` with `type` set to `pstn` and a v
 
 ### Subscribe to the Live AI Insights
 
-To get real-time AI insights, you must subscribe to the connectiohn. You need to call the `subscribeToConnection` method in the SDK and pass the `connectionId` and a callback method which will be called on for every new event including the live transcription.
+To get real-time AI insights, you must subscribe to the connection. You need to call the `subscribeToConnection` method in the SDK and pass the `connectionId` and a callback method which will be called on for every new event including the live transcription.
 
 ```javascript
 // Subscribe to connection using connectionId.
