@@ -1,37 +1,81 @@
 ---
 id: introduction
-title: What is Symbl.ai?
-sidebar_label: What is Symbl.ai?
+title: Symbl Documentation
+sidebar_label: Guides
 slug: /
 ---
+---
 
-:::tip Welcome
+👋 Welcome to Symbl documentation! 
 
-[Symbl](https://symbl.ai/) offers comprehensive suite of APIs for analysing natural human conversations without the use of upfront training data, wake words or custom classifiers.
-:::
+Whether you're looking to understand Symbl's capabilities or get started with 
+our APIs, we've got you covered!
 
+<div class="row">
+  <div class="column">
+    <div class="card"><a href="/docs/api-reference/getting-started"><h4>API Reference</h4>Browse through our APIs, learn how they work and get detailed descriptions and sample codes for each endpoint.</a></div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/sdk-intro"><h4>SDK</h4>Add Symbl capabilities directly to your web and mobile applications with our robust Python and JavaScript SDKs. </a>
+  </div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/docs/tutorials"><h4>Tutorials</h4>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools and applications. </a></div>
+  </div>
+  <div class="column">
+    <div class="card"><a href="/"><h4>Guides</h4>Learn about Symbl's capabilities, understand business use-cases and discover Conversation Intelligence applications across industries.</a></div>
+  </div>
+</div>
+<br/>
 
-## ❇️ Explore our APIs
+## What is Symbl?
+---
 
-### 💻  Streaming API
-Streaming API is based on Web Socket protocol and is used for **real-time** use-cases where both the audio and its results are available in real-time. It can be integrated directly via the **browser or server**.<br/>
-👉 &nbsp; [Process live speech-to-text from your computer's microphone](/docs/getting-started-with-streaming-api)
+[Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence platform for natural human conversations that works on audio, video, and textual content in real-time or recorded files. Symbl’s APIs let you generate real-time Sentiment Analysis, Action Items, Topics, Trackers, Summary and much more in your applications.
 
-### 🎥  Async API
-Async APIs provide the functionality for processing ** stored recordings audio/video** from files or public/signed URLs or textual content from a conversation.<br/>
-👉 &nbsp; [Process an audio file using Async API](/docs/getting-started-with-async-api)
+<div><a href="/docs/what-is-symbl">Learn more ➡️ &nbsp;</a></div>
 
-### 📞 Telephony API
-Based on **PSTN and SIP protocols**, this API provides an interface for the developers to have **Symbl join VoIP calls** and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights, and topics in a single page web application.<br/>
-👉 &nbsp; [Get a transcription from your Zoom call](/docs/getting-started-with-telephony-api)
+## Getting Started 
+### Step 1: Get Symbl API Credentials
+---
 
-### 📊 Pre-Built UI
-Pre-Built UI is an **interface for the user to interact** with the Symbl's APIs output and understand the conversation better. You can interact with speech-to-text transcription, action items, follow-ups, topics and other APIs. You can generate these API with a simple API call using Experience API after you have processed a conversation using any above-mentioned APIs.
+Sign up on [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
+Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make Symbl API calls. 
+&nbsp;
 
-👉 &nbsp; [Experience API](/docs/pre-built-ui/experience-api)
+### Step 2: Send Recorded Conversation OR Connect Live
+---
 
+Using the following APIs, send conversation data in real-time or after the conversation has taken place (async). 
 
-### 🔌 Run on Postman
-Easy **Graphic User Interface to run APIs**.
+&nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/reference/reference) allow you to send text, audio, or video conversations in recorded format. <br/>
+&nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call via WebSocket protocol.<br/>
+&nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on a live audio conversation via SIP and PSTN.<br/>
 
-👉 &nbsp; [Postman](/docs/developer-tools/postman)
+### Step 3: Get Conversation Intelligence
+---
+
+Step 2 returns a `conversationId` by default. Use this in the **Conversation API** to generate any of the following Conversation Intelligence:
+
+&nbsp; &nbsp;👉 &nbsp; [Speech-to-Text (Transcripts)](/docs/concepts/speech-to-text)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Topics](/docs/concepts/topics) <br/>
+&nbsp; &nbsp;👉 &nbsp; [Sentiment Analysis](/docs/concepts/sentiment-analysis) <br/>
+&nbsp; &nbsp;👉 &nbsp; [Action Items](/docs/concepts/action-items)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Follow-Ups](/docs/concepts/follow-ups)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Questions](/docs/concepts/questions)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Trackers](/docs/concepts/trackers)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Conversation Analytics](/docs/concepts/conversational-analytics)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Summary (Labs)](/docs/concepts/summarization)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Topic Hierarchy](/docs/concepts/topic-hierarchy)<br/>
+<br/>
+
+<div class="row">
+  <div class="column">
+    <div class="card2"> <h4><br/>Try it in Postman</h4> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
+<br/>
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
+
+   </div>
+  </div>
+  </div>
