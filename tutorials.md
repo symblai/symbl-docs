@@ -11,7 +11,7 @@ Find detailed tutorials on how to implement Conversation Intelligence on your co
 
 <div class="row">
   <div class="column">
-    <div class="card3"><h4>Streaming API</h4>
+    <div class="card3"><a href="/docs/streamingapi/introduction"><h4>Streaming API</h4></a>
 
 * [Get Real-time Speech-To-Text Transcriptions Using Streaming API](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
 * [Gain Real-time AI Insights From Your Device's Mic Using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
@@ -21,7 +21,7 @@ Find detailed tutorials on how to implement Conversation Intelligence on your co
 <button class="button button1"><a href="/docs/streamingapi/introduction">View all Tutorials</a></button><br/></div>
   </div>
    <div class="column">
-    <div class="card3"><h4>Async API</h4> 
+    <div class="card3"><a href="//docs/async-api/introduction"><h4>Async APIs</h4></a> 
 
  
 * [How To Use Sentiment Analysis](/docs/async-api/code-snippets/how-to-use-sentiment-analysis)
@@ -31,11 +31,11 @@ Find detailed tutorials on how to implement Conversation Intelligence on your co
 * [Generate a Pre-built UI From Video Recordings](/docs/async-api/code-snippets/generate-pre-built-ui-from-video-recordings)
  
 
-<button class="button button2"><a href="/docs/telephony/introduction">View all Tutorials</a></button>
+<button class="button button2"><a href="/docs/async-api/introduction">View all Tutorials</a></button>
   </div>
   </div>
   <div class="column">
-    <div class="card3"><h4>Telephony API</h4> 
+    <div class="card3"><a href="/docs/telephony/introduction"><h4>Telephony API</h4></a>
 
  
 * [Gain AI Insights On Your Zoom Call](/docs/telephony/tutorials/connect-to-zoom)

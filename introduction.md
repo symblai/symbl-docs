@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Symbl Documentation
-sidebar_label: Guides
+sidebar_label: Documentation
 slug: /
 ---
 ---
@@ -23,7 +23,7 @@ our APIs, we've got you covered!
     <div class="card"><a href="/docs/tutorials"><h4>Tutorials</h4>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools and applications. </a></div>
   </div>
   <div class="column">
-    <div class="card"><a href="/"><h4>Guides</h4>Learn about Symbl's capabilities, understand business use-cases and discover Conversation Intelligence applications across industries.</a></div>
+    <div class="card"><a href="/guides"><h4>Guides</h4>Learn about Symbl's capabilities, understand business use-cases and discover Conversation Intelligence applications across industries.</a></div>
   </div>
 </div>
 <br/>
@@ -64,10 +64,12 @@ Step 2 returns a `conversationId` by default. Use this in the **Conversation API
 &nbsp; &nbsp;👉 &nbsp; [Follow-Ups](/docs/concepts/follow-ups)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Questions](/docs/concepts/questions)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Trackers](/docs/concepts/trackers)<br/>
+&nbsp; &nbsp;👉 &nbsp; [Conversation Groups](/docs/concepts/conversation-groups)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Conversation Analytics](/docs/concepts/conversational-analytics)<br/>
-&nbsp; &nbsp;👉 &nbsp; [Summary (Labs)](/docs/concepts/summarization)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Topic Hierarchy](/docs/concepts/topic-hierarchy)<br/>
-<br/>
+
+Also check out our features in Labs such as Summarization, Comprehensive Action Items, Identifying and Redacting PII in the [Labs section](/docs/labs). 
+
 
 <div class="row">
   <div class="column">
