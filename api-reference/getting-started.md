@@ -57,12 +57,12 @@ Here's a list of how each of the APIs accept API parameters:
  
 | API  | In Request Body | As Query Param |
 ---------- | ------- | ----- |
-Async Text API | ![tick](/img/tick-mark.png)| ![tick](/img/tick-mark.png)
-Async Audio File API | | ![tick](/img/tick-mark.png)
-Async Audio URL API | ![tick](/img/tick-mark.png) |
-Async Video File API | | ![tick](/img/tick-mark.png)
-Async Video URL API | ![tick](/img/tick-mark.png) | |
-Conversation API <br/>(for Sentiment, verbose, etc.) | | ![tick](/img/tick-mark.png)
+Async Text API | ✅ | ✅
+Async Audio File API | | ✅
+Async Audio URL API | ✅ |
+Async Video File API | | ✅
+Async Video URL API | ✅ | |
+Conversation API <br/>(for Sentiment, verbose, etc.) | | ✅
  
 ---
 ### Request and Response Format
@@ -70,7 +70,6 @@ Conversation API <br/>(for Sentiment, verbose, etc.) | | ![tick](/img/tick-mark.
 Symbl APIs use standard HTTPS requests and responses. Our responses are returned in the standard [JSON](https://www.json.org/json-en.html) format.
  
 For Transcript generation, we return a formatted transcript in [Markdown](/docs/conversation-api/transcript/#create-transcript-in-markdown) and [SRT](/docs/conversation-api/transcript/#create-transcript-in-srt) format.
- 
----
+
  
 
