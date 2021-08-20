@@ -1,12 +1,14 @@
 ---
 id: topic-hierarchy
 title: Topic Hierarchy
-sidebar_label: Topic Hierarchy (Beta)
+sidebar_label: Overview
 slug: /concepts/topic-hierarchy
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+---
 
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.

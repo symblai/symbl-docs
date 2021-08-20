@@ -1,9 +1,15 @@
 ---
 id: trackers
 title: Trackers (Beta)
-sidebar_label: Trackers (Beta)
+sidebar_label: Overview
 slug: /concepts/trackers
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+---
+
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
