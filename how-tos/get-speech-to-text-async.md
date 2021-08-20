@@ -23,7 +23,7 @@ Refer to the following tutorials for code snippets and step-by-step instuctions:
 
 ### Symbl SDK
  
-The Programmable Symbl'S SDK allows you to add Conversation Intelligence directly into your web applications and meeting platforms. Capabilities of Async APIs are currently available with Python SDK only. 
+The Programmable Symbl's SDK allows you to add Conversation Intelligence directly into your web applications and meeting platforms. Capabilities of Async APIs are currently available with Python SDK only. 
 
 <button class="button button2"><a href="/docs/python-sdk/overview">Learn more about Symbl's Python SDK</a></button>
 

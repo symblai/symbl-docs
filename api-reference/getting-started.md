@@ -7,7 +7,7 @@ slug: /api-reference/getting-started
 ---
  
 ## Introduction
-Symbl APIs are built around [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) interface (except for the Streaming API which is based on [WebSocket protocol](/docs/concepts/websockets))and are served over secure HTTPS protocol. 
+Symbl APIs are built around [RESTful](http://en.wikipedia.org/wiki/Representational_State_Transfer) interface (except for the Streaming API which is based on [WebSocket protocol](/docs/concepts/websockets) and are served over secure HTTPS protocol. 
  
 Our REST APIs support all HTTP verbs (or methods, as they are referred to in REST APIs): POST, GET, PUT, and DELETE.
  
