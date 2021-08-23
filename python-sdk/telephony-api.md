@@ -31,7 +31,7 @@ Symbl.ai's Python SDK simplifies the credential handling by allowing you either 
 To add your credentials directly to the connection method's calls, add the following line: 
 
 ```python
-      # credentials={app_id: <app_id>, app_secret: <app_secret>}, #Optional, Don't add this parameter if you have symbl.conf file in your home directory or working directory
+      credentials={app_id: <app_id>, app_secret: <app_secret>}, #Optional, Don't add this parameter if you have symbl.conf file in your home directory or working directory
 ```
 
 To handle credentials through a separate file saved your execution directory, add a file to your project called `symbl.conf` with the following configuration: 
@@ -49,9 +49,9 @@ The code snippet below allows you to start a Telephony connection with Symbl via
 ```py
 import symbl
 
-phoneNumber = "" #Zoom phone number. Can be found in invitation 
-meetingId = "" # Your zoom meetingId
-password = "" # Your zoom meeting passcode
+phoneNumber = "" #A PSTN number or a Zoom number 
+meetingId = "" #Your zoom meetingId, blank otherwise
+password = "" # Your zoom meeting passcode, blank otherwise
 emailId = ""
 
 
@@ -101,7 +101,6 @@ Event  | Description
 ----------- |------- |
 `message_response` | Generates an event whenever transcription is available.
 `insight_response` | Generates an event whenever an `action_item` or `question` is identified in the message. 
-`tracker_response`| Generates an event whenever a tracker is identified in the transcription.
 `transcript_response` | Also generates transcription values, however these will include an `isFinal` property which will be False initially meaning the transcription are not finalized.
 `topic_response` | Generates an event whenever a topic is identified in any transcription.
 
@@ -115,7 +114,7 @@ connection_object.subscribe({
     )
 print(connection_object)
 ```
-## Receive Insights on Email
+## Receive Insights via Email
 
 After the call has ended, you can trigger an email containing the URL to view the Transcripts, Topics, Speaker analytics, Follow-ups, Action Items and meeting insights in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
 
