@@ -11,6 +11,12 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 19 Aug 2021
+
+![sdk](/img/sdk-icon.png)
+- **Python SDK**: Added support for updating members and speaker events (PUT method) for Conversation API with Python SDK. <br/>
+[Read more here](/docs/python-sdk/conversation-api).
+
 ### 9 Aug 2021
 
 ![sdk](/img/sdk-icon.png)
