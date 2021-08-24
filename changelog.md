@@ -29,6 +29,10 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 - **Conversation Groups availability**: You can now create logical groups of conversations by setting the grouping criteria such as speaker agent, company name, call type such as internal, external, sales, etc.<br/>
 [Read more here](/docs/concepts/conversation-groups).
 
+![api update](/img/api-update.png)
+- **Fetch all Conversations API availability**: You can now fetch all conversations in a single API call and also apply filters such as sorting, ordering etc. to your result set.<br/>
+[Read more here](/docs/conversation-api/all-conversations).
+
 - Bug Fixes:
   - Incorrect usage recorded due to internal issue in Telephony API is fixed. 
 
