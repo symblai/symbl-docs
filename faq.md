@@ -29,7 +29,7 @@ If you are looking to scale, and need more concurrent jobs than this limit, plea
 
 The API accepts files that are 4 hours or less in duration.
 
-### What audio formats and channels does [Async Audio API](https://docs.symbl.ai/docs/async-api/introduction) support?
+### What audio formats and channels does [Async Audio API](https://docs.symbl.ai/docs/async-api/introduction/#audio-api) support?
 
 The audio formats which we support are mp3, wav, amr, aac, ac3, aiff, flac, ogg, opus and .wma .
 Also, we support mono and dual-channel audio file.
