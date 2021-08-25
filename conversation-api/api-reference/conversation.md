@@ -7,7 +7,9 @@ slug: /conversation-api/conversation-data
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This API returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting id.
+This API returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting ID.
+
+It returns data for a specific conversation (using `conversationId`). If you wish to get all the conversations, see [GET All Conversations](/docs/conversation-api/all-conversations) page. 
 
 
 ### HTTP Request
@@ -136,9 +138,10 @@ exit()
 
 Field  | Description
 ---------- | ------- |
-```id``` | unique conversation identifier
-```type``` | conversation type. default is `meeting`
-```name``` | name of the conversation
-```startTime``` | DateTime value
-```endTime``` | DateTime value
-```members``` | list of member objects containing ID, name and email (if detected).
+```id``` | The unique conversation identifier.
+```type``` | The conversation type. Default value is `meeting`.
+```name``` | The name of the conversation.
+```startTime``` | DateTime value of when the conversation started.
+```endTime``` | DateTime value of when the conversation ended. 
+```members``` | A list of member objects containing ID, name and email (if detected).
+

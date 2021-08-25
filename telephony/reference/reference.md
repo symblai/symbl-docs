@@ -129,7 +129,6 @@ payload = {
             ]
         }
     }],
-    "languages": ['en-US'],  # The first language code in the array is used to specify the session’s language.
     "data": {  # Object containing a session object which has a field name corresponding to the name of the meeting
         "session": {
             "name": "My Meeting"
@@ -185,7 +184,6 @@ Field  | Type | Description
 ```endpoint``` | object | Object containing Type of the session - either pstn or sip, phoneNumber which is the meeting number symbl should call with country code prepended and dtmf which is the conference passcode. [See endpoint section below](#endpoint-config).
 ```actions``` | array | actions that should be performed while this connection is active. Currently only one action is supported - sendSummaryEmail. [See actions section below](#actions).
 ```data``` | object | Object containing a session object which has a field name corresponding to the name of the meeting. [See data section below](#data).
-```languages```| array | The first language code in the array is used to specify the session’s language. [See languages section below](#languages).
 ```timezone``` | string | The timezone name which comes from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). [See timezone section below](#timezone).
 
 ##### Code Example
@@ -196,7 +194,6 @@ Field  | Type | Description
   "endpoint": {}  // See endpoint config section below
   "actions": {}  // See actions section below
   "data": {}  // See data section below
-  "languages": {}  // See languages section below
   "timezone": {}  // See timezone section below.
 }
 ```
@@ -267,22 +264,6 @@ Field  | Required | Supported Value | Description
 }
 ```
 
-#### Languages
-
-Field  | Required | Supported Value | Description
----------- | ------- |  ------- |  -------
-`languages` | No | String[] | Language code in [BCP-47 format](#supported-languages)
-
-
-For more information about our supported languages, [check here](#supported-languages).
-
-
-##### Code Example
-
-```js
-{ "languages": ["ja-JP"] }
-```
-
 #### Timezone
 
 
@@ -329,9 +310,6 @@ Field  | Required | Supported Value | Description
 
 #### Telephony API Endpoint Object
 
-
-
-
 ## Response Parameters
 
 Field | Description
@@ -351,81 +329,6 @@ Field | Description
   "conversationId": "51356232423"
 }
 ```
-
-
-## Supported Languages
-
-Language is specified by passing an array of language codes to the language parameter when making a call to the Telephony API endpoint.
-
-:::info
-Currently, transcription punctuation is not supported for French (`fr-CA`) or Dutch (`nl-NL`) languages.
-:::
-
-The following list of languages(with their [BCP-47](https://en.wikipedia.org/wiki/IETF_language_tag) language-codes) are currently supported:
-
- | Supported Languages          | Code    |
- |------------------------------|---------|
- | English (United States)      | `en-US` |
- | English (United Kingdom)     | `en-GB` |
- | English (Australia)          | `en-AU` |
- | English (Ireland)            | `en-IE` |
- | English (India)              | `en-IN` |
- | English (South Africa)       | `en-ZA` |
- | Russian (Russian Federation) | `ru-RU` |
- | French (Canada)              | `fr-CA` |
- | French (France)              | `fr-FR` |
- | German (Germany)             | `de-DE` |
- | Italian (Italy)              | `it-IT` |
- | Dutch (Netherlands)          | `nl-NL` |
- | Japanese (Japan)             | `ja-JP` |
- | Spanish (United States)      | `es-US` |
- | Spanish (Spain)              | `es-ES` |
- | Arabic (Saudi Arabia)        | `ar-SA` |
- | Hindi (India)                | `hi-IN` |
- | Portuguese (Brazil)          | `pt-BR` |
- | Portuguese (Portugal)        | `pt-PT` |
- | Persian (Iran)               | `fa-IR` |   
-
-
-:::caution
- 1. If the language is not specified then `en-US`(English - United States) is used as the default language.
- 2. Insights like Action items, follow-ups, topics, etc  are detected for English language only.
-:::
-
-
-### Code Example
-
-Below is an example of a request payload specifying that the meeting’s language should be in Spanish.
-
-```js
-{
-  "operation": "start",
-  "endpoint": {
-    "type" : "pstn",
-    "phoneNumber": phoneNumber, // Should be the Zoom phone number this time.
-    "dtmf": `,,${DTMF_MEETING_ID}#,,${MEETING_PASSCODE}#`
-  },
-  "languages": ['es-US'],
-  "actions": [{
-    "invokeOn": "stop",
-    "name": "sendSummaryEmail",
-    "parameters": {
-      "emails": [
-        emailAddress
-      ]
-    }
-  }],
-  "data" : {
-    "session": {
-      "name" : "My Meeting"
-    }
-  }
-}
-```
-
-:::info
-If a language is not specified, it will currently fall back to English (en-US).
-:::
 
 ## Specifying Timezones
 Specifying a timezone when initiating a session will result in the Summary UI displaying the meeting start time for that given region.
