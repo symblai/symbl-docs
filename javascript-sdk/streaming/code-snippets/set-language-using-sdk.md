@@ -9,7 +9,13 @@ import TabItem from '@theme/TabItem';
 
 ## Getting Started
 
-This snipet shows how to use languages other than English and also how to set the timezone to the timezone in which the conversation is taking place.
+This snippet shows how to use languages other than English and also how to set the timezone to the timezone in which the conversation is taking place.
+
+:::note
+Currently, we only support English language in Streaming & Telephony API. 
+We support languages other than English only for our enterprise plan.
+Please feel free to reach out to us at support@symbl.ai for any queries.
+:::
 
 #### Utilising other languages
 

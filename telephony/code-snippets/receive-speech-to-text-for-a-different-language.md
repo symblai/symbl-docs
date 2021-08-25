@@ -7,6 +7,12 @@ import TabItem from '@theme/TabItem';
 
 This example goes over how you can use the Symbl Telephony API to receive a speech-to-text transcription Íof a conversation in many different languages. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction) and native Javascript.
 
+:::note
+We only support English language in Streaming & Telephony API at the moment. 
+We support languages other than English only for our enterprise plan.
+Please feel free to reach out to us at support@symbl.ai for any queries.
+:::
+
 :::info
 Currently, the PSTN connection requires a US phone number. You can use a SIP connection to connection to a SIP URI instead. [Learn more about how to connect using SIP](/docs/telephony/code-snippets/connect-to-sip).
 :::
