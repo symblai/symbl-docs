@@ -158,8 +158,12 @@ Additional operations like filtering, sorting, or aggregate can be performed whi
 `order` | String / enum | Specifies the order in which the results should be sorted. The `order` is applied on the `startTime` field of the associated Conversation entity. | Optional | `asc`. Values accepted are `asc` and `desc`.
 `startTime` | String / [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format | Specifies the start of the datetime range for the results to be returned. This `startTime` is associated with the `startTime` field of the associated Conversation entity. If `startTime` is not mentioned, then `startTime` is calculated as - `startTime = endTime - duration('7 days')`.| Optional | `startTime = endTime - duration('7 days')`. Values accepted are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted strings with value less than current timestamp and less than `endTime`. |
 `endTime` | String / [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format | Specifies the end of the date time range for the results to be returned. This `endTime` is associated with the `endTime` field of the associated Conversation entity. If `endTime` is not mentioned, then the current timestamp is considered as `endTime` automatically. | Optional | `endTime = currentDatetime()`. Values accepted are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted strings with value less than current timestamp and greater than `startTime`.|
-`sort` | String | Specifies one or more fields to be used to sort the results. | Yes | `conversation.startTime` | |
-`filter` | String / RSQL format | Specifies a filter string in RSQL format to filter the results. <br/> - Filter parameter should be a valid RSQL string however it can't have OR logical Operator. <br/> - Filter parameter can not have more than 2 parameters in it's filters. There is no limit on filters though, so user can add any number of filters using maximum of two parameters.| Yes | `conversation.startDate <= {currentTimestamp - 7 days}`.
+`sort` | String | Specifies one or more fields to be used to sort the results. | Optional | `conversation.startTime` | |
+`filter` | String / RSQL format | Specifies a filter string in RSQL format to filter the results. <br/> - Filter parameter should be a valid RSQL string however it can't have OR logical Operator. <br/> - Filter parameter can not have more than 2 parameters in it's filters. There is no limit on filters though, so user can add any number of filters using maximum of two parameters.| Optional | `conversation.startDate <= {currentTimestamp - 7 days}`.
+
+:::note
+When no filter is provided, it falls back to the default criteria of `startTime` and `endTime`. 
+:::
 
 #### Response
 
