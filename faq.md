@@ -1,13 +1,13 @@
 ---
 id: faq
-title: Frequently Asked Questions
-sidebar_label: Frequently Asked Questions
-
+title: Frequently Asked Questions (FAQ)
+sidebar_label: FAQ
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 ### Is my data safe with Symbl.ai?
 
