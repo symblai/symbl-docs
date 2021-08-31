@@ -8,6 +8,8 @@ sidebar_label: Create Pre-built UI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API returns the URL of the [Video Summary UI](#video-summary-ui) and [Text Summary UI](#text-summary-ui).
 
 #### Video Summary UI Sample
