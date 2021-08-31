@@ -1,13 +1,13 @@
 ---
 id: faq
-title: Frequently Asked Questions
-sidebar_label: Frequently Asked Questions
-
+title: Frequently Asked Questions (FAQ)
+sidebar_label: FAQ
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 ### Is my data safe with Symbl.ai?
 
@@ -21,7 +21,7 @@ We store transcripts, insights, and metadata about the conversation, which is pe
 
 ### How many concurrent API calls can I make?
 
-For trial, this API has a limit of 20 concurrent jobs. After you upgrade your account, it has a limit of 50 concurrent jobs.
+For trial, [Streaming API](/docs/streamingapi/introduction) has a limit of 2 concurrent connections, and [Async APIs](/docs/async-api/overview/introduction) has a limit of 2 concurrent jobs. After you upgrade your account, it has a limit of 50 concurrent connections for Streaming API and 50 concurrent jobs for Async API.
 If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai.
 
 
