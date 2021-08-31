@@ -16,7 +16,7 @@ Symbl is an AI-powered, API first, Conversation Intelligence platform that analy
 - Generate Conversation Intelligence like Sentiment Analysis, Action Items, Topics, Trackers, Summary, and much more in your applications.
 - Generate Speech-to-text capabilities like Transcription, Speaker Separation, and Speaker Diarization, with multi-channel data with data Video, Audio, Text, and Streaming.
  
-To read more about what is Symbl and how it works go [here](https://docs.symbl.ai/docs/what-is-symbl/).
+To read more about what is Symbl and how it works click [here](https://docs.symbl.ai/docs/what-is-symbl/).
 
 The Symbl’s key capabilities are:
 
