@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This document provides information about how to build and use the Symbl conversation AI plugin and its features.
+This document provides information about how to build and use the Symbl conversation AI plugin with Agora SDK. 
  
 Symbl is an AI-powered, API first, Conversation Intelligence platform that analyzes conversation data and lets you:
  
@@ -75,13 +75,16 @@ For further details, see this [reference specification of plugin example](https:
 
 `Android` 
  
-### Building and Running the Symbl-Agora SDK Plugin for Android
+## Building and Running the Symbl-Agora SDK Plugin
+---
 
 In this section, you will build and use conversational AI Symbl-Agora SDK Plugin for Android. 
 
-The steps are given below:
+Follow the step-by-step instructions given below:
 
-#### Download plugin dependencies - Agora platform and Symbl Plugin
+### Step 1. Download Plugin Dependencies 
+
+You must download the following plugin dependencies: 
 
 - **Symbl-Agora SDK plugin**: This is bundled Android plugin (aar) which is core Symbl-Agora plugin.
 
@@ -91,7 +94,7 @@ Download link [here](https://cdn-agora.symbl.ai/agora-symblai-filter-debug.aar).
 
 Download link [here](https://cdn-agora.symbl.ai/agora-symblai-filter-debug.aar).
 
-Place the required dependencies in the specified directories below
+Place the required dependencies in the directories specified below:
 
 | Dependency | Processor | Storage Path 
 |--------|----------|-------|
@@ -101,7 +104,10 @@ Place the required dependencies in the specified directories below
 | `libeffect.so` | 64-bit | `symbl-agora-android-sdk-plugin\agora-symblai\src\main\jniLibs\arm64-v8a`
 | `libeffect.so` | 32-bit | `symbl-agora-android-sdk-plugin\agora-symblai\src\main\jniLibs\armeabi-v7a`
 
-### Agora Platform Configuration
+
+### Step 2. Configure Agora and Symbl Platform 
+
+#### 2.1 Agora Platform Configuration
 
 This section describes the required Agora parameters to be configured in the application to be connected to the Agora platform and consume streaming service.
  
@@ -127,7 +133,7 @@ The above details need to be set in the `MainActivityForm.java` file in the Symb
 
 ![agora-dash](/img/agora-dash.png)
  
-### Symbl Platform Configuration
+#### 2.2 Symbl Platform Configuration
  
 This section describes the required Symbl parameters and their respective descriptions.
 The sample code below describes the parameters in the `MainActivityForm.java` that are used to build the Symbl service request.
@@ -156,15 +162,14 @@ The sample code below describes the parameters available in the `strings.xml` fi
 
 ```js
 <string name="symbl_app_id">APP_ID</string>
-   <string name="symbl_app_secret">APP_SECRET</string>
-   <string name="symbl_platform_url">api.symbl.ai</string>
-
-   <string name="symbl_token_api">https://api.symbl.ai/oauth2/token:generate</string>
-   <string name="symbl_token_token_timeout_ms">20000</string>
-   <string name="symbl_meeting_language_code">en-US</string>
-   <string name="symbl_meeting_encoding">LINEAR16</string>
-   <string name="symbl_meeting_sampleRateHertz">44100</string>
-   <string name="symbl_confidence_threshold">0.5</string>
+<string name="symbl_app_secret">APP_SECRET</string>
+<string name="symbl_platform_url">api.symbl.ai</string>
+<string name="symbl_token_api">https://api.symbl.ai/oauth2/token:generate</string>
+<string name="symbl_token_token_timeout_ms">20000</string>
+<string name="symbl_meeting_language_code">en-US</string>
+<string name="symbl_meeting_encoding">LINEAR16</string>
+<string name="symbl_meeting_sampleRateHertz">44100</string>
+<string name="symbl_confidence_threshold">0.5</string>
 ```
 The following table describes the parameters available in the `strings.xml` file for the Symbl configuration.
  
@@ -175,7 +180,7 @@ The following table describes the parameters available in the `strings.xml` file
 | `symbl_app_secret` | The Symbl App Secret.
 | `symbl_meeting_language_code` | The language code. Currently, en-US (English US) is the only language supported.
 | `symbl_token_api` | The URL for secure token generation.
-| `symbl_meeting_encoding` </br> `symbl_meeting_sampleRateHertz` and `symbl_confidence_threshold` | Used by Symbl platform.
+| `symbl_meeting_encoding`<br/>`symbl_meeting_sampleRateHertz` and `symbl_confidence_threshold` | Used by Symbl platform.
 
 :::note
 The `symbl_app_id` and `symbl_app_secret` values must be set in the Agora platform during the login of the plugin. 
@@ -184,19 +189,96 @@ The `symbl_app_id` and `symbl_app_secret` values must be set in the Agora platfo
 For more details, refer the tutorial on [Receiving AI insights from your Web Browser](https://docs.symbl.ai/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser).
 
  
-### How to set conversation request parameters to Symbl platform real-time API? 
+### Step 3. Start Connection
 
 The Symbl platform expects request which consists of meeting details and configuration details what kind of conversation AI details you want post-meeting.
  
 You can optionally override this request depending on you business requirement.
  
-The sample code below shows you the reference method (agoramarketplace.symblai.cai.MainActivity#setSymblPluginConfigs)
+The sample code below shows you the reference method (agoramarketplace.symblai.cai.MainActivity#**setSymblPluginConfigs**).
 
-### What are the different conversation results of the Symbl real-time API and how to process them? 
+```js
+/**
+* This main method to configure symbl connection configuration
+*
+* @param pluginParams
+* @param channelName
+* @throws JSONException
+*/
+private void setSymblPluginConfigs(JSONObject pluginParams, String channelName) throws JSONException {
+   try {
+       String symbl_unique_meetingId = "UniqueMeeting"+System.currentTimeMillis();
+       pluginParams.put("secret", getString(R.string.symbl_app_secret));
+       pluginParams.put("appKey", getString(R.string.symbl_app_id));
+
+       pluginParams.put("meetingId", symbl_unique_meetingId);
+
+       pluginParams.put("userId", symbl_meeting_UserId);
+       pluginParams.put("name", symbl_meeting_user_Name);
+       pluginParams.put("languageCode", "en-US");
+
+       // Symbl main plugin config objects
+       SymblPluginConfig symplParams = new SymblPluginConfig();
+
+       //this Api config is used to set
+       ApiConfig apiConfig = new ApiConfig();
+       apiConfig.setAppId(getString(R.string.symbl_app_id));
+       apiConfig.setAppSecret(getString(R.string.symbl_app_secret));
+       apiConfig.setTokenApi(getString(R.string.symbl_token_api));
+       apiConfig.setSymblPlatformUrl(getString(R.string.symbl_platform_url));
+       symplParams.setApiConfig(apiConfig);
+
+       RealtimeStartRequest realtimeFlowInitRequest = new RealtimeStartRequest();
+       RealtimeAPIConfig realtimeAPIConfig = new RealtimeAPIConfig();
+       realtimeAPIConfig.setConfidenceThreshold(Double.parseDouble(String.valueOf(R.string.symbl_confidence_threshold)));
+       realtimeAPIConfig.setLanguageCode(getString(R.string.symbl_meeting_language_code));
+
+       Speaker speaker=new Speaker();
+       speaker.setName(symbl_meeting_user_Name);
+       speaker.setUserId(symbl_meeting_UserId);
+       realtimeFlowInitRequest.setSpeaker(speaker);
+
+       SpeechRecognition speechRecognition = new SpeechRecognition();
+       speechRecognition.setEncoding(getString(R.string.symbl_meeting_encoding));
+       speechRecognition.setSampleRateHertz(Double.parseDouble(getString(R.string.symbl_meeting_sampleRateHertz)));
+       realtimeAPIConfig.setSpeechRecognition(speechRecognition);
+
+       Redaction redaction = new Redaction();
+       redaction.setIdentifyContent(true);
+       redaction.setRedactContent(true);
+       redaction.setRedactionString("*****");
+       realtimeAPIConfig.setRedaction(redaction);
+
+       realtimeFlowInitRequest.setConfig(realtimeAPIConfig);
+       Tracker tracker1 = new Tracker();
+       tracker1.setName("Budget");
+       List<String> vocabulary = new ArrayList<>();
+       vocabulary.add("budgeted");
+       vocabulary.add("budgeted decision");
+       tracker1.setVocabulary(vocabulary);
+       List<Tracker> trackerList = new ArrayList<>();
+       trackerList.add(tracker1);
+
+       realtimeFlowInitRequest.setTrackers(trackerList);
+       realtimeFlowInitRequest.setType("start_request");
+       realtimeFlowInitRequest.setId(symbl_unique_meetingId);
+       realtimeFlowInitRequest.setSentiments(true);
+       realtimeFlowInitRequest.setInsightTypes(Arrays.asList("action_item", "question", "follow_up"));
+       symplParams.setRealtimeStartRequest(realtimeFlowInitRequest);
+       Gson gson = new Gson();
+       // don’t change KEY here same used inside plugin side
+       pluginParams.put("inputRequest", gson.toJson(symplParams));
+   } catch (Exception ex) {
+       Log.e(TAG, "ERROR while setting Symbl plugin configuration");
+   }
+}
+```
+
+### Setting Conversation Processor Listener
 
 The different recognition results will always be returned in the JSON format.
  
-Symbl generates multiple events while the raw audio is send to Symbl for processing.
+Multiple events are generated while the raw audio is sent to Symbl for processing. 
  
 #### Speech-to-Text recognition format
 
@@ -264,23 +346,23 @@ Symbl generates multiple events while the raw audio is send to Symbl for process
 
 The responses needs to be parsed and processed in the `onEvent` method of the UI (**MainActivity.java**).
  
-The capabilities already integrated by the Symbl-Agora plugin are documented below:
-   👉   [Speech-to-Text (Transcripts)](https://docs.symbl.ai/docs/concepts/speech-to-text)
-   👉   [Topics](https://docs.symbl.ai/docs/concepts/topics)
-   👉   [Sentiment Analysis](https://docs.symbl.ai/docs/concepts/sentiment-analysis)
-   👉   [Action Items](https://docs.symbl.ai/docs/concepts/action-items)
-   👉   [Follow-Ups](https://docs.symbl.ai/docs/concepts/follow-ups)
-   👉   [Questions](https://docs.symbl.ai/docs/concepts/questions)
-   👉   [Trackers](https://docs.symbl.ai/docs/concepts/trackers)
-   👉   [Conversation Groups](https://docs.symbl.ai/docs/concepts/conversation-groups)
-   👉   [Conversation Analytics](https://docs.symbl.ai/docs/concepts/conversational-analytics)
-   👉   [Topic Hierarchy](https://docs.symbl.ai/docs/concepts/topic-hierarchy)
- 
-Additional capabilities can be added by the developer based on our documentation.
- 
-### Common issues and resolutions
+The capabilities already integrated by the Symbl-Agora plugin are documented below:<br/>
 
-For any Symbl service-related issues,  you should receive an event similar to the following:
+👉   [Speech-to-Text (Transcripts)](https://docs.symbl.ai/docs/concepts/speech-to-text)<br/>
+👉   [Topics](https://docs.symbl.ai/docs/concepts/topics)<br/>
+👉   [Sentiment Analysis](https://docs.symbl.ai/docs/concepts/sentiment-analysis)<br/>
+👉   [Action Items](https://docs.symbl.ai/docs/concepts/action-items)<br/>
+👉   [Follow-Ups](https://docs.symbl.ai/docs/concepts/follow-ups)<br/>
+👉   [Questions](https://docs.symbl.ai/docs/concepts/questions)<br/>
+👉   [Trackers](https://docs.symbl.ai/docs/concepts/trackers)<br/>
+👉   [Conversation Groups](https://docs.symbl.ai/docs/concepts/conversation-groups)<br/>
+👉   [Conversation Analytics](https://docs.symbl.ai/docs/concepts/conversational-analytics)<br/>
+👉   [Topic Hierarchy](https://docs.symbl.ai/docs/concepts/topic-hierarchy)<br/>
+ 
+ 
+### Error Codes and resolutions
+
+For any Symbl service-related issues, you should receive an event similar to the following:
 
 ```json
 {
@@ -294,7 +376,7 @@ For any Symbl service-related issues,  you should receive an event similar to th
 }
 ```
 
-The list below contains a things to take care of while troubleshooting these types of issues:
+Given below are a list of things to take care of while troubleshooting these types of issues:
 
 - Make sure the Agora active token is provided before the start of the meeting
 - Check logs and errors for more details
