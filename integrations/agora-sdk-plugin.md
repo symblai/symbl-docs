@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This document provides information about how to build and use the Symbl conversation AI extension with Agora SDK for Android applications. 
+This document provides information about how to build and use the Symbl Conversation Intelligence extension with the Agora SDK for Android applications. 
 
 ## Introduction
 [Symbl](https://symbl.ai/) is an AI-powered Conversation Intelligence (CI) platform for developers to build and extend applications capable of understanding natural human conversations at scale. 
@@ -66,10 +66,10 @@ This extension provides the following out-of-the-box conversational intelligence
 ## Integration 
 ---
 ### Overview
-This section describes how to integrate the Symbl Transcription and Conversation Analytics extension into your Agora based mobile application. The code samples are written in Java.
+This section describes how to integrate the Symbl Conversation Intelligence extension into your Agora based mobile application. The code samples are written in Java.
 
 ### Prerequisites
-Following are some of the prerequisites of integrating Symbl-Agora Plugin: 
+Following are some of the prerequisites of integrating Symbl-Agora extension: 
 
 - **Agora Credentials**: Make sure you have the Agora credentials and required information (App ID, Channel Name, Temp Token and Meeting ID). This information can be retrieved from the [Agora Console](https://console.agora.io).
 
@@ -78,14 +78,13 @@ Following are some of the prerequisites of integrating Symbl-Agora Plugin:
 Learn more about the Agora required credentials in the [Setup Authentication](https://docs.agora.io/en/Agora%20Platform/token) page.
 
 
-- **Symbl API Credentials**: You will also need the Symbl API credentials available from the [Symbl Platform](https://platform.symbl.ai/) (App ID and App Secret).
+- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Symbl Conversation Intelligence extension page on a specific project. By clicking **View** button under "Credentials" column you will be able to see Symbl credentials (App ID and App Secret).
 
-![agora-creds](/img/agora-symbl-creds.png)
 
 ### Integration Steps
 ---
 
-This section walks you through the steps necessary to set up the Symbl Transcription and Conversation Analytics extension in your mobile application.
+This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application.
 
 1. Download the following files:
    - [arm64-v8a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/arm64-v8a.zip)
@@ -766,5 +765,3 @@ public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMe
 ---
 
 Find comprehensive information about our REST APIs in [API Reference](https://docs.symbl.ai/docs/api-reference/getting-started) section.
-
-
