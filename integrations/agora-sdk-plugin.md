@@ -57,7 +57,7 @@ This extension provides the following out-of-the-box conversational intelligence
 - [**Topics**](/docs/concepts/topics): The most relevant topics of the discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 - [**Sentiment Analysis**](/docs/concepts/sentiment-analysis): Sentiment analysis over each Topic that is being discussed in the conversation.
 - [**Trackers**](/docs/concepts/trackers): Trackers (custom business intents) allow you to track the occurrence of certain keywords or phrases in a conversation so you can identify emerging trends and gauge the nature of interactions. You can define keywords or phrases in a Tracker and Symbl will return messages that contain the same or contextually relevant phrases.
-- **Speaker Analytics**: Provides you with functionality such as finding the speaker ratio, talk time, silence, pace, and overlap in a conversation.
+- [**Speaker Analytics**](/docs/concepts/conversational-analytics): Provides you with functionality such as finding the speaker ratio, talk time, silence, pace, and overlap in a conversation.
 
 ## Supported Platforms
 ---
@@ -78,8 +78,11 @@ Following are some of the prerequisites of integrating Symbl-Agora extension:
 Learn more about the Agora required credentials in the [Setup Authentication](https://docs.agora.io/en/Agora%20Platform/token) page.
 
 
-- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Symbl Conversation Intelligence extension page on a specific project. By clicking **View** button under "Credentials" column you will be able to see Symbl credentials (App ID and App Secret).
+- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Symbl Conversation Intelligence extension page on a specific project. 
 
+To get your credentials, click **View** under **Credentials** column and you will be able to see the Symbl credentials (App ID and App Secret).
+
+![symbl-creds-agora](/img/access_symbl_creds_on_agora_dashoboard.png)
 
 ### Integration Steps
 ---
@@ -764,4 +767,4 @@ public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMe
 ### API Reference
 ---
 
-Find comprehensive information about our REST APIs in [API Reference](https://docs.symbl.ai/docs/api-reference/getting-started) section.
+Find comprehensive information about our REST APIs in the [API Reference](https://docs.symbl.ai/docs/api-reference/getting-started) section.
