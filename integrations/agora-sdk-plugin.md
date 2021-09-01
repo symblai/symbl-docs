@@ -78,9 +78,8 @@ Following are some of the prerequisites of integrating Symbl-Agora Plugin:
 Learn more about the Agora required credentials in the [Setup Authentication](https://docs.agora.io/en/Agora%20Platform/token) page.
 
 
-- **Symbl API Credentials**: You will also need the Symbl API credentials available from the [Symbl Platform](https://platform.symbl.ai/) (App ID and App Secret).
+- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Agora Symbl Extension page on a specific project. By clicking **View** button under "Credentials" column you will be able to see Symbl credentials (App ID and App Secret).
 
-![agora-creds](/img/agora-symbl-creds.png)
 
 ### Integration Steps
 ---
