@@ -57,7 +57,7 @@ This extension provides the following out-of-the-box conversational intelligence
 - [**Topics**](/docs/concepts/topics): The most relevant topics of the discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 - [**Sentiment Analysis**](/docs/concepts/sentiment-analysis): Sentiment analysis over each Topic that is being discussed in the conversation.
 - [**Trackers**](/docs/concepts/trackers): Trackers (custom business intents) allow you to track the occurrence of certain keywords or phrases in a conversation so you can identify emerging trends and gauge the nature of interactions. You can define keywords or phrases in a Tracker and Symbl will return messages that contain the same or contextually relevant phrases.
-- **Speaker Analytics**: Provides you with functionality such as finding the speaker ratio, talk time, silence, pace, and overlap in a conversation.
+- [**Speaker Analytics**](/docs/concepts/conversational-analytics): Provides you with functionality such as finding the speaker ratio, talk time, silence, pace, and overlap in a conversation.
 
 ## Supported Platforms
 ---
@@ -106,7 +106,7 @@ implementation fileTree(include: ['*.jar'], dir: 'libs')
 implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 implementation 'org.java-websocket:Java-WebSocket:1.5.1'
 ```
-8. Implement the interface io.agora.rtc2.IMediaExtensionObserver
+8. Implement the interface `io.agora.rtc2.IMediaExtensionObserver`:
  
 ```js
 public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMediaExtensionObserver {
