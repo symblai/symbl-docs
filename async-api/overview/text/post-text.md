@@ -6,19 +6,17 @@ title: POST Text API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 The Async Text API allows you to process any text payload. This API is useful for when you want to extract Conversation Insights from textual content.
 
-### HTTP REQUEST
+### API Endpoint
 
 `POST https://api.symbl.ai/v1/process/text`
 
-
 ### Example API Call
 
-:::info
 Before using the Async Text API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"
@@ -266,21 +264,31 @@ Header Name  | Required | Description
 
 ### Request Body
 
-```js
+```json
 {
   "name": "Afternoon Business Meeting",
-  "detectPhrases":true,
+  "detectPhrases": true,
   "confidenceThreshold": 0.6,
-  "customEntities": [{"entityName": "entityValue"}],
-  "messages": []  // See messages section below.
-  "trackers": [{
-    "name": "COVID-19",
-    "vocabulary": [
-      "social distancing",
-      "cover your face with mask",
-      "vaccination"
-    ]
-  }]
+  "entities": [
+    {
+      "customType": "Company Executives",
+      "value": "Marketing director",
+      "text": "Marketing director"
+    }
+  ],
+  "detectEntities": true,
+  "messages": [],
+  "trackers": [
+    {
+      "name": "Promotion Mention",
+      "vocabulary": [
+        "We have a special promotion going on if you book this before",
+        "I can offer you a discount of 10 20 percent you being a new customer for us",
+        "We have our month special this month",
+        "We have a sale right now on"
+      ]
+    }
+  ]
 }
 ```
 ### Request Body Parameters
@@ -289,10 +297,10 @@ Field | Required | Type |  Description
 ---------- | ------- | ------- |  ------- |
 ```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
 ```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
-```confidenceThreshold``` | Optional | Double | Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5 .
-```customEntities``` | Optional | List | Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities).
-```messages``` | Mandatory | list |  Input Messages to look for insights. [See the messages section below for more details.](#messages)
+```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
+```entities``` | Optional | List | Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities).
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
+```messages``` | Mandatory | list |  Input Messages to look for insights. [See the messages section below for more details.](#messages)
 ```trackers```<font color="orange"> BETA </font> | Optional | List | A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
@@ -381,20 +389,15 @@ Field | Required | Type | Description
 }
 ```
 
-### Query Params
+### Query Parameter
 
 Parameter | Required | Value
 ---------- | ------- | -------
-```webhookUrl``` | Optional | Webhook url on which job updates to be sent. (This should be post API)
+```webhookUrl``` | Optional | Webhook url on which job updates to be sent. This should be after making the API request.
 
 WebhookUrl will be used to send the status of job created for uploaded audio. Every time the status of the job changes it will be notified on the WebhookUrl.
 
 #### Webhook Payload
-
-Field | Description
----------- | ------- |
-```jobId``` | ID to be used with Job API.
-```status``` | Current status of the job. Valid statuses: [ `scheduled`, `in_progress`, `completed` ].
 
 ```js
 {
@@ -403,15 +406,12 @@ Field | Description
 }
 ```
 
-
-### Response
-
-#### Response Object
-
 Field | Description
 ---------- | ------- |
-```conversationId``` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
-```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api).
+```jobId``` | ID to be used with Job API.
+```status``` | Current status of the job. Valid statuses: [ `scheduled`, `in_progress`, `completed` ].
+
+### Response
 
 ```js
 {
@@ -419,6 +419,11 @@ Field | Description
   "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
 }
 ```
+
+Field | Description
+---------- | ------- |
+```conversationId``` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api).
 
 ### API Limit Error
 

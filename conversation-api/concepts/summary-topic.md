@@ -2,12 +2,14 @@
 id: topics
 title:  Topics API- Extracting Relevant Topics 
 description: Automatically identify and extract topics from conversations with Symbl.ai's Topic API. 
-sidebar_label:  Topics
+sidebar_label:  Introduction
 slug: /concepts/topics
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+---
 
 Topics are key drivers of the conversation. They're the **most important keywords or phrases used**. Symbl’s topic model is based on the internal conversation structure of how concepts are interrelated in a discussion, contrary to common intuition and traditional topic modeling algorithms which depend on the frequency, probability distribution and supervised training algorithm.
 

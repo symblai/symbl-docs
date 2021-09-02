@@ -150,48 +150,81 @@ Name | Required | Description
 `parameters` | Optional | By default {}) Dictionary, Any parameter and it's value can be provided in the dictionary format. For getting a list of value check [here](/docs/async-api/overview/text/put-text#query-params).
 
 ## Conversation object
-Conversation object is returned by Async API Text, Audio and Video classes. The conversation object is a shorthand for conversation API and can be utilized for fetching multiple insights.
+The Text, Audio, and Video classes of the Async API return the Conversation object. The conversation object is a shorthand for conversation API and can be utilized for fetching multiple insights.
 
-### conversation.get_conversation_id():
+### conversation_object.get_conversation_id():
 
 Returns a unique Conversation Id of the conversation which you are currently processing.
 
-### conversation.get_job_id():
+### conversation_object.get_job_id():
 
 Returns a Job Id of the conversation which you are currently processing.
-### conversation.get_action_items():
+### conversation_object.get_action_items():
 
 Returns Action Items which are some specific outcomes recognized in the conversation that requires one or more people in the conversation to act in the future
 
-### conversation.get_follow_ups():
+### conversation_object.get_follow_ups():
 
 Returns a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
 
-### conversation.get_members():
+### conversation_object.get_members():
 
 Returns a list of all the members in a conversation. A Member is referred to as a participant in the conversation that is uniquely identified as a speaker. Identifying different participants in the meetings can be done by implementing speaker separation.
 
-### conversation.get_messages():
+### conversation_object.get_messages():
 
 `parameters`:- (Optional) dictionary, takes a dictionary of parameters. For list of parameters accepted, click [here](/docs/conversation-api/messages#query-params).
 
 Returns a list of messages (sentences spoken by speakers) in a conversation. You can use this for providing transcription for video conference, meeting or telephone call.
 
-### conversation.get_questions():
+### conversation_object.get_questions():
 
 Returns explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question.
 
-### conversation.get_topics():
+### conversation_object.get_topics():
 
 `parameters`:- (Optional) dictionary, takes a dictionary of parameters. For list of parameters accepted, please click [here](/docs/conversation-api/get-topics#query-params).
 
 Returns The most relevant topics of discussion from the conversation that is generated based on the combination of the overall scope of the discussion.
 
-### conversation.get_conversation():
+### conversation_object.get_conversation():
 
 Returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting id.
 
-Example for demonstrate the use of conversation class:
+### conversation_object.get_entities()
+
+Provides a functionality to extract entities(custom, location, person, date, number, organization,datetime,daterange, etc ) from the conversation.
+
+### conversation_object.get_trackers()
+
+Returns the occurrence of certain key words or phrases from the conversation.
+
+### conversation_object.get_analytics()
+
+Returns the speaker ratio, talk time, silence, pace and overlap from the conversation.
+
+### conversation_object.put_members(members_id, parameters={})
+
+`members_id`:- (mandatory) string, that takes the id of the member who's details you would like to update.
+
+`parameters`:- (mandatory) takes a dictionary of parameters. For list of parameters accepted, see [PUT Member Information](https://docs.symbl.ai/docs/conversation-api/update-members/#request-body) page. 
+
+Updates an existing member in an conversation. This API can be used for updating the unique speakers detected as members from diarization as well.
+
+To see an example of the usage of `put_members` functionality, go to out [GitHub examples](https://github.com/symblai/symbl-python-sdk/blob/main/example/Conversation_APIs/Put_APIs/put_apis_example.py) page.
+
+### conversation_object.put_speakers_events(parameters={})
+
+`parameters`:- (mandatory) takes a dictionary which contains `speakerEvents`. For list of parameters accepted, see [Speaker Events Object](https://docs.symbl.ai/docs/conversation-api/speaker-events/#speaker-event-object) page.
+
+This API provides the functionality to update Speakers in a conversation after it has been processed.
+
+To checkout an example of the usage of `put_speakers_events` functionality using Conversations class for Async APIs, see this [GitHub example](https://github.com/symblai/symbl-python/tree/main/example/Conversation_APIs/Put_APIs/put_speaker_events_async.py) page.
+
+To checkout an example of the usage of `put_speakers_events` functionality using Conversations class for Streaming APIs, see this [GitHub example](https://github.com/symblai/symbl-python-sdk/blob/main/example/Conversation_APIs/Put_APIs/put_speaker_events_streaming.py) page. 
+
+
+Example to demonstrate the use of conversation class:
 
 ```py
 import symbl
@@ -252,9 +285,41 @@ Returns The most relevant topics of discussion from the conversation that is gen
 
 ### get_conversation(conversation_id)
 
-Returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting id.
+Returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting ID.
 
-Example for demonstrate the use of conversation class
+### get_entities(conversation_id)
+
+Provides a functionality to extract entities(custom, location, person, date, number, organization,datetime,daterange, etc ) from the conversation.
+
+### get_trackers(conversation_id)
+
+Returns the occurrence of certain key words or phrases from the conversation.
+
+### get_analytics(conversation_id)
+
+Returns the speaker ratio, talk time, silence, pace and overlap from the conversation.
+
+### put_members(conversation_id, members_id, parameters={})
+
+`members_id`:- (mandatory) string, that takes the ID of the member who's details you would like to update.
+
+`parameters`:- (mandatory) takes a dictionary of parameters. For list of parameters accepted, see [Put Members Information API](/docs/conversation-api/update-members/#request-body) page.
+
+Updates an existing member in an conversation. This API can be used for updating the unique speakers detected as members from diarization as well.
+
+To see an example of the usage of `put_members` functionality using Conversations class, see our [GitHub example](https://github.com/symblai/symbl-python-sdk/blob/main/example/Conversation_APIs/Put_APIs/put_members.py) page. 
+
+### put_speakers_events(conversation_id, parameters={})
+
+`parameters`:- (mandatory) takes a dictionary which contains `speakerEvents`. For list of parameters accepted, see [Speaker Event Object](https://docs.symbl.ai/docs/conversation-api/speaker-events/#speaker-event-object) page.
+
+This API provides the functionality to update Speakers in a conversation after it has been processed.
+
+To see an example of the usage of `put_speakers_events` functionality using Conversations class for Async APIs, see our [GitHub example](https://github.com/symblai/symbl-python-sdk/blob/main/example/Conversation_APIs/Put_APIs/put_speaker_events_async.py) page.
+
+To see an example of the usage of `put_speakers_events` functionality using Conversations class for Streaming APIs, see our [GitHub example](https://github.com/symblai/symbl-python-sdk/blob/main/example/Conversation_APIs/Put_APIs/put_speaker_events_streaming.py) page.
+
+Example to demonstrate the use of conversation class:
 
 ```py
 import symbl

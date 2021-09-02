@@ -7,25 +7,24 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+---
+
 The Async Audio URL API accepts a URL to an audio file of which you want to process.
 
 It can be utilized for any use case where you have access to recorded audio stored publicly as URL and want to extract insights and other conversational attributes supported by [Symbl's Conversation API](/docs/conversation-api/introduction).
 
-:::info
+:::tip URL Requirement
 The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
-
-### HTTP REQUEST
+### API Endpoint
 
 `POST https://api.symbl.ai/v1/process/audio/url`
 
 
 ### Example API Call
 
-:::info
 Before using the Async Audio API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"
@@ -78,7 +77,7 @@ const payload = {
   // "enableSeparateRecognitionPerChannel": true,
 
   // <Optional, boolean| channel_metadata> |This object parameter contains two variables speaker and channel to specific which speaker corresponds to which channel. This object only works when enableSeparateRecognitionPerChannel query param is set to true.
-  // "channelMetadata": [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@gmail.com"}}],
+  // "channelMetadata": [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@example.com"}}],
 
   // <Optional, boolean| language_code> |code of language of recording.
   // "languageCode": "en-US"
@@ -151,7 +150,7 @@ const audioOption = {
     // "enableSeparateRecognitionPerChannel": true,
 
     // <Optional, boolean| channel_metadata> |This object parameter contains two variables speaker and channel to specific which speaker corresponds to which channel. This object only works when enableSeparateRecognitionPerChannel query param is set to true.
-    // "channelMetadata": [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@gmail.com"}}],
+    // "channelMetadata": [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@example.com"}}],
 
     // <Optional, boolean| language_code> |code of language of recording.
     // "languageCode": "en-US"
@@ -215,7 +214,7 @@ payload = {
     # 'enableSeparateRecognitionPerChannel': True,
     # <Optional, boolean| enable_separate_recognition_per_channel> |Enables Speaker Separated Channel audio processing. Accepts true or false.
 
-    # 'channelMetadata': [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@gmail.com"}}],
+    # 'channelMetadata': [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@example.com"}}],
     # <Optional, boolean| channel_metadata> |This object parameter contains two variables speaker and channel to specific which speaker corresponds to which channel. This object only works when enableSeparateRecognitionPerChannel query param is set to true.
 
     # 'languageCode': "en-US"
@@ -247,7 +246,6 @@ exit()
 </TabItem>
 </Tabs>
 
-
 ### Request Headers
 
 Header Name  | Required | Description
@@ -258,74 +256,91 @@ Header Name  | Required | Description
 
 ### Request Body
 
-Parameters | Required | Type | Description
----------- | ------- | ------- | -------
-```url``` | Yes | String | A valid url string. The URL must be a publicly accessible url.
-```customVocabulary``` | No | String[] | Contains a list of words and phrases that provide hints to the speech recognition task.
-```confidenceThreshold``` | No | Double | Minimum required confidence for the insight to be recognized.  Value range from 0.0 to 1.0. Default value is 0.5 .
-```detectPhrases```| No | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. It's a boolean value where the default value is `false`.
-```name``` | No | String | Your meeting name. Default name set to `conversationId`.
-```webhookUrl``` | No | String | Webhook url on which job updates to be sent. This should be post API.
-```customEntities``` | No | Object[] | Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
-```detectEntities``` | No | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
- ```languageCode```| No | String | We accept different languages. Please [check language Code](/docs/async-api/overview/async-api-supported-languages) as per your requirement.
-  ``` mode``` | No | String | Accepts `phone` or `default`. `phone` mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).<br />`default` mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).<br />When you don't pass this parameter `default` is selected automatically. 
-```enableSeparateRecognitionPerChannel``` | No | Boolean | Enables Speaker Separated Channel audio processing. Accepts `true` or `false`.
-```channelMetadata``` | No | Object[] | This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` is set to `true`.
-```trackers``` <font color="orange"> BETA</font> | No | List | A `tracker` entity containing name and vocabulary (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
-```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
-```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
-
-
-##### Code Example
-
-```js
+```json
 {
   "url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav",
-  "customVocabulary": ["Platform", "Discussion", "Targets"],
+  "customVocabulary": [
+    "Platform",
+    "Discussion",
+    "Targets"
+  ],
   "confidenceThreshold": 0.6,
   "detectPhrases": true,
   "name": "Business Meeting",
   "webhookUrl": "",
-  "customEntities": [{"entityName": "entityValue"}],
-  "languageCode": "en-US"
+  "entities": [
+    {
+      "customType": "Company Executives",
+      "value": "Marketing director",
+      "text": "Marketing director"
+    }
+  ],
+  "detectEntities": true,
+  "languageCode": "en-US",
   "mode": "phone",
   "enableSeparateRecognitionPerChannel": true,
   "channelMetadata": [],
-  "trackers": [{
-    "name": "COVID-19",
-    "vocabulary": [
-      "social distancing",
-      "cover your face with mask",
-      "vaccination"
-    ]
-  }]
+  "trackers": [
+    {
+      "name": "Promotion Mention",
+      "vocabulary": [
+        "We have a special promotion going on if you book this before",
+        "I can offer you a discount of 10 20 percent you being a new customer for us",
+        "We have our month special this month",
+        "We have a sale right now on"
+      ]
+    }
+  ]
 }
 ```
 
-### Speaker Separation
+### Request Body Parameters
 
-The Async Audio & Async Video APIs can detect and separate unique speakers in a single stream of audio & video without the need for separate speaker events.
+Parameters | Required | Type | Description
+---------- | ------- | ------- | -------
+```url``` | Mandatory | String | A valid url string. The URL must be a publicly accessible url.
+```customVocabulary``` | Optional | String[] | Contains a list of words and phrases that provide hints to the speech recognition task.
+```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
+```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. It's a boolean value where the default value is `false`.
+```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
+```webhookUrl``` | Optional | String | Webhook URL on which job updates to be sent. This should be after the API call is made. For Webhook payload, refer to the [Using Webhook](#using-webhook) section below. 
+```entities``` | Optional | Object[] | Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
+```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
+ ```languageCode```| Optional | String | We accept different languages. Please [check language Code](/docs/async-api/overview/async-api-supported-languages) as per your requirement.
+  ``` mode``` | Optional | String | Accepts `phone` or `default`. `phone` mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).<br />`default` mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).<br />When you don't pass this parameter `default` is selected automatically. 
+```enableSeparateRecognitionPerChannel``` | Optional | Boolean | Enables Speaker Separated Channel audio processing. Accepts `true` or `false`.
+```channelMetadata``` | Optional | Object[] | This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` is set to `true`. Learn more in the [Channel Metadata](#channel-metadata) section below. 
+```trackers``` <font color="orange"> BETA</font> | No | List | A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
+```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
+```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
+```enableSpeakerDiarization``` | Optional | Boolean | Whether the diarization should be enabled for this conversation. Pass this as `true` to enable Speaker Separation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
+```diarizationSpeakerCount``` | Optional | String | The number of unique speakers in this conversation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
 
-To enable this capability with either of the APIs the `enableSpeakerDiarization` and `diarizationSpeakerCount` query parameters need to be passed with the request.
+#### Channel Metadata
 
-The `diarizationSpeakerCount` should be equal to the number of unique speakers in the conversation. If the number varies then this might introduce false positives in the diarized results.
+The `channelMetadata` object has the members `channel` and `speaker`.
+Given below is an example of a `channelMetadata` object:
 
-If you’re looking for similar capability in Real-Time APIs, please refer to [Active Speaker Events](/docs/javascript-sdk/code-snippets/active-speaker-events) and Speaker Separation in WebSocket API sections.
-
-:::info Speaker Diarization Language Support
-
-Currently, Speaker Diarization is available for English and Spanish languages only.
-:::
-
-#### Query Params
-
-Parameter | Required | Value
---------- | --------- | -------
-```enableSpeakerDiarization``` | Yes | Whether the diarization should be enabled for this conversation. Pass this as `true` to enable this capability.
-```diarizationSpeakerCount``` | Yes | The number of unique speakers in this conversation.
-
-### Channel Metadata
+```js
+{
+  "channelMetadata": [
+    {
+      "channel": 1,
+      "speaker": {
+        "name": "Robert Bartheon",
+        "email": "robertbartheon@example.com"
+      }
+    },
+    {
+      "channel": 2,
+      "speaker": {
+        "name": "Arya Stark",
+        "email": "aryastark@example.com"
+      }
+    }
+  ]
+}
+```
 
 `channelMetadata` object has following members:
 
@@ -341,47 +356,49 @@ Field | Required | Type | Description
 ```name``` | No | String | Name of the speaker.
 ```email``` | No | String | Email address of the speaker.
 
-
-##### channelMetadata Object
+### Response 
 
 ```js
 {
-  "channelMetadata": [
-    {
-      "channel": 1,
-      "speaker": {
-        "name": "Robert Bartheon",
-        "email": "robertbartheon@gmail.com"
-      }
-    },
-    {
-      "channel": 2,
-      "speaker": {
-        "name": "Arya Stark",
-        "email": "aryastark@gmail.com"
-      }
-    }
-  ]
+  "conversationId": "5815170693595136",
+  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
 }
 ```
 
-:::caution
-Billing for a speaker separated channel audio file happens according to the number of channels present in the audio files. The duration for billing will be calculated according to the below formula:
+Field | Description
+---------- | ------- |
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
+`jobId` | ID to be used with Job API.
+
+### Speaker Separation
+---
+
+The Async Audio & Async Video APIs can detect and separate unique speakers in a single stream of audio & video without the need for separate speaker events.
+
+To enable this capability with either of the APIs the `enableSpeakerDiarization` and `diarizationSpeakerCount` query parameters need to be passed with the request. The `diarizationSpeakerCount` should be equal to the number of unique speakers in the conversation. If the number varies then this might introduce false positives in the diarized results.
+
+👉 To learn how to implement Speaker Separation, see [How to implement Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video) page.
+
+If you’re looking for similar capability in Real-Time APIs, refer to [Active Speaker Events](/docs/javascript-sdk/code-snippets/active-speaker-events) and Speaker Separation in WebSocket API sections.
+
+:::note
+**Speaker Diarization Language Support**
+
+Currently, Speaker Diarization is available for English and Spanish languages only.
+
+**Billing for Speaker Separated Channels**
+
+The billing for a speaker separated channel audio file is according to the number of channels present in the audio files. The duration for billing will be calculated according to the below formula:
 
 `totalDuration = duration_of_the_audio_file * total_number_of_channels`
 
-So if you send a 120-second file with 3 speaker separated channels, the total duration for billing would be 360 seconds or 6 minutes.
+So, if you send a 120-second file with 3 speaker separated channels, the total duration for billing would be 360 seconds or 6 minutes.
 :::
 
-### Webhook Payload
+### Using Webhook 
+---
 
-`webhookUrl` will be used to send the status of job created for uploaded audio url. Every time the status of the job changes it will be notified on the WebhookUrl
-
-Field | Description
-| ------- | -------
-```jobId``` | ID to be used with Job API.
-```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ])
-
+The `webhookUrl` will be used to send the status of job created for uploaded audio URL. Every time the status of the job changes it will be notified on the Webhook Url.
 
 ##### Code Example
 
@@ -392,27 +409,13 @@ Field | Description
 }
 ```
 
-### Response
-
-
-#### Response Object
-
 Field | Description
----------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
-`jobId` | ID to be used with Job API
-
-##### Code Example
-
-```js
-{
-  "conversationId": "5815170693595136",
-  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-}
-```
+| ------- | -------
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api).
+```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ])
 
 ### API Limit Error
-
+---
 ```js
 {
   "statusCode" : 429,

@@ -51,7 +51,7 @@ import symbl
 phoneNumber = "" #A valid US phone number or a Zoom number 
 meetingId = "" #Your zoom meetingId, blank otherwise
 password = "" # Your zoom meeting passcode, blank otherwise
-emailId = ""
+emailId = "" #An emailId for summary
 
 
 connection_object = symbl.Telephony.start_pstn(

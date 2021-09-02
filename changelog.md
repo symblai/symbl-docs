@@ -11,11 +11,27 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 19 Aug 2021
+
+![sdk](/img/sdk-icon.png)
+- **Python SDK**: Added support for updating members and speaker events (PUT method) for Conversation API with Python SDK. <br/>
+[Read more here](/docs/python-sdk/conversation-api).
+
+### 9 Aug 2021
+
+![sdk](/img/sdk-icon.png)
+- **Python SDK**: Added support in Conversation API for getting trackers, analytics and entities with Python SDK. <br/>
+[Read more here](/docs/python-sdk/conversation-api).
+
 ### 30 July 2021
 
 ![api update](/img/api-update.png)
 - **Conversation Groups availability**: You can now create logical groups of conversations by setting the grouping criteria such as speaker agent, company name, call type such as internal, external, sales, etc.<br/>
 [Read more here](/docs/concepts/conversation-groups).
+
+![api update](/img/api-update.png)
+- **Fetch all Conversations API availability**: You can now fetch all conversations in a single API call and also apply filters such as sorting, ordering etc. to your result set.<br/>
+[Read more here](/docs/conversation-api/all-conversations).
 
 - Bug Fixes:
   - Incorrect usage recorded due to internal issue in Telephony API is fixed. 

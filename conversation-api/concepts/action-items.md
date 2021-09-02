@@ -8,6 +8,7 @@ slug: /concepts/action-items
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action like set up a meeting, share a file, complete a task, etc.
 
@@ -114,3 +115,38 @@ fetch(request)
 ```
 </TabItem>
 </Tabs>
+
+## Tutorials
+
+Refer to the following tutorials for code snippets and step-by-step instuctions:
+
+### Streaming API
+
+To get Action Items in real-time with Streaming API (WebSocket protocol) see the tutorials given below: 
+
+* [Live Speech-to-Text and AI insights on browser](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
+* [Live Speech-to-Text and AI insights on local server](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
+* [Gain Real-time AI Insights From Your Device's Mic Using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
+
+<button class="button button1"><a href="/docs/streamingapi/code-snippets/start-and-stop-connection">View all Tutorials</a></button><br/> 
+
+
+### Telephony API
+
+To get Action Items in real-time with Telephony API (SIP/PSTN protocol) see the tutorials given below: 
+
+* [Gain AI Insights On Your Zoom Call](/docs/telephony/tutorials/connect-to-zoom)
+* [Connect to a PSTN connection to get Speech to Text and AI Insights](/docs/telephony/code-snippets/connect-to-pstn)
+* [Connect to a SIP connection to get Speech to Text and AI Insights](/docs/telephony/code-snippets/connect-to-sip) 
+
+<button class="button button2"><a href="/docs/telephony/introduction">View all Tutorials</a></button>
+
+### Symbl SDK
+ 
+The Programmable Symbl'S SDK allows you to add Conversation Intelligence directly into your web applications and meeting platforms. You can generate intelligent insights such as action items, topics and questions.
+
+* [Gain Real-time AI Insights From Your Device's Mic Using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
+
+<button class="button button2"><a href="/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer">Learn more about Symbl's SDK</a></button>
+
+
