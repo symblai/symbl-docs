@@ -264,6 +264,28 @@ For a Topic type of response, you should expect the following payload:
 }]
 ```
 
+For a Tracker type of response, you should expect the following payload:
+
+```js
+{
+ "type": "tracker_response",
+ "trackers": [{
+   "name": "budget",
+   "matches": [{
+     "type": "vocabulary",
+     "value": "budget",
+     "messageRefs": [{
+       "id": "0f3275d7-d534-48e2-aee2-685bd3167f4b",
+       "text": "I would like to set a budget for this month.",
+       "offset": 22
+     }],
+     "insightRefs": []
+    }]
+ }],
+ "sequenceNumber": 0
+}
+```
+
 Given below is a complete sample of `MainActivity.java` class which includes the Agora RTC and Symbl settings.
 
 ```js
