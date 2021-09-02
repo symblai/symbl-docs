@@ -12,6 +12,8 @@ To view the source code, go to the [open-source repository](https://github.com/s
 
 The Python SDK provides the following capabilities:
 
+- [Credential Handling](#credential-handling)<br/>
+
 - [Start connection using PSTN](#start-pstn-connection)<br/>
 
 - [Stop connection](#stop-connection)
@@ -21,6 +23,24 @@ The Python SDK provides the following capabilities:
 - [Subscribe to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
 
+## Credential Handling 
+
+Symbl.ai's Python SDK simplifies the credential handling by allowing you either to add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
+
+To add your credentials directly to the connection method's calls, add the following line: 
+
+```python
+      credentials={app_id: <app_id>, app_secret: <app_secret>},
+```
+
+To handle credentials through a separate file saved your execution directory, add a file to your project called `symbl.conf` with the following configuration: 
+
+```python 
+[credentials]
+app_id=
+app_secret=
+```
+
 ## Start PSTN Connection
 
 The code snippet below allows you to start a Telephony connection with Symbl via PSTN protocol: 
@@ -28,13 +48,14 @@ The code snippet below allows you to start a Telephony connection with Symbl via
 ```py
 import symbl
 
-phoneNumber = "" #Zoom phone number. Can be found in invitation 
-meetingId = "" # Your zoom meetingId
-password = "" # Your zoom meeting passcode
-emailId = ""
+phoneNumber = "" #A valid US phone number or a Zoom number 
+meetingId = "" #Your zoom meetingId, blank otherwise
+password = "" # Your zoom meeting passcode, blank otherwise
+emailId = "" #An emailId for summary
 
 
 connection_object = symbl.Telephony.start_pstn(
+      # credentials={app_id: <app_id>, app_secret: <app_secret>}, #Optional, Don't add this parameter if you have symbl.conf file in your execution directory
       phone_number=phoneNumber,
       dtmf = ",,{}#,,{}#".format(meetingId, password) #do not change these variables
     )
@@ -49,6 +70,7 @@ Parameter  | Required | Description | Value
 ----------- | ------- |  ------- | ------- | 
 `phone_number` | Mandatory | Phone number including country code. If you are dailing in via phone to a conference tool, e.g., Zoom, Google hangouts, use the dail-in numbers provided. | `"+11234567890"`
 `dtmf`| Optional | The DTMF details for dailing into your conference tool in the format `",,{}#,,{}#".format(meetingId, password)` | `meetingId`- Your meeting ID of your conference tool. Example`"12345"`. &nbsp; &nbsp; `password` - Your meeting password of your conference tool. Example: `"A1B2C3D4"`.&nbsp;&nbsp;`emailId`- Your email ID you wish to receive the analytics on. Example: `"john@example.com"`|
+`credentials` | Optional | Your `appId` and `appSecret` | `credentials={app_id: <app_id>, app_secret: <app_secret>}`
 
 
 ## Stop Connection
@@ -78,7 +100,6 @@ Event  | Description
 ----------- |------- |
 `message_response` | Generates an event whenever transcription is available.
 `insight_response` | Generates an event whenever an `action_item` or `question` is identified in the message. 
-`tracker_response`| Generates an event whenever a tracker is identified in the transcription.
 `transcript_response` | Also generates transcription values, however these will include an `isFinal` property which will be False initially meaning the transcription are not finalized.
 `topic_response` | Generates an event whenever a topic is identified in any transcription.
 
@@ -92,7 +113,7 @@ connection_object.subscribe({
     )
 print(connection_object)
 ```
-## Receive Insights on Email
+## Receive Insights via Email
 
 After the call has ended, you can trigger an email containing the URL to view the Transcripts, Topics, Speaker analytics, Follow-ups, Action Items and meeting insights in a single page Web Application- [Symbl's Prebuilt Summary UI](/docs/pre-built-ui/summary-ui). 
 
@@ -131,6 +152,7 @@ password = "447891" #Your meeting passcode.
 emailId = "john@example.com" #Your registered email ID on the conference tool.
 
 connection_object = symbl.Telephony.start_pstn(
+    # credentials={app_id: <app_id>, app_secret: <app_secret>}, #Optional, Don't add this parameter if you have symbl.conf file in your execution directory
     phone_number= phoneNumber,
     dtmf = ",,{}#,,{}#".format(meetingId, password), #",,{}#,,{}#".format(meetingId, password) Do NOT change the variables
     actions = [
