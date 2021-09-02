@@ -14,7 +14,6 @@ The Python SDK provides the following capabilities:
 
 - [Credential Handling](#credential-handling)<br/>
 
-
 - [Start connection using PSTN](#start-pstn-connection)<br/>
 
 - [Stop connection](#stop-connection)
@@ -31,7 +30,7 @@ Symbl.ai's Python SDK simplifies the credential handling by allowing you either 
 To add your credentials directly to the connection method's calls, add the following line: 
 
 ```python
-      credentials={app_id: <app_id>, app_secret: <app_secret>}, #Optional, Don't add this parameter if you have symbl.conf file in your home directory or working directory
+      credentials={app_id: <app_id>, app_secret: <app_secret>},
 ```
 
 To handle credentials through a separate file saved your execution directory, add a file to your project called `symbl.conf` with the following configuration: 
@@ -49,7 +48,7 @@ The code snippet below allows you to start a Telephony connection with Symbl via
 ```py
 import symbl
 
-phoneNumber = "" #A PSTN number or a Zoom number 
+phoneNumber = "" #A valid US phone number or a Zoom number 
 meetingId = "" #Your zoom meetingId, blank otherwise
 password = "" # Your zoom meeting passcode, blank otherwise
 emailId = ""
