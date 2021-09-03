@@ -72,10 +72,12 @@ You can use the Conversation ID for the following use-cases:
  
 - **Appending already processed data**: For conversations processed by Symbl, you can append data to it and have Symbl generate intelligence on it again. This requires a Conversation ID so that Symbl can identify the said conversation and append the same. For example, if you wish to append the transcript of a conversation, you have to send the appending text along with the `conversationId`.
  
-- **For conversation processed using Real-time APIs**: While in most cases, the `conversationId` is used for non-real-time data gathering, it is also useful when you want to extract the conversation insights of real-time conversations again. For example, after a conversation via WebSocket protocol (Streaming API) has ended, you can use the Conversation ID to fetch Topics, Action Items, Questions, etc. again later.
+- **For conversation processed using Real-time APIs**: While in most cases, the `conversationId` is used for non-real-time data gathering, it is also useful when you want to extract the conversation insights of real-time conversations again. 
+ 
+For example, after a conversation via WebSocket protocol (Streaming API) has ended, you can use the Conversation ID to fetch Topics, Action Items, Questions, etc. again later.
  
  
-#### How to generate a Conversation ID
+#### How to Generate a Conversation ID
  
 Every time you process a conversation using Async, Telephony or Streaming APIs (and SDKs), you will, by default receive a unique Conversation ID specific to that request.
 :::
