@@ -11,6 +11,12 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 2 Sep 2021
+
+![sdk](/img/sdk-icon.png)
+- **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
+[Read more here](/docs/integrations/agora-sdk-plugin).
+
 ### 19 Aug 2021
 
 ![sdk](/img/sdk-icon.png)
