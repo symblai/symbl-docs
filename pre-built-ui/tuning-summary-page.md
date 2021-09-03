@@ -1,7 +1,11 @@
 ---
+
 id: tuning-summary-page
 title: Tuning your Summary Page
 sidebar_label: Tuning your Summary Page
+
+---
+
 ---
 
 You can choose to tune your Summary Page with query parameters in order to play with different configurations and see how the results look.
