@@ -7,6 +7,8 @@ sidebar_label: Symbl React Elements
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 <div className="widget-container"></div>
 
 <!-- <a href="#" onClick={e => {MyApp.init()}}>Test</a> -->
