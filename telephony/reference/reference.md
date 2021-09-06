@@ -19,10 +19,451 @@ import TabItem from '@theme/TabItem';
   defaultValue="cURL"
   values={[
     { label: 'cURL', value: 'cURL', },
+    { label: 'Javascript', value: 'javascript' },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Python', value: 'python' }
+    { label: 'Python', value: 'python' },
+    { label: 'Java', value: 'java' },
+    { label: 'Swift', value: 'swift' },
+    { label: 'C#', value: 'csharp' },
+    { label: 'PHP', value: 'php' },
+    { label: 'Ruby', value: 'ruby' },
+    { label: 'Go', value: 'go' },
+    { label: 'C', value: 'c' },
+    { label: 'Objective-C', value: 'objective-c' },
   ]
 }>
+
+
+<TabItem value="swift">
+
+```swift
+
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+let parameters = "{\r\n\t\"operation\": \"start\",\r\n\t\"endpoint\": {\r\n\t  \"type\" : \"pstn\",\r\n\t  \"phoneNumber\": \"__phone_number_goes_here\"\r\n\t},\r\n\t\"actions\": [{\r\n\t  \"invokeOn\": \"stop\",\r\n\t  \"name\": \"sendSummaryEmail\",\r\n\t  \"parameters\": {\r\n\t    \"emails\": [\r\n\t      \"user@example.com\"  \r\n\t    ]\r\n\t  }\r\n\t}],\r\n\t\"data\" : {\r\n\t\t\"session\": {\r\n\t\t\t\"name\" : \"__name_of_this_call__\"\r\n\t\t}\r\n    }\r\n}"
+let postData = parameters.data(using: .utf8)
+
+var request = URLRequest(url: URL(string: "http://localhost:8000/v1/endpoint:connect")!,timeoutInterval: Double.infinity)
+request.addValue("ACCESS_TOKEN", forHTTPHeaderField: "x-api-key")
+request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+request.httpMethod = "POST"
+request.httpBody = postData
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="csharp">
+
+```csharp
+
+var client = new RestClient("http://localhost:8000/v1/endpoint:connect");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("x-api-key", "ACCESS_TOKEN");
+request.AddHeader("Content-Type", "application/json");
+var body = @"{
+" + "\n" +
+@"  ""operation"": ""start"",
+" + "\n" +
+@"  ""endpoint"": {
+" + "\n" +
+@"    ""type"" : ""pstn"",
+" + "\n" +
+@"    ""phoneNumber"": ""__phone_number_goes_here""
+" + "\n" +
+@"  },
+" + "\n" +
+@"  ""actions"": [{
+" + "\n" +
+@"    ""invokeOn"": ""stop"",
+" + "\n" +
+@"    ""name"": ""sendSummaryEmail"",
+" + "\n" +
+@"    ""parameters"": {
+" + "\n" +
+@"      ""emails"": [
+" + "\n" +
+@"        ""user@example.com""  
+" + "\n" +
+@"      ]
+" + "\n" +
+@"    }
+" + "\n" +
+@"  }],
+" + "\n" +
+@"  ""data"" : {
+" + "\n" +
+@"    ""session"": {
+" + "\n" +
+@"      ""name"" : ""__name_of_this_call__""
+" + "\n" +
+@"    }
+" + "\n" +
+@"    }
+" + "\n" +
+@"}";
+request.AddParameter("application/json", body,  ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+
+```
+
+</TabItem>
+
+
+<TabItem value="php">
+
+```php
+
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('http://localhost:8000/v1/endpoint:connect');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'x-api-key' => 'ACCESS_TOKEN',
+  'Content-Type' => 'application/json'
+));
+$request->setBody('{
+\n  "operation": "start",
+\n  "endpoint": {
+\n    "type" : "pstn",
+\n    "phoneNumber": "__phone_number_goes_here"
+\n  },
+\n  "actions": [{
+\n    "invokeOn": "stop",
+\n    "name": "sendSummaryEmail",
+\n    "parameters": {
+\n      "emails": [
+\n        "user@example.com"  
+\n      ]
+\n    }
+\n  }],
+\n  "data" : {
+\n    "session": {
+\n      "name" : "__name_of_this_call__"
+\n    }
+\n    }
+\n}');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+
+```
+
+</TabItem>
+
+
+<TabItem value="ruby">
+
+```ruby
+
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("http://localhost:8000/v1/endpoint:connect")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["x-api-key"] = "ACCESS_TOKEN"
+request["Content-Type"] = "application/json"
+request.body = JSON.dump({
+  "operation": "start",
+  "endpoint": {
+    "type": "pstn",
+    "phoneNumber": "__phone_number_goes_here"
+  },
+  "actions": [
+    {
+      "invokeOn": "stop",
+      "name": "sendSummaryEmail",
+      "parameters": {
+        "emails": [
+          "user@example.com"
+        ]
+      }
+    }
+  ],
+  "data": {
+    "session": {
+      "name": "__name_of_this_call__"
+    }
+  }
+})
+
+response = http.request(request)
+puts response.read_body
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="go">
+
+```go
+
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "http://localhost:8000/v1/endpoint:connect"
+  method := "POST"
+
+  payload := strings.NewReader(`{`+"
+"+`
+  "operation": "start",`+"
+"+`
+  "endpoint": {`+"
+"+`
+    "type" : "pstn",`+"
+"+`
+    "phoneNumber": "__phone_number_goes_here"`+"
+"+`
+  },`+"
+"+`
+  "actions": [{`+"
+"+`
+    "invokeOn": "stop",`+"
+"+`
+    "name": "sendSummaryEmail",`+"
+"+`
+    "parameters": {`+"
+"+`
+      "emails": [`+"
+"+`
+        "user@example.com"  `+"
+"+`
+      ]`+"
+"+`
+    }`+"
+"+`
+  }],`+"
+"+`
+  "data" : {`+"
+"+`
+    "session": {`+"
+"+`
+      "name" : "__name_of_this_call__"`+"
+"+`
+    }`+"
+"+`
+    }`+"
+"+`
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("x-api-key", "ACCESS_TOKEN")
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+
+```
+
+</TabItem>
+
+
+<TabItem value="c">
+
+```c
+
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:8000/v1/endpoint:connect");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  headers = curl_slist_append(headers, "x-api-key: ACCESS_TOKEN");
+  headers = curl_slist_append(headers, "Content-Type: application/json");
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  const char *data = "{\r\n \"operation\": \"start\",\r\n \"endpoint\": {\r\n   \"type\" : \"pstn\",\r\n    \"phoneNumber\": \"__phone_number_goes_here\"\r\n },\r\n  \"actions\": [{\r\n   \"invokeOn\": \"stop\",\r\n   \"name\": \"sendSummaryEmail\",\r\n   \"parameters\": {\r\n     \"emails\": [\r\n       \"user@example.com\"  \r\n      ]\r\n   }\r\n }],\r\n \"data\" : {\r\n    \"session\": {\r\n      \"name\" : \"__name_of_this_call__\"\r\n    }\r\n    }\r\n}";
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
+  res = curl_easy_perform(curl);
+}
+curl_easy_cleanup(curl);
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="objective-c">
+
+```objectivec
+
+#import <Foundation/Foundation.h>
+
+dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8000/v1/endpoint:connect"]
+  cachePolicy:NSURLRequestUseProtocolCachePolicy
+  timeoutInterval:10.0];
+NSDictionary *headers = @{
+  @"x-api-key": @"ACCESS_TOKEN",
+  @"Content-Type": @"application/json"
+};
+
+[request setAllHTTPHeaderFields:headers];
+NSData *postData = [[NSData alloc] initWithData:[@"{\r\n  \"operation\": \"start\",\r\n \"endpoint\": {\r\n   \"type\" : \"pstn\",\r\n    \"phoneNumber\": \"__phone_number_goes_here\"\r\n },\r\n  \"actions\": [{\r\n   \"invokeOn\": \"stop\",\r\n   \"name\": \"sendSummaryEmail\",\r\n   \"parameters\": {\r\n     \"emails\": [\r\n       \"user@example.com\"  \r\n      ]\r\n   }\r\n }],\r\n \"data\" : {\r\n    \"session\": {\r\n      \"name\" : \"__name_of_this_call__\"\r\n    }\r\n    }\r\n}" dataUsingEncoding:NSUTF8StringEncoding]];
+[request setHTTPBody:postData];
+
+[request setHTTPMethod:@"POST"];
+
+NSURLSession *session = [NSURLSession sharedSession];
+NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  if (error) {
+    NSLog(@"%@", error);
+    dispatch_semaphore_signal(sema);
+  } else {
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+    NSError *parseError = nil;
+    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+    NSLog(@"%@",responseDictionary);
+    dispatch_semaphore_signal(sema);
+  }
+}];
+[dataTask resume];
+dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+
+```
+
+</TabItem>
+
+
+<TabItem value="java">
+
+```java
+
+Unirest.setTimeouts(0, 0);
+HttpResponse<String> response = Unirest.post("http://localhost:8000/v1/endpoint:connect")
+  .header("x-api-key", "ACCESS_TOKEN")
+  .header("Content-Type", "application/json")
+  .body("{\r\n\t\"operation\": \"start\",\r\n\t\"endpoint\": {\r\n\t  \"type\" : \"pstn\",\r\n\t  \"phoneNumber\": \"__phone_number_goes_here\"\r\n\t},\r\n\t\"actions\": [{\r\n\t  \"invokeOn\": \"stop\",\r\n\t  \"name\": \"sendSummaryEmail\",\r\n\t  \"parameters\": {\r\n\t    \"emails\": [\r\n\t      \"user@example.com\"  \r\n\t    ]\r\n\t  }\r\n\t}],\r\n\t\"data\" : {\r\n\t\t\"session\": {\r\n\t\t\t\"name\" : \"__name_of_this_call__\"\r\n\t\t}\r\n    }\r\n}")
+  .asString();
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="javascript">
+
+```js
+
+var myHeaders = new Headers();
+myHeaders.append("x-api-key", "ACCESS_TOKEN");
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "operation": "start",
+  "endpoint": {
+    "type": "pstn",
+    "phoneNumber": "__phone_number_goes_here__"
+  },
+  "actions": [
+    {
+      "invokeOn": "stop",
+      "name": "sendSummaryEmail",
+      "parameters": {
+        "emails": [
+          "user@exampe.com"
+        ]
+      }
+    }
+  ],
+  "data": {
+    "session": {
+      "name": "__name_of_this_call__"
+    }
+  }
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://localhost:8000/v1/endpoint:connect", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+```
+
+</TabItem>
+
 <TabItem value="cURL">
 
 ```shell

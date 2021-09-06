@@ -30,11 +30,294 @@ Before using the Async Audio API you must get the authentication token (`AUTH_TO
   defaultValue="cURL"
   values={[
     { label: 'cURL', value: 'cURL', },
-    { label: 'Native Javascript', value: 'javascript', },
+    { label: 'Javascript', value: 'javascript', },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Python', value: 'python' }
+    { label: 'Python', value: 'python' },
+    { label: 'Java', value: 'java' },
+    { label: 'Swift', value: 'swift' },
+    { label: 'C#', value: 'csharp' },
+    { label: 'PHP', value: 'php' },
+    { label: 'Ruby', value: 'ruby' },
+    { label: 'Go', value: 'go' },
+    { label: 'C', value: 'c' },
+    { label: 'Objective-C', value: 'objective-c' },
   ]
 }>
+
+
+<TabItem value="java">
+
+```java
+
+Unirest.setTimeouts(0, 0);
+HttpResponse<String> response = Unirest.post("https://api.symbl.ai/v1/process/audio/url")
+  .header("Content-Type", "application/json")
+  .header("Authorization", "Bearer ACCESS_TOKEN")
+  .body("{\n  \"url\": \"https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav\",\n  \"confidenceThreshold\": 0.6,\n  \"timezoneOffset\": 0\n}")
+  .asString();
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="swift">
+
+```swift
+
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+let parameters = "{\n  \"url\": \"https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav\",\n  \"confidenceThreshold\": 0.6,\n  \"timezoneOffset\": 0\n}"
+let postData = parameters.data(using: .utf8)
+
+var request = URLRequest(url: URL(string: "https://api.symbl.ai/v1/process/audio/url")!,timeoutInterval: Double.infinity)
+request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+request.addValue("Bearer ACCESS_TOKEN", forHTTPHeaderField: "Authorization")
+
+request.httpMethod = "POST"
+request.httpBody = postData
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="csharp">
+
+```csharp
+
+var client = new RestClient("https://api.symbl.ai/v1/process/audio/url");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "application/json");
+request.AddHeader("Authorization", "Bearer ACCESS_TOKEN");
+var body = @"{" + "\n" +
+@"  ""url"": ""https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav""," + "\n" +
+@"  ""confidenceThreshold"": 0.6," + "\n" +
+@"  ""timezoneOffset"": 0" + "\n" +
+@"}";
+request.AddParameter("application/json", body,  ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+
+```
+
+</TabItem>
+
+
+<TabItem value="php">
+
+```php
+
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.symbl.ai/v1/process/audio/url');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Content-Type' => 'application/json',
+  'Authorization' => 'Bearer ACCESS_TOKEN'
+));
+$request->setBody('{\n  "url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav",\n  "confidenceThreshold": 0.6,\n  "timezoneOffset": 0\n}');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+
+```
+
+</TabItem>
+
+
+<TabItem value="ruby">
+
+```ruby
+
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://api.symbl.ai/v1/process/audio/url")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["Authorization"] = "Bearer ACCESS_TOKEN"
+request.body = JSON.dump({
+  "url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav",
+  "confidenceThreshold": 0.6,
+  "timezoneOffset": 0
+})
+
+response = https.request(request)
+puts response.read_body
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="go">
+
+```go
+
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.symbl.ai/v1/process/audio/url"
+  method := "POST"
+
+  payload := strings.NewReader(`{
+  "url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav",
+  "confidenceThreshold": 0.6,
+  "timezoneOffset": 0
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("Authorization", "Bearer ACCESS_TOKEN")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+
+```
+
+</TabItem>
+
+
+<TabItem value="c">
+
+
+```c
+
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_easy_setopt(curl, CURLOPT_URL, "https://api.symbl.ai/v1/process/audio/url");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  headers = curl_slist_append(headers, "Content-Type: application/json");
+  headers = curl_slist_append(headers, "Authorization: Bearer ACCESS_TOKEN");
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  const char *data = "{\n  \"url\": \"https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav\",\n  \"confidenceThreshold\": 0.6,\n  \"timezoneOffset\": 0\n}";
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
+  res = curl_easy_perform(curl);
+}
+curl_easy_cleanup(curl);
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="objective-c">
+
+```objectivec
+#import <Foundation/Foundation.h>
+
+dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.symbl.ai/v1/process/audio/url"]
+  cachePolicy:NSURLRequestUseProtocolCachePolicy
+  timeoutInterval:10.0];
+NSDictionary *headers = @{
+  @"Content-Type": @"application/json",
+  @"Authorization": @"Bearer ACCESS_TOKEN"
+};
+
+[request setAllHTTPHeaderFields:headers];
+NSData *postData = [[NSData alloc] initWithData:[@"{\n  \"url\": \"https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav\",\n  \"confidenceThreshold\": 0.6,\n  \"timezoneOffset\": 0\n}" dataUsingEncoding:NSUTF8StringEncoding]];
+[request setHTTPBody:postData];
+
+[request setHTTPMethod:@"POST"];
+
+NSURLSession *session = [NSURLSession sharedSession];
+NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  if (error) {
+    NSLog(@"%@", error);
+    dispatch_semaphore_signal(sema);
+  } else {
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+    NSError *parseError = nil;
+    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+    NSLog(@"%@",responseDictionary);
+    dispatch_semaphore_signal(sema);
+  }
+}];
+[dataTask resume];
+dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+
+```
+
+</TabItem>
+
 <TabItem value="cURL">
 
 ```shell

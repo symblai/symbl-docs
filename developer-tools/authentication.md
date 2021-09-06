@@ -41,9 +41,275 @@ The Node.js code works with Node.js 7+ and browsers. You will need to install th
   values={[
     { label: 'cURL', value: 'cURL', },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Python', value: 'python' }
+    { label: 'Python', value: 'python' },
+    { label: 'Java', value: 'java' },
+    { label: 'Swift', value: 'swift' },
+    { label: 'C#', value: 'csharp' },
+    { label: 'PHP', value: 'php' },
+    { label: 'Ruby', value: 'ruby' },
+    { label: 'Go', value: 'go' },
+    { label: 'C', value: 'c' },
+    { label: 'Objective-C', value: 'objective-c' },
   ]
 }>
+
+<TabItem value="objective-c">
+
+```objectivec
+
+#import <Foundation/Foundation.h>
+
+dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.symbl.ai/oauth2/token:generate"]
+  cachePolicy:NSURLRequestUseProtocolCachePolicy
+  timeoutInterval:10.0];
+NSDictionary *headers = @{
+  @"Content-Type": @"application/json"
+};
+
+[request setAllHTTPHeaderFields:headers];
+NSData *postData = [[NSData alloc] initWithData:[@"{\n  \"type\": \"application\",\n    \"appId\": \"App ID Goes Here\",\n  \"appSecret\": \"App Secret Goes Here\"\n}" dataUsingEncoding:NSUTF8StringEncoding]];
+[request setHTTPBody:postData];
+
+[request setHTTPMethod:@"POST"];
+
+NSURLSession *session = [NSURLSession sharedSession];
+NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  if (error) {
+    NSLog(@"%@", error);
+    dispatch_semaphore_signal(sema);
+  } else {
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+    NSError *parseError = nil;
+    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+    NSLog(@"%@",responseDictionary);
+    dispatch_semaphore_signal(sema);
+  }
+}];
+[dataTask resume];
+dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+
+```    
+
+</TabItem>
+
+<TabItem value="c">
+
+```c
+
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_easy_setopt(curl, CURLOPT_URL, "https://api.symbl.ai/oauth2/token:generate");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  headers = curl_slist_append(headers, "Content-Type: application/json");
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  const char *data = "{\n   \"type\": \"application\",\n    \"appId\": \"App ID Goes Here\",\n  \"appSecret\": \"App Secret Goes Here\"\n}";
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
+  res = curl_easy_perform(curl);
+}
+curl_easy_cleanup(curl);
+
+
+```
+
+</TabItem>
+
+<TabItem value="go">
+
+```go
+
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.symbl.ai/oauth2/token:generate"
+  method := "POST"
+
+  payload := strings.NewReader(`{
+    "type": "application",
+    "appId": "App ID Goes Here",
+    "appSecret": "App Secret Goes Here"
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+
+```
+</TabItem>
+
+<TabItem value="ruby">
+
+```ruby
+
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://api.symbl.ai/oauth2/token:generate")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request.body = JSON.dump({
+  "type": "application",
+  "appId": "App ID Goes Here",
+  "appSecret": "App Secret Goes Here"
+})
+
+response = https.request(request)
+puts response.read_body
+
+
+```
+
+</TabItem>
+
+<TabItem value="php">
+
+```php
+
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.symbl.ai/oauth2/token:generate');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Content-Type' => 'application/json'
+));
+$request->setBody('{\n  "type": "application",\n    "appId": "App ID Goes Here",\n  "appSecret": "App Secret Goes Here"\n}');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+
+```
+
+</TabItem>
+
+<TabItem value="java">
+
+```java
+
+Unirest.setTimeouts(0, 0);
+HttpResponse<String> response = Unirest.post("https://api.symbl.ai/oauth2/token:generate")
+  .header("Content-Type", "application/json")
+  .body("{\n\t\"type\": \"application\",\n\t\"appId\": \"App ID Goes Here\",\n\t\"appSecret\": \"App Secret Goes Here\"\n}")
+  .asString();
+
+
+```
+
+</TabItem>
+
+<TabItem value="csharp">
+
+```csharp
+
+var client = new RestClient("https://api.symbl.ai/oauth2/token:generate");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "application/json");
+var body = @"{" + "\n" +
+@"  ""type"": ""application""," + "\n" +
+@"  ""appId"": ""App ID Goes Here""," + "\n" +
+@"  ""appSecret"": ""App Secret Goes Here""" + "\n" +
+@"}";
+request.AddParameter("application/json", body,  ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+
+```
+
+</TabItem>
+
+<TabItem value="swift">
+
+```swift
+
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+let parameters = "{\n\t\"type\": \"application\",\n\t\"appId\": \"App ID Goes Here\",\n\t\"appSecret\": \"App Secret Goes Here\"\n}"
+let postData = parameters.data(using: .utf8)
+
+var request = URLRequest(url: URL(string: "https://api.symbl.ai/oauth2/token:generate")!,timeoutInterval: Double.infinity)
+request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+request.httpMethod = "POST"
+request.httpBody = postData
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
+    
+```
+
+</TabItem>
+
 <TabItem value="cURL">
 
 ```shell
@@ -90,6 +356,7 @@ request(authOptions, (err, res, body) => {
 ```
 
 </TabItem>
+
 <TabItem value="python">
 
 ```python
