@@ -23,8 +23,9 @@ Symbl removes that complexity by reading into contexts and returning messages th
 
 Using these insights you can introduce process improvements and strategies that align with your business goals.
 
-#### Examples
-The tracker names used in the example below are only for explanatory purposes. You can create any tracker for your usecase and assign any name you like.
+#### For example,
+
+Note: The tracker names used in the example below are only for explanatory purposes. You can create any tracker for your usecase and assign any name you like.
 
 - *Sandra is the training head of the Sales team in her company. She uses the insights from the **Intro Tracker** to look at how great sales agents start conversations and **Pricing Tracker** to understand how they share the pricing details. She then uses these insights to train other agents.* 
 *The **Intro Tracker** Sandra uses tracks contextually similar phrases such as:*<br/>
@@ -50,7 +51,7 @@ The tracker names used in the example below are only for explanatory purposes. Y
 &nbsp; &nbsp; &nbsp;*“Use case”*,<br/>
 &nbsp; &nbsp; &nbsp;*“Fits our requirement”*,<br/>
 &nbsp; &nbsp; &nbsp;*“Quotes”*,<br/>
-&nbsp; *“Discounts”*.
+&nbsp; &nbsp; &nbsp;*“Discounts”*.
 
 ## Key Features
 
