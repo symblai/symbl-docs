@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Any explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question.
 
-#### Examples
+#### For example,
 
 - *“What features are most relevant for our use case?”*
 - *“How are we planning to design the systems?”*
@@ -26,7 +26,9 @@ Any explicit question or request for information that comes up during the conver
 
 ## Questions API
 
-To see the Questions API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID** which is passed in Conversation API. A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the detected questions from the conversation.
+To see the Questions API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID** which is passed in Conversation API. A Conversation ID is the key to receiving conversational insights from any conversation. 
+
+For example, here's a simple API call which grabs the detected questions from the conversation.
 
 👉 [Questions API](/docs/conversation-api/questions)
 
