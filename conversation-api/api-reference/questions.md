@@ -97,43 +97,22 @@ exit()
 
 ```json
 {
-	"questions": [{
-			"id": "5179649407582208",
-			"text": "Push them for the two weeks delivery, right?",
-			"type": "question",
-			"score": 0.9730208796076476,
-			"messageIds": [
-				"5019269922291712"
-			]
-		},
-		{
-			"id": "5642466493464576",
-			"text": "I think what is the Bahamas?",
-			"type": "question",
-			"score": 0.9119608386876195,
-			"messageIds": [
-				"5019269922291712"
-			]
-		},
-		{
-			"id": "5756718797553664",
-			"text": "Okay need be detained, or we can go there in person and support them?",
-			"type": "question",
-			"score": 0.893303149769215,
-			"messageIds": [
-				"5019269922291712"
-			]
-		},
-		{
-			"id": "6235991715086336",
-			"text": "Why is that holiday in US from 17?",
-			"type": "question",
-			"score": 0.9998053310511206,
-			"messageIds": [
-				"5019269922291712"
-			]
-		}
-	]
+    "questions": [
+        {
+            "id": "6673386714431488",
+            "text": "It actually does not have speakers right?",
+            "type": "question",
+            "score": 0.9844425742283145,
+            "messageIds": [
+                "5561105242914816"
+            ],
+            "from": {
+                "id": "47c74881-6475-433f-a13a-52152a3cb5aa",
+                "name": "Surbhi",
+                "userId": "Surbhi@symbl.ai"
+            }
+        }
+    ]
 }
 ```
 
