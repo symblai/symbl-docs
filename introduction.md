@@ -9,7 +9,7 @@ slug: /
 👋 Welcome to Symbl documentation! 
 
 Whether you're looking to understand Symbl's capabilities or get started with 
-our APIs, we've got you covered!
+our APIs or SDKs, we've got you covered!
 
 <div class="row">
   <div class="column">
