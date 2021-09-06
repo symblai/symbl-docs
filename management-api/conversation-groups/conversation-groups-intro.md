@@ -80,8 +80,10 @@ To add metadata, modify an already processed conversation using Conversation API
 
 #### Request Body
 
+This is an optional payload. You can pass only the metadata to receive similar results.
+metadate field adds the metadata for Conversation Groups
+
 ```json
-# This is an optional payload. You can pass only the metadata to receive similar results.
 {
   "type": "meeting",
   "name": "My Business Meeting",
@@ -97,7 +99,6 @@ To add metadata, modify an already processed conversation using Conversation API
       "email": "mary@example.com"
     }
   ],
-# This adds the metadata for Conversation Groups
   "metadata": {
     "key": "value", 
     "agentId": "johndoe"
