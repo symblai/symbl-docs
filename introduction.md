@@ -9,7 +9,7 @@ slug: /
 👋 Welcome to Symbl documentation! 
 
 Whether you're looking to understand Symbl's capabilities or get started with 
-our APIs, we've got you covered!
+our APIs, we've got you covered! You can easily plug and play and add AI and ML on top of your voice, video or text communication interfaces.
 
 <div class="row">
   <div class="column">
