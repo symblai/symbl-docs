@@ -92,7 +92,9 @@ Parameter | Required | Value |Description|
 
 ## Topics Hierarchy API
 
-To see Topics Hierarchy in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID**. A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the detected topics from the conversation.
+To see Topics Hierarchy in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID**. <link to conversation id or a live example> A Conversation ID is the key to receiving conversational insights from any conversation. 
+
+For example, here's a simple API call which grabs the detected topics from the conversation.
 
 👉 [Topics Hierarchy](/docs/conversation-api/get-topics)
 
