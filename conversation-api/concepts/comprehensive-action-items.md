@@ -13,6 +13,7 @@ import TabItem from '@theme/TabItem';
 :::info Symbl Labs
 This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
 
+sdf
 
 You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
 
