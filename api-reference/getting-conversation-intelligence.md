@@ -23,7 +23,7 @@ You can process your text, audio or video conversation with Symbl using:
  
 This step always returns a unique Conversation ID. The Conversation ID is used in [Step 2](#2-get-conversation-intelligence-with-conversation-api) for getting Conversation Intelligence. Read more in the [Conversation ID](#what-is-a-conversation-id) section.
  
-![async-real time](/img/real-time-async-flow-diagram.png)
+![async-real time](/img/realtime-vs-async.png)
  
  
 :::tip Real-time API vs Async APIs
@@ -56,8 +56,6 @@ The Async API provides a REST interface that helps you submit any recorded or sa
 In this step, you will use the **Conversation API** to fetch Transcripts, Topics, Action Items and all the supported insights.
  
 In the Conversation API, you must send the **Conversation ID** that you received in Step 1. The Conversation ID is mandatory and is required every time you generate Conversation Intelligence with Symbl.
- 
-![conversation_id](/img/conversation_id.png)
  
 :::note Conversation ID
 #### What is a Conversation ID?
