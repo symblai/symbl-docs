@@ -21,7 +21,7 @@ You can send your conversation data to Symbl in real-time via **Streaming APIs**
 
 Once the conversation is ingested by Symbl, you can use the **Conversation APIs** to get Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, and also generate a **Customizable Pre-built UI**.
 
-![how-symbl-works](/img/symbl-page.png)
+![how-symbl-works](/img/how-symbl-works-1.png)
 
 ## Symbl’s Key Capabilities
 ---
