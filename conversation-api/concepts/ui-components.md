@@ -39,4 +39,4 @@ The prebuilt summary UI includes the following capabilities:
 * Any Insights, action items or questions from the transcript. Insights can also be edited, shared or dismissed, date/assignee for action item to be modified.
 * The prebuilt summary UI can also be customizable, as per the use case or product requirement.
 
-&nbsp; 👉 &nbsp; Read more in the [Summary UI](/docs/pre-built-ui/) section. <br/>
+&nbsp; 👉 &nbsp; Read more in the [Summary UI](/docs/pre-built-ui/summary-ui) section. <br/>
