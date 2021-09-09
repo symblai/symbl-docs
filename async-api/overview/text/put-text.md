@@ -343,6 +343,7 @@ Field | Required | Type |  Description
 ```trackers``` <font color="orange"> BETA</font> | Optional | String | A `tracker` entity containing name and vocabulary (a list of key words and/or phrases to be tracked). Read more in the[Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation. Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag).
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
+```webhookUrl``` | Optional | String | Webhook URL on which job updates to be sent. This should be post API. See [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) below. 
 
 #### messages
 
@@ -435,14 +436,11 @@ Field | Required | Type | Description
 }
 ```
 
-#### Query Params
-Parameter | Required | Value
----------- | ------- | -------
-```webhookUrl``` | Optional | Webhook url on which job updates to be sent. This should be post API.
+#### webhookURL
 
-`webhookUrl` will be used to send the status of job created for uploaded audio. Every time the status of the job changes it will be notified on the `webhookUrl`.
+`webhookUrl` will be used to send the status of job created. Every time the status of the job changes it will be notified on the `webhookUrl`.
 
-#### Webhook Payload
+#### webhook Payload
 Field | Description
 ---------- | ------- |
 `jobId` | ID to be used with Job API.
