@@ -35,14 +35,14 @@ curl -k -X POST "https://api.symbl.ai/v1/endpoint:connect" \
       "operation": "start",
       "endpoint": {
         "type" : "pstn",
-        "phoneNumber": "'$PHONE_NUMBER'" # 
+        "phoneNumber": "PHONE_NUMBER"
       },
       "actions": [{
         "invokeOn": "stop",
         "name": "sendSummaryEmail",
         "parameters": {
           "emails": [
-            "'$EMAIL_ADDRESS'"
+            "john@example.com"
           ]
         }
       }],
@@ -89,7 +89,7 @@ sdk.init({
           name: "sendSummaryEmail",
           parameters: {
             emails: [
-              "user@example.com"
+              "john@example.com"
             ],
           },
         },
@@ -258,16 +258,37 @@ exit()
 
 #### Testing
 
-Create a python file named `app.py` and copy this code into the file. Fill in the placeholder values with the proper values. Use Python PIP ([learn how to install here](https://pip.pypa.io/en/stable/installing/)) to install [Python Requests](https://requests.readthedocs.io/en/master/) (`pip install requests`). In your termninal, now run:
+Create a python file named `app.py` and copy this code into the file. Fill in the placeholder values with the proper values. Use Python PIP ([learn how to install here](https://pip.pypa.io/en/stable/installing/)) to install [Python Requests](https://requests.readthedocs.io/en/master/) (`pip install requests`). 
+In your terminal, now run:
 
 ```bash
 $ python app.py
 ```
 
-If successful you should receive a response in the console.
 
 </TabItem>
 </Tabs>
+
+### Response
+
+If successful, you will receive a response in the console as shown below:
+
+```json
+{
+    "eventUrl": "https://api.symbl.ai/v1/event/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "resultWebSocketUrl": "wss://api.symbl.ai/events/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "conversationId": "5687907911204864",
+    "connectionId": "f31ad3b9-341a-4950-a1c2-152f08da8aaa"
+}
+```
+### Response Parameters
+
+Field | Description
+---------- | ------- |
+```eventUrl``` | REST API to push speaker events as the conversation is in progress, to add additional speaker context in the conversation. Example - In an on-going meeting, you can push speaker events.
+```resultWebSocketUrl``` | Same as `eventUrl` but over WebSocket. The latency of events is lower with a dedicated WebSocket `connection.ct`.
+```connectionId``` | Ephemeral connection identifier of the request, to uniquely identify the telephony connection. Once the connection is stopped using “stop” operation, or is closed due to some other reason, the `connectionId` is no longer valid.
+```conversationId``` | Represents the conversation - this is the ID that needs to be used in conversation API to access the conversation.
 
 :::info
 If you have any questions or concerns about our API, you can join our [Support Slack](https://join.slack.com/t/symbldotai/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA) or send us an email at [developer@symbl.ai](mailto:developer@symbl.ai)
