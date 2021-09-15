@@ -25,7 +25,7 @@ Key  | Description
 
 ## Getting started
 
-This example runs on a Node server, so we will use `symbl-node` package.
+This example runs on a Node server, so we will use `@symblai/symbl-js` package.
 
 Open `.env` file and add your `APP_ID`, `APP_SECRET`, `EMAIL_ADDRESS`.
 
@@ -104,7 +104,7 @@ better meeting summary
 
 In our example, we will do it by calling helper function `getScheduleEvent`, which
 we will review in a bit. We pass SpeakerEvent type to it by using
-`SpeakerEvent.types` enum from `symbl-node`, passing user data and timestamp
+`SpeakerEvent.types` enum from `@symblai/symbl-js`, passing user data and timestamp
 
 
 ```javascript
@@ -165,7 +165,7 @@ sdk.pushEventOnConnection(connectionId, speakerEvent.toJSON(), (err) => {
 ```js
 require('dotenv').config()
 
-const {sdk, SpeakerEvent} = require('symbl-node')
+const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
 const phoneNumber = undefined // replace this with the phone number, or configure DEFAULT_PHONE_NUMBER in .env file.
 
@@ -264,7 +264,7 @@ sdk
 
 ## Running The Example
 
-Create a javascript file named app.js and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install symbl-node. Now in the terminal run
+Create a javascript file named app.js and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install @symblai/symbl-js. Now in the terminal run
 
 ```bash
 $ node app.js

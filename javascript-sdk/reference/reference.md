@@ -22,6 +22,7 @@ Name | Description
 `appId` | The Symbl Application ID you get from the [Symbl Platform](https://platform.symbl.ai)
 `appSecret` | The Symbl Application Secret Token you get from the [Symbl Platform](https://platform.symbl.ai)
 `basePath` | The base path of the endpoint. By default it is `https://api.symbl.ai`.
+`accessToken` | The Symbl authentication Token you get from your `appId` and `appSecret`. This is an optional parameter you can use to authenticate using auth Token rather than the App ID and App Secret. See sample code [here](/docs/javascript-sdk/introduction#authenticate-using-token).  
 
 #### Returns
 
