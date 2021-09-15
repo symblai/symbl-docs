@@ -46,19 +46,19 @@ Key  | Description
 
 ## Getting started
 
-This example runs on node server, so we will use `symbl-node` package.
+This example runs on node server, so we will use `@symblai/symbl-js` package.
 
 Open `.env` file and add your `APP_ID`, `APP_SECRET`, `EMAIL_ADDRESS`.
 
 
 ```javascript
 require('dotenv').config();
-const {sdk} = require('symbl-node');
+const {sdk} = require('@symblai/symbl-js');
 ```
 
 ### Initialize the SDK
 
-Let's start by initialising `symbl-node` sdk
+Let's start by initialising `@symblai/symbl-js` sdk
 
 
 ```javascript
@@ -131,7 +131,7 @@ If you have any questions or concerns about our API, you can join our [Support S
  *   please drop an e-mail to support@symbl.ai
  */
 require('dotenv').config()
-const {sdk, SpeakerEvent} = require('symbl-node')
+const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
 const getScheduleEvent = (sdk, connectionId) => {
   return (eventType, user, time) => {
@@ -247,7 +247,7 @@ const users = {
 
 ## Running The Example
 
-Create a javascript file named app.js and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install symbl-node. Now in the terminal run
+Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install @symblai/symbl-js. Now in the terminal run
 
 ```bash
 $ node app.js

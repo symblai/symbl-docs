@@ -69,7 +69,7 @@ Here you set the language key to Japanese: `"languages": ["ja-JP"],` and the tim
 ### Full Snippet
 
 ```js
-const {sdk, SpeakerEvent} = require("symbl-node");
+const {sdk, SpeakerEvent} = require("@symblai/symbl-js");
 const appId = appId;
 const appSecret = appSecret;
 
@@ -121,7 +121,7 @@ sdk.init({
 
 ### Testing
 
-Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node`. Now in the terminal run
+Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install @symblai/symbl-js`. Now in the terminal run
 
 ```bash
 $ node app.js

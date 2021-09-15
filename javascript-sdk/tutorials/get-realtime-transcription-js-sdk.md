@@ -28,13 +28,13 @@ To get started using this API, you need to sign up for the [Symbl Developer Plat
 For this example, you will be using Node.js and the Symbl JavaScript SDK. You can install this using the Node Package Manager:
 
 ```js
-npm install symbl-node
+npm install @symblai/symbl-js
 ```
 
 You can then use the library within your project like this:
 
 ```js
-const {sdk} = require('symbl-node')
+const {sdk} = require('@symblai/symbl-js')
 ```
 
 Initliaze the SDK:
@@ -189,7 +189,7 @@ speakers started speaking. That will give us more personalized insights and get 
 better meeting summary.
 
 In our example, we will do it by calling the helper function `getScheduleEvent`, which we will review in a bit. We pass SpeakerEvent type to it by using
-`SpeakerEvent.types` enum from `symbl-node`, passing user data and timestamp:
+`SpeakerEvent.types` enum from `@symblai/symbl-js`, passing user data and timestamp:
 
 
 ```js
@@ -251,7 +251,7 @@ This example just touches the surface of what you can do with our Streaming API.
 ```js
 require('dotenv').config()
 
-const {sdk, SpeakerEvent} = require('symbl-node')
+const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
 const getScheduleEvent = (sdk, connectionId) => {
   return (eventType, user, time) => {
@@ -383,7 +383,7 @@ const users = {
 
 ## Running The Example
 
-Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node`. In the terminal, run the following command:
+Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install @symblai/symbl-js`. In the terminal, run the following command:
 
 ```bash
 $ node app.js
