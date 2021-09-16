@@ -45,7 +45,7 @@ Here you set the language key to Japanese: `"languages": ["ja-JP"],` and the tim
   "operation": "start",
   "endpoint": {
     "type" : "pstn",
-    "phoneNumber": "phoneNumber"
+    "phoneNumber": "DEFAULT_PHONE_NUMBER"
   },
   "languages": ["ja-JP"],
   "timezone": "Asia/Tokyo",
@@ -70,12 +70,10 @@ Here you set the language key to Japanese: `"languages": ["ja-JP"],` and the tim
 
 ```js
 const {sdk, SpeakerEvent} = require("@symblai/symbl-js");
-const appId = appId;
-const appSecret = appSecret;
 
 sdk.init({
-  appId: appId,
-  appSecret: appSecret,
+  appId: APP_ID,
+  appSecret: APP_SECRET,
   basePath: "https://api.symbl.ai",
 }).then(async() => {
   console.log('SDK initialized.');
@@ -85,7 +83,7 @@ sdk.init({
     sdk.startEndpoint({
       endpoint: {
         type: "pstn",
-        phoneNumber: phoneNumber,
+        phoneNumber: DEFAULT_PHONE_NUMBER,
       },
       languages: ["ja-JP"],
       timezone: "Asia/Tokyo",
