@@ -29,7 +29,7 @@ Symbl offers state-of-the-art Speech-to-Text capability (also called transcripti
 - **[Speaker Diarization](https://en.wikipedia.org/wiki/Speaker_diarisation)**: Know who said what by receiving automatic predictions about which of the speakers in a conversation spoke each utterance this is called Speaker Diarization. This process is fairly accurate but not 100% accurate. If you want near 100% accuracy with who said what, please use audio streams and passing the audio files in channels.
 
 - **Paragraph generation**
-- **Support for formats like Mardown and SRT**
+- **Support for formats like Markdown (.md) and SubRip Text (.srt)**
 - **Action Phrases within the transcription**
 
 ## Speech-to-Text API
