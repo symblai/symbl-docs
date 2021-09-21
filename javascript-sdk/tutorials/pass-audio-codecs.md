@@ -48,11 +48,8 @@ Key  | Description
 
 This example runs on node server, so we will use `@symblai/symbl-js` package.
 
-Open `.env` file and add your `APP_ID`, `APP_SECRET`, `EMAIL_ADDRESS`.
-
 
 ```javascript
-require('dotenv').config();
 const {sdk} = require('@symblai/symbl-js');
 ```
 
@@ -63,8 +60,8 @@ Let's start by initialising `@symblai/symbl-js` sdk
 
 ```javascript
 await sdk.init({
-  appId: process.env.APP_ID,
-  appSecret: process.env.APP_SECRET,
+  appId: APP_ID,
+  appSecret: APP_SECRET,
   basePath: 'https://api.symbl.ai'
 });
 ```
@@ -93,7 +90,7 @@ endpoint: {
   },
   //******************************************************
   type: 'pstn',
-  phoneNumber: process.env.DEFAULT_PHONE_NUMBER,
+  phoneNumber: DEFAULT_PHONE_NUMBER,
 },
 ```
 
@@ -130,7 +127,6 @@ If you have any questions or concerns about our API, you can join our [Support S
  *   If you have a requirement to use a codec not included in the ones above or have any other queries,
  *   please drop an e-mail to support@symbl.ai
  */
-require('dotenv').config()
 const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
 const getScheduleEvent = (sdk, connectionId) => {
@@ -179,8 +175,8 @@ const users = {
   try {
     // Initialize the SDK
     await sdk.init({
-      appId: process.env.APP_ID,
-      appSecret: process.env.APP_SECRET,
+      appId: APP_ID,
+      appSecret: APP_SECRET,
       basePath: 'https://api.symbl.ai',
     })
 
@@ -193,7 +189,7 @@ const users = {
         },
         //******************************************************
         type: 'pstn',
-        phoneNumber: process.env.DEFAULT_PHONE_NUMBER,
+        phoneNumber: DEFAULT_PHONE_NUMBER,
       },
       actions: [
         {
