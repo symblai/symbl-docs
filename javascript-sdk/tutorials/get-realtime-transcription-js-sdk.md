@@ -18,6 +18,7 @@ Key  | Description
 ```AUTH_TOKEN``` | The JWT you get after [authentication](/docs/developer-tools/authentication) with Sybml.
 ```YOUR_PHONE_NUMBER``` | A phone number that you want the API to connect to. Be sure to include the country code.
 ```EMAIL_ADDRESS``` | The email address you wish to send the summary email to.
+```DTMF_MEETING_CODE``` | The meeting code provided by the meeting provider (Zoom, etc).
 
 [View on Github](https://github.com/symblai/getting-started-samples/tree/master/examples/voice-sdk/telephony-real-time-insights-transcription)
 
@@ -61,7 +62,7 @@ const connection = await sdk.startEndpoint({
       invokeOn: 'stop',
       name: 'sendSummaryEmail',
       parameters: {
-        emails: [SUMMARY_EMAIL], // Add valid email addresses to received email
+        emails: [EMAIL_ADDRESS], // Add valid email addresses to received email
       },
     },
   ],
@@ -112,7 +113,7 @@ actions: [
     invokeOn: 'stop',
     name: 'sendSummaryEmail',
     parameters: {
-      emails: [SUMMARY_EMAIL] // Add valid email addresses to received email
+      emails: [EMAIL_ADDRESS] // Add valid email addresses to received email
     }
   }
 ]
@@ -249,8 +250,6 @@ This example just touches the surface of what you can do with our Streaming API.
 ## Full Code Example
 
 ```js
-require('dotenv').config()
-
 const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
 const getScheduleEvent = (sdk, connectionId) => {
@@ -292,8 +291,8 @@ const users = {
   try {
     // Initialize the SDK
     await sdk.init({
-      appId: process.env.APP_ID,
-      appSecret: process.env.APP_SECRET,
+      appId: APP_ID,
+      appSecret: APP_SECRET,
       basePath: 'https://api.symbl.ai',
     })
 
@@ -302,7 +301,7 @@ const users = {
     const connection = await sdk.startEndpoint({
       endpoint: {
         type: 'pstn',
-        phoneNumber: process.env.DEFAULT_PHONE_NUMBER,
+        phoneNumber: DEFAULT_PHONE_NUMBER,
       },
       insightTypes: ['action_item', 'question'],
       actions: [
@@ -310,7 +309,7 @@ const users = {
           invokeOn: 'stop',
           name: 'sendSummaryEmail',
           parameters: {
-            emails: [process.env.SUMMARY_EMAIL], // Add valid email addresses to received email
+            emails: [EMAIL_ADDRESS], // Add valid email addresses to received email
           },
         },
       ],
