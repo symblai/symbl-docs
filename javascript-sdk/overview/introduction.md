@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 The Programmable JavaScript SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. With the JavaScript SDK, you can generate intelligent insights such as action items, topics, and questions. Currently, the Symbl JavaScript SDK only works with the [Telephony API](/docs/telephony/introduction) and [Streaming API](/docs/streamingapi/overview/introduction)
 
 :::caution Deprecation  
-This earlier `symbl-node` package is now deprecated and will no longer be maintained by Symbl.ai. Please migrate to the new package `@symblai/symbl-js` available at https://www.npmjs.com/package/@symblai/symbl-js. 
+The earlier package `symbl-node` is now deprecated and will no longer be maintained by Symbl. Please migrate to the new package `@symblai/symbl-js` available at https://www.npmjs.com/package/@symblai/symbl-js. 
 :::
 
 ## Installation
