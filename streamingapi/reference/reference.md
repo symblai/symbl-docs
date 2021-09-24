@@ -27,10 +27,11 @@ Currently, Streaming API is supported only in English language.
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | true | start_request, stop_request | Type of message
-```insightTypes``` | false | action_item, question | Types of insights to return. If not provided, no insights will be returned.
-```config``` | false | | Configuration for this request. [See the config section below for more details](#config).
-```speaker``` | false  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details])(#speaker).
+```type``` | Mandatory | start_request, stop_request | Type of message
+```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
+```customVocabulary``` | Optional |  | An array of strings containing a vocabulary specific to your company, products, or phrases. 
+```config``` | Optional | | Configuration for this request. [See the config section below for more details](#config).
+```speaker``` | Optional  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details])(#speaker).
 
 ##### Code Example
 
@@ -38,11 +39,11 @@ Field  | Required | Supported Value | Description
 {
   "type": "start_request",
   "insightTypes": ["question", "action_item"],
+  "customVocabulary": ["acme", "acme-platform"],
   "config": {},  // See Config section below.
   "speaker": {}  // See Speaker section below.
 }
 ```
-
 
 #### <a name="config"></a>Config
 
