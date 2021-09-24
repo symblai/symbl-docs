@@ -26,7 +26,7 @@ Pushing events is optional. If you don't have audio to process, then you can ski
 const {
   sdk,
   SpeakerEvent
-} = require('symbl-node');
+} = require('@symblai/symbl-js');
 
 sdk.init({
   appId: APP_ID,

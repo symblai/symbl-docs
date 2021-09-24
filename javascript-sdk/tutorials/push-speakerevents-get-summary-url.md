@@ -25,9 +25,7 @@ Key  | Description
 
 ## Getting started
 
-This example runs on a Node server, so we will use `symbl-node` package.
-
-Open `.env` file and add your `APP_ID`, `APP_SECRET`, `EMAIL_ADDRESS`.
+This example runs on a Node server, so we will use `@symblai/symbl-js` package.
 
 
 ### Initialize the SDK
@@ -35,8 +33,8 @@ Open `.env` file and add your `APP_ID`, `APP_SECRET`, `EMAIL_ADDRESS`.
 
 ```js
 await sdk.init({
-  appId: process.env.APP_ID,
-  appSecret: process.env.APP_SECRET,
+  appId: APP_ID,
+  appSecret: APP_SECRET,
   basePath: 'https://api.symbl.ai'
 });
 ```
@@ -56,7 +54,7 @@ First of all let's provide phone number and endpoint type:
 ```javascript
 endpoint: {
   type: 'pstn',
-  phoneNumber: process.env.DEFAULT_PHONE_NUMBER
+  phoneNumber: DEFAULT_PHONE_NUMBER
 }
 ```
 
@@ -104,7 +102,7 @@ better meeting summary
 
 In our example, we will do it by calling helper function `getScheduleEvent`, which
 we will review in a bit. We pass SpeakerEvent type to it by using
-`SpeakerEvent.types` enum from `symbl-node`, passing user data and timestamp
+`SpeakerEvent.types` enum from `@symblai/symbl-js`, passing user data and timestamp
 
 
 ```javascript
@@ -163,16 +161,14 @@ sdk.pushEventOnConnection(connectionId, speakerEvent.toJSON(), (err) => {
 ## Full Code Example
 
 ```js
-require('dotenv').config()
+const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
-const {sdk, SpeakerEvent} = require('symbl-node')
-
-const phoneNumber = undefined // replace this with the phone number, or configure DEFAULT_PHONE_NUMBER in .env file.
+const phoneNumber = DEFAULT_PHONE_NUMBER
 
 sdk
   .init({
-    appId: process.env.APP_ID,
-    appSecret: process.env.APP_SECRET,
+    appId: APP_ID,
+    appSecret: APP_SECRET,
     basePath: 'https://api.symbl.ai',
   })
   .then(() => {
@@ -184,7 +180,7 @@ sdk
           // type: 'sip',         // Use this if you're trying to dial in to a SIP trunk.
           // uri: 'sip:username@domain.com',
           type: 'pstn',
-          phoneNumber: phoneNumber || process.env.DEFAULT_PHONE_NUMBER //,
+          phoneNumber: DEFAULT_PHONE_NUMBER,
           //dtmf: '', // you can find this on the meeting platform invite. Omit or leave blank if not connecting to a meeting platform
         },
         actions: [
@@ -192,7 +188,7 @@ sdk
             invokeOn: 'stop',
             name: 'sendSummaryEmail',
             parameters: {
-              emails: [process.env.SUMMARY_EMAIL], // Add valid email addresses to received email
+              emails: [EMAIL_ADDRESS], // Add valid email addresses to received email
             },
           },
         ],
@@ -264,7 +260,7 @@ sdk
 
 ## Running The Example
 
-Create a javascript file named app.js and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install symbl-node. Now in the terminal run
+Create a javascript file named app.js and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: npm install @symblai/symbl-js. Now in the terminal run
 
 ```bash
 $ node app.js

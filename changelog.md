@@ -14,6 +14,11 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 ### 2 Sep 2021
 
 ![sdk](/img/sdk-icon.png)
+- Availability of new JS SDK @symblai/symbl-js package. Click here. The older package has been deprecated. 
+
+### 2 Sep 2021
+
+![sdk](/img/sdk-icon.png)
 - **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
 [Read more here](/docs/integrations/agora-sdk-plugin).
 

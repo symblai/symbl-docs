@@ -37,7 +37,7 @@ The link to the complete example below can be found [here](https://github.com/sy
 <TabItem value="nodejs">
 
 ```js
-const {sdk} = require('symbl-node');
+const {sdk} = require('@symblai/symbl-js');
 const uuid = require('uuid').v4;
 // For demo purposes, we're using mic to simply get audio from microphone and pass it on to websocket connection
 const mic = require('mic');
