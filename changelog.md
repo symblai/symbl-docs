@@ -11,10 +11,18 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
-### 2 Sep 2021
+
+### 13 Sep 2021
 
 ![sdk](/img/sdk-icon.png)
-- Availability of new JS SDK @symblai/symbl-js package. Click here. The older package has been deprecated. 
+- Availability of a new JavaScript SDK package: `@symblai/symbl-js`. The older package has been deprecated. <br/>
+[Read more here](/docs/javascript-sdk/introduction).
+
+### 9 Sep 2021
+
+![api update](/img/api-update.png)
+- Added support for `customVocabulary` for Streaming API. <br/>
+[Read more here](/docs/streaming-api/api-reference#code-example).
 
 ### 2 Sep 2021
 
