@@ -31,7 +31,8 @@ Field  | Required | Supported Value | Description
 ```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
 ```customVocabulary``` | Optional |  | An array of strings containing a vocabulary specific to your company, products, or phrases. 
 ```config``` | Optional | | Configuration for this request. [See the config section below for more details](#config).
-```speaker``` | Optional  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details])(#speaker).
+```speaker``` | Optional  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details](#speaker).
+```noConnectionTimeout``` <br/> <font color="orange"> LABS </font> | Optional | | The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> For example, <br/> When this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
 
 ##### Code Example
 
