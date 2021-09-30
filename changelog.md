@@ -11,6 +11,11 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 21 Sep 2021
+
+![api update](/img/api-update.png)
+- Added support for `noConnectionTimeout` for Streaming API. <br/>
+[Read more here](/docs/streaming-api/api-reference#request-parameters).
 
 ### 13 Sep 2021
 
