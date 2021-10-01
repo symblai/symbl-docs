@@ -84,10 +84,11 @@ To get your credentials, click **View** under **Credentials** column and you wil
 
 ![symbl-creds-agora](/img/access_symbl_creds_on_agora_dashoboard.png)
 
+
 ### Integration Steps
 ---
 
-This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application.
+This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application. This document assumes you already have a mobile application with the Agora SDK enabled. If you don't, please follow the steps [here](https://docs.agora.io/en/Video/start_call_android?platform=Android) to create one.
 
 1. Download the following files:
    - [arm64-v8a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/arm64-v8a.zip)
