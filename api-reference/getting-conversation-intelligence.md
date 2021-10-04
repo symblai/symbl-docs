@@ -22,7 +22,11 @@ You can process your text, audio or video conversation with Symbl using:
 - [Async APIs](#async-apis) for sending recorded conversation data after the conversation has ended.
  
 This step always returns a unique Conversation ID. The Conversation ID is used in [Step 2](#2-get-conversation-intelligence-with-conversation-api) for getting Conversation Intelligence. Read more in the [Conversation ID](#what-is-a-conversation-id) section.
- 
+
+:::caution
+You must wait for the job to complete processing before you can proceed to Step 2, i.e., get the conversation intelligence. If you immediately make a GET request, it is possible that you receive only some of the messages in the transcript. Therefore, ensure that you wait for the job to complete. 
+:::
+
 ![async-real time](/img/realtime-vs-async.png)
  
  

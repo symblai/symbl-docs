@@ -429,3 +429,9 @@ Field | Description
 ```
 
 Here value of `X` can be found in [FAQ](/docs/faq). 
+
+
+:::caution
+Ensure that you have allowed the job to complete before making a GET request to Conversation API. 
+
+:::
