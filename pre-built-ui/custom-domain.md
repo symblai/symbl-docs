@@ -1,7 +1,7 @@
 ---
 id: custom-domain
-title: Adding a Custom Domain
-sidebar_label: Adding a Custom Domain
+title: Adding a Custom Domain (Beta)
+sidebar_label: Adding a Custom Domain (Beta)
 
 ---
 
@@ -10,16 +10,25 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-You can add a custom domain to personalize the URL for the Summary UI by injecting your company or brand name into the URL.
+You can add a custom domain to personalize the URL of your Summary UI by injecting your company or brand name into the URL. You can utilize Symbl's vanity domain of `symbl.us` for your custom subdomains. 
 
-For example, your Summary UI will have the following URL definition: 
+**Example** <br/>
 
-`https://{customSubdomain}.Symbl.us`
+Your Summary UI will have the following URL definition: 
 
-You can utilize Symbl's vanity domain of `Symbl.us` by registering your custom subdomains. By default, you can register 1 subdomain per account.
+`https://{customSubdomain}.symbl.us`
+
+Given below is a sample of a Summary UI with custom domain URL:
+
+![custom-domain-URL](/img/custom-domain-screenshot.png)
+
+
+:::important
+By default, you can register 1 subdomain per account.
+:::
 
 :::note
-Currently, custom domain feature is supported for the Text Summary and Video Summary UI. We currently don’t support Tracker Analytics UI/ Audio-Summary UI. 
+The custom domain feature is supported for the Text Summary and Video Summary UI. Custom domain for Tracker and Analytics Summary UI will be added soon.
 :::
 
 ### Step 1: Register your Subdomain
@@ -30,13 +39,13 @@ To register your custom domain,
 
 1. Log in to the [Platform](https://platform.symbl.ai).
 2. Go to **Pre-Built UI** > **Custom Domain**.<br/>
+3. Click the button **Setup with symbl.us**. 
 
-![custom-domain](/img/custom-domain.png)
+![custom-domain](/img/custom-domain-1.png)
 
-3. Click **Setup with Exp.stream**. The **Register Custom Domain** screen appears. 
-4. Enter your domain name as shown below:
+4. In **Register Custom Domain** screen, enter your domain name in the field **yourbrand**:
 
-![add-custom-domain](/img/register-custom-domain.png)
+![add-custom-domain](/img/register-custom-domain-1.png)
 
 4. Click **Create Custom Domain**.
 
@@ -59,14 +68,19 @@ curl --location --request POST 'https://api.symbl.ai/v1/conversations/5293433549
       "enableCustomDomain": true
 }'
 ```
+#### Request Parameter
+
+Field  | Required  | Type | Description
+---------- | ------- | ------- |  -------
+```enableCustomDomain``` | Optional | Boolen |  Enable generation of personalized URLs for Summary UI. 
 
 ### Response 
 
-Notice the URL that gets generated which contains the custom domain `acme` registered in Step 1. 
+Notice the URL that gets generated which contains the custom domain registered in Step 1. 
 
 ```json
 {
     "name": "verbose-text-summary",
-    "url": "https://acme.exp.stream/meeting/#/eyJzZXNzaW9uSWQiOiI1ODU5NjczMDg1MzEzMDI0IiwidmlkZW9VcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcmFtbWVyLXRyYW5zY3JpcHRpb24tYnVja2V0L3NtYWxsLm1wNCJ9?showVideoSummary=true"
+    "url": "https://customSubdomain.symbl.us/meeting/#/eyJzZXNzaW9uSWQiOiI1ODU5NjczMDg1MzEzMDI0IiwidmlkZW9VcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcmFtbWVyLXRyYW5zY3JpcHRpb24tYnVja2V0L3NtYWxsLm1wNCJ9?showVideoSummary=true"
 }
 ```

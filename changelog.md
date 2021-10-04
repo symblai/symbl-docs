@@ -11,6 +11,12 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 4 Oct 2021
+
+![summary](/img/summary-ui-icon.png)
+- Availability of adding custom domain in the Summary UI URL. <br/>
+[Read more here](/docs/pre-built-ui/custom-domain).
+
 ### 21 Sep 2021
 
 ![api update](/img/api-update.png)
