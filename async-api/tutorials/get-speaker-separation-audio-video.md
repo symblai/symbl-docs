@@ -48,6 +48,11 @@ The below example uses the Async Video URL API, but Speaker Separation can be ac
 
 * For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 #### Code Example
 
 <Tabs

@@ -23,6 +23,10 @@ Once the conversation is ingested by Symbl, you can use the **Conversation APIs*
 
 ![how-symbl-works](/img/how-symbl-works-1.png)
 
+:::caution
+You must wait for the processing job to complete before making a GET request to the Conversation API. 
+:::
+
 ## Symbl’s Key Capabilities
 ---
 
