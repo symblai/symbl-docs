@@ -20,7 +20,7 @@ Currently, Streaming API is supported only in English language.
 
 #### Endpoint
 
-`wss://api.symbl.ai/v1/realtime/insights/MEETING_ID?access_token=ACCESS_TOKEN`
+`wss://api.symbl.ai/v1/realtime/insights/{CONVERSATION_ID}?access_token=ACCESS_TOKEN`
 
 
 #### <a name="message-body"></a>Main Message Body

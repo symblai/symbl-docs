@@ -176,5 +176,5 @@ Field  | Description
 ```id``` | Unique conversation identifier.
 ```text``` | The text of the Abstract Topic.
 ```type``` | Response type. Default is `abstract_topic`.
-```score``` | Confidence score of the Abstract Topic. Value from 0 - 1.
+```score``` | Shows the abstraction % or coverage of the theme in the conversation.
 ```messageIds``` | Unique message identifiers of the corresponding messages.
