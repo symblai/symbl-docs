@@ -28,12 +28,12 @@ Our documentation site is built using [Docusaurus 2](https://v2.docusaurus.io/),
 To contribute to our documentation, 
 
 1. Add in your suggestions (by clicking on "Edit this page" button on our docs),
-2. Enter the required details about the PR. This will give us additional context and a sense what is required of our team. 
+2. Enter the required details about the PR. This will give us additional context and a sense of what is required of our team. 
 3. Submit a Pull Request (PR).
 
-The PR are reviewed every Thursdays by our team. 
+The PRs are reviewed every Thursday by our team. 
 
-If you wish to suggest a new topic, want to request for additional details or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for Issues reported are the same as the PRs.  
+If you wish to suggest a new topic, want to request additional details or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for Issues reported is the same as the PRs.  
 
 ## Setting up Docs locally
 
@@ -76,7 +76,7 @@ $ yarn
 $ yarn start
 ```
 
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
 ### Build
 
@@ -84,7 +84,7 @@ This command starts a local development server and open up a browser window. Mos
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command generates static content into the `build` directory and can be served using any static content hosting service.
 
 ### Deployment
 
