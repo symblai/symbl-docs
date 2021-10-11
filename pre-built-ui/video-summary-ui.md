@@ -9,6 +9,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
+The **Video Summary UI** provides users the ability to interact with the Symbl elements (transcripts section, Insights, Filters) from an audio and video. It surfaces a screen where users can select key elements like topics, transcripts, and insights and the interface will surface the timestamp where this occurred and begin playback from there.
 
 [Demo of Video Summary UI](https://meetinginsights.symbl.ai/meeting/?showVideoSummary=true#/eyJzZXNzaW9uSWQiOiI2NTA0OTI1MTg4MDYzMjMyIiwidmlkZW9VcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcmFtbWVyLXRyYW5zY3JpcHRpb24tYnVja2V0LzE5MzE0MjMwMjMubXA0In0=)
 
