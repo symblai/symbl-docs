@@ -25,7 +25,7 @@ For trial, [Streaming API](/docs/streamingapi/introduction) has a limit of 2 con
 If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai.
 
 
-### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) support?  
+### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) supports?  
 
 The API accepts files that are 4 hours or less in duration.
 
