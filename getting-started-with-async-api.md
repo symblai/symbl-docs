@@ -8,11 +8,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-#Overview
+# Overview
 
 In this guide you will learn how to do the following:
-+ Send an audio file to the **Async API**
-+ Grab speech-to-text transcription from the conversation 
++ Send an audio file to the **Async API**.
++ Grab speech-to-text transcription from the conversation, 
 + Gain valuable conversational insights such as follow-ups, topics, action items, and questions using Conversation API.
 
 **Prerequisites**
@@ -34,6 +34,8 @@ In this example, we have provided you an [audio file](https://symbltestdata.s3.u
 
 
 ## Step 1. Process an audio file using Async API
+
+Use the code below to pass the URL of an audio file to the Async API.
 
 <Tabs
   defaultValue="cURL"
@@ -137,7 +139,7 @@ A Conversation ID is the key to receiving conversational insights from any conve
 
 ### Grab speech-to-text transcription
 
-Remember to replace the `conversationId` in the API call with the **Conversation ID** you received from the previous API call.
+Replace the `conversationId` in the API call with the **Conversation ID** you received from the previous API call.
 
 <Tabs
   defaultValue="cURL"
@@ -212,10 +214,10 @@ fetch(request)
 </Tabs>
 
 
-## 3. Grab additional conversational insights
+## Step 3. Grab additional conversational insights
 
 
-Here's more data you can grab with our [Conversation API](/docs/conversation-api/introduction):
+Here's more data that you can grab with our [Conversation API](/docs/conversation-api/introduction):
 
 
 **[View conversation topics](/docs/conversation-api/get-topics)**<br />
@@ -226,4 +228,9 @@ An action item is a specific outcome recognized in the conversation that require
 
 **[View follow-ups](/docs/conversation-api/follow-ups)**<br />
 This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
+# See Also
+
++ [Getting Started with Streaming API](/docs/getting-started-with-streaming-api)
++ [Getting Started with Telephony API](/docs/getting-started-with-telephony-api)
 
