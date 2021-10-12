@@ -8,28 +8,32 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Use the Async API to get speech-to-text transcription from audio or video and extract follow-ups, topics, action-items, and  questions from them.
+#Overview
 
-## 1. Process an audio file using Async API
+In this guide you will learn how to do the following:
++ Send an audio file to the **Async API**
++ Grab speech-to-text transcription from the conversation 
++ Gain valuable conversational insights such as follow-ups, topics, action items, and questions using Conversation API.
 
-This guide walks you through how to send an audio file to the Async API to gain conversational insights on the audio. This API requires a URL of an audio file for Symbl to extract the data from.
+**Prerequisites**
+1. URL of an audio file to extract the data from.
 
 :::info
-You can also process audio file from your local pc or your server, for that [please check this](/docs/async-api/overview/audio/post-audio).
+For processing an audio file from your local PC or your server, see [POST Audio API](/docs/async-api/overview/audio/post-audio).
 :::
 
-
-For this example we've provided you an audio file which you can see below or you can also see it's URL here [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav).
+In this example, we have provided you an [audio file](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav) that you can see below. 
 
 <p align="center">
 <iframe width="350" height="250" src="https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav"></iframe>
 </p>
 
 
+2. `AUTH_TOKEN` variable for authentication that is sent through the `Authorization` header. This can be obtained from [our authentication process](/docs/developer-tools/authentication).
 
-The `AUTH_TOKEN` variable mentioned below is sent through the `Authorization` header. This can be received from [our authentication process](/docs/developer-tools/authentication).
 
-#### Process an audio file
+
+## Step 1. Process an audio file using Async API
 
 <Tabs
   defaultValue="cURL"
@@ -117,7 +121,7 @@ fetch(request)
 </TabItem>
 </Tabs>
 
-#### Example response
+### Example response
 
 ```js
 {
@@ -126,13 +130,14 @@ fetch(request)
 }
 ```
 
-## 2. How to get speech-to-text transcription from your conversation
+## Step 2. Obtain speech-to-text transcription from your conversation
 
-After you run execute the code above you should receive a **Conversation ID** (`conversationId`) in the response. A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the speech-to-text transcription from the conversation.
+On successfully executing the above code you will receive a **Conversation ID** (`conversationId`) in the response. 
+A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call that grabs the speech-to-text transcription from the conversation.
 
-#### Grab speech-to-text transcription
+### Grab speech-to-text transcription
 
-Remember to replace the `conversationId` in the API call with the Conversation ID you get from the previous API call.
+Remember to replace the `conversationId` in the API call with the **Conversation ID** you received from the previous API call.
 
 <Tabs
   defaultValue="cURL"
@@ -207,17 +212,18 @@ fetch(request)
 </Tabs>
 
 
-## 3. Grabbing other conversational insights using Conversation API
+## 3. Grab additional conversational insights
 
 
 Here's more data you can grab with our [Conversation API](/docs/conversation-api/introduction):
 
 
 **[View conversation topics](/docs/conversation-api/get-topics)**<br />
-Summary topics provide a quick overview of the key things that were talked about in the conversation.
+Conversation topics provide a quick overview of the key things that were talked about in the conversation.
 
 **[View action items](/docs/conversation-api/action-items)**<br />
 An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action, e.g. set up a meeting, share a file, complete a task, etc.
 
 **[View follow-ups](/docs/conversation-api/follow-ups)**<br />
 This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
