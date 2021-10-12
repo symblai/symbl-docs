@@ -8,12 +8,17 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-# Overview
+## Overview
+
+Async API provides a REST interface to process any audio/video/text file to generate a unique conversation ID. 
+This conversation ID can be used to grab speech-to-text transcription from the conversation and also generate unique conversational insights.
+
 
 In this guide you will learn how to do the following:
 + Send an audio file to the **Async API**.
-+ Grab speech-to-text transcription from the conversation, 
-+ Gain valuable conversational insights such as follow-ups, topics, action items, and questions using Conversation API.
++ Grab speech-to-text transcription from the conversation. 
++ Gain valuable conversational insights such as follow-ups, topics, action items, and questions usin
+g Conversation API.
 
 **Prerequisites**
 1. URL of an audio file to extract the data from.
@@ -139,7 +144,7 @@ A Conversation ID is the key to receiving conversational insights from any conve
 
 ### Grab speech-to-text transcription
 
-Replace the `conversationId` in the API call with the **Conversation ID** you received from the previous API call.
+Replace the `conversationId` in the below API call with the **Conversation ID** you received from the previous Async API call.
 
 <Tabs
   defaultValue="cURL"
@@ -229,7 +234,7 @@ An action item is a specific outcome recognized in the conversation that require
 **[View follow-ups](/docs/conversation-api/follow-ups)**<br />
 This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
 
-# See Also
+## See Also
 
 + [Getting Started with Streaming API](/docs/getting-started-with-streaming-api)
 + [Getting Started with Telephony API](/docs/getting-started-with-telephony-api)
