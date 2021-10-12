@@ -11,6 +11,12 @@ import TabItem from '@theme/TabItem';
 
 This snipet shows how to use languages other than English and also how to set the timezone to the timezone in which the conversation is taking place.
 
+:::note
+Currently, we only support English language in Streaming & Telephony API. 
+We support languages other than English only for our enterprise plan.
+Please feel free to reach out to us at support@symbl.ai for any queries.
+:::
+
 #### Utilising other languages
 
 Javascript SDK allows you to work with audio from multiple different languages. You can find which language the Telephony API supports [here](/docs/telephony-api/api-reference#supported-languages).
@@ -39,7 +45,7 @@ Here you set the language key to Japanese: `"languages": ["ja-JP"],` and the tim
   "operation": "start",
   "endpoint": {
     "type" : "pstn",
-    "phoneNumber": "phoneNumber"
+    "phoneNumber": "DEFAULT_PHONE_NUMBER"
   },
   "languages": ["ja-JP"],
   "timezone": "Asia/Tokyo",
@@ -63,13 +69,11 @@ Here you set the language key to Japanese: `"languages": ["ja-JP"],` and the tim
 ### Full Snippet
 
 ```js
-const {sdk, SpeakerEvent} = require("symbl-node");
-const appId = appId;
-const appSecret = appSecret;
+const {sdk, SpeakerEvent} = require("@symblai/symbl-js");
 
 sdk.init({
-  appId: appId,
-  appSecret: appSecret,
+  appId: APP_ID,
+  appSecret: APP_SECRET,
   basePath: "https://api.symbl.ai",
 }).then(async() => {
   console.log('SDK initialized.');
@@ -79,7 +83,7 @@ sdk.init({
     sdk.startEndpoint({
       endpoint: {
         type: "pstn",
-        phoneNumber: phoneNumber,
+        phoneNumber: DEFAULT_PHONE_NUMBER,
       },
       languages: ["ja-JP"],
       timezone: "Asia/Tokyo",
@@ -115,7 +119,7 @@ sdk.init({
 
 ### Testing
 
-Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node`. Now in the terminal run
+Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install @symblai/symbl-js`. Now in the terminal run
 
 ```bash
 $ node app.js

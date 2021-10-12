@@ -10,6 +10,10 @@ The Async API provides a REST interface that helps you to submit any recorded or
 
 ![Async API Diagram](/img/asyncDiagram.png)
 
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 ## Conversation ID
 
 #### `conversationId` helps you with:

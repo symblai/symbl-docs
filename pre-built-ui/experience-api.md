@@ -8,6 +8,8 @@ sidebar_label: Create Pre-built UI
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API returns the URL of the [Video Summary UI](#video-summary-ui) and [Text Summary UI](#text-summary-ui).
 
 #### Video Summary UI Sample
@@ -197,7 +199,7 @@ Method  | REQUIRED  | Value
 
 ### Request Body
 
-Field  | REQUIRED  | Type | Description
+Field  | Required  | Type | Description
 ---------- | ------- | ------- |  -------
 ```name``` | Mandatory | String |  For Summary UI use `verbose-text-summary` and for Video Summary UI use `video-summary`.
 ```videoUrl```| Optional | String |  This field is only required when the field `name` is set to `video-summary`.
@@ -207,6 +209,7 @@ Field  | REQUIRED  | Type | Description
 ```font``` | Optional | Object | You can directly set any [Google Fonts](https://fonts.google.com/) by passing the name of the font.
 ```summaryURLExpiresIn``` | Optional | Number | This sets the expiry time for the summary URL. It is interpreted as seconds. If the value 0 is passed the URL will never expire. Default time for a URL to expire is 2592000 which is 30 days.
 ```readOnly``` | Optional | Boolean | Setting this parameter to `true` generates a non-editable, read-only version of the video-summary and verbose-text-summary. It is defaulted to `false`. Note that this feature does not have any impact on the existing summary URLs that have already been generated. 
+```enableCustomDomain``` | Optional | Boolen |  Enable generation of personalized URLs for Summary UI. Currently, custom domain is not supported for Trackers and Analytics Summary UI. 
 
 #### `color` object
 

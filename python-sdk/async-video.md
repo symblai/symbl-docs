@@ -33,7 +33,7 @@ print(conversation_object.get_topics())
 # print(conversation_object.get_members())
 ```
 :::note
-Always prefix "r" before the file location in the code if you are using Windows system. Example: `file_path=r'c:/Users/john/Downloads/business_meeting.mp3`
+Always prefix "r" before the file location in the code if you are using Windows system. Example: `file_path=r'c:/Users/john/Downloads/business_meeting.mp4`
 :::
 
 ### Appending Video API 
@@ -98,12 +98,12 @@ The URL provided must be a publicly available URL. Currently we do not any suppo
 import symbl
 
 request_body = {
-   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/playground_sample_audio.mp3’,
+   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4’,
    'name': 'Business Meeting',
  }
 
 
-conversation_object = symbl.Audio.process_url(payload = request_body )
+conversation_object = symbl.Video.process_url(payload = request_body )
 print(conversation_object.get_messages())
 print(conversation_object.get_topics())
 
@@ -118,19 +118,19 @@ print(conversation_object.get_topics())
 To append an already processed video file via URL, use the `.append` function with `conversation_id` as shown below:
 
 ```py
-conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+conversation_object = symbl.Video.append_url(payload=request_body, conversation_id='4639962491256832')
 ```
 A complete sample for the `.append` function is given below:
 ```py
 import symbl
 
 request_body = {
-   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/playground_sample_audio.mp3’,
+   'url': ‘https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4’,
    'name': 'Business Meeting',
  }
 
 
-conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')
+conversation_object = symbl.Video.append_url(payload=request_body, conversation_id='4639962491256832')
 print(conversation_object.get_messages())
 print(conversation_object.get_topics())
 

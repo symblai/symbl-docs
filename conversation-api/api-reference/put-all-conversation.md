@@ -1,26 +1,24 @@
 ---
-id: conversation
-title: GET Conversation Data
-sidebar_label: GET Conversation Data
-slug: /conversation-api/conversation-data
+id: put-all-conversations
+title: PUT Conversations
+sidebar_label: PUT Conversations
+slug: /conversation-api/put-all-conversations
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This API returns the conversation meta-data like meeting name, member name and email, start and end time of the meeting, meeting type and meeting ID.
+---
 
-It returns data for a specific conversation (using `conversationId`). If you wish to get all the conversations, see [GET All Conversations](/docs/conversation-api/all-conversations) page. 
+This API updates an existing Conversation object with any metadata you would like to maintain. 
 
+### API Request
 
-### HTTP Request
-
-`GET https://api.symbl.ai/v1/conversations/{conversationId}`
-
+`PUT https://api.symbl.ai/v1/conversations/{conversationId}`
 
 ### Example API Call
 
 :::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
+Before using the Conversation API, you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 :::
 
 
@@ -35,7 +33,7 @@ Before using the Conversation API you must get the authentication token (`AUTH_T
 <TabItem value="cURL">
 
 ```shell
-curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID" \
+curl "https://api.symbl.ai/v1/conversations/{conversationId}" \
     -H "Authorization: Bearer $AUTH_TOKEN"
 ```
 
@@ -46,10 +44,9 @@ curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID" \
 ```js
 const request = require('request');
 const authToken = AUTH_TOKEN;
-const conversationId = CONVERSATION_ID;
 
 request.get({
-    url: `https://api.symbl.ai/v1/conversations/${conversationId}`,
+    url: `https://api.symbl.ai/v1/conversations/{conversationId}`,
     headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
@@ -63,12 +60,11 @@ request.get({
 ```py
 import requests
 
-baseUrl = "https://api.symbl.ai/v1/conversations/"
-conversationId = 'your_conversation_id'  # Generated using Submit end point
+baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}"
 
-url = baseUrl + conversationId
+url = baseUrl 
 
-# set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+# Set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
 access_token = 'your_access_token'
 
 headers = {
@@ -103,34 +99,64 @@ exit()
 </TabItem>
 </Tabs>
 
+:::note
+The following fields cannot be updated/deleted:
 
+- `id`
+
+- `type`
+:::
+
+### Request Body
+
+Given below is an example of the request along with optional query parameters. For a complete list of query parameters and their description, see the [table](#query-parameters) below.
+
+```json
+{
+  "type": "meeting",
+  "name": "My Test Meeting",
+  "startTime": "2021-02-24T15:53:05.594Z",
+  "endTime": "2021-02-24T16:18:05.048Z",
+  "members": [
+    {
+      "name": "John",
+      "email": "john@example.com"
+    },
+    {
+      "name": "Mary",
+      "email": "mary@example.com"
+    }
+  ],
+  "metadata": {
+    "key": "value", 
+    "agentId": "johndoe"
+  }
+}
+```
 ### Response
-
+The updated Conversation object is returned in the response body.
 
 ```javascript
 {
-    "id": "5179649407582208",
-    "type": "meeting",
-    "name": "Project Meeting #2",
-    "startTime": "2020-02-12T11:32:08.000Z",
-    "endTime": "2020-02-12T11:37:31.134Z",
-    "members": [
-        {
-            "id": "5118221462011904",
-            "name": "John",
-            "email": "John@example.com"
-        },
-        {
-            "id": "50123212234535645",
-            "name": "Mary",
-            "email": "Mary@example.com"
-        },
-        {
-            "id": "63475698234689238",
-            "name": "Roger",
-            "email": "Roger@example.com"
-        }
-    ]
+  "id": "4931769134481408",
+  "type": "meeting",
+  "name": "My Test Meeting",
+  "startTime": "2021-02-24T15:53:05.594Z",
+  "endTime": "2021-02-24T16:18:05.048Z",
+  "members": [
+    {
+      "name": "John",
+      "email": "john@example.com"
+    },
+    {
+      "name": "Mary",
+      "email": "mary@example.com"
+    }
+  ],
+  "metadata": {
+    "key": "value", 
+    "agentId": "johndoe"
+  }
 }
 ```
 
@@ -138,10 +164,11 @@ exit()
 
 Field  | Description
 ---------- | ------- |
-```id``` | The unique conversation identifier.
-```type``` | The conversation type. Default value is `meeting`.
+```id``` | The unique conversation identifier. This field cannot be updated. 
+```type``` | The conversation type. Default value is `meeting`. This field cannot be updated. 
 ```name``` | The name of the conversation.
 ```startTime``` | DateTime value of when the conversation started.
 ```endTime``` | DateTime value of when the conversation ended. 
 ```members``` | A list of member objects containing ID, name and email (if detected).
+
 

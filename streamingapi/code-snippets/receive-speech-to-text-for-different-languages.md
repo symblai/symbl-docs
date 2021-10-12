@@ -8,6 +8,12 @@ import TabItem from '@theme/TabItem';
 
 This example goes over how you can use the Symbl Streaming API to receive a speech-to-text transcription of a conversation in many different languages. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction) and native Javascript. 
 
+:::note
+Currently, we only support English language in Streaming & Telephony API. 
+We support languages other than English only for our enterprise plan.
+Please feel free to reach out to us at support@symbl.ai for any queries.
+:::
+
 ## Connect
 
 When we're connecting to the Web Socket, we can define which language we use in the configuration. Here we will set the `languageCode` key to Spanish (`es-ES`). You can view the full list of supported languages [here](/docs/streaming-api/api-reference#supported-languages).

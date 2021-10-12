@@ -52,6 +52,10 @@ Using the following APIs, send conversation data in real-time or after the conve
 &nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call via WebSocket protocol.<br/>
 &nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on a live audio conversation via SIP and PSTN.<br/>
 
+
+Before getting the Conversation Intelligence, you must wait for the processing job to complete. 
+
+
 ### Step 3: Get Conversation Intelligence
 ---
 

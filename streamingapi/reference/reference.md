@@ -8,22 +8,31 @@ sidebar_label: Request Parameters
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
+Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time. 
+
+:::info
+Currently, Streaming API is supported only in English language.
+::: 
 
 ## Request Parameters
 
 #### Endpoint
 
-`wss://api.symbl.ai/v1/realtime/insights/MEETING_ID?access_token=ACCESS_TOKEN`
+`wss://api.symbl.ai/v1/realtime/insights/{CONVERSATION_ID}?access_token=ACCESS_TOKEN`
 
 
 #### <a name="message-body"></a>Main Message Body
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | true | start_request, stop_request | Type of message
-```insightTypes``` | false | action_item, question | Types of insights to return. If not provided, no insights will be returned.
-```config``` | false | | Configuration for this request. [See the config section below for more details](#config).
-```speaker``` | false  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details])(#speaker).
+```type``` | Mandatory | start_request, stop_request | Type of message
+```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
+```customVocabulary``` | Optional |  | An array of strings containing a vocabulary specific to your company, products, or phrases. 
+```config``` | Optional | | Configuration for this request. [See the config section below for more details](#config).
+```speaker``` | Optional  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details](#speaker).
+```noConnectionTimeout``` <br/> <font color="orange"> LABS </font> | Optional | | The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> For example, <br/> When this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
 
 ##### Code Example
 
@@ -31,18 +40,17 @@ Field  | Required | Supported Value | Description
 {
   "type": "start_request",
   "insightTypes": ["question", "action_item"],
+  "customVocabulary": ["acme", "acme-platform"],
   "config": {},  // See Config section below.
   "speaker": {}  // See Speaker section below.
 }
 ```
-
 
 #### <a name="config"></a>Config
 
 Field | Required | Supported value | Default Value | Description
 ---------- | ------- | ------- |  ------- |  ------- |
 ```confidenceThreshold``` | false  | <=0.5 to <=1.0 | 0.5 | Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range <=0.5 to <=1.0 (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`.
-```languageCode``` | false | | en-US | The language code as per the BCP 47 specification
 ```speechRecognition``` | false | | | See Speech Recognition section [below](#speech-recognition).
 ```meetingTitle``` | false | | | The name of the meeting.
 
@@ -53,7 +61,6 @@ Field | Required | Supported value | Default Value | Description
   "config": {
     "confidenceThreshold": 0.9,
     // "timezoneOffset": 480, // Your timezone offset from UTC in minutes
-    "languageCode": "en-US",
     "speechRecognition": {}  // See Speech Recognition section below.
     "meetingTitle": "Client Meeting"
   }
@@ -107,7 +114,6 @@ Field  | Required | Supported Value
   "config": {
     "confidenceThreshold": 0.9,
     // "timezoneOffset": 480, // Your timezone offset from UTC in minutes
-    "languageCode": "en-US",
     "speechRecognition": {
       "encoding": "LINEAR16",
       "sampleRateHertz": 44100 // Make sure the correct sample rate is provided for best results
@@ -123,10 +129,12 @@ Field  | Required | Supported Value
 
 
 ## Connection Establishment
-This is a WebSocket endpoint, and hence it starts as an HTTP request that contains HTTP headers that indicate the client's desire to upgrade the connection to a WebSocket instead of using HTTP semantics. The server indicates its willingness to participate in the WebSocket connection by returning an HTTP 101 Switching Protocols response. After the exchange of this handshake, both client and service keep the socket open and begin using a message-based protocol to send and receive information. Please refer to [WebSocket Specification RFC 6455](https://tools.ietf.org/html/rfc6455) for a more in-depth understanding of the Handshake process.
+
+This is a WebSocket endpoint, and it starts as an HTTP request that contains HTTP headers that indicate the client's desire to upgrade the connection to a WebSocket instead of using HTTP semantics. The server indicates its willingness to participate in the WebSocket connection by returning an HTTP 101 Switching Protocols response. After the exchange of this handshake, both client and service keep the socket open and begin using a message-based protocol to send and receive information. 
+
+Please refer to [WebSocket Specification RFC 6455](https://tools.ietf.org/html/rfc6455) for a more in-depth understanding of the Handshake process.
 
 ### Start Request
-
 
 ```js
 {
@@ -134,7 +142,6 @@ This is a WebSocket endpoint, and hence it starts as an HTTP request that contai
   "insightTypes": ["question", "action_item"],
   "config": {
     "confidenceThreshold": 0.9,
-    "languageCode": "en-US",
     "speechRecognition": {
       "encoding": "LINEAR16",
       "sampleRateHertz": 16000
@@ -149,10 +156,9 @@ This is a WebSocket endpoint, and hence it starts as an HTTP request that contai
 
 This is a request to start the processing after the connection is established. Right after this message has been sent, the audio should be streamed, any binary audio streamed before the receipt of this message will be ignored.
 
-
 To get direct access to the mic, we're going to use an API in the WebRTC specification called `getUserMedia()`.
 
-Once the code is running, start speaking and you should see the message_response and insight_response messages getting printed on the console.
+Once the code is running, start speaking and you should see the `message_response` and `insight_response` messages getting printed on the console.
 
 
 <Tabs
@@ -340,7 +346,6 @@ const connection = await sdk.startRealtimeRequest({
     config: {
         meetingTitle: "My Awesome Meeting",
         confidenceThreshold: 0.7,
-        languageCode: "en-US",
         sampleRateHertz: 48000,
         trackers: {
             "interimResults": true
@@ -399,11 +404,9 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
   b. `confidenceThreshold`:  The **Insights** having confidence scores greater than this threshold will be the ones detected for the conversation.
 
-  c. `languageCode`: The language-code in BCP-47 format. For a list of supported languages by Symbl, please take a look [here](https://docs.symbl.ai/docs/streaming-api/api-reference/#supported-languages).
+  c. `sampleRateHertz`: The sample rate of the incoming audio data which is being pushed to Symbl.
 
-  d. `sampleRateHertz`: The sample rate of the incoming audio data which is being pushed to Symbl.
-
-  e. `trackers`: `{ interimResults }`: The `interimResults` flag tells Symbl to send the `tracker` results as soon as they are detected. If false, the `tracker` results are detected for the finalized transcription responses.
+  d. `trackers`: `{ interimResults }`: The `interimResults` flag tells Symbl to send the `tracker` results as soon as they are detected. If false, the `tracker` results are detected for the finalized transcription responses.
 
 5. `speaker`: The details of the speaker in this conversation.
 
@@ -414,71 +417,3 @@ Let’s go over all the parameters passed in the configuration object in the abo
 6. `handlers`: The object encapsulating the call-back functions to be invoked on detection of those specific entities. For more information on various other handlers, check out the [Javascript SDK Reference](/docs/javascript-sdk/reference#event-handlers-1).
 
   a. `onTrackerResponse`: This function is invoked when Symbl detects a Tracker in real-time. The structure of the **Tracker** object is shown in the above code snippet.
-
-## Supported Languages
-
-Language is specified by language code in the `languageCode` key of the configuration object.
-
-:::info
-Currently, transcription punctuation is not supported for French (`fr-CA`) or Dutch (`nl-NL`) languages.
-:::
-
-The following list of languages(with their [BCP-47](https://en.wikipedia.org/wiki/IETF_language_tag) language-codes) are currently supported:
-
- | Supported Languages          | Code    |
- |------------------------------|---------|
- | English (United States)      | `en-US` |
- | English (United Kingdom)     | `en-GB` |
- | English (Australia)          | `en-AU` |
- | English (Ireland)            | `en-IE` |
- | English (India)              | `en-IN` |
- | English (South Africa)       | `en-ZA` |
- | Russian (Russian Federation) | `ru-RU` |
- | French (Canada)              | `fr-CA` |
- | French (France)              | `fr-FR` |
- | German (Germany)             | `de-DE` |
- | Italian (Italy)              | `it-IT` |
- | Dutch (Netherlands)          | `nl-NL` |
- | Japanese (Japan)             | `ja-JP` |
- | Spanish (United States)      | `es-US` |
- | Spanish (Spain)              | `es-ES` |
- | Arabic (Saudi Arabia)        | `ar-SA` |
- | Hindi (India)                | `hi-IN` |
- | Portuguese (Brazil)          | `pt-BR` |
- | Portuguese (Portugal)        | `pt-PT` |
- | Persian (Iran)               | `fa-IR` |   
-
-
-:::caution
- 1. If the language is not specified then `en-US`(English - United States) is used as the default language.
- 2. Insights like Action items, follow-ups, topics, etc are detected for the English language only.
-:::
-
-
-### Code Example
-
-Below is an example of a request payload specifying that the meeting’s language should be in Spanish.
-
-```js
-{
-  type: 'start_request',
-  meetingTitle: 'Websockets How-to', // Conversation name
-  insightTypes: ['question', 'action_item'], // Will enable insight generation
-  config: {
-    confidenceThreshold: 0.5,
-    languageCode: 'es-ES',
-    speechRecognition: {
-      encoding: 'LINEAR16',
-      sampleRateHertz: 44100,
-    }
-  },
-  speaker: {
-    userId: 'example@symbl.ai',
-    name: 'Example Sample',
-  }
-}
-```
-
-:::info
-If a language is not specified, it will currently fall back to English (en-US).
-:::

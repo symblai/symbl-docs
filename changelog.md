@@ -11,6 +11,36 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 4 Oct 2021
+
+![summary](/img/summary-ui-icon.png)
+- Availability of adding custom domain in the Summary UI URL. <br/>
+[Read more here](/docs/pre-built-ui/custom-domain).
+
+### 21 Sep 2021
+
+![api update](/img/api-update.png)
+- Added support for `noConnectionTimeout` for Streaming API. <br/>
+[Read more here](/docs/streaming-api/api-reference#request-parameters).
+
+### 13 Sep 2021
+
+![sdk](/img/sdk-icon.png)
+- Availability of a new JavaScript SDK package: `@symblai/symbl-js`. The older package has been deprecated. <br/>
+[Read more here](/docs/javascript-sdk/introduction).
+
+### 9 Sep 2021
+
+![api update](/img/api-update.png)
+- Added support for `customVocabulary` for Streaming API. <br/>
+[Read more here](/docs/streaming-api/api-reference#code-example).
+
+### 2 Sep 2021
+
+![sdk](/img/sdk-icon.png)
+- **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
+[Read more here](/docs/integrations/agora-sdk-plugin).
+
 ### 19 Aug 2021
 
 ![sdk](/img/sdk-icon.png)
@@ -28,6 +58,10 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 ![api update](/img/api-update.png)
 - **Conversation Groups availability**: You can now create logical groups of conversations by setting the grouping criteria such as speaker agent, company name, call type such as internal, external, sales, etc.<br/>
 [Read more here](/docs/concepts/conversation-groups).
+
+![api update](/img/api-update.png)
+- **Fetch all Conversations API availability**: You can now fetch all conversations in a single API call and also apply filters such as sorting, ordering etc. to your result set.<br/>
+[Read more here](/docs/conversation-api/all-conversations).
 
 - Bug Fixes:
   - Incorrect usage recorded due to internal issue in Telephony API is fixed. 

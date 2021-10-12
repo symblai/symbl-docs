@@ -16,6 +16,10 @@ The first thing you need to do before you start tracking phrases in a conversati
 
 While we provide you with a default textual conversation for the API to process you can replace that with any other conversation.
 
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 ### Request Example
 
 :::info

@@ -18,6 +18,7 @@ Key  | Description
 ```AUTH_TOKEN``` | The JWT you get after [authentication](/docs/developer-tools/authentication) with Sybml.
 ```YOUR_PHONE_NUMBER``` | A phone number that you want the API to connect to. Be sure to include the country code.
 ```EMAIL_ADDRESS``` | The email address you wish to send the summary email to.
+```DTMF_MEETING_CODE``` | The meeting code provided by the meeting provider (Zoom, etc).
 
 [View on Github](https://github.com/symblai/getting-started-samples/tree/master/examples/voice-sdk/telephony-real-time-insights-transcription)
 
@@ -28,13 +29,13 @@ To get started using this API, you need to sign up for the [Symbl Developer Plat
 For this example, you will be using Node.js and the Symbl JavaScript SDK. You can install this using the Node Package Manager:
 
 ```js
-npm install symbl-node
+npm install @symblai/symbl-js
 ```
 
 You can then use the library within your project like this:
 
 ```js
-const {sdk} = require('symbl-node')
+const {sdk} = require('@symblai/symbl-js')
 ```
 
 Initliaze the SDK:
@@ -61,7 +62,7 @@ const connection = await sdk.startEndpoint({
       invokeOn: 'stop',
       name: 'sendSummaryEmail',
       parameters: {
-        emails: [SUMMARY_EMAIL], // Add valid email addresses to received email
+        emails: [EMAIL_ADDRESS], // Add valid email addresses to received email
       },
     },
   ],
@@ -112,7 +113,7 @@ actions: [
     invokeOn: 'stop',
     name: 'sendSummaryEmail',
     parameters: {
-      emails: [SUMMARY_EMAIL] // Add valid email addresses to received email
+      emails: [EMAIL_ADDRESS] // Add valid email addresses to received email
     }
   }
 ]
@@ -189,7 +190,7 @@ speakers started speaking. That will give us more personalized insights and get 
 better meeting summary.
 
 In our example, we will do it by calling the helper function `getScheduleEvent`, which we will review in a bit. We pass SpeakerEvent type to it by using
-`SpeakerEvent.types` enum from `symbl-node`, passing user data and timestamp:
+`SpeakerEvent.types` enum from `@symblai/symbl-js`, passing user data and timestamp:
 
 
 ```js
@@ -249,9 +250,7 @@ This example just touches the surface of what you can do with our Streaming API.
 ## Full Code Example
 
 ```js
-require('dotenv').config()
-
-const {sdk, SpeakerEvent} = require('symbl-node')
+const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
 const getScheduleEvent = (sdk, connectionId) => {
   return (eventType, user, time) => {
@@ -292,8 +291,8 @@ const users = {
   try {
     // Initialize the SDK
     await sdk.init({
-      appId: process.env.APP_ID,
-      appSecret: process.env.APP_SECRET,
+      appId: APP_ID,
+      appSecret: APP_SECRET,
       basePath: 'https://api.symbl.ai',
     })
 
@@ -302,7 +301,7 @@ const users = {
     const connection = await sdk.startEndpoint({
       endpoint: {
         type: 'pstn',
-        phoneNumber: process.env.DEFAULT_PHONE_NUMBER,
+        phoneNumber: DEFAULT_PHONE_NUMBER,
       },
       insightTypes: ['action_item', 'question'],
       actions: [
@@ -310,7 +309,7 @@ const users = {
           invokeOn: 'stop',
           name: 'sendSummaryEmail',
           parameters: {
-            emails: [process.env.SUMMARY_EMAIL], // Add valid email addresses to received email
+            emails: [EMAIL_ADDRESS], // Add valid email addresses to received email
           },
         },
       ],
@@ -383,7 +382,7 @@ const users = {
 
 ## Running The Example
 
-Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node`. In the terminal, run the following command:
+Create a JavaScript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install @symblai/symbl-js`. In the terminal, run the following command:
 
 ```bash
 $ node app.js
