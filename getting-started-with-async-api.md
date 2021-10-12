@@ -15,11 +15,11 @@ Use the Async API to get speech-to-text transcription from audio or video and ex
 This guide walks you through how to send an audio file to the Async API to gain conversational insights on the audio. This API requires a URL of an audio file for Symbl to extract the data from.
 
 :::info
-You can also process audio file from your local pc or your server, for that [please check this](/docs/async-api/overview/audio/post-audio).
+You can also process audio files from your local pc or your server, for that [please check this](/docs/async-api/overview/audio/post-audio).
 :::
 
 
-For this example we've provided you an audio file which you can see below or you can also see it's URL here [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav).
+For this example we've provided you with an audio file which you can see below or you can also see it's URL here [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav).
 
 <p align="center">
 <iframe width="350" height="250" src="https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav"></iframe>
