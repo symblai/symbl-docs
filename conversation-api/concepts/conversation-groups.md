@@ -14,9 +14,9 @@ import TabItem from '@theme/TabItem';
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-Conversation Groups allow you to create logical groups of conversations by setting the grouping criteria that suit your business requirement.
+Conversation Groups allow you to create groups of conversations by setting the grouping criteria that suits your business requirement.
 
-The criteria of the group can be applied to Conversation Metadata that can be any important information such as unique identifiers like agentId, customerId, userId, etc., or custom tags such as sales call, support call, internal discussion, etc. 
+The criteria of the group can be applied to the Conversation Metadata that can be any important information such as unique identifiers like agentId, customerId, userId, etc., or custom tags such as sales call, support call, internal discussion, etc. 
 
 #### Examples
 
