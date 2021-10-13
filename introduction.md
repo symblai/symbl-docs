@@ -39,7 +39,7 @@ our APIs, we've got you covered!
 ### Step 1: Get Symbl API Credentials
 ---
 
-Sign up on [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
+Sign up on the [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
 Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make Symbl API calls. 
 &nbsp;
 
