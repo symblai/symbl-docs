@@ -22,8 +22,3 @@ body:
   - type: input
     attributes:
       label: Link to page (Optional)
-  - type: markdown
-    attributes:
-      value: >-
-        This template was generated with [Issue Forms
-        Creator](https://www.issue-forms-creator.app/)
