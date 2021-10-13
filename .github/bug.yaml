@@ -1,0 +1,29 @@
+name: Bug report
+description: >-
+  Please avoid submitting support questions here. You can contact our support
+  team at https://symbl.ai/contact-us/  If you are reporting an issue with our
+  docs, thanks for letting us know!
+title: '[Bug]: '
+labels:
+  - bug
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Expected content
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual content
+      description: provide steps to reproduce the problem
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Link to page (Optional)
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://www.issue-forms-creator.app/)
