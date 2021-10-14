@@ -35,6 +35,7 @@ The PRs are reviewed every Thursday by our team.
 
 If you wish to suggest a new topic, want to request additional details, or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for issues reported is the same as for PRs.  
 
+
 ## Setting up Docs locally
 
 1. Clone the Symbl Docs Repo
