@@ -38,7 +38,7 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 ### 2 Sep 2021
 
 ![sdk](/img/sdk-icon.png)
-- **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
+- **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you to use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
 [Read more here](/docs/integrations/agora-sdk-plugin).
 
 ### 19 Aug 2021
@@ -64,7 +64,7 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 [Read more here](/docs/conversation-api/all-conversations).
 
 - Bug Fixes:
-  - Incorrect usage recorded due to internal issue in Telephony API is fixed. 
+  - Incorrect usage recorded due to internal issues in the Telephony API is fixed. 
 
 ![summary](/img/summary-ui-icon.png)
 - **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
@@ -106,7 +106,7 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 
 - **Trackers and Analytics UI**: Availability of the Trackers and Analytics UI that provides a waveform visualization with conversation insights. [Read more here](/docs/pre-built-ui/trackers-and-analytics-ui).
 - Support for the `readOnly` parameter has been added to avoid unintended editing of the **Summary UI**.
-- User can now share their own configured URL with their domain name in iframe implementation.
+- Users can now share their own configured URL with their domain name in the iframe implementation.
 
 ---
 

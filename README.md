@@ -27,11 +27,7 @@ Our documentation site is built using [Docusaurus 2](https://v2.docusaurus.io/),
 ## How to Contribute
 To contribute to our documentation, 
 
-1. Add in your suggestions (by clicking on the "Edit this page" button in our docs),
-2. Enter the required details about the PR. This will give us additional context and a sense of what is required of our team. 
-3. Submit a Pull Request (PR).
 
-The PR is reviewed every Thursday by our team. 
 
 If you wish to suggest a new topic, want to request additional details, or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for issues reported is the same as for PRs.  
 
