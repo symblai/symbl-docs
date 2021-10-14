@@ -1,7 +1,7 @@
 ---
 id: analytics
 title: Conversational Analytics
-sidebar_label: Overview
+sidebar_label: Introduction
 slug: /concepts/conversational-analytics
 ---
 

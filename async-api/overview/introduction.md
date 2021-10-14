@@ -13,6 +13,10 @@ When you submit a conversation, you'll receive a Conversation ID (`conversationI
 
 ![Async API Diagram](/img/asyncDiagram.png)
 
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 ### `conversationId` helps you with:
 
 1. Helps you append the transcription of an existing file using `PUT` (also known as `append file`)  Async APIs.  
