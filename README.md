@@ -33,7 +33,7 @@ To contribute to our documentation,
 
 The PRs are reviewed every Thursday by our team. 
 
-If you wish to suggest a new topic, want to request for additional details or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for Issues reported are the same as the PRs.  
+If you wish to suggest a new topic, want to request additional details or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for Issues reported is the same as the PRs.  
 
 ## Setting up Docs locally
 
@@ -84,7 +84,7 @@ This command starts a local development server and opens up a browser window. Mo
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command generates static content into the `build` directory and can be served using any static content hosting service.
 
 ### Deployment
 
