@@ -1,7 +1,7 @@
 ---
 id: conversation-groups
 title: Conversation Groups (Beta)
-sidebar_label: Overview
+sidebar_label: Introduction
 slug: /concepts/conversation-groups
 ---
 
