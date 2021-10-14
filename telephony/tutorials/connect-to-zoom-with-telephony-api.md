@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 This guide uses a **PSTN** connection to connect to Zoom. **PSTN** audio quality maxes out to 8KHz. You can also use a **[SIP-based connection](/docs/concepts/pstn-and-sip#sip-session-initiation-protocol)**, which captures audio at 16KHz and above.
 :::
 
-[Symbl’s Telephony API](https://docs.symbl.ai/?shell#telephony-api) allows you to connect to any conference call system using PSTN or SIP networks. In this guide, we will walk you through how to get a live transcription and real-time AI insights, such as [follow-ups](/docs/concepts/follow-ups), [action items](/docs/concepts/action-items), [topics](/docs/concepts/topics) and [questions](/docs/conversation-api/questions), of a Zoom call using a PSTN connection. This application uses the Symbl Javascript SDK which requires the `symbl-node` node package. You must have an active Zoom call (no one has to be in it but yourself) and whatever you speak in the Zoom call will be taken by our API and processed for conversational insights.
+[Symbl’s Telephony API](https://docs.symbl.ai/?shell#telephony-api) allows you to connect to any conference call system using PSTN or SIP networks. In this guide, we will walk you through how to get a live transcription and real-time AI insights, such as [follow-ups](/docs/concepts/follow-ups), [action items](/docs/concepts/action-items), [topics](/docs/concepts/topics) and [questions](/docs/conversation-api/questions), of a Zoom call using a PSTN connection. This application uses the Symbl Javascript SDK which requires the `@symblai/symbl-js` node package. You must have an active Zoom call (no one has to be in it but yourself) and whatever you speak in the Zoom call will be taken by our API and processed for conversational insights.
 
 :::info
 You must make sure your Zoom call allows phone dial-in for this example to work correctly.
@@ -44,12 +44,12 @@ Key | Type | Description
 
 To get started, you’ll need your account credentials and [Node.js](https://nodejs.org/en/download/) installed (> v8.x) on your machine.
 
-We’ll use the [Symbl module for Node.js](https://www.npmjs.com/package/symbl-node) in this guide. Make sure you have a Node project set up. If you don’t have one, you can set one up using [npm init](https://docs.npmjs.com/cli/init).
+We’ll use the [Symbl module for Node.js](https://www.npmjs.com/package/@symblai/symbl-js) in this guide. Make sure you have a Node project set up. If you don’t have one, you can set one up using [npm init](https://docs.npmjs.com/cli/init).
 
-From the root directory of your project, run the following command to add `symbl-node` in your project dependencies.
+From the root directory of your project, run the following command to add `@symblai/symbl-js` in your project dependencies.
 
 ```bash
-npm i --save symbl-node
+npm i --save @symblai/symbl-js
 ```
 
 ### Retrieve your Symbl API credentials
@@ -63,7 +63,7 @@ Your credentials include your App ID and App Secret, which you can find on the h
 Create a new file named index.js in your project and add the following lines to initialize the Symbl SDK:
 
 ```javascript
-const {sdk, SpeakerEvent} = require("symbl-node");
+const {sdk, SpeakerEvent} = require("@symblai/symbl-js");
 const appId = appId;
 const appSecret = appSecret;
 
@@ -184,7 +184,7 @@ This is a category of action items with a connotation to follow-up a request or 
 Here's the full Code Sample below:
 
 ```js
-const {sdk, SpeakerEvent} = require("symbl-node");
+const {sdk, SpeakerEvent} = require("@symblai/symbl-js");
 const appId = appId;
 const appSecret = appSecret;
 const phoneNumber = ""; // US Zoom Numbers are "+16465588656", or "+14086380968".
