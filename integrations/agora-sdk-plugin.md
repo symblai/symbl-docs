@@ -127,7 +127,7 @@ private void setSymblPluginConfigs(JSONObject pluginParams) throws JSONException
        apiConfig.setAppId("<symbl_app_id>");
        apiConfig.setAppSecret("<symbl_app_secret>");
        apiConfig.setTokenApi("https://api.symbl.ai/oauth2/token:generate");
-       apiConfig.setSymblPlatformUrl("https://api-agora.symbl.ai");
+       apiConfig.setSymblPlatformUrl("api-agora-1.symbl.ai");
        symblParams.setApiConfig(apiConfig);
 
        // Set the Symbl Confidence Level and Language Code
@@ -188,7 +188,7 @@ The following table lists the parameters and their descriptions used in the samp
 | `symbl_meeting_UserId` | Used to identify the user in the real-time meeting.
 | `symbl_meeting_user_Name` | The name of the user attending the real-time meeting.
 | `symbl_unique_meetingId` | Unique identifier for the meeting.
-| `symbl_platform_url` | The URL for the Symbl platform.
+| `symbl_platform_url` | The dedicated URL for the Symbl platform. Use `api-agora-1.symbl.ai`.
 | `symbl_app_id` | The Symbl App ID.
 | `symbl_app_secret` | The Symbl App Secret.
 | `symbl_meeting_language_code` | The language code. Currently, en-US (English US) is the only language supported.
