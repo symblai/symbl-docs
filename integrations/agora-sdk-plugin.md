@@ -78,7 +78,7 @@ Following are some of the prerequisites of integrating Symbl-Agora extension:
 Learn more about the Agora required credentials in the [Setup Authentication](https://docs.agora.io/en/Agora%20Platform/token) page.
 
 
-- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Symbl Conversation Intelligence Extensions Marketplace product details page. 
+- **Symbl API Credentials**: You will also need the Symbl API credentials which are available on the Symbl Conversation Intelligence Extensions Marketplace product details page. 
 
 Navigate to the [Agora Extensions Marketplace](https://console.agora.io/marketplace) and click on the Symbl [card](https://console.agora.io/marketplace/extension/introduce?serviceName=symbl).
 
