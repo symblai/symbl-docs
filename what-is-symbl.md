@@ -136,7 +136,7 @@ Some of the other characteristics of insights include:
 
 Symbl's Conversational Intelligence distills important conversation messages and creates succinct Summaries.
 
-Summaries help you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for a chat or email messages.
+Summaries help you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages.
 
 <div><h4><a href="/docs/concepts/summarization"> Learn more about Summary ➡️ &nbsp;</a></h4></div>
 <br/>
