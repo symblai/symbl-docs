@@ -33,7 +33,8 @@ To contribute to our documentation,
 
 The PRs are reviewed every Thursday by our team. 
 
-If you wish to suggest a new topic, want to request additional details or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for Issues reported is the same as the PRs.  
+If you wish to suggest a new topic, want to request additional details, or raise any other issues, you can [Open an Issue](https://github.com/symblai/symbl-docs/issues/new). The resolution time for issues reported is the same as for PRs.  
+
 
 ## Setting up Docs locally
 
@@ -92,4 +93,4 @@ This command generates static content into the `build` directory and can be serv
 $ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
