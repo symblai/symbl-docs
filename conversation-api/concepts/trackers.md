@@ -1,7 +1,7 @@
 ---
 id: trackers
 title: Trackers (Beta)
-sidebar_label: Overview
+sidebar_label: Introduction
 slug: /concepts/trackers
 ---
 

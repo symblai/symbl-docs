@@ -1,7 +1,7 @@
 ---
 id: topic-hierarchy
 title: Topic Hierarchy
-sidebar_label: Overview
+sidebar_label: Introduction
 slug: /concepts/topic-hierarchy
 ---
 

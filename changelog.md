@@ -11,6 +11,11 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 8 Oct 2021
+![api update](/img/api-update.png)
+- Availability of Abstract Topics in Labs. <br/>
+[Read more here](/docs/guides/abstract-topics).
+
 ### 4 Oct 2021
 
 ![summary](/img/summary-ui-icon.png)
