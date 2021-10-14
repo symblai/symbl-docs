@@ -3,7 +3,7 @@ id: symbl-conversation-1-2-3
 title: Extracting Speech to Text & Conversational Action Items from an audio file
 ---
 
-In this guide, we will show you how to use Postman, an API collaboration tool, to extract Speech to Text & Conversational Action Items from an audio.
+In this guide, we will show you how to use Postman, an API collaboration tool, to extract Speech to Text & Conversational Action Items from audio.
 
 
 ### Get started in 3 easy steps:
@@ -73,7 +73,7 @@ To upload your audio file, you have to use the [Async Audio API](/docs/async-api
 ![](/img/async-audio.png)
 
 :::tip Stuck? We would love to help you
-Ping us at [Developer Slack Forum](https://app.slack.com/client/TB14FF1EG#/) and we will get back to you in few hours.
+Ping us at [Developer Slack Forum](https://app.slack.com/client/TB14FF1EG#/) and we will get back to you in a few hours.
 :::
 
 

@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Programatically use Symbl APIs and integrate it with your web applications and meeting platforms.
+Programmatically use Symbl APIs and integrate it with your web applications and meeting platforms.
  
 Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing platforms. It is available in popular programming languages.
 
