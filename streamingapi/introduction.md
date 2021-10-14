@@ -18,7 +18,7 @@ Symbl allows you to identify and redact Personally Identifiable Information (PII
 
 ### Tutorials
 
-We have prepared a list of tutorials to help you understand how to use Symbl's Streaming API:
+Here is a list of tutorials to help you understand how to use Symbl's Streaming API:
 
 * [Get Real-time Speech-To-Text Transcriptions Using Streaming API](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
 * [Gain Real-time AI Insights From Your Device's Mic Using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
@@ -26,7 +26,7 @@ We have prepared a list of tutorials to help you understand how to use Symbl's S
 
 ### Code Snippets
 
-We have provided a list of code snippets to help you get started on your journey with the Symbl Streaming API
+Here is a list of code snippets to help you get started on your journey with the Symbl Streaming API:
 
 * [Start and Stop Streaming API Connection](/docs/streamingapi/code-snippets/start-and-stop-connection)
 * [Receive Live Captioning](/docs/streamingapi/code-snippets/receive-live-captioning)

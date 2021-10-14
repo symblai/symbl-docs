@@ -84,10 +84,11 @@ To get your credentials, click **View** under **Credentials** column and you wil
 
 ![symbl-creds-agora](/img/access_symbl_creds_on_agora_dashoboard.png)
 
+
 ### Integration Steps
 ---
 
-This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application.
+This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application. This document assumes you already have a mobile application with the Agora SDK enabled. If you don't, please follow the steps [here](https://docs.agora.io/en/Video/start_call_android?platform=Android) to create one.
 
 1. Download the following files:
    - [arm64-v8a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/arm64-v8a.zip)
@@ -127,7 +128,7 @@ private void setSymblPluginConfigs(JSONObject pluginParams) throws JSONException
        apiConfig.setAppId("<symbl_app_id>");
        apiConfig.setAppSecret("<symbl_app_secret>");
        apiConfig.setTokenApi("https://api.symbl.ai/oauth2/token:generate");
-       apiConfig.setSymblPlatformUrl("https://api-agora.symbl.ai");
+       apiConfig.setSymblPlatformUrl("api-agora-1.symbl.ai");
        symblParams.setApiConfig(apiConfig);
 
        // Set the Symbl Confidence Level and Language Code
@@ -188,7 +189,7 @@ The following table lists the parameters and their descriptions used in the samp
 | `symbl_meeting_UserId` | Used to identify the user in the real-time meeting.
 | `symbl_meeting_user_Name` | The name of the user attending the real-time meeting.
 | `symbl_unique_meetingId` | Unique identifier for the meeting.
-| `symbl_platform_url` | The URL for the Symbl platform.
+| `symbl_platform_url` | The dedicated URL for the Symbl platform. Use `api-agora-1.symbl.ai`.
 | `symbl_app_id` | The Symbl App ID.
 | `symbl_app_secret` | The Symbl App Secret.
 | `symbl_meeting_language_code` | The language code. Currently, en-US (English US) is the only language supported.
