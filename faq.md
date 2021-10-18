@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### Is my data safe with Symbl.ai?
+### Is my data safe with [Symbl.ai](http://symbl.ai/)?
 
 TL;DR: **Yes**
 
