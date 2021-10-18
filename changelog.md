@@ -11,6 +11,13 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 14 Oct 2021
+![api update](/img/api-update.png) 
+- **Added parameters to stop and start the Streaming API processing without disconnecting** <font color="orange"> (LABS) </font><br/>
+Availability of parameters with Streaming API for keeping the WebSocket connection connected while stopping processing and for overriding the idle time out. <br/>
+[Read more here](/docs/streaming-api/api-reference#request-parameters).
+
+
 ### 8 Oct 2021
 ![api update](/img/api-update.png)
 - Availability of Abstract Topics in Labs. <br/>
