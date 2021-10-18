@@ -19,7 +19,7 @@ Trackers allow you to track the occurrence of certain key words or phrases in a 
 One of the biggest challenges of tracking key words or phrases in natural human conversations is that individuals may be talking about the same thing but may not use the exact key word or phrase defined. 
 For example, “I don’t have any money” is contextually similar to “I ran out of budget” as both represent similar inherent meaning.
 
-Symbl removes that complexity by reading into contexts and returning messages that are not only an exact match of the key words or phrases that you have defined but are also closely or contextually similar. Further, the `offset` parameter shows you the extent to which the match has occured with the tracking keywords. 
+Symbl removes that complexity by reading into contexts and returning messages that are not only an exact match of the key words or phrases that you have defined but are also closely or contextually similar. Further, the `offset` parameter shows you the extent to which the match has occurred with the tracking keywords. 
 
 Using these insights you can introduce process improvements and strategies that align with your business goals.
 
