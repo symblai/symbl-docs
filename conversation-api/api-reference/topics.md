@@ -127,7 +127,7 @@ exit()
 Parameter | Required | Value |Description|
 --------- | --------- | ------- | -------
 ```sentiment```| No | true | Give you sentiment analysis on each topic in conversation.
-```parentRefs```| No | true | Gives you topic hierarchy.
+```parentRefs```| No | true | Gives you [topic hierarchy](https://docs.symbl.ai/docs/concepts/topic-hierarchy).
 
 
 
