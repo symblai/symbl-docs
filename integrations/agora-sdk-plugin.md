@@ -78,44 +78,44 @@ Following are some of the prerequisites of integrating Symbl-Agora extension:
 Learn more about the Agora required credentials in the [Setup Authentication](https://docs.agora.io/en/Agora%20Platform/token) page.
 
 
-- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Symbl Conversation Intelligence extension page on a specific project. 
+- **Symbl API Credentials**: You will also need the Symbl API credentials which are available on the Symbl Conversation Intelligence Extensions Marketplace product details page. 
 
-To get your credentials, click **View** under **Credentials** column and you will be able to see the Symbl credentials (App ID and App Secret).
+Navigate to the [Agora Extensions Marketplace](https://console.agora.io/marketplace) and click on the Symbl [card](https://console.agora.io/marketplace/extension/introduce?serviceName=symbl).
+
+Activate the Symbl Conversation Intelligence Extension.
+
+![symbl-extension-activation](/img/symbl-activation-extension.png)
+
+After activating the Symbl Conversation Intelligence Extension, click the **View** button under the **Credentials** column to retrieve the required Symbl credentials (App ID and App Secret).
 
 ![symbl-creds-agora](/img/access_symbl_creds_on_agora_dashoboard.png)
 
+- **Android Mobile Application**: This guide assumes you have an Android mobile application with the Agora Video SDK enabled. Follow the steps [here](https://docs.agora.io/en/Video/start_call_android?platform=Android) to set it up.
 
 ### Integration Steps
 ---
 
-This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application. This document assumes you already have a mobile application with the Agora SDK enabled. If you don't, please follow the steps [here](https://docs.agora.io/en/Video/start_call_android?platform=Android) to create one.
+This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application.
 
-1. Download the following files:
-   - [arm64-v8a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/arm64-v8a.zip)
-   - [armeabi-v7a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/armeabi-v7a.zip)
-   - [libs.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/libs/libs.zip)
-   - [agora-symblai-filter-debug.aar](https://cdn-agora.symbl.ai/agora-symblai-filter-debug.aar)
+1. Download the [Symbl Extension](https://cdn-agora.symbl.ai/agora-symblai-filter-debug.aar) (if you haven't already).
  
 2. Add the `.aar` file as a dependency to your application. 
 ![agora-creds](/img/agora-arr-files.png)
-3. Create a new folder called `jniLibs` under your application (`app/src/main`).
-4. Extract the `agora-sdk/v1.0/arm64-v8a.zip` and copy the folder `arm64-v8a` under the `jniLibs` folder you created in the previous step. 
-5. Extract the `agora-sdk/v1.0/armeabi-v7a.zip` and copy the folder `armeabi-v7a` under the `jniLibs` folder you created in the previous step.
-6. Extract the `agora-sdk/sdk-v1.0/libs.zip` and copy the file `agora-rtc-sdk.jar` under the folder `app/libs`.
-7. Add the following information into your `build.gradle` module file:
+
+3. Add the following information into your `build.gradle` module file:
 
 ```js
 implementation fileTree(include: ['*.jar'], dir: 'libs')
 implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 implementation 'org.java-websocket:Java-WebSocket:1.5.1'
 ```
-8. Implement the interface io.agora.rtc2.IMediaExtensionObserver
+4. Implement the interface io.agora.rtc2.IMediaExtensionObserver
  
 ```js
 public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMediaExtensionObserver {
 ```
 
-9. Add the following method to set all the necessary information to initialize the Symbl configuration. You can find description for the parameters used in the table below:
+5. Add the following method to set all the necessary information to initialize the Symbl configuration. You can find description for the parameters used in the table below:
 
 ```js
 private void setSymblPluginConfigs(JSONObject pluginParams) throws JSONException {
