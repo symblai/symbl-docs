@@ -29,7 +29,7 @@ In this guide, we will provide you a video, which can be found [here](https://st
 
 ## Process Video File
 
-To get the Summary UI, we need to process the video using Symbl's [POST Video Using URL](/docs/async-api/overview/video/post-video-url) endpoint. Here's a few examples of how to that:
+To get the Summary UI, we need to process the video using Symbl's [POST Video Using URL](/docs/async-api/overview/video/post-video-url) endpoint. Here's a few examples of how to do that:
 
 ### Example API Call
 
