@@ -7,7 +7,7 @@ slug: /async-api/code-snippets/generate-pre-built-ui-from-video-recordings
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-[Symbl's Async API](/docs/async-api/introduction) allows you to process audio, video or text data and transform them into AI insights such as Topics, Action Items, Questions, and more. In this guide, we will walk you through how to process a video recording and receive our [Pre-built UI](/docs/pre-built-ui/summary-ui). The Pre-built UI generates a UI which contains all the information and analysis from your conversation which an be shared through a shareable link.
+[Symbl's Async API](/docs/async-api/introduction) allows you to process audio, video or text data and transform them into AI insights such as Topics, Action Items, Questions, and more. In this guide, we will walk you through how to process a video recording and receive our [Pre-built UI](/docs/pre-built-ui/summary-ui). The Pre-built UI generates a UI which contains all the information and analysis from your conversation which can be shared through a shareable link.
 
 ## Contents 
 
