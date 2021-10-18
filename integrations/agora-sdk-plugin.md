@@ -84,7 +84,7 @@ Navigate to the [Agora Extensions Marketplace](https://console.agora.io/marketpl
 
 Activate the Symbl Conversation Intelligence Extension.
 
-![symbl-extension-activation](/img/symbl-extension-activation.png)
+![symbl-extension-activation](/img/symbl-activation-extension.png)
 
 After activating the Symbl Conversation Intelligence Extension, click the **View** button under the **Credentials** column to retrieve the required Symbl credentials (App ID and App Secret).
 
