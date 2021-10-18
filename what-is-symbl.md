@@ -19,7 +19,7 @@ Symbl ingests conversation data from different sources: **text**, **audio** and 
 
 You can send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
-Once the conversation is ingested by Symbl, you can use the **Conversation APIs** to get Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, and also generate a **Customizable Pre-built UI**.
+Once the conversation is ingested by Symbl, you can use the [**Conversation APIs**](https://docs.symbl.ai/docs/python-sdk/conversation-api/) to get Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, and also generate a **Customizable Pre-built UI**.
 
 ![how-symbl-works](/img/how-symbl-works-1.png)
 
