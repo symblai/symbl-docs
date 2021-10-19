@@ -291,7 +291,7 @@ Let’s consider the same set of members that can be retrieved by calling the GE
 
 We can now use the `PUT members` call to update the details of a specific member as shown below. This call would update the `Speaker 2` as shown in the above section with the values in the cURL’s `request-body`:
 
-👉 [PUT Members Information](https://docs.symbl.ai/docs/conversation-api/update-members/)
+👉 [PUT Members Information](/docs/conversation-api/update-members/)
 
 <Tabs
   defaultValue="curl"
