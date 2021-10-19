@@ -188,7 +188,7 @@ Now that you have a `conversationId` from the above response you can invoke the 
 
 View the API Reference for information on how to get speech-to-text messages from the conversation
 
-👉 [GET Messages](/docs/conversation-api/api-reference/messages)
+👉 [GET Messages](/docs/conversation-api/messages/)
 
 #### JSON Response Example
 
@@ -296,7 +296,7 @@ Let’s consider the same set of members that can be retrieved by calling the GE
 
 We can now use the `PUT members` call to update the details of a specific member as shown below. This call would update the `Speaker 2` as shown in the above section with the values in the cURL’s `request-body`:
 
-👉 [PUT Members Information](/docs/conversation-api/api-reference/update-members)
+👉 [PUT Members Information](/docs/conversation-api/update-members/)
 
 <Tabs
   defaultValue="curl"

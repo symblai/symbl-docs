@@ -20,7 +20,7 @@ It's important to note that the Trackers don't simply look for keywords or phras
 
 For example, “I don’t have any money” is contextually similar to “I ran out of budget” as both represent similar inherent meaning, but Symbl can generalize this scope of meaning and contextually evaluate occurances of whenever there's a mention of running out of money to give you tracking mechanism that's absolutely easy to use and lightning fast in [real-time with Streaming API](/streaming-api/api-reference#using-trackers).
 
-Symbl removes the complexity by reading into contexts and returning messages that are not only an exact match of the key words or phrases that you have defined but are also closely or contextually similar. Further, the `offset` parameter shows you the extent to which the match has occured. 
+Symbl removes that complexity by reading into contexts and returning messages that are not only an exact match of the key words or phrases that you have defined but are also closely or contextually similar. Further, the `offset` parameter shows you the extent to which the match has occurred with the tracking keywords. 
 
 Using Trackers you can introduce various capabilities such as triggering workflow on tracker event in real-time or asynchronously, help users communicating in real-time, or learn from the characteristics of conversations and so on. The possibilities are really limitless and can be very tailored to specific needs of your application.
 
