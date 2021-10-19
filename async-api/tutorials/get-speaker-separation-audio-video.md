@@ -183,7 +183,7 @@ Now that you have a `conversationId` from the above response you can invoke the 
 
 View the API Reference for information on how to get speech-to-text messages from the conversation
 
-👉 [GET Messages](https://docs.symbl.ai/docs/conversation-api/messages/)
+👉 [GET Messages](/docs/conversation-api/messages/)
 
 #### JSON Response Example
 
