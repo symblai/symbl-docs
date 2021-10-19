@@ -31,6 +31,10 @@ In this guide, we will provide you a video, which can be found [here](https://st
 
 To get the Summary UI, we need to process the video using Symbl's [POST Video Using URL](/docs/async-api/overview/video/post-video-url) endpoint. Here's a few examples of how to do that:
 
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 ### Example API Call
 
 :::info
