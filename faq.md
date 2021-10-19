@@ -9,9 +9,9 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-### Is my data safe with [Symbl.ai](http://symbl.ai/)?
+### Is my data safe with Symbl.ai?
 
-TL;DR: **Yes**
+**Yes**
 
 All data on the Symbl platform is encrypted and all connections are secured using 2048 bit AES encryption. Over the wire, data is encrypted using RSA 2048 bit keys. At rest, data is encrypted using AES-256.
 
