@@ -14,7 +14,7 @@ The Async Audio URL API accepts a URL to an audio file of which you want to proc
 It can be utilized for any use case where you have access to recorded audio stored publicly as URL and want to extract insights and other conversational attributes supported by [Symbl's Conversation API](/docs/conversation-api/introduction).
 
 :::tip URL Requirement
-The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
+The URL provided must be a publicly available URL. Currently, we do not support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
 ### API Endpoint
@@ -424,3 +424,7 @@ Field | Description
 ```
 
 Here value of `X` can be found in [FAQ](/docs/faq). 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::

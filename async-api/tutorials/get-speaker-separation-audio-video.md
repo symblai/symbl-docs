@@ -48,6 +48,11 @@ The below example uses the Async Video URL API, but Speaker Separation can be ac
 
 * For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 #### Code Example
 
 <Tabs
@@ -183,7 +188,7 @@ Now that you have a `conversationId` from the above response you can invoke the 
 
 View the API Reference for information on how to get speech-to-text messages from the conversation
 
-👉 [GET Messages](/docs/conversation-api/api-reference/messages)
+👉 [GET Messages](/docs/conversation-api/messages/)
 
 #### JSON Response Example
 
@@ -291,7 +296,7 @@ Let’s consider the same set of members that can be retrieved by calling the GE
 
 We can now use the `PUT members` call to update the details of a specific member as shown below. This call would update the `Speaker 2` as shown in the above section with the values in the cURL’s `request-body`:
 
-👉 [PUT Members Information](/docs/conversation-api/api-reference/update-members)
+👉 [PUT Members Information](/docs/conversation-api/update-members/)
 
 <Tabs
   defaultValue="curl"

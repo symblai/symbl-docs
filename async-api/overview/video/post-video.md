@@ -327,3 +327,7 @@ Field | Description
 ```
 
 Here value of `X` can be found in [FAQ](/docs/faq). 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
