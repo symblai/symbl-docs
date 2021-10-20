@@ -105,12 +105,6 @@ Please ensure that the email has at least 60-70 lines due to the conversation si
 If you are using the Summary API for the first time, the Async Text API is the simplest way to get started and work your way to creating Summarization for recorded Audio and Video files. 
 :::
 
-#### Async Audio/Async Video API
-
-You can choose from any of the following ways to provide speaker separation based on your scenario:
-
-- **You have an audio recording where each speaker was recorded in a separate channel in the same audio file.** <br/>
-
 Use the [Async Audio API](/docs/async-api/overview/audio/post-audio/) with the query parameters `enableSeparateRecognitionPerChannel` and `channelMetadata` to provide the speaker details per channel. This is the most recommended method for speaker separation even if the speaker’s conversation is on top of each other since each has its own channel.
 
 - **You have a recorded file and speaker timeline events like Zoom are available.** <br/>
