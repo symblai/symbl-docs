@@ -36,8 +36,7 @@ Given below is an example of a multi-line transcript and its corresponding Summa
 :::info Points to Note
 - The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
 If the number of words in a conversation is below 50 or the number of sentences below 3, the Summary will not be created. 
-- If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary will use temporary labels to assign speakers. For example, it will assign the speakers with labels such as "Speaker 1", "Speaker 2" and so on. In this case, we recommend you to update the labels with actual names using [Speaker Events API](/docs/conversation-api/speaker-events) so you can get a more personalized summary. 
-- Currently, Summarization can be enabled directly with Async APIs only. Support for Summarization in real-time will be added soon. However, for Telephony API or Streaming API, it can be generated after the conversation has ended. 
+- Currently, Summarization can be enabled directly with Async APIs only. Support for Summarization in real-time will be added soon. However, if you are using Streaming or Telephony API, you can set the query param `refresh=true` in the [Summary API](/docs/conversation-api/summary) and generate the Summary after the conversation has ended.  
 :::
 
 ### Summary API
@@ -52,7 +51,6 @@ You must first enable Summarization while invoking the Async APIs for text, vide
 :::info
 - Currently, the Summary is designed to be generated on the recorded audio/video files or textual conversations. For Telephony API or Streaming API, it can be generated after the conversation has ended.
 - If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary will use temporary labels to assign speakers. For example, it will assign the speakers with labels such as "Speaker 1", "Speaker 2" and so on. In this case, we recommend you to update the labels with actual names using [Speaker Events API](/docs/conversation-api/speaker-events) so you can get a more personalized summary. 
-- Currently, Summarization can be enabled directly with Async APIs only. Support for Summarization in real-time will be added soon. However, if you are using Streaming or Telephony API, you can set the query param `refresh=true` in the [Summary API](/docs/conversation-api/summary) and generate the Summary after the conversation has ended. 
 :::
 
 ### Where can I find the Summary API?
