@@ -6,22 +6,41 @@ title: Receive Speech-to-Text and AI Insights
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Process video file
+---
+## Overview
 
-The first thing you need to do before getting your speech-to-text and AI insights you need to process your video file. This code is taken directly from our [POST Video URL](/docs/async-api/overview/video/post-video) page. 
+Async API allows you to process any audio/video/text file to generate a unique conversation ID. 
+This conversation ID can be used to grab **speech-to-text transcription** from the conversation and also generate unique conversational insights.
 
-If you want to use an audio or text file you can use the code from the [POST Audio URL](/docs/async-api/overview/audio/post-audio) or [POST Text File](/docs/async-api/overview/text/post-text) pages.
+In this tutorial, you will learn how to do the following:
 
-While we provide you with a default video URL for the API to process, which can be downloaded [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4), you can replace that with any other video URL.
++ Process video file using **Async API**.
++ Use conversation ID to grab speech-to-text transcription.
++ Receive additional conversational AI insights using Conversation API.
 
-:::caution
-You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+**Prerequisites**
+
+1. URL of video file to extract data from. In this example, we have provided you a sample [video file](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4)
+You can also use any video file of your own.
+
+2. `AUTH_TOKEN` variable for authentication that is sent through the `Authorization` header. This can be obtained from [our authentication process](/docs/developer-tools/authentication).
+
+
+## Step 1: Process Video File using Async API
+
+Use [Post Video URL](/docs/async-api/overview/video/post-video-url) to process your video file.
+
+:::info
+To process an audio file, use [POST Audio URL](/docs/async-api/overview/audio/post-audio-url). 
+To process a text file use, [POST Text File](/docs/async-api/overview/text/post-text)
 :::
+
 
 ### Request Example
 
-:::info
-Before using the Async API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
+:::caution
+You must wait until your video processing is complete before proceeeding to obtain conversational intelligence. 
+If you immediately make a GET request to Conversation API, you will receive incomplete insights. Therefore, ensure that you wait until the video processing job is complete.
 :::
 
 <Tabs
@@ -216,6 +235,7 @@ exit()
 </Tabs>
 
 
+
 ### Response Example
 
 ```js
@@ -225,9 +245,9 @@ exit()
 }
 ```
 
-## Receive Speech-to-Text
-
-In the response above, you will notice the `conversationId` field. Using the `conversationId` you can send a request to [GET Speech to Text](/docs/conversation-api/messages) endpoint in the [Conversation API](/docs/conversation-api/introduction), which will give you a detailed transcription of the provided file.
+## Step 2: Grab Speech-to-Text Transcription
+On successfully executing the above code you will receive a **Conversation ID** (`conversationId`) in the response. 
+Use `conversationId` field to send a request to [GET Speech to Text](/docs/conversation-api/messages) endpoint in the [Conversation API](/docs/conversation-api/introduction).
 
 ### Request Example
 
@@ -330,16 +350,20 @@ exit()
   }]
 }
 ```
+Congratulations! You can now obtain the speech to text transcription of your video file from the response message.
 
-## Receiving More AI Insights
+## Step 3: Grab Additional Conversational AI Insights
 
-Here's more data you can grab with our [Conversation API](/docs/conversation-api/introduction):
+Here's more data that you can grab with our [Conversation API](/docs/conversation-api/introduction):
+
 
 **[View conversation topics](/docs/conversation-api/get-topics)**<br />
-Summary topics provide a quick overview of the key things that were talked about in the conversation.
+Conversation topics provide a quick overview of the key things that were talked about in the conversation.
 
 **[View action items](/docs/conversation-api/action-items)**<br />
 An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action, e.g. set up a meeting, share a file, complete a task, etc.
 
 **[View follow-ups](/docs/conversation-api/follow-ups)**<br />
 This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
+## See Also

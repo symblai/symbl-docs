@@ -15,12 +15,11 @@ This conversation ID can be used to grab speech-to-text transcription from the c
 
 
 In this guide you will learn how to do the following:
-+ Send an audio file to the **Async API**.
-+ Grab speech-to-text transcription from the conversation. 
-+ Gain valuable conversational insights such as follow-ups, topics, action items, and questions usin
-g Conversation API.
++ [Process an audio file using Async API](#process-an-audio-file-using-async-api)
++ [Obtain speech-to-text transcription from the conversation](#obtain-speech-to-text-transcription-from-your-conversation)
++ [Grab additional conversational insights such as follow-ups, topics, action items, and questions](#grab-additional-conversational-insights)
 
-**Prerequisites**
+## Prerequisites
 1. URL of an audio file to extract the data from.
 
 :::info
