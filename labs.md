@@ -8,7 +8,7 @@ slug: /labs
 ---
 Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits.
  
-You can access the Labs features using your Symbl App Id and Secret. If you don't already have it, sign up on platform to get your credentials.
+You can access the Labs features using your Symbl App Id and Secret. If you don't already have it, sign up on the platform to get your credentials.
  
 :::note
 The usage of data for Labs projects is stored for enhancing our research. We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary.

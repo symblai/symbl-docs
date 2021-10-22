@@ -11,6 +11,18 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 14 Oct 2021
+![api update](/img/api-update.png) 
+- **Added parameters to stop and start the Streaming API processing without disconnecting** <font color="orange"> (LABS) </font><br/>
+Availability of parameters with Streaming API for keeping the WebSocket connection connected while stopping processing and for overriding the idle time out. <br/>
+[Read more here](/docs/streaming-api/api-reference#request-parameters).
+
+
+### 8 Oct 2021
+![api update](/img/api-update.png)
+- Availability of Abstract Topics in Labs. <br/>
+[Read more here](/docs/guides/abstract-topics).
+
 ### 4 Oct 2021
 
 ![summary](/img/summary-ui-icon.png)
@@ -38,7 +50,7 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 ### 2 Sep 2021
 
 ![sdk](/img/sdk-icon.png)
-- **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
+- **Symbl-Agora Marketplace Extension**: Availability of Symbl-Agora Marketplace Extension that allows you to use the Symbl's Conversation Intelligence with the Agora SDK for Android applications. <br/>
 [Read more here](/docs/integrations/agora-sdk-plugin).
 
 ### 19 Aug 2021
@@ -64,7 +76,7 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 [Read more here](/docs/conversation-api/all-conversations).
 
 - Bug Fixes:
-  - Incorrect usage recorded due to internal issue in Telephony API is fixed. 
+  - Incorrect usage recorded due to internal issues in the Telephony API is fixed. 
 
 ![summary](/img/summary-ui-icon.png)
 - **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
@@ -106,7 +118,7 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 
 - **Trackers and Analytics UI**: Availability of the Trackers and Analytics UI that provides a waveform visualization with conversation insights. [Read more here](/docs/pre-built-ui/trackers-and-analytics-ui).
 - Support for the `readOnly` parameter has been added to avoid unintended editing of the **Summary UI**.
-- User can now share their own configured URL with their domain name in iframe implementation.
+- Users can now share their own configured URL with their domain name in the iframe implementation.
 
 ---
 

@@ -2,7 +2,7 @@
 id: summarization
 title: Summarization API- Capturing Key Points 
 description: Use Symbl.ai’s summarization API to capture key points in a conversation and create succinct summaries. Learn more.
-sidebar_label: Summarization 
+sidebar_label: Introduction 
 slug: /concepts/summarization
 ---
 
@@ -69,7 +69,7 @@ API  | Summary Endpoint
 [Async Audio API (POST)](/docs/async-api/overview/audio/post-audio)| ```https://api-labs.symbl.ai/v1/process/audio?enableSummary=true```
 [Async Audio URL API (POST)](/docs/async-api/overview/audio/post-audio-url)| ```https://api-labs.symbl.ai/v1/process/audio/url?enableSummary=true```
 [Async Video API (POST)](/docs/async-api/overview/video/post-video)| ```https://api-labs.symbl.ai/v1/process/video?enableSummary=true```
-[Async Video URL API (POST)](/docs/async-api/overview/video/post-video-url)| ```https://api.symbl.ai/v1/process/video/url?enableSummary=true```
+[Async Video URL API (POST)](/docs/async-api/overview/video/post-video-url)| ```https://api-labs.symbl.ai/v1/process/video/url?enableSummary=true```
 
 Once the above API job is complete, the corresponding Summary can be obtained by sending a GET request to the Summary API. See the [**Summary API Documentation**](/docs/conversation-api/summary) for details.
 
