@@ -21,7 +21,7 @@ While users connected on websocket are charged per user, the listen-only partici
 This can be turned on or off for a conversation, on demand. 
 
 :::info
-The Subscribe APIs does not have a limit to the number of participants that can join. You can seamlessly add upto 10,000 participants. 
+The Subscribe APIs does not have a limit to the number of participants that can join. You can seamlessly add up to 10,000 participants. 
 :::
 
 ### API Endpoint
@@ -74,7 +74,7 @@ ws.onmessage = (event) => {
     console.log(`Response type: ${data.type}. Object: `, data);
 };
 
-// Fired when the WebSocket closes unexpectedly due to an error or lost connetion
+// Fired when the WebSocket closes unexpectedly due to an error or lost connection
 ws.onerror = (err) => {
     console.error(err);
 };

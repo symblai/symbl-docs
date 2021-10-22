@@ -22,10 +22,10 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 This API returns a high level abstract topics from a conversation.
 
-The Abstract Topics are low volume, abstractive topics that is suitable for document-level topic derivation where at a glance you can determine recurrent themes in a conversation.
+The Abstract Topics are suitable for scenarios where you want to determine recurrent themes in a conversation at a glance. 
 
 :::note
-Currently, Abstract Topics are available with Async APIs. 
+Currently, Abstract Topics are not supported in real-time. 
 :::
 
 

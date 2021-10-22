@@ -39,7 +39,7 @@ our APIs, we've got you covered!
 ### Step 1: Get Symbl API Credentials
 ---
 
-Sign up on [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
+Sign up on the [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
 Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make Symbl API calls. 
 &nbsp;
 
@@ -77,11 +77,14 @@ Also check out our features in Labs such as Summarization, Comprehensive Action 
 
 <div class="row">
   <div class="column">
-    <div class="card2"> <h4><br/>Try it in Postman</h4> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
+    <div class="card2"> <h3><br/>Try it in Postman</h3> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
 <br/>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
 
+***If you're new to Postman, watch this [video tutorial](/docs/developer-tools/postman#how-to-use-symbl-postman-collection) to learn how***. 
+
    </div>
   </div>
   </div>
+

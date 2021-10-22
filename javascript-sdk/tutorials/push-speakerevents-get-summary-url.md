@@ -163,7 +163,10 @@ sdk.pushEventOnConnection(connectionId, speakerEvent.toJSON(), (err) => {
 ```js
 const {sdk, SpeakerEvent} = require('@symblai/symbl-js')
 
-const phoneNumber = DEFAULT_PHONE_NUMBER
+const APP_ID = "<Your App ID>";
+const APP_SECRET = "<Your App Secret>";
+const DEFAULT_PHONE_NUMBER = "<Your Phone Number>";
+const EMAIL_ADDRESS = "<Your Email Address>";
 
 sdk
   .init({
