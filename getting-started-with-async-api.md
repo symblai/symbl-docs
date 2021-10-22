@@ -23,7 +23,9 @@ In this guide you will learn how to do the following:
 1. URL of an audio file to extract the data from.
 
 :::info
+
 For processing an audio file from your local PC or your server, see [POST Audio API](/docs/async-api/overview/audio/post-audio).
+
 :::
 
 In this example, we have provided you an [audio file](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav) that you can see below. 
