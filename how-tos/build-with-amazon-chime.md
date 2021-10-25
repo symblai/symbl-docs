@@ -185,7 +185,7 @@ Closed caption handler has 3 callback functions:
 
 * `onCaptioningToggled` - Will be called whenever closed captioning is toggled on or off.
 
-* `oncCaptionCreated` - Event that occurs after speech is first detecting, having the caption object created after as a parameter.
+* `onCaptionCreated` - Event that occurs after speech is first detecting, having the caption object created after as a parameter.
 
 * `onCaptionUpdated` - Event that occurs after speech is no longer detected, indicating the end of transcriipton.
 
