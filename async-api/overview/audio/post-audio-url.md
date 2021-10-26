@@ -167,7 +167,7 @@ const responses = {
 
 request.post(audioOption, (error, response, body) => {
   const statusCode = response.statusCode;
-  if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+  if (error || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
     throw new Error(responses[statusCode]);
   }
   console.log('Status code: ', statusCode);
