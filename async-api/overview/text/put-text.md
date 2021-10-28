@@ -58,7 +58,7 @@ curl --location --request PUT "https://api.symbl.ai/v1/process/text/$CONVERSATIO
     },
     {
       "payload": {
-        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
       },
       "from": {
         "userId": "mike@abccorp.com",
@@ -99,7 +99,7 @@ const payload = {
     },
     {
       "payload": {
-        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
       },
       "from": {
         "userId": "mike@abccorp.com",
@@ -179,7 +179,7 @@ const options = {
       },
       {
         "payload": {
-          "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+          "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
         },
         "from": {
           "userId": "mike@abccorp.com",
@@ -365,7 +365,7 @@ Field | Required | Type |  Description
     }
   }, {
     "payload": {
-      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
     },
     "from": {
       "userId": "mike@abccorp.com",
