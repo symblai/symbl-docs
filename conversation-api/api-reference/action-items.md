@@ -109,83 +109,49 @@ exit()
 
 ```javascript
 {
-    "actionItems": [
+  "actionItems": [
+    {
+      "id": "6603306467065856",
+      "text": "Surbhi Rathore can schedule a visit from one of our technicians for tomorrow afternoon at 1:00 PM.",
+      "type": "action_item",
+      "score": 0.9602078494794586,
+      "messageIds": [
+        "5175845967626240"
+      ],
+      "entities": [
         {
-            "id": "5707174000984064",
-            "text": "Roger is going to work with the TV lab and make sure that test is also included, so we are checking to make sure not only with our complaints.",
-            "type": "action_item",
-            "score": 0.9999962500210938,
-            "messageIds": [
-                "6531517035527344"
-            ],
-            "phrases": [
-                {
-                    "type":"action_phrase",
-                    "text":"Roger is going to work with the TV lab"
-                }
-            ],
-            "definitive": true,
-            "entities": [],
-            "assignee": {
-                "name": "Roger",
-                "email": "Roger@example.com"
-            }
+          "type": "datetime",
+          "text": "tomorrow afternoon at 1:00 pm",
+          "offset": 68,
+          "value": "2021-10-31 13:00:00"
         },
         {
-            "id": "5633940379402240",
-            "text": "Mary thinks we need to go ahead with the TV in Bangalore.",
-            "type": "action_item",
-            "score": 0.8659442937321238,
-            "messageIds": [
-                "4972726972317696"
-            ],
-            "phrases": [],
-            "definitive": false,
-            "entities": [],
-            "assignee": {
-                "name": "Mary",
-                "email": "Mary@example.com"
-            }
-        },
-        {
-            "id": "5690029162627072",
-            "text": "Checking the nodes with Eisner to make sure we covered everything so that will be finished.",
-            "type": "action_item",
-            "score": 0.8657734634985154,
-            "messageIds": [
-                "6531517035577244"
-            ],
-            "phrases": [
-                {
-                    "type": "action_phrase",
-                    "text": "Checking the nodes with Eisner to make sure we covered everything"
-                }
-            ],
-            "definitive": true,
-            "entities": [],
-            "assignee": {
-                "name": "Eisner",
-                "email": "Eisner@example.com"
-            }
-        },
-        {
-            "id": "5757280188366848",
-            "text": "Mary thinks it really needs to kick start this week which means the call with UV team and our us team needs to happen the next couple of days.",
-            "type": "action_item",
-            "score": 0.9999992500008438,
-            "messageIds": [
-                "6521517035577344"
-            ],
-            "phrases": [],
-            "definitive": false,
-            "entities": [],
-            "assignee": {
-                "name": "Mary",
-                "email": "Mary@example.com"
-            },
-            "dueBy": "2020-02-10T07:00:00.000Z"
+          "type": "person",
+          "text": "Surbhi Rathore",
+          "offset": 0,
+          "value": {
+            "assignee": true,
+            "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
+            "name": "Surbhi Rathore",
+            "userId": "surbhi@example.com"
+          }
         }
-    ]
+      ],
+      "phrases": [],
+      "from": {
+        "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
+        "name": "Surbhi Rathore",
+        "userId": "surbhi@example.com"
+      },
+      "definitive": false,
+      "assignee": {
+        "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
+        "name": "Surbhi Rathore",
+        "email": "surbhi@example.com"
+      },
+      "dueBy": "2021-10-31T20:00:00.000Z"
+    }
+  ]
 }
 ```
 
