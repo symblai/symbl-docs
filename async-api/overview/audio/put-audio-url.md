@@ -262,7 +262,7 @@ exit()
 Header Name | Required | Description
 ---------- | ------- | ---------
 ```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type``` | Mandatoru | Accepted values is `application/json`
+```Content-Type``` | Mandatory | Accepted values is `application/json`
 ```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
 ### Path Parameter

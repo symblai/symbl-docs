@@ -225,7 +225,7 @@ exit()
 
 ## Receive Conversational Analytics
 
-In the response above, you will notice the `conversationId` field. Using the `conversationId` you can send a GET request to [GET Analytics](/docs/conversation-api/analytics) endpoint in the [Conversation API](/docs/conversation-api/introduction), which will give you various analtyics on the conversation such as talk time and listen time.
+In the response above, you will notice the `conversationId` field. Using the `conversationId` you can send a GET request to [GET Analytics](/docs/conversation-api/analytics) endpoint in the [Conversation API](/docs/conversation-api/introduction), which will give you various analytics on the conversation such as talk time and listen time.
 
 ### Request Example
 

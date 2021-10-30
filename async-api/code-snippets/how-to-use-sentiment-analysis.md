@@ -366,7 +366,7 @@ exit()
 
 ### Polarity
 
-In the response you'll noitice the polarity field which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. If you wish to read more about Polarity you can checkout our article on Sentimental Analysis [here](/docs/concepts/sentiment-analysis).
+In the response you'll notice the polarity field which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. If you wish to read more about Polarity you can checkout our article on Sentimental Analysis [here](/docs/concepts/sentiment-analysis).
 
 ```js
 {

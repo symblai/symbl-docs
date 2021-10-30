@@ -329,7 +329,7 @@ Field | Required | Type | Description
     }
   }, {
     "payload": {
-      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
     },
     "from": {
       "userId": "mike@abccorp.com",
