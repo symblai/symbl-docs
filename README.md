@@ -43,7 +43,7 @@ If you wish to suggest a new topic, want to request additional details, or raise
 - Using SSH:
   
 ```js
-$ git clone git@github.com:symblai/symbl-docs.git
+git clone git@github.com:symblai/symbl-docs.git
 ```
   
    OR 
@@ -51,30 +51,30 @@ $ git clone git@github.com:symblai/symbl-docs.git
 - Using HTTPS:
 
 ```js
-$ git clone https://github.com/symblai/symbl-docs.git
+git clone https://github.com/symblai/symbl-docs.git
 ```
 
 2. Open your local directory where you cloned the docs
   
 ```js
-$ cd symbl-docs
+cd symbl-docs
 ```
 
 3. Switch to develop branch to make changes
 
 ```js
-$ git checkout develop
+git checkout develop
 ```
 ### Installation
 
 ```js
-$ yarn
+yarn
 ```
 
 ### Local Development
 
 ```js
-$ yarn start
+yarn start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -82,7 +82,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```js
-$ yarn build
+yarn build
 ```
 
 This command generates static content into the `build` directory and can be served using any static content hosting service.
@@ -90,7 +90,7 @@ This command generates static content into the `build` directory and can be serv
 ### Deployment
 
 ```js
-$ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
 If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
