@@ -85,7 +85,11 @@ CORS (Cross-Origin-Resource-Sharing) is required for files hosted on Amazon S3.
 > **Why do I need to enable CORS?** <br/>
 > The Trackers and Analytics UI has a visual component that renders waveform visuals based on the audio resource in the URL. To generate such visuals, the browser requires read-access to the audio frequency data, for which CORS configurations need to be enabled. Modern browsers by default, prevent reads to audio frequency through CORS.
 
-If your audio file is not on Amazon S3, skip to the [next step](#3-send-post-request-with-experience-api).<br/>
+:::note
+Enabling CORS is mandatory only if you wish to get the Trackers and Analytics UI in the waveform visualization (i.e., as audio waveform player). If you do not enable CORS, you can still access the same insights but the UI will show the standard audio player instead of the waveform. 
+:::
+
+If your audio file is not on Amazon S3, skip to the [next step](#3-send-post-request-to-experience-api).<br/>
 
 To enable CORS for Amazon S3 Bucket,<br/>
 1. Go to Amazon S3 Console (https://s3.console.aws.amazon.com/). <br/>

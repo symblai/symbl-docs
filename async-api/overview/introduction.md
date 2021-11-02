@@ -17,10 +17,10 @@ When you submit a conversation, you'll receive a Conversation ID (`conversationI
 You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
 :::
 
-### `conversationId` helps you with:
+### `conversationId` allows you to:
 
-1. Helps you append the transcription of an existing file using `PUT` (also known as `append file`)  Async APIs.  
-2. Using [Conversation API](/docs/conversation-api/introduction) you can receive Speech to Text data and conversational insights.
+1. Manipulate an existing conversation by adding messages.  
+2. Setting the confidence threshold, entities, trackers, summary, etc.
 
 
 :::info

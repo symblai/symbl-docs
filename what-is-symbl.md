@@ -7,7 +7,9 @@ slug: /what-is-symbl
 
 ---
 
-[Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence platform that analyzes conversation data and lets you:
+[Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence Platform that provides a suite of **APIs and SDKs** that works with REST interface for recorded files, URLs, or even streaming audio using Websockets. 
+
+With Symbl, you will be able to:
 
 - Generate **Conversation Intelligence** like Sentiment Analysis, Action Items, Topics, Trackers, Summary and much more in your applications.
 - Generate **Speech-to-text capabilities** like Transcription, Speaker Separation and Speaker Diarization. 
