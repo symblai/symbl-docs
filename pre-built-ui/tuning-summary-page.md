@@ -10,6 +10,10 @@ sidebar_label: Tuning your Summary Page
 
 You can choose to tune your Summary Page with query parameters in order to play with different configurations and see how the results look.
 
+:::info
+Currently, tuning is supported for [Text](/docs/pre-built-ui/text-summary-ui) and [Video Summary UI](/docs/pre-built-ui/video-summary-ui). 
+:::
+
 ### Query Parameters
 
 You can configure the summary page by passing in the configuration through query parameters in the summary page URL that gets generated at the end of your meeting. See the end of the URL in this example:
