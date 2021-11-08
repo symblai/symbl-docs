@@ -19,6 +19,7 @@ This API returns the URL of the [Video Summary UI](#video-summary-ui) and [Text 
 ![Text summary](/img/text-summary.png) -->
 
 
+
 ### HTTP REQUEST
 
 ```POST```  `https://api.symbl.ai/v1/conversations/{conversationId}/experiences`
