@@ -96,6 +96,6 @@ The `url` returned in the response body can then be opened in the browser to vie
 ## What's next
 
 - View the complete description of [Text Summary API](/docs/api-reference/experience-api/post-text-summary-ui)
-- Learn how to [Tune your Text Summary UI](/docs/tutorials/pre-built-summary-ui/tuning-summary-page)
+- Learn how to [Tune your Text Summary UI](/docs/pre-built-ui/tuning-summary-page)
 - Learn how to [White label your Text Summary UI](/docs/tutorials/pre-built-summary-ui/whitelabeling-summary-ui)
-- Learn how to [Add custom domain to Text Summary UI](/docs/tutorials/pre-built-summary-ui/custom-domain).
+- Learn how to [Add custom domain to Text Summary UI](/docs/pre-built-ui/custom-domain).

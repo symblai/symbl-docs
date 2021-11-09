@@ -11,11 +11,14 @@ import TabItem from '@theme/TabItem';
 
 Symbl provides reusable and customizable UI Components that can be widely divided into two types:
 
-1. [Prebuilt Summary UI](/docs/pre-built-ui/summary-ui)
+1. [Pre-built Summary UI](/docs/conversation-api/concepts/ui-components#pre-built-summary-ui)
 2. [Symbl React Elements](/docs/pre-built-ui/symbl-elements)
 
 ## Pre-built Summary UI
+---
 Symbl provides a few Pre-built Summary UI that can be used to generate a user experience of the understanding of the conversation after it has been processed. The pre-built summary UI is available as a URL that can be shared via email to all (or selected) participants or used to embed as a link as part of the conversation history within the application.
+
+![summary-ui](/img/summary-ui-intro.png)
 
 You can generate the following types of Summary UI:
 
@@ -36,7 +39,7 @@ You can generate the following types of Summary UI:
 :::
 
 
-The Pre-built Summary UI includes the following capabilities:
+The Pre-built Summary UI provides the following:
 
 * Title and details of the conversation including date, number of participants, etc.
 * Names of all the participants.
@@ -45,8 +48,17 @@ The Pre-built Summary UI includes the following capabilities:
 * Any Insights, action items or questions from the transcript. Insights can also be edited, shared or dismissed, date/assignee for action item to be modified.
 * The prebuilt summary UI can also be customizable, as per the use case or product requirement.
 
+### Key Features
+
+- **Interactive UI**: The Summary UI not only provides the Conversation details and insights in a simplistic interface, but allows you to copy, click and playback video (for Video Summary UI) at various conversation points to view transcripts on-demand. 
+- **[White labeling](/docs/tutorials/pre-built-summary-ui/whitelabeling-summary-ui)**: You can customize your Summary UI by adding your own brand logo, favicon, font, colour, etc. and give a personalized touch. 
+- **[Custom Domain](/docs/pre-built-ui/custom-domain)**: You can add your own domain in the Summary UI URL for personalization. 
+- **[Tuning](/docs/pre-built-ui/tuning-summary-page)**: You can choose to tune your Summary Page with different configurations such as enabling or disabling Summary Topics, deciding the order of topics, etc.
+- **[User Engagement Analytics](/docs/pre-built-ui/user-engagement-analytics)**: You can track user interactions on your Summary UI via the popular tool Segment so that you have visibility into how your end-users are utilizing the Summary UI.
+
 
 ## Symbl React Elements
+---
 Symbl JS elements helps developers embed customizable JS elements for transcription, insights and action items for both real-time and post conversation experience. These are customizable, embeddable components that can be used to simplify the process of building the experience with the desired branding, as applicable.
 
 The Symbl React elements supports:
