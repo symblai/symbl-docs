@@ -229,7 +229,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
 
 if response.status_code == 201:
     # Successful API execution
