@@ -7,13 +7,16 @@ sidebar_label: Symbl React Elements
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 <div className="widget-container"></div>
 
 <!-- <a href="#" onClick={e => {MyApp.init()}}>Test</a> -->
 
-Symbl React Elements are a set of UI components, which can be easily integrated into your frontend application to directly utilize Symbl’s capabilities such as Transcripts, Topics, and Insights(coming soon). The library provides you with UI elements & custom hooks to customize your own components.
 
-## Features
+The **Symbl React Elements** are a set of UI components, which can be easily integrated into your frontend application to directly utilize Symbl’s capabilities such as Transcripts, Topics, and Insights(coming soon). The library provides you with UI elements & custom hooks to customize your own components.
+
+## Key Features
 
 * Plug n Play
 * Full-featured UI components for both Offline and Real-time conversations
