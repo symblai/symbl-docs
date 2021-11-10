@@ -14,6 +14,8 @@ The **Video Summary UI** provides users the ability to interact with the Symbl e
 
 👉 [See Video Summary UI sample](https://meetinginsights.symbl.ai/meeting/?_ga=2.237802309.413798389.1632462507-1601661419.1619109767#/eyJzZXNzaW9uSWQiOiI2NTA0OTI1MTg4MDYzMjMyIiwidmlkZW9VcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcmFtbWVyLXRyYW5zY3JpcHRpb24tYnVja2V0LzE5MzE0MjMwMjMubXA0In0=?showVideoSummary=true)
 
+![summary-ui](/img/summary-ui-intro.png)
+
 The Video Summary UI provides the following details:
 
 - **Title** - The title represents the subject of the meeting in a concise manner.
