@@ -53,7 +53,7 @@ Connects to the [Telephony API](/docs/telephony/introduction) endpoint using the
 
 Name | Description
 -----|------------
-`config` | Options specified for the [Telephony API Configuration Object](http://localhost:3001/docs/telephony-api/api-reference#request-parameters).
+`config` | Options specified for the [Telephony API Configuration Object](http://docs.symbl.ai/docs/telephony-api/api-reference#request-parameters).
 
 #### Returns
 
@@ -129,7 +129,7 @@ Connects to a [Streaming API](/docs/streamingapi/overview/introduction) Web Sock
 
 Name | Description
 -----|------------
-`options` | Options specified for the [Streaming API Configuration Object](http://localhost:3001/docs/streaming-api/api-reference#request-parameters).
+`options` | Options specified for the [Streaming API Configuration Object](https://docs.symbl.ai/docs/streaming-api/api-reference#request-parameters).
 
 #### Returns
 
