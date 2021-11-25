@@ -109,7 +109,7 @@ You will get the `conversationId` and the `jobId` as shown below:
 Using the `conversation_id` from Step 2, you can `GET` the Trackers for the conversation.
 
 ```shell
-GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
+GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected"
 ```
 #### Response 
 
@@ -216,7 +216,7 @@ After creating the Tracker, you can:
 Using the `conversation_id` you get from Step 1, you can `GET` the Trackers for the conversation.
 
 ```shell
-GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
+GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected"
 ```
 #### Response 
 
@@ -360,3 +360,7 @@ const connection = await sdk.startRealtimeRequest({
 ```
 For detailed description of the parameters, see [Streaming API for Trackers](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) documentation. 
 
+:::caution Old Endpoint
+The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
+:::

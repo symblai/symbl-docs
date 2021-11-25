@@ -85,7 +85,3 @@ Field  | Description
 :::caution
 `disableSummaryURLAuthentication` is not supported as we accept only secure URL generation to comply with the mandatory security requirements. 
 :::
-
-## Read more
-
-Experience API 

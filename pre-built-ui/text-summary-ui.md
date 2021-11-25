@@ -13,8 +13,7 @@ import TabItem from '@theme/TabItem';
 The **Text Summary UI** provides you with an interface that shows conversation insights such as Action Items, Topics, Questions, Follow Ups and is interactive, allowing you to select conversation transcripts, insights, and filters. 
 You can select to displays the timestamp where this occurred in the course of the conversation and start playback from there.
 
-👉 [See Text Summary UI sample](https://oob-prod.symbl.ai/meeting/?__hstc=142565997.f13e6f687289922af636bba5b8ac2aab.1598766952817.1606472347899.1606474504198.210&__hssc=142565997.1.1606474504198&__hsfp=1690225618&_ga=2.43028069.1767386795.1632916447-941182599.1627371222#/eyJ1c2VySWQiOiJzdXJiaGlyYXRob3JlQHJhbW1lci5haSIsIm5hbWUiOiJTdXJiaGkiLCJzZXNzaW9uSWQiOiI2MzA0NTA2NTcyNzAxNjk2In0)
-
+👉 [See Text Summary UI sample](https://meetinginsights.symbl.ai/meeting/#/eyJzZXNzaW9uSWQiOiI1NDg4MzI2NjE1MjM2NjA4IiwicmVhZE9ubHkiOnRydWUsImhpZGVTaGFyZUJ1dHRvbiI6ZmFsc2UsImFuYWx5dGljc1ZlbmRvcnMiOlt7ImlkIjoiNjMwMzc4NTg5NTg1NDA4MCIsInR5cGUiOiJhbmFseXRpY3MiLCJuYW1lIjoiU2VnbWVudCIsImtleSI6Imtyclg1WjdKS09MV0RERURwMnNnWjJRSEo0R09odFNBIn1dLCJmYXZpY29uIjoiaHR0cHM6Ly9zeW1ibHNhbml0eWRhdGEuczMudXMtZWFzdC0yLmFtYXpvbmF3cy5jb20vc3ltYmwtZmF2aWNvbi5wbmciLCJsb2dvIjoiaHR0cHM6Ly9zeW1ibHNhbml0eWRhdGEuczMudXMtZWFzdC0yLmFtYXpvbmF3cy5jb20vc3ltYmwtbG9nby5wbmcifQ..?o=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0ODgzMjY2MTUyMzY2MDgiLCJpYXQiOjE2MzY2Mjk2MDZ9.UNjq6Vs3UoBLULADrlH6YtYzKYFtcxXQ5DLcWR41UiA)
 ![verbose-text](/img/verbose-text-demo.png)
 
 Currently, the Text Summary UI is supported for audio conversations.
