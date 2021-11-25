@@ -101,6 +101,10 @@ If you are using Telephony or Streaming API, after the conversation has ended, u
 - **To generate Summary for already processed Conversations** <br/>
 If you have already processed a conversation using Async or Real-time APIs (without `EnableSummary` flag) and would like to generate a Summary for it, you can use `refresh=true` as query parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) and use the `conversationId` to get the Summary. 
 
+:::info Creating Summary for new Messages 
+You can generate a Summary for only the new messages of a conversation that you have already generated a Summary of. 
+:::
+
 ### Response Body Sample
 
 ```javascript

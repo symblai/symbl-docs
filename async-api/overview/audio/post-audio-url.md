@@ -167,7 +167,7 @@ const responses = {
 
 request.post(audioOption, (error, response, body) => {
   const statusCode = response.statusCode;
-  if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+  if (error || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
     throw new Error(responses[statusCode]);
   }
   console.log('Status code: ', statusCode);
@@ -229,7 +229,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
 
 if response.status_code == 201:
     # Successful API execution

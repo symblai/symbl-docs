@@ -196,7 +196,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params))
 
 if response.status_code == 201:
     # Successful API execution
@@ -366,7 +366,7 @@ exit()
 
 ### Polarity
 
-In the response you'll noitice the polarity field which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. If you wish to read more about Polarity you can checkout our article on Sentimental Analysis [here](/docs/concepts/sentiment-analysis).
+In the response you'll notice the polarity field which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. If you wish to read more about Polarity you can checkout our article on Sentimental Analysis [here](/docs/concepts/sentiment-analysis).
 
 ```js
 {

@@ -12,6 +12,10 @@ import TabItem from '@theme/TabItem';
 
 You can add a custom domain to personalize the URL of your Summary UI by injecting your company or brand name into the URL. You can utilize Symbl's vanity domain of `symbl.us` for your custom subdomains. 
 
+:::info
+Currently, custom domain is supported for [Text](/docs/pre-built-ui/text-summary-ui) and [Video Summary UI](/docs/pre-built-ui/video-summary-ui). 
+:::
+
 **Example** <br/>
 
 Your Summary UI will have the following URL definition: 
@@ -25,10 +29,6 @@ Given below is a sample of a Summary UI with custom domain URL:
 
 :::important
 By default, you can register 1 subdomain per account.
-:::
-
-:::note
-The custom domain feature is supported for the Text Summary and Video Summary UI. Custom domain for Tracker and Analytics Summary UI will be added soon.
 :::
 
 ### Step 1: Register your Subdomain

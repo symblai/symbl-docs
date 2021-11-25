@@ -236,7 +236,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
 
 if response.status_code == 201:
     # Successful API execution
@@ -329,7 +329,7 @@ Field | Required | Type | Description
     }
   }, {
     "payload": {
-      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
     },
     "from": {
       "userId": "mike@abccorp.com",

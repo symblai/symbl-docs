@@ -51,7 +51,7 @@ The tracker names used in the example below are only for explanatory purposes. Y
 &nbsp; &nbsp; &nbsp;*“Use case”*,<br/>
 &nbsp; &nbsp; &nbsp;*“Fits our requirement”*,<br/>
 &nbsp; &nbsp; &nbsp;*“Quotes”*,<br/>
-&nbsp; *“Discounts”*.
+&nbsp; &nbsp; &nbsp;*“Discounts”*.
 
 ## Key Features
 
