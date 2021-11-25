@@ -13,9 +13,8 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 
 ### 22 Oct 2021
 ![api update](/img/api-update.png) 
-- **Support for generating Summary for only new transcripts** <font color="orange"> (LABS) </font><br/>
-[Read more here](/docs/streaming-api/api-reference#request-parameters).
-
+- **Added support for generating Summary for only the new Transcripts of a Conversation** <font color="orange"> (LABS) </font><br/>
+[Read more here](/docs/tutorials/summarization/refreshing-summary#regenerate-summary-for-only-new-transcripts).
 
 ### 14 Oct 2021
 ![api update](/img/api-update.png) 
