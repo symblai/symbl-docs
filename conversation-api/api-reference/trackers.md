@@ -1,7 +1,7 @@
 ---
 id: trackers
-title: GET Trackers (Beta)
-sidebar_label: GET Trackers (Beta)
+title: GET Trackers-detected (Beta)
+sidebar_label: GET Trackers-detected (Beta)
 slug: /conversation-api/trackers
 ---
 import Tabs from '@theme/Tabs';
@@ -154,3 +154,4 @@ Let’s go over the members of the response body which contains the detected tra
     3.  `value`: The textual value of the `vocabulary` for which this match was detected.
         
     4.  `insightRefs`: Array of insights for which this `Tracker` was detected. This has the same structure that `messageRefs` array has.
+
