@@ -244,6 +244,53 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
 ]
 ```
 
+### Detecting Trackers with Async API
+
+You can also use the Async API to detect Trackers by sending a list of Tracker IDs of previously created trackers (from the Management API). The Trackers will be searched in the submitted Async API request containing the conversation.  
+
+#### Example 
+In the example given below, we will send the following trackers IDs in the Async API request assuming they were already created:
+```shell
+"trackers": [
+    {
+      "id": "5123033831841280"
+    },
+    {
+      "id": "6174043823841420"  
+    },
+```
+#### Full Request Sample
+Given below is an example of an Async Text API call sent with Tracker IDs:
+
+```shell
+curl --location --request POST 'https://api.symbl.ai/v1/process/text' \
+--header "Authorization: Bearer $AUTH_TOKEN" \
+# Set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Afternoon Business Meeting",
+  "detectPhrases": true,
+  "confidenceThreshold": 0.6,
+  "entities": [
+    {
+      "customType": "Company Executives",
+      "value": "Marketing director",
+      "text": "Marketing director"
+    }
+  ],
+  "detectEntities": true,
+  "messages": [],
+  "trackers": [
+    {
+      "id": "5123033831841280"
+    },
+    {
+      "id": "6174043823841420"  
+    },
+  ]
+}'
+```
+
 ## Consuming Trackers with Streaming API 
 ---
 
