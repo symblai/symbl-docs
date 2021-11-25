@@ -22,7 +22,11 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 This tutorial provides a step-by-step instructions on how to get a Summary using Async APIs. 
 
-To do this, follow the steps given below:
+To do this, follow the steps given below.
+
+:::note
+- If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary will use temporary labels to assign speakers. For example, it will assign the speakers with labels such as "Speaker 1", "Speaker 2" and so on. In this case, we recommend you to update the labels with actual names using [Speaker Events API](/docs/conversation-api/speaker-events) so you can get a more personalized summary. 
+:::
 
 ### Step 1: Process conversations with Async API with enableSummary=true parameter
 ---
@@ -191,7 +195,7 @@ The response will return the Summary as shown below:
 
 <div class="row">
   <div class="column">
-    <div class="card"><a href="/docs/conversation-api/summary#response-object"><h4>API Reference</h4>To know more about the Response Object descriptions and API parameters, see the Summary API section.</a></div>
+    <div class="card"><a href="/docs/conversation-api/summary"><h4>API Reference</h4>To know more about the Response Object descriptions and API parameters, see the Summary API section.</a></div>
   </div>
 </div>
 <br/>

@@ -8,7 +8,6 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
-
 :::info Symbl Labs
 This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
 
@@ -22,10 +21,11 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 When you wish to renegerate a Summary that you generated earlier, you can do so in two ways: 
 
-1. [Regenerate the entire Summary](#regenerate-the-entire-summary): This makes your earlier Summary and creates a new one.
-2. [Regenerate Summary for only new transcripts](#regenerate-summary-for-only-new-transcripts)
+1. [Regenerate the entire Summary](#regenerate-the-summary): This deletes your previously created Summary and replaces it with a new one.
+2. [Regenerate Summary for only new transcripts](#regenerate-summary-for-only-new-transcripts): This generates a Summary for only the new messages of the conversation. 
 
-## Regenerate the entire Summary 
+## Regenerate the Summary 
+---
 
 If you wish to regenerate the Summary that was already created, use the flag `refresh=true`. 
 
@@ -172,13 +172,23 @@ Parameter | Description |
 ```messageRefs.id``` | The identifier of each message that makes up a Summary.
 ```text```| The text of the Summary.
 
-## Regenerate Summary for only new transcripts
+## Regenerate Summary for only New Transcripts (LABS)
+---
+:::info Symbl Labs
+This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits.
 
-When you have new or additional transcript messages, you can generate a Summary for only the new ones by passing the parameter `refresh=false`. 
+You can access the Labs features using your Symbl App Id and Secret. If you don't already have it, sign up on platform to get your credentials.
+
+Note: The usage of data for Labs projects is stored for enhancing our research. We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary.
+
+For any queries or feedback, please contact us at labs@symbl.ai.
+:::
+
+When you have new or additional transcript messages, you can generate a Summary for only the new transcripts without regenerating the entire Summary. 
 
 ### Passing the parameter refresh=false in the Summary API
 
-The parameter `refresh=false` has to be passed as a query parameter in the Summary API as shown below:
+The parameter `refresh=false` has to be passed as a query parameter in the Summary API as shown below. Use the `conversationID` of the original conversation:
 
 #### Request
 
@@ -224,7 +234,7 @@ The parameter `refresh=false` has to be passed as a query parameter in the Summa
 
 <div class="row">
   <div class="column">
-    <div class="card"><a href="/docs/conversation-api/summary#response-object"><h4>API Reference</h4>To know more about the Response Object descriptions and API parameters, see the Summary API section.</a></div>
+    <div class="card"><a href="/docs/conversation-api/summary"><h4>API Reference</h4>To know more about the Response Object descriptions and API parameters, see the Summary API section.</a></div>
   </div>
 </div>
 <br/>
