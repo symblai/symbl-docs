@@ -14,9 +14,15 @@ The Symbl Web SDK provides access to the Symbl APIs from applications written in
 > **Source Code** <br/>
 Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://github.com/symblai/symbl-web-sdk). <br/>
 
-> For the Web SDK source code available in Labs, go here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
+
+:::note Web SDK in Labs
+The Web SDK is also available as a part of [Symbl Labs](/docs/labs) with select features. You can find the Web SDK Labs documentation here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs) and the source code here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
+
+
+:::
 
 ## Supported Browsers
+---
 
  |-- | Chrome | Edge Firefox | Firefox | Safari | 
  | -------| ---------- | ------- | ----- | ------- | 
@@ -27,7 +33,7 @@ Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://gi
  | Android | ![icon](/img/tick-mark.png)|  | ![icon](/img/tick-mark.png) | ![icon](/img/tick-mark.png) |
  
 ## Setup
-
+---
 To use the Symbl Web SDK, 
 
 You can include it via script tags in your HTML file:
@@ -40,25 +46,9 @@ In case of a front-end web application using a framework such as React, import i
 ```bash
 import symbl from "@symblai/symbl-web-sdk";
 ```
-:::note For Labs 
-
-## Installation
-`npm install @symblai/symbl-web-sdk@labs`
-
-## Setup
-n order to use the Symbl Web SDK you need to include it via script tags in your HTML file or in the case of a front-end web application using a framework such as React, import it in the ES2015 style.
-
-**HTML script**
-
-`<script src="https://storage.googleapis.com/symbl-web-sdk/latest-labs/symbl.min.js"></script>`
-
-**Web Application import**
-
-`import symbl from "@symblai/symbl-web-sdk";`
-:::
 
 ## Initialization
-
+---
 The `init` authenticates you to use the Symbl API using the provided authentication credentials.
 
 You can authenticate:
@@ -98,7 +88,7 @@ sdk.init({
 ```
 
 ## Tutorials
-
+---
 We have prepared a list of tutorials to help you understand how to use the Web SDK.
 
 #### Streaming API Tutorials
@@ -107,30 +97,21 @@ We have prepared a list of tutorials to help you understand how to use the Web S
 
 
 ### Code Snippets
-
+---
 #### Streaming API Code Snippets
 
 * [Subscribe to real-time Events](/docs/web-sdk/subscribe-real-time)
 * [Reconnecting to an Existing Real-time Connection](/docs/web-sdk/reconnecting-real-time)
 * [Muting and Unmuting the Connected Device](/docs/web-sdk/muting-and-unmuting-connected-device)
 * [Stopping Real-time Connection](/docs/web-sdk/stopping-real-time)
-* [Features in Labs](/docs/web-sdk/web-sdk-labs)
 
 
 ### JavaScript SDK Reference
+---
+The supported events for the Web SDK are listed below:
 
-Supported methods and events for the Symbl JavaScript SDK are listed below:
-
-* [Public Endpoints](/docs/javascript-sdk/reference#public-methods)
-    * [init](/docs/javascript-sdk/reference#init)
-    * [startEndpoint](/docs/javascript-sdk/reference#startendpoint)
-    * [stopEndpoint](/docs/javascript-sdk/reference#stopendpoint)
-    * [startRealtimeRequest](/docs/javascript-sdk/reference#startRealtimeRequest)
-    * [subscribeToConnection](/docs/javascript-sdk/reference#subscribetoconnection)
-    * [pushEventOnConnection](/docs/javascript-sdk/reference#pusheventonconnection)
 * [Event Handlers](/docs/javascript-sdk/reference#event-handlers-1)
     * [onSpeechDetected](/docs/javascript-sdk/reference#onspeechdetected)
     * [onMessageResponse](/docs/javascript-sdk/reference#onmessageresponse)
     * [onInsightResponse](/docs/javascript-sdk/reference#oninsightresponse)
     * [onTopicResponse](/docs/javascript-sdk/reference#ontopicresponse)
-

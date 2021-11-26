@@ -155,3 +155,7 @@ Let’s go over the members of the response body which contains the detected tra
         
     4.  `insightRefs`: Array of insights for which this `Tracker` was detected. This has the same structure that `messageRefs` array has.
 
+:::caution Old Endpoint
+The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
+:::

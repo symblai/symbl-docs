@@ -35,3 +35,9 @@ symbl.subscribeToStream(id, (data) => {
 	console.log('data:', data);
 })
 ```
+
+The `subscribeToStream` function allows you to subscribe to existing streaming connection in read-only. It takes the following parameters:
+
+| Parameters | Type | Example | 
+| ---------- | ------- | ------- | 
+| `id` | String | Connection ID created on connection `init`|
