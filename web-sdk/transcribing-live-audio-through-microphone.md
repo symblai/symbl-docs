@@ -1,6 +1,6 @@
 ---
 id: transcribing-live-audio-through-microphone
-title: Transcribing Live Audio Input through Microphone
+title: Transcribing Live Audio Input through Microphone (Beta)
 sidebar_label: Transcribing Live Audio Input through Microphone
 
 ---
