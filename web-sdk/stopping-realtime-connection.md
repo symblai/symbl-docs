@@ -1,6 +1,6 @@
 ---
 id: stopping-real-time
-title: Stopping Real-time Connection
+title: Stopping Real-time Connection (Beta)
 sidebar_label: Stopping Real-time Connection 
 slug: /web-sdk/stopping-real-time
 ---

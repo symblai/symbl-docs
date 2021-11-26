@@ -1,6 +1,6 @@
 ---
 id: muting-and-unmuting-connected-device
-title: Muting and Unmuting Connected Device
+title: Muting and Unmuting Connected Device (Beta)
 sidebar_label: Muting and Unmuting Connected Device
 
 ---

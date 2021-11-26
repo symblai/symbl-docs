@@ -1,6 +1,6 @@
 ---
 id: reconnecting-real-time
-title: Reconnecting to an Existing Real-time Connection
+title: Reconnecting to an Existing Real-time Connection (Beta)
 sidebar_label: Reconnecting to an Existing Real-time Connection
 slug: /web-sdk/reconnecting-real-time
 ---

@@ -1,6 +1,6 @@
 ---
 id: web-subscribe-real-time
-title: Subscribing to an Existing Real-time Connection 
+title: Subscribing to an Existing Real-time Connection (Beta)
 sidebar_label: Subscribe to an Existing Real-time Connection
 slug: /web-sdk/subscribe-real-time
 ---
