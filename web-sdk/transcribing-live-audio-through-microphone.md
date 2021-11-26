@@ -81,3 +81,10 @@ const connectionConfig = {
 })();
 ```
 
+Read more about the supported Event Handlers:
+
+&nbsp; &nbsp; 👉 &nbsp; [onSpeechDetected](/docs/javascript-sdk/reference#onspeechdetected) <br/>
+&nbsp; &nbsp; 👉 &nbsp; [onMessageResponse](/docs/javascript-sdk/reference#onmessageresponse) <br/>
+&nbsp; &nbsp; 👉 &nbsp; [onInsightResponse](/docs/javascript-sdk/reference#oninsightresponse) <br/>
+&nbsp; &nbsp; 👉 &nbsp; [onTopicResponse](/docs/javascript-sdk/reference#ontopicresponse)
+
