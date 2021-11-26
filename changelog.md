@@ -11,6 +11,11 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 22 Oct 2021
+![api update](/img/api-update.png) 
+- **Added support for generating Summary for only the new Transcripts of a Conversation** <font color="orange"> (LABS) </font><br/>
+[Read more here](/docs/tutorials/summarization/refreshing-summary#regenerate-summary-for-only-new-transcripts).
+
 ### 14 Oct 2021
 ![api update](/img/api-update.png) 
 - **Added parameters to stop and start the Streaming API processing without disconnecting** <font color="orange"> (LABS) </font><br/>
