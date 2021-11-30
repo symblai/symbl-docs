@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 [Symbl's Async API](/docs/async-api/introduction) allows you to process audio, video or text data and transform them into AI insights such as Topics, Action Items, Questions, and more. In this guide, we will walk you through how to process a video recording and receive our [Pre-built UI](/docs/pre-built-ui/summary-ui). The Pre-built UI generates a UI which contains all the information and analysis from your conversation which can be shared through a shareable link.
 
+![Video Summary UI](/img/video-summary-ui-new.png)
+
 ## Contents 
 
 * [Getting Started](#getting-started)
@@ -335,9 +337,7 @@ Once we make that call to the Experience API you will get a response with the Vi
 
 ## Conclusion
 
-In the response is a `url` field that contains the URL to the Video Summary UI. Opening up that page will bring us to our Pre-built UI. You can view an example of what the Video Summary UI will look like:
-
-![Video Summary UI](/img/video-summary-ui-new.png)
+In the response is a `url` field that contains the URL to the Video Summary UI. Opening up that page will bring us to our Pre-built UI.
 
 
 
