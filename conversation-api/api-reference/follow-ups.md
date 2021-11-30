@@ -4,9 +4,11 @@ title: GET Follow-Ups
 sidebar_label: GET Follow-Ups
 slug: /conversation-api/follow-ups
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 This API returns list of all the follow-ups generated from the conversation.
 
