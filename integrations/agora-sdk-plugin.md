@@ -103,7 +103,7 @@ This section walks you through the steps necessary to set up the Symbl Conversat
 implementation fileTree(include: ['*.jar'], dir: 'libs')
 implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 implementation 'org.java-websocket:Java-WebSocket:1.5.1'
-implementation 'ai.symbl:android.extension:0.0.1'
+implementation 'ai.symbl:android.extension:0.0.2'
 ```
 2. Implement the interface io.agora.rtc2.IMediaExtensionObserver
  
