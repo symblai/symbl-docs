@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The Symbl Web Javascript SDK lets you subscribe to real-time events when you connect to one of the Endpoints specified in the above sections. 
+The Symbl Web SDK lets you subscribe to real-time events when you connect to one of the Endpoints specified in the above sections. 
 You must open this example in a different browser while the realtime transcription example is running.
 
 These include:
