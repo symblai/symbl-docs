@@ -216,9 +216,11 @@ url = baseUrl + conversationId
 payload = {
     "name": "Business Meeting",  # <Optional,String| your_meeting_name by default conversationId>
 
-    "confidenceThreshold": 0.6,  # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
+    "confidenceThreshold": 0.6,
+    # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
 
-    "detectPhrases": True,  # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+    "detectPhrases": True,
+    # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
     "messages": [
         {
             "payload": {
@@ -269,7 +271,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("PUT", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
     # Successful API execution
