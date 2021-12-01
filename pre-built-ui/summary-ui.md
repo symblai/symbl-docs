@@ -3,11 +3,13 @@ id: text-summary-ui
 title: Summary UI
 sidebar_label: Summary UI
 slug: /pre-built-ui/summary-ui
+
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VideoDemoButton from '@site/src/components/Button';
+import VideoDemoButton from '@site/src/components/Button';   
+_________________________________________________________
 
 The Summary UI provides users with a translated meeting summary page with transcript, attendees, topics, action items, follows ups, and more.
 

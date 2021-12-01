@@ -25,11 +25,13 @@ For trial, [Streaming API](/docs/streamingapi/introduction) has a limit of 2 con
 If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai.
 
 
+
 ### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) supports?  
+
 
 The API accepts files that are 4 hours or less in duration.
 
-### What audio formats and channels does [Async Audio API](/docs/async-api/overview/introduction) support?
+### What audio formats and channels does [Async Audio API](/docs/async-api/introduction/#audio-api) support?
 
 The audio formats which we support are **mp3**, **wav**, **amr**, **aac**, **ac3**, **aiff**, **flac**, **ogg**, **opus**, **.wma** and **m4a**.
 Also, we support mono and dual-channel audio files.
@@ -39,7 +41,9 @@ If you have any other type of file and/or stereo audio, you need to first conver
 
 ### What languages do you support for Async APIs?
 
+
 Our Async APIs support multiple popular languages. To see the complete list, go to the [Languages Supported](/docs/async-api/overview/async-api-supported-languages) section. 
+
 
 ### What happens when the Speaker Diarization and Speaker recognition per Channel are both set to "True"?
 
