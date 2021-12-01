@@ -1,6 +1,6 @@
 ---
 id: web-subscribe-real-time
-title: Subscribing to an Existing Real-time Connection 
+title: Subscribing to an Existing Real-time Connection (Beta)
 sidebar_label: Subscribe to an Existing Real-time Connection
 slug: /web-sdk/subscribe-real-time
 ---
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The Symbl Web Javascript SDK lets you subscribe to real-time events when you connect to one of the Endpoints specified in the above sections. 
+The Symbl Web SDK lets you subscribe to real-time events when you connect to one of the Endpoints specified in the above sections. 
 You must open this example in a different browser while the realtime transcription example is running.
 
 These include:
@@ -35,3 +35,9 @@ symbl.subscribeToStream(id, (data) => {
 	console.log('data:', data);
 })
 ```
+
+The `subscribeToStream` function allows you to subscribe to existing streaming connection in read-only. It takes the following parameters:
+
+| Parameters | Type | Example | 
+| ---------- | ------- | ------- | 
+| `id` | String | Connection ID created on connection `init`|

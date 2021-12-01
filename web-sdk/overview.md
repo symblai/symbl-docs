@@ -1,6 +1,6 @@
 ---
 id: web-sdk
-title: Symbl Web SDK 
+title: Symbl Web SDK (Beta)
 sidebar_label: Introduction
 slug: /web-sdk/overview
 ---
@@ -9,14 +9,14 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The Symbl Web SDK provides access to the Symbl APIs from applications written in the JavaScript directly in the browser. It includes a pre-defined set of classes so you can easily utilize APIs.
+The Symbl Web SDK provides access to the Symbl APIs for applications in the browser directly. 
 
 > **Source Code** <br/>
 Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://github.com/symblai/symbl-web-sdk). <br/>
 
-> For the Web SDK source code available in Labs, go here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
 
 ## Supported Browsers
+---
 
  |-- | Chrome | Edge Firefox | Firefox | Safari | 
  | -------| ---------- | ------- | ----- | ------- | 
@@ -27,10 +27,10 @@ Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://gi
  | Android | ![icon](/img/tick-mark.png)|  | ![icon](/img/tick-mark.png) | ![icon](/img/tick-mark.png) |
  
 ## Setup
+---
+**To use the Symbl Web SDK,**
 
-To use the Symbl Web SDK, 
-
-You can include it via script tags in your HTML file:
+Include it via script tags in your HTML file:
 
 ```html
 <script src="https://storage.googleapis.com/symbl-web-sdk/latest/symbl.min.js"></script>
@@ -40,26 +40,10 @@ In case of a front-end web application using a framework such as React, import i
 ```bash
 import symbl from "@symblai/symbl-web-sdk";
 ```
-:::note For Labs 
-
-## Installation
-`npm install @symblai/symbl-web-sdk@labs`
-
-## Setup
-n order to use the Symbl Web SDK you need to include it via script tags in your HTML file or in the case of a front-end web application using a framework such as React, import it in the ES2015 style.
-
-**HTML script**
-
-`<script src="https://storage.googleapis.com/symbl-web-sdk/latest-labs/symbl.min.js"></script>`
-
-**Web Application import**
-
-`import symbl from "@symblai/symbl-web-sdk";`
-:::
 
 ## Initialization
-
-The `init` authenticates you to use the Symbl API using the provided authentication credentials.
+---
+The `init` authenticates you to use the Symbl API using the provided authentication credentials. To get authentication credentials (App ID and Secret), follow the steps given in the [Authentication](/docs/developer-tools/authentication#step-1-get-your-api-credentials) page. 
 
 You can authenticate:
 
@@ -71,7 +55,7 @@ You can authenticate:
 
 ### Authenticate using API Credentials
 
-Use the code given below to authenticate using your Symbl App ID and App Secret. 
+Use the code given below to authenticate using your App ID and App Secret. 
 
 ```js
 sdk.init({
@@ -86,7 +70,7 @@ sdk.init({
 
 ### Authenticate using Token 
 
-Use the code given below to authenticate using the Auth Token. 
+Use the code given below to authenticate using the Auth Token. To generate the Auth Token follow the Steps given in the [Authentication](/docs/developer-tools/authentication#step-2-generate-the-access-token) Page. 
 
 ```js
 sdk.init({
@@ -97,40 +81,48 @@ sdk.init({
 .catch(err => console.error('Error in initialization.', err));
 ```
 
+
+:::note Web SDK in Labs
+The Web SDK is also available as a part of [Symbl Labs](/docs/labs) with select features. You can find the Web SDK Labs documentation here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs) and the source code here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
+
+### Features in Labs
+
+The following features are available in Labs for Web SDK. For more details, go to the [GitHub Readme]([https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs)):
+
+| Parameter | Required | Description |
+| -------| ---------- | --------- |
+|`disconnectonOnStopRequest` | Optional, default: true | If set to `false` the WebSocket will be set to a non-processing state if the `stop_request` event is set. In this state, the connection can be re-opened if the `start_request` event is sent. If `true` the WebSocket connection will close as normal.
+|`disconnectOnStopRequestTimeout` | Optional | Accepts a value of 0 to 1800 seconds. Indicates how long this connection will remain in a non-processing state before timing out. |
+|`noConnectionTimeout` | Optional | Accepts a value of 0 to 1800 seconds. Indicates how long a connection will remain active even when no one is connected. By using the same connectionId anyone can reconnect to this WebSocket before it times out completely.|
+|`sourceNode` | Optional, default: null | For passing in an external `MediaStreamAudioSourceNode` object. By default the Web SDK will handle audio context and source nodes on it's own, though if you wish to handle that externally we've provided that option.|
+|`config.encoding` | Optional, default: 'linear16' | Accepts either 'opus' or 'linear16'. For linear16, you must set the sampleRateHertz option. For opus the sampleRateHertz should always be 48000. |
+| `handlers.ondevicechange` | Optional | By default Symbl Web SDK will provide the ondevicehandler logic, which just takes the new device and sends the sample rate over to our servers. If you wish to override this logic you can do so by passing an ondevicechange function into the handlers section of the config. You can assign a function to symbl.deviceChanged as a callback to when the event is fired.
+| `reconnectOnError` | Optional, default: true | If true the Web SDK will attempt to reconnect to the WebSocket in case of error.
+
+:::
+
 ## Tutorials
-
+---
 We have prepared a list of tutorials to help you understand how to use the Web SDK.
-
-#### Streaming API Tutorials
 
 * [Transcribing Live Audio Input through Microphone](/docs/web-sdk/transcribing-live-audio-through-microphone)
 
 
 ### Code Snippets
-
-#### Streaming API Code Snippets
+---
 
 * [Subscribe to real-time Events](/docs/web-sdk/subscribe-real-time)
 * [Reconnecting to an Existing Real-time Connection](/docs/web-sdk/reconnecting-real-time)
 * [Muting and Unmuting the Connected Device](/docs/web-sdk/muting-and-unmuting-connected-device)
 * [Stopping Real-time Connection](/docs/web-sdk/stopping-real-time)
-* [Features in Labs](/docs/web-sdk/web-sdk-labs)
 
 
-### JavaScript SDK Reference
+### Web SDK Reference
+---
+The supported events for the Web SDK are listed below:
 
-Supported methods and events for the Symbl JavaScript SDK are listed below:
-
-* [Public Endpoints](/docs/javascript-sdk/reference#public-methods)
-    * [init](/docs/javascript-sdk/reference#init)
-    * [startEndpoint](/docs/javascript-sdk/reference#startendpoint)
-    * [stopEndpoint](/docs/javascript-sdk/reference#stopendpoint)
-    * [startRealtimeRequest](/docs/javascript-sdk/reference#startRealtimeRequest)
-    * [subscribeToConnection](/docs/javascript-sdk/reference#subscribetoconnection)
-    * [pushEventOnConnection](/docs/javascript-sdk/reference#pusheventonconnection)
 * [Event Handlers](/docs/javascript-sdk/reference#event-handlers-1)
     * [onSpeechDetected](/docs/javascript-sdk/reference#onspeechdetected)
     * [onMessageResponse](/docs/javascript-sdk/reference#onmessageresponse)
     * [onInsightResponse](/docs/javascript-sdk/reference#oninsightresponse)
     * [onTopicResponse](/docs/javascript-sdk/reference#ontopicresponse)
-
