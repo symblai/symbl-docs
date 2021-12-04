@@ -282,6 +282,12 @@ handlers: {
   onTopicResponse: (data) => {
     console.log('onTopicResponse', JSON.stringify(data, null, 2))
   }
+  /**
+   * When Symbl detects a tracker word, this callback will be called.
+   */
+  onTrackerResponse: (data) => {
+    console.log('onTrackerResponse', JSON.stringify(data.trackers, null, 2));
+  }
 }
 ```
 
@@ -460,4 +466,66 @@ This callback provides you with any of the detected topics in real-time as they 
   "score": 0.9,
   "type": "topic"
 }]
+```
+
+### onTrackerResponse
+
+This callback provides you with any of the detected trackers in real-time as they are detected. As with the [`onMessageCallback`](#onmessagecallback) this would also return every tracker in case of multiple streams.
+
+#### onTrackerResponse JSON Response Example
+
+```json
+{
+  "type": "tracker_response",
+  "isFinal": true,
+  "trackers": [
+    {
+      "name": "Goodness",
+      "matches": [
+        {
+          "type": "vocabulary",
+          "value": "This is awesome",
+          "messageRefs": [
+            {
+              "id": "fa93aa64-0e8d-4697-bb52-e2916ca63192",
+              "text": "This is awesome.",
+              "offset": 0
+            }
+          ],
+          "insightRefs": []
+        },
+        {
+          "type": "vocabulary",
+          "value": "Hello world",
+          "messageRefs": [
+            {
+              "id": "8e720656-fed7-4b11-b359-3931c53bbcec",
+              "text": "Hello world.",
+              "offset": 0
+            }
+          ],
+          "insightRefs": []
+        }
+      ]
+    },
+    {
+      "name": "Goodness",
+      "matches": [
+        {
+          "type": "vocabulary",
+          "value": "I like it",
+          "messageRefs": [
+            {
+              "id": "193dc144-2b55-4214-b211-ab83bd3e4a2e",
+              "text": "I love it.",
+              "offset": -1
+            }
+          ],
+          "insightRefs": []
+        }
+      ]
+    }
+  ],
+  "sequenceNumber": 1
+}
 ```
