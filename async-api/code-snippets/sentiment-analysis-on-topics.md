@@ -180,7 +180,7 @@ Headers requirements vary based on the conversation “content-type”. Therefor
 The body parameter is defined in the operation's parameters section and includes the following: objects that describe the body data type and structure. Learn more about Response Body Parameters [here](/docs/conversation-api/messages/#response-object).
 
 ### Polarity and Score
-Sentiment Analysis is the interpretation of the general thought, feeling, or sense of an object or a situation. In the Response, you’ll notice the `sentiment` field which shows the sentiment type (positive, negative, and neutral). It is scored using “polarity” values which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment.  
+Sentiment Analysis is the interpretation of the general thought, feeling, or sense of an object or a situation. In the Response, you’ll notice the `sentiment` field which shows the sentiment type (positive, negative, and neutral). It is scored using “polarity” values which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment.
 
 ### Sample Code Snippet: 
 
