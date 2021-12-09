@@ -248,7 +248,7 @@ In the response above, you will notice the `conversationId` field. Using the `co
 <TabItem value="cURL">
 
 ```sh
-curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/trackers" \
+curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/trackers-detected" \
     -H "Authorization: Bearer $AUTH_TOKEN"
 ```
 
@@ -262,7 +262,7 @@ const authToken = AUTH_TOKEN;
 const conversationId = CONVERSATION_ID;
 
 request.get({
-    url: `https://api.symbl.ai/v1/conversations/${conversationId}/trackers`,
+    url: `https://api.symbl.ai/v1/conversations/${conversationId}/trackers-detected`,
     headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
@@ -276,7 +276,7 @@ request.get({
 ```py
 import requests
 
-baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/trackers"
+baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/trackers-detected"
 conversationId = 'your_conversation_id'  # Generated using Submit text end point
 
 url = baseUrl.format(conversationId=conversationId)
@@ -471,3 +471,8 @@ An action item is a specific outcome recognized in the conversation that require
 
 **[View follow-ups](/docs/conversation-api/follow-ups)**<br />
 This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
+:::caution Old Endpoint
+The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
+:::

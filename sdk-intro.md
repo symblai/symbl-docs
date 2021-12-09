@@ -1,7 +1,7 @@
 ---
 id: sdk-intro
-title: Symbl SDK
-sidebar_label: Symbl SDK
+title: Symbl SDKs
+sidebar_label: Symbl SDKs
 slug: /sdk-intro
  
 ---

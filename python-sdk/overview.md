@@ -7,6 +7,8 @@ slug: /python-sdk/overview
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Symbl Python SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. You can generate Speech-to-Text and get intelligent insights such as action items, topics and questions, etc. 
 
 > **Source Code** <br/>
