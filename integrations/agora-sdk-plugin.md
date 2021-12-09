@@ -78,43 +78,39 @@ Following are some of the prerequisites of integrating Symbl-Agora extension:
 Learn more about the Agora required credentials in the [Setup Authentication](https://docs.agora.io/en/Agora%20Platform/token) page.
 
 
-- **Symbl API Credentials**: You will also need the Symbl API credentials which are available in the Symbl Conversation Intelligence extension page on a specific project. 
+- **Symbl API Credentials**: You will also need the Symbl API credentials which are available on the Symbl Conversation Intelligence Extensions Marketplace product details page. 
 
-To get your credentials, click **View** under **Credentials** column and you will be able to see the Symbl credentials (App ID and App Secret).
+Navigate to the [Agora Extensions Marketplace](https://console.agora.io/marketplace) and click on the Symbl [card](https://console.agora.io/marketplace/extension/introduce?serviceName=symbl).
+
+Activate the Symbl Conversation Intelligence Extension.
+
+![symbl-extension-activation](/img/symbl-activation-extension.png)
+
+After activating the Symbl Conversation Intelligence Extension, click the **View** button under the **Credentials** column to retrieve the required Symbl credentials (App ID and App Secret).
 
 ![symbl-creds-agora](/img/access_symbl_creds_on_agora_dashoboard.png)
+
+- **Android Mobile Application**: This guide assumes you have an Android mobile application with the Agora Video SDK enabled. Follow the steps [here](https://docs.agora.io/en/Video/start_call_android?platform=Android) to set it up.
 
 ### Integration Steps
 ---
 
 This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application.
 
-1. Download the following files:
-   - [arm64-v8a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/arm64-v8a.zip)
-   - [armeabi-v7a.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/armeabi-v7a.zip)
-   - [libs.zip](https://cdn-agora.symbl.ai/agora-sdk/sdk-v1.0/libs/libs.zip)
-   - [agora-symblai-filter-debug.aar](https://cdn-agora.symbl.ai/agora-symblai-filter-debug.aar)
- 
-2. Add the `.aar` file as a dependency to your application. 
-![agora-creds](/img/agora-arr-files.png)
-3. Create a new folder called `jniLibs` under your application (`app/src/main`).
-4. Extract the `agora-sdk/v1.0/arm64-v8a.zip` and copy the folder `arm64-v8a` under the `jniLibs` folder you created in the previous step. 
-5. Extract the `agora-sdk/v1.0/armeabi-v7a.zip` and copy the folder `armeabi-v7a` under the `jniLibs` folder you created in the previous step.
-6. Extract the `agora-sdk/sdk-v1.0/libs.zip` and copy the file `agora-rtc-sdk.jar` under the folder `app/libs`.
-7. Add the following information into your `build.gradle` module file:
+1. Add the following information into your `build.gradle` module file:
 
 ```js
-implementation fileTree(include: ['*.jar'], dir: 'libs')
 implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+implementation 'ai.symbl:android.extension:0.0.2'
 ```
-8. Implement the interface io.agora.rtc2.IMediaExtensionObserver
+2. Implement the interface io.agora.rtc2.IMediaExtensionObserver
  
 ```js
 public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMediaExtensionObserver {
 ```
 
-9. Add the following method to set all the necessary information to initialize the Symbl configuration. You can find description for the parameters used in the table below:
+3. Add the following method to set all the necessary information to initialize the Symbl configuration. You can find description for the parameters used in the table below:
 
 ```js
 private void setSymblPluginConfigs(JSONObject pluginParams) throws JSONException {
@@ -127,7 +123,7 @@ private void setSymblPluginConfigs(JSONObject pluginParams) throws JSONException
        apiConfig.setAppId("<symbl_app_id>");
        apiConfig.setAppSecret("<symbl_app_secret>");
        apiConfig.setTokenApi("https://api.symbl.ai/oauth2/token:generate");
-       apiConfig.setSymblPlatformUrl("https://api-agora.symbl.ai");
+       apiConfig.setSymblPlatformUrl("api-agora-1.symbl.ai");
        symblParams.setApiConfig(apiConfig);
 
        // Set the Symbl Confidence Level and Language Code
@@ -188,7 +184,7 @@ The following table lists the parameters and their descriptions used in the samp
 | `symbl_meeting_UserId` | Used to identify the user in the real-time meeting.
 | `symbl_meeting_user_Name` | The name of the user attending the real-time meeting.
 | `symbl_unique_meetingId` | Unique identifier for the meeting.
-| `symbl_platform_url` | The URL for the Symbl platform.
+| `symbl_platform_url` | The dedicated URL for the Symbl platform. Use `api-agora-1.symbl.ai`.
 | `symbl_app_id` | The Symbl App ID.
 | `symbl_app_secret` | The Symbl App Secret.
 | `symbl_meeting_language_code` | The language code. Currently, en-US (English US) is the only language supported.
@@ -310,23 +306,23 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import io.agora.extension.symblai.model.request.ApiConfig;
-import io.agora.extension.symblai.model.request.RealtimeAPIConfig;
-import io.agora.extension.symblai.model.request.RealtimeStartRequest;
-import io.agora.extension.symblai.model.request.Redaction;
-import io.agora.extension.symblai.model.request.Speaker;
-import io.agora.extension.symblai.model.request.SpeechRecognition;
-import io.agora.extension.symblai.model.request.SymblPluginConfig;
-import io.agora.extension.symblai.model.request.Tracker;
-import io.agora.extension.symblai.model.response.SymblResponse;
+import ai.symbl.android.extension.model.request.ApiConfig;
+import ai.symbl.android.extension.model.request.RealtimeAPIConfig;
+import ai.symbl.android.extension.model.request.RealtimeStartRequest;
+import ai.symbl.android.extension.model.request.Redaction;
+import ai.symbl.android.extension.model.request.Speaker;
+import ai.symbl.android.extension.model.request.SpeechRecognition;
+import ai.symbl.android.extension.model.request.SymblPluginConfig;
+import ai.symbl.android.extension.model.request.Tracker;
+import ai.symbl.android.extension.model.response.SymblResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import io.agora.extension.symblai.ExtensionManager;
-import io.agora.extension.symblai.SymblAIFilterManager;
+import ai.symbl.android.extension.ExtensionManager;
+import ai.symbl.android.extension.SymblAIFilterManager;
 import io.agora.rtc2.Constants;
 import io.agora.rtc2.IRtcEngineEventHandler;
 import io.agora.rtc2.RtcEngine;

@@ -12,6 +12,10 @@ The first thing you need to do before getting your conversational analytics is t
 
 While we provide you with a default video URL for the API to process, which can be downloaded [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4), you can replace that with any other video URL.
 
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
+
 ### Request Example
 
 :::info
@@ -192,7 +196,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
 
 if response.status_code == 201:
     # Successful API execution
@@ -221,7 +225,7 @@ exit()
 
 ## Receive Conversational Analytics
 
-In the response above, you will notice the `conversationId` field. Using the `conversationId` you can send a GET request to [GET Analytics](/docs/conversation-api/analytics) endpoint in the [Conversation API](/docs/conversation-api/introduction), which will give you various analtyics on the conversation such as talk time and listen time.
+In the response above, you will notice the `conversationId` field. Using the `conversationId` you can send a GET request to [GET Analytics](/docs/conversation-api/analytics) endpoint in the [Conversation API](/docs/conversation-api/introduction), which will give you various analytics on the conversation such as talk time and listen time.
 
 ### Request Example
 

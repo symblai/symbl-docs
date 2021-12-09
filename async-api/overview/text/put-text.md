@@ -58,7 +58,7 @@ curl --location --request PUT "https://api.symbl.ai/v1/process/text/$CONVERSATIO
     },
     {
       "payload": {
-        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
       },
       "from": {
         "userId": "mike@abccorp.com",
@@ -99,7 +99,7 @@ const payload = {
     },
     {
       "payload": {
-        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
       },
       "from": {
         "userId": "mike@abccorp.com",
@@ -179,7 +179,7 @@ const options = {
       },
       {
         "payload": {
-          "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+          "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
         },
         "from": {
           "userId": "mike@abccorp.com",
@@ -269,7 +269,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
 
 if response.status_code == 201:
     # Successful API execution
@@ -365,7 +365,7 @@ Field | Required | Type |  Description
     }
   }, {
     "payload": {
-      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
     },
     "from": {
       "userId": "mike@abccorp.com",
@@ -480,3 +480,7 @@ Field | Description
 ```
 
 Here, the value of `X` can be found in [FAQ](/docs/faq). 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::

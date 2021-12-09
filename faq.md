@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### Is my data safe with Symbl.ai?
 
-TL;DR: **Yes**
+**Yes**
 
 All data on the Symbl platform is encrypted and all connections are secured using 2048 bit AES encryption. Over the wire, data is encrypted using RSA 2048 bit keys. At rest, data is encrypted using AES-256.
 
@@ -25,7 +25,7 @@ For trial, [Streaming API](/docs/streamingapi/introduction) has a limit of 2 con
 If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai.
 
 
-### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) support?  
+### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) supports?  
 
 The API accepts files that are 4 hours or less in duration.
 

@@ -7,7 +7,7 @@ slug: /getting-started-with-telephony-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Telephony API provides a speech-to-text transcription and enable you to extract follow-ups, topics, action-items, and questions from conversations over the Zoom call.
+Telephony API provides a speech-to-text transcription and enables you to extract follow-ups, topics, action-items, and questions from conversations over the Zoom call.
 
 ## 1. Get a transcription of your Zoom call.
 
@@ -40,7 +40,7 @@ For more details please checkout below mentioned links:
 
 * [Connect Symbl To Zoom](/docs/telephony/tutorials/connect-to-zoom)
   * [Getting Started](/docs/telephony/tutorials/connect-to-zoom#getting-started)
-  * [Set Up Symbl SDK](/docs/telephony/tutorials/connect-to-zoom#set-up-symbl-sdk)
+  * [Setup Symbl SDK](/docs/telephony/tutorials/connect-to-zoom#set-up-symbl-sdk)
   * [Connect to Zoom](/docs/telephony/tutorials/connect-to-zoom#connect-to-zoom)
   * [Grabbing the Conversation ID](/docs/telephony/tutorials/connect-to-zoom#grabbing-the-conversation-id)
   * [Full Code Sample](/docs/telephony/tutorials/connect-to-zoom#full-code-sample)

@@ -21,6 +21,7 @@ Currently, we only support the English and Spanish language in Trackers for Stre
 ---
 
 When you're connecting to the [WebSocket](/docs/concepts/websockets) with Streaming API, you can define which language you wish to use in the `start_request` configuration. 
+
 For the Spanish language, we will set the `languageCode` key to Spanish (`es-ES`) in the `config` object as shown below:
 
 ### Config 

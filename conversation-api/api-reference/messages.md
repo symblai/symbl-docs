@@ -109,6 +109,13 @@ exit()
 </TabItem>
 </Tabs>
 
+### Request Headers
+
+Header Name  | Required | Description
+---------- | ------- |  ------- |
+```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type	``` | Mandatory | `application/json`
+```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
 ### Query Params
 
