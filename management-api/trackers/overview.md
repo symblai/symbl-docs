@@ -109,7 +109,7 @@ You will get the `conversationId` and the `jobId` as shown below:
 Using the `conversation_id` from Step 2, you can `GET` the Trackers for the conversation.
 
 ```shell
-GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
+GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected"
 ```
 #### Response 
 
@@ -216,7 +216,7 @@ After creating the Tracker, you can:
 Using the `conversation_id` you get from Step 1, you can `GET` the Trackers for the conversation.
 
 ```shell
-GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
+GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected"
 ```
 #### Response 
 
@@ -242,6 +242,53 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
     },
     ...
 ]
+```
+
+### Detecting Trackers with Async API
+
+You can also use the Async API to detect Trackers by sending a list of Tracker IDs of previously created trackers (from the Management API). The Trackers will be searched in the submitted Async API request containing the conversation.  
+
+#### Example 
+In the example given below, we will send the following trackers IDs in the Async API request assuming they were already created:
+```shell
+"trackers": [
+    {
+      "id": "5123033831841280"
+    },
+    {
+      "id": "6174043823841420"  
+    },
+```
+#### Full Request Sample
+Given below is an example of an Async Text API call sent with Tracker IDs:
+
+```shell
+curl --location --request POST 'https://api.symbl.ai/v1/process/text' \
+--header "Authorization: Bearer $AUTH_TOKEN" \
+# Set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "name": "Afternoon Business Meeting",
+  "detectPhrases": true,
+  "confidenceThreshold": 0.6,
+  "entities": [
+    {
+      "customType": "Company Executives",
+      "value": "Marketing director",
+      "text": "Marketing director"
+    }
+  ],
+  "detectEntities": true,
+  "messages": [],
+  "trackers": [
+    {
+      "id": "5123033831841280"
+    },
+    {
+      "id": "6174043823841420"  
+    },
+  ]
+}'
 ```
 
 ## Consuming Trackers with Streaming API 
@@ -313,3 +360,7 @@ const connection = await sdk.startRealtimeRequest({
 ```
 For detailed description of the parameters, see [Streaming API for Trackers](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) documentation. 
 
+:::caution Old Endpoint
+The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
+:::

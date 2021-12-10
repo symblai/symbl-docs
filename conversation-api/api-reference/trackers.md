@@ -1,7 +1,7 @@
 ---
 id: trackers
-title: GET Trackers (Beta)
-sidebar_label: GET Trackers (Beta)
+title: GET Trackers-detected (Beta)
+sidebar_label: GET Trackers-detected (Beta)
 slug: /conversation-api/trackers
 ---
 import Tabs from '@theme/Tabs';
@@ -15,7 +15,7 @@ This API allows you to get all the [Trackers](/docs/concepts/trackers) from your
 
 ### HTTP Request
 
-`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers-detected`
 
 ### Request Headers
 
@@ -44,7 +44,7 @@ Before using the Conversation API you must get the authentication token (`AUTH_T
 <TabItem value="cURL">
 
 ```shell
-curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/trackers" \
+curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/trackers-detected" \
     -H "Authorization: Bearer $AUTH_TOKEN"
 ```
 
@@ -58,7 +58,7 @@ const authToken = AUTH_TOKEN;
 const conversationId = CONVERSATION_ID;
 
 request.get({
-    url: `https://api.symbl.ai/v1/conversations/${conversationId}/trackers`,
+    url: `https://api.symbl.ai/v1/conversations/${conversationId}/trackers-detected`,
     headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
@@ -72,7 +72,7 @@ request.get({
 ```py
 import requests
 
-baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/trackers"
+baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/trackers-detected"
 conversationId = 'your_conversation_id'  # Generated using Submit text end point
 
 url = baseUrl.format(conversationId=conversationId)
@@ -154,3 +154,8 @@ Let’s go over the members of the response body which contains the detected tra
     3.  `value`: The textual value of the `vocabulary` for which this match was detected.
         
     4.  `insightRefs`: Array of insights for which this `Tracker` was detected. This has the same structure that `messageRefs` array has.
+
+:::caution Old Endpoint
+The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
+:::

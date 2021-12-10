@@ -72,17 +72,17 @@ Key  | Description
 
 ## Getting started
 
-This example runs on node server, so we will use `symbl-node` package.
+This example runs on node server, so we will use `@symblai/symbl-js` package.
 
 Open `.env` file and add your `APP_ID`, `APP_SECRET`, `EMAIL_ADDRESS`.
 
 
 ```javascript
 require('dotenv').config();
-const {sdk} = require('symbl-node');
+const {sdk} = require('@symblai/symbl-js');
 ```
 
-Let's start by initialising `symbl-node` sdk
+Let's start by initialising `@symblai/symbl-js` sdk
 
 
 ```js

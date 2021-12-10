@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connect to a call
 
-The following code example shows how you can connect the Telephony API to your cell phone (or any other type of phone number). Making a phone call is also the quickest way to test Symbl’s Telephony API. It can make an outbound call to a phone number using SIP endpoints that can be accessed over the internet using a SIP URI.
+The following code sample shows how you can connect the Telephony API to your cell phone (or any other type of phone number). Making a phone call is also the quickest way to test Symbl’s Telephony API. It can make an outbound call to a phone number using SIP endpoints that can be accessed over the internet using a SIP URI.
 
 
 #### <a name="code-example-1"></a>Code Example
@@ -32,32 +32,35 @@ curl -k -X POST "https://api.symbl.ai/v1/endpoint:connect" \
      -H "accept: application/json" \
      -H "Content-Type: application/json" \
      -H "X-API-KEY: $AUTH_TOKEN" \
-     -d $'{
+     -d {
       "operation": "start",
       "endpoint": {
+        "providerName": "Symbl",
         "type": "sip",
-        "uri": "sip:555@your_sip_domain", // SIP URI to dial in
-        "audioConfig": { // Optionally any audio configuration
-          "sampleRate": 16000,
-          "encoding": "PCMU",
-          "sampleSize": "16"
+        "uri": "sip:8021@sip.rammer.ai",
+        "audioConfig": {
+          "sampleRate": 48000,
+          "encoding": "OPUS",
+          "sampleSize": 16
         }
       },
-      "actions": [{
-        "invokeOn": "stop",
-        "name": "sendSummaryEmail",
-        "parameters": {
-          "emails": [
-            "'$EMAIL_ADDRESS'"
-          ]
+      "actions": [
+        {
+          "invokeOn": "stop",
+          "name": "sendSummaryEmail",
+          "parameters": {
+            "emails": [
+              "john@example.com",
+            ]
+          }
         }
-      }],
-      "data" : {
+      ],
+      "data": {
         "session": {
-           "name" : "My Meeting"
+          "name": "My Meeting"
         }
       }
-    }'
+    }
 ```
 
 #### Testing
@@ -287,6 +290,28 @@ If successful you should receive a response in the console.
 </Tabs>
 
 Running this code should connect our API to your phone call. Once the call is completed you will receive an email that details the conversation and provides you with a transcription and Insights about the call.
+
+### Response
+
+If successful, you will receive a response in the console as shown below:
+
+```json
+{
+    "eventUrl": "https://api.symbl.ai/v1/event/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "resultWebSocketUrl": "wss://api.symbl.ai/events/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "conversationId": "5687907911204864",
+    "connectionId": "f31ad3b9-341a-4950-a1c2-152f08da8aaa"
+}
+```
+### Response Parameters
+
+Field | Description
+---------- | ------- |
+```eventUrl``` | REST API to push speaker events as the conversation is in progress, to add additional speaker context in the conversation. Example - In an on-going meeting, you can push speaker events.
+```resultWebSocketUrl``` | Same as `eventUrl` but over WebSocket. The latency of events is lower with a dedicated WebSocket `connection.ct`.
+```connectionId``` | Ephemeral connection identifier of the request, to uniquely identify the telephony connection. Once the connection is stopped using “stop” operation, or is closed due to some other reason, the `connectionId` is no longer valid.
+```conversationId``` | Represents the conversation - this is the ID that needs to be used in conversation API to access the conversation.
+
 
 :::info
 If you have any questions or concerns about our API, you can join our [Support Slack](https://join.slack.com/t/symbldotai/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA) or send us an email at [developer@symbl.ai](mailto:developer@symbl.ai)

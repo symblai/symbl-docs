@@ -1,7 +1,7 @@
 ---
 id: redaction-pii
-title: Identifying and Redacting PII 
-sidebar_label: PII Identification and Redaction 
+title: Identifying and Redacting PII and PCI Data
+sidebar_label: PII and PCI Identification and Redaction 
 slug: /concepts/redaction-pii
 ---
 
@@ -23,29 +23,31 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 **Personally Identifiable Information (PII)** is any information about an individual that can be used to distinguish or trace the individual's identity, such as name, social security number, email address, phone number, etc.
 
+**Payment Card Industry data (PCI)** includes sensitive information such as credit card/ debit card number, bank account details, etc.
+
 Although, sensitive, they can appear in conversations such as account verification by customer care agents that requires the customer to share their name, email address or other confidential information. 
 
-Symbl provides the capability to identify and redact PII data from conversations and insights it processes. Redaction of PII is a process of concealing confidential information in messages and insights.
+Symbl provides the capability to identify and redact PII and PCI data from conversations and insights it processes. Redaction of PII and PCI data is a process of concealing confidential information in messages and insights.
 
 This feature will allow you to:
 
-- **Identify** any PII such as Social Security Number, Phone Number, etc. from messages and insights. See the complete list of supported PII entities [here](#supported-pii-entities). 
-- **Redact** PII in the messages and transcripts with a default masking redaction indicator "****". 
+- **Identify** any PII/ PCI data such as Social Security Number, Phone Number, etc. from messages and insights. See the complete list of supported PII/ PCI entities [here](#supported-piipci-entities). 
+- **Redact** PII/PCI data in the messages and transcripts with a default masking redaction indicator "****". 
 - **Mask with custom string** instead of the default redaction indicator. 
 
-A list of supported PII data that Symbl can identify and redact are given in [Supported PII Entities](#supported-pii-entities) section.
+A list of supported PII data that Symbl can identify and redact are given in [Supported PII/ PCI Entities](#supported-piipci-entities) section.
 
 :::info
-Currently, the PII identification and redaction is only supported for English for the [Streaming API](/docs/streamingapi/introduction).
+Currently, the PII and PCI data identification and redaction is only supported for English for the [Streaming API](/docs/streamingapi/introduction).
 :::
 
 
-## Identifying and Redacting PII 
+## Identifying and Redacting PII and PCI data
 
-To enable PII support for messages objects, provide additional payload in the request body for Streaming API.
+To enable PII/PCI support for messages objects, provide additional payload in the request body for Streaming API.
 
 For WebSocket request using Streaming API, add the `redaction` object in the `start_request` message to begin 
-the real-time PII identification and redaction while starting the connection to the Streaming API.
+the real-time PII/PCI identification and redaction while starting the connection to the Streaming API.
 
 ```json
 // sample payload of start_request message
@@ -54,12 +56,12 @@ the real-time PII identification and redaction while starting the connection to 
     "config": {
         "languageCode": "en-US",
         "redaction": {
-            // Enable identification of PII information
+            // Enable identification of PII/PCI information
             "identifyContent": true, // By default false
-            // Enable redaction of PII information
+            // Enable redaction of PII/PCI information
             "redactContent": true, // By default false
-            // Use custom string "[PII_ENTITY]" to replace PII information with
-            "redactionString": "[PII_ENTITY]" // By default ****
+            // Use custom string "[PII_PCI_ENTITY]" to replace PII/PCI information with
+            "redactionString": "[PII_PCI_ENTITY]" // By default ****
         }
     },
 }
@@ -135,7 +137,7 @@ ws.on('connect', (conn) => {
                 encoding: "LINEAR16",
                 sampleRateHertz: 44100,
             },
-            // this option enables redaction PII feature. This is optional
+            // this option enables redaction PII/PCI feature. This is optional
             redaction: {
                 identifyContent: true, // By default false
                 redactContent: true, // By default false
@@ -193,13 +195,13 @@ ws.connect('wss://api-labs.symbl.ai/v1/realtime/insights/MeetingID', null, null,
 ```
 Field Name  | Data Type | Description | Required | Default vaule | Allowed values
 ---------- | ------- | ------ | ----- | ------ | -----
-`identifyContent` | Boolean | Specifies that the PII or sensitive content should be identified. | Mandatory |`false` | `true` or `false`. 
-`redactContent` | Boolean | Specifies that the PII or sensitive content should be redacted in the transcript and insights. | Mandatory | `false` | `true` or `false`. 
+`identifyContent` | Boolean | Specifies that the PII/PCI data or sensitive content should be identified. | Mandatory |`false` | `true` or `false`. 
+`redactContent` | Boolean | Specifies that the PII/PCI data or sensitive content should be redacted in the transcript and insights. | Mandatory | `false` | `true` or `false`. 
 `redactionString` | String | Specifies any specific string to be used to replace redacted entities. | Optional |`****` | Min length 1 character, Max length 16 characters. 
 
 ## Response Body Samples
 
-The response returned for PII Identification and Redaction will be any of the following 3 Scenarios depending on how you have set up the two mandatory parameters `identifyContent` and `redactContent`.
+The response returned for PII/PCI data Identification and Redaction will be any of the following 3 Scenarios depending on how you have set up the two mandatory parameters `identifyContent` and `redactContent`.
 
 <Tabs
   defaultValue="identifyContent=true and redactContent=false"
@@ -215,7 +217,7 @@ The response returned for PII Identification and Redaction will be any of the fo
 
 `identifyContent=true` and `redactContent=false`. 
 
-PII or sensitive content will be identified and will be made available in the message and insight objects, but the content of transcript and insight with not be redacted, and will still show the sensitive content.
+PII/PCI data or sensitive content will be identified and will be made available in the message and insight objects, but the content of transcript and insight with not be redacted, and will still show the sensitive content.
 
 ```json
 {
@@ -252,7 +254,7 @@ PII or sensitive content will be identified and will be made available in the me
 
 `identifyContent=false` and `redactContent=true`. 
 
-PII or sensitive content will not be made available in the message and insight objects, but the content of transcript and insight with be redacted, and will be replaced with the redaction indicator.
+PII/PCI data or sensitive content will not be made available in the message and insight objects, but the content of transcript and insight with be redacted, and will be replaced with the redaction indicator.
 
 ```json
  {
@@ -275,7 +277,7 @@ PII or sensitive content will not be made available in the message and insight o
 
 `identifyContent=true` and `redactContent=true`. 
 
-PII or sensitive content will be identified and will be made available in the message and insight objects. And the content of transcript and insight with also be redacted, and will be replaced with the redaction indicator.
+PII/PCI data or sensitive content will be identified and will be made available in the message and insight objects. And the content of transcript and insight with also be redacted, and will be replaced with the redaction indicator.
 
 ```json
  {
@@ -310,7 +312,7 @@ PII or sensitive content will be identified and will be made available in the me
 
 ## Sample with Conversation Response
 
-Given below is a sample of using PII Identification and Redaction with Get Conversation Insights call for `questions`. 
+Given below is a sample of using PII/PCI data Identification and Redaction with Get Conversation Insights call for `questions`. 
 
 `GET https://api.symbl.ai/v1/conversations/CONVERSATION_ID/questions`
 
@@ -391,11 +393,11 @@ Response with disable redaction configuration:
 }
 ```
 
-### Supported PII Entities
+### Supported PII/PCI Entities
 
-When you enable the PII identification and redaction feature, the following PII data will be supported: 
+When you enable the PII/PCI data identification and redaction feature, the following PII/PCI data are supported: 
 
-PII Entity  | Category | Description 
+PII/PCI Entity  | Category | Description 
 ---------- | ------- | ------ |
 Credit/Debit Card Number | Finance | A credit or debit card number is 12 to 19 digits long, used for payment transactions.
 Credit/Debit Card CVV Number | Finance | A 3-digit or 4-digit security code of a credit or debit card.

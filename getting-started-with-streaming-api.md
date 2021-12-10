@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-The Streaming API provides live speech-to-text transcription and extract follow-ups, topics, action-items, and questions from conversations as they unfold in real-time.
+The Streaming API provides live speech-to-text transcription and extracts follow-ups, topics, action-items, and questions from conversations as they unfold in real-time.
 
 ## 1. Get live streaming of Speech to Text from your device's microphone
 
@@ -16,7 +16,7 @@ These examples use the Javascript SDK to connect to your device's microphone and
 
 ### Server-side implementation (Node.js)
 
-The server-side implementation uses Javascript SDK or you can also use other Node.js packages to enable your device's microphone which you can use for real-time speech-to-text transcription. You can view on the full example on [GitHub](https://github.com/symblai/getting-started-samples/tree/master/examples/voice-sdk/realtime-websocket-single-stream).
+The server-side implementation uses Javascript SDK or you can also use other Node.js packages to enable your device's microphone which you can use for real-time speech-to-text transcription. You can view the full example on [GitHub](https://github.com/symblai/getting-started-samples/tree/master/examples/voice-sdk/realtime-websocket-single-stream).
 
 Using your microphone you can see live speech-to-text transcription and AI Insights.
 
@@ -42,14 +42,14 @@ For more details please checkout below mentioned links:
 
 ### Client-side implementation
 
-The client-side implementation can be run entirely in your browser and uses your devices microphone which you can use for gathering AI insights and for real-time speech-to-text transcription. When the code is ran, the user will be prompted to allow permission for the browser to use their microphone. You can view the full code example on [GitHub](https://github.com/symblai/real-time-speech-recognition-with-websockets).
+The client-side implementation can be run entirely in your browser and uses your device's microphone which you can use for gathering AI insights and for real-time speech-to-text transcription. When the code is run, the user will be prompted to allow permission for the browser to use their microphone. You can view the full code example on [GitHub](https://github.com/symblai/real-time-speech-recognition-with-websockets).
 
 
 ![Access Microphone](/img/access_microphone.png)
 
 For more details please checkout below mentioned links:
 
-* [Client-side implentation](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
+* [Client-side implementation](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
   * [Getting Started](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser#getting-started)
   * [Create the WebSocket](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser#create-the-websocket)
   * [Create the Audio Stream](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser#create-the-audio-stream)

@@ -23,7 +23,7 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
-Currently, the Summary can be enabled with Async APIs. Support for Summarization in real-time will be added soon. However, if you are using Streaming or Telephony API, you can use the `refresh` parameter to generate the Summary after the conversation has ended. To read about how to use it, see the [Refresh Parameter](#using-refresh-parameter) section below. 
+Currently, Summaries cannot be generated in real-time. Support for creating Summary in real-time will be added soon.  
 
 :::caution
 The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
@@ -100,6 +100,10 @@ If you are using Telephony or Streaming API, after the conversation has ended, u
 
 - **To generate Summary for already processed Conversations** <br/>
 If you have already processed a conversation using Async or Real-time APIs (without `EnableSummary` flag) and would like to generate a Summary for it, you can use `refresh=true` as query parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) and use the `conversationId` to get the Summary. 
+
+:::info Creating Summary for new Messages 
+You can generate a Summary for only the new messages of a conversation that you have already generated a Summary of. 
+:::
 
 ### Response Body Sample
 

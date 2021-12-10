@@ -129,4 +129,4 @@ Polarity Sentiment may vary for your use case. We recommend that you define a th
 |------------------|---------------------|
 | -1.0 => x > -0.3 | negative            |
 | -0.3 => x <= 0.3  | neutral             |
-| 0.3 < x <= 1.0   | positive            |
+| 0.3 > x <= 1.0   | positive            |

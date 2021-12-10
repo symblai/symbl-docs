@@ -127,7 +127,7 @@ exit()
 Parameter | Required | Value |Description|
 --------- | --------- | ------- | -------
 ```sentiment```| No | true | Give you sentiment analysis on each topic in conversation.
-```parentRefs```| No | true | Gives you topic hierarchy.
+```parentRefs```| No | true | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
 
 
 
@@ -257,7 +257,7 @@ Parameter | Required | Value |Description|
 
 Field  | Description
 ---------- | ------- |
-```id``` | Unique conversation identifier.
+```id``` | Unique topic identifier.
 ```text``` | Conversation text.
 ```type``` | Response type. Default is topics.
 ```score``` | Confidence score of the generated topic. value from 0 - 1.

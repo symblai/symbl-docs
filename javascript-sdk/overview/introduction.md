@@ -7,22 +7,32 @@ slug: /javascript-sdk/introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 The Programmable JavaScript SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. With the JavaScript SDK, you can generate intelligent insights such as action items, topics, and questions. Currently, the Symbl JavaScript SDK only works with the [Telephony API](/docs/telephony/introduction) and [Streaming API](/docs/streamingapi/overview/introduction)
 
+:::caution Deprecation  
+The earlier package `symbl-node` is now deprecated and will no longer be maintained by Symbl. Please migrate to the new package `@symblai/symbl-js` available at https://www.npmjs.com/package/@symblai/symbl-js. 
+:::
 
-### Installation
+## Installation
 
 First, start by installing our JavaScript SDK:
 
 ```bash
-$ npm install --save symbl-node
+$ npm install --save @symblai/symbl-js
 ```
 
 
-### Initialize
+## Initialization
 
+The `init` authenticates you to use the Symbl API using the provided authentication credentials.
 
+You can authenticate either using your API Credentials or your Auth Token. 
+
+### Authenticate using API Credentials
+
+Use the code given below to authenticate using your Symbl App ID and App Secret. 
 
 ```js
 sdk.init({
@@ -35,6 +45,18 @@ sdk.init({
 .catch(err => console.error('Error in initialization.', err));
  ```
 
+### Authenticate using Token 
+
+Use the code given below to authenticate using the Auth Token. 
+
+```js
+sdk.init({
+  accessToken: ACCESS_TOKEN_HERE,
+  basePath: 'https://api.symbl.ai'
+})
+.then(() => console.log('SDK Initialized.'))
+.catch(err => console.error('Error in initialization.', err));
+```
 
  Import the SDK using the ES5 or ES6 way:
 
@@ -49,7 +71,7 @@ sdk.init({
 <TabItem value="es5">
 
 ```js
-var sdk = require('symbl-node').sdk;
+var sdk = require('@symblai/symbl-js').sdk;
 ```
 
  </TabItem>
@@ -57,7 +79,7 @@ var sdk = require('symbl-node').sdk;
 <TabItem value="es6">
 
 ```js
-import { sdk } from 'symbl-node';
+import { sdk } from '@symblai/symbl-js';
 ```
 
 </TabItem>
