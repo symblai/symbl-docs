@@ -192,5 +192,6 @@ Field  | Description
 ```startTime``` | DateTime value of when the conversation started.
 ```endTime``` | DateTime value of when the conversation ended. 
 ```members``` | A list of member objects containing ID, name and email (if detected).
+```metadata``` | Contains user-defined metadata key values which are used for labelling conversations.
 
 
