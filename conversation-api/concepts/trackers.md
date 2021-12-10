@@ -26,9 +26,9 @@ For example, “I don’t have any money” is contextually similar to “I ran 
 
 Using Trackers you can introduce various capabilities such as triggering workflow on tracker event in real-time or asynchronously, help users communicate in real-time, or learn from the characteristics of conversations and so on. The possibilities are really limitless and can be very tailored to specific needs of your application.
 
-#### Examples
+#### For example,
 
-The Tracker names used in the example below are only for explanatory purposes. You can create any Tracker for your use case and assign any name you like.
+Note: The Tracker names used in the example below are only for explanatory purposes. You can create any tracker for your use case and assign any name you like.
 
 - *Sandra is the training head of the Sales team in her company. She uses the insights from the **Intro Tracker** to look at how great sales agents start conversations and **Pricing Tracker** to understand how they share the pricing details. She then uses these insights to train other agents.* 
 *The **Intro Tracker** Sandra uses tracks contextually similar phrases such as:*<br/>
@@ -97,3 +97,4 @@ Currently, Trackers is supported with Symbl’s Async APIs and Streaming APIs.
 - [Viewing detected Trackers with Async API](/docs/async-api/code-snippets/track-phrases-in-a-conversation/#view-detected-trackers)
 - [Detect Key Phrases with Streaming API](/docs/streamingapi/code-snippets/detect-key-phrases/#ontrackerresponse-json-response-example)
 - [How to create Trackers in Bulk](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk)
+
