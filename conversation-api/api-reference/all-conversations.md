@@ -85,12 +85,7 @@ response = requests.request("GET", url, headers=headers)
 
 if response.status_code == 200:
     # Successful API execution
-    print("id => " + response.json()['id'])  # conversationId.
-    print("type => " + response.json()['type'])  # <string> type of conversation, default is meeting
-    print("name => " + response.json()['name'])  # <string> name of conversation
-    print("startTime => " + response.json()['startTime'])  # <datetime value> start time of conversation
-    print("endTime => " + response.json()['endTime'])  # <datetime value> end time of conversation
-    print("members => " + str(response.json()['members']))  # <list of member objects containing name and email if detected> members who were part of conversation
+    print("conversations => " + str(response.json()))  # object containing id, type, name, startTime, endTime, members object, and metadata object
 elif response.status_code in responses.keys():
     print(responses[response.status_code])  # Expected error occurred
 else:
