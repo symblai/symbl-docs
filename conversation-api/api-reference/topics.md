@@ -257,9 +257,9 @@ Parameter | Required | Value |Description|
 
 Field  | Description
 ---------- | ------- |
-```id``` | Unique conversation identifier.
-```text``` | Topic text.
-```type``` | Response type. Default is topic.
+```id``` | Unique topic identifier.
+```text``` | Conversation text.
+```type``` | Response type. Default is topics.
 ```score``` | Confidence score of the generated topic. value from 0 - 1.
 ```messageIds``` | Unique message identifiers of the corresponding messages.
 ```parentRefs``` | This is enabled when `parentRefs` is set to true in request.
