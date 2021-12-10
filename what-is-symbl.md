@@ -7,7 +7,9 @@ slug: /what-is-symbl
 
 ---
 
-[Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence platform that analyzes conversation data and lets you:
+[Symbl](https://symbl.ai/) is an AI-powered, API first, Conversation Intelligence Platform that provides a suite of **APIs and SDKs** that works with REST interface for recorded files, URLs, or even streaming audio using Websockets. 
+
+With Symbl, you will be able to:
 
 - Generate **Conversation Intelligence** like Sentiment Analysis, Action Items, Topics, Trackers, Summary and much more in your applications.
 - Generate **Speech-to-text capabilities** like Transcription, Speaker Separation and Speaker Diarization. 
@@ -19,9 +21,13 @@ Symbl ingests conversation data from different sources: **text**, **audio** and 
 
 You can send your conversation data to Symbl in real-time via **Streaming APIs** or **Telephony APIs** or after the conversation has ended via **Async APIs**. 
 
-Once the conversation is ingested by Symbl, you can use the **Conversation APIs** to get Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, and also generate a **Customizable Pre-built UI**.
+Once the conversation is ingested by Symbl, you can use the [**Conversation APIs**](/docs/python-sdk/conversation-api/) to get Conversation Intelligence such as **Speech-to-Text (Transcript)**, **Action Items**, **Topics**, **Action Items**, and also generate a **Customizable Pre-built UI**.
 
-![how-symbl-works](/img/symbl-page.png)
+![how-symbl-works](/img/how-symbl-works-1.png)
+
+:::caution
+You must wait for the processing job to complete before making a GET request to the Conversation API. 
+:::
 
 ## Symbl’s Key Capabilities
 ---
@@ -51,7 +57,7 @@ Each Topic has a score that indicates the importance of that topic in the contex
 
 Sentiment Analysis is the interpretation of the general thought, feeling, or sense of an object or a situation.
 
-Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect). With Symbl's Sentiment Analysis feature, you can get the intensity of the sentiment and suggested sentiment type as negative, neutral or positive.
+Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect). With Symbl's Sentiment Analysis feature, you can get the intensity of the sentiment and suggest sentiment type as negative, neutral or positive.
 
 <div><h4><a href="/docs/concepts/sentiment-analysis">Learn more about Sentiment Analysis ➡️ &nbsp;</a></h4></div>
 <br/>
@@ -132,7 +138,7 @@ Some of the other characteristics of insights include:
 
 Symbl's Conversational Intelligence distills important conversation messages and creates succinct Summaries.
 
-Summaries helps you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages.
+Summaries help you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages.
 
 <div><h4><a href="/docs/concepts/summarization"> Learn more about Summary ➡️ &nbsp;</a></h4></div>
 <br/>

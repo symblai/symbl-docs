@@ -58,7 +58,7 @@ curl --location --request PUT "https://api.symbl.ai/v1/process/text/$CONVERSATIO
     },
     {
       "payload": {
-        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
       },
       "from": {
         "userId": "mike@abccorp.com",
@@ -99,7 +99,7 @@ const payload = {
     },
     {
       "payload": {
-        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+        "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
       },
       "from": {
         "userId": "mike@abccorp.com",
@@ -179,7 +179,7 @@ const options = {
       },
       {
         "payload": {
-          "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+          "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
         },
         "from": {
           "userId": "mike@abccorp.com",
@@ -269,7 +269,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
 
 if response.status_code == 201:
     # Successful API execution
@@ -343,6 +343,7 @@ Field | Required | Type |  Description
 ```trackers``` <font color="orange"> BETA</font> | Optional | String | A `tracker` entity containing name and vocabulary (a list of key words and/or phrases to be tracked). Read more in the[Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation. Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag).
 ```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
+```webhookUrl``` | Optional | String | Webhook URL on which job updates to be sent. This should be post API. See [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) below. 
 
 #### messages
 
@@ -364,7 +365,7 @@ Field | Required | Type |  Description
     }
   }, {
     "payload": {
-      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitements for us."
+      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
     },
     "from": {
       "userId": "mike@abccorp.com",
@@ -435,14 +436,11 @@ Field | Required | Type | Description
 }
 ```
 
-#### Query Params
-Parameter | Required | Value
----------- | ------- | -------
-```webhookUrl``` | Optional | Webhook url on which job updates to be sent. This should be post API.
+#### webhookURL
 
-`webhookUrl` will be used to send the status of job created for uploaded audio. Every time the status of the job changes it will be notified on the `webhookUrl`.
+`webhookUrl` will be used to send the status of job created. Every time the status of the job changes it will be notified on the `webhookUrl`.
 
-#### Webhook Payload
+#### webhook Payload
 Field | Description
 ---------- | ------- |
 `jobId` | ID to be used with Job API.
@@ -482,3 +480,7 @@ Field | Description
 ```
 
 Here, the value of `X` can be found in [FAQ](/docs/faq). 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::

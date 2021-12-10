@@ -39,7 +39,7 @@ Always prefix "r" before the file location in the code if you are using Windows 
 
 ### Appending Audio API
 
-To append an audio coversation to an already processed audio file, use the `.append` function as shown below:
+To append an audio conversation to an already processed audio file, use the `.append` function as shown below:
 
 ```python
 conversation_object = symbl.Audio.append_file(file_path=r'c:/Users/john/Downloads/business_meeting.mp3', conversation_id='5973791156994048')
@@ -117,7 +117,7 @@ print(conversation_object.get_topics())
 ```
 ### Appending Audio URL API
 
-To append an audio coversation to an already processed audio file, use the `.append` function with the `conversation_id` as shown below:
+To append an audio conversation to an already processed audio file, use the `.append` function with the `conversation_id` as shown below:
 
 ```python
 conversation_object = symbl.Audio.append_url(payload=request_body, conversation_id='4639962491256832')

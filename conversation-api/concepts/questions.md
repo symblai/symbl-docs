@@ -1,7 +1,7 @@
 ---
 id: questions
 title: Questions
-sidebar_label: Overview
+sidebar_label: Introduction
 slug: /concepts/questions
 ---
 

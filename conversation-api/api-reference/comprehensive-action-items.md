@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 ---
 
 :::info Symbl Labs
-This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
+This feature is a part of Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
 
 
 You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
@@ -153,7 +153,7 @@ Field  | Description
 ```id``` | Unique identifier of the comprehensive action item.
 ```text``` | Text of the comprehensive action item. 
 ```type``` | Response type. Default is `action_item`.
-```score``` | Confidence score of the generated action item. Value from 0 - 1.
+```score``` | Confidence score of the detected action item. Value from 0 - 1.
 ```messageRefs.id``` | Unique identifiers of the corresponding messages from where the action item was derived. You may get multiple message IDs here as Symbl identifies all the relevant messages in the conversation and generates the required action item accordingly.   
 ```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
 ```definitive``` | Boolean indicating if the action item is definitive or not.

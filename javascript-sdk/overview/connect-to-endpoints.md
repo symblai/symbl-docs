@@ -21,7 +21,7 @@ The code snippet below dials in using PSTN and hangs up after 60 seconds.
 ```js
 const {
   sdk
-} = require('symbl-node');
+} = require('@symblai/symbl-js');
 
 sdk.init({
   // APP_ID and APP_SECRET come from the Symbl Platform: https://platform.symbl.ai
@@ -60,7 +60,7 @@ We recommend using SIP whenever possible instead of PSTN as it provides higher a
 
 ### Testing
 
-Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node`. Now in the terminal run
+Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install @symblai/symbl-js`. Now in the terminal run
 
 ```bash
 $ node app.js
