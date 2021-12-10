@@ -7,6 +7,8 @@ sidebar_label: Authentication
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+---
 Symbl uses the [OAuth2.0 Protocol](https://datatracker.ietf.org/doc/html/rfc6749) for Authentication. 
 To begin, get your API Credentials from [Symbl Platform](https://platform.symbl.ai/). Using these credentials you can then generate the Access Token to invoke Symbl API calls. 
 
