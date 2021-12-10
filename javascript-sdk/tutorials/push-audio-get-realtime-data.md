@@ -42,7 +42,7 @@ In this guide you will learn the following:
 
 ## Getting started
 
-To get this example running, you need to install the node packages `symbl-node`, `uuid` and `mic`. You can do that via with `npm install symbl-node`, `npm install uuid` and `npm install mic`. We're using `mic` to simply get audio from the microphone and pass it on to the WebSocket connection. 
+To get this example running, you need to install the node packages `@symblai/symbl-js`, `uuid` and `mic`. You can do that via with `npm install @symblai/symbl-js`, `npm install uuid` and `npm install mic`. We're using `mic` to simply get audio from the microphone and pass it on to the WebSocket connection. 
 
 `mic` also requires you to install `sox`. To install `sox` choose the option which fits your operating system:
 
@@ -50,7 +50,7 @@ To get this example running, you need to install the node packages `symbl-node`,
 **Windows and Linux**: [Installation of SoX on different Platforms](https://at.projects.genivi.org/wiki/display/PROJ/Installation+of+SoX+on+different+Platforms)
 
 ```javascript
-const {sdk} = require('symbl-node');
+const {sdk} = require('@symblai/symbl-js');
 ```
 
 Simple setup for `mic`. You can view the full configuration options for `mic` [here](https://github.com/ashishbajaj99/mic)
@@ -591,7 +591,7 @@ This is a category of action items with a connotation to follow-up a request or 
 Here's the full sample below which you can also [view on Github](https://github.com/symblai/receive-ai-insights-with-real-time-websockets):
 
 ```js
-const {sdk} = require('symbl-node')
+const {sdk} = require('@symblai/symbl-js')
 const uuid = require('uuid').v4
 
 // For demo purposes, we're using mic to simply get audio from the microphone and pass it on to the WebSocket connection

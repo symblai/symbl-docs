@@ -20,17 +20,21 @@ Currently, Streaming API is supported only in English language.
 
 #### Endpoint
 
-`wss://api.symbl.ai/v1/realtime/insights/MEETING_ID?access_token=ACCESS_TOKEN`
+`wss://api.symbl.ai/v1/realtime/insights/{CONVERSATION_ID}?access_token=ACCESS_TOKEN`
 
 
 #### <a name="message-body"></a>Main Message Body
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | true | start_request, stop_request | Type of message
-```insightTypes``` | false | action_item, question | Types of insights to return. If not provided, no insights will be returned.
-```config``` | false | | Configuration for this request. [See the config section below for more details](#config).
-```speaker``` | false  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details])(#speaker).
+```type``` | Mandatory | start_request, stop_request | Type of message
+```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
+```customVocabulary``` | Optional |  | An array of strings containing a vocabulary specific to your company, products, or phrases. 
+```config``` | Optional | | Configuration for this request. [See the config section below for more details](#config).
+```speaker``` | Optional  | | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details](#speaker).
+```noConnectionTimeout``` <br/> <font color="orange"> LABS </font> | Optional | | The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> For example, <br/><br/>  When this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
+```disconnectOnStopRequest``` <br/> <font color="orange"> LABS </font> | Optional | `true` or `false` | This parameter allows you to set your Streaming API connection in such a way that even when the `stop_request` is sent. The connection does not drop-off, only the processing is stopped and the `conversationId` and connection is kept live for `1800` seconds by default. You can always override this value by passing the `disconnectOnStopRequest` parameter. <br/> <br/> This allows you to stop and start the Streaming API processing without dropping the WebSocket connection, so that you can stop and resume the processing in the middle of a call and optimize the Streaming API usage costs. <br/> <br/> The default value is `true`. |
+```disconnectOnStopRequestTimeout```  <br/> <font color="orange"> LABS </font> | Optional | Between `0` to `3600` seconds | This parameter allows you to override the idle time out (if a WebSocket connection is idle for 30 minutes). Set this parameter with a value between `0` to `3600` seconds. If the idle connection needs to be kept alive beyond `3600` seconds, you have to restart the connection at `3600` seconds elapsed. <br/> <br/> If the value is passed as `0`, the WebSocket connection is dropped when `stop_request` is received. The default value is `1800`.
 
 ##### Code Example
 
@@ -38,11 +42,11 @@ Field  | Required | Supported Value | Description
 {
   "type": "start_request",
   "insightTypes": ["question", "action_item"],
+  "customVocabulary": ["acme", "acme-platform"],
   "config": {},  // See Config section below.
   "speaker": {}  // See Speaker section below.
 }
 ```
-
 
 #### <a name="config"></a>Config
 

@@ -39,7 +39,7 @@ our APIs, we've got you covered!
 ### Step 1: Get Symbl API Credentials
 ---
 
-Sign up on [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
+Sign up on the [Symbl Platform](https://platform.symbl.ai/#/login) and grab your API Credentials. <br/>
 Using the Symbl credentials, you can [generate the authentication token](/docs/developer-tools/authentication) that you can use everytime you make Symbl API calls. 
 &nbsp;
 
@@ -51,6 +51,10 @@ Using the following APIs, send conversation data in real-time or after the conve
 &nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/reference/reference) allow you to send text, audio, or video conversations in recorded format. <br/>
 &nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call via WebSocket protocol.<br/>
 &nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on a live audio conversation via SIP and PSTN.<br/>
+
+
+Before getting the Conversation Intelligence, you must wait for the processing job to complete. 
+
 
 ### Step 3: Get Conversation Intelligence
 ---
@@ -68,16 +72,21 @@ Step 2 returns a `conversationId` by default. Use this in the **Conversation API
 &nbsp; &nbsp;👉 &nbsp; [Conversation Analytics](/docs/concepts/conversational-analytics)<br/>
 &nbsp; &nbsp;👉 &nbsp; [Topic Hierarchy](/docs/concepts/topic-hierarchy)<br/>
 
+ ... and more.
+
 Also check out our features in Labs such as Summarization, Comprehensive Action Items, Identifying and Redacting PII in the [Labs section](/docs/labs). 
 
 
 <div class="row">
   <div class="column">
-    <div class="card2"> <h4><br/>Try it in Postman</h4> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
+    <div class="card2"> <h3><br/>Try it in Postman</h3> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
 <br/>
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
 
+***If you're new to Postman, watch this [video tutorial](/docs/developer-tools/postman#how-to-use-symbl-postman-collection) to learn how***. 
+
    </div>
   </div>
   </div>
+

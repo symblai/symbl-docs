@@ -7,7 +7,7 @@ This code of conduct applies to only issues and pull requests for the Symbl docs
 Given below are some guidelines to keep in mind while contributing to our docs and becoming a part of our interactions with community participants. 
 
 ### Clarity
-Keep contribution clear and complete. All the improvement suggestions should encourage inspired action rather than merely pointing out vague inconsistencies that do not have a clear output. We’d love for you to follow the format of the issues template that captures essential information required for us to take clear action. 
+Keep contributions clear and complete. All the improvement suggestions should encourage inspired action rather than merely pointing out vague inconsistencies that do not have a clear output. We’d love for you to follow the format of the issues template that captures essential information required for us to take clear action. 
 
 ### Consideration 
 The open-source community is by nature diverse in geography, culture, ethnicity, and language, so remember to be mindful in addressing people of different nationalities, races, and cultural backgrounds. We want to build a community of inclusiveness and oneness. 

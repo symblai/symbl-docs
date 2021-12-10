@@ -1,7 +1,7 @@
 ---
 id: comprehensive-action-items
 title: Comprehensive Action Items 
-sidebar_label: Comprehensive Action Items 
+sidebar_label: Introduction
 slug: /concepts/comprehensive-action-items
 ---
 

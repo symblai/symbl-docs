@@ -203,8 +203,9 @@ $ node index.js
 
 4. The call should automatically end after 60 seconds. If you end it sooner and don’t invoke `stopEndpoint`, you will not receive the `conversationId`. If you need to access the results generated in the call, you should  invoke `stopEndpoint` even if it was ended without explicitly invoking `stopEndpoint` before this point.
 
-### Note
+:::info
 The example above invokes `stopEndpoint` after a fixed timeout of 60 seconds. This is for demonstrating the stop functionality and it is not the recommended method of implementation for your application. In a real implementation, you should invoke `startEndpoint` and `stopEndpoint` as needed by the business logic of your application, i.e when you would like Symbl to start processing and stop processing.
+:::
 
 ## What's next
 Congratulations! You finished your integration with Symbl’s Telephony API using PSTN. Next, you can learn more about the [Conversation API](/docs/conversation-api/introduction), SIP Integration, Post-Meeting Summary, and Active Speaker Events.

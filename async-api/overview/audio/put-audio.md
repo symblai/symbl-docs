@@ -176,7 +176,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("PUT", url, headers=headers, data=payload, params=params)
+response = requests.request("PUT", url, headers=headers, data=payload, params=json.dumps(params))
 
 if response.status_code == 201:
     # Successful API execution
@@ -355,3 +355,7 @@ Field | Description
 ```
 
 Here value of `X` can be found in [FAQ](/docs/faq). 
+
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::

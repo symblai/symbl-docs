@@ -10,6 +10,9 @@ import TabItem from '@theme/TabItem';
 
 The first thing you need to do before getting your Sentiment Analysis is to process your audio, video or text file. This code is taken directly from our [POST Video URL](/docs/async-api/overview/video/post-video) page. If you want to use an audio or text file you can use the code from the [POST Audio URL](/docs/async-api/overview/audio/post-audio) or [POST Text File](/docs/async-api/overview/text/post-text) pages.
 
+:::caution
+You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
+:::
 
 While we provide you with a default video URL for the API to process, which can be downloaded [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4), you can replace that with any other video URL.
 
@@ -193,7 +196,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params))
 
 if response.status_code == 201:
     # Successful API execution
@@ -363,7 +366,7 @@ exit()
 
 ### Polarity
 
-In the response you'll noitice the polarity field which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. If you wish to read more about Polarity you can checkout our article on Sentimental Analysis [here](/docs/concepts/sentiment-analysis).
+In the response you'll notice the polarity field which shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. If you wish to read more about Polarity you can checkout our article on Sentimental Analysis [here](/docs/concepts/sentiment-analysis).
 
 ```js
 {

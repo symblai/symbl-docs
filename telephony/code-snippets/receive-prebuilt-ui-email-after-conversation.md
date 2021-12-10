@@ -30,7 +30,7 @@ When we're connecting to the Web Socket, we can define which language we use in 
     "name": "sendSummaryEmail",
     "parameters": {
       "emails": [
-        "user@example.com"
+        "john@example.com"
       ]
     }
   }]
@@ -63,7 +63,7 @@ curl -k -X POST "https://api.symbl.ai/v1/endpoint:connect" \
       "operation": "start",
       "endpoint": {
         "type" : "pstn",
-        "phoneNumber": "'$PHONE_NUMBER'" # 
+        "phoneNumber": "PHONE_NUMBER" 
       },
       "languages": ['es-US'],
       "actions": [{
@@ -71,7 +71,7 @@ curl -k -X POST "https://api.symbl.ai/v1/endpoint:connect" \
         "name": "sendSummaryEmail",
         "parameters": {
           "emails": [
-            "'$EMAIL_ADDRESS'"
+            "john@example.com"
           ]
         }
       }],
@@ -117,7 +117,7 @@ sdk.init({
           name: "sendSummaryEmail",
           parameters: {
             emails: [
-              "user@example.com"
+              "john@example.com"
             ],
           },
         },
@@ -300,6 +300,51 @@ If successful you should receive a response in the console.
 </Tabs>
 
 Running this code should connect our API to your phone call. Once the call is completed you will receive an email that details the conversation and provides you with a transcription and Insights about the call.
+
+### Response
+
+If successful, you will receive a response in the console as shown below:
+
+```json
+{
+    "eventUrl": "https://api.symbl.ai/v1/event/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "resultWebSocketUrl": "wss://api.symbl.ai/events/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "conversationId": "5687907911204864",
+    "connectionId": "f31ad3b9-341a-4950-a1c2-152f08da8aaa"
+}
+```
+### Response Parameters
+
+Field | Description
+---------- | ------- |
+```eventUrl``` | REST API to push speaker events as the conversation is in progress, to add additional speaker context in the conversation. Example - In an on-going meeting, you can push speaker events.
+```resultWebSocketUrl``` | Same as `eventUrl` but over WebSocket. The latency of events is lower with a dedicated WebSocket `connection.ct`.
+```connectionId``` | Ephemeral connection identifier of the request, to uniquely identify the telephony connection. Once the connection is stopped using “stop” operation, or is closed due to some other reason, the `connectionId` is no longer valid.
+```conversationId``` | Represents the conversation - this is the ID that needs to be used in conversation API to access the conversation.
+
+### Stop Connection 
+
+The following response is returned with the Summary UI `url` when you stop the connection. 
+
+```json
+{
+    "eventUrl": "https://api.symbl.ai/v1/event/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "resultWebSocketUrl": "wss://api.symbl.ai/events/f31ad3b9-341a-4950-a1c2-152f08da8aaa",
+    "summaryInfo": [
+        {
+            "user": {
+                "id": "c2585d65-c6c1-4108-a6be-71988c46e77d",
+                "userId": "john@example.com",
+                "name": "John",
+                "role": "organizer"
+            },
+            "url": "https://meetinginsights.symbl.ai/meeting/#/eyJ1c2VySWQiOiJhYmhheS5kYWx2aUBzeW1ibC5haSIsIm5hbWUiOiJhYmhheS5kYWx2aSIsInNlc3Npb25JZCI6IjU2ODc5MDc5MTEyMDQ4NjQifQ=="
+        }
+    ],
+    "conversationId": "5687907911204864",
+    "connectionId": "f31ad3b9-341a-4950-a1c2-152f08da8aaa"
+}
+```
 
 :::info
 If you have any questions or concerns about our API, you can join our [Support Slack](https://join.slack.com/t/symbldotai/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA) or send us an email at [developer@symbl.ai](mailto:developer@symbl.ai)
