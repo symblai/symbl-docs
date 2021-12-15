@@ -114,27 +114,30 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected
 #### Response 
 
 ```json
-[
-    {
-        "id": "4527907378937856",
-        "name": "Promotion Mention",
-        "matches": [
-            {
-                "messageRefs": [
-                    {
-                        "id": "4670860273123328",
-                        "text": "We're running a sale right now",
-                        "offset": -1
-                    }
-                ],
-                "type": "vocabulary",
-                "value": "run sale",
-                "insightRefs": []
-            }
-        ]
-    },
-    ...
-]
+{
+    "type": "vocabulary",
+    "value": "Can you reiterate that one more time",
+    "messageRefs": [
+        {
+            "id": "6428676305453056",
+            "text": "So I am not showing that here but you can have that, you know, for particular sentence and, you know, then aggregate based on the whole conversation.",
+            "offset": -1
+        },
+        {
+            "id": "6035928066818048",
+            "text": "Give that intent and name and that's it.",
+            "offset": -1
+        }
+    ],
+    "insightRefs": [
+        {
+            "text": "Yeah, and you So from sentiment analysis perspective, right?",
+            "offset": -1,
+            "type": "question",
+            "id": "5794360651153408"
+        }
+    ]
+}
 ```
 
 ### Supported API Operations with Management API

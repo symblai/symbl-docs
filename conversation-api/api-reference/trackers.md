@@ -111,26 +111,30 @@ exit()
 ### Response
 
 ```json
-[
-    {
-        "id": "4527907378937856",
-        "name": "My Awesome Tracker",
-        "matches": [
-            {
-                "messageRefs": [
-                    {
-                        "id": "4670860273123328",
-                        "text": "Wearing mask is a good safety measure.",
-                        "offset": -1
-                    }
-                ],
-                "type": "vocabulary",
-                "value": "wear mask",
-                "insightRefs": []
-            }
-        ]
-    }
-]
+{
+    "type": "vocabulary",
+    "value": "Can you reiterate that one more time",
+    "messageRefs": [
+        {
+            "id": "6428676305453056",
+            "text": "So I am not showing that here but you can have that, you know, for particular sentence and, you know, then aggregate based on the whole conversation.",
+            "offset": -1
+        },
+        {
+            "id": "6035928066818048",
+            "text": "Give that intent and name and that's it.",
+            "offset": -1
+        }
+    ],
+    "insightRefs": [
+        {
+            "text": "Yeah, and you So from sentiment analysis perspective, right?",
+            "offset": -1,
+            "type": "question",
+            "id": "5794360651153408"
+        }
+    ]
+}
 ```
 
 Let’s go over the members of the response body which contains the detected tracker objects:
