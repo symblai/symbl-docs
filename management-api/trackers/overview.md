@@ -35,6 +35,7 @@ To read about the capabilities of the Management API, see the [Management API](/
 
 
 ### Step 1: Create Trackers
+---
 
  Create Trackers by sending a `POST` request to the Trackers Management API endpoint given below:
 
@@ -72,6 +73,7 @@ This creates a Tracker and returns the following response. Note that every Track
 }
 ```
 ### Step 2: Submit files using Async API with `enableAllTrackers` flag
+---
 When you send a recorded audio, video or text using [Async API](http://localhost:3000/docs/async-api/introduction), set **enableAllTrackers=True** and **POST** the file to Symbl.
 
 Given below is an example of a POST request to Async Audio API for processing an audio recording with `enableAllTrackers` set to `true`. By default this is set to `false`.
@@ -81,32 +83,35 @@ POST "https://api.symbl.ai/v1/process/audio?enableAllTrackers=true"
 ```
 :::note Specifying the "enableAllTrackers" parameter in the request
 
-The `enableAllTrackers` parameter will enable detection of all the Trackers maintained for a Symbl’s account by the [Management API](#tracker-consumption-with-management-api). 
+The `enableAllTrackers` parameter must be sent mandatorily in the Async API to detect Trackers. The purpose of this flag is to enable detection of all the Trackers created with the [Management API](#tracker-consumption-with-management-api) that maintains your entities with Symbl at the account level.  
 
-`enableAllTrackers` accepts a boolean value which must be passed in the Async APIs either as a query param or in the request body depending on which Async API you are using. See the complete list below:
+`enableAllTrackers` accepts a boolean value which must be passed in the Async APIs either as a query param or in the request body depending on which Async API you are using. See the complete list of Async APIs and how each accepts this parameter:
 
  |  
 ---------- | ------- 
 As a query-param | Async Audio File API, Async Video File API. 
 In Request Body | Async Audio URL API, Async Video URL API, Async Text API. 
-
 :::
 
+On successful processing by the above mentioned API, you will get the `conversationId` and the `jobId` as shown below:
 
-You will get the `conversationId` and the `jobId` as shown below:
-
-### Response 
+#### Response 
 ```json
 {
     "conversationId": "6186250391257088",
     "jobId": "78422976-e461-41cf-ba35-20397d16619e"
 }
 ```
-👉 &nbsp; [Next, you can check the job status using the `GET` Job Status request.](/docs/async-api/overview/jobs-api/#get-job-status)
+You can use the `jobId` to get the job status using the [Job Status API.](/docs/async-api/overview/jobs-api/#get-job-status)
+
+:::note
+Ensure that you wait for the job to complete before proceeding to Step 3. 
+:::
 
 ### Step 3: Get detected messages containing Trackers
+---
 
-Using the `conversation_id` from Step 2, you can `GET` the Trackers for the conversation.
+Using the `conversationId` from Step 2, you can `GET` the Trackers for the conversation.
 
 ```shell
 GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
@@ -136,6 +141,9 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers"
     ...
 ]
 ```
+:::caution Important
+If the `conversationId` used in this Step is not processed with `enableAllTrackers=true` in the Async API, Trackers will not be detected. Using this flag as illustrated in Step 2 is mandatory. 
+:::
 
 ### Supported API Operations with Management API
 
@@ -150,7 +158,9 @@ Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers
 
 
 ## Consuming Trackers with Async APIs
+
 ### Step 1: Create a Tracker
+---
 
 The first step is to create a Tracker with a set of phrases and keywords using Async APIs.
 
@@ -212,6 +222,7 @@ After creating the Tracker, you can:
 👉 &nbsp; [If any Trackers need to be updated, send a `PUT` request.](/docs/management-api/trackers/update-tracker) 
 
 ### Step 2: Get the detected messages containing Trackers
+---
 
 Using the `conversation_id` you get from Step 1, you can `GET` the Trackers for the conversation.
 
