@@ -9,17 +9,19 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The Symbl Web SDK provides access to the Symbl APIs from applications written in the JavaScript directly in the browser. It includes a pre-defined set of classes so you can easily utilize APIs.
+The Symbl Web SDK provides access to the Symbl APIs for applications in the browser directly. 
+
+We have added the following capabilities in the Web SDK:
+
+- Connecting, 
+- Stopping, 
+- Muting, 
+- Unmuting and 
+- Subscribing. 
 
 > **Source Code** <br/>
 Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://github.com/symblai/symbl-web-sdk). <br/>
 
-
-:::note Web SDK in Labs
-The Web SDK is also available as a part of [Symbl Labs](/docs/labs) with select features. You can find the Web SDK Labs documentation here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs) and the source code here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
-
-
-:::
 
 ## Supported Browsers
 ---
@@ -34,22 +36,26 @@ The Web SDK is also available as a part of [Symbl Labs](/docs/labs) with select 
  
 ## Setup
 ---
-To use the Symbl Web SDK, 
+**To use the Symbl Web SDK,**
 
-You can include it via script tags in your HTML file:
+1. Include the following script tags in your HTML file:
 
 ```html
 <script src="https://storage.googleapis.com/symbl-web-sdk/latest/symbl.min.js"></script>
 ```
-In case of a front-end web application using a framework such as React, import it in the ES2015 style:
+2. In case of a front-end web application using a framework such as React, import it in the ES2015 style, as given below:
 
 ```bash
 import symbl from "@symblai/symbl-web-sdk";
 ```
+To view a full example that shows the above, check out the links below:
+
+- HTML sample
+- React app sample 
 
 ## Initialization
 ---
-The `init` authenticates you to use the Symbl API using the provided authentication credentials.
+The `init` authenticates you to use the Symbl API using the provided authentication credentials. To get authentication credentials (App ID and Secret), follow the steps given in the [Authentication](/docs/developer-tools/authentication#step-1-get-your-api-credentials) page. 
 
 You can authenticate:
 
@@ -61,7 +67,7 @@ You can authenticate:
 
 ### Authenticate using API Credentials
 
-Use the code given below to authenticate using your Symbl App ID and App Secret. 
+Use the code given below to authenticate using your App ID and App Secret. 
 
 ```js
 sdk.init({
@@ -76,7 +82,7 @@ sdk.init({
 
 ### Authenticate using Token 
 
-Use the code given below to authenticate using the Auth Token. 
+Use the code given below to authenticate using the Auth Token. To generate the Auth Token follow the Steps given in the [Authentication](/docs/developer-tools/authentication#step-2-generate-the-access-token) Page. 
 
 ```js
 sdk.init({
@@ -87,18 +93,24 @@ sdk.init({
 .catch(err => console.error('Error in initialization.', err));
 ```
 
+
+:::note Web SDK in Labs
+The Web SDK is also available as a part of [Symbl Labs](/docs/labs) with select features. You can find the Web SDK Labs documentation here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs) and the source code here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
+
+### Features in Labs
+
+The following features are available in Labs for Web SDK. For more details, go to the [GitHub Readme]([https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs))
+:::
+
 ## Tutorials
 ---
 We have prepared a list of tutorials to help you understand how to use the Web SDK.
-
-#### Streaming API Tutorials
 
 * [Transcribing Live Audio Input through Microphone](/docs/web-sdk/transcribing-live-audio-through-microphone)
 
 
 ### Code Snippets
 ---
-#### Streaming API Code Snippets
 
 * [Subscribe to real-time Events](/docs/web-sdk/subscribe-real-time)
 * [Reconnecting to an Existing Real-time Connection](/docs/web-sdk/reconnecting-real-time)
@@ -106,7 +118,7 @@ We have prepared a list of tutorials to help you understand how to use the Web S
 * [Stopping Real-time Connection](/docs/web-sdk/stopping-real-time)
 
 
-### JavaScript SDK Reference
+### Web SDK Reference
 ---
 The supported events for the Web SDK are listed below:
 

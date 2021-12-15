@@ -67,9 +67,13 @@ const connectionConfig = {
 })();
 ```
 
+The `startRealtimeRequest` connects to a Streaming API Web Socket endpoint using the provided configuration options. Read more about `startRealtimeRequest` [here](/docs/web-sdk/web-sdk-reference#startrealtimerequest). 
+
+Read about the Streaming API parameters for `connectionConfig` [here](/docs/streaming-api/api-reference/#request-parameters).
+
 Read more about the supported Event Handlers:
 
-&nbsp; &nbsp; 👉 &nbsp; [onSpeechDetected](/docs/javascript-sdk/reference#onspeechdetected) <br/>
-&nbsp; &nbsp; 👉 &nbsp; [onMessageResponse](/docs/javascript-sdk/reference#onmessageresponse) <br/>
-&nbsp; &nbsp; 👉 &nbsp; [onInsightResponse](/docs/javascript-sdk/reference#oninsightresponse) <br/>
-&nbsp; &nbsp; 👉 &nbsp; [onTopicResponse](/docs/javascript-sdk/reference#ontopicresponse)
+&nbsp; &nbsp; 👉 &nbsp; [onSpeechDetected](/docs/web-sdk/web-sdk-reference#onspeechdetected) <br/>
+&nbsp; &nbsp; 👉 &nbsp; [onMessageResponse](/docs/web-sdk/web-sdk-reference#onmessageresponse) <br/>
+&nbsp; &nbsp; 👉 &nbsp; [onInsightResponse](/docs/web-sdk/web-sdk-reference#oninsightresponse) <br/>
+&nbsp; &nbsp; 👉 &nbsp; [onTopicResponse](/docs/web-sdk/web-sdk-reference#ontopicresponse)
