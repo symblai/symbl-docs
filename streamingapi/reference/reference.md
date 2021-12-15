@@ -394,7 +394,7 @@ const connection = await sdk.startRealtimeRequest({
 
 Let’s go over all the parameters passed in the configuration object in the above function:
 
-1. `id`: A unique UUID that represents this WebSocket API's session.
+1. `id`: A unique UUID that represents the users' session.
 
 2. `insightType`: The types of **Insights** to be detected for this conversation.
 

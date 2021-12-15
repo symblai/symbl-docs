@@ -257,10 +257,10 @@ Parameter | Required | Value |Description|
 
 Field  | Description
 ---------- | ------- |
-```id``` | Unique conversation identifier.
+```id``` | Unique topic identifier.
 ```text``` | Conversation text.
 ```type``` | Response type. Default is topics.
 ```score``` | Confidence score of the generated topic. value from 0 - 1.
 ```messageIds``` | Unique message identifiers of the corresponding messages.
-```parentRefs``` | This is enabled when `parentRefs` is set to true in request.
+```parentRefs``` | This is enabled when `parentRefs` is set to true in request. Object containing type (as topic) and text of parent topic.
 ```sentiment```| Shows the [sentiment](/docs/concepts/sentiment-analysis) polarity (the intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral).

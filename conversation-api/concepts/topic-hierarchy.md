@@ -22,7 +22,7 @@ high-quality topic hierarchy.
 
 In any conversation, there can be multiple related topics that get discussed and it is possible to organize them in a hierarchy for better insights and consumption. Symbl's Topic Hierarchy algorithm finds a pattern in the conversation and creates parent (global) topics with each parent topic having multiple child topics nested within it. 
 
-#### Example
+#### For example,
 
 *If in a meeting “Sales Conversation” was talked about and after that, discussions around “Activity Call logs”, “Salesforce”, “Draft”, “Custom Integration” and “Jira” took place, the Topic Hierarchy will make Sales Conversation as the parent topic and the rest of the topics as the child topics under it.*
 

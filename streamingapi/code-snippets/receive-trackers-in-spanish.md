@@ -6,18 +6,22 @@ title: Receive Trackers in Spanish
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This tutorial goes over how you can use the Streaming API to receive Trackers of a conversation in the Spanish language. This example uses native JavaScript.
 
 :::note
 Currently, we only support the English and Spanish language in Trackers for Streaming & Async API. Please feel free to reach out to us at support@symbl.ai for any queries.
 :::
 
-**Prerequisite**:
-1. **API Credentials**: You must have your Symbl API App ID and Secret. To grab your API Credentials, follow these steps given in the [Authentication](/docs/developer-tools/authentication) section. 
+## Prerequisite
+- **API Credentials**: You must have your Symbl API App ID and Secret. To grab your API Credentials, follow these steps given in the [Authentication](/docs/developer-tools/authentication) section. 
 
 ## Step 1: Define Spanish language in the Start Request Config
+---
 
-When you're connecting to the [Web Socket](/docs/concepts/websockets) with Streaming API, you can define which language you wish to use in the `start_request` configuration. 
+When you're connecting to the [WebSocket](/docs/concepts/websockets) with Streaming API, you can define which language you wish to use in the `start_request` configuration. 
+
 For the Spanish language, we will set the `languageCode` key to Spanish (`es-ES`) in the `config` object as shown below:
 
 ### Config 
@@ -38,6 +42,7 @@ config: {
 You can view the complete list of all the supported parameters passed in the configuration object [here](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api#parameter-description).
 
 ## Step 2: Pass Tracker object in Spanish 
+---
 
 Now, define the keywords and phrases you wish to track in the `trackers` object as shown in the code snippet below. 
 
@@ -297,7 +302,7 @@ setTimeout(async () => {
 If you want to know that you have connected the mic, run the following commands:
 
 1. Create a JavaScript file named `app.js`
-2. Copy the above [code](/docs/streamingapi/code-snippets/rreceive-trackers-in-spanish/#connect-mic) into the file.
+2. Copy the above [code](#connect-mic) into the file.
 3. Replace the placeholder values with the values that you must use. 
 4. Use `npm` to install the required libraries
 
@@ -316,11 +321,7 @@ If successful you should receive a response in the console.
 
 Read more about the supported Event Handlers in the following sections:
 
-👉   [onSpeechDetected](/docs/javascript-sdk/reference/#onspeechdetected)
-👉   [onMessageResponse](/docs/javascript-sdk/reference/#onmessageresponse)
-👉   [onInsightResponse](/docs/javascript-sdk/reference/#oninsightresponse)
-👉   [onTopicResponse](/docs/javascript-sdk/reference/#ontopicresponse)
-
-
-
-
+👉   [onSpeechDetected](/docs/javascript-sdk/reference/#onspeechdetected) <br/>
+👉   [onMessageResponse](/docs/javascript-sdk/reference/#onmessageresponse) <br/>
+👉   [onInsightResponse](/docs/javascript-sdk/reference/#oninsightresponse) <br/>
+👉   [onTopicResponse](/docs/javascript-sdk/reference/#ontopicresponse) <br/>
