@@ -102,12 +102,18 @@ exit()
 </TabItem>
 </Tabs>
 
-### Request Body
+### Request
 
 Given below is an example of the request along with optional query parameters. For a complete list of query parameters and their description, see the [table](#query-parameters) below.
 
 ```java
-GET https://api.symbl.ai/v1/conversations?limit=2&order=desc&sort=conversation.name&offset=2&startTime=2021-08-09T18:30:00.000Z&endTime=2021-08-13T18:30:00.000Z
+GET https://api.symbl.ai/v1/conversations
+?limit=2
+&order=desc
+&sort=conversation.name
+&offset=2
+&startTime=2021-08-09T18:30:00.000Z
+&endTime=2021-08-13T18:30:00.000Z
 ```
 
 ### Query Parameters

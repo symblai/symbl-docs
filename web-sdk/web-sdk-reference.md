@@ -273,3 +273,14 @@ This callback provides you with any of the detected topics in real-time as they 
   "type": "topic"
 }]
 ```
+### subscribeToStream
+
+This callback allows you to subcribe 
+
+The `subscribeToStream` function allows you to subscribe to existing streaming connection in read-only. It takes the following parameters:
+
+| Parameters | Type | Example | 
+| ---------- | ------- | ------- | 
+| `id` | String | Connection ID created on connection `init`|
+
+This is a function of our [Subscribe API](/docs/subscribe-api). 
