@@ -97,4 +97,4 @@ Currently, Trackers is supported with Symbl’s Async APIs and Streaming APIs.
 - [Viewing detected Trackers with Async API](/docs/async-api/code-snippets/track-phrases-in-a-conversation/#view-detected-trackers)
 - [Detect Key Phrases with Streaming API](/docs/streamingapi/code-snippets/detect-key-phrases/#ontrackerresponse-json-response-example)
 - [How to create Trackers in Bulk](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk)
-
+- [How to receive Trackers in Spanish with Streaming API](/docs/streamingapi/code-snippets/receive-trackers-in-spanish)

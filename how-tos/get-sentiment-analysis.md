@@ -31,6 +31,8 @@ For getting Sentiment Analysis on your conversations in real-time, you can use o
 For getting Sentiment Analysis on recorded conversations, use our Async APIs. You can refer to the tutorial below for more information. 
 
 - [Get Sentiment Analysis with Async API](/docs/async-api/code-snippets/how-to-use-sentiment-analysis/)
+- [Sentiment Analysis on Messages](/docs/async-api/code-snippets/sentiment-analysis-on-messages)
+- [Sentiment Analysis on Topics](/docs/async-api/code-snippets/sentiment-analysis-on-topics)
 
 <button class="button button2"><a href="/docs/async-api/code-snippets/how-to-use-sentiment-analysis/">View all Tutorials</a></button>
 

@@ -100,6 +100,12 @@ exit()
 </Tabs>
 
 :::note
+The following field can be updated/deleted:
+ 
+- `metadata` 
+
+ To update the `metadata` read about the requirements [here](/docs/management-api/conversation-groups/conversation-groups-intro/#step-2-add-metadata-to-conversation)
+
 The following fields cannot be updated/deleted:
 
 - `id`
@@ -113,20 +119,6 @@ Given below is an example of the request along with optional query parameters. F
 
 ```json
 {
-  "type": "meeting",
-  "name": "My Test Meeting",
-  "startTime": "2021-02-24T15:53:05.594Z",
-  "endTime": "2021-02-24T16:18:05.048Z",
-  "members": [
-    {
-      "name": "John",
-      "email": "john@example.com"
-    },
-    {
-      "name": "Mary",
-      "email": "mary@example.com"
-    }
-  ],
   "metadata": {
     "key": "value", 
     "agentId": "johndoe"
@@ -138,37 +130,11 @@ The updated Conversation object is returned in the response body.
 
 ```javascript
 {
-  "id": "4931769134481408",
-  "type": "meeting",
-  "name": "My Test Meeting",
-  "startTime": "2021-02-24T15:53:05.594Z",
-  "endTime": "2021-02-24T16:18:05.048Z",
-  "members": [
-    {
-      "name": "John",
-      "email": "john@example.com"
-    },
-    {
-      "name": "Mary",
-      "email": "mary@example.com"
-    }
-  ],
-  "metadata": {
-    "key": "value", 
-    "agentId": "johndoe"
-  }
+   "id":"4931769134481408",
+   "metadata":{
+      "key":"value",
+      "agentId":"johndoe"
+   }
 }
 ```
-
-### Response Object
-
-Field  | Description
----------- | ------- |
-```id``` | The unique conversation identifier. This field cannot be updated. 
-```type``` | The conversation type. Default value is `meeting`. This field cannot be updated. 
-```name``` | The name of the conversation.
-```startTime``` | DateTime value of when the conversation started.
-```endTime``` | DateTime value of when the conversation ended. 
-```members``` | A list of member objects containing ID, name and email (if detected).
-
-
+Metadata contains user-defined metadata key values which are used for labelling conversations. `agentid` is example for `key/value` pair. You can define the key/value pairs based on what you want to store in the metadata field.
