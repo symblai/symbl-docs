@@ -73,6 +73,6 @@ The videoUrl only takes precedence when there is no Video present in the UI.
 
 ### Tutorials
 - [Creating Video Summary UI](/docs/tutorials/pre-built-summary-ui/creating-video-summary-ui)
-- [Tuning your Summary Page](/docs/tutorials/pre-built-ui/tuning-summary-page)
+- [Tuning your Summary Page](docs/pre-built-ui/tuning-summary-page)
 - [White label your Summary Page](/docs/tutorials/pre-built-summary-ui/whitelabeling-summary-ui)
 - [Add custom domain to your Summary Page](/docs/tutorials/pre-built-summary-ui/custom-domain)
