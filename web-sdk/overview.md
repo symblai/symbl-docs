@@ -48,10 +48,7 @@ Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://gi
 ```bash
 import symbl from "@symblai/symbl-web-sdk";
 ```
-To view a full example that shows the above, check out the links below:
-
-- HTML sample
-- React app sample 
+To view the technical reference for the Symbl Web SDK [go here](https://symblai.github.io/symbl-web-sdk/classes/core_SymblWebEngine.default.html)
 
 ## Initialization
 ---
@@ -99,7 +96,7 @@ The Web SDK is also available as a part of [Symbl Labs](/docs/labs) with select 
 
 ### Features in Labs
 
-The following features are available in Labs for Web SDK. For more details, go to the [GitHub Readme]([https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs))
+You can view which Labs features are available in the Labs Web SDK on the [GitHub Readme]([https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs)) for the labs branch.
 :::
 
 ## Tutorials
