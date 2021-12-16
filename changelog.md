@@ -17,13 +17,6 @@ We continuously add new features and enhancements, fix critical bugs, and regula
 - **Added support for generating Trackers in Spanish Language** <font color="orange"> (LABS) </font><br/>
 [Read more here](/docs/streamingapi/code-snippets/receive-trackers-in-spanish).
 
-
-![sdk](/img/sdk-icon.png) 
-- **Web SDK Availability** <font color="orange"> (BETA + LABS) </font><br/>
-Availability of web based JavaScript SDK for Streaming API. Some of the features include transcribing real-time audio, connecting, muting/unmutung, reconnecting, subscribing to events and stopping connections. 
-[Read more here](/docs/web-sdk/overview).
-
-
 ### 22 Oct 2021
 ![api update](/img/api-update.png) 
 - **Added support for generating Summary for only the new Transcripts of a Conversation** <font color="orange"> (LABS) </font><br/>
