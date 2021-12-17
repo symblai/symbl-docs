@@ -24,7 +24,7 @@ The Python SDK provides the following capabilities:
 
 ## Credential Handling 
 
-Symbl.ai's Python SDK simplifies the credential handling by allowing you either to add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
+The Python SDK simplifies the credential handling by allowing you to either add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
 
 To add your credentials directly to the connection method's calls, add the following line: 
 
