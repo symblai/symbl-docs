@@ -102,7 +102,7 @@ response = requests.request("GET", url, headers=headers)
 
 if response.status_code == 200:
     # Successful API execution
-    print("actionItems => " + str(response.json()['actionItems']))  # actionsItems object containing actionItem id, text, type, score, messageIds, phrases, definitive, entities, assignee
+    print("trackers => " + str(response.json()))  # trackers object containing tracker id, name, matches (array of object containing messageRefs, type, value, insightRefs)
 elif response.status_code in responses.keys():
     print(responses[response.status_code])  # Expected error occurred
 else:
