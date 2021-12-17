@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Symbl recognizes if an action item has a connotation or nature of language, which requires following up in general or by someone in a conversation.
 
-#### Examples
+#### For Example,
 
 * *"I will sync up with my manager and find out the agreed dates with the vendor".* Here, a person needs to follow up with their manager in order to complete this action.
 
