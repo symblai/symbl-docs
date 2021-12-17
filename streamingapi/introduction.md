@@ -9,6 +9,8 @@ slug: /streamingapi/introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 
 Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time. It can be integrated directly via the browser or server.
 
