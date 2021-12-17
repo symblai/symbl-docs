@@ -11,6 +11,8 @@ This tutorial provides code snippets and instructions on how to utilize Python S
 
 The Python SDK provides the following capabilities: 
 
+- [Credential Handling](#credential-handling)<br/>
+
 - [Start SIP Connection](#start-sip-connection)<br/>
 
 - [Stop connection](#stop-connection) <br/>
@@ -19,6 +21,23 @@ The Python SDK provides the following capabilities:
 
 - [Subscribing to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
+## Credential Handling 
+
+Symbl.ai's Python SDK simplifies the credential handling by allowing you either to add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
+
+To add your credentials directly to the connection method's calls, add the following line: 
+
+```python
+      credentials={app_id: <app_id>, app_secret: <app_secret>},
+```
+
+To handle credentials through a separate file saved your execution directory, add a file to your project called `symbl.conf` with the following configuration: 
+
+```python 
+[credentials]
+app_id=
+app_secret=
+```
 
 ## Start SIP Connection
 
