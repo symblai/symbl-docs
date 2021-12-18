@@ -77,7 +77,6 @@ Event  | Description
 ----------- |------- |
 `message_response` | Generates an event whenever transcription is available.
 `insight_response` | Generates an event whenever an `action_item` or `question` is identified in the message. 
-`tracker_response`| Generates an event whenever a tracker is identified in the transcription.
 `transcript_response` | Also generates transcription values, however these will include an `isFinal` property which will be False initially meaning the transcription are not finalized.
 `topic_response` | Generates an event whenever a topic is identified in any transcription.
 

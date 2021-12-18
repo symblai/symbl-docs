@@ -71,7 +71,7 @@ request.get({
 import requests
 
 baseUrl = "https://api.symbl.ai/v1/conversations/{conversationId}/messages"
-conversationId = 'your_conversation_id'  # Generated using Submit text end point
+conversationId = 'your_conversation_id' 
 
 url = baseUrl.format(conversationId=conversationId)
 
