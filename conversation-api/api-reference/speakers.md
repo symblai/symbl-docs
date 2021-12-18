@@ -8,6 +8,8 @@ slug: /conversation-api/speaker-events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Speaker Events API provides the functionality to update Speakers who spoke in the conversation after it has been processed.
 
 This is achieved by sending the API the list of Speaker Events for that conversation which the API then uses for associating it with the content of the same.
