@@ -188,6 +188,7 @@ payload = {
     # 'languageCode': "en-US"  # <Optional, boolean| language_code> |code of language of recording.>
 }
 
+
 responses = {
     400: 'Bad Request! Please refer docs for correct input fields.',
     401: 'Unauthorized. Please generate a new access token.',
@@ -196,7 +197,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
     # Successful API execution

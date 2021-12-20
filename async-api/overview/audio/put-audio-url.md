@@ -187,7 +187,7 @@ request.post(audioOption, (error, response, body) => {
 
 ```py
 import json
-import requests
+import requests as requests
 
 baseUrl = "https://api.symbl.ai/v1/process/audio/url/"
 conversationId = 'your_conversation_id'  # Generated using Submit text end point
@@ -239,7 +239,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("PUT", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
     # Successful API execution
@@ -251,6 +251,7 @@ else:
     print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
 
 exit()
+
 ```
 
 </TabItem>

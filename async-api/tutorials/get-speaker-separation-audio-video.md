@@ -125,6 +125,8 @@ fetch(`https://api.symbl.ai/v1/process/video/url?enableSpeakerDiarization=true&d
 import json
 import requests
 
+NUMBER_OF_UNIQUE_SPEAKERS = 1
+# Note - For accuracy, NUMBER_OF_UNIQUE_SPEAKERS should match the number of unique speakers in the Audio/Video data.
 url = "https://api.symbl.ai/v1/process/video/url?enableSpeakerDiarization=true&diarizationSpeakerCount=" + NUMBER_OF_UNIQUE_SPEAKERS
 
 payload = {
@@ -141,7 +143,7 @@ headers = {
 
 # webhookUrl = <Optional, string| your_webhook_url| Webhook url on which job updates to be sent. (This should be post API)>" e.g https://yourdomain.com/jobs/callback
 # if webhookUrl is not None:
-#   url += "?webhookUrl" + webhookUrl  
+#   url += "?webhookUrl" + webhookUrl
 
 responses = {
     400: 'Bad Request! Please refer docs for correct input fields.',
@@ -151,7 +153,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
     # Successful API execution
@@ -163,6 +165,7 @@ else:
     print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
 
 exit()
+
 ```
 
 </TabItem>

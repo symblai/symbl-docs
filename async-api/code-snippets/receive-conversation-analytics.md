@@ -196,10 +196,10 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
-    # Successful API execution
+# Successful API execution
     print("conversationId => " + response.json()['conversationId'])  # ID to be used with Conversation API.
     print("jobId => " + response.json()['jobId'])  # ID to be used with Job API.
 elif response.status_code in responses.keys():
@@ -208,6 +208,7 @@ else:
     print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
 
 exit()
+
 ```
 
 </TabItem>
