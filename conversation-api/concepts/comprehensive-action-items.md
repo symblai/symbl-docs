@@ -1,6 +1,6 @@
 ---
 id: comprehensive-action-items
-title: Comprehensive Action Items 
+title: Comprehensive Action Items (Labs)
 sidebar_label: Introduction
 slug: /concepts/comprehensive-action-items
 ---

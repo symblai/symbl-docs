@@ -7,6 +7,8 @@ sidebar_label: Speaker separation with Async API
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 <!-- Enable the Speaker Separation for the Async Audio or Async Video APIs to get speaker-separated transcripts and insights. -->
 
 [Symbl's Async API](/docs/async-api/introduction) allows you to process stored recordings of audio or video from files or URLs or even textual content from a conversation. In this guide, we will walk you through how to implement [Speaker Separation](/docs/async-api/reference/reference/#speaker-separation) with audio or video files. Speaker Separation, in short, is the ability to detect and separate unique speakers in a single stream of audio & video without the need for separate speaker events.
