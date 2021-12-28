@@ -1,6 +1,6 @@
 ---
 id: how-to-get-sentiment-analysis
-title:  Getting Sentiment Analysis
+title:  Getting Sentiment Analysis (Beta)
 sidebar_label:  Real-time Sentiment Analysis
 slug: /how-tos/get-sentiment-analysis
 ---

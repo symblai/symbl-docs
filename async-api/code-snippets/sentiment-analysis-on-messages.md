@@ -1,12 +1,16 @@
 ---
 id: sentiment-analysis-on-messages 
-title: Sentiment Analysis on Messages 
+title: Sentiment Analysis on Messages (Beta)
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
+
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
 
 Sentiment Analysis is the process of determining whether each message/line in a conversation is positive, negative, or neutral. Sentiment analysis on messages combines natural language processing and machine learning procedures to allot sentiment scores to the message.
 
