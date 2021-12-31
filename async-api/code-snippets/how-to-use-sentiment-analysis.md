@@ -1,6 +1,6 @@
 ---
 id: how-to-use-sentiment-analysis
-title: How To Use Sentiment Analysis
+title: How To Use Sentiment Analysis (Beta)
 ---
 
 import Tabs from '@theme/Tabs';
@@ -8,9 +8,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
 ## Process file
 
-The first thing you need to do before getting your Sentiment Analysis is to process your audio, video or text file. This code is taken directly from our [POST Video URL](/docs/async-api/overview/video/post-video) page. If you want to use an audio or text file you can use the code from the [POST Audio URL](/docs/async-api/overview/audio/post-audio) or [POST Text File](/docs/async-api/overview/text/post-text) pages.
+The first thing you need to do before getting your Sentiment Analysis is to process your audio, video or text file. This code is taken directly from our [POST Video URL](/docs/async-api/overview/video/post-video-url) page. If you want to use an audio or text file you can use the code from the [POST Audio URL](/docs/async-api/overview/audio/post-audio-url) or [POST Text File](/docs/async-api/overview/text/post-text) pages.
 
 :::caution
 You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.

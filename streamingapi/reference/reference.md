@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time. 
 
 :::info
-Currently, Streaming API is supported only in English language.
+Currently, Streaming API is supported in English language. The support for Spanish language is also available in the Labs environment. 
 ::: 
 
 ## Request Parameters

@@ -118,7 +118,7 @@ request.post({
 Field  | Required  | Type | Description
 ---------- | ------- | ------- |  -------
 ```name``` | Mandatory | String |  For Summary UI use `verbose-text-summary` and for Video Summary UI use `video-summary`.
-```videoUrl```| Optional | String |  URL of the video file for which you want to generate the `video-summary`.
+```videoUrl```| Mandatory | String |  URL of the video file for which you want to generate the `video-summary`.
 ```logo```| Optional | String |  This field accepts public URL for setting custom logo in Video Summary UI(`video-summary`).
 ```favicon```| Optional | String |  This field accepts public URL for setting custom favicon in Video Summary UI (`video-summary`).
 ```color```| Optional | Object | This option can be used to customise the colors of UI background, topics filter and insights filter elements in UI.

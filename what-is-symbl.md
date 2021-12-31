@@ -65,7 +65,7 @@ Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect)
 ### ❇️ Action Items
 An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action showing a clear commitment. 
 
-Examples:
+For example,
 
 *“This was a great conversation, I will summarize this meeting and send a follow-up to all the stakeholders”*
 
@@ -83,7 +83,7 @@ While both are equally powerful in providing Action Items that relate to a discu
 ### ❇️ Follow-Ups
 Symbl can recognize if an action item has a connotation, which requires following up in general or by someone in particular - which usually includes setting up a calendar invite. Follow-ups have details of assignee, datetime ranges entities and is regenerated with speaker context with reference to the transcription or message. The Summary UI comes with an out-of-the-box calendar integration for this follow-up insight type. 
 
-Example: 
+For example,
 
 *“John, let’s set a time to discuss the board updates tomorrow evening”*
 
@@ -93,7 +93,7 @@ Example:
 ### ❇️ Questions
 Any explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question. 
 
-Examples:
+For example,
 
 *“What features are most relevant for our use case?” “How are we planning to design the systems?”*
 
@@ -104,7 +104,9 @@ Examples:
 ### ❇️ Trackers (Beta)
 When it comes to detecting specific or “contextually similar” occurrences of a particular context in any conversation, the most commonly faced challenge is when the speakers talk about the context in general but do not speak the exact phrases. The Trackers API will however detect both exact and similar phrases.
 
-For example “I don’t have any money” is contextually similar to “I ran out of budget” as both represent similar inherent meaning.
+For example,
+
+“I don’t have any money” is contextually similar to “I ran out of budget” as both represent similar inherent meaning.
 
 However, after listening/hearing the conversation, it is understood that it indeed has the context that was meant to be detected.
 

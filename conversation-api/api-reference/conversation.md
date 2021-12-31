@@ -110,29 +110,34 @@ exit()
 
 
 ```javascript
+
 {
-    "id": "5179649407582208",
-    "type": "meeting",
-    "name": "Project Meeting #2",
-    "startTime": "2020-02-12T11:32:08.000Z",
-    "endTime": "2020-02-12T11:37:31.134Z",
-    "members": [
-        {
-            "id": "5118221462011904",
-            "name": "John",
-            "email": "John@example.com"
-        },
-        {
-            "id": "50123212234535645",
-            "name": "Mary",
-            "email": "Mary@example.com"
-        },
-        {
-            "id": "63475698234689238",
-            "name": "Roger",
-            "email": "Roger@example.com"
-        }
-    ]
+  "id": "4549300882243584",
+  "type": "meeting",
+  "name": "4549300882243584",
+  "startTime": "2021-07-23T16:31:29.798Z",
+  "endTime": "2021-07-23T16:32:20.826Z",
+  "members": [
+
+      {
+          "id": "5118221462011904",
+          "name": "John",
+          "email": "John@example.com"
+      },
+      {
+          "id": "50123212234535645",
+          "name": "Mary",
+          "email": "Mary@example.com"
+      },
+      {
+          "id": "63475698234689238",
+          "name": "Roger",
+          "email": "Roger@example.com"
+      }
+  ],
+  "metadata": {
+      "label": "Business"
+  }
 }
 ```
 
