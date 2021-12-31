@@ -7,6 +7,8 @@ slug: /python-sdk/python-sdk-telephony-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This tutorial provides code snippets and instructions on how to utilize Python SDK to call Symbl's Telephony API using PSTN protocol. <br/>
 To view the source code, go to the [open-source repository](https://github.com/symblai/symbl-python) in GitHub. 
 

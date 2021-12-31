@@ -6,6 +6,8 @@ title: How To Use Sentiment Analysis
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Process file
 
 The first thing you need to do before getting your Sentiment Analysis is to process your audio, video or text file. This code is taken directly from our [POST Video URL](/docs/async-api/overview/video/post-video) page. If you want to use an audio or text file you can use the code from the [POST Audio URL](/docs/async-api/overview/audio/post-audio) or [POST Text File](/docs/async-api/overview/text/post-text) pages.

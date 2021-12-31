@@ -8,6 +8,8 @@ slug: /conversation-api/insights
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Returns all the insights in a conversation including Topics, Questions and Action Items
 
 ### HTTP Request

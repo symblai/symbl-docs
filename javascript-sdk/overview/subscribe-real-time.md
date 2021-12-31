@@ -7,6 +7,8 @@ slug: /javascript-sdk/code-snippets/subscribe-real-time
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Symbl Javascript SDK also lets you subscribe to real-time events when you connect to one of the Endpoints specified in the above sections. These include:
 
 * Real-Time Transcription

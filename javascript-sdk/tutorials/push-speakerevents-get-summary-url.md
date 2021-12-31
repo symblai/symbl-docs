@@ -6,6 +6,8 @@ title: Using Symbl Javascript SDK To Push Speaker Events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 In this example, it establishes a connection using a phone number through PSTN,
 to send speaker events, generate insights, and display a summary URL with the
 output. You can see how to initialize the Voice SDK, connect to the endpoint,

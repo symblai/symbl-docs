@@ -6,6 +6,8 @@ slug: /conversation-api/delete-conversation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API permanently deletes conversation and all related entities such as messages, insights, topics etc. associated with the Conversation ID.
 
 :::caution

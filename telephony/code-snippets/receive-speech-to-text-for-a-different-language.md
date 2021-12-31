@@ -5,6 +5,8 @@ title: Receive Speech-to-Text for a different language in a Conversation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This example goes over how you can use the Symbl Telephony API to receive a speech-to-text transcription Íof a conversation in many different languages. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction) and native Javascript.
 
 :::note

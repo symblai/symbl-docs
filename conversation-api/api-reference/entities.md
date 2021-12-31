@@ -8,6 +8,7 @@ slug: /conversation-api/entities
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 :::info
 This is a Beta API - Undergoing further development.

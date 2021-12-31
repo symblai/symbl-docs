@@ -8,6 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
+---
+
 Use the Async API to get speech-to-text transcription from audio or video and extract follow-ups, topics, action-items, and  questions from them.
 
 ## 1. Process an audio file using Async API

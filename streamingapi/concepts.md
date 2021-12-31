@@ -8,6 +8,8 @@ slug: /concepts/websockets
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Symbl's Streaming API is based on WebSocket protocol. This Web Socket is a general-purpose protocol that suits any application designed for real-time, two-way communication within a browser — like chat apps, collaboration software, and multiplayer games.
 
 ## What is a Websocket?

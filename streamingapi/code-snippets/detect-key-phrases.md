@@ -6,6 +6,8 @@ title: Detect Key Phrases
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach us at devrelations@symbl.ai.
 :::

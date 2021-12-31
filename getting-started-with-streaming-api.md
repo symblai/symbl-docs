@@ -7,6 +7,8 @@ slug: /getting-started-with-streaming-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 
 The Streaming API provides live speech-to-text transcription and extracts follow-ups, topics, action-items, and questions from conversations as they unfold in real-time.
 

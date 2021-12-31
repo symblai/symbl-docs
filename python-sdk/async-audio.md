@@ -6,6 +6,7 @@ slug: /python-sdk/async-audio
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+---
 
 The Python SDK allow you to asynchronously send audio conversation data and generate the following:
 

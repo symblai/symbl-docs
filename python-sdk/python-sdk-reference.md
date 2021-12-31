@@ -7,6 +7,8 @@ slug: /python-sdk/python-sdk-reference
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This page contains detailed descriptions of the class and objects supported by the Symbl Python SDK. 
 
 - [Audio Class](#audio-class)

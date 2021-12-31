@@ -7,6 +7,8 @@ slug: /javascript-sdk/code-snippets/use-languages-timezones-with-sdk
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Getting Started
 
 This snipet shows how to use languages other than English and also how to set the timezone to the timezone in which the conversation is taking place.

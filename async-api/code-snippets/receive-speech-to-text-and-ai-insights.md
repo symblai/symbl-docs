@@ -6,6 +6,8 @@ title: Receive Speech-to-Text and AI Insights
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Process video file
 
 The first thing you need to do before getting your speech-to-text and AI insights you need to process your video file. This code is taken directly from our [POST Video URL](/docs/async-api/overview/video/post-video) page. 
