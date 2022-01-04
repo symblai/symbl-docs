@@ -8,6 +8,8 @@ slug: /conversation-api/questions
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API help you find explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question.
 
 ### HTTP Request
@@ -97,43 +99,22 @@ exit()
 
 ```json
 {
-	"questions": [{
-			"id": "5179649407582208",
-			"text": "Push them for the two weeks delivery, right?",
-			"type": "question",
-			"score": 0.9730208796076476,
-			"messageIds": [
-				"5019269922291712"
-			]
-		},
-		{
-			"id": "5642466493464576",
-			"text": "I think what is the Bahamas?",
-			"type": "question",
-			"score": 0.9119608386876195,
-			"messageIds": [
-				"5019269922291712"
-			]
-		},
-		{
-			"id": "5756718797553664",
-			"text": "Okay need be detained, or we can go there in person and support them?",
-			"type": "question",
-			"score": 0.893303149769215,
-			"messageIds": [
-				"5019269922291712"
-			]
-		},
-		{
-			"id": "6235991715086336",
-			"text": "Why is that holiday in US from 17?",
-			"type": "question",
-			"score": 0.9998053310511206,
-			"messageIds": [
-				"5019269922291712"
-			]
-		}
-	]
+    "questions": [
+        {
+            "id": "6673386714431488",
+            "text": "It actually does not have speakers right?",
+            "type": "question",
+            "score": 0.9844425742283145,
+            "messageIds": [
+                "5561105242914816"
+            ],
+            "from": {
+                "id": "47c74881-6475-433f-a13a-52152a3cb5aa",
+                "name": "Surbhi",
+                "userId": "Surbhi@symbl.ai"
+            }
+        }
+    ]
 }
 ```
 
@@ -141,9 +122,10 @@ exit()
 
 Field  | Description
 ---------- | ------- |
-```id``` | Unique conversation identifier.
-```text``` | Conversation text.
+```id``` | Unique Question identifier.
+```text``` | Question text.
 ```type``` | Response type. Default is `question`.
 ```score``` | Confidence score of the generated question. Value from 0 - 1. A score of 1 is likely an exact match, while a score of 0 means that no match was found. 
 ```messageIds``` | Unique message identifiers of the corresponding messages.
+```from``` | object contains userId, name and identifier of speaker 
 

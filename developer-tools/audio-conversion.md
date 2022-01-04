@@ -7,6 +7,8 @@ sidebar_label: Audio Conversion
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ### Async Audio Conversion
 
 Async Audio API supports files of either `.wav` or `.mp3` and the file must have `mono-channel audio` only. Any other file formats can be converted using the code snippet from [FFmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)

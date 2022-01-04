@@ -1,6 +1,6 @@
 ---
 id: refreshing-summary
-title: How to Refresh a Summary 
+title: How to Refresh a Summary (Beta)
 sidebar_label: Refreshing a Summary 
 slug: /tutorials/summarization/refreshing-summary
 ---
@@ -8,15 +8,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
-:::info Symbl Labs
-This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
-
-
-You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
-
-**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
-
-For any queries or feedback, please contact us at labs@symbl.ai.
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
 When you wish to renegerate a Summary that you generated earlier, you can do so in two ways: 

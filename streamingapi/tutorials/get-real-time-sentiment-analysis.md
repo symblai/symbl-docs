@@ -7,6 +7,8 @@ slug: /streamingapi/tutorials/get-real-time-sentiment-analysis-from-your-web-bro
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 In this guide you will learn how to get started with Symbl’s native Streaming API, which is our most accurate API for conversation analysis. Symbl's Streaming API is an API for enabling real-time conversational analysis on voice, video, or chat, or any live streaming directly through your web browser. If you have voice, video, or chat enabled, Symbl's API for streaming enables you to tap the raw conversational data of those streams. In addition to the setting up Symbl.ai's Streaming API, you create a function that logs sentiment analysis in real-time. Sentiment analysis operates through a call to the Message API with a query parameter. 
 
 You can view the complete code sample for this tutorial on [GitHub](https://github.com/symblai/logging-real-time-sentiments):

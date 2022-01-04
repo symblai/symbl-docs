@@ -5,6 +5,8 @@ title: Receive Prebuilt Summary UI email after each conversation
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This snippet goes into detail about how to receive Symbl's Prebuilt Summary UI email after a conversation is finished. The Prebuilt Summary UI email details the conversation using speech-to-text transcription and shows any AI insights gathered during the conversation. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction) and native Javascript.
 
 #### This is an example of the summary page you can expect to receive at the end of your call

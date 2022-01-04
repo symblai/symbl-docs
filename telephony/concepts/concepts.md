@@ -6,6 +6,8 @@ slug: /concepts/pstn-and-sip
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API supports dialing through a simple phone number - `PSTN` or a Voice Over IP system - `SIP` endpoint. If you don't have your own Voice over IP (VoIP) system, use a phone number to make the connection.
 
 ### <a name="sip"></a>Session Initiation Protocol (SIP)

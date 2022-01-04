@@ -7,6 +7,7 @@ slug: /python-sdk/async-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+--- 
 
 The Python SDK allow you to asynchronously send text conversation and generate the following insights:
 

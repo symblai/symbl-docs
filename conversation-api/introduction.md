@@ -8,6 +8,8 @@ sidebar_label: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Conversation API provides a REST API interface for getting your processed Speech to Text data(also known as Transcripts) and Conversational Insights.
 
 To view insights about a conversion, you must provide the API with a Conversation ID.

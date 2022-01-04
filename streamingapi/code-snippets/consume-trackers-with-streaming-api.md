@@ -7,6 +7,8 @@ slug: /streaming-api/code-snippets/consume-trackers-with-streaming-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Below is an example that shows how to pass Trackers in the config object for the startRealtimeRequest of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
 
 ```js

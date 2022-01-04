@@ -6,6 +6,8 @@ title: Receive Live Captioning
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This example goes over how you can use the Symbl Streaming API to do live captioning. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction), which is meant to be run using Node.js, and native Javascript which can be run in the browser: 
 
 ## Connect

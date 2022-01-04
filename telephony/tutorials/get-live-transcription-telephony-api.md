@@ -7,6 +7,8 @@ slug: /telephony/tutorials/connect-to-phone-call
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Get a live transcription in your Node.js application by making a call to a valid phone number. In this guide, we will walk you through how to get a live transcription and real-time AI insights, such as [follow-ups](/docs/concepts/follow-ups), [action items](/docs/concepts/action-items), [topics](/docs/concepts/topics) and [questions](/docs/conversation-api/questions) of a phone call using a PSTN or SIP connection.
 
 This application uses the Symbl Javascript SDK which requires the `symbl-node` node package. 

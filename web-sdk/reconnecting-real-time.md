@@ -4,13 +4,14 @@ title: Reconnecting to an Existing Real-time Connection (Beta)
 sidebar_label: Reconnecting to an Existing Real-time Connection
 slug: /web-sdk/reconnecting-real-time
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
-
-In the case that a user closes their browser or has an interruption in their WebSocket connection you can use the `store` object to grab the Connection ID you last used.
-
+ 
+In case a user closes their browser or has an interruption in their WebSocket connection, you can use the `store` object to grab the Connection ID you last used.
+ 
 ```js
 const id = symbl.store.get('connectionID');
 
@@ -63,16 +64,16 @@ const connectionConfig = {
 };
 
 (async () => {
-	const connection = await symbl.startRealtimeRequest(connectionConfig, true);
+	const connection = await symbl.startRealtimeRequest(connectionConfig);
 })();
 ```
-
-The `startRealtimeRequest` connects to a Streaming API Web Socket endpoint using the provided configuration options. Read more about `startRealtimeRequest` [here](/docs/web-sdk/web-sdk-reference#startrealtimerequest). 
-
+ 
+The `startRealtimeRequest` connects to a Streaming API Web Socket endpoint using the provided configuration options. Read more about `startRealtimeRequest` [here](/docs/web-sdk/web-sdk-reference#startrealtimerequest).
+ 
 Read about the Streaming API parameters for `connectionConfig` [here](/docs/streaming-api/api-reference/#request-parameters).
-
+ 
 Read more about the supported Event Handlers:
-
+ 
 &nbsp; &nbsp; 👉 &nbsp; [onSpeechDetected](/docs/web-sdk/web-sdk-reference#onspeechdetected) <br/>
 &nbsp; &nbsp; 👉 &nbsp; [onMessageResponse](/docs/web-sdk/web-sdk-reference#onmessageresponse) <br/>
 &nbsp; &nbsp; 👉 &nbsp; [onInsightResponse](/docs/web-sdk/web-sdk-reference#oninsightresponse) <br/>

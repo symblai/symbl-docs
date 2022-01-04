@@ -7,6 +7,8 @@ slug: /python-sdk/conversation-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Conversation API provides a REST API interface for getting your processed Speech to Text data(also known as Transcripts) and conversational insights.
 
 You can utilize different functions of Conversation APIs by directly utilizing `symbl.Conversations` if you have already have a `conversationId`. 

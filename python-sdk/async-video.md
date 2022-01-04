@@ -7,6 +7,8 @@ slug: /python-sdk/async-video
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Python SDK allow you to asynchronously send video conversation data and generate the following:
 
 - Speech-to-Text (messages)

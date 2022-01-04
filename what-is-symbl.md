@@ -40,8 +40,6 @@ The transcript is one of the easiest ways to navigate through the entire convers
 
 Transcripts can be generated in real-time for voice and video conversations or using a recorded file. They can also be accessed through the post-conversation summary UI. The post-conversation summary page enables editing, copying and sharing of transcripts from the conversation.
 
-For example,
-
 <div><h4><a href="/docs/concepts/speech-to-text"> Learn more about Transcripts ➡️ &nbsp;</a></h4></div>
 <br/>
 
@@ -52,8 +50,6 @@ They are not detected based on the frequency of their occurrences in the convers
 
 Each Topic has a score that indicates the importance of that topic in the context of the entire meeting. It is not that rare that even less frequently mentioned things are of higher importance in the conversation, and this will be reflected in a higher score for those topics, even if other Topics have a high number of mentions in the overall conversation.
 
-For example,
-
 <div><h4><a href="/docs/concepts/topics">Learn more about Topics ➡️ &nbsp;</a></h4></div>
 <br/>
 
@@ -63,15 +59,13 @@ Sentiment Analysis is the interpretation of the general thought, feeling, or sen
 
 Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect). With Symbl's Sentiment Analysis feature, you can get the intensity of the sentiment and suggest sentiment type as negative, neutral or positive.
 
-For example,
-
 <div><h4><a href="/docs/concepts/sentiment-analysis">Learn more about Sentiment Analysis ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Action Items
 An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action showing a clear commitment. 
 
-Examples:
+For example,
 
 *“This was a great conversation, I will summarize this meeting and send a follow-up to all the stakeholders”*
 
@@ -83,15 +77,13 @@ The Comprehensive Action Items API is similar to the Action Items API except tha
 
 While both are equally powerful in providing Action Items that relate to a discussion, the Comprehensive Action Items API is designed to provide more details such as references to speaker names, context in which the action item was mentioned and an overall comprehensive description of the action items.
 
-For example,
-
 <div><h4><a href="/docs/concepts/comprehensive-action-items"> Learn more about Comprehensive Action Items ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Follow-Ups
 Symbl can recognize if an action item has a connotation, which requires following up in general or by someone in particular - which usually includes setting up a calendar invite. Follow-ups have details of assignee, datetime ranges entities and is regenerated with speaker context with reference to the transcription or message. The Summary UI comes with an out-of-the-box calendar integration for this follow-up insight type. 
 
-Example: 
+For example,
 
 *“John, let’s set a time to discuss the board updates tomorrow evening”*
 
@@ -101,7 +93,7 @@ Example:
 ### ❇️ Questions
 Any explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question. 
 
-Examples:
+For example,
 
 *“What features are most relevant for our use case?” “How are we planning to design the systems?”*
 
@@ -150,15 +142,11 @@ Symbl's Conversational Intelligence distills important conversation messages and
 
 Summaries help you save time required to grasp the contents of a conversation. Using Summary API, you can create Summaries in real-time or after the conversation has ended. You can also create Summaries for chat or email messages.
 
-For example,
-
 <div><h4><a href="/docs/concepts/summarization"> Learn more about Summary ➡️ &nbsp;</a></h4></div>
 <br/>
 
 ### ❇️ Topic Hierarchy (Beta)
 In any conversation, there can be multiple related topics that get discussed and it is possible to organize them in a hierarchy for better insights and consumption. Symbl's Topic Hierarchy algorithm finds a pattern in the conversation and creates parent (global) topics with each parent topic having multiple child topics nested within it.
-
-For example,
 
 <div><h4><a href="/docs/concepts/topic-hierarchy"> Learn more about Topic Hierarchy ➡️ &nbsp;</a></h4></div>
 <br/>
@@ -166,8 +154,6 @@ For example,
 ### ❇️ Entities
 
 A word or phrase that provides information necessary to fulfill a particular intent. Each entity belongs to a category specified by the entity's associated type.  The platform generates entities related to the insight types for datetime and person.
-
-For example,
 
 <div><h4><a href="/docs/conversation-api/entities"> Learn more about Entities ➡️ &nbsp;</a></h4></div>
 <br/>

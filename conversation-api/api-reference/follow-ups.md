@@ -4,13 +4,15 @@ title: GET Follow-Ups
 sidebar_label: GET Follow-Ups
 slug: /conversation-api/follow-ups
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 This API returns list of all the follow-ups generated from the conversation.
 
-This is a category of [Action Items](action-items) with a connotation to follow-up a request or
+This is a category of [Action Items](/docs/conversation-api/action-items) with a connotation to follow-up a request or
 a task like sending an email or making a phone call or booking an appointment
 or setting up a meeting.
 

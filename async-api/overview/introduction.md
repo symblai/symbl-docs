@@ -7,6 +7,8 @@ sidebar_label: Introduction
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Async API provides a REST interface which helps you to submit any recorded or saved conversations to Symbl.
 
 When you submit a conversation, you'll receive a Conversation ID (`conversationId`), which is unique to your conversation.

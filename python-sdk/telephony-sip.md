@@ -7,9 +7,13 @@ slug: /python-sdk/python-sdk-telephony-sips
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This tutorial provides code snippets and instructions on how to utilize Python SDK to call Symbl's Telephony API using SIP. To view the source code, browse the [open-source repository](https://github.com/symblai/symbl-python) in GitHub. 
 
 The Python SDK provides the following capabilities: 
+
+- [Credential Handling](#credential-handling)<br/>
 
 - [Start SIP Connection](#start-sip-connection)<br/>
 
@@ -19,6 +23,23 @@ The Python SDK provides the following capabilities:
 
 - [Subscribing to Events (transcript, questions, action-items, etc.)](#subscribe-to-events)<br/>
 
+## Credential Handling 
+
+The Python SDK simplifies the credential handling by allowing you to either add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
+
+To add your credentials directly to the connection method's calls, add the following line: 
+
+```python
+      credentials={app_id: <app_id>, app_secret: <app_secret>},
+```
+
+To handle credentials through a separate file saved your execution directory, add a file to your project called `symbl.conf` with the following configuration: 
+
+```python 
+[credentials]
+app_id=
+app_secret=
+```
 
 ## Start SIP Connection
 

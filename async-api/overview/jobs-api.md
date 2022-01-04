@@ -6,6 +6,7 @@ sidebar_label: Get Job Status
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 The Job Status API is used to retrieve the status of an ongoing Async API request. You can use the Job ID (`jobId`) received in the successful response of the Async API.
 
 

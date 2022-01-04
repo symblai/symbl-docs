@@ -7,6 +7,8 @@ slug: /getting-started-with-telephony-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Telephony API provides a speech-to-text transcription and enables you to extract follow-ups, topics, action-items, and questions from conversations over the Zoom call.
 
 ## 1. Get a transcription of your Zoom call.

@@ -13,7 +13,7 @@ The Async Video URL API allows you to process video files (.mp4 format) and retu
 It can be utilized for any use case where you have access to recorded video stored publicly as a URL and want to extract insights and other conversational attributes supported by [Symbl's Conversation API](/docs/conversation-api/introduction).
 
 :::tip URL Requirement
-The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. <a href="https://bitly.com">bit.ly</a>), YouTube, Vimeo, or links from any audio/video platforms.
+The URL provided must be a publicly available URL. Currently we do not support any redirected links, shortened links (e.g. <a href="https://bitly.com">bit.ly</a>), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
 :::info

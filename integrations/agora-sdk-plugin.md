@@ -97,25 +97,20 @@ After activating the Symbl Conversation Intelligence Extension, click the **View
 
 This section walks you through the steps necessary to set up the Symbl Conversation Intelligence extension in your mobile application.
 
-1. Download the [Symbl Extension](https://cdn-agora.symbl.ai/agora-symblai-filter-debug.aar) (if you haven't already).
- 
-2. Add the `.aar` file as a dependency to your application. 
-![agora-creds](/img/agora-arr-files.png)
-
-3. Add the following information into your `build.gradle` module file:
+1. Add the following information into your `build.gradle` module file:
 
 ```js
-implementation fileTree(include: ['*.jar'], dir: 'libs')
 implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+implementation 'ai.symbl:android.extension:0.0.2'
 ```
-4. Implement the interface io.agora.rtc2.IMediaExtensionObserver
+2. Implement the interface io.agora.rtc2.IMediaExtensionObserver
  
 ```js
 public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMediaExtensionObserver {
 ```
 
-5. Add the following method to set all the necessary information to initialize the Symbl configuration. You can find description for the parameters used in the table below:
+3. Add the following method to set all the necessary information to initialize the Symbl configuration. You can find description for the parameters used in the table below:
 
 ```js
 private void setSymblPluginConfigs(JSONObject pluginParams) throws JSONException {
@@ -311,23 +306,23 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import io.agora.extension.symblai.model.request.ApiConfig;
-import io.agora.extension.symblai.model.request.RealtimeAPIConfig;
-import io.agora.extension.symblai.model.request.RealtimeStartRequest;
-import io.agora.extension.symblai.model.request.Redaction;
-import io.agora.extension.symblai.model.request.Speaker;
-import io.agora.extension.symblai.model.request.SpeechRecognition;
-import io.agora.extension.symblai.model.request.SymblPluginConfig;
-import io.agora.extension.symblai.model.request.Tracker;
-import io.agora.extension.symblai.model.response.SymblResponse;
+import ai.symbl.android.extension.model.request.ApiConfig;
+import ai.symbl.android.extension.model.request.RealtimeAPIConfig;
+import ai.symbl.android.extension.model.request.RealtimeStartRequest;
+import ai.symbl.android.extension.model.request.Redaction;
+import ai.symbl.android.extension.model.request.Speaker;
+import ai.symbl.android.extension.model.request.SpeechRecognition;
+import ai.symbl.android.extension.model.request.SymblPluginConfig;
+import ai.symbl.android.extension.model.request.Tracker;
+import ai.symbl.android.extension.model.response.SymblResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
-import io.agora.extension.symblai.ExtensionManager;
-import io.agora.extension.symblai.SymblAIFilterManager;
+import ai.symbl.android.extension.ExtensionManager;
+import ai.symbl.android.extension.SymblAIFilterManager;
 import io.agora.rtc2.Constants;
 import io.agora.rtc2.IRtcEngineEventHandler;
 import io.agora.rtc2.RtcEngine;

@@ -7,6 +7,8 @@ slug: /streamingapi/code-snippets/start-and-stop-connection
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Start Connection
 
 Use this code to start a connection to the Streaming API using Javascript WebSockets. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction), which is meant to be run using Node.js, and native Javascript which can be run in the browser:
@@ -21,7 +23,7 @@ Use this code to start a connection to the Streaming API using Javascript WebSoc
 <TabItem value="nodejs">
 
 ```js
-const {sdk} = require('symbl-node');
+const {sdk} = require('@symblai/symbl-js');
 const uuid = require('uuid').v4;
 
 (async () => {
@@ -91,7 +93,7 @@ const uuid = require('uuid').v4;
 
 #### Testing
 
-Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node uuid`. Now in the terminal run
+Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install @symblai/symbl-js uuid`. Now in the terminal run
 
 ```bash
 $ node app.js

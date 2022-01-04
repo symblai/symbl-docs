@@ -85,12 +85,7 @@ response = requests.request("GET", url, headers=headers)
 
 if response.status_code == 200:
     # Successful API execution
-    print("id => " + response.json()['id'])  # conversationId.
-    print("type => " + response.json()['type'])  # <string> type of conversation, default is meeting
-    print("name => " + response.json()['name'])  # <string> name of conversation
-    print("startTime => " + response.json()['startTime'])  # <datetime value> start time of conversation
-    print("endTime => " + response.json()['endTime'])  # <datetime value> end time of conversation
-    print("members => " + str(response.json()['members']))  # <list of member objects containing name and email if detected> members who were part of conversation
+    print("conversations => " + str(response.json()))  # object containing id, type, name, startTime, endTime, members object, and metadata object
 elif response.status_code in responses.keys():
     print(responses[response.status_code])  # Expected error occurred
 else:
@@ -102,12 +97,18 @@ exit()
 </TabItem>
 </Tabs>
 
-### Request Body
+### Request
 
 Given below is an example of the request along with optional query parameters. For a complete list of query parameters and their description, see the [table](#query-parameters) below.
 
 ```java
-GET https://api.symbl.ai/v1/conversations?limit=2&order=desc&sort=conversation.name&offset=2&startTime=2021-08-09T18:30:00.000Z&endTime=2021-08-13T18:30:00.000Z
+GET https://api.symbl.ai/v1/conversations
+?limit=2
+&order=desc
+&sort=conversation.name
+&offset=2
+&startTime=2021-08-09T18:30:00.000Z
+&endTime=2021-08-13T18:30:00.000Z
 ```
 
 ### Query Parameters
@@ -192,5 +193,6 @@ Field  | Description
 ```startTime``` | DateTime value of when the conversation started.
 ```endTime``` | DateTime value of when the conversation ended. 
 ```members``` | A list of member objects containing ID, name and email (if detected).
+```metadata``` | Contains user-defined metadata key values which are used for labelling conversations.
 
 

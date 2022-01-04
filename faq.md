@@ -43,4 +43,10 @@ Our Async APIs support multiple popular languages. To see the complete list, go 
 
 ### What happens when the Speaker Diarization and Speaker recognition per Channel are both set to "True"?
 
-If the Diarization feature is set to true, it will take priority over Speaker recognition per Channel. 
+If the Diarization feature is set to `true`, it will take priority over Speaker recognition per Channel. 
+
+### Can I run a Tracker one at a time? 
+
+No, Trackers cannot be run one at a time. 
+
+If you have not processed your conversation with the parameter `enableAllTracker=true` in the Async API, Trackers will not be detected. To learn why and understand how to use this parameter while processing your conversation, see [Consuming Trackers with Management API](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag) section.

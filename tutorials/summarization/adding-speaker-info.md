@@ -1,6 +1,6 @@
 ---
 id: adding-speaker-info
-title: Providing Speaker Information to generate Summary
+title: Providing Speaker Information to generate Summary (Beta)
 sidebar_label: Providing Speaker Information to generate Summary 
 slug: /tutorials/summarization/adding-speaker-info
 ---
@@ -10,15 +10,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info Symbl Labs
-This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
-
-
-You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
-
-**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
-
-For any queries or feedback, please contact us at labs@symbl.ai.
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
 Summaries are generated best when used with Speaker information captured in the conversation. It is highly recommended that you send us the speaker information to use this feature effectively.
@@ -30,10 +23,6 @@ You can provide speaker information in one of the following ways:
 To send the speaker information, you can use the [POST Async Text API](/docs/async-api/overview/text/post-text/) (field `from` with speaker’s name for each `message` submitted). Learn more in the [Async Text API Messages](/docs/async-api/overview/text/post-text/#messages) section.
 
 You can use an email conversation as the input of the transcript content in the Async Text API. You can submit the email content in the request for the Async text API. 
-
-
-> **Beginner Tip** <br/>
-If you are using the Summary API for the first time, the Async Text API is the simplest way to get started and work your way up to creating Summarization for recorded Audio and Video files. 
 
 - #### Async Audio/Async Video API
 

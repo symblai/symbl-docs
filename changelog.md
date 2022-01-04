@@ -12,10 +12,10 @@ import TabItem from '@theme/TabItem';
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
 ### 26 Nov 2021
-![sdk](/img/sdk-icon.png) 
-- **Web SDK Availability** <font color="orange"> (BETA + LABS) </font><br/>
-Availability of web based JavaScript SDK for Streaming API. Some of the features include transcribing real-time audio, connecting, muting/unmutung, reconnecting, subscribing to events and stopping connections. 
-[Read more here](/docs/web-sdk/overview).
+
+![api update](/img/api-update.png) 
+- **Added support for generating Trackers in Spanish Language** <font color="orange"> (LABS) </font><br/>
+[Read more here](/docs/streamingapi/code-snippets/receive-trackers-in-spanish).
 
 ### 22 Oct 2021
 ![api update](/img/api-update.png) 

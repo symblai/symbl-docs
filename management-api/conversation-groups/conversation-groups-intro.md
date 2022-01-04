@@ -81,23 +81,7 @@ To add metadata, modify an already processed conversation using Conversation API
 #### Request Body
 
 ```json
-# This is an optional payload. You can pass only the metadata to receive similar results.
 {
-  "type": "meeting",
-  "name": "My Business Meeting",
-  "startTime": "2021-02-24T15:53:05.594Z",
-  "endTime": "2021-02-24T16:18:05.048Z",
-  "members": [
-    {
-      "name": "John",
-      "email": "john@example.com"
-    },
-    {
-      "name": "Mary",
-      "email": "mary@example.com"
-    }
-  ],
-# This adds the metadata for Conversation Groups
   "metadata": {
     "key": "value", 
     "agentId": "johndoe"
@@ -109,25 +93,11 @@ To add metadata, modify an already processed conversation using Conversation API
 
 ```json
 {
-  "id": "4931769134481408",
-  "type": "meeting",
-  "name": "My Business Meeting",
-  "startTime": "2021-02-24T15:53:05.594Z",
-  "endTime": "2021-02-24T16:18:05.048Z",
-  "members": [
-    {
-      "name": "John",
-      "email": "john@example.com"
-    },
-    {
-      "name": "Mary",
-      "email": "mary@example.com"
-    }
-  ],
-  "metadata": {
-    "key": "value", 
-    "agentId": "johndoe"
-  }
+   "id":"4931769134481408",
+   "metadata":{
+      "key":"value",
+      "agentId":"johndoe"
+   }
 }
 ```
 

@@ -4,6 +4,7 @@ title: Live speech to text and AI insights on local server
 slug: /javascript-sdk/tutorials/receive-ai-insights-from-your-computer
 ---
 
+---
 
 In this guide you will be shown how to use Symbl's Javascript SDK to enable your device's microphone for recording audio and processing. This example was built to run on Mac or Windows PCs. You will learn how to use Symbl's API for speech-to-text transcription and real-time AI insights, such as [follow-ups](/docs/concepts/follow-ups), [action items](/docs/concepts/action-items), [topics](/docs/concepts/topics) and [questions](/docs/conversation-api/questions).
 

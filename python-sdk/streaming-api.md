@@ -7,6 +7,8 @@ slug: /python-sdk/streaming-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Streaming API is based on WebSocket protocol and can be used for real-time use cases where both the audio and its insights need to be available in real-time. 
 
 :::note
