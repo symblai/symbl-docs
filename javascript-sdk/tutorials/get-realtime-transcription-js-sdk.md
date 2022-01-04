@@ -6,6 +6,7 @@ title: Real-time Output With PSTN Dialing Using Symbl's JavaScript SDK
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 In this example let's walk through how to get the real-time transcription and insights events in a Telephone call.
 

@@ -7,6 +7,8 @@ slug: /streamingapi/code-snippets/start-and-stop-connection
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Start Connection
 
 Use this code to start a connection to the Streaming API using Javascript WebSockets. This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction), which is meant to be run using Node.js, and native Javascript which can be run in the browser:

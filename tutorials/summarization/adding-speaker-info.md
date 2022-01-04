@@ -24,10 +24,6 @@ To send the speaker information, you can use the [POST Async Text API](/docs/asy
 
 You can use an email conversation as the input of the transcript content in the Async Text API. You can submit the email content in the request for the Async text API. 
 
-
-> **Beginner Tip** <br/>
-If you are using the Summary API for the first time, the Async Text API is the simplest way to get started and work your way up to creating Summarization for recorded Audio and Video files. 
-
 - #### Async Audio/Async Video API
 
 You can choose from any of the following ways to provide speaker separation based on your scenario:

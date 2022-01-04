@@ -8,6 +8,8 @@ slug: /conversation-api/get-topics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The most relevant topics of discussion from the conversation that are generated
 based on the combination of the overall scope of the discussion.
 

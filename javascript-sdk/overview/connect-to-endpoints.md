@@ -7,6 +7,8 @@ slug: /javascript-sdk/code-snippets/connect-to-endpoints
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The code snippet below dials in using PSTN and hangs up after 60 seconds.
 
 <Tabs
