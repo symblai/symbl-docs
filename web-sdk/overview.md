@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+:::note IN BETA PHASE
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
 The Symbl Web SDK provides access to the Symbl APIs for applications directly in the browser. 
  
 > **Source Code** <br/>
@@ -31,7 +35,7 @@ Find the source code here: [https://github.com/symblai/symbl-web-sdk](https://gi
 ---
 **To use the Symbl Web SDK,**
  
-Include it via script tags in your HTML file:
+Include the following script tag in your HTML file:
  
 ```html
 <script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/latest/symbl.min.js"></script>
@@ -89,21 +93,21 @@ sdk.init({
 ```
  
  
-:::note Web SDK in Labs
-The Web SDK is available as a part of [Symbl Labs](/docs/labs) with select features. You can find the Web SDK Labs Readme here: [https://github.com/symblai/symbl-web-sdk/blob/labs/README.md](https://github.com/symblai/symbl-web-sdk/blob/labs/README.md) and the source code here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
+:::info Web SDK in Labs
+The Web SDK is also available as a part of the [Symbl Labs](/docs/labs) with select features. You can find the Web SDK Labs Readme here: [https://github.com/symblai/symbl-web-sdk/blob/labs/README.md](https://github.com/symblai/symbl-web-sdk/blob/labs/README.md) and the source code here: [https://github.com/symblai/symbl-web-sdk/tree/labs](https://github.com/symblai/symbl-web-sdk/tree/labs).
 :::
 
 ## Streaming API config options
 
-The full details of the Streaming API config options can be seen [here](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters).
+You can utilize the config options provided for our Streaming API. To read about the Streaming API config options, go to [Streaming API Reference](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters).
 
 ### Additional Web SDK configs
-These are configs that have been added that are specific to the Web SDK.
+You can also pass the following configurations that are available specifically with the Web SDK: 
 
 | Name | Default | Description | 
 | -------| ---------- | ------- | 
-| `sourceNode` | `null` | For passing in an external [MediaStreamAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode/MediaStreamAudioSourceNode) object. By default the Web SDK will handle audio context and source nodes on it's own, though if you wish to handle that externally we've provided that option. |
-| `reconnectOnError` | `true` | If true the Web SDK will attempt to reconnect to the WebSocket in case of error. You can also make sure of our `onReconnectFail` callback which will fire in case the reconnection attempt fails. |
+| `sourceNode` | `null` | For passing in an external [MediaStreamAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode/MediaStreamAudioSourceNode) object. Although the Web SDK will handle the audio context and source nodes on its own by default, you can pass this option if you wish to handle it externally. |
+| `reconnectOnError` | `true` | If this option is set to `true`, the Web SDK will attempt to reconnect to the WebSocket in case of an error. You can also make use of our [onReconnectFail](/docs/web-sdk/web-sdk-reference#onreconnectfailerr) callback which will fire in case the reconnection attempt fails. |
 
 ### Usage Example
 
@@ -138,7 +142,9 @@ await symbl.unmute(stream);
 ---
 We have prepared a list of tutorials to help you understand how to use the Web SDK.
  
-* [Transcribing Live Audio Input through Microphone](/docs/web-sdk/transcribing-live-audio-through-microphone)
+* [How to Transcribe a Live Audio Input through Microphone](/docs/web-sdk/transcribing-live-audio-through-microphone)
+* [How to pass a custom Node Source](/docs/web-sdk/passing-custom-sourcenode)
+* [How to pass a custom Device Change Handler](/docs/web-sdk/passing-custom-ondevicechange-handler)
  
 ### Web SDK Reference
 ---
@@ -148,4 +154,6 @@ The supported Handlers and Callbacks for the Web SDK are listed below:
    * [onSpeechDetected](/docs/javascript-sdk/reference#onspeechdetected)
    * [onMessageResponse](/docs/javascript-sdk/reference#onmessageresponse)
    * [onInsightResponse](/docs/javascript-sdk/reference#oninsightresponse)
-   * [onTopicResponse](/docs/javascript-sdk/reference#ontopicresponse)
+   * [onTopicResponse](/docs/javascript-sdk/reference#ontopicresponse)<br/>
+
+👉 See the complete Web SDK Reference [here](/docs/web-sdk/web-sdk-reference). 

@@ -10,12 +10,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-If you wish you can pass in a custom `MediaStreamAudioSourceNode` object to the Web SDK. By default the Web SDK will create the AudioContext and the `MediaStreamAudioSourceNode` object automatically but using this will give you more control over those.
+:::note IN BETA PHASE
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
 
-Once you create the `MediaStreamAudioSourceNode` object you can pass it via the `connectionConfig` as sourceNode
+You can pass a custom `MediaStreamAudioSourceNode` object to the Web SDK. By default the Web SDK will create the AudioContext and the `MediaStreamAudioSourceNode` object automatically but using this will give you more control over those.
+
+Once you create the `MediaStreamAudioSourceNode` object you can pass it via the `connectionConfig` as sourceNode.
 
 ```js
-
 // create the MediaStreamAudioSourceNode
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 stream = await navigator.mediaDevices.getUserMedia({
@@ -29,7 +32,7 @@ symbl.init({
 	appId: '<your App ID>',
 	appSecret: '<your App Secret>',
 	// accessToken: '<your Access Token>', // can be used instead of appId and appSecret
-	basePath: 'https://api-labs.symbl.ai',
+	basePath: 'https://api.symbl.ai',
 });
 
 const id = btoa("my-first-symbl-ai-code");
@@ -94,7 +97,7 @@ const connectionConfig = {
 
 ### Updating your external source node
 
-If you wish to update your external source node you can do se by using the `symbl.updateSourceNode` function:
+If you wish to update your external source node you can do so by using the `symbl.updateSourceNode` function:
 
 ```js
 symbl.updateSourceNode(stream, sourceNode);

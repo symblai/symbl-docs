@@ -1,7 +1,7 @@
 ---
 id: reconnecting-real-time
-title: Reconnecting to an Existing Real-time Connection (Beta)
-sidebar_label: Reconnecting to an Existing Real-time Connection
+title: Reconnecting to a Real-time Connection (Beta)
+sidebar_label: Reconnecting to a Real-time Connection
 slug: /web-sdk/reconnecting-real-time
 ---
 
@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ---
  
+:::note IN BETA PHASE
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
 In case a user closes their browser or has an interruption in their WebSocket connection, you can use the `store` object to grab the Connection ID you last used.
  
 ```js
@@ -64,14 +68,19 @@ const connectionConfig = {
 };
 
 (async () => {
-	const connection = await symbl.startRealtimeRequest(connectionConfig);
+    // Creates the WebSocket in a non-processing state
+    const stream = await symbl.createStream(connectionConfig);
+
+    // Send the start request
+    await stream.start(stream);
 })();
 ```
- 
-The `startRealtimeRequest` connects to a Streaming API Web Socket endpoint using the provided configuration options. Read more about `startRealtimeRequest` [here](/docs/web-sdk/web-sdk-reference#startrealtimerequest).
- 
-Read about the Streaming API parameters for `connectionConfig` [here](/docs/streaming-api/api-reference/#request-parameters).
- 
+:::note Using createStream to start a realtime request
+Creating a stream using `symbl.startRealtimeRequest(config)` has been deprecated in favor of `symbl.createStream(config)`. For createStream, the WebSocket is started in a non processing state. You must send the start request before processing any audio.
+
+After the stream is created, you need to call `symbl.start(stream)` to start the stream.
+:::
+
 Read more about the supported Event Handlers:
  
 &nbsp; &nbsp; 👉 &nbsp; [onSpeechDetected](/docs/web-sdk/web-sdk-reference#onspeechdetected) <br/>
