@@ -10,9 +10,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-As a simple test of the Streaming API you can simply setup a live microphone and push the audio stream using the browser APIs to access the microphone.
+:::note IN BETA PHASE
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
+To transcribe live audio via Streaming API, you can setup a live microphone and push the audio stream using the browser APIs to access the microphone.
  
-Initialize the SDK and connect via the built-in websocket connector. This will output the live transcription to the console.
+Initialize the SDK and connect via the built-in WebSocket connector. This will output the live transcription to the console.
  
 ### Initialize the SDK
  
@@ -44,7 +48,7 @@ symbl.init({
 	basePath: 'https://api-labs.symbl.ai',
 });
 
-const id = btoa("symbl-ai-is-the-best");
+const id = btoa("my-first-symbl-ai-code");
 
 const connectionConfig = {
 	id,
@@ -108,4 +112,6 @@ Read more about the supported Event Handlers:
 &nbsp; &nbsp; 👉 &nbsp; [onSpeechDetected](/docs/web-sdk/web-sdk-reference#onspeechdetected) <br/>
 &nbsp; &nbsp; 👉 &nbsp; [onMessageResponse](/docs/web-sdk/web-sdk-reference#onmessageresponse) <br/>
 &nbsp; &nbsp; 👉 &nbsp; [onInsightResponse](/docs/web-sdk/web-sdk-reference#oninsightresponse) <br/>
-&nbsp; &nbsp; 👉 &nbsp; [onTopicResponse](/docs/web-sdk/web-sdk-reference#ontopicresponse)
+&nbsp; &nbsp; 👉 &nbsp; [onTopicResponse](/docs/web-sdk/web-sdk-reference#ontopicresponse) <br/>
+
+👉 See the complete Web SDK Reference [here](/docs/web-sdk/web-sdk-reference). 

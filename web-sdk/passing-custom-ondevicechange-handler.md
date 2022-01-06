@@ -1,7 +1,7 @@
 ---
 id: passing-custom-ondevicechange-handler
-title: Passing a custom ondevicechange handler (Beta)
-sidebar_label: Passing a custom ondevicechange handler (Beta)
+title: Passing a Custom Device Change Handler (Beta)
+sidebar_label: Passing a Custom Device Change Handler (Beta)
 slug: /web-sdk/passing-custom-ondevicechange-handler
 ---
 
@@ -10,14 +10,19 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-By default, the Symbl Web SDK will handle the `ondevicechange` event and send a `modify_request` event to modify the sample rate with the new device's sample rate. If you wish to override this logic you can pass in your own `ondevicechange` handler in the handlers config.
+:::note IN BETA PHASE
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
+
+By default, the Symbl Web SDK will handle the `ondevicechange` event and send a `modify_request` event to modify the sample rate with the new device's sample rate. If you wish to override this logic, you can pass in your own `ondevicechange` handler in the handlers config.
 
 ```js
 symbl.init({
 	appId: '<your App ID>',
 	appSecret: '<your App Secret>',
 	// accessToken: '<your Access Token>', // can be used instead of appId and appSecret
-	basePath: 'https://api-labs.symbl.ai',
+	basePath: 'https://api.symbl.ai',
 });
 const id = btoa("my-first-symbl-ai-code");
 // pass in the MediaStreamAudioSourceNode as sourceNode
@@ -52,4 +57,3 @@ symbl.deviceChanged = () => {
 	// Add your logic here
 }
 ```
-

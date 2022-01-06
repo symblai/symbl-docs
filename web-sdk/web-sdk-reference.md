@@ -10,6 +10,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+This page contains a complete reference of the methods and event handlers supported with the Symbl Web SDK.
+
 ## Public Methods
  
 ### init

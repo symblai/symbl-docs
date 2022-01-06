@@ -1,7 +1,7 @@
 ---
 id: subscribe-to-realtime
-title: Subscribing to an existing realtime connection with Subscribe API (Beta)
-sidebar_label: Subscribing to an existing realtime connection with Subscribe API (Beta)
+title: Subscribing to a Real-time Connection (Beta)
+sidebar_label: Subscribing to a Real-time Connection (Beta)
 slug: /web-sdk/subscribe-to-realtime
 ---
 
@@ -10,7 +10,11 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-With the Subscribe API you can connect to an existing connection via the connection ID. You'll want to open this example in a different browser while the realtime transcription example is running.
+:::note IN BETA PHASE
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
+With the Subscribe API you can connect to an existing connection via the connection ID. You'll want to open this example in a different browser while the real-time transcription is running.
 
 ## Current call signature
 
@@ -36,14 +40,14 @@ symbl.subscribeToStream(id, (data) => {
 })
 ```
 
-| Name | Description |
-| -------| ---------- | 
-| `reconnectOnError` | `true` | If true the Web SDK will attempt to reconnect to the WebSocket in case of error. You can also make sure of our `onReconnectFail` callback which will fire in case the reconnection attempt fails.) | 
+| Name | Default | Description |
+| -------| ---------- | --------- |
+| `reconnectOnError` | `true` | If `true`, the Web SDK will attempt to reconnect to the WebSocket in case of an error. You can also make sure of our `onReconnectFail` callback which will fire in case the reconnection attempt fails.) | 
 
 ## Subscribe API Handlers
 
-| Name | Default value | Description |
-| -------| ---------- | ------- | 
+| Name | Description |
+| -------| ---------- | 
 | `onMessage(message)` | Fired any time a message is received. | If true the Web SDK will attempt to reconnect to the WebSocket in case of error. You can also make sure of our `onReconnectFail` callback which will fire in case the reconnection attempt fails.) | 
 | `onSubscribe()` | Fired when the connection intially subscribes. 
 | `onClose()` | Fired when the connection is closed.
