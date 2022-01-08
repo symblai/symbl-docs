@@ -22,11 +22,332 @@ Before using the Async Text API you must get the authentication token (`AUTH_TOK
   defaultValue="cURL"
   values={[
     { label: 'cURL', value: 'cURL', },
-    { label: 'Native Javascript', value: 'javascript', },
+    { label: 'Javascript', value: 'javascript', },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Python', value: 'python' }
+    { label: 'Python', value: 'python' },
+    { label: 'Java', value: 'java' },
+    { label: 'Swift', value: 'swift' },
+    { label: 'C#', value: 'csharp' },
+    { label: 'PHP', value: 'php' },
+    { label: 'Ruby', value: 'ruby' },
+    { label: 'Go', value: 'go' },
+    { label: 'C', value: 'c' },
+    { label: 'Objective-C', value: 'objective-c' },
   ]
 }>
+
+<TabItem value="java">
+
+```java
+
+Unirest.setTimeouts(0, 0);
+HttpResponse<String> response = Unirest.post("https://api.symbl.ai/v1/process/text")
+  .header("Authorization", "Bearer ACCESS_TOKEN")
+  .header("Content-Type", "application/json")
+  .body("{\n  \"name\": \"Business Meeting\",\n  \"detectPhrases\": \"True\",\n  \"confidenceThreshold\": 0.6,\n  \"messages\": [\n    {\n      \"duration\": {\n        \"startTime\": \"2020-07-21T16:04:19.99Z\",\n        \"endTime\": \"2020-07-21T16:04:20.99Z\"\n      },\n      \"payload\": {\n        \"content\": \"Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.\",\n        \"contentType\": \"text/plain\"\n      },\n      \"from\": {\n        \"name\": \"John\",\n        \"userId\": \"john@example.com\"\n      }\n    }\n  ]\n}")
+  .asString();
+
+
+```
+
+</TabItem>
+
+<TabItem value="swift">
+
+```swift
+
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+let parameters = "{\n  \"name\": \"Business Meeting\",\n  \"detectPhrases\": \"True\",\n  \"confidenceThreshold\": 0.6,\n  \"messages\": [\n    {\n      \"duration\": {\n        \"startTime\": \"2020-07-21T16:04:19.99Z\",\n        \"endTime\": \"2020-07-21T16:04:20.99Z\"\n      },\n      \"payload\": {\n        \"content\": \"Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.\",\n        \"contentType\": \"text/plain\"\n      },\n      \"from\": {\n        \"name\": \"John\",\n        \"userId\": \"john@example.com\"\n      }\n    }\n  ]\n}"
+let postData = parameters.data(using: .utf8)
+
+var request = URLRequest(url: URL(string: "https://api.symbl.ai/v1/process/text")!,timeoutInterval: Double.infinity)
+request.addValue("Bearer ACCESS_TOKEN", forHTTPHeaderField: "Authorization")
+request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+request.httpMethod = "POST"
+request.httpBody = postData
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
+
+```
+
+</TabItem>
+
+<TabItem value="csharp">
+
+```csharp
+
+var client = new RestClient("https://api.symbl.ai/v1/process/text");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("Authorization", "Bearer ACCESS_TOKEN");
+request.AddHeader("Content-Type", "application/json");
+var body = @"{" + "\n" +
+@"  ""name"": ""Business Meeting""," + "\n" +
+@"  ""detectPhrases"": ""True""," + "\n" +
+@"  ""confidenceThreshold"": 0.6," + "\n" +
+@"  ""messages"": [" + "\n" +
+@"    {" + "\n" +
+@"      ""duration"": {" + "\n" +
+@"        ""startTime"": ""2020-07-21T16:04:19.99Z""," + "\n" +
+@"        ""endTime"": ""2020-07-21T16:04:20.99Z""" + "\n" +
+@"      }," + "\n" +
+@"      ""payload"": {" + "\n" +
+@"        ""content"": ""Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.""," + "\n" +
+@"        ""contentType"": ""text/plain""" + "\n" +
+@"      }," + "\n" +
+@"      ""from"": {" + "\n" +
+@"        ""name"": ""John""," + "\n" +
+@"        ""userId"": ""john@example.com""" + "\n" +
+@"      }" + "\n" +
+@"    }" + "\n" +
+@"  ]" + "\n" +
+@"}";
+request.AddParameter("application/json", body,  ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+
+```
+
+</TabItem>
+
+<TabItem value="php">
+
+```php
+
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.symbl.ai/v1/process/text');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Authorization' => 'Bearer ACCESS_TOKEN',
+  'Content-Type' => 'application/json'
+));
+$request->setBody('{\n  "name": "Business Meeting",\n  "detectPhrases": "True",\n  "confidenceThreshold": 0.6,\n  "messages": [\n    {\n      "duration": {\n        "startTime": "2020-07-21T16:04:19.99Z",\n        "endTime": "2020-07-21T16:04:20.99Z"\n      },\n      "payload": {\n        "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.",\n        "contentType": "text/plain"\n      },\n      "from": {\n        "name": "John",\n        "userId": "john@example.com"\n      }\n    }\n  ]\n}');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+
+```
+
+</TabItem>
+
+<TabItem value="ruby">
+
+```ruby
+
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://api.symbl.ai/v1/process/text")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "Bearer ACCESS_TOKEN"
+request["Content-Type"] = "application/json"
+request.body = JSON.dump({
+  "name": "Business Meeting",
+  "detectPhrases": "True",
+  "confidenceThreshold": 0.6,
+  "messages": [
+    {
+      "duration": {
+        "startTime": "2020-07-21T16:04:19.99Z",
+        "endTime": "2020-07-21T16:04:20.99Z"
+      },
+      "payload": {
+        "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.",
+        "contentType": "text/plain"
+      },
+      "from": {
+        "name": "John",
+        "userId": "john@example.com"
+      }
+    }
+  ]
+})
+
+response = http.request(request)
+puts response.read_body
+
+
+```
+
+</TabItem>
+
+<TabItem value="go">
+
+```go
+
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.symbl.ai/v1/process/text"
+  method := "POST"
+
+  payload := strings.NewReader(`{
+  "name": "Business Meeting",
+  "detectPhrases": "True",
+  "confidenceThreshold": 0.6,
+  "messages": [
+    {
+      "duration": {
+        "startTime": "2020-07-21T16:04:19.99Z",
+        "endTime": "2020-07-21T16:04:20.99Z"
+      },
+      "payload": {
+        "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.",
+        "contentType": "text/plain"
+      },
+      "from": {
+        "name": "John",
+        "userId": "john@example.com"
+      }
+    }
+  ]
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Authorization", "Bearer ACCESS_TOKEN")
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+
+```
+
+</TabItem>
+
+<TabItem value="c">
+
+```c
+
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_easy_setopt(curl, CURLOPT_URL, "https://api.symbl.ai/v1/process/text");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  headers = curl_slist_append(headers, "Authorization: Bearer ACCESS_TOKEN");
+  headers = curl_slist_append(headers, "Content-Type: application/json");
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  const char *data = "{\n  \"name\": \"Business Meeting\",\n  \"detectPhrases\": \"True\",\n  \"confidenceThreshold\": 0.6,\n  \"messages\": [\n    {\n      \"duration\": {\n        \"startTime\": \"2020-07-21T16:04:19.99Z\",\n        \"endTime\": \"2020-07-21T16:04:20.99Z\"\n      },\n      \"payload\": {\n        \"content\": \"Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.\",\n        \"contentType\": \"text/plain\"\n      },\n      \"from\": {\n        \"name\": \"John\",\n        \"userId\": \"john@example.com\"\n      }\n    }\n  ]\n}";
+  curl_easy_setopt(curl, CURLOPT_POSTFIELDS, data);
+  res = curl_easy_perform(curl);
+}
+curl_easy_cleanup(curl);
+
+
+```
+
+</TabItem>
+
+<TabItem value="objective-c">
+
+```objectivec
+
+#import <Foundation/Foundation.h>
+
+dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+
+NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://api.symbl.ai/v1/process/text"]
+  cachePolicy:NSURLRequestUseProtocolCachePolicy
+  timeoutInterval:10.0];
+NSDictionary *headers = @{
+  @"Authorization": @"Bearer ACCESS_TOKEN",
+  @"Content-Type": @"application/json"
+};
+
+[request setAllHTTPHeaderFields:headers];
+NSData *postData = [[NSData alloc] initWithData:[@"{\n  \"name\": \"Business Meeting\",\n  \"detectPhrases\": \"True\",\n  \"confidenceThreshold\": 0.6,\n  \"messages\": [\n    {\n      \"duration\": {\n        \"startTime\": \"2020-07-21T16:04:19.99Z\",\n        \"endTime\": \"2020-07-21T16:04:20.99Z\"\n      },\n      \"payload\": {\n        \"content\": \"Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.\",\n        \"contentType\": \"text/plain\"\n      },\n      \"from\": {\n        \"name\": \"John\",\n        \"userId\": \"john@example.com\"\n      }\n    }\n  ]\n}" dataUsingEncoding:NSUTF8StringEncoding]];
+[request setHTTPBody:postData];
+
+[request setHTTPMethod:@"POST"];
+
+NSURLSession *session = [NSURLSession sharedSession];
+NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+  if (error) {
+    NSLog(@"%@", error);
+    dispatch_semaphore_signal(sema);
+  } else {
+    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+    NSError *parseError = nil;
+    NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+    NSLog(@"%@",responseDictionary);
+    dispatch_semaphore_signal(sema);
+  }
+}];
+[dataTask resume];
+dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+
+```
+
+</TabItem>
+
 <TabItem value="cURL">
 
 ```shell

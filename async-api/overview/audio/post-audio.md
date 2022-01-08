@@ -29,9 +29,251 @@ Before using the Async Audio API you must get the authentication token (`AUTH_TO
   values={[
     { label: 'cURL', value: 'cURL', },
     { label: 'Node.js', value: 'nodejs', },
-    { label: 'Python', value: 'python' }
+    { label: 'Python', value: 'python' },
+    { label: 'Java', value: 'java' },
+    { label: 'Swift', value: 'swift' },
+    { label: 'C#', value: 'csharp' },
+    { label: 'PHP', value: 'php' },
+    { label: 'Ruby', value: 'ruby' },
+    { label: 'Go', value: 'go' },
+    { label: 'C', value: 'c' },
+    { label: 'Objective-C', value: 'objective-c' },
   ]
 }>
+
+
+<TabItem value="java">
+
+```java
+
+Unirest.setTimeouts(0, 0);
+HttpResponse<String> response = Unirest.post("https://api.symbl.ai/v1/process/audio")
+  .header("Content-Type", "audio/wav")
+  .header("Authorization", "Bearer ACCESS_TOKEN")
+  .body("<file contents here>")
+  .asString();
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="swift">
+
+```swift
+
+import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
+var semaphore = DispatchSemaphore (value: 0)
+
+let parameters = "<file contents here>"
+let postData = parameters.data(using: .utf8)
+
+var request = URLRequest(url: URL(string: "https://api.symbl.ai/v1/process/audio")!,timeoutInterval: Double.infinity)
+request.addValue("audio/wav", forHTTPHeaderField: "Content-Type")
+request.addValue("Bearer ACCESS_TOKEN", forHTTPHeaderField: "Authorization")
+
+request.httpMethod = "POST"
+request.httpBody = postData
+
+let task = URLSession.shared.dataTask(with: request) { data, response, error in 
+  guard let data = data else {
+    print(String(describing: error))
+    semaphore.signal()
+    return
+  }
+  print(String(data: data, encoding: .utf8)!)
+  semaphore.signal()
+}
+
+task.resume()
+semaphore.wait()
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="csharp">
+
+```csharp
+
+var client = new RestClient("https://api.symbl.ai/v1/process/audio");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "audio/wav");
+request.AddHeader("Authorization", "Bearer ACCESS_TOKEN");
+request.AddParameter("audio/wav", "<file contents here>", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+
+```
+
+</TabItem>
+
+
+<TabItem value="php">
+
+```php
+
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.symbl.ai/v1/process/audio');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Content-Type' => 'audio/wav',
+  'Authorization' => 'Bearer ACCESS_TOKEN'
+));
+$request->setBody('<file contents here>');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+
+```
+
+</TabItem>
+
+
+<TabItem value="ruby">
+
+```ruby
+
+require "uri"
+require "net/http"
+
+url = URI("https://api.symbl.ai/v1/process/audio")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "audio/wav"
+request["Authorization"] = "Bearer ACCESS_TOKEN"
+request.body = "<file contents here>"
+
+response = https.request(request)
+puts response.read_body
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="go">
+
+```go
+
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.symbl.ai/v1/process/audio"
+  method := "POST"
+
+  payload := strings.NewReader("<file contents here>")
+
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "audio/wav")
+  req.Header.Add("Authorization", "Bearer ACCESS_TOKEN")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+
+```
+
+</TabItem>
+
+
+<TabItem value="c">
+
+```c
+
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_easy_setopt(curl, CURLOPT_URL, "https://api.symbl.ai/v1/process/audio");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  headers = curl_slist_append(headers, "Content-Type: audio/wav");
+  headers = curl_slist_append(headers, "Authorization: Bearer ACCESS_TOKEN");
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  curl_easy_setopt(curl,CURLOPT_POSTFIELDS,"<file contents here>");
+  res = curl_easy_perform(curl);
+}
+curl_easy_cleanup(curl);
+
+
+```
+
+</TabItem>
+
+
+<TabItem value="objective-c">
+
+```objectivec
+
+var client = new RestClient("https://api.symbl.ai/v1/process/audio");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "audio/wav");
+request.AddHeader("Authorization", "Bearer ACCESS_TOKEN");
+request.AddParameter("audio/wav", "<file contents here>", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
+
+```
+
+</TabItem>
 
 <TabItem value="cURL">
 
