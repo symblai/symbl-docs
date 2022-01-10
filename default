@@ -1,0 +1,20 @@
+server {
+
+        listen 80;
+
+        server_name _;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+
+        location / {
+                return 301 http://$host$request_uri;
+        }
+	location ~ /docs(.*) {
+             root /opt/services/docs-v1/build;
+             index index.html;
+        }
+
+	location /nginx-health {
+  	return 200;
+	}
+
+}
