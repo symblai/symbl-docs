@@ -6,6 +6,8 @@ title: How To Pass Different Audio Codecs To Symbl Endpoint
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 Sometimes you need to pass different audio codecs when passing the audio. This
 example shows how to pass them. The codecs currently supported are:
 

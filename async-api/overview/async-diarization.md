@@ -4,6 +4,8 @@ title: Speaker Separation
 sidebar_label: Speaker Separation
 ---
 
+---
+
 The Async Audio & Async Video APIs can detect and separate unique speakers in a single stream of audio & video without need of separate speaker events.
 
 To enable this capability with either of the APIs the `enableSpeakerDiarization` and `diarizationSpeakerCount` query parameters need to be passed with the request.

@@ -6,6 +6,7 @@ slug: /javascript-sdk/reference
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 ## Public Methods
 
@@ -202,6 +203,19 @@ sdk.subscribeToConnection(connectionId, (data) => {
   }
 });
 ```
+
+---
+
+### subscribeToStream
+
+The `subscribeToStream` function allows you to subscribe to an existing streaming connection in read-only mode. It takes the following parameters:
+
+| Parameters | Type | Example | 
+| ---------- | ------- | ------- | 
+| `id` | String | Connection ID created on connection `init`|
+
+This is a function of our [Subscribe API](/docs/subscribe-api). 
+
 ---
 
 ### pushEventOnConnection

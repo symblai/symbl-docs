@@ -8,6 +8,8 @@ slug: /conversation-api/transcript
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API returns a formatted transcript in [Markdown](#create-transcript-in-markdown) and [SRT](#create-transcript-in-srt) format. 
 
 ## Create Transcript in Markdown

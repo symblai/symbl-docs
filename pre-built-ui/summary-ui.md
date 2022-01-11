@@ -9,6 +9,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VideoDemoButton from '@site/src/components/Button';
 
+---
+
 The Summary UI provides users with a translated meeting summary page with transcript, attendees, topics, action items, follows ups, and more.
 
 You can generate the following types of Summary UI:

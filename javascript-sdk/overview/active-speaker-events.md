@@ -7,6 +7,8 @@ slug: /javascript-sdk/code-snippets/active-speaker-events
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 :::note
 Pushing events is optional. If you don't have audio to process, then you can skip this step.
 :::

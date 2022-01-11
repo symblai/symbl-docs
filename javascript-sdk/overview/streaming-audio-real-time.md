@@ -7,6 +7,8 @@ slug: /javascript-sdk/code-snippets/streaming-audio-real-time
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This section talks about streaming the audio in real-time using the Javascript SDK. We can use this API to pass in audio via a single stream and multiple isolated streams of audio, each of which can contain one or more speaker's audio data.
 
 :::note

@@ -7,6 +7,8 @@ slug: /conversation-api/trackers
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
@@ -17,13 +19,18 @@ This API allows you to get all the [Trackers](/docs/concepts/trackers) from your
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers-detected`
 
+:::info Important
+If you have not processed your conversation with the parameter `enableAllTracker=true` in the Async API, Trackers will not be detected. To learn why and understand how to use this parameter while processing your conversation, see [Consuming Trackers with Management API](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag) section. 
+:::
+
 ### Request Headers
 
-1.  `Authorization` (Recommended) - This header should contain a valid Bearer token generated using the `token:generate` API Endpoint by passing in the credentials. You can read more about authentication [here](/docs/developer-tools/authentication).
-    
-2.  `X-API-KEY` (Legacy) - Use the `Authorization` header. This has been deprecated. This header should contain a valid authentication token generated using the `token:generate` API Endpoint by passing in the credentials. These can be obtained by signing up on the [Platform](https://platform.symbl.ai/).
-    
-3.  `Content-Type` (Optional) - This header must contain the MIME Type `application/json`.
+Header Name  | Required | Description
+---------- | ------- |  ------- |
+```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type	``` | Mandatory | `application/json`
+```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+
 
 
 ### Example API Call
@@ -95,7 +102,7 @@ response = requests.request("GET", url, headers=headers)
 
 if response.status_code == 200:
     # Successful API execution
-    print("actionItems => " + str(response.json()['actionItems']))  # actionsItems object containing actionItem id, text, type, score, messageIds, phrases, definitive, entities, assignee
+    print("trackers => " + str(response.json()))  # trackers object containing tracker id, name, matches (array of object containing messageRefs, type, value, insightRefs)
 elif response.status_code in responses.keys():
     print(responses[response.status_code])  # Expected error occurred
 else:

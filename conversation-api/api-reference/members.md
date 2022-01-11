@@ -8,6 +8,8 @@ slug: /conversation-api/members
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This API returns a list of all the members in a conversation. A Member is referred to a participant in the conversation that is uniquely identified as a speaker. Identifying different participants in the meetings can be done by implementing speaker separation.
 
 For more details on identifying members by [Speaker Events or Active Talker events](/docs/javascript-sdk/tutorials/push-speakerevents-get-summary-url) in Real-time using Voice SDK.

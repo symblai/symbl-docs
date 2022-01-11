@@ -8,6 +8,7 @@ slug: /conversation-api/update-members
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
 
 Update an existing member in an conversation. This API can be used for updating the unique speakers detected as members from diarization as well.
 

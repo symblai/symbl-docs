@@ -7,6 +7,8 @@ sidebar_label: Build with Amazon Chime
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 The Symbl Conversation AI Adapter for Chime SDK is the simplest way to get started with Symbl in your Amazon Chime video platform.
 
 Currently, the Symbl Conversational AI Adapter has the following features:

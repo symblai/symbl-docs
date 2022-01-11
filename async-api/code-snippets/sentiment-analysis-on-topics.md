@@ -1,12 +1,16 @@
 ---
 id: sentiment-analysis-on-topics
-title: Sentiment Analysis on Topics
+title: Sentiment Analysis on Topics (Beta)
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
+
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
 
 Topics are key drivers of the conversation. They're the most important keywords or phrases used.  The topics algorithm provides a framework for the user to calibrate and precisely model the relationship among the concepts and understand how the semantics of the meetings is talked upon. Sentiment Analysis on topics determines whether the Topics resulting from the conversation are positive, negative, or neutral. 
 

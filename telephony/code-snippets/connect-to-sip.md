@@ -5,6 +5,8 @@ title: Connect to a SIP connection to get Speech to Text and AI Insights
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 ## Connect to a call
 
 The following code sample shows how you can connect the Telephony API to your cell phone (or any other type of phone number). Making a phone call is also the quickest way to test Symbl’s Telephony API. It can make an outbound call to a phone number using SIP endpoints that can be accessed over the internet using a SIP URI.

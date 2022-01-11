@@ -1,6 +1,6 @@
 ---
 id: topic-hierarchy
-title: Topic Hierarchy
+title: Topic Hierarchy (Beta)
 sidebar_label: Introduction
 slug: /concepts/topic-hierarchy
 ---

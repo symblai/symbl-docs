@@ -63,6 +63,7 @@ Given below is another sample request containing more than one `criteria`. You c
 
 | Parameter | Data Type | Description | Required | Values Accepted | 
 |--------|----------|---- | --- | ------| 
+`id` | String | `id` is the unique identifier of the Conversation Group you are tying to update. | Mandatory | 
 `name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
 `description` | String | Description to capture any additional details of the group and its purpose. | Optional | The maximum length of string allowed 512 characters.
 `criteria` | String / RSQL format | Criteria in RSQL format that should be applied to group conversations under this group. | Mandatory | Valid RSQL string. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).

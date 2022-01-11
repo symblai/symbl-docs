@@ -7,6 +7,8 @@ slug: /python-sdk/python-sdk-telephony-api
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 This tutorial provides code snippets and instructions on how to utilize Python SDK to call Symbl's Telephony API using PSTN protocol. <br/>
 To view the source code, go to the [open-source repository](https://github.com/symblai/symbl-python) in GitHub. 
 
@@ -25,7 +27,7 @@ The Python SDK provides the following capabilities:
 
 ## Credential Handling 
 
-Symbl.ai's Python SDK simplifies the credential handling by allowing you either to add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
+The Python SDK simplifies the credential handling by allowing you to either add your credentials directly to the connection method's calls or else through a separate file saved to your execution directory. 
 
 To add your credentials directly to the connection method's calls, add the following line: 
 

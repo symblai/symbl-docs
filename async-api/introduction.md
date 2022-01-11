@@ -6,6 +6,8 @@ sidebar_label: Introduction
 slug: /async-api/introduction
 ---
 
+---
+
 The Async API provides a REST interface that helps you to submit any recorded or saved conversations to Symbl. When you submit a conversation, you'll receive a Conversation ID (`conversationId`), which is unique to your conversation.
 
 ![Async API Diagram](/img/asyncDiagram.png)

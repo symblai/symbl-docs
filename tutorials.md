@@ -18,7 +18,7 @@ Find detailed tutorials on how to implement Conversation Intelligence on your co
 * [Start and Stop Streaming API Connection](/docs/streamingapi/code-snippets/start-and-stop-connection)
 * [Receive Live Captioning](/docs/streamingapi/code-snippets/receive-live-captioning)
 
-<button class="button button1"><a href="/docs/streamingapi/introduction">View all Tutorials</a></button><br/></div>
+<button class="button button1"><a href="/docs/streamingapi/code-snippets/start-and-stop-connection">View all Tutorials</a></button><br/></div>
   </div>
    <div class="column">
     <div class="card3"><a href="//docs/async-api/introduction"><h4>Async APIs</h4></a> 
@@ -31,7 +31,7 @@ Find detailed tutorials on how to implement Conversation Intelligence on your co
 * [Generate a Pre-built UI From Video Recordings](/docs/async-api/code-snippets/generate-pre-built-ui-from-video-recordings)
  
 
-<button class="button button2"><a href="/docs/async-api/introduction">View all Tutorials</a></button>
+<button class="button button2"><a href="/docs/async-api/code-snippets/how-to-use-sentiment-analysis">View all Tutorials</a></button>
   </div>
   </div>
   <div class="column">
@@ -45,7 +45,7 @@ Find detailed tutorials on how to implement Conversation Intelligence on your co
 * [Receive Speech to Text for a different language in a conversation](/docs/telephony/code-snippets/receive-speech-to-text-for-a-different-language)
  
 
-<button class="button button2"><a href="/docs/telephony/introduction">View all Tutorials</a></button>
+<button class="button button2"><a href="/docs/telephony/tutorials/connect-to-zoom">View all Tutorials</a></button>
   </div>
   </div>
   

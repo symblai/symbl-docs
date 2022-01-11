@@ -7,6 +7,8 @@ slug: /telephony/tutorials/connect-to-zoom
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+---
+
 :::info
 This guide uses a **PSTN** connection to connect to Zoom. **PSTN** audio quality maxes out to 8KHz. You can also use a **[SIP-based connection](/docs/concepts/pstn-and-sip#sip-session-initiation-protocol)**, which captures audio at 16KHz and above.
 :::

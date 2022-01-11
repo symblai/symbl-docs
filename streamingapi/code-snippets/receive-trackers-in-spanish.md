@@ -1,12 +1,23 @@
 ---
 id: receive-trackers-in-spanish
-title: Receive Trackers in Spanish
+title: Receive Trackers in Spanish (Labs)
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
+
+:::info Symbl Labs
+This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
+
+
+You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
+
+**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
+
+For any queries or feedback, please contact us at labs@symbl.ai.
+:::
 
 This tutorial goes over how you can use the Streaming API to receive Trackers of a conversation in the Spanish language. This example uses native JavaScript.
 
