@@ -113,24 +113,42 @@ exit()
 ```json
 [
     {
-        "id": "4527907378937856",
-        "name": "My Awesome Tracker",
+        "id": "5237067555536896",
+        "name": "PricingMention",
         "matches": [
             {
+                "type": "vocabulary",
+                "value": "What is the price",
                 "messageRefs": [
                     {
-                        "id": "4670860273123328",
-                        "text": "Wearing mask is a good safety measure.",
+                        "id": "4667009028587520",
+                        "text": "How much does it cost?",
                         "offset": -1
                     }
                 ],
+                "insightRefs": [
+                    {
+                        "text": "How much does it cost?",
+                        "offset": -1,
+                        "type": "question",
+                        "id": "5420651570528256"
+                    }
+                ]
+            },
+            {
                 "type": "vocabulary",
-                "value": "wear mask",
+                "value": "Subscription",
+                "messageRefs": [
+                    {
+                        "id": "4527958187311104",
+                        "text": "Our subscription plan which includes the premium suite of services is $500 per month.",
+                        "offset": 4
+                    }
+                ],
                 "insightRefs": []
             }
         ]
-    }
-]
+    },
 ```
 
 Let’s go over the members of the response body which contains the detected tracker objects:
