@@ -2,7 +2,7 @@
 on:
   push:
     branches:
-    - 'feat/repo-merge-change'
+    - 'merge-docs-v1'
       #- 'develop'
 
 jobs:
