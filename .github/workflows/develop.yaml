@@ -2,8 +2,7 @@
 on:
   push:
     branches:
-    - 'merge-docs-v1'
-      #- 'develop'
+    - 'develop'
 
 jobs:
   trigger-circleci:
@@ -13,6 +12,6 @@ jobs:
         uses: zivkaziv/circleci-trigger-github-action@master
         with:
           token: ${{ secrets.CCI_DOCS_TOKEN }}
-          branch: dev/circleci
+          branch: develop
           org: rammerai
           repo: docs-v1
