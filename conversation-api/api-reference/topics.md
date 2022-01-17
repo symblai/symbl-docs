@@ -35,7 +35,7 @@ Topics can be generated again when you have new discussion items. Use `refresh=t
 
 #### Custom Vocabulary for Topics<font color="orange"> LABS</font>
 
-You can enable custom vocabulary in Topics API by passing the query parameter `customVocabulary`. 
+You can enable custom vocabulary in Topics API by passing the query parameter `customVocabulary=true`. 
 
 ### HTTP Request
 
@@ -130,11 +130,11 @@ exit()
 
 
 ### Query Params
-Parameter | Required | Value |Description|
---------- | --------- | ------- | ------- | -------
-```sentiment```| No | true | Give you sentiment analysis on each topic in conversation.
-```parentRefs```| No | true | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
-```customVocabulary``` | No | String | Gives you topics that contain the custom vocabulary keywords you provided.
+Parameter | Required | Type | Value | Description|
+--------- | --------- | ------- | ------- | ------- |
+```sentiment```| Optional | Boolean | `true` or `false` | Give you sentiment analysis on each topic in conversation.
+```parentRefs```| Optional | Boolean | `true` or `false` | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
+```customVocabulary``` | Optional | String |  | Gives you topics that contain the custom vocabulary keywords you provided.
 
 
 
