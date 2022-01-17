@@ -16,7 +16,7 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 
 ## What is a Tracker?
 
-Trackers are user-defined enities that allow you to track the occurrences of any characteristics or events in a conversation with just a few examples. You can track critical moments in a conversation across several use cases in both real-time as the conversation is in-progress as well as asynchronously after the conversation is over from recordings. Some use cases for Trackers are when a customer is unhappy, when someone is rude, potential sales opportunity so you can identify emerging trends and gauge the nature of interactions. 
+Trackers are user-defined entities that allow you to track the occurrences of any characteristics or events in a conversation with just a few examples. You can track critical moments in a conversation across several use cases in both real-time as the conversation is in-progress as well as asynchronously after the conversation is over from recordings. Some use cases for Trackers are when a customer is unhappy, when someone is rude, potential sales opportunity so you can identify emerging trends and gauge the nature of interactions. 
 
 ## How Trackers Work
 
