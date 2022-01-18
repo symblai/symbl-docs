@@ -13,7 +13,7 @@ The Messages API returns a list of all the messages in a conversation. You can u
 Here message refer to a continuous sentence spoken by a speaker.
 
 :::note
-### Word-level Confidence Score (Labs)
+Word-level Confidence Score (Labs)
 
 This API provides word-level confidence score that represents the confidence level of individual words within the message or transcript. The confidence score shows the relevancy of the word in the transcript which means higher the word-level confidence score, the more relevant it is to the message. 
 
