@@ -12,12 +12,19 @@ The Messages API returns a list of all the messages in a conversation. You can u
 
 Here message refer to a continuous sentence spoken by a speaker.
 
+:::note
+### Word-level Confidence Score (Labs)
+
+This API provides word-level confidence score that represents the confidence level of individual words within the message or transcript. The confidence score shows the relevancy of the word in the transcript which means higher the word-level confidence score, the more relevant it is to the message. 
+
+When you pass `verbose=true`, the word-level confidence score is by default returned in the response body. 
+:::
+
 ### Sentiment Analysis in messages <font color="orange"> BETA</font>
 
 Here you can enable sentiment analysis over each message which is being spoken in the conversation.
 
 All you need to do is pass `sentiment=true` as a query parameter. [Read more about it](/docs/concepts/sentiment-analysis).
-
 
 ### HTTP Request
 
@@ -119,10 +126,10 @@ Header Name  | Required | Description
 
 ### Query Params
 
-Parameter | Required | Value |Description|
+Parameter | Required | Value |Description |
 --------- | --------- | ------- | -------
-```verbose``` | No | true |Gives you word level timestamps of each sentence.
-```sentiment```| No | true | Give you [Sentiment Analysis](/docs/concepts/sentiment-analysis) on each message.
+```verbose``` | Optional | true | Gives you word level timestamps and score of each sentence.
+```sentiment```| Optional | true | Give you [Sentiment Analysis](/docs/concepts/sentiment-analysis) on each message.
 
 ### Response
 
@@ -156,41 +163,49 @@ Parameter | Required | Value |Description|
                      "word": "Best",
                      "startTime": "2020-08-18T11:10:14.536Z",
                      "endTime": "2020-08-18T11:10:15.536Z",
+                     "score": 0.91
                  },
                  {
                      "word": "package",
                      "startTime": "2020-08-18T11:10:16.536Z",
                      "endTime": "2020-08-18T11:10:17.536Z",
+                     "score": 0.80
                  },
                  {
                      "word": "for",
                      "startTime": "2020-08-18T11:10:18.536Z",
                      "endTime": "2020-08-18T11:10:19.536Z",
+                     "score": 0.79
                  },
                  {
                      "word": "you",
                      "startTime": "2020-08-18T11:10:20.536Z",
                      "endTime": "2020-08-18T11:10:22.536Z",
+                     "score": 0.85
                  },
                  {
                      "word": "is",
                      "startTime": "2020-08-18T11:10:22.536Z",
                      "endTime": "2020-08-18T11:10:25.536Z",
+                     "score": 0.89
                  },
                  {
                      "word": "$69.99",
                      "startTime": "2020-08-18T11:10:25.536Z",
                      "endTime": "2020-08-18T11:10:27.536Z",
+                     "score": 0.86
                  },
                  {
                      "word": "per",
                      "startTime": "2020-08-18T11:10:27.536Z",
                      "endTime": "2020-08-18T11:10:29.536Z",
+                     "score": 0.82
                  },
                  {
                      "word": "month.",
                      "startTime": "2020-08-18T11:10:30.536Z",
                      "endTime": "2020-08-18T11:10:32.536Z",
+                     "score": 0.90
                  }]
           },
          {
@@ -215,26 +230,31 @@ Parameter | Required | Value |Description|
                      "word": "Okay,",
                      "startTime": "2020-08-18T11:11:14.536Z",
                      "endTime": "2020-08-18T11:11:14.936Z"
+                     "score": 0.91
                  },
                  {
                      "word": "Where",
                      "startTime": "2020-08-18T11:11:14.936Z",
                      "endTime": "2020-08-18T11:11:15.436Z"
+                     "score": 0.91
                  },
                  {
                      "word": "is",
                      "startTime": "2020-08-18T11:11:16.236Z",
                      "endTime": "2020-08-18T11:11:16.536Z"
+                     "score": 0.88
                  },
                  {
                      "word": "the",
                      "startTime": "2020-08-18T11:11:16.536Z",
                      "endTime": "2020-08-18T11:11:16.936Z"
+                     "score": 0.85
                  },
                  {
                      "word": "file?",
                      "startTime": "2020-08-18T11:11:16.936Z",
                      "endTime": "2020-08-18T11:11:17.236Z"
+                     "score": 0.89
                  }
     ]
 }
@@ -250,6 +270,6 @@ Field  | Description
 ```startTime``` | DateTime value.
 ```endTime``` | DateTime value.
 ```conversationId``` | Unique conversation identifier.
-```words``` | Words object with properties `word`, `startTime` and `endTime`.
+```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` is for the word level confidence score.
 ```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.
 ```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral).
