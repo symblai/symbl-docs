@@ -33,6 +33,10 @@ in parent and child topics which helps outline the entire conversation faster. R
 
 Topics can be generated again when you have new discussion items. Use `refresh=true` in the Topics API as a query param. This will delete the previous Topics and will create a new one.
 
+#### Custom Vocabulary for Topics<font color="orange"> LABS</font>
+
+You can enable custom vocabulary in Topics API by passing the query parameter `customVocabulary=true`. 
+
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/topics`
@@ -126,11 +130,11 @@ exit()
 
 
 ### Query Params
-Parameter | Required | Value |Description|
---------- | --------- | ------- | -------
-```sentiment```| No | true | Give you sentiment analysis on each topic in conversation.
-```parentRefs```| No | true | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
-
+Parameter | Required | Type | Value | Description|
+--------- | --------- | ------- | ------- | ------- |
+```sentiment```| Optional | Boolean | `true` or `false` | Give you sentiment analysis on each topic in conversation.
+```parentRefs```| Optional | Boolean | `true` or `false` | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
+```customVocabulary``` | Optional | String |  | Gives you topics that contain the custom vocabulary keywords you provided.
 
 
 
@@ -252,6 +256,61 @@ Parameter | Required | Value |Description|
             "parentRefs": []
         }
     ]
+}
+```
+> Custom Vocabulary Sample Response (`customVocabulary`):
+
+```javascript
+{
+   "topics": [
+       {
+           "id": "5907389282779136",
+           "text": "interns",
+           "type": "topic",
+           "score": 0.7178597920690242,
+           "messageIds": [
+               "4600982711304192",
+               "5487363432120320",
+               "6109794119188480"
+           ],
+           "parentRefs": [
+               {
+                   "type": "topic",
+                   "text": "company-wise hiring"
+               }
+           ]
+       },
+       {
+           "id": "5776859730018304",
+           "text": "company-wise hiring",
+           "type": "topic",
+           "score": 0.788856914361565,
+           "messageIds": [
+               "6298570346987520",
+               "6330577953226752"
+           ],
+           "parentRefs": []
+       },
+       {
+           "id": "6697188878974976",
+           "text": "new regulations",
+           "type": "topic",
+           "score": 0.6968750176932417,
+           "messageIds": [
+               "5356560840654848",
+               "5663440783802368",
+               "5263998490509312",
+               "6082396449406976",
+               "4925138187321344",
+           ],
+           "parentRefs": [
+               {
+                   "type": "topic",
+                   "text": "company-wise hiring"
+               }
+           ]
+       }
+   ]
 }
 ```
 

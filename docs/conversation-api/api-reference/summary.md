@@ -1,7 +1,7 @@
 ---
 id: summary
-title: GET Summary (Beta)
-sidebar_label: GET Summary (Beta)
+title: GET Summary 
+sidebar_label: GET Summary 
 slug: /conversation-api/summary
 ---
 import Tabs from '@theme/Tabs';
@@ -9,8 +9,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info Symbl Labs
+This feature is a part of Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
+
+
+You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
+
+**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
+
+For any queries or feedback, please contact us at labs@symbl.ai.
 :::
 
 This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
@@ -25,7 +32,7 @@ If the number of words in a conversation is below 50 or the number of sentences 
 
 
 ### API Endpoint
-**<font color="orange">GET</font> `https://api.symbl.ai/v1/conversations/{conversationId}/summary`**
+**<font color="orange">GET</font> `https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary`**
 
 ### Request Headers
 
@@ -50,7 +57,7 @@ If you are using `x-api-key` we recommend that you use `Authorization` header in
 <TabItem value="cURL">
 
 ```shell
-curl --location --request GET 'https://api.symbl.ai/v1/conversations/{conversationId}/summary' \
+curl --location --request GET 'https:///api-labs.symbl.ai/v1/conversations/{conversationId}/summary' \
 --header "Authorization: Bearer $AUTH_TOKEN" \
 # Set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
 --header 'Content-Type: application/json' \
@@ -65,7 +72,7 @@ const request = require('request');
 const authToken = AUTH_TOKEN;;
 
 request.get({
-    url: `https://api.symbl.ai/v1/conversations/{conversationId}/summary`,
+    url: `https:///api-labs.symbl.ai/v1/conversations/{conversationId}/summary`,
     headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
@@ -74,6 +81,11 @@ request.get({
 ```
 </TabItem>
 </Tabs>
+
+:::important
+
+The Conversation ID you receive after processing conversations with production Endpoint can be used to process Summary using the Labs Endpoint.
+:::
 
 ### Using Refresh Parameter
 
