@@ -13,7 +13,7 @@ Our REST APIs support all HTTP verbs (or methods, as they are referred to in RES
  
 Symbl provides a suite of APIs for different usecases. Some of them are listed below: <br/>
  
-&nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/reference/reference) allow you to send text, audio or video conversations in recorded format. <br/>
+&nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/introduction) allow you to send text, audio or video conversations in recorded format. <br/>
 &nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call via WebSocket protocol.<br/>
 &nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on an live audio conversation via SIP and PSTN.<br/>
 &nbsp; &nbsp; 👉 &nbsp; [Conversation API](/docs/async-api/reference/reference) allows you to get Conversation Intelligence such as Sentiment Analysis, Action Items, Topics, Trackers, Summary and more. <br/>
