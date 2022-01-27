@@ -1,0 +1,62 @@
+{
+  "name": "docs-poc",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "build-staging": "docusaurus build --config docusaurus-staging.config.js",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy"
+  },
+  "dependencies": {
+    "@docusaurus/core": "^2.0.0-beta.14",
+    "@docusaurus/plugin-client-redirects": "^2.0.0-beta.14",
+    "@docusaurus/plugin-content-blog": "^2.0.0-beta.14",
+    "@docusaurus/plugin-content-docs": "^2.0.0-beta.14",
+    "@docusaurus/plugin-content-pages": "^2.0.0-beta.14",
+    "@docusaurus/plugin-debug": "^2.0.0-beta.14",
+    "@docusaurus/plugin-google-analytics": "^2.0.0-beta.14",
+    "@docusaurus/plugin-google-gtag": "^2.0.0-beta.14",
+    "@docusaurus/plugin-sitemap": "^2.0.0-beta.14",
+    "@docusaurus/preset-classic": "^2.0.0-beta.14",
+    "@docusaurus/theme-classic": "^2.0.0-beta.14",
+    "@docusaurus/theme-common": "^2.0.0-beta.14",
+    "@docusaurus/theme-search-algolia": "^2.0.0-beta.14",
+    "caniuse-lite": "^1.0.30001294",
+    "clsx": "^1.1.1",
+    "docusaurus-plugin-moesif": "0.0.1",
+    "postcss": "^8.4.5",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.65.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.",
+  "main": "babel.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rammerai/docs-v1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rammerai/docs-v1/issues"
+  },
+  "homepage": "https://github.com/rammerai/docs-v1#readme"
+}
