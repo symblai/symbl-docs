@@ -230,15 +230,6 @@ module.exports = {
     //   isCloseable: false, // Defaults to `true`.
     // },
     //
-    googleAnalytics: {
-      trackingID: 'UA-110963786-1',
-      anonymizeIP: true,
-    },
-    gtag: {
-      trackingID: 'GTM-KF9THZZ',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
-    },
 
     announcementBar: {
       id: 'new_docs_announcement', // Any value that will identify this message.
@@ -373,6 +364,16 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
+        
+        googleAnalytics: {
+          trackingID: 'UA-110963786-1',
+          anonymizeIP: true,
+        },
+        gtag: {
+          trackingID: 'GTM-KF9THZZ',
+          // Optional fields.
+          anonymizeIP: true, // Should IPs be anonymized?
+        },
         docs:
         {
           // It is recommended to set document id as docs home page (`docs/` path).
