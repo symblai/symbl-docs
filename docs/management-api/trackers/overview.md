@@ -43,6 +43,13 @@ To read about the capabilities of the Management API, see the [Management API](/
 POST "https://api.symbl.ai/v1/manage/tracker"
 ```
 
+:::note Using Punctuations in Trackers Vocabulary 
+You can only pass the following punctuations in trackers vocabulary:
+- Periods `.` 
+- Apostrophes `'` 
+
+Using any other punctuation mark such as `?`, `,`, `!`, `:` is not allowed. 
+:::
 You can define the phrases and keywords in the **vocabulary** of the request body as shown below:
 
 ```json

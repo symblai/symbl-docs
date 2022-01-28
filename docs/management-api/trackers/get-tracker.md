@@ -116,7 +116,7 @@ In case of unsuccessful responses, the following error codes will be returned fr
 
 Error Code  | Description | Resolution
 ---------- | ------- | -------
-`404 - Not Found` | The 409 response code specifies that the Tracker with that specific `trackerId` does not exist. | Check the `trackerId` and ensure that it is valid and exists.
+`404 - Not Found` | The 404 response code specifies that the Tracker with that specific `trackerId` does not exist. | Check the `trackerId` and ensure that it is valid and exists.
 `400 - Bad Request` | The 400 response code specifies that the request body or the parameters have incorrect key names or their values have types that are different than the ones expected. | Please read the message returned in the response to fix this error.
 `500 - Internal Server Error` | The 500 response code specifies that the server failed to handle the request. | Please reach out to support@symbl.ai if it persists even after multiple attempts.
 `502 - Bad Gateway` | The 502 response code specifies that the server failed to acknowledge the request. This may happen due to multiple reasons. | Please reach out to support@symbl.ai if it persists even after multiple attempts.

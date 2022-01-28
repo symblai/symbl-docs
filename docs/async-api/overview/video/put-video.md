@@ -74,7 +74,7 @@ const params = {
   // 'customVocabulary': ['Platform', 'Discussion', 'Targets'],
   // <Optional, list| custom_vocabulary_list> |Contains a list of words and phrases that provide hints to the speech recognition task.
 
-  // 'detectPhrases': True,
+  // 'detectPhrases': true,
   // "<Optional, boolean| detect_phrases> |Accepted values are true & false. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.>
 
   // 'languageCode': "en-US"
@@ -151,7 +151,7 @@ params = {
     # 'customVocabulary': ['Platform', 'Discussion', 'Targets'],
     # <Optional, list| custom_vocabulary_list> |Contains a list of words and phrases that provide hints to the speech recognition task.
 
-    # 'detectPhrases': True,
+    # 'detectPhrases': true,
     # "<Optional, boolean| detect_phrases> |Accepted values are true & false. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.>
 
     # 'languageCode': "en-US"
