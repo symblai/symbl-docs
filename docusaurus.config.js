@@ -208,18 +208,6 @@ module.exports = {
   organizationName: 'symbl.ai', // Usually your GitHub org/user-name.
   projectName: 'docs-v1', // Usually your repo name.
   onBrokenLinks: 'warn',
-  scripts: [
-    {
-      src: '/docs/js/hotjar.js',
-      async: true
-    },
-    {
-      src: '/docs/js/munchkin.js',
-      async: true
-    },
-    '//unpkg.com/moesif-browser-js@^1/moesif.min.js',
-    '/docs/js/moesif.js',
-  ],
   themeConfig:
   {
 
