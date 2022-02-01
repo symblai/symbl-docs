@@ -48,6 +48,14 @@ Header Name  | Required | Description
 For better tracking use prominent keywords and phrases along with few longer utterances which represent the Tracker.
 :::
 
+:::note Using Punctuations in Trackers Vocabulary 
+You can only pass the following punctuations in trackers vocabulary:
+- Periods `.` 
+- Apostrophes `'` 
+
+Using any other punctuation mark such as `?`, `,`, `!`, `:` is not allowed. 
+:::
+
 ### Request Body
 
 ```javascript
