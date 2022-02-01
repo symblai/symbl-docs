@@ -53,4 +53,13 @@ If you have not processed your conversation with the parameter `enableAllTracker
 
 ### Are punctuations allowed in the trackers vocabulary? 
 
-You can pass only periods `.` and apostrophes `'` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed. 
+You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed. 
+
+### How do I create Trackers? 
+You can create Trackers using the Management API. You can also use the Tracker UI via the [Symbl Platform](https://platform.symbl.ai/#/login) to create, view, edit and delete Trackers. 
+
+### How many vocabulary terms can I add in a Tracker?
+You must add at least 5 vocabulary terms and a maximum of 50 per Tracker. 
+
+### How many Trackers can I create?
+You can create upto 200 trackers per account.
