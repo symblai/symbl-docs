@@ -103,7 +103,7 @@ The following capabilities are supported in the Trackers Management UI:
 ![img-tracker-ui](/img/tracker-ui-1.png)
 
 :::tip
-The Tracker Management UI allows you to copy the Trackers ID with the copy button and use it directly in your code. 
+The Trackers Management UI allows you to copy the Tracker ID with the copy button and use it directly in your code. 
 
 1. Go to created Tracker and click on the select option. The edit options shows up. 
 
