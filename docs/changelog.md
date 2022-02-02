@@ -11,6 +11,18 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 31 Jan 2022
+
+![api update](/img/api-update.png) 
+- **Trackers Management UI**: You can create, view, edit, and delete Trackers via the Trackers Management UI. To access this feature, log in to [Symbl Platform](https://platform.symbl.ai/#/login). <br/>
+[Read more here](/docs/concepts/trackers#manage-trackers-via-trackers-management-ui).
+
+### 28 Dec 2021
+
+![api update](/img/api-update.png) 
+- **Added custom vocabulary support in Topics API.** <font color="orange"> (LABS) </font><br/>
+[Read more here](/docs/conversation-api/get-topics#custom-vocabulary-for-topics-labs).
+
 ### 26 Nov 2021
 
 ![api update](/img/api-update.png) 

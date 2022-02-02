@@ -1,5 +1,10 @@
+require('dotenv').config()
+
 module.exports = {
   plugins: [
+    'docusaurus2-dotenv',
+    'docusaurus-plugin-hotjar',
+    'docusaurus-plugin-munchkin',
     'docusaurus-plugin-moesif',
     [
       '@docusaurus/plugin-client-redirects',
@@ -205,18 +210,6 @@ module.exports = {
   organizationName: 'symbl.ai', // Usually your GitHub org/user-name.
   projectName: 'docs-v1', // Usually your repo name.
   onBrokenLinks: 'warn',
-  scripts: [
-    {
-      src: '/docs/js/hotjar.js',
-      async: true
-    },
-    {
-      src: '/docs/js/munchkin.js',
-      async: true
-    },
-    '//unpkg.com/moesif-browser-js@^1/moesif.min.js',
-    '/docs/js/moesif.js',
-  ],
   themeConfig:
   {
 
@@ -230,16 +223,16 @@ module.exports = {
     //   isCloseable: false, // Defaults to `true`.
     // },
     //
-    googleAnalytics: {
-      trackingID: 'UA-110963786-1',
-      anonymizeIP: true,
+    moesif: {
+      applicationId: process.env.MOESIF_APPLICATION_ID,
+      // Add other Moesif options here.
     },
-    gtag: {
-      trackingID: 'GTM-KF9THZZ',
-      // Optional fields.
-      anonymizeIP: true, // Should IPs be anonymized?
+    hotjar: {
+      applicationId: process.env.HOTJAR_ID,
     },
-
+    munchkin: {
+      applicationId: process.env.MUNCHKIN_ID,
+    },
     announcementBar: {
       id: 'new_docs_announcement', // Any value that will identify this message.
       content:'New Release Announcement: We have released the Symbl-Agora Marketplace extension with Agora SDK for Android applications. Head to our Integrations section to learn more.',
@@ -253,12 +246,6 @@ module.exports = {
       defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true
-    },
-
-    moesif:
-    {
-      applicationId: 'eyJhcHAiOiIxOTg6NDYwIiwidmVyIjoiMi4wIiwib3JnIjoiODg6MTAyMyIsImlhdCI6MTYwNjc4MDgwMH0.HJiVyW2au4JS1Po1RkXIsuuS6uvWd2ED71xgySIyZJY',
-      // Add other Moesif options here.
     },
     "prism":
     {
@@ -325,9 +312,9 @@ module.exports = {
 
     algolia:
     {
-      apiKey: '2c62f60d685fcd9d4aa97367cfc7dcf3',
-      indexName: 'symbl',
-      appId: 'BH4D9OD16A'
+      apiKey: process.env.ALGOLIA_KEY,
+      indexName: process.env.ALGOLIA_INDEX_NAME,
+      appId: process.env.ALGOLIA_APP_ID
       //      contextualSearch: true,
     },
 
@@ -373,6 +360,15 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
+        googleAnalytics: {
+          trackingID: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+          anonymizeIP: true,
+        },
+        gtag: {
+          trackingID: process.env.GTAG_ID,
+          // Optional fields.
+          anonymizeIP: true, // Should IPs be anonymized?
+        },
         docs:
         {
           // It is recommended to set document id as docs home page (`docs/` path).

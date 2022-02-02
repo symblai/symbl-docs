@@ -89,6 +89,25 @@ Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers
 Currently, Trackers is supported with Symbl’s Async APIs and Streaming APIs.
 :::
 
+### Trackers Management UI 
+
+You can create, view, edit, and delete Trackers via the Trackers Management UI. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
+
+The following capabilities are supported in the Trackers Management UI:
+
+- Create Trackers
+- View Trackers
+- Edit Trackers
+- Delete Trackers
+
+![img-tracker-ui](/img/tracker-management-ui.png)
+
+:::note
+**Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:`are not allowed.
+**Vocabulary terms**: You must add atleast 5 and a maximum of 50 vocabulary terms per Tracker.
+**Trackers limitation**: You can create upto 200 trackers per account. 
+:::
+
 ## Tutorials
 
 - [How to create a Tracker](/docs/management-api/trackers/overview#consuming-trackers-with-management-api)
