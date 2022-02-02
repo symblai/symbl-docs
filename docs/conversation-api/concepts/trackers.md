@@ -102,9 +102,18 @@ The following capabilities are supported in the Trackers Management UI:
 
 ![img-tracker-ui](/img/tracker-ui-1.png)
 
-The UI allows you to copy the 
+:::tip
+The Tracker Management UI allows you to copy the Trackers ID with the copy button and use it directly in your code. 
 
-:::note
+1. Go to created Tracker and click on the select option. The edit options shows up. 
+
+![copy-tracker-id](/img/copy-tracker-id.png)
+2. Click **Copy ID**. This copies the Tracker ID in the following format:
+
+`{"trackers":[{"id":"4807227589263360"}]}`
+:::
+
+:::important
 **Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the Trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed.<br/>
 **Vocabulary terms**: We recommend that you add at least 5 and a maximum of 50 vocabulary terms per Tracker.<br/>
 **Trackers limitation**: You can create up to 200 Trackers per account. 
