@@ -725,7 +725,23 @@ ChangelogSidebar: [{
   id: 'changelog',
   customProps: {
     hash: '#31-jan-2022',
-    label: '31 jan 2022',
+    label: '31 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#11-jan-2022',
+    label: '11 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#10-jan-2022',
+    label: '10 Jan 2022',
   }
 },
 {
@@ -733,7 +749,7 @@ ChangelogSidebar: [{
   id: 'changelog',
   customProps: {
     hash: '#28-dec-2021',
-    label: '28 dec 2021',
+    label: '28 Dec 2021',
   }
 },
 {

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Symbl's Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl's back-end need to be available in real-time. 
+Symbl's Streaming API is based on the WebSocket protocol and can be used for real-time use-cases where both the audio and its results need to be available in real-time. 
 
 :::info
 Currently, Streaming API is supported in English language. The support for Spanish language is also available in the Labs environment. 
@@ -419,3 +419,25 @@ Let’s go over all the parameters passed in the configuration object in the abo
 6. `handlers`: The object encapsulating the call-back functions to be invoked on detection of those specific entities. For more information on various other handlers, check out the [Javascript SDK Reference](/docs/javascript-sdk/reference#event-handlers-1).
 
   a. `onTrackerResponse`: This function is invoked when Symbl detects a Tracker in real-time. The structure of the **Tracker** object is shown in the above code snippet.
+
+### Streaming API Logs
+
+You can view the logs of your Streaming API request on your Symbl Platform account. To view the logs, sign in to [Symbl Platform](https://platform.symbl.ai/#/login). The logs provide the following:
+
+- Connection ID
+
+- Conversation ID
+
+- Log details 
+
+  - Date of Creation
+
+  - Log Type (Start request, Conversation created, Started listening, Recognition started, Stop request, etc.)
+
+- Ability to search for old logs
+
+- Ability to filter logs with dates 
+
+- Ability to filter logs with only errors.
+
+![image-api-logs](/img/streaming-api-logs.png)

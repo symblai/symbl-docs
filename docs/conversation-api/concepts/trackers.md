@@ -80,7 +80,7 @@ Operation  | Endpoint
 ---------- | -------
 Create Tracker | [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
 Create Trackers in Bulk | [`POST` v1/manage/trackers](/management-api/trackers/create-tracker#bulk-create-trackers-api)
-Get Tracker with ID| [`GET`v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
+Get Tracker with ID| [`GET` v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
 Get Tracker with name | [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
@@ -100,12 +100,14 @@ The following capabilities are supported in the Trackers Management UI:
 - Edit Trackers
 - Delete Trackers
 
-![img-tracker-ui](/img/tracker-management-ui.png)
+![img-tracker-ui](/img/tracker-ui-1.png)
+
+The UI allows you to copy the 
 
 :::note
-**Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:`are not allowed.
-**Vocabulary terms**: You must add atleast 5 and a maximum of 50 vocabulary terms per Tracker.
-**Trackers limitation**: You can create upto 200 trackers per account. 
+**Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the Trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed.<br/>
+**Vocabulary terms**: We recommend that you add at least 5 and a maximum of 50 vocabulary terms per Tracker.<br/>
+**Trackers limitation**: You can create up to 200 Trackers per account. 
 :::
 
 ## Tutorials
