@@ -272,6 +272,6 @@ Field  | Description
 ```startTime``` | DateTime value.
 ```endTime``` | DateTime value.
 ```conversationId``` | Unique conversation identifier.
-```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` is for the word level confidence score.
+```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` represents the word level confidence score. The value that is accepted for the data type is float.
 ```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.
 ```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral).
