@@ -37,6 +37,9 @@ Topics can be generated again when you have new discussion items. Use `refresh=t
 
 You can enable custom vocabulary in Topics API by passing the query parameter `customTopicVocabulary=true`. 
 
+:::note Backward Compatibility
+We recommend you to use the parameter `customTopicVocabulary` instead of `customVocabulary` with the Topics API as we are standardizing our API nomenclature.
+:::
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/topics`
