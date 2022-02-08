@@ -20,6 +20,10 @@ You can create Trackers in the following ways:
 - [Using Async APIs](#create-trackers-using-async-apis)
 - [Using Streaming API](#create-trackers-using-streaming-api)
 
+:::info Trackers Management UI
+You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
+:::
+
 You can also add several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. 
 
 :::info Create Trackers with Management API
@@ -46,6 +50,14 @@ Header Name  | Required | Description
 
 :::info
 For better tracking use prominent keywords and phrases along with few longer utterances which represent the Tracker.
+:::
+
+:::note Using Punctuations in Trackers Vocabulary 
+You can only pass the following punctuations in trackers vocabulary:
+- Periods `.` 
+- Apostrophes `'` 
+
+Using any other punctuation mark such as `?`, `,`, `!`, `:` is not allowed. 
 :::
 
 ### Request Body

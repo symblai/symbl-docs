@@ -33,6 +33,10 @@ Get Tracker with name | [`GET` v1/manage/trackers?name={trackerName}](/managemen
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
 
+:::info Trackers Management UI
+You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
+:::
+
 ### Conversation Groups Management APIs
 
 Following are the API endpoints supported for managing Conversation Groups entity:

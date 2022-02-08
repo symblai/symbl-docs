@@ -33,6 +33,13 @@ Trackers can be consumed via the Management API, which takes the onus of maintai
 All Trackers created using Management API are saved and can be reused for other operations such as PUT, UPDATE and DELETE. 
 To read about the capabilities of the Management API, see the [Management API](/docs/management-api/introduction) page. 
 
+:::note Trackers Management UI
+You can also create, view, edit and delete Trackers via the Trackers Management UI. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
+
+- **Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:`are not allowed.
+- **Vocabulary terms**: You must add atleast 5 and a maximum of 50 vocabulary terms per Tracker.
+- **Trackers limitation**: You can create upto 200 trackers per account. 
+:::
 
 ### Step 1: Create Trackers
 ---
@@ -43,6 +50,13 @@ To read about the capabilities of the Management API, see the [Management API](/
 POST "https://api.symbl.ai/v1/manage/tracker"
 ```
 
+:::note Using Punctuations in Trackers Vocabulary 
+You can only pass the following punctuations in trackers vocabulary:
+- Periods `.` 
+- Apostrophes `'` 
+
+Using any other punctuation mark such as `?`, `,`, `!`, `:` is not allowed. 
+:::
 You can define the phrases and keywords in the **vocabulary** of the request body as shown below:
 
 ```json

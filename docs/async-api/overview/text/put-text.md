@@ -40,8 +40,7 @@ curl --location --request PUT "https://api.symbl.ai/v1/process/text/$CONVERSATIO
 --header "Authorization: Bearer $AUTH_TOKEN" \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "customEntities": [{"customType": "Hiring Process", "text": "internships"}],
-  "detectPhrases": "True",
+  "detectPhrases": "true",
   "messages": [
     {
       "payload": {
@@ -218,7 +217,7 @@ payload = {
 
     "confidenceThreshold": 0.6,  # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
 
-    "detectPhrases": True,  # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+    "detectPhrases": true,  # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
     "messages": [
         {
             "payload": {

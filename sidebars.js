@@ -95,7 +95,7 @@ module.exports = {
   ]
 },
 {
-  label: "Summarization (Beta)",
+  label: "Summarization (Labs)",
   type: 'category',
   items: [
     'conversation-api/concepts/summarization',
@@ -327,8 +327,7 @@ items: [
     'conversation-api/api-reference/update-members',
     'conversation-api/api-reference/speakers',
     'conversation-api/api-reference/transcript',
-    'conversation-api/api-reference/trackers',
-    'conversation-api/api-reference/summary'
+    'conversation-api/api-reference/trackers'
   ],
 },
 {
@@ -444,7 +443,7 @@ id: 'developer-tools/postman',
   ],
 },
 {
-  label: 'Summary API (Beta)',
+  label: 'Summary API (Labs)',
   type: 'category',
   collapsed: true,
   items: [
@@ -649,44 +648,6 @@ SDKsidebar: [{
       },
     ]
   },
-  {
-    label: "Web SDK (Beta)",
-    type: "category",
-    collapsed: false,
-    items: [
-      'web-sdk/web-sdk',
-      {
-        type: 'category',
-        label: 'Streaming API',
-        items: [
-          {
-            type: 'category',
-            label: 'Tutorials',
-            items: [
-              'web-sdk/transcribing-live-audio-through-microphone',
-              'web-sdk/passing-custom-sourcenode',
-              'web-sdk/passing-custom-ondevicechange-handler',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Code Snippets',
-            items: [
-              'web-sdk/reconnecting-real-time',
-              'web-sdk/muting-and-unmuting-connected-device',
-              'web-sdk/subscribe-to-realtime',
-              'web-sdk/stop-realtime-connection',
-            ],
-          },
-        
-        ]
-      },
-      {
-        type: 'doc',
-        id: 'web-sdk/web-sdk-reference',
-      }, 
-    ]
-  }, 
  {
   type: 'doc',
   id: 'developer-tools/postman',
@@ -699,6 +660,16 @@ SDKsidebar: [{
 LabsSidebar: [{
   id: "labs-intro",
   type: "doc",
+ },
+ {
+  label: 'Summarization',
+  type: 'category',
+  collapsed: true,
+  items: [
+
+    'conversation-api/concepts/summarization',
+    'conversation-api/api-reference/summary'
+  ],
  },
  {
   label: 'Comprehensive Action Items',
@@ -748,6 +719,38 @@ Communitysidebar: [{
 ChangelogSidebar: [{
   id: "changelog",
   type: "doc",
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#31-jan-2022',
+    label: '31 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#11-jan-2022',
+    label: '11 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#10-jan-2022',
+    label: '10 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#28-dec-2021',
+    label: '28 Dec 2021',
+  }
 },
 {
   type: 'doc',

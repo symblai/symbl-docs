@@ -118,30 +118,44 @@ exit()
 ### Response
 
 ```json
-{
-    "type": "vocabulary",
-    "value": "Can you reiterate that one more time",
-    "messageRefs": [
-        {
-            "id": "6428676305453056",
-            "text": "So I am not showing that here but you can have that, you know, for particular sentence and, you know, then aggregate based on the whole conversation.",
-            "offset": -1
-        },
-        {
-            "id": "6035928066818048",
-            "text": "Give that intent and name and that's it.",
-            "offset": -1
-        }
-    ],
-    "insightRefs": [
-        {
-            "text": "Yeah, and you So from sentiment analysis perspective, right?",
-            "offset": -1,
-            "type": "question",
-            "id": "5794360651153408"
-        }
-    ]
-}
+[
+    {
+        "id": "5237067555536896",
+        "name": "PricingMention",
+        "matches": [
+            {
+                "type": "vocabulary",
+                "value": "What is the price",
+                "messageRefs": [
+                    {
+                        "id": "4667009028587520",
+                        "text": "How much does it cost?",
+                        "offset": -1
+                    }
+                ],
+                "insightRefs": [
+                    {
+                        "text": "How much does it cost?",
+                        "offset": -1,
+                        "type": "question",
+                        "id": "5420651570528256"
+                    }
+                ]
+            },
+            {
+                "type": "vocabulary",
+                "value": "Subscription",
+                "messageRefs": [
+                    {
+                        "id": "4527958187311104",
+                        "text": "Our subscription plan which includes the premium suite of services is $500 per month.",
+                        "offset": 4
+                    }
+                ],
+                "insightRefs": []
+            }
+        ]
+    },
 ```
 
 Let’s go over the members of the response body which contains the detected tracker objects:

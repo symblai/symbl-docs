@@ -1,3 +1,0 @@
-moesif.init({
-  applicationId: 'eyJhcHAiOiIxOTg6NDYwIiwidmVyIjoiMi4wIiwib3JnIjoiODg6MTAyMyIsImlhdCI6MTYxMjEzNzYwMH0.OpA76yIcCncJaxhAK4scrv79lHSCj486E8wQJSgszzc'
-});
