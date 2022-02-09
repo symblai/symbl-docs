@@ -379,7 +379,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: ({docPath}) => {
-            return `https://github.com/symblai/documentation/edit/master/${docPath}`;
+            return `https://github.com/symblai/documentation/edit/master/docs/${docPath}`;
           }
         },
         blog:
