@@ -785,4 +785,4 @@ public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMe
 ### API Reference
 ---
 
-Find comprehensive information about our REST APIs in the [API Reference](https://docs.symbl.ai/docs/api-reference/getting-started) section.
+Find comprehensive information about our REST APIs in the [API Reference](/docs/api-reference/getting-started) section.
