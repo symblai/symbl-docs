@@ -20,7 +20,7 @@ To fetch multiple Conversation Groups, go to [Get Multiple Conversation Groups](
 
 ### API Endpoint
 
-Make a PUT request to the following API:
+Make a GET request to the following API:
 
 **<font color="orange">GET</font> `https://api.symbl.ai/v1/manage/group/{groupId}`**
 

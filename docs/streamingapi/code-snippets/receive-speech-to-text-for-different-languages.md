@@ -12,7 +12,7 @@ This example goes over how you can use the Symbl Streaming API to receive a spee
 
 :::note
 Currently, we only support English language in Streaming & Telephony API. 
-We support languages other than English only for our enterprise plan.
+The support for Spanish language is also available in Streaming API in the Labs environment.
 Please feel free to reach out to us at support@symbl.ai for any queries.
 :::
 

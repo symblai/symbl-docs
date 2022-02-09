@@ -49,7 +49,7 @@ Error Code | Description | Resolution
 
 Error Code | Description | Resolution
 ---------- | ------- | ---------
-404 - Not Found | The 409 response code specifies that the Tracker with that specific trackerId does not exist. | Check the trackerId and ensure that it is valid and exists.
+404 - Not Found | The 404 response code specifies that the Tracker with that specific trackerId does not exist. | Check the trackerId and ensure that it is valid and exists.
 
 
 ```bash

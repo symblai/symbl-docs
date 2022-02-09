@@ -50,3 +50,19 @@ If the Diarization feature is set to `true`, it will take priority over Speaker 
 No, Trackers cannot be run one at a time. 
 
 If you have not processed your conversation with the parameter `enableAllTracker=true` in the Async API, Trackers will not be detected. To learn why and understand how to use this parameter while processing your conversation, see [Consuming Trackers with Management API](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag) section.
+
+### Are punctuations allowed in the trackers vocabulary? 
+
+You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed. 
+
+### How do I create Trackers? 
+You can create Trackers using the Management API. You can also use the Tracker UI via the [Symbl Platform](https://platform.symbl.ai/#/login) to create, view, edit and delete Trackers. 
+
+### How many vocabulary terms can I add in a Tracker?
+We recommend that you add at least 5 vocabulary terms and a maximum of 50 per Tracker. 
+
+### How many Trackers can I create?
+You can create up to 200 Trackers per account.
+
+### Can I view the logs of Streaming API?
+Yes, you can view the Streaming API logs via the [Symbl Platform](https://platform.symbl.ai/#/login). 
