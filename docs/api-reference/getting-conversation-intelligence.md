@@ -14,7 +14,7 @@ To get Conversation Intelligence,
  
 &nbsp;&nbsp;[Step 2: Get Conversation Intelligence with Conversation API.](#2-get-conversation-intelligence-with-conversation-api)
  
-### 1. Process conversation with Real-time OR Async API
+### Step 1: Process conversation with Real-time OR Async API
 ---
 You can process your text, audio or video conversation with Symbl using:
 - [Real-time APIs](#real-time-apis) for connecting Symbl on live audio and video conversations<br/>
@@ -54,7 +54,7 @@ The Async API provides a REST interface that helps you submit any recorded or sa
 - [Audio API](/docs/async-api/overview/audio/post-audio) for processing recorded conversations via VoIP, voice mails, and audio calls.
 - [Video API](/docs/async-api/overview/video/post-video) for processing recorded conversations via video calls.
  
-### 2. Get Conversation Intelligence with Conversation API
+### Step 2: Get Conversation Intelligence with Conversation API
 ---
  
 In this step, you will use the **Conversation API** to fetch Transcripts, Topics, Action Items and all the supported insights.
