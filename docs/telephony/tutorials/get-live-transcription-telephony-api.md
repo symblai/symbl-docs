@@ -13,7 +13,7 @@ Get a live transcription in your Node.js application by making a call to a valid
 
 This application uses the Symbl Javascript SDK which requires the `symbl-node` node package. 
 
-Making a phone call is also the quickest way to test [Symbl’s Telephony API](https://docs.symbl.ai/?shell#telephony-api). It can make an outbound call to a phone number using a traditional public switched telephony network [(PSTN)](https://en.wikipedia.org/wiki/Public_switched_telephone_network), any [SIP trunks](https://en.wikipedia.org/wiki/SIP_trunking), or SIP endpoints that can be accessed over the internet using a SIP URI.
+Making a phone call is also the quickest way to test [Symbl’s Telephony API](/docs/telephony/introduction). It can make an outbound call to a phone number using a traditional public switched telephony network [(PSTN)](https://en.wikipedia.org/wiki/Public_switched_telephone_network), any [SIP trunks](https://en.wikipedia.org/wiki/SIP_trunking), or SIP endpoints that can be accessed over the internet using a SIP URI.
 
 ### Contents
 
@@ -182,7 +182,7 @@ setTimeout(async () => {
 }, 60000); // Change the 60000 with higher value if you want this to continue for more time.
 ```
 
-The `stopEndpoint` will return an updated `connection` object which will have the `conversationId` in the response. You can use `conversationId` to fetch the results even after the call using the [Conversation API](https://docs.symbl.ai/#conversation-api).
+The `stopEndpoint` will return an updated `connection` object which will have the `conversationId` in the response. You can use `conversationId` to fetch the results even after the call using the [Conversation API](/docs/conversation-api/introduction).
 
 
 ## Code Example

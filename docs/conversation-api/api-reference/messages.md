@@ -10,30 +10,21 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The Messages API returns a list of all the messages in a conversation. You can use this for providing **Speech to Text data (also known as transcription sometimes)** for video conference, meeting or telephone call.
+The Messages API returns a list of all the messages in a conversation. You can use this for getting **Speech to Text** data (also known as transcription) for video conference, meeting or a telephone call.
 
-Here message refer to a continuous sentence spoken by a speaker.
+Here, the message refers to a continuous sentence by a speaker.
 
-### Word-level Confidence Score <font color="orange"> LABS</font>
+#### Sentiment Analysis in messages <font color="orange"> BETA</font>
 
-This API provides word-level confidence score that represents the confidence level of individual words within the message or transcript. The confidence score shows the relevancy of the word in the transcript which means higher the word-level confidence score, the more relevant it is to the message. 
+You can enable sentiment analysis over each message being spoken in the conversation.
 
-When you pass `verbose=true`, the word-level confidence score is by default returned in the response body. 
-
-
-### Sentiment Analysis in messages <font color="orange"> BETA</font>
-
-Here you can enable sentiment analysis over each message which is being spoken in the conversation.
-
-All you need to do is pass `sentiment=true` as a query parameter. [Read more about it](/docs/concepts/sentiment-analysis).
+To do this, pass the query parameter `sentiment=true`. Read more about Sentiment Analysis [here](/docs/concepts/sentiment-analysis).
 
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/messages`
 
 ### Example API Call
-
-
 
 :::info
 Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
@@ -146,11 +137,13 @@ Parameter | Required | Value |Description |
              },
              "startTime": "2020-07-10T11:16:21.024Z",
              "endTime": "2020-07-10T11:16:26.724Z",
+             "timeOffset": 5.9, 
+             "duration": 1,
              "conversationId": "6749556955938816",
              "phrases": [
                 {
                     "type": "action_phrase",
-                    "text": "$69.99 per month"
+                    "text": "$69.99 per month",
                 }
              ],
              "sentiment": {
@@ -164,49 +157,69 @@ Parameter | Required | Value |Description |
                      "word": "Best",
                      "startTime": "2020-08-18T11:10:14.536Z",
                      "endTime": "2020-08-18T11:10:15.536Z",
-                     "score": 0.91
+                     "score": 0.91,
+                     "timeOffset": 5.9,
+                     "duration": 0.2
+                     
                  },
                  {
                      "word": "package",
                      "startTime": "2020-08-18T11:10:16.536Z",
                      "endTime": "2020-08-18T11:10:17.536Z",
-                     "score": 0.80
+                     "score": 0.80,
+                     "timeOffset": 6.1,
+                     "duration": 0.1
+                     
                  },
                  {
                      "word": "for",
                      "startTime": "2020-08-18T11:10:18.536Z",
                      "endTime": "2020-08-18T11:10:19.536Z",
-                     "score": 0.79
+                     "score": 0.68,
+                     "timeOffset": 6.2,
+                     "duration": 0.1
+                    
                  },
                  {
                      "word": "you",
                      "startTime": "2020-08-18T11:10:20.536Z",
                      "endTime": "2020-08-18T11:10:22.536Z",
-                     "score": 0.85
+                     "score": 0.68,
+                     "timeOffset": 6.3,
+                     "duration": 0.3
+                     
                  },
                  {
                      "word": "is",
                      "startTime": "2020-08-18T11:10:22.536Z",
                      "endTime": "2020-08-18T11:10:25.536Z",
-                     "score": 0.89
+                     "score": 0.68,
+                     "timeOffset": 6.6,
+                     "duration": 0.3
                  },
                  {
                      "word": "$69.99",
                      "startTime": "2020-08-18T11:10:25.536Z",
                      "endTime": "2020-08-18T11:10:27.536Z",
-                     "score": 0.86
+                     "score": 0.68,
+                     "timeOffset": 6.67,
+                     "duration": 0.3
                  },
                  {
                      "word": "per",
                      "startTime": "2020-08-18T11:10:27.536Z",
                      "endTime": "2020-08-18T11:10:29.536Z",
-                     "score": 0.82
+                     "score": 0.67,
+                     "timeOffset": 6.6,
+                     "duration": 0.4                 
                  },
                  {
                      "word": "month.",
                      "startTime": "2020-08-18T11:10:30.536Z",
                      "endTime": "2020-08-18T11:10:32.536Z",
-                     "score": 0.90
+                     "score": 0.67,
+                     "timeOffset": 6.8,
+                     "duration": 0.5
                  }]
           },
          {
@@ -218,11 +231,13 @@ Parameter | Required | Value |Description |
              }
              "startTime": "2020-08-18T11:11:14.536Z",
              "endTime": "2020-08-18T11:11:18.536Z",
+             "timeOffset": 15.27,
+             "duration": 1.23,
              "conversationId": "5139780136337408",
              "phrases": [],
              "sentiment": {
                     "polarity": {
-                        "score": 0.2
+                        "score": 0.2,
                     },
                     "suggested": "neutral"
               },
@@ -230,32 +245,43 @@ Parameter | Required | Value |Description |
                  {
                      "word": "Okay,",
                      "startTime": "2020-08-18T11:11:14.536Z",
-                     "endTime": "2020-08-18T11:11:14.936Z"
-                     "score": 0.91
+                     "endTime": "2020-08-18T11:11:14.936Z",
+                     "score": 0.91,
+                     "timeOffset": 15.25,
+                     "duration": 0.59
+                     
                  },
                  {
                      "word": "Where",
                      "startTime": "2020-08-18T11:11:14.936Z",
-                     "endTime": "2020-08-18T11:11:15.436Z"
-                     "score": 0.91
+                     "endTime": "2020-08-18T11:11:15.436Z",
+                     "score": 0.91,
+                     "timeOffset": 15.25,
+                     "duration": 0.59                  
                  },
                  {
                      "word": "is",
                      "startTime": "2020-08-18T11:11:16.236Z",
-                     "endTime": "2020-08-18T11:11:16.536Z"
-                     "score": 0.88
+                     "endTime": "2020-08-18T11:11:16.536Z",
+                     "score": 0.88,
+                     "timeOffset": 15.25,
+                     "duration": 0.58                   
                  },
                  {
                      "word": "the",
                      "startTime": "2020-08-18T11:11:16.536Z",
-                     "endTime": "2020-08-18T11:11:16.936Z"
-                     "score": 0.85
+                     "endTime": "2020-08-18T11:11:16.936Z",
+                     "score": 0.85,
+                     "timeOffset": 15.25,
+                     "duration": 0.58              
                  },
                  {
                      "word": "file?",
                      "startTime": "2020-08-18T11:11:16.936Z",
-                     "endTime": "2020-08-18T11:11:17.236Z"
-                     "score": 0.89
+                     "endTime": "2020-08-18T11:11:17.236Z",
+                     "score": 0.89,
+                     "timeOffset": 15.25,
+                     "duration": 0.59
                  }
     ]
 }
@@ -265,12 +291,14 @@ Parameter | Required | Value |Description |
 
 Field  | Description
 ---------- | ------- |
-```id``` | Unique message identifier.
-```text``` | Message text.
-```from``` | User object with name and email.
-```startTime``` | DateTime value.
-```endTime``` | DateTime value.
-```conversationId``` | Unique conversation identifier.
-```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` represents the word level confidence score. The value that is accepted for the data type is float.
-```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.
-```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral).
+```id``` | Unique message identifier.|
+```text``` | Message text.|
+```from``` | User object with name and email.|
+```startTime``` | DateTime value.|
+```endTime``` | DateTime value.|
+```timeOffset``` | Returned as a float value measuring in seconds, up to 2 decimal points. It indicates the seconds elapsed since the start of the conversation. It is returned at the sentence level as well as the word level.<br/> timeOffset= startTime (of current sentence/ word) - startTime (of the very first sentence/ word in the conversation).<br/> This variable is currently in <font color="orange"> Labs</font>.|
+```duration``` |  Returned as a float value measuring in seconds, upto 2 decimal points. It indicates for how long the sentence or word was spoken. It is returned at the sentence level as well as the word level.<br/> `duration= endTime (of current sentence/ word) - startTime (of current sentence/ word)`.<br/> This variable is currently in <font color="orange"> Labs</font>.
+```conversationId``` | Unique conversation identifier. Read more about the Conversation ID [here](/docs/api-reference/getting-conversation-intelligence#what-is-a-conversation-id). |
+```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` is the word level confidence score that represents the confidence level of individual words within the transcript. The `score` shows the relevancy of the word in the transcript. Higher the word-level confidence score, the more relevant it is to the transcript message. When you pass `verbose=true`, the word-level confidence score is by default returned. <br/> Note that a processed `text` conversation will not return any confidence score since it is already in the transcript form. `words` also return the `timeOffset` and `duration` variables. The word level confidence score is currently in <font color="orange"> Labs</font>. |
+```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.|
+```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral). |
