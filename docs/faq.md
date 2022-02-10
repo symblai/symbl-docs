@@ -66,3 +66,4 @@ You can create up to 200 Trackers per account.
 
 ### Can I view the logs of Streaming API?
 Yes, you can view the Streaming API logs via the [Symbl Platform](https://platform.symbl.ai/#/login). 
+
