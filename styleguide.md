@@ -87,8 +87,6 @@ These three categories are called the first, second, and third person. They are 
 * **Second-person** is the **you** perspective.
 * **Third-person** is the **he/she/it/they** perspective.
 
-Follow these 3 Guidelines in Symbl.ai content:
-
 
 ### 1. Use second-person
 
@@ -130,8 +128,6 @@ For example,
 
 * _Pre-Built UI is an interface for users to interact with Symbl's APIs output and understand the conversation better._
 
-Follow these 2 Guidelines in Symbl.ai content:
-
 
 ### 1. Strictly avoid misplaced modifier
 
@@ -158,8 +154,6 @@ For example,
 ## Verbs
 
 Verbs represent external actions (run, jump, work) and internal (love, think, consider). Verbs determine what the subject is doing or feeling, even if they're just _being_. Verbs are the only type of word that's absolutely essential to make a sentence.
-
-Follow these 4 Guidelines in Symbl.ai content:
 
 
 ### 1. Use present tense verb 
@@ -205,8 +199,6 @@ For example,
 Lists are an excellent way to present complex content in a way that's simple, easy, and straightforward to study.
 
 Lists operate best when they have two to seven items. Each item should be reasonably short so that the reader can see at least two or three list items at a glimpse. It's OK to have a couple of brief paragraphs in a list item, but you shouldn't exceed that length too much.
-
-Follow these 5 Guidelines in Symbl.ai content:
 
 
 ### 1. Introductory paragraph
@@ -284,7 +276,7 @@ For example,
 
 To write clear and accurate instructions, first, make sure you understand precisely how to complete the task. Follow and perform your own instructions exactly to make sure they will complete the task successfully. 
 
-Follow these 4 guidelines in Symbl.ai content to help you create precise, easy-to-follow instructions, whether you're writing simple, single-step, or complicated processes that consist of multiple steps:
+Follow the guidelines given below to create precise, easy-to-follow instructions, whether you're writing simple, single-step, or complicated processes that consist of multiple steps:
 
 
 ### 1. Format Multiple-step instructions consistently
@@ -347,8 +339,6 @@ For example,
 ## Use US spellings and avoid non-English words
 
 Symbl’s Styleguide practices US English which has many dialects and variations depending on geography, but for most purposes, use "General American" English. 
-
-Follow these 3 main guidelines in Symbl content, when writing or editing in American English:
 
 
 ### 1. The spelling of English words varies by locale; use the US spelling. 
