@@ -95,7 +95,7 @@ module.exports = {
   ]
 },
 {
-  label: "Summarization (Labs)",
+  label: "Summarization (Alpha)",
   type: 'category',
   items: [
     'conversation-api/concepts/summarization',
@@ -327,7 +327,9 @@ items: [
     'conversation-api/api-reference/update-members',
     'conversation-api/api-reference/speakers',
     'conversation-api/api-reference/transcript',
-    'conversation-api/api-reference/trackers'
+    'conversation-api/api-reference/trackers',
+    'conversation-api/api-reference/summary'
+
   ],
 },
 {
@@ -443,7 +445,7 @@ id: 'developer-tools/postman',
   ],
 },
 {
-  label: 'Summary API (Labs)',
+  label: 'Summary API (Alpha)',
   type: 'category',
   collapsed: true,
   items: [
@@ -660,16 +662,6 @@ SDKsidebar: [{
 LabsSidebar: [{
   id: "labs-intro",
   type: "doc",
- },
- {
-  label: 'Summarization',
-  type: 'category',
-  collapsed: true,
-  items: [
-
-    'conversation-api/concepts/summarization',
-    'conversation-api/api-reference/summary'
-  ],
  },
  {
   label: 'Comprehensive Action Items',
