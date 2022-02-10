@@ -791,4 +791,4 @@ The following sample project provides you an Android mobile app using the Agora 
 ## API Reference
 ---
 
-Find comprehensive information about our REST APIs in the [API Reference](https://docs.symbl.ai/docs/api-reference/getting-started) section.
+Find comprehensive information about our REST APIs in the [API Reference](/docs/api-reference/getting-started) section.

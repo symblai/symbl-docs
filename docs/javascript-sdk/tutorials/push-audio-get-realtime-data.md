@@ -36,7 +36,7 @@ In this guide you will learn the following:
     * [Handlers (handlers)](#handlers-handlers)
     * [Full Configuration Object](#full-configuration-object)
 * [Handle the audio stream](#handle-the-audio-stream)
-* [Process speech using device's microphone](#process-speech-using-devices-microphone)
+* [Process speech using device's microphone](#process-speech-using-the-devices-microphone)
 * [Test](#test)
 * [Grabbing the Conversation ID](#grabbing-the-conversation-id)
 * [Full Code Sample](#full-code-sample)
