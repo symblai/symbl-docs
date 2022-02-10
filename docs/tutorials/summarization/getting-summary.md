@@ -9,15 +9,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info Symbl Labs
-This feature is a part of Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
-
-
-You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
-
-**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
-
-For any queries or feedback, please contact us at labs@symbl.ai.
+:::note In Alpha Phase
+This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
 This tutorial provides a step-by-step instructions on how to get a Summary using Async APIs. 
@@ -37,7 +30,7 @@ In the example below, we use Text Async API, however, the same can be used for A
 
 #### Request 
 
-`POST https://api-labs.symbl.ai/v1/process/text?enableSummary=true`
+`POST https://api.symbl.ai/v1/process/text?enableSummary=true`
 
 #### Response
 
@@ -51,10 +44,6 @@ In the example below, we use Text Async API, however, the same can be used for A
 The Async API call will return the `conversationId`. You can use this Conversation ID to get the Summary in the next Step. 
 You must wait for the job to complete before you can get the Summary. 
 
-:::info
-The Conversation ID you receive after processing conversations with production Endpoint can be used to process Summary using the Labs Endpoint.
-:::
-
 ### Step 2: Get Summary with Summary API
 ---
 
@@ -62,11 +51,11 @@ Once you have the `conversationId`, you can send a GET request to the Summary AP
 
 #### Request 
 
-`GET https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary`
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/summary`
 
 #### Example 
 
-`GET https://api-labs.symbl.ai/v1/conversations/5815170693595136/summary`
+`GET https://api.symbl.ai/v1/conversations/5815170693595136/summary`
 
 #### Response
 

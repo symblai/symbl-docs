@@ -9,15 +9,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info Symbl Labs
-This feature is a part of Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits. 
-
-
-You can access the Labs features using your Symbl App Id and Secret.  If you don't already have it, sign up on [platform](https://platform.symbl.ai/#/login) to get your credentials.
-
-**Note**: The usage of data for Labs projects is stored for enhancing our research.  We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary. 
-
-For any queries or feedback, please contact us at labs@symbl.ai.
+:::note In Alpha Phase
+This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
 When you wish to renegerate a Summary that you generated earlier, you can do so in two ways: 
@@ -40,7 +33,7 @@ The parameter `refresh=true` has to be passed as a query parameter in the Summar
 
 #### Request
 
-`POST https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary?refresh=true`
+`POST https://api.symbl.ai/v1/conversations/{conversationId}/summary?refresh=true`
 
 #### Response
 
@@ -173,17 +166,8 @@ Parameter | Description |
 ```messageRefs.id``` | The identifier of each message that makes up a Summary.
 ```text```| The text of the Summary.
 
-## Regenerate Summary for only New Transcripts (LABS)
+## Regenerate Summary for only New Transcripts
 ---
-:::info Symbl Labs
-This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits.
-
-You can access the Labs features using your Symbl App Id and Secret. If you don't already have it, sign up on platform to get your credentials.
-
-Note: The usage of data for Labs projects is stored for enhancing our research. We may continue to build, iterate, mutate or discontinue any of the below given features on the sole discretion of our team as deemed necessary.
-
-For any queries or feedback, please contact us at labs@symbl.ai.
-:::
 
 When you have new or additional transcript messages, you can generate a Summary for only the new transcripts without regenerating the entire Summary. 
 
@@ -193,7 +177,7 @@ The parameter `refresh=false` has to be passed as a query parameter in the Summa
 
 #### Request
 
-`POST https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary?refresh=false`
+`POST https://api.symbl.ai/v1/conversations/{conversationId}/summary?refresh=false`
 
 #### Response
 
