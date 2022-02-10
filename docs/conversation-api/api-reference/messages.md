@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 The Messages API returns a list of all the messages in a conversation. You can use this for getting **Speech to Text** data (also known as transcription) for video conference, meeting or a telephone call.
 
-Here, the message refers to a continuous sentence spoken by a speaker.
+Here, the message refers to a continuous sentence by a speaker.
 
 #### Sentiment Analysis in messages <font color="orange"> BETA</font>
 
@@ -175,7 +175,7 @@ Parameter | Required | Value |Description |
                      "word": "for",
                      "startTime": "2020-08-18T11:10:18.536Z",
                      "endTime": "2020-08-18T11:10:19.536Z",
-                      "score": 0.68,
+                     "score": 0.68,
                      "timeOffset": 6.2,
                      "duration": 0.1
                     
@@ -291,14 +291,14 @@ Parameter | Required | Value |Description |
 
 Field  | Description
 ---------- | ------- |
-```id``` | Unique message identifier.
-```text``` | Message text.
-```from``` | User object with name and email.
-```startTime``` | DateTime value.
-```endTime``` | DateTime value.
-```timeOffset``` | Returned as a float value measuring in seconds, up to 2 decimal points. It is returned at the sentence level as well as the word level. At the sentence level, it means the relative timestamp of when the sentence was spoken to when the conversation started (i.e., `startTime`). At the word level, it means the relative timestamp of when the word was spoken  to  when the conversation started (i.e., `startTime`). This variable is currently in <font color="orange"> Labs</font>.
+```id``` | Unique message identifier.|
+```text``` | Message text.|
+```from``` | User object with name and email.|
+```startTime``` | DateTime value.|
+```endTime``` | DateTime value.|
+```timeOffset``` | Returned as a float value measuring in seconds, up to 2 decimal points. It is returned at the sentence level as well as the word level. At the sentence level, it means the time it took in speaking the sentence. At the word level, it means the time it took in speaking the word. This variable is currently in <font color="orange"> Labs</font>.|
 ```duration``` |  Returned as a float value measuring in seconds, upto 2 decimal points. It is returned at the sentence level as well as the word level. At the sentence level, it means the relative timestamp of when the sentence was spoken to when the conversation ended (i.e.,`endTime`). At the word level, it means the relative timestamp of when the word was spoken to when the conversation ended (i.e., `endTime`). This variable is currently in <font color="orange"> Labs</font>.
-```conversationId``` | Unique conversation identifier. Read more about the Conversation ID [here](/docs/api-reference/getting-conversation-intelligence#what-is-a-conversation-id). 
-```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` is the word level confidence score that represents the confidence level of individual words within the message or transcript. The confidence score shows the relevancy of the word in the transcript. Higher the word-level confidence score, the more relevant it is to the transcript message. When you pass `verbose=true`, the word-level confidence score is by default returned in the response body. Note that processed text conversation will not return any confidence score since it is already in the transcript form. The word level confidence score is currently in <font color="orange"> Labs</font>. 
-```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.
-```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral).
+```conversationId``` | Unique conversation identifier. Read more about the Conversation ID [here](/docs/api-reference/getting-conversation-intelligence#what-is-a-conversation-id). |
+```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` is the word level confidence score that represents the confidence level of individual words within the transcript. The `score` shows the relevancy of the word in the transcript. Higher the word-level confidence score, the more relevant it is to the transcript message. When you pass `verbose=true`, the word-level confidence score is by default returned. Note that a processed `text` conversation will not return any confidence score since it is already in the transcript form. `words` also return the `timeOffset` and `duration` variables. See above for more details. The word level confidence score is currently in <font color="orange"> Labs</font>. |
+```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.|
+```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral). |
