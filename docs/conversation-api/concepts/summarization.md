@@ -39,15 +39,13 @@ If the number of words in a conversation is below 50 or the number of sentences 
 
 You can enable the Summary API for Async APIs using the following endpoints: <br/> 
 
-Note that the base URL for Symbl Labs is always `https://api-labs.symbl.ai`
-
 API  | Summary Endpoint
 ---------- | -------
-[Async Text API (POST/PUT)](/docs/async-api/overview/text/post-text)| ```https://api-labs.symbl.ai/v1/process/text?enableSummary=true ```
-[Async Audio API (POST/PUT)](/docs/async-api/overview/audio/post-audio)| ```https://api-labs.symbl.ai/v1/process/audio?enableSummary=true```
-[Async Audio URL API (POST/PUT)](/docs/async-api/overview/audio/post-audio-url)| ```https://api-labs.symbl.ai/v1/process/audio/url?enableSummary=true```
-[Async Video API (POST/PUT)](/docs/async-api/overview/video/post-video)| ```https://api-labs.symbl.ai/v1/process/video?enableSummary=true```
-[Async Video URL API (POST/PUT)](/docs/async-api/overview/video/post-video-url)| ```https://api-labs.symbl.ai/v1/process/video/url?enableSummary=true```
+[Async Text API (POST/PUT)](/docs/async-api/overview/text/post-text)| ```https://api.symbl.ai/v1/process/text?enableSummary=true ```
+[Async Audio API (POST/PUT)](/docs/async-api/overview/audio/post-audio)| ```https://api.symbl.ai/v1/process/audio?enableSummary=true```
+[Async Audio URL API (POST/PUT)](/docs/async-api/overview/audio/post-audio-url)| ```https://api.symbl.ai/v1/process/audio/url?enableSummary=true```
+[Async Video API (POST/PUT)](/docs/async-api/overview/video/post-video)| ```https://api.symbl.ai/v1/process/video?enableSummary=true```
+[Async Video URL API (POST/PUT)](/docs/async-api/overview/video/post-video-url)| ```https://api.symbl.ai/v1/process/video/url?enableSummary=true```
 
 Once the above API job is complete, the corresponding Summary can be obtained by sending a GET request to the Summary API. See the [**Summary API Documentation**](/docs/conversation-api/summary) for details.
 
