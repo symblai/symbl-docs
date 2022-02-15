@@ -197,7 +197,7 @@ Lets breakdown the configuration and take a look at them one by one.
     b. `onMessageResponse`: This callback function contains the "finalized" transcription data for this speaker and if used with multiple streams with other speakers this callback would also provide their messages.
     The "finalized" messages mean that the ASR has finalized the state of this part of transcription and has declared it "final".
 
-    c. `onInsightResponse`: This callback would provide with any of the detected insights in real-time as they are detected. As with the `onMessageCallback` above this would also return every speaker's insights in case of multiple streams.
+    c. `onInsightResponse`: This callback would provide with any of the detected insights in real-time as they are detected. As with the `onMessageResponse` above this would also return every speaker's insights in case of multiple streams.
 
 ### Retrieve audio data from mic
 

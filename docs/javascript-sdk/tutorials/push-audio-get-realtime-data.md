@@ -395,11 +395,11 @@ handlers: {
     }]
     ```
 
-    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageCallback` this would also return every speaker's insights in case of multiple streams.
+    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageResponse` this would also return every speaker's insights in case of multiple streams.
 
     **View the examples for `onInsightResponse` [here](#insight-types-insighttypes).**
 
-    * `onTrackerResponse`: This callback provides you with any of the detected trackers in real-time as they are detected.  As with the `onMessageCallback` this would also return every tracker in case of multiple streams.
+    * `onTrackerResponse`: This callback provides you with any of the detected trackers in real-time as they are detected.  As with the `onMessageResponse` this would also return every tracker in case of multiple streams.
 
     #### onTrackerResponse JSON Response Example
 
@@ -426,7 +426,7 @@ handlers: {
     ]
     ```
 
-    * `onTopicResponse`: This callback provides you with any of the detected topics in real-time as they are detected.  As with the `onMessageCallback` this would also return every topic in case of multiple streams.
+    * `onTopicResponse`: This callback provides you with any of the detected topics in real-time as they are detected.  As with the `onMessageResponse` this would also return every topic in case of multiple streams.
 
     #### onTopicResponse JSON Response Example
 
