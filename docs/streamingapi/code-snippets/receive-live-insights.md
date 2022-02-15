@@ -234,7 +234,7 @@ If successful you should receive a response in the console.
 
 * `handlers`: This object has the callback functions for different events
 
-    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageCallback` this would also return every speaker's insights in case of multiple streams.
+    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageResponse` this would also return every speaker's insights in case of multiple streams.
 
     ```js
     [{

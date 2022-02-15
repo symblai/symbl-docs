@@ -312,7 +312,7 @@ If successful you should receive a response in the console.
 
 * `handlers`: This object has the callback functions for different events
 
-  * `onTrackerResponse`: This callback provides you with any of the detected trackers in real-time as they are detected.  As with the `onMessageCallback` this would also return every tracker in case of multiple streams.<br /><br />
+  * `onTrackerResponse`: This callback provides you with any of the detected trackers in real-time as they are detected.  As with the `onMessageResponse` this would also return every tracker in case of multiple streams.<br /><br />
 
   #### onTrackerResponse JSON Response Example
 

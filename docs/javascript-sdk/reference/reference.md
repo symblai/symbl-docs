@@ -395,7 +395,7 @@ The "finalized" messages mean that the automatic speech recognition has finalize
 
 ### onInsightResponse
 
-This callback provides you with any of the detected insights in real-time as they are detected. As with the [`onMessageCallback`](#onmessagecallback) this would also return every speaker's insights in case of multiple streams.
+This callback provides you with any of the detected insights in real-time as they are detected. As with the [`onMessageResponse`](#onmessageresponse) this would also return every speaker's insights in case of multiple streams.
 
 #### onInsightResponse JSON Response Example
 
@@ -462,7 +462,7 @@ This callback provides you with any of the detected insights in real-time as the
 
 ### onTopicResponse
 
-This callback provides you with any of the detected topics in real-time as they are detected.  As with the [`onMessageCallback`](#onmessagecallback) this would also return every topic in case of multiple streams.
+This callback provides you with any of the detected topics in real-time as they are detected.  As with the [`onMessageResponse`](#onmessageresponse) this would also return every topic in case of multiple streams.
 
 #### onTopicResponse JSON Response Example
 
@@ -484,7 +484,7 @@ This callback provides you with any of the detected topics in real-time as they 
 
 ### onTrackerResponse
 
-This callback provides you with any of the detected trackers in real-time as they are detected. As with the [`onMessageCallback`](#onMessageCallback) this would also return every tracker in case of multiple streams.
+This callback provides you with any of the detected trackers in real-time as they are detected. As with the [`onMessageResponse`](#onmessageresponse) this would also return every tracker in case of multiple streams.
 
 #### onTrackerResponse JSON Response Example
 

@@ -236,7 +236,7 @@ If successful you should receive a response in the console.
 
 * `handlers`: This object has the callback functions for different events
 
-    * `onTopicResponse`: This callback provides you with any of the detected topics in real-time as they are detected.  As with the `onMessageCallback` this would also return every topic in case of multiple streams.
+    * `onTopicResponse`: This callback provides you with any of the detected topics in real-time as they are detected.  As with the `onMessageResponse` this would also return every topic in case of multiple streams.
 
     #### onTopicResponse JSON Response Example
 
