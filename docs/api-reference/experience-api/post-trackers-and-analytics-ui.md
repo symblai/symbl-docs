@@ -55,14 +55,14 @@ curl --location --request POST "https://api.symbl.ai/v1/conversations/$CONVERSAT
 
 Field  | Required  | Type | Description
 ---------- | ------- | ------- |  -------
-```name``` | Mandatory | String |  For Text Summary UI, use `verbose-text-summary`.
+```name``` | Mandatory | String |  As the Tracker and Analytics UI is supported for audio conversations use `audio-summary`.
 ```audioURL```| Mandatory | String | The `audioUrl` must match the `conversationId`. In other words, the `audioUrl` needs to be the same URL that was submitted to the Async API to generate the `conversationId`.
-```logo```| Optional | String |  This field accepts public URL for setting custom logo in the Text Summary UI(`verbose-text-summary`).
-```favicon```| Optional | String |  This field accepts public URL for setting custom favicon in the Text Summary UI(`verbose-text-summary`).
+```logo```| Optional | String |  This field accepts public URL for setting custom logo.
+```favicon```| Optional | String |  This field accepts public URL for setting custom favicon.
 ```color```| Optional | Object | This option can be used to customise the colors of UI background, topics filter and insights filter elements in UI.
 ```font``` | Optional | Object | You can directly set any [Google Fonts](https://fonts.google.com/) by passing the name of the font.
 ```summaryURLExpiresIn``` | Optional | Number | This sets the expiry time for the summary URL. It is interpreted as seconds. If the value 0 is passed the URL will never expire. Default time for a URL to expire is 2592000 which is 30 days.
-```readOnly``` | Optional | Boolean | Setting this parameter to `true` generates a non-editable, read-only version of the audio-summary and verbose-text-summary. It is defaulted to `false`. Note that this feature does not have any impact on the existing summary URLs that have already been generated. 
+```readOnly``` | Optional | Boolean | Setting this parameter to `true` generates a non-editable, read-only version of the audio summary. It is defaulted to `false`. Note that this feature does not have any impact on the existing summary URLs that have already been generated. 
 
 :::note
 Currently, custom domain is not supported for Trackers and Analytics Summary UI. 
