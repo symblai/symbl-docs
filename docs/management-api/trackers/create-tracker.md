@@ -21,10 +21,10 @@ You can create Trackers in the following ways:
 - [Using Streaming API](#create-trackers-using-streaming-api)
 
 :::info Trackers Management UI
-You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
+You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
 :::
 
-You can also add several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. 
+You can also add several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. You can create up to 500 Trackers per account. 
 
 :::info Create Trackers with Management API
 While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 

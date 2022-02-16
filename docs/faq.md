@@ -62,7 +62,7 @@ You can create Trackers using the Management API. You can also use the Tracker U
 We recommend that you add at least 5 vocabulary terms and a maximum of 50 per Tracker. 
 
 ### How many Trackers can I create?
-You can create up to 200 Trackers per account.
+You can create up to 500 Trackers per account.
 
 ### Can I view the logs of Streaming API?
 Yes, you can view the Streaming API logs via the [Symbl Platform](https://platform.symbl.ai/#/login). 

@@ -38,7 +38,7 @@ You can also create, view, edit and delete Trackers via the Trackers Management 
 
 - **Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:`are not allowed.
 - **Vocabulary terms**: You must add atleast 5 and a maximum of 50 vocabulary terms per Tracker.
-- **Trackers limitation**: You can create upto 200 trackers per account. 
+- **Trackers limitation**: You can create up to 500 trackers per account. 
 :::
 
 ### Step 1: Create Trackers
