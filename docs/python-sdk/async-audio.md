@@ -95,7 +95,7 @@ print(conversation_object.get_topics())
 Use the code given below to process audio (sent via URL) conversations with the Python SDK and generate conversation insights such as speech-to-text, topics, follow-ups, action items, questions. It can be utilized for any use case where you have access to recorded audio stored publicly as a URL and want to extract insights and other conversational attributes supported by Symbl. 
 
 :::info
-The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
+The URL provided must be a publicly available URL. Currently we do not support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
 ```python

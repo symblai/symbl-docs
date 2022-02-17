@@ -35,8 +35,11 @@ Topics can be generated again when you have new discussion items. Use `refresh=t
 
 #### Custom Vocabulary for Topics<font color="orange"> LABS</font>
 
-You can enable custom vocabulary in Topics API by passing the query parameter `customVocabulary=true`. 
+You can enable custom vocabulary in Topics API by passing the query parameter `customTopicVocabulary=true`. 
 
+:::note Backward Compatibility
+We recommend you to use the parameter `customTopicVocabulary` instead of `customVocabulary` with the Topics API as we are standardizing our API nomenclature.
+:::
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/topics`
@@ -134,12 +137,12 @@ Parameter | Required | Type | Value | Description|
 --------- | --------- | ------- | ------- | ------- |
 ```sentiment```| Optional | Boolean | `true` or `false` | Give you sentiment analysis on each topic in conversation.
 ```parentRefs```| Optional | Boolean | `true` or `false` | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
-```customVocabulary``` | Optional | String |  | Gives you topics that contain the custom vocabulary keywords you provided.
+```customTopicVocabulary``` | Optional | String |  | Gives you topics that contain the custom vocabulary keywords you provided.
 
 
 
 ### Response
-> Topic Hierarchy Sample Response (parentRefs=true):
+> Topic Hierarchy Sample Response (`parentRefs=true`):
 
 ```javascript
 {
@@ -258,7 +261,7 @@ Parameter | Required | Type | Value | Description|
     ]
 }
 ```
-> Custom Vocabulary Sample Response (`customVocabulary`):
+> Custom Vocabulary Sample Response (`customTopicVocabulary`):
 
 ```javascript
 {
