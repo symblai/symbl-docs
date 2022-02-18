@@ -18,16 +18,17 @@ This API returns all the topics generated from a conversation.
 #### Sentiment Analysis in Topics <font color="orange"> BETA</font>
 
 You can enable sentiment analysis over each topics which is being discussed in the conversation.
-All you need to do is pass `sentiment=true` as a query parameter. [Read more about it](/docs/concepts/sentiment-analysis)
+All you need to do is pass `sentiment=true` as a query parameter. [Read more about it](/docs/concepts/sentiment-analysis).
 
 #### Topic Hierarchy in Topics<font color="orange"> BETA</font>
 
+You can enable topic hierarchy in Topics API by passing `parentRefs=true`. Topic Hierarchy breaks conversation
+in parent and child topics which helps outline the entire conversation faster. Read more about it [here](/docs/concepts/topic-hierarchy).
+
 :::info
-"parentRefs" doesn't support "sentiment" for now.
+Currently, `parentRefs` does not support `sentiment`.
 :::
 
-You can enable topic hierarchy in Topics API by passing `parentRefs=true`. Topic Hierarchy breaks conversation
-in parent and child topics which helps outline the entire conversation faster. Read more about it [here](/docs/concepts/topic-hierarchy)
 
 #### Refreshing Topics
 
@@ -134,7 +135,7 @@ Parameter | Required | Type | Value | Description|
 --------- | --------- | ------- | ------- | ------- |
 ```sentiment```| Optional | Boolean | `true` or `false` | Give you sentiment analysis on each topic in conversation.
 ```parentRefs```| Optional | Boolean | `true` or `false` | Gives you [topic hierarchy](/docs/concepts/topic-hierarchy).
-```customVocabulary``` | Optional | String |  | Gives you topics that contain the custom vocabulary keywords you provided.
+```customVocabulary``` | Optional | String | `true` or `false` | Gives you topics that contain the custom vocabulary keywords you provided.
 
 
 
