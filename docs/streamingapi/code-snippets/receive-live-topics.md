@@ -182,7 +182,7 @@ ws.onopen = (event) => {
 };
 ```
 :::note Backward Compatibility
-The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible; however, we recommend you to use the new endpoint. 
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
 :::
 
 #### Connect Mic
