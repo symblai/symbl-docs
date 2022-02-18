@@ -13,8 +13,12 @@ import TabItem from '@theme/TabItem';
 Symbl's Streaming API is based on the WebSocket protocol and can be used for real-time use-cases where both the audio and its results need to be available in real-time. 
 
 :::info
-Currently, Streaming API is supported in English language. The support for Spanish language is also available in the Labs environment. 
+Currently, Streaming API is supported in English only. However, the support for Spanish is available as a part of Symbl Labs. 
 ::: 
+
+:::note Opus codec
+Streaming API supports Opus with 48000 Hz sample rate.
+:::
 
 ## Request Parameters
 

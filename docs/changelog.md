@@ -11,11 +11,26 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+
+### 8 Feb 2022
+
+![api update](/img/api-update.png) 
+- **Trackers Limit Increase**: Increased Tracker creation limit to 500 per account. <br/>
+- **Summarization Alpha Release**: Summary API is now available in the Alpha release phase. 
+- **Relative timestamp for Messages API** <font color="orange"> (LABS): </font><br/> Added support for the parameters `timeOffset` and `duration` the Messages API. [Read more here](/docs/conversation-api/messages).
+- **Nomenclature Change**: Change of name for the parameter `customVocabulary` for Topics API to `customTopicVocabulary`. Backward compatibility available. 
+
 ### 31 Jan 2022
 
 ![api update](/img/api-update.png) 
 - **Trackers Management UI**: You can create, view, edit, and delete Trackers via the Trackers Management UI. To access this feature, log in to [Symbl Platform](https://platform.symbl.ai/#/login). <br/>
 [Read more here](/docs/concepts/trackers#trackers-management-ui).
+
+### 13 Jan 2022
+
+![api update](/img/api-update.png) 
+- **Streaming API Opus Support**: Added support for Opus for Streaming API with 48000 Hz sample rate.<br/>
+- **Streaming API parameters available in GA**: Availability of the following Streaming API parameters from Labs to GA: `noConnectionTimeout`, `disconnectOnStopRequest` and `disconnectOnStopRequestTimeout`.
 
 ### 11 Jan 2022
 
@@ -117,8 +132,6 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 - **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
 [Read more here](/docs/pre-built-ui/user-engagement-analytics).
 
-
-
 ### 13 July 2021
 
 ![summary](/img/summary-ui-icon.png)
@@ -138,8 +151,6 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 ![sdk](/img/sdk-icon.png)
 - Availability of Streaming API with Python SDK. [Read more here](/docs/python-sdk/streaming-api). 
 
----
-
 ### 29 June 2021
 
 ![api update](/img/api-update.png)
@@ -155,15 +166,11 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 - Support for the `readOnly` parameter has been added to avoid unintended editing of the **Summary UI**.
 - Users can now share their own configured URL with their domain name in the iframe implementation.
 
----
-
 ### 31 May 2021
 ![api update](/img/api-update.png)
 
 - Added support for creating Transcripts in SRT format. 
 [Read more here](/docs/conversation-api/transcript/#create-transcript-in-srt).
-
----
 
 ### 22 April 2021
 
