@@ -116,7 +116,7 @@ The Trackers Management UI allows you to copy the Tracker ID with the copy butto
 :::important
 **Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the Trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed.<br/>
 **Vocabulary terms**: We recommend that you add at least 5 and a maximum of 50 vocabulary terms per Tracker.<br/>
-**Trackers limitation**: You can create up to 200 Trackers per account. 
+**Trackers limitation**: You can create up to 500 Trackers per account. 
 :::
 
 ## Tutorials

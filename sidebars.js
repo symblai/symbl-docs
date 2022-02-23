@@ -95,7 +95,7 @@ module.exports = {
   ]
 },
 {
-  label: "Summarization (Labs)",
+  label: "Summarization (Alpha)",
   type: 'category',
   items: [
     'conversation-api/concepts/summarization',
@@ -327,7 +327,9 @@ items: [
     'conversation-api/api-reference/update-members',
     'conversation-api/api-reference/speakers',
     'conversation-api/api-reference/transcript',
-    'conversation-api/api-reference/trackers'
+    'conversation-api/api-reference/trackers',
+    'conversation-api/api-reference/summary'
+
   ],
 },
 {
@@ -443,7 +445,7 @@ id: 'developer-tools/postman',
   ],
 },
 {
-  label: 'Summary API (Labs)',
+  label: 'Summary API (Alpha)',
   type: 'category',
   collapsed: true,
   items: [
@@ -662,16 +664,6 @@ LabsSidebar: [{
   type: "doc",
  },
  {
-  label: 'Summarization',
-  type: 'category',
-  collapsed: true,
-  items: [
-
-    'conversation-api/concepts/summarization',
-    'conversation-api/api-reference/summary'
-  ],
- },
- {
   label: 'Comprehensive Action Items',
   type: 'category',
   collapsed: true,
@@ -724,8 +716,24 @@ ChangelogSidebar: [{
   type: 'doc',
   id: 'changelog',
   customProps: {
+    hash: '#8-feb-2022',
+    label: '8 Feb 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
     hash: '#31-jan-2022',
     label: '31 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#13-jan-2022',
+    label: '13 Jan 2022',
   }
 },
 {

@@ -17,4 +17,3 @@ The usage of data for Labs projects is stored for enhancing our research. We may
 :::
  
 For any queries or feedback, please contact us at labs@symbl.ai.
-

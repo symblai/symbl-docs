@@ -379,14 +379,14 @@ th:empty {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
   text-align: left;
-  background-color: #ffffff;
+  background-color: #f1f1f1;
  }
  .card4 {
   box-shadow: 0 4px 8px 0 rgba(1, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 30px;
   text-align: left;
   width: 200%;
-  background-color: #ffffff;
+  background-color: #c7ebc0;
  }
  .card2 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
@@ -394,16 +394,6 @@ th:empty {
     text-align: left;
     width: 200%;
     background-color: #FFA500
- }
- .card3 {display:inline-block;}
-
- /* Responsive columns - one column layout (vertical) on small screens */
- @media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
  }
 
  .card1:hover {
@@ -436,4 +426,6 @@ th:empty {
   
  .button1 {background-color: #e0ebe0;} /* Green */
  .button2 {background-color: #c1e7f3;} /* Blue */
+ .button3 {background-color: #d0d8e2;} /* Blue */
+ .button4 {background-color: #acc7f0;} /* Blue */
   
