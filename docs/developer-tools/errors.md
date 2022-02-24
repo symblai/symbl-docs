@@ -16,7 +16,7 @@ Find details on common error codes and how to resolve them below.
 Error Code | Meaning
 ---------- | -------
 200 | OK -- Success.
-201 | Accepted -- Your request is successfully accepted.
+201 | Created -- Your request is successfully led to creation of resource
 400 | Bad Request -- Your request is invalid.
 401 | Unauthorized -- Your API key is invalid.
 403 | Forbidden
