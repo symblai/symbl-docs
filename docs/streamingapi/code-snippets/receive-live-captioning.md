@@ -120,7 +120,109 @@ setTimeout(async () => {
   }
 }, 60 * 1000) // Stop connection after 1 minute i.e. 60 secs
 ```
+### Full code snippet
+  
+  ```
+  const {sdk} = require('symbl-node');
+const uuid = require('uuid').v4;
 
+const mic = require('mic')
+
+const sampleRateHertz = 48000
+
+const micInstance = mic({
+  rate: sampleRateHertz,
+  channels: '1',
+  debug: false,
+  exitOnSilence: 6,
+});
+
+(async () => {
+  try {
+    // Initialize the SDK. You can find the appId and appSecret at https://platform.symbl.ai.
+    await sdk.init({
+        appId: appId,
+        appSecret: appSecret,
+        basePath: 'https://api.symbl.ai',
+      })
+
+    // Need unique Id
+    const id = uuid()
+
+    // Start Realtime Request (Uses Real-time WebSocket API behind the scenes)
+    const connection = await sdk.startRealtimeRequest({
+      id,
+      insightTypes: ['action_item', 'question'],
+      config: {
+        meetingTitle: 'My Test Meeting',
+        confidenceThreshold: 0.7,
+        timezoneOffset: 480, // Offset in minutes from UTC
+        languageCode: 'en-US',
+        sampleRateHertz: 44100,
+      },
+      speaker: {
+        // Optional, if not specified, will simply not send an email in the end.
+        userId: 'emailAddress', // Update with valid email
+        name: 'My name'
+      },
+      handlers: {
+        /**
+         * This will return live speech-to-text transcription of the call.
+         */
+        onSpeechDetected: (data) => {
+          console.log(JSON.stringify(data))
+          if (data) {
+            const {punctuated} = data
+            console.log('Live: ', punctuated && punctuated.transcript)
+          }
+        },
+        /**
+         * When processed messages are available, this callback will be called.
+         */
+        onMessageResponse: (data) => {
+          console.log('onMessageResponse', JSON.stringify(data, null, 2))
+        },
+      }
+    });
+
+    const micInputStream = micInstance.getAudioStream()
+/** Raw audio stream */
+micInputStream.on('data', (data) => {
+  // Push audio from Microphone to websocket connection
+  connection.sendAudio(data)
+})
+
+micInputStream.on('error', function (err) {
+  console.log('Error in Input Stream: ' + err)
+})
+
+micInputStream.on('startComplete', function () {
+  console.log('Started listening to Microphone.')
+})
+
+micInputStream.on('silence', function () {
+  console.log('Got SIGNAL silence')
+})
+
+micInstance.start()
+
+setTimeout(async () => {
+  // Stop listening to microphone
+  micInstance.stop()
+  console.log('Stopped listening to Microphone.')
+  try {
+    // Stop connection
+    await connection.stop()
+    console.log('Connection Stopped.')
+  } catch (e) {
+    console.error('Error while stopping the connection.', e)
+  }
+}, 60 * 1000) // Stop connection after 1 minute i.e. 60 secs
+  } catch (e) {
+    console.error(e);
+  }
+})();
+```
 #### Testing
 
 Create a javascript file named `app.js` and copy this code into the file. Fill in the placeholder values with the proper values. Use npm to install the required libraries: `npm install symbl-node uuid`. Now in the terminal run
