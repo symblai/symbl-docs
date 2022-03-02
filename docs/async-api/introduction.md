@@ -71,6 +71,31 @@ It can be useful in any use case where you have access to a video file of any ty
 * [Append Video URL To Existing Conversation](/docs/async-api/overview/video/put-video-url)
 
 
-## API Reference
+## Endpoints
 
-Refer the [API Reference](/docs/async-api/reference/reference) for all available endpoints.
+### Text API
+
+| Method | Endpoint | |
+|--------|----------|-|
+|`POST` | `https://api.symbl.ai/v1/process/text` | [Reference](/docs/async-api/overview/text/post-text)
+|`PUT` | `https://api.symbl.ai/v1/process/text/{conversationId}` | [Reference](/docs/async-api/overview/text/put-text)
+
+
+### Audio API
+
+| Method | Endpoint | |
+|--------|----------|-|
+|`POST` | `https://api.symbl.ai/v1/process/audio` | [Reference](/docs/async-api/overview/audio/post-audio)
+|`POST` | `https://api.symbl.ai/v1/process/audio/url` | [Reference](/docs/async-api/overview/audio/post-audio-url)
+|`PUT` | `https://api.symbl.ai/v1/process/audio/{conversationId}` | [Reference](/docs/async-api/overview/audio/put-audio)
+|`PUT` | `https://api.symbl.ai/v1/process/audio/url/{conversationId}` | [Reference](/docs/async-api/overview/audio/put-audio-url)
+
+
+### Video API
+
+| Method | Endpoint | |
+|--------|----------|-|
+|`POST` | `https://api.symbl.ai/v1/process/video` | [Reference](/docs/async-api/overview/video/post-video)
+|`POST` | `https://api.symbl.ai/v1/process/video/url` | [Reference](/docs/async-api/overview/video/post-video-url)
+|`PUT` | `https://api.symbl.ai/v1/process/video/{conversationId}` | [Reference](/docs/async-api/overview/video/put-video)
+|`PUT` | `https://api.symbl.ai/v1/process/video/url/{conversationId}` | [Reference](/docs/async-api/overview/video/put-video-url)
