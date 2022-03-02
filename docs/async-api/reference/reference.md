@@ -1,6 +1,7 @@
 ---
 id: reference
 title: Async API Reference
+slug: /async-api/reference/reference
 ---
 
 ## Endpoints
