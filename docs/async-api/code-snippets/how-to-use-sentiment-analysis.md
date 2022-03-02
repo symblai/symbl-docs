@@ -22,10 +22,13 @@ You must wait for the job to complete processing before you proceed with getting
 
 While we provide you with a default video URL for the API to process, which can be downloaded [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4), you can replace that with any other video URL.
 
+
+
 ### Request Example
 
 :::info
 Before using the Async API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
+For nodejs sample you need to install the node package `request`. You can do that via with `npm install request`.
 :::
 
 <Tabs
@@ -153,7 +156,7 @@ const responses = {
 
 request.post(videoOption, (err, response, body) => {
   const statusCode = response.statusCode;
-  if (error || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+  if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
     throw new Error(responses[statusCode]);
   }
   console.log('Status code: ', statusCode);
