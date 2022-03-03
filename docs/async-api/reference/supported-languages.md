@@ -1,5 +1,5 @@
 ---
-id: reference
+id: supported-languages
 title: Supported Languages
 sidebar_label: Supported Languages
 ---
