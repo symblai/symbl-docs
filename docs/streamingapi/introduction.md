@@ -34,6 +34,7 @@ Here is a list of code snippets to help you get started on your journey with the
 * [Receive Live Topics](/docs/streamingapi/code-snippets/receive-live-topics)
 * [Receive Live AI Insights](/docs/streamingapi/code-snippets/receive-ai-insights)
 * [Receive Speech to Text for a different language in a conversation](/docs/streamingapi/code-snippets/receive-speech-to-text-for-different-languages)
+* [Detect key phrases](/docs/streamingapi/code-snippets/detect-key-phrases)
 
 
 ### Symbl Javascript SDK
