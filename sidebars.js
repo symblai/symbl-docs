@@ -248,11 +248,7 @@ items: [
 },
 {
   type: 'doc',
-  id: 'async-api/reference/reference',
-  customProps: {
-    hash: '#supported-languages',
-    label: 'Supported Languages',
-  },
+  id: 'async-api/reference/supported-languages',
 },
 {
   id: "async-api/overview/jobs-api",

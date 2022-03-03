@@ -1,0 +1,41 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+.glossaryIndex {
+    display:flex;
+    flex-direction:row;
+    padding: 2rem;
+    background-color: rgb(20,38,72);
+    justify-content:space-around;
+  }
+  
+  .alphabetAnchor {
+    font-size: 30px;
+    color:white;
+  }
+
+  .disabledAlphabetAnchor {
+      font-size:30px;
+      color:grey;
+      pointer-events: none;
+  }
+
+  .alphabetHeader {
+      text-align:center;
+      margin: 0.8rem;
+      font-size:2rem;
+  }
+
+  .glossaryElement {
+      margin:2rem 5rem;
+  }
+
+  .glossaryElementTitle {
+      color: rgb(1,141,254);
+      font-size:1.5rem;
+  }
+
+  .glossaryElementDescription{
+      font-size:1rem;
+  }
