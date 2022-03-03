@@ -1,7 +1,6 @@
 ---
 id: receive-live-captioning
 title: Receive Live Captioning
-slug: /streamingapi/code-snippets/receive-live-captioning
 ---
 
 import Tabs from '@theme/Tabs';
@@ -334,7 +333,7 @@ If successful you should receive a response in the console.
   }]
   ```
 
-## See Also
 
-- [Receive live insights](/docs/streamingapi/code-snippets/receive-live-insights)
-- [Receive live topics](/docs/streamingapi/code-snippets/receive-live-topics)
+
+
+
