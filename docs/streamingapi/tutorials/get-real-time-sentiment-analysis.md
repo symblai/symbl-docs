@@ -346,6 +346,7 @@ if (data.type === 'message' && data.message.hasOwnProperty('data')) {
     request.send()
     }
 
+};
   if (data.type === 'message_response') {
     for (let message of data.messages) {
       console.log('Transcript (more accurate): ', message.payload.content);

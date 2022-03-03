@@ -13,7 +13,7 @@ import {
   ThemeClassNames,
   useScrollPosition,
 } from '@docusaurus/theme-common';
-import {useWindowSize} from '@lilib/hooks';
+import useWindowSize from '@theme/hooks/useWindowSize';
 import Logo from '@theme/Logo';
 import IconArrow from '@theme/IconArrow';
 import {translate} from '@docusaurus/Translate';

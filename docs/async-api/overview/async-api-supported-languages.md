@@ -42,9 +42,9 @@ The following list of languages(with their [BCP-47](https://en.wikipedia.org/wik
 
 ### Passing the Parameters
 
-* In Submit File Async **POST** ([Async Audio](/docs/async-api/overview/audio/post-audio), [Async Video](/docs/async-api/overview/video/post-video)) & **PUT** ([Async Audio](/docs/async-api/overview/audio/put-audio), [Async Video](/docs/async-api/overview/video/put-video)) you have to pass the `languageCode` in **query parameter**.  
+* In Submit File Async **POST** ([Async Audio](/docs/async-api/overview/audio/post-audio), [Async Video](/docs/async-api/overview/video/post-video)) & **PUT** ([Async Audio](/docs/async-api/overview/audio/put-audio), [Async Video](/docs/async-api/overview/video/put-video)) we pass the `languageCode` in **query parameter**.  
 
-* In Async URL APIs **POST** ([Async Audio URL](/docs/async-api/overview/audio/post-audio-url), [Async Video URL](/docs/async-api/overview/video/post-video-url)) & **PUT** ([Async Audio URL](/docs/async-api/overview/audio/put-audio-url), [Async Video URL](/docs/async-api/overview/video/put-video-url)) you have to pass the `languageCode` in **request body**.
+* In Async URL APIs **POST** ([Async Audio URL](/docs/async-api/overview/audio/post-audio-url), [Async Video URL](/docs/async-api/overview/video/post-video-url)) & **PUT** ([Async Audio URL](/docs/async-api/overview/audio/put-audio-url), [Async Video URL](/docs/async-api/overview/video/put-video-url)) we pass the `languageCode` in **request body**.
 
 <!--
 :::info
