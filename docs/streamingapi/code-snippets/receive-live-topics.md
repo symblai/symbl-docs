@@ -1,6 +1,7 @@
 ---
 id: receive-live-topics
 title: Receive Live Topics
+slug: /streamingapi/code-snippets/receive-live-topics
 ---
 
 import Tabs from '@theme/Tabs';
@@ -258,3 +259,8 @@ If successful you should receive a response in the console.
       "type": "topic"
     }]
     ```
+
+## See Also
+
+- [Receive live captioning](/docs/streamingapi/code-snippets/receive-live-captioning)
+- [Receive live insights](/docs/streamingapi/code-snippets/receive-live-insights)

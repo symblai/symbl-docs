@@ -16,10 +16,6 @@ Symbl's Streaming API is based on the WebSocket protocol and can be used for rea
 Currently, Streaming API is supported in English only. However, the support for Spanish is available as a part of Symbl Labs. 
 ::: 
 
-:::note Opus codec
-Streaming API supports Opus with 48000 Hz sample rate.
-:::
-
 ## Request Parameters
 
 #### Endpoint
@@ -81,9 +77,9 @@ Field | Required | Supported value | Default Value | Description
 
 Field | Required | Supported value | Default Value | Description
 ---------- | ------- | ------- |  ------- |  -------
-```encoding``` | false  | LINEAR16, FLAC, MULAW | LINEAR16 | Audio Encoding in which the audio will be sent over the WebSocket.
-```sampleRateHertz	``` | false  |  | 16000 | The rate of the incoming audio stream.
-
+```encoding``` | false  | `LINEAR16`, `FLAC`, `MULAW`, `Opus` | `LINEAR16` | Audio Encoding in which the audio will be sent over the WebSocket.
+```sampleRateHertz	``` | false  |  | `16000` | The rate of the incoming audio stream. The following are supported with the sample rates: <br/> encoding `LINEAR16` for sample rates `8000` to `48000`, <br/> encoding `FLAC` for sample rates `16000 ` and above, <br/> encoding `MULAW` for sample rates `8000`, <br/> encoding `Opus` for sample rates `16000` to `48000`.
+ 
 
 ##### Code Example
 
@@ -91,7 +87,7 @@ Field | Required | Supported value | Default Value | Description
 {
   "speechRecognition": {
     "encoding": "LINEAR16",
-    "sampleRateHertz": 44100 // Make sure the correct sample rate is provided for best results
+    "sampleRateHertz": 16000 // Make sure the correct sample rate is provided for best results
   }
 }
 ```
