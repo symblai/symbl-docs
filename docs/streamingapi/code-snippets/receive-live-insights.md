@@ -1,6 +1,7 @@
 ---
 id: receive-ai-insights
 title: Receive Live AI Insights
+slug: /streamingapi/code-snippets/receive-live-insights
 ---
 
 import Tabs from '@theme/Tabs';
@@ -300,7 +301,7 @@ If successful you should receive a response in the console.
     }]
     ```
 
+## See Also
 
-
-
-
+- [Receive live captioning](/docs/streamingapi/code-snippets/receive-live-captioning)
+- [Receive live topics](/docs/streamingapi/code-snippets/receive-live-topics)
