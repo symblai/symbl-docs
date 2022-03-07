@@ -268,32 +268,32 @@ module.exports = {
         }, 
         {
           label: "SDKs",
-          href: '/sdk-intro/',
+          to: '/sdk-intro/',
           position: "left",
         },
         {
           label: "Tutorials",
-          href: '/tutorials/',
+          to: '/tutorials/',
           position: "left",
         },            
         {
           label: "Integrations",
-          href: '/integrations/integrations-intro/',
+          to: '/integrations/integrations-intro/',
           position: "left",
         },
         {
           label: "Labs",
-          href: '/labs/',
+          to: '/labs/',
           position: "left",
         },
         {
           label: "Support",
-          href: '/support/',
+          to: '/support/',
           position: "left",
         },
         {
           label: "Need help? Slack Us",
-          href: 'https://symbldotai.slack.com/join/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA#/',
+          to: 'https://symbldotai.slack.com/join/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA#/',
           position: "left",
         },
         {
@@ -304,7 +304,7 @@ module.exports = {
         {
           label: "🆕 Changelog",
           ImageData: "/img/tick-mark.png",
-          href: '/changelog',
+          to: '/changelog',
           position: "right",
         },
       ],
