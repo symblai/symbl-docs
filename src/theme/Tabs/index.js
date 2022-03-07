@@ -100,7 +100,7 @@ function TabsComponent(props) {
 
     if (newTabValue !== selectedValue) {
       blockElementScrollPositionUntilNextRender(newTab);
-      window.moesif.track('Clicked Tab', {tab: newValue});
+      window.moesif.track('Clicked Tab', {tab: newTabValue});
       setSelectedValue(newTabValue);
 
       if (groupId != null) {
