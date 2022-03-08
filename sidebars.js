@@ -519,11 +519,15 @@ IntegrationsSidebar: [
   id: 'integrations/agora-sdk-plugin',
  },
  {
-  label: 'Agora SDK Plugin',
+  type: 'doc',
+  id: 'integrations/twilio-video-app',
+ },
+ {
+  label: 'Twilio Video App',
   type: 'category',
   collapsed: true,
   items: [
-    'integrations/agora-sdk-plugin',
+    'integrations/twilio-video-app',
   ],
  },
 ],
