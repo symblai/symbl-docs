@@ -25,6 +25,7 @@ This extension provides the following out-of-the-box conversational intelligence
 - **Mute/unmute mic**: After you connect to your device's microphone you can mute or unmute when you want.
 - **Screen sharing**: This can be used to capture the screen directly from the web app.
 - **Dominant Speaker indicator**: The Dominant Speaker refers to the Participant having the highest audio activity at a given time.   
+- **Network Quality Indicator**: It highlights the call panel which displays the current network conditions of the user and if it is Strong, Weak, or Poor.
 
 ## Supported Platforms
 ---
