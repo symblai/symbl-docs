@@ -3,7 +3,7 @@
 
 This style guide contains a set of standards for the writing and designing of technical documentation for Symbl.ai. The aim is to bring a consistent tone and style to our documentation so that it is easier for our users to understand information. 
 
-These guidelines are applicable to our product guides, references, changelog, and tutorials.
+These guidelines are applicable to our product guides, references, changelog, API Reference and tutorials.
 
 
 ## Capitalization
