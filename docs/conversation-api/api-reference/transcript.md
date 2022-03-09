@@ -2,7 +2,7 @@
 id: transcript
 title: POST Formatted Transcript
 sidebar_label: POST Formatted Transcript
-slug: /conversation-api/transcript
+slug: /conversation-api/transcript/
 ---
 
 import Tabs from '@theme/Tabs';

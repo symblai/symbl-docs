@@ -2,7 +2,7 @@
 id: analytics
 title: Conversational Analytics
 sidebar_label: Introduction
-slug: /concepts/conversational-analytics
+slug: /concepts/conversational-analytics/
 ---
 
 import Tabs from '@theme/Tabs';

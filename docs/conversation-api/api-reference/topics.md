@@ -2,7 +2,7 @@
 id: topics
 title: GET Topics
 sidebar_label: GET Topics
-slug: /conversation-api/get-topics
+slug: /conversation-api/get-topics/
 ---
 
 import Tabs from '@theme/Tabs';

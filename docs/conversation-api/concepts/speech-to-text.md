@@ -3,7 +3,7 @@ id: speech-to-text
 title: Transcribe Speech-to-Text in Real-Time
 description: Get real-time speech-to-text data and analytics from your conversations with Symbl.ai APIs. Learn more.
 sidebar_label: Introduction
-slug: /concepts/speech-to-text
+slug: /concepts/speech-to-text/
 ---
 
 import Tabs from '@theme/Tabs';

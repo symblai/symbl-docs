@@ -2,7 +2,7 @@
 id: conversation
 title: GET Conversation Data
 sidebar_label: GET Conversation Data
-slug: /conversation-api/conversation-data
+slug: /conversation-api/conversation-data/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

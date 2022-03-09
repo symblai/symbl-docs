@@ -1,7 +1,7 @@
 ---
 id: delete
 title: DELETE Conversation
-slug: /conversation-api/delete-conversation
+slug: /conversation-api/delete-conversation/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

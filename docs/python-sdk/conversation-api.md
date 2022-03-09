@@ -2,7 +2,7 @@
 id: python-conversation-api
 title: Conversation API
 sidebar_label: Conversation API
-slug: /python-sdk/conversation-api
+slug: /python-sdk/conversation-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

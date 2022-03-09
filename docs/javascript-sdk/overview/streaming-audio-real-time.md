@@ -2,7 +2,7 @@
 id: streaming-audio-real-time
 title: Streaming Audio in real-time
 sidebar_label: Streaming Audio in real-time
-slug: /javascript-sdk/code-snippets/streaming-audio-real-time
+slug: /javascript-sdk/code-snippets/streaming-audio-real-time/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

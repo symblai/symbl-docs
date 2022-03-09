@@ -2,7 +2,7 @@
 id: insights
 title: GET Insights
 sidebar_label: GET Insights
-slug: /conversation-api/insights
+slug: /conversation-api/insights/
 ---
 
 import Tabs from '@theme/Tabs';

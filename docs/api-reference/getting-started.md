@@ -2,7 +2,7 @@
 id: api-getting-started
 title: Symbl APIs
 sidebar_label: Introduction
-slug: /api-reference/getting-started
+slug: /api-reference/getting-started/
 ---
 ---
  

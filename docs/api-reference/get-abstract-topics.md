@@ -2,7 +2,7 @@
 id: get-abstract-topics
 title: GET Abstract Topics (Labs)
 sidebar_label: GET Abstract Topics (Labs)
-slug: /api-reference/abstract-topics
+slug: /api-reference/abstract-topics/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

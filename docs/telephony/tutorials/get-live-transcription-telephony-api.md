@@ -1,7 +1,7 @@
 ---
 id: get-live-transcription
 title: Live Transcription From A Phone Call
-slug: /telephony/tutorials/connect-to-phone-call
+slug: /telephony/tutorials/connect-to-phone-call/
 ---
 
 import Tabs from '@theme/Tabs';
