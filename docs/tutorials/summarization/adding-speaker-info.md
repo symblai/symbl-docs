@@ -2,7 +2,7 @@
 id: adding-speaker-info
 title: Providing Speaker Information to generate Summary
 sidebar_label: Providing Speaker Information to generate Summary 
-slug: /tutorials/summarization/adding-speaker-info
+slug: /tutorials/summarization/adding-speaker-info/
 ---
 
 import Tabs from '@theme/Tabs';

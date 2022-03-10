@@ -2,7 +2,7 @@
 id: conversation-groups
 title: Conversation Groups (Beta)
 sidebar_label: Introduction
-slug: /concepts/conversation-groups
+slug: /concepts/conversation-groups/
 ---
 
 import Tabs from '@theme/Tabs';

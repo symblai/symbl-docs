@@ -1,7 +1,7 @@
 ---
 id: connect-to-zoom-with-telephony-api
 title: Real Time AI insights From Zoom Call
-slug: /telephony/tutorials/connect-to-zoom
+slug: /telephony/tutorials/connect-to-zoom/
 ---
 
 import Tabs from '@theme/Tabs';

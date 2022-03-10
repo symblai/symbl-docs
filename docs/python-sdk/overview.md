@@ -2,7 +2,7 @@
 id: python-sdk
 title: Symbl Python SDK 
 sidebar_label: Introduction
-slug: /python-sdk/overview
+slug: /python-sdk/overview/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

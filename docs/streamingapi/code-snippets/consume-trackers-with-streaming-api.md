@@ -2,7 +2,7 @@
 id: consume-trackers
 title: Consume Trackers with Streaming API
 sidebar_label: Consume Trackers with Streaming API
-slug: /streaming-api/code-snippets/consume-trackers-with-streaming-api
+slug: /streaming-api/code-snippets/consume-trackers-with-streaming-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

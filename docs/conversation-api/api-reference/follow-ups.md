@@ -2,7 +2,7 @@
 id: follow-ups
 title: GET Follow-Ups
 sidebar_label: GET Follow-Ups
-slug: /conversation-api/follow-ups
+slug: /conversation-api/follow-ups/
 ---
 
 import Tabs from '@theme/Tabs';

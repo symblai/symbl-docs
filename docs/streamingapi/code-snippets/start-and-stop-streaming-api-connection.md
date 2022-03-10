@@ -1,7 +1,7 @@
 ---
 id: start-and-stop-streaming-api-connection
 title: Start and Stop Streaming API Connection
-slug: /streamingapi/code-snippets/start-and-stop-connection
+slug: /streamingapi/code-snippets/start-and-stop-connection/
 ---
 
 import Tabs from '@theme/Tabs';

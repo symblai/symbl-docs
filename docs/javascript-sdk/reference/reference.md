@@ -1,7 +1,7 @@
 ---
 id: api-reference
 title: Javascript SDK Reference
-slug: /javascript-sdk/reference
+slug: /javascript-sdk/reference/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

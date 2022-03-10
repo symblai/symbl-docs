@@ -2,7 +2,7 @@
 id: all-conversations
 title: GET All Conversations
 sidebar_label: GET All Conversations
-slug: /conversation-api/all-conversations
+slug: /conversation-api/all-conversations/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

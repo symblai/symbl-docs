@@ -1,7 +1,7 @@
 ---
 id: api-reference
 title: Telephony API Reference
-slug: /telephony-api/api-reference
+slug: /telephony-api/api-reference/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -263,32 +263,32 @@ module.exports = {
       items: [
         {
           label: "API Reference",
-          to: '/api-reference/getting-started',
+          to: '/api-reference/getting-started/',
           position: "left",
         }, 
         {
           label: "SDKs",
-          href: '/sdk-intro',
+          href: '/sdk-intro/',
           position: "left",
         },
         {
           label: "Tutorials",
-          href: '/tutorials',
+          href: '/tutorials/',
           position: "left",
         },            
         {
           label: "Integrations",
-          href: '/integrations/integrations-intro',
+          href: '/integrations/integrations-intro/',
           position: "left",
         },
         {
           label: "Labs",
-          href: '/labs',
+          href: '/labs/',
           position: "left",
         },
         {
           label: "Support",
-          href: '/support',
+          href: '/support/',
           position: "left",
         },
         {

@@ -2,7 +2,7 @@
 id: python-sdk-async-video
 title: Async Video API 
 sidebar_label: Video API
-slug: /python-sdk/async-video
+slug: /python-sdk/async-video/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

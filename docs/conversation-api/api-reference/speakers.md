@@ -2,7 +2,7 @@
 id: speakers
 title: PUT Speaker Events
 sidebar_label: PUT Speaker Events
-slug: /conversation-api/speaker-events
+slug: /conversation-api/speaker-events/
 ---
 
 import Tabs from '@theme/Tabs';

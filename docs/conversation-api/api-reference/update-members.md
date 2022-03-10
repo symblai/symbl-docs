@@ -2,7 +2,7 @@
 id: update-members
 title: PUT Members Information
 sidebar_label: PUT Members Information
-slug: /conversation-api/update-members
+slug: /conversation-api/update-members/
 ---
 
 import Tabs from '@theme/Tabs';

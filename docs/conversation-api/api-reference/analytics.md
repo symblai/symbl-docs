@@ -2,7 +2,7 @@
 id: analytics
 title: GET Analytics
 sidebar_label: GET Analytics
-slug: /conversation-api/analytics
+slug: /conversation-api/analytics/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

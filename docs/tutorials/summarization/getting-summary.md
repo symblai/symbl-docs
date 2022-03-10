@@ -2,7 +2,7 @@
 id: getting-summary
 title: How to get a Summary using Async API
 sidebar_label: Get Summary using Async API
-slug: /tutorials/summarization/getting-summary
+slug: /tutorials/summarization/getting-summary/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

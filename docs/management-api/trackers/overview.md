@@ -2,7 +2,7 @@
 id: trackers-overview
 title: Using Trackers API (Beta)
 sidebar_label: Overview
-slug: /management-api/trackers/overview
+slug: /management-api/trackers/overview/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

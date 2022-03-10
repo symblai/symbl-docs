@@ -2,7 +2,7 @@
 id: supported-tracking-events
 title: Supported Tracking Events
 sidebar_label: Supported Tracking Events
-slug: /pre-built-ui/supported-tracking-events
+slug: /pre-built-ui/supported-tracking-events/
  
 ---
  

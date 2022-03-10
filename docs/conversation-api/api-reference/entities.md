@@ -2,7 +2,7 @@
 id: entities
 title: GET Entities
 sidebar_label: GET Entities
-slug: /conversation-api/entities
+slug: /conversation-api/entities/
 ---
 
 import Tabs from '@theme/Tabs';

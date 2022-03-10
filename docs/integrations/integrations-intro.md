@@ -1,7 +1,7 @@
 ---
 id: integrations-intro
 title: Integrations
-slug: /integrations/integrations-intro
+slug: /integrations/integrations-intro/
 ---
 
 import Tabs from '@theme/Tabs';

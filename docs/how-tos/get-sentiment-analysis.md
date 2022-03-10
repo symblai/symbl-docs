@@ -2,7 +2,7 @@
 id: how-to-get-sentiment-analysis
 title:  Getting Sentiment Analysis (Beta)
 sidebar_label:  Real-time Sentiment Analysis
-slug: /how-tos/get-sentiment-analysis
+slug: /how-tos/get-sentiment-analysis/
 ---
 
 import Tabs from '@theme/Tabs';

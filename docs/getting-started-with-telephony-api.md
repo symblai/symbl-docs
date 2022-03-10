@@ -1,7 +1,7 @@
 ---
 id: process-your-first-conversation
 title: Getting started with Telephony API
-slug: /getting-started-with-telephony-api
+slug: /getting-started-with-telephony-api/
 ---
 
 import Tabs from '@theme/Tabs';

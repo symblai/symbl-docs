@@ -2,7 +2,7 @@
 id: subscribe
 title: Subscribe API (Beta)
 sidebar_label: Request Parameters 
-slug: /subscribe-api
+slug: /subscribe-api/
 ---
 
 import Tabs from '@theme/Tabs';

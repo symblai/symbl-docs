@@ -2,7 +2,7 @@
 id: redaction-pii
 title: Identifying and Redacting PII and PCI Data
 sidebar_label: PII and PCI Identification and Redaction 
-slug: /concepts/redaction-pii
+slug: /concepts/redaction-pii/
 ---
 
 import Tabs from '@theme/Tabs';
