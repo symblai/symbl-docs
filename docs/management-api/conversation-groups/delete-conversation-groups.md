@@ -2,7 +2,7 @@
 id: delete-conversation-groups
 title: Delete Conversation Groups
 sidebar_label: DELETE Conversation Groups 
-slug: /management-api/conversation-groups/delete-conversation-groups
+slug: /management-api/conversation-groups/delete-conversation-groups/
 ---
 
 import Tabs from '@theme/Tabs';

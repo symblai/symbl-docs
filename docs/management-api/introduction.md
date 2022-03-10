@@ -2,7 +2,7 @@
 id: introduction
 title: Management API (Beta)
 sidebar_label: Introduction
-slug: /management-api/introduction
+slug: /management-api/introduction/
 ---
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.

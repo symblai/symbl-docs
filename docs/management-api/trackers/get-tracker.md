@@ -2,7 +2,7 @@
 id: get-tracker
 title: Get Tracker 
 sidebar_label: GET Tracker 
-slug: /management-api/trackers/get-tracker
+slug: /management-api/trackers/get-tracker/
 ---
 
 ---

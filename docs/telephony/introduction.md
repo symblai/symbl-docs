@@ -3,7 +3,7 @@ id: introduction
 title: Telephony API Tutorial- Introduction
 description: Telephony API enables developers to add Symbl.ai to bridges and join VoIP calls to get real-time intelligence. Check out the Telephony API tutorials to help you get started.
 sidebar_label: Introduction
-slug: /telephony/introduction
+slug: /telephony/introduction/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -2,7 +2,7 @@
 id: action-items
 title: GET Action Items
 sidebar_label: GET Action Items
-slug: /conversation-api/action-items
+slug: /conversation-api/action-items/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -2,7 +2,7 @@
 id: delete-tracker
 title: Delete Tracker 
 sidebar_label: DELETE Tracker 
-slug: /management-api/trackers/delete-tracker
+slug: /management-api/trackers/delete-tracker/
 ---
 
 ---

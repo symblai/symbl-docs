@@ -2,7 +2,7 @@
 id: python-sdk-reference
 title: Python SDK Reference
 sidebar_label: Python SDK Reference
-slug: /python-sdk/python-sdk-reference
+slug: /python-sdk/python-sdk-reference/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

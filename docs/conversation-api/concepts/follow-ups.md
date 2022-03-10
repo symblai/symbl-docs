@@ -2,7 +2,7 @@
 id: follow-ups
 title:  Follow Ups
 sidebar_label:  Follow Ups
-slug: /concepts/follow-ups
+slug: /concepts/follow-ups/
 ---
 
 import Tabs from '@theme/Tabs';

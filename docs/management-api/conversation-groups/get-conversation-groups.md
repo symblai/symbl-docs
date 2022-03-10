@@ -2,7 +2,7 @@
 id: get-conversation-groups
 title: Get Conversation Groups 
 sidebar_label: GET Conversation Groups
-slug: /management-api/conversation-groups/get-conversation-groups
+slug: /management-api/conversation-groups/get-conversation-groups/
 ---
 
 import Tabs from '@theme/Tabs';

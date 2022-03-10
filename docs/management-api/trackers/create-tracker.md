@@ -2,7 +2,7 @@
 id: create-tracker
 title: Create Trackers 
 sidebar_label: POST Tracker
-slug: /management-api/trackers/create-tracker
+slug: /management-api/trackers/create-tracker/
 ---
 
 ---

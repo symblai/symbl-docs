@@ -2,7 +2,7 @@
 id: connect-to-endpoints
 title: Connect to Endpoints
 sidebar_label: Connect to Endpoints
-slug: /javascript-sdk/code-snippets/connect-to-endpoints
+slug: /javascript-sdk/code-snippets/connect-to-endpoints/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

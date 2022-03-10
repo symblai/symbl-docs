@@ -3,7 +3,7 @@ id: concepts
 title: Building a Websocket Connection
 description: Symbl.ai's Streaming API is based on Websocket protocol. Learn more about what is a WebSocket and how to establish a connection now.
 sidebar_label: Websockets
-slug: /concepts/websockets
+slug: /concepts/websockets/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

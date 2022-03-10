@@ -2,7 +2,7 @@
 id: members
 title: GET Member Information
 sidebar_label:  GET Member Information
-slug: /conversation-api/members
+slug: /conversation-api/members/
 ---
 
 import Tabs from '@theme/Tabs';

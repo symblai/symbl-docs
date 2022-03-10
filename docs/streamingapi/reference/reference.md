@@ -1,7 +1,7 @@
 ---
 id: api-reference
 title: Streaming API Reference
-slug: /streaming-api/api-reference
+slug: /streaming-api/api-reference/
 sidebar_label: Request Parameters
 ---
 

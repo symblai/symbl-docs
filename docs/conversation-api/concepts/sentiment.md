@@ -3,7 +3,7 @@ id: sentiment
 title: Sentiment API- Analysing Texts in Real-time (Beta)
 sidebar_label: Introduction
 description: Sentiment API enables developers to detect positive or negative sentiment from conversations in real-time. Learn more.
-slug: /concepts/sentiment-analysis
+slug: /concepts/sentiment-analysis/
 ---
 
 import Tabs from '@theme/Tabs';

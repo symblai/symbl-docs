@@ -2,7 +2,7 @@
 id: guides-intro
 title: Guides
 sidebar_label: Getting Started
-slug: /guides
+slug: /guides/
 ---
 ---
 

@@ -2,7 +2,7 @@
 id: trackers
 title: GET Trackers-detected (Beta)
 sidebar_label: GET Trackers-detected (Beta)
-slug: /conversation-api/trackers
+slug: /conversation-api/trackers/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

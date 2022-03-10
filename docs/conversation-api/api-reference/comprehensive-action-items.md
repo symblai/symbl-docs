@@ -2,7 +2,7 @@
 id: comprehensive-action-items
 title: GET Comprehensive Action Items 
 sidebar_label: GET Comprehensive Action Items 
-slug: /conversation-api/comprehensive-action-items
+slug: /conversation-api/comprehensive-action-items/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
