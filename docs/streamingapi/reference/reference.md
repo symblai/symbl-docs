@@ -221,8 +221,9 @@ setTimeout(() => {
 ```
 
 ### Modify Request​
-This is how to modify the request during a conversation using the Streaming API. If there is a device change event during the conversation after the WebSocket connection is established. 
-Using the type field with the supported value `modify_request` you can update the sample rate and encoding based on the new device information in the same conversation itself.
+The `modify_request` allows you to modify the request during Streaming API call, i.e., after the WebSocket connection has established, if there is a device change event. 
+
+Using the `type` field with the supported value `modify_request` you can update the sample rate and encoding based on the new device information in the same conversation itself.
 
 ```js
   setTimeout(() => {
