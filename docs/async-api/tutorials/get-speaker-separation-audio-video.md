@@ -2,6 +2,7 @@
 id: get-speaker-separation-audio-video
 title: How to implement speaker separation with Async Audio or Video Files
 sidebar_label: Speaker separation with Async API
+slug: /async-api/tutorials/get-speaker-separation-audio-video/
 ---
 
 import Tabs from '@theme/Tabs';

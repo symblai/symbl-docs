@@ -1,6 +1,7 @@
 ---
 id: get-real-time-transcription-js-sdk
 title: Real-time Output With PSTN Dialing Using Symbl's JavaScript SDK
+slug: /javascript-sdk/tutorials/get-real-time-transcription-js-sdk/
 ---
 
 import Tabs from '@theme/Tabs';
