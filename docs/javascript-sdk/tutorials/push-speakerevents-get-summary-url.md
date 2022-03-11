@@ -1,6 +1,7 @@
 ---
 id: push-speakerevents-get-summary-url
 title: Using Symbl Javascript SDK To Push Speaker Events
+slug: /javascript-sdk/tutorials/push-speakerevents-get-summary-url/
 ---
 
 import Tabs from '@theme/Tabs';
