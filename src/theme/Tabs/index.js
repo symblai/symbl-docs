@@ -100,15 +100,16 @@ function TabsComponent(props) {
 
     if (newTabValue !== selectedValue) {
       blockElementScrollPositionUntilNextRender(newTab);
+      if (window.moesif) {
       window.moesif.track('Clicked Tab', {tab: newTabValue});
-      setSelectedValue(newTabValue);
-
+    }
+    setSelectedValue(newTabValue);
       if (groupId != null) {
         setTabGroupChoices(groupId, newTabValue);
       }
     }
   };
-
+  
   const handleKeydown = (event) => {
     let focusElement = null;
 
