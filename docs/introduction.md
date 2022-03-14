@@ -2,7 +2,7 @@
 id: introduction
 title: Symbl Documentation
 sidebar_label: Documentation
-slug: /
+slug: /introduction
 ---
 ---
 

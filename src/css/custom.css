@@ -7,6 +7,12 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --palette-gray: #32343e;
+  --palette-white: #fff;
+  --palette-pink: #d14671;
+  --palette-pale-blue: #b1b5d3;
+  --palette-rock: rgb(var(--palette-rock-raw));
+  --palette-rock-raw: 38, 40, 51;
   --ifm-color-primary: #3578e5;
   --ifm-color-primary-dark: #1d68e1;
   --ifm-color-primary-darker: #1b62d4;
@@ -14,7 +20,20 @@
   --ifm-color-primary-light: #4e89e8;
   --ifm-color-primary-lighter: #5a91ea;
   --ifm-color-primary-lightest: #80aaef;
+  --ifm-menu-color-background-hover: #0175ff;
+  --ifm-menu-color-background-active: #0175ff;
   --ifm-code-font-size: 95%;
+  --font-size-small: 15px;
+  --font-size-normal: 16px;
+  --font-size-large: 17px;
+  --font-size-big-1: 22px;
+  --font-size-big-2: 24px;
+  --font-size-big-3: 32px;
+  --font-size-big-4: 46px;
+  --font-size-big-5: 64px;
+  --ifm-global-border-radius: 8px;
+  --ifm-footer-background-light: #fff;
+  --theme-section-odd-bg-color: var(--palette-rock);
 }
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
@@ -22,7 +41,6 @@
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
-
 
 /* Sidebar root folders */
 .menu__list .menu__list {
@@ -33,6 +51,10 @@
 
 .sidebar_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocSidebar- {
   background-color: #F2F2F2;
+}
+
+html[data-theme='dark'] html {
+  color: red;
 }
 html[data-theme='dark'] .navbar,
 html[data-theme='dark'] .sidebar_node_modules-\@docusaurus-theme-classic-lib-next-theme-DocSidebar- {
@@ -75,6 +97,19 @@ html[data-theme='dark'] .menu>ul>li>a.menu__link.menu__link--sublist {
   background-size: 23px;
 }
 
+li.menu__list-item a:hover {
+
+  color: #fff;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: #fff;
+}
+
+.menu__link {
+  transition-timing-function: linear;
+  transition-duration: 5ms;
+}
 /*
 .menu .menu__link--sublist:after {
   background-size: 1.5rem 1.5rem;
@@ -158,6 +193,10 @@ article .noShadow > img {
 /* Sidebar is JS created.*/
 body.no-js div[class^="tableOfContents_tVyB"] {
   display: none;
+}
+
+html[data-theme='light'] {
+  --theme-section-odd-bg-color: #F0F1F5;
 }
 
 html[data-theme='light'] .DocSearch {
