@@ -30,7 +30,7 @@ The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | Mandatory | start_request, stop_request | Type of message
+```type``` | Optional | start_request, stop_request, modify_request | Type of message
 ```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
 ```customVocabulary``` | Optional | List of String | An array of strings containing a vocabulary specific to your company, products, or phrases. 
 ```config``` | Optional | Find the supported value [here](#config) | Configuration for this request. [See the config section below for more details](#config).
@@ -218,6 +218,32 @@ setTimeout(() => {
 {
   "type": "stop_request"
 }
+```
+
+### Modify Request​
+The `modify_request` allows you to modify the request during Streaming API call, i.e., after the WebSocket connection has established, if there is a device change event. 
+
+Using the `type` field with the supported value `modify_request` you can update the sample rate and encoding based on the new device information in the same conversation itself.
+
+```js
+  setTimeout(() => {
+        micInstance.stop();
+        connection.sendUTF(JSON.stringify({
+            "type": "modify_request",
+            "speechRecognition": {
+                "encoding": 'LINEAR16',
+                "sampleRateHertz": 8000,
+            },
+        }));
+        micInstance = mic({
+            rate: '8000',
+            channels: '1',
+            debug: false,
+            exitOnSilence: 6,
+        });
+        micInputStream = micInstance.getAudioStream();
+        micInstance.start();
+    }, 0.5 * 60 * 1000);
 ```
 
 ## Messages
