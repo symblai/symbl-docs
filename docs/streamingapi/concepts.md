@@ -5,6 +5,13 @@ description: Symbl.ai's Streaming API is based on Websocket protocol. Learn more
 sidebar_label: Websockets
 slug: /concepts/websockets/
 ---
+
+<head>
+    <title>Websockets | Symbl Docs</title>
+    <meta name="description" content="Symbl's Streaming API is based on WebSocket protocol. This Web Socket is a general-purpose protocol that suits any application designed for real-time, two-way communication within a browser — like chat apps, collaboration software, and multiplayer games."/>
+    <meta name="keywords" content =  "websocket connection,what is websocket"/>
+</head>
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -16,7 +23,6 @@ Symbl's Streaming API is based on WebSocket protocol. This Web Socket is a gener
 
 WebSockets are a thin transport layer built on top of a device’s TCP/IP stack that support the famous “full duplex” connection.
 
-
 ### Establishing a Websocket Connection
 
 To establish a WebSocket connection, an HTTP-based handshake is exchanged between the client and the server.
@@ -27,6 +33,4 @@ This allows data to be sent or received using WebSockets with a much lower laten
 
 <!-- ![Websocket](/img/websocket.png) -->
 
-
-
-For either of those to run smoothly, the application has to establish a two-way communication so that both the client app and the server can send messages to one another, at the same time. 
+For either of those to run smoothly, the application has to establish a two-way communication so that both the client app and the server can send messages to one another, at the same time.
