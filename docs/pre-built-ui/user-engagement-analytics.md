@@ -2,7 +2,7 @@
 id: user-engagement-analytics
 title: User Engagement Analytics
 sidebar_label: Getting Engagement Analytics
-slug: /pre-built-ui/user-engagement-analytics
+slug: /pre-built-ui/user-engagement-analytics/
  
 ---
  

@@ -2,7 +2,7 @@
 id: what-is-symbl
 title: What is Symbl?
 sidebar_label: What is Symbl?
-slug: /what-is-symbl
+slug: /what-is-symbl/
 ---
 
 ---

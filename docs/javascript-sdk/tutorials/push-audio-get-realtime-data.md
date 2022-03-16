@@ -1,7 +1,7 @@
 ---
 id: push-audio-get-real-time-data
 title: Live speech to text and AI insights on local server
-slug: /javascript-sdk/tutorials/receive-ai-insights-from-your-computer
+slug: /javascript-sdk/tutorials/receive-ai-insights-from-your-computer/
 ---
 
 ---

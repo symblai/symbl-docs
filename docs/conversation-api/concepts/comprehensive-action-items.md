@@ -2,7 +2,7 @@
 id: comprehensive-action-items
 title: Comprehensive Action Items (Labs)
 sidebar_label: Introduction
-slug: /concepts/comprehensive-action-items
+slug: /concepts/comprehensive-action-items/
 ---
 
 import Tabs from '@theme/Tabs';

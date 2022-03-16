@@ -1,6 +1,7 @@
 ---
 id: pass-audio-codecs
 title: How To Pass Different Audio Codecs To Symbl Endpoint
+slug: /javascript-sdk/tutorials/pass-audio-codecs/
 ---
 
 import Tabs from '@theme/Tabs';

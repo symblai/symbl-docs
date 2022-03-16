@@ -2,7 +2,7 @@
 id: summary
 title: GET Summary 
 sidebar_label: GET Summary (Alpha)
-slug: /conversation-api/summary
+slug: /conversation-api/summary/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

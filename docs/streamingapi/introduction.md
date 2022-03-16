@@ -3,7 +3,7 @@ id: introduction
 title: How to Implement Streaming API
 description: Streaming API can provide real-time transcription and extract actionable insights from your conversations. Learn how to implement Symbl.ai’s Streaming API now.
 sidebar_label: Introduction
-slug: /streamingapi/introduction
+slug: /streamingapi/introduction/
 ---
 
 import Tabs from '@theme/Tabs';

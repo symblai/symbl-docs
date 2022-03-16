@@ -2,7 +2,7 @@
 id: topic-hierarchy
 title: Topic Hierarchy (Beta)
 sidebar_label: Introduction
-slug: /concepts/topic-hierarchy
+slug: /concepts/topic-hierarchy/
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: get-real-time-sentiment-analysis
 title: Live sentiment analysis
-slug: /streamingapi/tutorials/get-real-time-sentiment-analysis-from-your-web-browser
+slug: /streamingapi/tutorials/get-real-time-sentiment-analysis-from-your-web-browser/
 ---
 
 import Tabs from '@theme/Tabs';

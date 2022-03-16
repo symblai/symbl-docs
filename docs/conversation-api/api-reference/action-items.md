@@ -2,7 +2,7 @@
 id: action-items
 title: GET Action Items
 sidebar_label: GET Action Items
-slug: /conversation-api/action-items
+slug: /conversation-api/action-items/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -118,50 +118,52 @@ Header Name  | Required | Description
 
 ```javascript
 {
-  "actionItems": [
-    {
-      "id": "6603306467065856",
-      "text": "Surbhi Rathore can schedule a visit from one of our technicians for tomorrow afternoon at 1:00 PM.",
-      "type": "action_item",
-      "score": 0.9602078494794586,
-      "messageIds": [
-        "5175845967626240"
-      ],
-      "entities": [
+    "actionItems": [
         {
-          "type": "datetime",
-          "text": "tomorrow afternoon at 1:00 pm",
-          "offset": 68,
-          "value": "2021-10-31 13:00:00"
-        },
-        {
-          "type": "person",
-          "text": "Surbhi Rathore",
-          "offset": 0,
-          "value": {
-            "assignee": true,
-            "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
-            "name": "Surbhi Rathore",
-            "userId": "surbhi@example.com"
-          }
+            "id": "4567077831573504",
+            "text": "Vikram you need to work on figuring out a plan in which we can make this hackathon work for our customers first, and then Kunal then can go out and implement it for the rest of the world.",
+            "type": "action_item",
+            "score": 0.9456050585275944,
+            "messageIds": [
+                "4854542482014208"
+            ],
+            "entities": [
+                {
+                    "type": "person",
+                    "text": "Vikram",
+                    "offset": 0,
+                    "value": {
+                        "assignee": true,
+                        "name": "Vikram"
+                    }
+                },
+                {
+                    "type": "person",
+                    "text": "Kunal",
+                    "offset": 122,
+                    "value": {
+                        "assignee": true,
+                        "name": "Kunal"
+                    }
+                }
+            ],
+            "phrases": [
+                {
+                    "type": "action_phrase",
+                    "text": "make this hackathon work for our customers first"
+                }
+            ],
+            "from": {
+                "id": "c99e7baf-8d9c-4668-ae08-6bd3384bc642",
+                "name": "Surbhi",
+                "userId": "surbhirathore@symbl.ai"
+            },
+            "definitive": true,
+            "assignee": {
+                "name": "Vikram"
+            }
         }
-      ],
-      "phrases": [],
-      "from": {
-        "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
-        "name": "Surbhi Rathore",
-        "userId": "surbhi@example.com"
-      },
-      "definitive": false,
-      "assignee": {
-        "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
-        "name": "Surbhi Rathore",
-        "email": "surbhi@example.com"
-      },
-      "dueBy": "2021-10-31T20:00:00.000Z"
-    }
-  ]
-}
+]
 ```
 
 ### Response Parameters

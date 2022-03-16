@@ -2,7 +2,7 @@
 id: update-tracker
 title: Update Tracker 
 sidebar_label: PUT Tracker 
-slug: /management-api/trackers/update-tracker
+slug: /management-api/trackers/update-tracker/
 ---
 
 ----

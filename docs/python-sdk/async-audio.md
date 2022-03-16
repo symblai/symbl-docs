@@ -2,7 +2,7 @@
 id: python-sdk-async-audio
 title: Async Audio API 
 sidebar_label: Audio API
-slug: /python-sdk/async-audio
+slug: /python-sdk/async-audio/
 ---
 
 import Tabs from '@theme/Tabs';
