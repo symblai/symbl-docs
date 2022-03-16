@@ -18,11 +18,15 @@ This API allows you to get a [Summary](/docs/concepts/summarization) of importan
 Currently, Summaries cannot be generated in real-time. Support for creating Summary in real-time will be added soon.  
 
 :::caution
-The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
-If the number of words in a conversation is below 50 or the number of sentences below 3, the Summary will not be created.
+The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API.
 :::
 
+:::note recommendations
 
+For generating Summarization, we recommend the following:
+- The number of words in the conversation should be above 85 words. 
+- The speaker information should be passed in generate Summary request. Learn how to provide speaker information in [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/) page. 
+:::
 
 ### API Endpoint
 **<font color="orange">GET</font> `https://api.symbl.ai/v1/conversations/{conversationId}/summary`**
