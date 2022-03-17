@@ -40,6 +40,11 @@ You can only pass the following punctuations in trackers vocabulary:
 
 Using any other punctuation mark such as `?`, `,`, `!`, `:` is not allowed. 
 :::
+
+:::tip Best Practises
+Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
+:::
+
 You can define the phrases and keywords in the **vocabulary** of the request body as shown below:
 
 ```json
@@ -161,3 +166,49 @@ Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers
 The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
 :::
+
+### Best Practices
+
+Following are the best practices to be followed while creating Trackers: 
+
+Dos' and Don'ts | Example |
+---------- | ------- |  
+Densely pack your vocabulary with information | "What’s the price?" | 
+Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
+Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
+Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
+
+
+## Read more
+---
+<div class="row">
+  <div class="column">
+    <div class="card21"><a href="/docs/management-api/trackers/overview/"><h4>API Reference</h4></a>
+
+* [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
+* [`GET` v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
+* [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
+* [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
+* [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+
+<br/></div>
+  </div>
+   <div class="column">
+    <div class="card21"><a href="//docs/async-api/introduction"><h4>Tutorials</h4></a> 
+
+ 
+* [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
+* [Creating Trackers with Streaming API](/docs/tutorials/trackers/create-trackers-streaming-api/)
+* [Using Trackers with Async API](/docs/tutorials/trackers/consuming-trackers-async-api/)
+* [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
+ 
+
+  </div>
+  </div>
+  
+<br/>
+<br/>
+<br/>
+ 
+</div>
+<br/>

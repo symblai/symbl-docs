@@ -1,6 +1,6 @@
 ---
 id: trackers-overview
-title: Using Trackers API (Beta)
+title: Trackers API (Beta)
 sidebar_label: Introduction
 slug: /management-api/trackers/overview/
 ---

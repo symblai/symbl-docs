@@ -452,6 +452,45 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
   a. `onTrackerResponse`: This function is invoked when Symbl detects a Tracker in real-time. The structure of the **Tracker** object is shown in the above code snippet.
 
+### Tracker Response
+
+The following reponse is returned when Tracker object is passed in the Streaming API:
+
+```js
+"trackers":[
+      {
+         "name":"Documents Tracker",
+         "matches":[
+            {
+               "type":"vocabulary",
+               "value":"Documents",
+               "messageRefs":[
+                  {
+                     "id":"53867534-0459-4d22-b590-984ee82166aa",
+                     "text":"Anyways, so I will submit documents tomorrow.",
+                     "offset":26
+                  },
+                  {
+                     "id":"4d20d90c-50a7-4594-bb10-2995dcd4bbd1",
+                     "text":"I will submit documents tomorrow.",
+                     "offset":14
+                  }
+               ],
+            }
+```
+
+Field Name  | Description 
+---------- | ------- |  
+`name` | The name of the Tracker detected | 
+`matches` | Array of match objects which contain the references to messages and insights detected in that conversation. |
+`type` | The match type for the text. In the above example, the match is of type vocabulary. |
+`value` | The textual value of the vocabulary for which this match was detected. |
+`messageRefs` | Array of messages for which this Tracker was detected. |
+`messageRefs.id`| The unique identifier of the message. |
+`messageRefs.text` | The text body of the message. |
+`messageRefs.offset`| The closest match of the text in the message. Offset of -1 means that an exact match for that specific vocabulary wasn’t found and this was the similar match. An offset greater than 0 indicates an exact match for the tracker in the payload of the message.
+
+
 ### Streaming API Logs
 
 You can view the logs of your Streaming API request on your Symbl Platform account. To view the logs, sign in to [Symbl Platform](https://platform.symbl.ai/#/login). The logs provide the following:

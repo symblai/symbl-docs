@@ -15,7 +15,7 @@ The endpoint given below creates a Tracker entity which can be consumed with Sym
 You can create several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. You can create up to 500 Trackers per account. 
 
 :::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](/docs/management-api/trackers/create-tracker/#best-practicesm) section to learn about how to create Trackers.
+Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
 :::
 
 
@@ -250,10 +250,12 @@ Error Code  | Description | Resolution
 
 Following are the best practices to be followed while creating Trackers: 
 
-Dos' | Example | Don'ts' | Example
----------- | ------- |  ------- | ------- | 
-Densely pack your vocabulary with information | "What’s the price?" | Preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure".
-Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
+Dos' and Don'ts | Example |
+---------- | ------- |  
+Densely pack your vocabulary with information | "What’s the price?" | 
+Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
+Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
+Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
 
 
 

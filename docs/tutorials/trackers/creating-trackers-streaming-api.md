@@ -18,6 +18,10 @@ Below is an example that shows how to pass Trackers in the `config` object for t
 While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
 :::
 
+:::tip Best Practises
+Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
+:::
+
 ```js
 
 const connection = await sdk.startRealtimeRequest({
@@ -88,7 +92,7 @@ Let’s go over all the parameters passed in the configuration object in the abo
 Field | Required | 
 ---------- | ------- | 
 `id` | A unique UUID that represents this WebSocket API Session.
-`insightType` | The types of Insights to be detected for this Conversation.
+`insightTypes` | The types of Insights to be detected for this Conversation.
 `trackers`| The Trackers to be detected in real-time for that Conversation. Follows the same structure as described in the [Trackers section](/docs/management-api/trackers/create-tracker#sample-request-body).
 `config`| The config object encapsulates the metadata for the WebSocket API’s session.
 `meetingTitle`| The title for this conversation/meeting.
@@ -102,3 +106,49 @@ Field | Required |
 `name` | The name of the User.
 `handlers` | The object encapsulating the call-back functions to be invoked on detection of those specific entities. For more information on various such handlers, check out this [link](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer/).
 `onTrackerResponse`| This function is invoked when Symbl detects a Tracker in real-time. The structure of the Tracker object is shown in the above code snippet.
+
+### Best Practices
+
+Following are the best practices to be followed while creating Trackers: 
+
+Dos' and Don'ts | Example |
+---------- | ------- |  
+Densely pack your vocabulary with information | "What’s the price?" | 
+Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
+Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
+Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
+
+
+## Read more
+---
+<div class="row">
+  <div class="column">
+    <div class="card21"><a href="/docs/management-api/trackers/overview/"><h4>API Reference</h4></a>
+
+* [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
+* [`GET` v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
+* [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
+* [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
+* [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+
+<br/></div>
+  </div>
+   <div class="column">
+    <div class="card21"><a href="//docs/async-api/introduction"><h4>Tutorials</h4></a> 
+
+ 
+* [How to create and use Trackers- Trackers Management API](/docs/tutorials/trackers/consuming-trackers-management-api/)
+* [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
+* [Using Trackers with Async API](/docs/tutorials/trackers/consuming-trackers-async-api/)
+* [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
+ 
+
+  </div>
+  </div>
+  
+<br/>
+<br/>
+<br/>
+ 
+</div>
+<br/>
