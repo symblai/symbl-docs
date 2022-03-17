@@ -455,10 +455,10 @@ id: 'developer-tools/postman',
   collapsed: true,
   items: [
     'tutorials/trackers/consuming-trackers-management-api',
-    'tutorials/trackers/consuming-trackers-async-api',
-    'tutorials/trackers/consuming-trackers-streaming-api',
-    'tutorials/trackers/create-trackers-async-api',
     'tutorials/trackers/create-trackers-streaming-api',
+    'tutorials/trackers/consuming-trackers-async-api',
+    'tutorials/trackers/create-trackers-async-api',
+    'tutorials/trackers/consuming-trackers-streaming-api',
   ],
 },
  {

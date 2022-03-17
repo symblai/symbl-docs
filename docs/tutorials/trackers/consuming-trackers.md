@@ -1,7 +1,7 @@
 ---
 id: consuming-trackers-management-api
-title: Consuming Trackers with Management API
-sidebar_label: Consuming Trackers with Management API
+title: How to Create and Use Trackers- Trackers Management API
+sidebar_label: Creating and using Trackers- Trackers Management API
 slug: /tutorials/trackers/consuming-trackers-management-api/
 ---
 

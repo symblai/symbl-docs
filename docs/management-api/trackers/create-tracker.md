@@ -10,18 +10,14 @@ slug: /management-api/trackers/create-tracker/
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-The endpoints given below creates a Tracker entity which can be consumed with Symbl APIs. 
-
-Currently, the Tracker entities can be consumed with the [Async APIs](/docs/async-api/code-snippets/track-phrases-in-a-conversation) and [Streaming APIs](/docs/streamingapi/code-snippets/detect-key-phrases) only. Telephony API does not have support for Trackers yet.
-
-:::info Trackers Management UI
-You can also create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
-:::
+The endpoint given below creates a Tracker entity which can be consumed with Symbl APIs. Currently, the Tracker entities can be consumed with the [Async APIs](/docs/tutorials/trackers/create-trackers-async-api/) and [Streaming APIs](/docs/tutorials/trackers/create-trackers-streaming-api) only. Telephony API does not have support for Trackers yet.
 
 You can create several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. You can create up to 500 Trackers per account. 
 
+:::tip Best Practises
+Before creating the Trackers, go through the [Best Practices](/docs/management-api/trackers/create-tracker/#best-practicesm) section to learn about how to create Trackers.
+:::
 
-The API given below creates a Tracker using the Management API. 
 
 ### API Endpoint
 
@@ -95,8 +91,10 @@ This API accepts a request body size up to 1MB. Request bodies exceeding this li
 
 This is the wrapper JSON Object which additionally also contains a unique `id`associated with the Tracker entity that can be later used to instruct Symbl APIs to enhance that specific request with this Tracker for tracking keywords/phrases in a conversation.
 
-:::info
 This API has a maximum concurrency of 1 request. If you wish to create multiple trackers in a single API call, go to [Create Trackers in Bulk](#bulk-create-trackers) section.
+
+:::info Trackers Management UI
+You can also create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
 :::
 
 ### Error Codes
@@ -111,6 +109,10 @@ Error Code  | Description | Resolution
 `500 - Internal Server Error` | The 500 response code specifies that the server failed to handle the request. | Please reach out to support@symbl.ai if it persists after multiple attempts.
 `502 - Bad Gateway` | The 502 response code specifies that the server failed to acknowledge the request. | This may happen due to multiple reasons. Please reach out to support@symbl.ai if it persists after multiple attempts.
 `504 - Gateway Timeout` | The 504 response code specifies that the server failed to respond within the timeout duration. | Please reach out to support@symbl.ai if it persists after multiple attempts.
+
+:::info Create Trackers with Management API
+While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
+:::
 
 ## Create Trackers in Bulk
 ---
@@ -244,13 +246,25 @@ Error Code  | Description | Resolution
 `502 - Bad Gateway` | The 502 response code specifies that the server failed to acknowledge the request. This may happen due to multiple reasons. | Please reach out to support@symbl.ai if it persists after multiple attempts.
 `504 - Gateway Timeout` | The 504 response code specifies that the server failed to respond within the timeout duration. | Please reach out to support@symbl.ai if it persists after multiple attempts. 
 
-## See more
+### Best Practices
 
-You can also create Trackers in the following ways:
+Following are the best practices to be followed while creating Trackers: 
 
+Dos' | Example | Don'ts' | Example
+---------- | ------- |  ------- | ------- | 
+Densely pack your vocabulary with information | "What’s the price?" | Preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure".
+Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
+
+
+
+## Tutorials
+---
+
+You might find the following tutorials useful: 
+
+- [How to create and use Trackers- Trackers Management API](/docs/tutorials/trackers/consuming-trackers-management-api/)
 - [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
 - [Creating Trackers with Streaming API](/docs/tutorials/trackers/create-trackers-streaming-api/)
+- [Using Trackers with Async API](/docs/tutorials/trackers/consuming-trackers-async-api//)
+- [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
 
-:::info Create Trackers with Management API
-While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
-:::
