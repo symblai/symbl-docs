@@ -16,10 +16,6 @@ Symbl's Streaming API is based on the WebSocket protocol and can be used for rea
 Currently, Streaming API is supported in English only. However, the support for Spanish is available as a part of Symbl Labs. 
 ::: 
 
-:::note Opus codec
-Streaming API supports Opus with 48000 Hz sample rate.
-:::
-
 ## Request Parameters
 
 #### Endpoint
@@ -34,12 +30,12 @@ The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | Mandatory | start_request, stop_request | Type of message
+```type``` | Optional | start_request, stop_request, modify_request | Type of message
 ```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
 ```customVocabulary``` | Optional | List of String | An array of strings containing a vocabulary specific to your company, products, or phrases. 
 ```config``` | Optional | Find the supported value [here](#config) | Configuration for this request. [See the config section below for more details](#config).
 ```speaker``` | Optional  | Find the supported value [here](#speaker) | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details](#speaker).
-```noConnectionTimeout``` | Optional |  Between `0` to `3600` seconds | The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> For example, <br/><br/>  When this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
+```noConnectionTimeout``` | Optional |  Between `0` to `1800` seconds | The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> <br/> For example,  when this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
 ```disconnectOnStopRequest``` | Optional | `true` or `false` | This parameter allows you to set your Streaming API connection in such a way that even when the `stop_request` is sent. The connection does not drop-off, only the processing is stopped and the `conversationId` and connection is kept live for `1800` seconds by default. You can always override this value by passing the `disconnectOnStopRequest` parameter. <br/> <br/> This allows you to stop and start the Streaming API processing without dropping the WebSocket connection, so that you can stop and resume the processing in the middle of a call and optimize the Streaming API usage costs. <br/> <br/> The default value is `true`. |
 ```disconnectOnStopRequestTimeout``` | Optional | Between `0` to `3600` seconds | This parameter allows you to override the idle time out (if a WebSocket connection is idle for 30 minutes). Set this parameter with a value between `0` to `3600` seconds. If the idle connection needs to be kept alive beyond `3600` seconds, you have to restart the connection at `3600` seconds elapsed. <br/> <br/> If the value is passed as `0`, the WebSocket connection is dropped when `stop_request` is received. The default value is `1800`.
 
@@ -81,9 +77,9 @@ Field | Required | Supported value | Default Value | Description
 
 Field | Required | Supported value | Default Value | Description
 ---------- | ------- | ------- |  ------- |  -------
-```encoding``` | false  | LINEAR16, FLAC, MULAW | LINEAR16 | Audio Encoding in which the audio will be sent over the WebSocket.
-```sampleRateHertz	``` | false  |  | 16000 | The rate of the incoming audio stream.
-
+```encoding``` | false  | `LINEAR16`, `FLAC`, `MULAW`, `Opus` | `LINEAR16` | Audio Encoding in which the audio will be sent over the WebSocket.
+```sampleRateHertz	``` | false  |  | `16000` | The rate of the incoming audio stream. The following are supported with the sample rates: <br/> encoding `LINEAR16` for sample rates `8000` to `48000`, <br/> encoding `FLAC` for sample rates `16000 ` and above, <br/> encoding `MULAW` for sample rates `8000`, <br/> encoding `Opus` for sample rates `16000` to `48000`.
+ 
 
 ##### Code Example
 
@@ -91,7 +87,7 @@ Field | Required | Supported value | Default Value | Description
 {
   "speechRecognition": {
     "encoding": "LINEAR16",
-    "sampleRateHertz": 44100 // Make sure the correct sample rate is provided for best results
+    "sampleRateHertz": 16000 // Make sure the correct sample rate is provided for best results
   }
 }
 ```
@@ -222,6 +218,32 @@ setTimeout(() => {
 {
   "type": "stop_request"
 }
+```
+
+### Modify Request​
+The `modify_request` allows you to modify the request during Streaming API call, i.e., after the WebSocket connection has established, if there is a device change event. 
+
+Using the `type` field with the supported value `modify_request` you can update the sample rate and encoding based on the new device information in the same conversation itself.
+
+```js
+  setTimeout(() => {
+        micInstance.stop();
+        connection.sendUTF(JSON.stringify({
+            "type": "modify_request",
+            "speechRecognition": {
+                "encoding": 'LINEAR16',
+                "sampleRateHertz": 8000,
+            },
+        }));
+        micInstance = mic({
+            rate: '8000',
+            channels: '1',
+            debug: false,
+            exitOnSilence: 6,
+        });
+        micInputStream = micInstance.getAudioStream();
+        micInstance.start();
+    }, 0.5 * 60 * 1000);
 ```
 
 ## Messages
