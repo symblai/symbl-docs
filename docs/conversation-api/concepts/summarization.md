@@ -37,19 +37,19 @@ Given below is an example of a multi-line transcript and its corresponding Summa
 
 - The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API. <br/>
   If the number of words in a conversation is below 50 or the number of sentences below 3, the Summary will not be created.
-  :::
+:::
 
 ### Where can I find the Summary API?
 
 You can enable the Summary API for Async APIs using the following endpoints: <br/>
 
-| API                                                                             | Summary Endpoint                                               |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| [Async Text API (POST/PUT)](/docs/async-api/overview/text/post-text)            | `https://api.symbl.ai/v1/process/text?enableSummary=true `     |
-| [Async Audio API (POST/PUT)](/docs/async-api/overview/audio/post-audio)         | `https://api.symbl.ai/v1/process/audio?enableSummary=true`     |
-| [Async Audio URL API (POST/PUT)](/docs/async-api/overview/audio/post-audio-url) | `https://api.symbl.ai/v1/process/audio/url?enableSummary=true` |
-| [Async Video API (POST/PUT)](/docs/async-api/overview/video/post-video)         | `https://api.symbl.ai/v1/process/video?enableSummary=true`     |
-| [Async Video URL API (POST/PUT)](/docs/async-api/overview/video/post-video-url) | `https://api.symbl.ai/v1/process/video/url?enableSummary=true` |
+API  | Summary Endpoint
+---------- | -------
+[Async Text API (POST/PUT)](/docs/async-api/overview/text/post-text)| ```https://api.symbl.ai/v1/process/text?enableSummary=true ```
+[Async Audio API (POST/PUT)](/docs/async-api/overview/audio/post-audio)| ```https://api.symbl.ai/v1/process/audio?enableSummary=true```
+[Async Audio URL API (POST/PUT)](/docs/async-api/overview/audio/post-audio-url)| ```https://api.symbl.ai/v1/process/audio/url?enableSummary=true```
+[Async Video API (POST/PUT)](/docs/async-api/overview/video/post-video)| ```https://api.symbl.ai/v1/process/video?enableSummary=true```
+[Async Video URL API (POST/PUT)](/docs/async-api/overview/video/post-video-url)| ```https://api.symbl.ai/v1/process/video/url?enableSummary=true```
 
 Once the above API job is complete, the corresponding Summary can be obtained by sending a GET request to the Summary API. See the [**Summary API Documentation**](/docs/conversation-api/summary) for details.
 
