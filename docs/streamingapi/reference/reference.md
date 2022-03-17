@@ -379,7 +379,8 @@ const connection = await sdk.startRealtimeRequest({
         confidenceThreshold: 0.7,
         sampleRateHertz: 48000,
         trackers: {
-            "interimResults": true
+            "interimResults": true,
+            "enableAllTrackers": true 
         }
     },
     speaker: {
@@ -437,7 +438,9 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
   c. `sampleRateHertz`: The sample rate of the incoming audio data which is being pushed to Symbl.
 
-  d. `trackers`: `{ interimResults }`: The `interimResults` flag tells Symbl to send the `tracker` results as soon as they are detected. If false, the `tracker` results are detected for the finalized transcription responses.
+  d. `trackers.interimResults`| The `interimResults` flag tells Symbl to send the tracker results as soon as they are detected. If `false`, the tracker results are detected for the finalized transcription responses.
+  
+  e. `trackers.enableAllTrackers`| The `enableAllTrackers` parameter must be sent to detect all the Trackers. The purpose of this flag is to enable detection of all the Trackers created with the Management API that maintains your entities with Symbl at the account level.
 
 5. `speaker`: The details of the speaker in this conversation.
 
@@ -448,6 +451,45 @@ Let’s go over all the parameters passed in the configuration object in the abo
 6. `handlers`: The object encapsulating the call-back functions to be invoked on detection of those specific entities. For more information on various other handlers, check out the [Javascript SDK Reference](/docs/javascript-sdk/reference#event-handlers-1).
 
   a. `onTrackerResponse`: This function is invoked when Symbl detects a Tracker in real-time. The structure of the **Tracker** object is shown in the above code snippet.
+
+### Tracker Response
+
+The following reponse is returned when Tracker object is passed in the Streaming API:
+
+```js
+"trackers":[
+      {
+         "name":"Documents Tracker",
+         "matches":[
+            {
+               "type":"vocabulary",
+               "value":"Documents",
+               "messageRefs":[
+                  {
+                     "id":"53867534-0459-4d22-b590-984ee82166aa",
+                     "text":"Anyways, so I will submit documents tomorrow.",
+                     "offset":26
+                  },
+                  {
+                     "id":"4d20d90c-50a7-4594-bb10-2995dcd4bbd1",
+                     "text":"I will submit documents tomorrow.",
+                     "offset":14
+                  }
+               ],
+            }
+```
+
+Field Name  | Description 
+---------- | ------- |  
+`name` | The name of the Tracker detected | 
+`matches` | Array of match objects which contain the references to messages and insights detected in that conversation. |
+`type` | The match type for the text. In the above example, the match is of type vocabulary. |
+`value` | The textual value of the vocabulary for which this match was detected. |
+`messageRefs` | Array of messages for which this Tracker was detected. |
+`messageRefs.id`| The unique identifier of the message. |
+`messageRefs.text` | The text body of the message. |
+`messageRefs.offset`| The closest match of the text in the message. Offset of -1 means that an exact match for that specific vocabulary wasn’t found and this was the similar match. An offset greater than 0 indicates an exact match for the tracker in the payload of the message.
+
 
 ### Streaming API Logs
 
