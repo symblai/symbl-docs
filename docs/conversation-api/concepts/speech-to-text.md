@@ -1,15 +1,13 @@
 ---
 id: speech-to-text
-title: Transcribe Speech-to-Text in Real-Time
+title: Speech-to-Text
 description: Get real-time speech-to-text data and analytics from your conversations with Symbl.ai APIs. Learn more.
 sidebar_label: Introduction
 slug: /concepts/speech-to-text/
 ---
 
 <head>
-    <title>Speech-to-Text | Symbl Docs</title>
-    <meta name="description" content="Symbl offers state-of-the-art Speech-to-Text capability (also called transcription). You can convert audio and video conversations into text in real-time or after the conversation has ended."/>
-    <meta name="keywords" content =  "real time speech to text,speech to text analysis"/>
+    <title>Transcribe Speech-to-Text in Real-Time</title>
 </head>
 
 import Tabs from '@theme/Tabs';

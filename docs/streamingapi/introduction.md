@@ -1,15 +1,13 @@
 ---
 id: introduction
-title: How to Implement Streaming API
+title: Streaming API
 description: Streaming API can provide real-time transcription and extract actionable insights from your conversations. Learn how to implement Symbl.ai’s Streaming API now.
 sidebar_label: Introduction
 slug: /streamingapi/introduction/
 ---
 
 <head>
-    <title>Streaming API | Symbl Docs</title>
-    <meta name="description" content="Symbl’s Streaming API is based on WebSocket protocol and can be used for real-time use-cases where both the audio and its results from Symbl’s back-end need to be available in real-time. It can be integrated directly via the browser or server."/>
-    <meta name="keywords" content =  "how to implement streaming api,streaming api"/>
+    <title>How to Implement Streaming API</title>
 </head>
 
 import Tabs from '@theme/Tabs';

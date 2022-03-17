@@ -1,15 +1,13 @@
 ---
 id: summarization
-title: Summarization API- Capturing Key Points (Alpha)
+title: Summarization (Labs)
 description: Use Symbl.ai’s summarization API to capture key points in a conversation and create succinct summaries. Learn more.
 sidebar_label: Introduction
 slug: /concepts/summarization/
 ---
 
 <head>
-    <title>Summarization (Labs) | Symbl Docs</title>
-    <meta name="description" content="This feature is a part of the Symbl Labs. Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits."/>
-    <meta name="keywords" content =  "summarization api"/>
+    <title>Summarization API- Capturing Key Points (Alpha)</title>
 </head>
 
 import Tabs from '@theme/Tabs';

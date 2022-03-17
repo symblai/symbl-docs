@@ -1,14 +1,12 @@
 ---
 id: introduction
-title: Conversation API- Extract Conversation Insights
+title: Introduction
 description: Use Symbl.ai Conversation APIs to get speech-to-text data and actionable insights from your conversations. Learn more.
 sidebar_label: Introduction
 ---
 
 <head>
-    <title>Introduction | Symbl Docs</title>
-    <meta name="description" content="The Conversation API provides a REST API interface for getting your processed Speech to Text data(also known as Transcripts) and Conversational Insights."/>
-    <meta name="keywords" content =  "conversation api, conversational insights"/>
+    <title>Conversation API- Extract Conversation Insights</title>
 </head>
 
 import Tabs from '@theme/Tabs';

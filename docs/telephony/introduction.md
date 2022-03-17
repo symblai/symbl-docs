@@ -1,15 +1,13 @@
 ---
 id: introduction
-title: Telephony API Tutorial- Introduction
+title: Telephony API
 description: Telephony API enables developers to add Symbl.ai to bridges and join VoIP calls to get real-time intelligence. Check out the Telephony API tutorials to help you get started.
 sidebar_label: Introduction
 slug: /telephony/introduction/
 ---
 
 <head>
-    <title>Telephony API | Symbl Docs</title>
-    <meta name="description" content="Based on PSTN and SIP protocols, the Telephony API provides an interface for the developers to have Symbl bridge/join VoIP calls and get the results back in real-time as well. Optionally, the developer can also trigger an email at the end of the conversation containing the URL to view the transcription, insights and topics in a single page Web Application."/>
-    <meta name="keywords" content =  "telephony api tutorial,telephony api"/>
+    <title>Telephony API Tutorial- Introduction</title>
 </head>
 
 import Tabs from '@theme/Tabs';

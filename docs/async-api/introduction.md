@@ -1,15 +1,13 @@
 ---
 id: introduction
-title: Async API Documentation
+title: Async API
 description: Symbl.ai Async APIs provides a REST interface for submitting any recorded or saved conversations for transcription. Check out our Async APIs documentation to get started.
 sidebar_label: Introduction
 slug: /async-api/introduction/
 ---
 
 <head>
-    <title>Async API | Symbl Docs</title>
-    <meta name="description" content="The Async API provides a REST interface that helps you to submit any recorded or saved conversations to Symbl. When you submit a conversation, you’ll receive a Conversation ID (conversationId), which is unique to your conversation."/>
-    <meta name="keywords" content =  "async api documentation,async api"/>
+    <title>Async API Documentation</title>
 </head>
 
 ---
