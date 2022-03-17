@@ -1,15 +1,22 @@
 ---
-id: consume-trackers
-title: Consume Trackers with Streaming API
-sidebar_label: Consume Trackers with Streaming API
-slug: /streaming-api/code-snippets/consume-trackers-with-streaming-api/
----
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
+id: create-trackers-streaming-api
+title: Creating Trackers with Streaming API
+sidebar_label: Creating Trackers with Streaming API
+slug: /tutorials/trackers/create-trackers-streaming-api/
 ---
 
-Below is an example that shows how to pass Trackers in the config object for the startRealtimeRequest of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
+---
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
+You can create and consume Trackers in real-time using the Streaming APIs. 
+
+Below is an example that shows how to pass Trackers in the `config` object for the `startRealtimeRequest` of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
+
+:::info Creating Trackers with Management API
+While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
+:::
 
 ```js
 
@@ -32,7 +39,8 @@ const connection = await sdk.startRealtimeRequest({
         languageCode: "en-US",
         sampleRateHertz: 48000,
         trackers: {
-            "interimResults": true
+            "interimResults": true,
+            "enableAllTrackers": true
         }
     },
     speaker: {
@@ -87,7 +95,8 @@ Field | Required |
 `confidenceThreshold` | The insights having confidence scores greater than this threshold will be the ones detected for the Conversation.
 `languageCode` | The language-code in BCP-47 format. 
 `sampleRateHertz`| The sample-rate of the incoming audio data which is being pushed to Symbl.
-`trackers: { interimResults }`| The interimResults flag tells Symbl to send the tracker results as soon as they are detected. If false, the tracker results are detected for the finalized transcription responses.
+`trackers.interimResults`| The interimResults flag tells Symbl to send the tracker results as soon as they are detected. If false, the tracker results are detected for the finalized transcription responses.
+`trackers.enableAllTrackers`| The `enableAllTrackers` parameter must be sent to detect all the Trackers. The purpose of this flag is to enable detection of all the Trackers created with the Management API that maintains your entities with Symbl at the account level.
 `speaker` | The details of the speaker in this Conversation
 `userId`| Unique identifier to represent the User.
 `name` | The name of the User.

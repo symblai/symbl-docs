@@ -379,7 +379,8 @@ const connection = await sdk.startRealtimeRequest({
         confidenceThreshold: 0.7,
         sampleRateHertz: 48000,
         trackers: {
-            "interimResults": true
+            "interimResults": true,
+            "enableAllTrackers": true 
         }
     },
     speaker: {
@@ -437,7 +438,9 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
   c. `sampleRateHertz`: The sample rate of the incoming audio data which is being pushed to Symbl.
 
-  d. `trackers`: `{ interimResults }`: The `interimResults` flag tells Symbl to send the `tracker` results as soon as they are detected. If false, the `tracker` results are detected for the finalized transcription responses.
+  d. `trackers.interimResults`| The `interimResults` flag tells Symbl to send the tracker results as soon as they are detected. If `false`, the tracker results are detected for the finalized transcription responses.
+  
+  e. `trackers.enableAllTrackers`| The `enableAllTrackers` parameter must be sent to detect all the Trackers. The purpose of this flag is to enable detection of all the Trackers created with the Management API that maintains your entities with Symbl at the account level.
 
 5. `speaker`: The details of the speaker in this conversation.
 
