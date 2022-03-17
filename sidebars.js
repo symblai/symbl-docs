@@ -13,9 +13,9 @@ module.exports = {
   label: "Speech-to-text",
   type: 'category',
   items: [
-    'conversation-api/concepts/speech-to-text',
-    'how-tos/get-speech-to-text-real-time',
-    'how-tos/get-speech-to-text-async',
+    'conversation-api/concepts/speech-to-text/',
+    'how-tos/get-speech-to-text-real-time/',
+    'how-tos/get-speech-to-text-async/',
   ]
 },
 {
@@ -77,6 +77,8 @@ module.exports = {
   type: 'category',
   items: [
     'conversation-api/concepts/trackers',
+    'guides/custom-trackers',
+    'guides/pre-built-trackers',
   ]
 },
 
