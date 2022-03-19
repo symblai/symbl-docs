@@ -2,6 +2,7 @@
 id: how-to-get-topics
 title: Getting Topics 
 sidebar_label: Real-time Topics
+slug: /how-tos/how-to-get-topics/
 ---
 
 import Tabs from '@theme/Tabs';
