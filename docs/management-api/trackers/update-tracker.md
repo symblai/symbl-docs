@@ -13,7 +13,7 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 
 To update an existing Tracker, send a PUT Tracker API request with Management API. This updates a Tracker entity against the `trackerId` which can be consumed in Symbl APIs.
 
-:::note Trackers Management UI
+:::info Trackers Management UI
 You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
 :::
 
