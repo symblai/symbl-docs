@@ -1,6 +1,7 @@
 ---
 id: receive-conversation-analytics
 title: Receive Conversation Analytics
+slug: /async-api/code-snippets/receive-conversation-analytics/
 ---
 
 import Tabs from '@theme/Tabs';

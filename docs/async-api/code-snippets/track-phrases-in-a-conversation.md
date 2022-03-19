@@ -1,6 +1,7 @@
 ---
 id: track-phrases-in-a-conversation
 title: Track Phrases In A Conversation
+slug: /async-api/code-snippets/track-phrases-in-a-conversation/
 ---
 
 import Tabs from '@theme/Tabs';

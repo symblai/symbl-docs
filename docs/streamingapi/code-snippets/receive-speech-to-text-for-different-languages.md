@@ -1,6 +1,7 @@
 ---
 id: receive-speech-to-text-for-different-languages
 title: Receive Speech to Text for a different language in a conversation
+slug: /streamingapi/code-snippets/receive-speech-to-text-for-different-languages/
 ---
 
 import Tabs from '@theme/Tabs';

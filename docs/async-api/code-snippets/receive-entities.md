@@ -1,6 +1,7 @@
 ---
 id: receive-entities
 title: Receive Entities From Conversation
+slug: /async-api/code-snippets/receive-entities/
 ---
 
 import Tabs from '@theme/Tabs';

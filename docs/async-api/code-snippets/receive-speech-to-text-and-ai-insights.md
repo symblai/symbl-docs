@@ -1,6 +1,7 @@
 ---
 id: receive-speech-to-text-and-ai-insights
 title: Receive Speech-to-Text and AI Insights
+slug: /async-api/code-snippets/receive-speech-to-text-and-ai-insights/
 ---
 
 import Tabs from '@theme/Tabs';

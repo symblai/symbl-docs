@@ -1,7 +1,7 @@
 ---
 id: receive-live-captioning
 title: Receive Live Captioning
-slug: /streamingapi/code-snippets/receive-live-captioning
+slug: /streamingapi/code-snippets/receive-live-captioning/
 ---
 
 import Tabs from '@theme/Tabs';

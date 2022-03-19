@@ -1,6 +1,7 @@
 ---
 id: receive-speech-to-text-for-a-different-language
 title: Receive Speech-to-Text for a different language in a Conversation
+slug: /telephony/code-snippets/receive-speech-to-text-for-a-different-language/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -2,7 +2,7 @@
 id: custom-domain
 title: Adding a Custom Domain (Beta)
 sidebar_label: Adding a Custom Domain (Beta)
-
+slug: /pre-built-ui/custom-domain/
 ---
 
 import Tabs from '@theme/Tabs';
