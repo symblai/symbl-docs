@@ -10,31 +10,14 @@ slug: /management-api/trackers/create-tracker/
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-The endpoints given below creates a Tracker entity which can be consumed in Symbl APIs. 
+The endpoint given below creates a Tracker entity which can be consumed with Symbl APIs. Currently, the Tracker entities can be consumed with the [Async APIs](/docs/tutorials/trackers/create-trackers-async-api/) and [Streaming APIs](/docs/tutorials/trackers/create-trackers-streaming-api) only. Telephony API does not have support for Trackers yet.
 
-Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-api/code-snippets/track-phrases-in-a-conversation) and [Streaming APIs](/docs/streamingapi/code-snippets/detect-key-phrases) only. Telephony API does not have support for Trackers yet.
+You can create several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. You can create up to 500 Trackers per account. 
 
-You can create Trackers in the following ways:
-
-- [Using Tracker Management API](#create-trackers-using-tracker-management-api)
-- [Using Async APIs](#create-trackers-using-async-apis)
-- [Using Streaming API](#create-trackers-using-streaming-api)
-
-:::info Trackers Management UI
-You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
+:::tip Best Practises
+Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
 :::
 
-You can also add several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. You can create up to 500 Trackers per account. 
-
-:::info Create Trackers with Management API
-While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
-:::
-
-## Create Trackers using Tracker Management API
-
----
-
-The API given below creates a Tracker using the Management API. 
 
 ### API Endpoint
 
@@ -108,8 +91,10 @@ This API accepts a request body size up to 1MB. Request bodies exceeding this li
 
 This is the wrapper JSON Object which additionally also contains a unique `id`associated with the Tracker entity that can be later used to instruct Symbl APIs to enhance that specific request with this Tracker for tracking keywords/phrases in a conversation.
 
-:::info
 This API has a maximum concurrency of 1 request. If you wish to create multiple trackers in a single API call, go to [Create Trackers in Bulk](#bulk-create-trackers) section.
+
+:::info Trackers Management UI
+You can also create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
 :::
 
 ### Error Codes
@@ -124,6 +109,10 @@ Error Code  | Description | Resolution
 `500 - Internal Server Error` | The 500 response code specifies that the server failed to handle the request. | Please reach out to support@symbl.ai if it persists after multiple attempts.
 `502 - Bad Gateway` | The 502 response code specifies that the server failed to acknowledge the request. | This may happen due to multiple reasons. Please reach out to support@symbl.ai if it persists after multiple attempts.
 `504 - Gateway Timeout` | The 504 response code specifies that the server failed to respond within the timeout duration. | Please reach out to support@symbl.ai if it persists after multiple attempts.
+
+:::info Create Trackers with Management API
+While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
+:::
 
 ## Create Trackers in Bulk
 ---
@@ -257,233 +246,27 @@ Error Code  | Description | Resolution
 `502 - Bad Gateway` | The 502 response code specifies that the server failed to acknowledge the request. This may happen due to multiple reasons. | Please reach out to support@symbl.ai if it persists after multiple attempts.
 `504 - Gateway Timeout` | The 504 response code specifies that the server failed to respond within the timeout duration. | Please reach out to support@symbl.ai if it persists after multiple attempts. 
 
+### Best Practices
 
-## Create Trackers using Async APIs
+Following are the best practices to be followed while creating Trackers: 
+
+Dos' and Don'ts | Example |
+---------- | ------- |  
+Densely pack your vocabulary with information | "What’s the price?" | 
+Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
+Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
+Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
+
+
+
+## Tutorials
 ---
 
-Symbl provides a diverse set of Async APIs based on Audio/Video or Textual content. For more details on Async APIs refer to the documentation [here](/docs/async-api/introduction). 
+You might find the following tutorials useful: 
 
-The Trackers once ingested via the request, will then try to detect these in the Conversation. Once the job is complete, you can fetch the Trackers from the Conversation API through the `/trackers` endpoint described below.
-
-### Async Audio File API
-The Tracker entities should be passed in as a **query parameter** in the Async Audio API’s URL like shown below
-
-### API Endpoint
-
-```json
-"https"://api.symbl.ai/v1/process/audio?trackers=[
-   {
-      "name":"COVID-19",
-      "vocabulary":[
-         "social distancing",
-         "cover your face with mask",
-         "vaccination"
-      ]
-   }
-]
-```
-### Request Headers
-
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Optional | `application/json` This header must contain the MIME Type of the audio file’s container.
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
-
-## Async Audio URL API
-
-The Tracker entities should be passed in as a member of the **request body** of the Async Audio URL API like shown below:
-
-### API Endpoint
-
-**<font color="orange">POST</font> `https://api.symbl.ai/v1/process/audio/url`**
-
-### Request Header
-
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Mandatory | `application/json` This header must contain the MIME Type of the audio file’s container.
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
-
-
-### Request Body
-
-```json
-{
-    "url": "<PUBLIC_AUDIO_FILE_URL>",
-    "confidenceThreshold": 0.6,
-    "timezoneOffset": 0,
-    "trackers": [
-        {
-            "name": "Promotion Mention",
-            "vocabulary": [
-                "We have a special promotion going on if you book this before",
-                "I can offer you a discount of 10 20 percent you being a new customer for us",
-                "We have our month special this month",
-                "We have a sale right now on"
-            ]
-        }
-    ]
-}
-```
-Notice that the trackers member follows the same structure as mentioned in the Trackers section above.
-
-### Response
-
-```json
-{
-  "conversationId": "5815170693595136",
-  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-}
-```
-
-### Async Video File API
-The Tracker entities should be passed in as a **query parameter** in the Async Video API’s URL like shown below:
-
-### API Endpoint
-
-```json
-"https"://api.symbl.ai/v1/process/video?trackers=[
-   {
-      "name":"COVID-19",
-      "vocabulary":[
-         "social distancing",
-         "cover your face with mask",
-         "vaccination"
-      ]
-   }
-]
-```
-
-### Request Header
-
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Optional | `application/json` This header must contain the MIME Type of the audio file’s container.
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
-
-Notice that the trackers query parameter follows the same structure as mentioned in the Trackers section above.
-
-### Response
-
-```json
-{
-  "conversationId": "5815170693595136",
-  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-}
-```
-
-### Async Video URL API
-The Tracker entities should be passed in as a member of the request body of the Async Video URL API like shown below:
-
-### API Endpoint
-
-**<font color="orange">POST</font> `https://api.symbl.ai/v1/process/video/url`**
-
-### Request Headers
-
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Mandatory | `application/json` This header must contain the MIME Type application/json.
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
-
-### Request Body
-```json
-{
-    "url": "<PUBLIC_VIDEO_FILE_URL>",
-    "confidenceThreshold": 0.6,
-    "timezoneOffset": 0,
-    "trackers": [
-        {
-            "name": "Promotion Mention",
-            "vocabulary": [
-                "We have a special promotion going on if you book this before",
-                "I can offer you a discount of 10 20 percent you being a new customer for us",
-                "We have our month special this month",
-                "We have a sale right now on"
-            ]
-        }
-    ]
-}
-```
-Notice that the trackers member follows the same structure as mentioned in the Trackers section above.
-
-### Response
-
-```json
-{
-  "conversationId": "5815170693595136",
-  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-}
-```
-
-### Async Text API
-The Tracker entities should be passed in as a member of the **request body** of the Async Text API like shown below:
-
-### API Endpoint
-
-**<font color="orange">POST</font> `https://api.symbl.ai/v1/process/text`**
-
-
-### Request Headers
-
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Mandatory | `application/json` This header must contain the MIME Type application/json.
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
-
-### Request Body
-
-```json
-{
-    "name": "My Sales Conversation",
-    "conversationType": [
-        "sales"
-    ],
-    "messages": [
-        {
-            "payload": {
-                "content": "<CONVERSATION_PAYLOAD>",
-                "contentType": "text/plain"
-            },
-            "from": {
-                "name": "John",
-                "userId": "john@example.com"
-            }
-        }
-    ],
-    "trackers": [
-        {
-            "name": "Promotion Mention",
-            "vocabulary": [
-                "We have a special promotion going on if you book this before",
-                "I can offer you a discount of 10 20 percent you being a new customer for us",
-                "We have our month special this month",
-                "We have a sale right now on"
-            ]
-        }
-    ]
-}
-```
-Notice that the trackers member follows the same structure as the Trackers section above.
-
-### Response
-
-```json
-{
-  "conversationId": "5815170693595136",
-  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
-}
-```
-
-## Create Trackers using Streaming API
-
-You can create and consume Trackers in real-time using the Streaming APIs. 
-
-To view the detailed documentation go to the Trackers with [Streaming API](/docs/streaming-api/code-snippets/consume-trackers-with-streaming-api) page. 
-
+- [How to create and use Trackers- Trackers Management API](/docs/tutorials/trackers/consuming-trackers-management-api/)
+- [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
+- [Creating Trackers with Streaming API](/docs/tutorials/trackers/create-trackers-streaming-api/)
+- [Using Trackers with Async API](/docs/tutorials/trackers/consuming-trackers-async-api//)
+- [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
 
