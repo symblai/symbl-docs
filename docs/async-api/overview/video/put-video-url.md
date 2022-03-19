@@ -1,6 +1,7 @@
 ---
 id: put-video-url
 title: PUT Video URL API
+slug: /async-api/overview/video/put-video-url/
 ---
 
 import Tabs from '@theme/Tabs';

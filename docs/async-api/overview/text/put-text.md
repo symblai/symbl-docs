@@ -1,6 +1,7 @@
 ---
 id: put-text
 title: PUT Text API
+slug: /async-api/overview/text/put-text/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
