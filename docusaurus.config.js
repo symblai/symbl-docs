@@ -304,7 +304,7 @@ module.exports = {
         {
           label: "🆕 Changelog",
           ImageData: "/img/tick-mark.png",
-          href: '/changelog',
+          href: '/changelog/',
           position: "right",
         },
       ],
