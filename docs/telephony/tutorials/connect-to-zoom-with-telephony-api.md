@@ -1,7 +1,7 @@
 ---
 id: connect-to-zoom-with-telephony-api
 title: Real Time AI insights From Zoom Call
-slug: /telephony/tutorials/connect-to-zoom
+slug: /telephony/tutorials/connect-to-zoom/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -245,6 +245,17 @@ sdk.init({
       console.log('Conversation ID', connection.conversationId);
       console.log('Full Conection Object', connection);
       console.log("Calling into Zoom now, please wait about 30-60 seconds.");
+
+      // Scheduling stop endpoint call after 60 seconds
+      setTimeout(() => {
+        sdk.stopEndpoint({
+          connectionId: connection.connectionId
+        }).then(() => {
+          console.log('Stopped the connection with connectionID:', connectionId);
+          console.log('Conversation ID for Stopped Connection:', connection.conversationId);
+          console.log('Full Stop Conection Object:', connection);
+        }).catch(err => console.error('Error while stopping the connection.', err));
+      }, 60000);
     })
     .catch((err) => {
        console.error("Error while starting the connection", err);

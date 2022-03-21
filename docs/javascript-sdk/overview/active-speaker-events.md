@@ -2,7 +2,7 @@
 id: active-speaker-events
 title: Active Speaker Events
 sidebar_label: Active Speaker Events
-slug: /javascript-sdk/code-snippets/active-speaker-events
+slug: /javascript-sdk/code-snippets/active-speaker-events/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

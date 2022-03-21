@@ -2,7 +2,7 @@
 id: getting-conversation-intelligence
 title: Getting Started
 sidebar_label: Getting Started
-slug: /api-reference/getting-conversation-intelligence
+slug: /api-reference/getting-conversation-intelligence/
 ---
 ---
  

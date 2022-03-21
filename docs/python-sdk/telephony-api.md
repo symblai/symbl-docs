@@ -2,7 +2,7 @@
 id: python-sdk-telephony-api
 title: Using Python SDK with Telephony API on PSTN 
 sidebar_label: Using PSTN 
-slug: /python-sdk/python-sdk-telephony-api
+slug: /python-sdk/python-sdk-telephony-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

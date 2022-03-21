@@ -1,7 +1,7 @@
 ---
 id: get-real-time-transcription
 title: Live speech to text and AI insights on browser 
-slug: /streamingapi/tutorials/receive-ai-insights-from-your-web-browser
+slug: /streamingapi/tutorials/receive-ai-insights-from-your-web-browser/
 ---
 
 import Tabs from '@theme/Tabs';

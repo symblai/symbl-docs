@@ -1,7 +1,7 @@
 ---
 id: agora-sdk-plugin
 title: Symbl-Agora Marketplace Extension
-slug: /integrations/agora-sdk-plugin
+slug: /integrations/agora-sdk-plugin/
 ---
 
 import Tabs from '@theme/Tabs';

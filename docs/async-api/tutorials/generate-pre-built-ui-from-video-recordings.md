@@ -1,7 +1,7 @@
 ---
 id: generate-pre-built-ui-from-video-recordings
 title: Generate a Pre-built UI From Video Recordings
-slug: /async-api/code-snippets/generate-pre-built-ui-from-video-recordings
+slug: /async-api/code-snippets/generate-pre-built-ui-from-video-recordings/
 ---
 
 import Tabs from '@theme/Tabs';

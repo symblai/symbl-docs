@@ -2,7 +2,7 @@
 id: labs-intro
 title: Symbl Labs
 sidebar_label: Symbl Labs
-slug: /labs
+slug: /labs/
  
 ---
 ---

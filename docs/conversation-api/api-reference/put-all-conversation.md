@@ -2,7 +2,7 @@
 id: put-all-conversations
 title: PUT Conversations
 sidebar_label: PUT Conversations
-slug: /conversation-api/put-all-conversations
+slug: /conversation-api/put-all-conversations/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

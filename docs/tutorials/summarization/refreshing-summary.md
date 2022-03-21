@@ -2,7 +2,7 @@
 id: refreshing-summary
 title: How to Refresh a Summary
 sidebar_label: Refreshing a Summary 
-slug: /tutorials/summarization/refreshing-summary
+slug: /tutorials/summarization/refreshing-summary/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

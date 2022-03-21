@@ -2,7 +2,7 @@
 id: python-streaming-api
 title: Streaming API
 sidebar_label: Streaming API
-slug: /python-sdk/streaming-api
+slug: /python-sdk/streaming-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

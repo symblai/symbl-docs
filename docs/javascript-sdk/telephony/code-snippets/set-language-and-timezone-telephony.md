@@ -1,7 +1,7 @@
 ---
 id: use-languages-timezones-with-sdk
 title: Set Language and Timezone When Connecting To An Endpoint
-slug: /javascript-sdk/code-snippets/use-languages-timezones-with-sdk
+slug: /javascript-sdk/code-snippets/use-languages-timezones-with-sdk/
 ---
 
 import Tabs from '@theme/Tabs';

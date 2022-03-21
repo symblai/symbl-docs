@@ -2,7 +2,7 @@
 id: product-releases
 title: Symbl Product Releases
 sidebar_label: Get Summary using Async API
-slug: /product-releases
+slug: /product-releases/
 ---
 
 import Tabs from '@theme/Tabs';

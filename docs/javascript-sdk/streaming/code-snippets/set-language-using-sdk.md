@@ -1,7 +1,7 @@
 ---
 id: use-languages-with-sdk
 title: Set Language When Connecting To A Web Socket
-slug: /javascript-sdk/code-snippets/use-languages-with-sdk
+slug: /javascript-sdk/code-snippets/use-languages-with-sdk/
 ---
 
 import Tabs from '@theme/Tabs';

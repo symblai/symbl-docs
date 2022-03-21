@@ -2,7 +2,7 @@
 id: messages
 title: GET Speech to Text
 sidebar_label: GET Speech to Text
-slug: /conversation-api/messages
+slug: /conversation-api/messages/
 ---
 
 import Tabs from '@theme/Tabs';

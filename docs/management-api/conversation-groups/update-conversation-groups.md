@@ -2,7 +2,7 @@
 id: update-conversation-groups
 title: Update Conversation Groups
 sidebar_label: PUT Conversation Groups 
-slug: /management-api/conversation-groups/put-conversation-groups
+slug: /management-api/conversation-groups/put-conversation-groups/
 ---
 
 import Tabs from '@theme/Tabs';
