@@ -1,6 +1,7 @@
 ---
 id: receive-prebuilt-ui-email-after-conversation
 title: Receive Prebuilt Summary UI email after each conversation
+slug: /telephony/code-snippets/receive-prebuilt-ui-email-after-conversation/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -2,6 +2,7 @@
 id: authentication
 title: Authentication
 sidebar_label: Authentication
+slug: /developer-tools/authentication/
 ---
 
 import Tabs from '@theme/Tabs';

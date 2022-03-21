@@ -3,6 +3,7 @@ id: introduction
 title: Conversation API- Extract Conversation Insights
 description: Use Symbl.ai Conversation APIs to get speech-to-text data and actionable insights from your conversations. Learn more.
 sidebar_label: Introduction
+slug: /conversation-api/introduction/
 ---
 
 import Tabs from '@theme/Tabs';

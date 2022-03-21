@@ -1,8 +1,8 @@
 ---
-id: abstract-topics
+id: abstract-topics-labs
 title: Abstract Topics (Labs)
 sidebar_label: Introduction
-slug: /guides/abstract-topics/
+slug: /labs/abstract-topics-labs/
 ---
 
 import Tabs from '@theme/Tabs';

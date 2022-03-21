@@ -2,6 +2,7 @@
 id: post-text-summary-ui
 title: POST Text Summary UI
 sidebar_label: POST Text Summary UI
+slug: /api-reference/experience-api/post-text-summary-ui/
 
 ---
 
