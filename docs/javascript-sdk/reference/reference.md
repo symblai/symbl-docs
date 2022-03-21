@@ -2,6 +2,7 @@
 id: api-reference
 title: Javascript SDK Reference
 slug: /javascript-sdk/reference
+pagination_next: 'python-sdk/python-sdk'
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
