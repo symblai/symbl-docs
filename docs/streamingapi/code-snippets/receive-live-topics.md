@@ -1,7 +1,7 @@
 ---
 id: receive-live-topics
 title: Receive Live Topics
-slug: /streamingapi/code-snippets/receive-live-topics/
+slug: /streamingapi/code-snippets/receive-live-topics
 ---
 
 import Tabs from '@theme/Tabs';

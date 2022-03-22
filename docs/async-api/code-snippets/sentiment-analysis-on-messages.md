@@ -1,7 +1,6 @@
 ---
 id: sentiment-analysis-on-messages 
 title: Sentiment Analysis on Messages (Beta)
-slug: /async-api/code-snippets/sentiment-analysis-on-messages/
 ---
 
 import Tabs from '@theme/Tabs';

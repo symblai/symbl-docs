@@ -2,7 +2,6 @@
 id: post-video-summary-ui
 title: POST Video Summary UI
 sidebar_label: POST Video Summary UI
-slug: /api-reference/experience-api/post-video-summary-ui/
 
 ---
 

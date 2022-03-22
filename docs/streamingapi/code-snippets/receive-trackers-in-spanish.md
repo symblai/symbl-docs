@@ -1,7 +1,6 @@
 ---
 id: receive-trackers-in-spanish
 title: Receive Trackers in Spanish (Labs)
-slug: /streamingapi/code-snippets/receive-trackers-in-spanish/
 ---
 
 import Tabs from '@theme/Tabs';

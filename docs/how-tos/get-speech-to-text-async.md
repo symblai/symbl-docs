@@ -1,8 +1,7 @@
 ---
 id: get-speech-to-text-async
 title: Speech-to-Text- Async
-sidebar_label: Async Speech-to-Text
-slug: /how-tos/get-speech-to-text-async/
+sidebar_label: Async Speech-to-Text 
 ---
 
 import Tabs from '@theme/Tabs';

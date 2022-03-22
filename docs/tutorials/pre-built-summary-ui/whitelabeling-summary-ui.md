@@ -2,7 +2,7 @@
 id: whitelabeling-summary-ui
 title: White labeling Summary UI
 sidebar_label: White labeling Summary UI
-slug: /tutorials/pre-built-summary-ui/whitelabeling-summary-ui/
+
 ---
 
 import Tabs from '@theme/Tabs';

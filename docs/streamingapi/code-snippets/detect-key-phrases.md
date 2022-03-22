@@ -1,7 +1,6 @@
 ---
 id: detect-key-phrases
 title: Detect Key Phrases
-slug: /streamingapi/code-snippets/detect-key-phrases/
 ---
 
 import Tabs from '@theme/Tabs';

@@ -3,7 +3,7 @@
 id: tuning-summary-page
 title: Tuning your Summary Page
 sidebar_label: Tuning your Summary Page
-slug: /pre-built-ui/tuning-summary-page/
+
 ---
 
 ---

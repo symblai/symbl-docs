@@ -2,7 +2,7 @@
 id: creating-video-summary-ui
 title: Creating Video Summary UI
 sidebar_label: Video Summary UI
-slug: /tutorials/pre-built-summary-ui/creating-video-summary-ui/
+
 ---
 
 import Tabs from '@theme/Tabs';

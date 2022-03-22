@@ -2,7 +2,6 @@
 id: supported-languages
 title: Supported Languages
 sidebar_label: Supported Languages
-slug: /async-api/reference/supported-languages/
 ---
 
 ## Supported Languages
