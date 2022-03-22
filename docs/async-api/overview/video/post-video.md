@@ -1,7 +1,6 @@
 ---
 id: post-video
 title: POST Video API
-slug: /async-api/overview/video/post-video/
 ---
 
 import Tabs from '@theme/Tabs';

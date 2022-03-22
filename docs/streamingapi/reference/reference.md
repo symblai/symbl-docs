@@ -30,8 +30,7 @@ The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | Mandatory | `start_request`, `stop_request` | Type of message.
-```type``` | Optional | `modify_request` | Allows you to modify the request. [See the Modify Request section below for more details](#modify-request)
+```type``` | Optional | start_request, stop_request, modify_request | Type of message
 ```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
 ```customVocabulary``` | Optional | List of String | An array of strings containing a vocabulary specific to your company, products, or phrases. 
 ```config``` | Optional | Find the supported value [here](#config) | Configuration for this request. [See the config section below for more details](#config).
@@ -222,7 +221,6 @@ setTimeout(() => {
 ```
 
 ### Modify Request​
-
 The `modify_request` allows you to modify the request during Streaming API call, i.e., after the WebSocket connection has established, if there is a device change event. 
 
 Using the `type` field with the supported value `modify_request` you can update the sample rate and encoding based on the new device information in the same conversation itself.

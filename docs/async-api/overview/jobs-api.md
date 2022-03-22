@@ -2,7 +2,6 @@
 id: jobs-api
 title: What is the Job API?
 sidebar_label: Get Job Status
-slug: /async-api/overview/jobs-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

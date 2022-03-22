@@ -2,7 +2,6 @@
 id: errors
 title: Error Codes
 sidebar_label: Error Codes
-slug: /developer-tools/errors/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

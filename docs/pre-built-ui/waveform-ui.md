@@ -2,7 +2,6 @@
 id: trackers-and-analytics-ui
 title: Trackers and Analytics UI
 sidebar_label: Trackers and Analytics UI
-slug: /pre-built-ui/trackers-and-analytics-ui/
 ---
 
 import Tabs from '@theme/Tabs';

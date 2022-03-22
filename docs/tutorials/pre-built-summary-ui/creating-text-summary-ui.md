@@ -2,7 +2,7 @@
 id: creating-text-summary-ui
 title: Creating Text Summary UI
 sidebar_label: Text Summary UI
-slug: /tutorials/pre-built-summary-ui/creating-text-summary-ui/
+
 ---
 
 import Tabs from '@theme/Tabs';

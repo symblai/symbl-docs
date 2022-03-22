@@ -675,6 +675,7 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
+    'conversation-api/concepts/comprehensive-action-items',
     'conversation-api/api-reference/comprehensive-action-items',
     ],
  },
@@ -691,7 +692,7 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'labs/abstract-topics-labs',
+    'guides/abstract-topics',
   ],
  },
   

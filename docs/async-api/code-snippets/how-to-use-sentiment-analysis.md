@@ -1,7 +1,6 @@
 ---
 id: how-to-use-sentiment-analysis
 title: How To Use Sentiment Analysis (Beta)
-slug: /async-api/code-snippets/how-to-use-sentiment-analysis/
 ---
 
 import Tabs from '@theme/Tabs';
