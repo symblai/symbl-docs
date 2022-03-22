@@ -153,9 +153,9 @@ Field  | Description
 ```id``` | Unique identifier of the comprehensive action item.
 ```text``` | Text of the comprehensive action item. 
 ```type``` | Response type. Default is `action_item`.
-```score``` | Confidence score of the detected action item. Value from 0 - 1.
+```score``` | Confidence score of the detected action item. Value from 0 - 1. The score shows the relevancy of the action item in the transcript. Higher the confidence score, the more relevant it is.
 ```messageRefs.id``` | Unique identifiers of the corresponding messages from where the action item was derived. You may get multiple message IDs here as Symbl identifies all the relevant messages in the conversation and generates the required action item accordingly.   
 ```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
-```definitive``` | Boolean indicating if the action item is definitive or not.
+```definitive``` | Boolean indicating if the action item is definitive or not. Implies that the action item is conclusive and not open-ended. For e.g, ‘I will complete this task today’ is a definitive sentence. 
 ```phrases``` | List of detected phrases with `type` - phrase type and `text` - corresponding text. The `action_phrase` type represents the actionable part of an insight.
 ```assignee``` | This field contains the name and email of the person to whom the action item is assigned.
