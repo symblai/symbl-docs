@@ -1,10 +1,14 @@
 ---
 id: topics
-title:  Topics API- Extracting Relevant Topics 
-description: Automatically identify and extract topics from conversations with Symbl.ai's Topic API. 
-sidebar_label:  Introduction
+title: Topics
+description: Automatically identify and extract topics from conversations with Symbl.ai's Topic API.
+sidebar_label: Introduction
 slug: /concepts/topics/
 ---
+
+<head>
+    <title>Topics API- Extracting Relevant Topics</title>
+</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,7 +20,6 @@ Topics are key drivers of the conversation. They're the **most important keyword
 Human beings when in a free-flowing conversation tend to initiate a discourse on a topic and tend to switch to another topic as the conversation proceeds in time. **Every time context switch happens in the conversation, Symbl's topic algorithm can detect the change in the context and extract the most important topics out of it.**
 
 The topics algorithm provide a framework for user to calibrate and exactly model the relationship among the concepts and understand how the semantics of the meetings are talked upon and the analysis of certain fundamental features of the graph provide an ability to abstract and derive the most relevant topics unlike the keyword and LDA driven models.
-
 
 ## Key Features
 
@@ -30,7 +33,6 @@ The topics algorithm provide a framework for user to calibrate and exactly model
 
 - Works with **real-time and Offline** conversations.
 
-
 ## Topics API
 
 To see Topics API in action, you need to process a conversation using Symbl. After you process a meeting, you'll receive a **Conversation ID** which is passed in Topics API. A Conversation ID is the key to receiving conversational insights from any conversation. As an example, here's a simple API call which grabs the detected topics from the conversation.
@@ -42,12 +44,12 @@ To see Topics API in action, you need to process a conversation using Symbl. Aft
 Remember to replace the `conversationId` in the API call with the Conversation ID you get from the previous API call.
 
 <Tabs
-  defaultValue="cURL"
-  values={[
-    { label: 'cURL', value: 'cURL', },
-    { label: 'Node.js', value: 'nodejs', },
-    { label: 'Javascript', value: 'javascript', }
-  ]
+defaultValue="cURL"
+values={[
+{ label: 'cURL', value: 'cURL', },
+{ label: 'Node.js', value: 'nodejs', },
+{ label: 'Javascript', value: 'javascript', }
+]
 }>
 <TabItem value="cURL">
 
@@ -61,17 +63,20 @@ curl "https://api.symbl.ai/v1/conversations/{conversationId}/topics" \
 <TabItem value="nodejs">
 
 ```js
-const request = require('request');
+const request = require("request");
 const authToken = AUTH_TOKEN;
 const conversationId = "conversationId";
 
-request.get({
+request.get(
+  {
     url: `https://api.symbl.ai/v1/conversations/${conversationId}/topics`,
-    headers: { 'Authorization': `Bearer ${authToken}` },
-    json: true
-}, (err, response, body) => {
+    headers: { Authorization: `Bearer ${authToken}` },
+    json: true,
+  },
+  (err, response, body) => {
     console.log(body);
-});
+  }
+);
 ```
 
 </TabItem>
@@ -84,31 +89,33 @@ const url = `https://api.symbl.ai/v1/conversations/${conversationId}/topics`;
 
 // Set headers
 let headers = new Headers();
-headers.append('Authorization', `Bearer ${authToken}`);
+headers.append("Authorization", `Bearer ${authToken}`);
 
 const data = {
   method: "GET",
   headers: headers,
-}
+};
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Request
 const request = new Request(url, data);
 
 fetch(request)
-  .then(response => {
-    console.log('response', response);
+  .then((response) => {
+    console.log("response", response);
     if (response.status === 200) {
       return response.json();
     } else {
-      throw new Error('Something went wrong on api server!');
+      throw new Error("Something went wrong on api server!");
     }
   })
-  .then(response => {
-    console.log('Success');
+  .then((response) => {
+    console.log("Success");
     // ...
-  }).catch(error => {
+  })
+  .catch((error) => {
     console.error(error);
   });
 ```
+
 </TabItem>
 </Tabs>

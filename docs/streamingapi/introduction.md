@@ -1,10 +1,14 @@
 ---
 id: introduction
-title: How to Implement Streaming API
+title: Streaming API
 description: Streaming API can provide real-time transcription and extract actionable insights from your conversations. Learn how to implement Symbl.ai’s Streaming API now.
 sidebar_label: Introduction
 slug: /streamingapi/introduction/
 ---
+
+<head>
+    <title>How to Implement Streaming API</title>
+</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -21,19 +25,18 @@ Symbl allows you to identify and redact Personally Identifiable Information (PII
 
 Here is a list of tutorials to help you understand how to use Symbl's Streaming API:
 
-* [Get Real-time Speech-To-Text Transcriptions Using Streaming API](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
-* [Gain Real-time AI Insights From Your Device's Mic Using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
-
+- [Get Real-time Speech-To-Text Transcriptions Using Streaming API](/docs/streamingapi/tutorials/receive-ai-insights-from-your-web-browser)
+- [Gain Real-time AI Insights From Your Device's Mic Using Symbl's Javascript SDK](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer)
 
 ### Code Snippets
 
 Here is a list of code snippets to help you get started on your journey with the Symbl Streaming API:
 
-* [Start and Stop Streaming API Connection](/docs/streamingapi/code-snippets/start-and-stop-connection)
-* [Receive Live Captioning](/docs/streamingapi/code-snippets/receive-live-captioning)
-* [Receive Live Topics](/docs/streamingapi/code-snippets/receive-live-topics)
-* [Receive Live AI Insights](/docs/streamingapi/code-snippets/receive-ai-insights)
-* [Receive Speech to Text for a different language in a conversation](/docs/streamingapi/code-snippets/receive-speech-to-text-for-different-languages)
+- [Start and Stop Streaming API Connection](/docs/streamingapi/code-snippets/start-and-stop-connection)
+- [Receive Live Captioning](/docs/streamingapi/code-snippets/receive-live-captioning)
+- [Receive Live Topics](/docs/streamingapi/code-snippets/receive-live-topics)
+- [Receive Live AI Insights](/docs/streamingapi/code-snippets/receive-ai-insights)
+- [Receive Speech to Text for a different language in a conversation](/docs/streamingapi/code-snippets/receive-speech-to-text-for-different-languages)
 
 
 ### Symbl Javascript SDK
@@ -42,17 +45,15 @@ The Programmable Javascript SDK allows you to add Conversational Intelligence di
 
 [Learn more about Symbl's Javascript SDK](/docs/javascript-sdk/introduction)
 
-
 ### API Reference
 
 The Streaming API allows you to easily use Symbl's Language Insights capabilities. It exposes the functionality of Symbl to dial in to the conference. Supported endpoints are given below. Additionally, events can be passed for further processing:
 
-* [Request Parameters](/docs/streaming-api/api-reference#request-parameters)
-* [Connection Establishment](/docs/streaming-api/api-reference#connection-establishment)
-* [Messages](/docs/streaming-api/api-reference#messages)
-* [Subscribe API](/docs/subscribe-api)
+- [Request Parameters](/docs/streaming-api/api-reference#request-parameters)
+- [Connection Establishment](/docs/streaming-api/api-reference#connection-establishment)
+- [Messages](/docs/streaming-api/api-reference#messages)
+- [Subscribe API](/docs/subscribe-api)
 
 :::info Termination due to elongated silence
-If a meeting is silent for more than 30 minutes, it will be automatically terminated. The charges towards the silent minutes apply. 
+If a meeting is silent for more than 30 minutes, it will be automatically terminated. The charges towards the silent minutes apply.
 :::
-
