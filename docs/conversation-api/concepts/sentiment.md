@@ -1,10 +1,14 @@
 ---
 id: sentiment
-title: Sentiment API- Analysing Texts in Real-time (Beta)
+title: Sentiment Analysis (Beta)
 sidebar_label: Introduction
 description: Sentiment API enables developers to detect positive or negative sentiment from conversations in real-time. Learn more.
 slug: /concepts/sentiment-analysis/
 ---
+
+<head>
+    <title>Sentiment API- Analysing Texts in Real-time (Beta)</title>
+</head>
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,7 +29,6 @@ Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect)
 
 </div>
 
-
 ## Sentiment API
 
 To see Sentiment API in action, you need to process a conversation using Symbl. After you process a conversation, you'll receive a **conversation Id** which can be passed in below-mentioned Conversation APIs. All you need to do is pass query parameters `sentiment=true`.
@@ -40,17 +43,16 @@ Each continuous sentence spoken by a speaker in conversation is referred to as a
 For topic level, the sentiment is calculated over the topic messages scope i.e. it factors in the sentiment of messages where the topic was talked about.
 :::
 
-
 ### 👉[Topics API](/docs/conversation-api/get-topics)
 
 ### API Response
 
 <Tabs
-  defaultValue="javascript"
-  values={[
-    { label: 'Speech to Text', value: 'javascript', },
-    { label: 'Topics', value: 'topics', }
-  ]
+defaultValue="javascript"
+values={[
+{ label: 'Speech to Text', value: 'javascript', },
+{ label: 'Topics', value: 'topics', }
+]
 }>
 
 <TabItem value="javascript">
@@ -80,6 +82,7 @@ For topic level, the sentiment is calculated over the topic messages scope i.e. 
         }       ]
 }
 ```
+
 </TabItem>
 <TabItem value="topics">
 
@@ -112,10 +115,10 @@ For topic level, the sentiment is calculated over the topic messages scope i.e. 
 
 #### Object
 
-|       Field      | Description                                                        |
-|------------------|--------------------------------------------------------------------|
-| ```polarity```   | Shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment.                    |
-| ```suggested``` | display suggested sentiment type (negative, neutral and positive). |
+| Field       | Description                                                                                                                                         |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `polarity`  | Shows the intensity of the sentiment. It ranges from -1.0 to 1.0, where -1.0 is the most negative sentiment and 1.0 is the most positive sentiment. |
+| `suggested` | display suggested sentiment type (negative, neutral and positive).                                                                                  |
 
 #### suggested object
 
@@ -124,11 +127,10 @@ We have chosen the below polarity ranges wrt sentiment type which covers a wide 
 Polarity Sentiment may vary for your use case. We recommend that you define a threshold that works for you, and then adjust the threshold after testing and verifying the results.
 :::
 
-
 | polarity         | Suggested Sentiment |
-|------------------|---------------------|
+| ---------------- | ------------------- |
 | -1.0 => x > -0.3 | negative            |
-| -0.3 => x <= 0.3  | neutral             |
+| -0.3 => x <= 0.3 | neutral             |
 | 0.3 > x <= 1.0   | positive            |
 
 ### Tutorials
