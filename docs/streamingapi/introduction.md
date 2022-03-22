@@ -38,6 +38,7 @@ Here is a list of code snippets to help you get started on your journey with the
 - [Receive Live AI Insights](/docs/streamingapi/code-snippets/receive-ai-insights)
 - [Receive Speech to Text for a different language in a conversation](/docs/streamingapi/code-snippets/receive-speech-to-text-for-different-languages)
 
+
 ### Symbl Javascript SDK
 
 The Programmable Javascript SDK allows you to add Conversational Intelligence directly into your web applications and meeting platforms. With the Javascript SDK, you can generate intelligent insights such as action items, topics and questions.
