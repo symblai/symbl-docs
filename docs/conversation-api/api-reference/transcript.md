@@ -36,6 +36,9 @@ software is sold as a yearly subscription the full cost to the customer is
 Speaker 1: Good morning Mr. Lewis. <br/><br/>Speaker 1: It's good to see you again.<br/><br/>Speaker 2: Thanks a lot.<br/><br/>Speaker 1: Start Let us <mark>talk about the pricing of your accounting software</mark>.<br/><br/>Speaker 1: How much does it cost to the customer?<br/><br/>Speaker 2: The software is sold as a yearly subscription the full cost to the customer is two thousand five hundred dollars per.<br/><br/>Speaker 1: Okay.<br/>
 <hr />
 
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -50,10 +53,6 @@ Speaker 1: Good morning Mr. Lewis. <br/><br/>Speaker 1: It's good to see you aga
 ```x-api-key``` | No | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
 ### Request Body Sample
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

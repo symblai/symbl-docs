@@ -26,6 +26,9 @@ We have an open-source utility written in JS to convert the Timeline file from Z
 
 This utility also does pre-processing on the events to ensure less noise while associating these with a conversation.
 
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -33,10 +36,6 @@ This utility also does pre-processing on the events to ensure less noise while a
 
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

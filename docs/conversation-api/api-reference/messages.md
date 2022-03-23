@@ -10,25 +10,22 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-The Messages API returns a list of all the messages in a conversation. You can use this for getting **Speech to Text** data (also known as transcription) for video conference, meeting or a telephone call.
+The Messages API returns a list of all the messages in a conversation. You can use this for getting **Speech to Text** data (also known as transcription) for video conference, meeting or a telephone call. Here, the message refers to a continuous sentence by a speaker.
 
-Here, the message refers to a continuous sentence by a speaker.
+:::info Sentiment Analysis in messages <font color="orange"> BETA</font>
 
-#### Sentiment Analysis in messages <font color="orange"> BETA</font>
+You can enable sentiment analysis over each message being spoken in the conversation. To do this, pass the query parameter `sentiment=true`. Read more about Sentiment Analysis [here](/docs/concepts/sentiment-analysis).
+:::
 
-You can enable sentiment analysis over each message being spoken in the conversation.
+### Authentication
 
-To do this, pass the query parameter `sentiment=true`. Read more about Sentiment Analysis [here](/docs/concepts/sentiment-analysis).
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/messages`
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"
@@ -143,7 +140,7 @@ Parameter | Required | Value |Description |
              "phrases": [
                 {
                     "type": "action_phrase",
-                    "text": "$69.99 per month",
+                    "text": "submit the documents",
                 }
              ],
              "sentiment": {
@@ -300,5 +297,5 @@ Field  | Description
 ```duration``` |  Returned as a float value measuring in seconds, upto 2 decimal points. It indicates for how long the sentence or word was spoken. It is returned at the sentence level as well as the word level.<br/> `duration= endTime (of current sentence/ word) - startTime (of current sentence/ word)`.<br/> This variable is currently in <font color="orange"> Labs</font>.
 ```conversationId``` | Unique conversation identifier. Read more about the Conversation ID [here](/docs/api-reference/getting-conversation-intelligence#what-is-a-conversation-id). |
 ```words``` | Words object with properties `word`, `startTime`, `endTime` and `score`. The `score` is the word level confidence score that represents the confidence level of individual words within the transcript. The `score` shows the relevancy of the word in the transcript. Higher the word-level confidence score, the more relevant it is to the transcript message. When you pass `verbose=true`, the word-level confidence score is by default returned. <br/> Note that a processed `text` conversation will not return any confidence score since it is already in the transcript form. `words` also return the `timeOffset` and `duration` variables. The word level confidence score is currently in <font color="orange"> Labs</font>. |
-```phrases``` | It shows the most important action phrases in each sentence. It's enabled when you pass `detectPhrases=true` during submiting the request in Async and Websocket API.|
-```sentiment```| Shows the sentiment polarity(intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral). |
+```phrases``` | It shows the most important action phrases in each sentence. It is enabled when you pass `detectPhrases=true` while submiting the request in Async and Websocket API.|
+```sentiment```| Shows the sentiment polarity (intensity of negativity or positivity of a sentence) and suggested sentiment type (positive, negative and neutral). |
