@@ -186,12 +186,6 @@ module.exports = {
             '/conversation-api/api-reference/transcript',
             '/conversation-api/overview/transcript'
           ]
-        }, {
-          to: '/conversation-api/update-members/',
-          'from': [
-            '/conversation-api/api-reference/update-members',
-            '/conversation-api/overview/update-members'
-          ]
         }]
       }
     ]
