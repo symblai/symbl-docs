@@ -1,7 +1,7 @@
 ---
 id: consuming-trackers-management-api
-title: How to Create and Use Trackers- Trackers Management API
-sidebar_label: Creating and using Trackers- Trackers Management API
+title: Consuming Trackers with Trackers Management API
+sidebar_label: Consuming Trackers with Trackers Management API
 slug: /tutorials/trackers/consuming-trackers-management-api/
 ---
 
@@ -11,7 +11,7 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 :::
 
 
-Trackers can be consumed via the Management API, which takes the onus of maintaining these entities from the developer and shifts it to Symbl’s backend. The Management API provides an easy-to-consume REST interface for managing these entities. 
+Trackers can be consumed via the Management API, which takes the onus of maintaining these entities from you and shifts it to Symbl’s backend. The Management API provides an easy-to-consume REST interface for managing these entities. 
 
 All Trackers created using Management API are saved and can be reused for other operations such as PUT, UPDATE and DELETE. 
 To read about the capabilities of the Management API, see the [Management API](/docs/management-api/introduction) page. 
@@ -24,10 +24,20 @@ You can also create, view, edit and delete Trackers via the Trackers Management 
 - **Trackers limitation**: You can create up to 500 trackers per account. 
 :::
 
+:::tip
+Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
+:::
+
 ### Step 1: Create Trackers
 ---
 
- Create Trackers by sending a `POST` request to the Trackers Management API endpoint given below:
+Create Trackers by sending a `POST` request to the Trackers Management API endpoint:
+
+#### Authentication 
+
+Before using the API, ensure that you have your Authentication Token (`AUTH_TOKEN`) handy. To learn about how to get your auth token, see the step-by-step instructions on the [Authentication](/docs/developer-tools/authentication) page.
+
+#### API Endpoint
 
 ```shell
 POST "https://api.symbl.ai/v1/manage/tracker"
@@ -39,10 +49,6 @@ You can only pass the following punctuations in trackers vocabulary:
 - Apostrophes `'` 
 
 Using any other punctuation mark such as `?`, `,`, `!`, `:` is not allowed. 
-:::
-
-:::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
 :::
 
 You can define the phrases and keywords in the **vocabulary** of the request body as shown below:
@@ -80,6 +86,8 @@ When you send a recorded audio, video or text using [Async API](http://localhost
 
 Given below is an example of a POST request to Async Audio API for processing an audio recording with `enableAllTrackers` set to `true`. By default this is set to `false`.
 
+#### API Endpoint
+
 ```shell
 POST "https://api.symbl.ai/v1/process/audio?enableAllTrackers=true"
 ```
@@ -95,7 +103,7 @@ As a query-param | Async Audio File API, Async Video File API.
 In Request Body | Async Audio URL API, Async Video URL API, Async Text API. 
 :::
 
-On successful processing by the above mentioned API, you will get the `conversationId` and the `jobId` as shown below:
+On successful processing of the job, you will get the `conversationId` and the `jobId` as shown below:
 
 #### Response 
 ```json
@@ -113,7 +121,9 @@ Ensure that you wait for the job to complete before proceeding to Step 3.
 ### Step 3: Get detected messages containing Trackers
 ---
 
-Using the `conversationId` from Step 2, you can `GET` the Trackers for the conversation.
+Using the `conversationId` from Step 2, you can `GET` the detected Trackers using the following endpoint:
+
+#### API Endpoint
 
 ```shell
 GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected"
@@ -166,18 +176,6 @@ Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers
 The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
 :::
-
-### Best Practices
-
-Following are the best practices to be followed while creating Trackers: 
-
-Dos' and Don'ts | Example |
----------- | ------- |  
-Densely pack your vocabulary with information | "What’s the price?" | 
-Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
-Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
-Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
-
 
 ## Read more
 ---

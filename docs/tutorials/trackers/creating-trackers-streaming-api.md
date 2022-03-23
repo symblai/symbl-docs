@@ -19,7 +19,7 @@ While you can create Trackers with Async or Streaming APIs, it is recommended th
 :::
 
 :::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
+Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
 :::
 
 ```js
@@ -106,18 +106,6 @@ Field | Required |
 `name` | The name of the User.
 `handlers` | The object encapsulating the call-back functions to be invoked on detection of those specific entities. For more information on various such handlers, check out this [link](/docs/javascript-sdk/tutorials/receive-ai-insights-from-your-computer/).
 `onTrackerResponse`| This function is invoked when Symbl detects a Tracker in real-time. The structure of the Tracker object is shown in the above code snippet.
-
-### Best Practices
-
-Following are the best practices to be followed while creating Trackers: 
-
-Dos' and Don'ts | Example |
----------- | ------- |  
-Densely pack your vocabulary with information | "What’s the price?" | 
-Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
-Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
-Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
-
 
 ## Read more
 ---
