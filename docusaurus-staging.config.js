@@ -188,12 +188,6 @@ module.exports = {
             '/conversation-api/api-reference/update-members',
             '/conversation-api/overview/update-members'
           ]
-        }, {
-          to: '/pre-built-ui/summary-ui/',
-          'from': [
-            '/pre-built-ui/video-summary-ui',
-            '/pre-built-ui/text-summary-ui'
-          ]
         }]
       }
     ]

@@ -2,6 +2,7 @@
 id: get-speech-to-text-real-time
 title: Speech-to-Text in Real-time
 sidebar_label: Real-time Speech-to-Text
+slug: /how-tos/get-speech-to-text-real-time/
 ---
 
 import Tabs from '@theme/Tabs';

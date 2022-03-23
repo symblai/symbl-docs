@@ -2,7 +2,7 @@
 id: creating-trackers-and-analytics-ui
 title: Creating Trackers and Analytics UI
 sidebar_label: Trackers and Analytics UI
-
+slug: /tutorials/pre-built-summary-ui/creating-trackers-and-analytics-ui/
 ---
 
 import Tabs from '@theme/Tabs';

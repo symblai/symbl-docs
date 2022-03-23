@@ -1,6 +1,7 @@
 ---
 id: post-text
 title: POST Text API
+slug: /async-api/overview/text/post-text/
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: post-audio
 title: POST Audio API
+slug: /async-api/overview/audio/post-audio/
 ---
 
 import Tabs from '@theme/Tabs';
