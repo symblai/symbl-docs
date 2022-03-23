@@ -676,7 +676,6 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'conversation-api/concepts/comprehensive-action-items',
     'conversation-api/api-reference/comprehensive-action-items',
     ],
  },
@@ -693,7 +692,7 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'guides/abstract-topics',
+    'labs/abstract-topics-labs',
   ],
  },
   
@@ -719,6 +718,14 @@ Communitysidebar: [{
 ChangelogSidebar: [{
   id: "changelog",
   type: "doc",
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#14-march-2022',
+    label: '14 March 2022',
+  }
 },
 {
   type: 'doc',

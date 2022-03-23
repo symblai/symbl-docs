@@ -28,6 +28,10 @@ For generating Summarization, we recommend the following:
 - The speaker information should be passed in generate Summary request. Learn how to provide speaker information in [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/) page. 
 :::
 
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### API Endpoint
 **<font color="orange">GET</font> `https://api.symbl.ai/v1/conversations/{conversationId}/summary`**
 

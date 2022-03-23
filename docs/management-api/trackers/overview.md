@@ -23,7 +23,7 @@ You can use the Trackers API with the following:<br/>
 While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
 :::
 
-## Endpoints
+## API Endpoints
 
 Operation  | Endpoint
 ---------- | -------
@@ -33,3 +33,4 @@ Get Tracker with ID| [`GET` v1/manage/tracker/{trackerId}](/management-api/track
 Get Tracker with name | [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+

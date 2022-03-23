@@ -11,16 +11,15 @@ import TabItem from '@theme/TabItem';
 
 This API updates an existing Conversation object with any metadata you would like to maintain. 
 
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### API Request
 
 `PUT https://api.symbl.ai/v1/conversations/{conversationId}`
 
 ### Example API Call
-
-:::info
-Before using the Conversation API, you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
-
 
 <Tabs
   defaultValue="cURL"
