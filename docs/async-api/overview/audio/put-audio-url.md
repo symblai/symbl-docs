@@ -1,6 +1,7 @@
 ---
 id: put-audio-url
 title: PUT Audio URL API
+slug: /async-api/overview/audio/put-audio-url/
 ---
 
 import Tabs from '@theme/Tabs';

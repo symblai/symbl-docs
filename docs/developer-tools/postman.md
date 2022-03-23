@@ -3,6 +3,7 @@ id: postman
 title: Using Postman
 sidebar_label: Using Postman
 image: https://i.imgur.com/mErPwqL.png
+slug: /developer-tools/postman/
 ---
 Postman is a desktop and web application that allows you to send HTTP requests from a graphical user interface.
 

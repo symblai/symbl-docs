@@ -2,6 +2,7 @@
 id: symbl-elements
 title: Symbl React Elements
 sidebar_label: Symbl React Elements
+slug: /pre-built-ui/symbl-elements/
 ---
 
 import Tabs from '@theme/Tabs';
