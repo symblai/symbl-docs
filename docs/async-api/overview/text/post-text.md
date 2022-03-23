@@ -306,7 +306,9 @@ Field | Required | Type |  Description
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
 ```enableSummary```<font color="blue"> ALPHA </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
 ```webhookUrl``` | Optional | String | Webhook URL on which job updates to be sent. This should be after making the API request. See the [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) for more. 
-#### messages
+
+<details> 
+<summary>messages</summary>
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
@@ -343,8 +345,10 @@ Field | Required | Type | Description
   }]
 }
 ```
+</details>
 
-#### payload
+<details>
+<summary> payload </summary>
 
 Field | Required | Type | Default | Description
 ---------- | ------- | ------- |  ------- | -------
@@ -357,8 +361,10 @@ Field | Required | Type | Default | Description
   }
 }
 ```
+</details>
 
-#### from(user)
+<details>
+<summary> from(user)</summary>
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
@@ -373,8 +379,9 @@ Field | Required | Type | Description
   }
 }
 ```
-
-#### duration
+</details>
+<details>
+<summary> duration</summary>
 
 Field | Required | Type | Description
 ---------- | ------- | ------- |  -------
@@ -389,8 +396,9 @@ Field | Required | Type | Description
   }
 }
 ```
-
-#### webhookUrl
+</details>
+<details>
+<summary> webhookUrl </summary>
 
 WebhookUrl will be used to send the status of job created. Every time the status of the job changes it will be notified on the WebhookUrl.
 
@@ -406,7 +414,9 @@ Field | Description
 ```jobId``` | ID to be used with Job API.
 ```status``` | Current status of the job. Valid statuses: [ `scheduled`, `in_progress`, `completed` ].
 
-### Response
+</details>
+<details>
+<summary> Response </summary>
 
 ```js
 {
@@ -419,6 +429,7 @@ Field | Description
 ---------- | ------- |
 ```conversationId``` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
 ```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api).
+</details>
 
 ### API Limit Error
 
