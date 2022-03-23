@@ -10,7 +10,7 @@ slug: /tutorials/trackers/create-trackers-async-api/
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-Symbl provides a diverse set of Async APIs based on Audio/Video or Textual content. For more details on Async APIs refer to the documentation [here](/docs/async-api/introduction). 
+Symbl provides a set of Async APIs based on audio, video or text content. For more details on Async APIs refer to the documentation [here](/docs/async-api/introduction). 
 
 The Trackers once ingested via the request, will then try to detect these in the Conversation. Once the job is complete, you can fetch the Trackers from the Conversation API through the `/trackers` endpoint described below.
 
@@ -18,13 +18,18 @@ The Trackers once ingested via the request, will then try to detect these in the
 While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
 :::
 
-
 ### Async Audio File API
-The Tracker entities should be passed in as a **query parameter** in the Async Audio API’s URL like shown below
+The Tracker entities should be passed as a **query parameter** in the Async Audio API’s URL as shown below.
 
-:::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
+:::tip
+- Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
+
+- If you want to create multiple trackers, use [Trackers Management API for bulk creation](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk). The Trackers Management API handles all the Trackers you have created at your account level and makes it easy to maintain them.
 :::
+
+#### Authentication 
+
+Before using the API, ensure that you have your Authentication Token (`AUTH_TOKEN`) handy. To learn about how to get your auth token, see the step-by-step instructions on the [Authentication](/docs/developer-tools/authentication) page.
 
 ### API Endpoint
 
@@ -237,17 +242,6 @@ Notice that the trackers member follows the same structure as the Trackers secti
   "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
 }
 ```
-
-### Best Practices
-
-Following are the best practices to be followed while creating Trackers: 
-
-Dos' and Don'ts | Example |
----------- | ------- |  
-Densely pack your vocabulary with information | "What’s the price?" | 
-Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
-Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
-Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
 
 ## Read more
 ---

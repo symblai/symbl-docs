@@ -20,8 +20,14 @@ Additionally, you can pass the parameter `enableAllTrackers` in the `config` obj
 :::
 
 :::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
+Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
 :::
+
+#### Authentication 
+
+Before using the API, ensure that you have your Authentication Token (`AUTH_TOKEN`) handy. To learn about how to get your auth token, see the step-by-step instructions on the [Authentication](/docs/developer-tools/authentication) page.
+
+### Sample Request
 
 ```js
 const connection = await sdk.startRealtimeRequest({
@@ -150,19 +156,6 @@ Field Name  | Description
 `messageRefs.id`| The unique identifier of the message. |
 `messageRefs.text` | The text body of the message. |
 `messageRefs.offset`| The closest match of the text in the message. Offset of -1 means that an exact match for that specific vocabulary wasn’t found and this was the similar match. An offset greater than 0 indicates an exact match for the tracker in the payload of the message.
-
-
-### Best Practices
-
-Following are the best practices to be followed while creating Trackers: 
-
-Dos' and Don'ts | Example |
----------- | ------- |  
-Densely pack your vocabulary with information | "What’s the price?" | 
-Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
-Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
-Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
-
 
 ## Read more
 ---

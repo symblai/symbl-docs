@@ -10,22 +10,22 @@ slug: /tutorials/trackers/consuming-trackers-async-api/
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-To use Trackers with Async API, follow the steps given below:
+This tutorial covers step-by-step information on how to use Trackers with Async API. We have used the example of the [Async Audio URL API](/docs/management-api/trackers/create-tracker#async-audio-url-api) here. However, you can follow the same steps with other Async APIs as well. 
 
 ### Step 1: Create a Tracker
 ---
 
-The first step is to create a Tracker with a set of phrases and keywords using Async APIs.
+The first step is to create a Tracker vocabulary with a set of phrases and keywords that you wish to track and pass the same in the Async API payload.
 
 :::tip
-If you want to create multiple trackers in bulk, use [Trackers Management API for bulk creation](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk). The Trackers Management API handles Trackers at your account level and is recommended for usecases where where you want to use multiple Trackers.
+- Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
+
+- If you want to create multiple trackers, use [Trackers Management API for bulk creation](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk). The Trackers Management API handles all the Trackers you have created at your account level and makes it easy to maintain them.
 :::
 
-:::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
-:::
+#### Authentication 
 
-Given below is an example of an [Async Audio URL API](/docs/management-api/trackers/create-tracker#async-audio-url-api):
+Before using the API, ensure that you have your Authentication Token (`AUTH_TOKEN`) handy. To learn about how to get your auth token, see the step-by-step instructions on the [Authentication](/docs/developer-tools/authentication) page.
 
 #### API Endpoint
 
@@ -34,11 +34,12 @@ POST https://api.symbl.ai/v1/process/audio/url
 ```
 
 #### Request Body
-```json
+
+```shell
 {
-    "url": "<PUBLIC_AUDIO_FILE_URL>",
-    "confidenceThreshold": 0.6,
-    "timezoneOffset": 0,
+    "url": "<PUBLIC_AUDIO_FILE_URL>", # The URL must be publicly accessible. 
+    "confidenceThreshold": 0.6, # Minimum confidence score to consider an insight - action items, follow-ups, topics, and questions as valid.
+    "timezoneOffset": 0, #  Specifies the actual timezoneOffset used for detecting the time/date-related entities.
     "trackers": [
         {
             "name": "Promotion Mention",
@@ -55,16 +56,16 @@ POST https://api.symbl.ai/v1/process/audio/url
 
 #### Response
 
-This creates a Tracker and returns the following response. Note that every Tracker has a unique `id`.
+This creates a Tracker and returns the following response. Note the conversation ID for the next step.
 
-```json
+```shell
 {
-  "conversationId": "5815170693595136",
-  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+  "conversationId": "5815170693595136", # This is the unique identifier of the conversation. Use this to topics, action items, etc. 
+  "jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d" # Use the Job ID to know the status of the job. 
 }
 ```
 :::note
-To create Trackers with Async APIs, see detailed documentation in the links given below. 
+See detailed documentation in the links given below: 
 - [Create Trackers- Async Audio File API](/docs/management-api/trackers/create-tracker#async-audio-file-api)
 - [Create Trackers- Async Audio URL API](/docs/management-api/trackers/create-tracker#async-audio-url-api)
 - [Create Trackers- Async Video File API](/docs/management-api/trackers/create-tracker#async-video-file-api)
@@ -81,7 +82,9 @@ After creating the Tracker, you can:
 ### Step 2: Get the detected messages containing Trackers
 ---
 
-Using the `conversation_id` you get from Step 1, you can `GET` the Trackers for the conversation.
+Using the `conversation_id` you got from Step 1, make a `GET` request to the Trackers API endpoint given below:
+
+#### API Endpoint
 
 ```shell
 GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected"
@@ -91,7 +94,7 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected
 ```json
 [
     {
-        "id": "4527907378937856",
+        "id": "4527907378937856", // this is the ID of the Tracker
         "name": "Promotion Mention",
         "matches": [
             {
@@ -112,12 +115,13 @@ GET "https://api.symbl.ai/v1/conversations/{{conversation_id}}/trackers-detected
 ]
 ```
 
-### Detecting Trackers with Async API
+### Get Trackers by ID
 
-You can also use the Async API to detect Trackers by sending a list of Tracker IDs of previously created trackers (from the Management API). The Trackers will be searched in the submitted Async API request containing the conversation.  
+You can also use the Async API to get Trackers by sending a list of Tracker IDs of previously created trackers. The Trackers will be searched in the submitted Async API request containing the conversation.  
 
 #### Example 
-In the example given below, we will send the following trackers IDs in the Async API request assuming they were already created:
+In the example given below, we will send the following trackers IDs in the Async API request body:
+
 ```shell
 "trackers": [
     {
@@ -128,7 +132,8 @@ In the example given below, we will send the following trackers IDs in the Async
     },
 ```
 #### Full Request Sample
-Given below is an example of an Async Text API call sent with Tracker IDs:
+
+Given below is an example of an Async Text API request body containing Tracker IDs:
 
 ```shell
 curl --location --request POST 'https://api.symbl.ai/v1/process/text' \
@@ -148,7 +153,7 @@ curl --location --request POST 'https://api.symbl.ai/v1/process/text' \
   ],
   "detectEntities": true,
   "messages": [],
-  "trackers": [
+  "trackers": [ 
     {
       "id": "5123033831841280"
     },
@@ -162,17 +167,6 @@ curl --location --request POST 'https://api.symbl.ai/v1/process/text' \
 The old endpoint for fetching Trackers (given below) is deprecated and not recommended to be used
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/trackers`
 :::
-
-### Best Practices
-
-Following are the best practices to be followed while creating Trackers: 
-
-Dos' and Don'ts | Example |
----------- | ------- |  
-Densely pack your vocabulary with information | "What’s the price?" | 
-Don't preface your information with lots of words that don’t convey meaning | "I was wondering if you could tell me about your pricing structure". |
-Use simple sentences or phrases | Short sentence: "I want to understand your product". Phrase: "understand your product" | 
-Avoid using complex sentence structure | "I want to make sure that I have a full understanding of your product".
 
 
 ## Read more
