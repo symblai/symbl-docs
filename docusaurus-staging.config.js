@@ -262,27 +262,27 @@ module.exports = {
         }, 
         {
           label: "SDKs",
-          href: '/sdk-intro/',
+          to: '/sdk-intro/',
           position: "left",
         },
         {
           label: "Tutorials",
-          href: '/tutorials/',
+          to: '/tutorials/',
           position: "left",
         },            
         {
           label: "Integrations",
-          href: '/integrations/integrations-intro/',
+          to: '/integrations/integrations-intro/',
           position: "left",
         },
         {
           label: "Labs",
-          href: '/labs/',
+          to: '/labs/',
           position: "left",
         },
         {
           label: "Support",
-          href: '/support/',
+          to: '/support/',
           position: "left",
         },
         {
@@ -292,13 +292,13 @@ module.exports = {
         },
         {
           label: 'Free Sign Up',
-          to: 'https://platform.symbl.ai/#/signup',
+          href: 'https://platform.symbl.ai/#/signup',
           position: "right",
         },
         {
           label: "🆕Changelog",
           ImageData: "/img/tick-mark.png",
-          href: '/changelog',
+          to: '/changelog',
           position: "right",
         },
       ],
