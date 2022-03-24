@@ -259,7 +259,7 @@ module.exports = {
           label: "API Reference",
           to: '/api-reference/getting-started/',
           position: "left",
-          activeBaseRegex: "docs/(api-reference|async-api/overview|streamingapi/introduction|streaming-api/api-reference|subscribe-api|telephony/introduction|telephony-api|conversation-api/api-reference|management-api|developer-tools/(authentication|error|postman|sample-apps))",
+          activeBaseRegex: "docs/(api-reference|async-api/(overview|introduction|reference)|streamingapi/introduction|streaming-api/api-reference|subscribe-api|telephony/introduction|telephony-api|conversation-api/api-reference|management-api|developer-tools/(authentication|error|postman|sample-apps))",
         }, 
         {
           label: "SDKs",
