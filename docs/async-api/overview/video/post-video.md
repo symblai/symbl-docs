@@ -17,13 +17,13 @@ It can be useful in any use case where you have access to the video file of any 
 This API supports only <b>mp4</b> file formats. If you have any other type of file, you need to first convert the file to the supported format in order to use the API.
 :::
 
-### Authentication
-Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
-
 ### API Endpoint
 `POST https://api.symbl.ai/v1/process/video`
 
+
 ### Example API Call
+
+Before using the Async Video API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"

@@ -18,15 +18,14 @@ It can be utilized for any use case where you have access to recorded audio stor
 The URL provided must be a publicly available URL. Currently, we do not support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
-### Authentication
-Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
-
 ### API Endpoint
 
 `POST https://api.symbl.ai/v1/process/audio/url`
 
 
 ### Example API Call
+
+Before using the Async Audio API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"

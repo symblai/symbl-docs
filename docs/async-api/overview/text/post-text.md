@@ -11,14 +11,13 @@ import TabItem from '@theme/TabItem';
 
 The Async Text API allows you to process any text payload. This API is useful for when you want to extract Conversation Insights from textual content.
 
-### Authentication
-Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
-
 ### API Endpoint
 
 `POST https://api.symbl.ai/v1/process/text`
 
 ### Example API Call
+
+Before using the Async Text API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"

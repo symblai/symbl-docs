@@ -13,14 +13,14 @@ The Async Audio API allows you to process an additional audio file to the previo
 
 It can be useful in any use case where you have access to multiple audio files of any type of conversation, and you want to extract the insightful items supported by the [Conversation API](/docs/conversation-api/introduction).
 
-### Authentication
-Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### API Endpoint
 
 `PUT https://api.symbl.ai/v1/process/audio/:conversationId`
 
 ### Example API Call
+
+Before using the Async Audio API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"
