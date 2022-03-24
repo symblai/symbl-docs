@@ -23,16 +23,15 @@ In order to detect entities in conversation we have introduced new parameter for
 
 For the [Async Audio File](/docs/async-api/overview/audio/post-audio) and the [Async Video File](/docs/async-api/overview/video/post-video) endpoints, `detectEntities` is a query parameter, e.g. `https://api.symbl.ai/v1/process/audio?detectEntities=true`. For the other APIs it's passed in the JSON Request Body.
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/entities`
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

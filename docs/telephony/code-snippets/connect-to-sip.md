@@ -1,6 +1,7 @@
 ---
 id: connect-to-sip
 title: Connect to a SIP connection to get Speech to Text and AI Insights
+slug: /telephony/code-snippets/connect-to-sip/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

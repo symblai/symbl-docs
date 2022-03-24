@@ -1,6 +1,7 @@
 ---
 id: connect-to-pstn
 title: Connect to a PSTN connection to get Speech to Text and AI Insights
+slug: /telephony/code-snippets/connect-to-pstn/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: detect-key-phrases
 title: Detect Key Phrases
+slug: /streamingapi/code-snippets/detect-key-phrases/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -309,9 +310,30 @@ If successful you should receive a response in the console.
 </TabItem>
 </Tabs>
 
+
+## Parameter Description
+
+Let’s go over all the parameters passed in the configuration object in the above function:
+
+Field | Required |
+---------- | ------- |
+`id` | A unique UUID that represents this WebSocket API Session.
+`insightType` | The types of Insights to be detected for this Conversation.
+`trackers`| The Trackers to be detected in real-time for that Conversation. Follows the same structure as described in the [Trackers section](/docs/management-api/trackers/create-tracker#sample-request-body).
+`config`| The config object encapsulates the metadata for the WebSocket API’s session.
+`meetingTitle`| The title for this conversation/meeting.
+`confidenceThreshold` | The insights having confidence scores greater than this threshold will be the ones detected for the Conversation.
+`languageCode` | The language-code in BCP-47 format.
+`sampleRateHertz`| The sample-rate of the incoming audio data which is being pushed to Symbl.
+`trackers: { interimResults }`| The interimResults flag tells Symbl to send the tracker results as soon as they are detected. If false, the tracker results are detected for the finalized transcription responses.
+`speaker` | The details of the speaker in this Conversation
+`userId`| Unique identifier to represent the User.
+`name` | The name of the User.
+
+
 <a name="ontrackerresponse"></a>
 
-### Handlers Reference
+## Handlers Reference
 
 * `handlers`: This object has the callback functions for different events
 

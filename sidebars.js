@@ -406,7 +406,6 @@ id: 'developer-tools/postman',
     'streamingapi/code-snippets/receive-live-captioning',
     'streamingapi/code-snippets/receive-live-topics',
     'streamingapi/code-snippets/receive-ai-insights',
-    'streamingapi/code-snippets/consume-trackers',
     'streamingapi/code-snippets/receive-speech-to-text-for-different-languages',
     'streamingapi/code-snippets/receive-trackers-in-spanish',
   ],
@@ -448,6 +447,19 @@ id: 'developer-tools/postman',
     'tutorials/summarization/getting-summary',
     'tutorials/summarization/refreshing-summary',
     'tutorials/summarization/adding-speaker-info',
+  ],
+},
+{
+  label: 'Trackers API (Beta)',
+  type: 'category',
+  collapsed: true,
+  items: [
+    'tutorials/trackers/create-trackers-async-api',
+    'tutorials/trackers/create-trackers-streaming-api',
+    'tutorials/trackers/consuming-trackers-async-api',
+    'tutorials/trackers/consuming-trackers-streaming-api',
+    'tutorials/trackers/consuming-trackers-management-api',
+    'best-practices/best-practices-trackers',
   ],
 },
  {
@@ -664,7 +676,6 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'conversation-api/concepts/comprehensive-action-items',
     'conversation-api/api-reference/comprehensive-action-items',
     ],
  },
@@ -681,7 +692,7 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'guides/abstract-topics',
+    'labs/abstract-topics-labs',
   ],
  },
   
@@ -707,6 +718,14 @@ Communitysidebar: [{
 ChangelogSidebar: [{
   id: "changelog",
   type: "doc",
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#14-march-2022',
+    label: '14 March 2022',
+  }
 },
 {
   type: 'doc',

@@ -2,6 +2,7 @@
 id: sample-apps
 title: Explore Sample Apps
 sidebar_label: Explore Sample Apps
+slug: /developer-tools/sample-apps/
 
 ---
 

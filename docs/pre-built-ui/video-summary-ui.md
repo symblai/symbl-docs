@@ -2,7 +2,7 @@
 id: video-summary-ui
 title: Video Summary UI
 sidebar_label: Video Summary UI
-
+slug: /pre-built-ui/video-summary-ui/
 ---
 
 import Tabs from '@theme/Tabs';

@@ -119,12 +119,41 @@ The Trackers Management UI allows you to copy the Tracker ID with the copy butto
 **Trackers limitation**: You can create up to 500 Trackers per account. 
 :::
 
-## Tutorials
+Read more
+---
 
-- [How to create a Tracker](/docs/management-api/trackers/overview#consuming-trackers-with-management-api)
-- [How to create Trackers with Async API](/docs/management-api/trackers/overview#consuming-trackers-with-async-apis)
-- [How to create Trackers with Streaming API](/docs/management-api/trackers/overview#consuming-trackers-with-streaming-api)
-- [Viewing detected Trackers with Async API](/docs/async-api/code-snippets/track-phrases-in-a-conversation/#view-detected-trackers)
-- [Detect Key Phrases with Streaming API](/docs/streamingapi/code-snippets/detect-key-phrases/#ontrackerresponse-json-response-example)
-- [How to create Trackers in Bulk](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk)
-- [How to receive Trackers in Spanish with Streaming API](/docs/streamingapi/code-snippets/receive-trackers-in-spanish)
+<div class="row">
+  <div class="column">
+    <div class="card21"><h4>API Reference</h4>
+
+* [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
+* [`GET` v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
+* [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
+* [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
+* [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+
+<br/></div>
+  </div>
+   <div class="column">
+    <div class="card21"><h4>Tutorials</h4>
+
+ 
+* [How to create and use Trackers- Trackers Management API](/docs/tutorials/trackers/consuming-trackers-management-api/)
+* [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
+* [Creating Trackers with Streaming API](/docs/tutorials/trackers/create-trackers-streaming-api/)
+* [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
+* [Viewing detected Trackers with Async API](/docs/async-api/code-snippets/track-phrases-in-a-conversation/#view-detected-trackers)
+* [Detect Key Phrases with Streaming API](/docs/streamingapi/code-snippets/detect-key-phrases/#ontrackerresponse-json-response-example)
+* [How to create Trackers in Bulk](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk)
+* [How to receive Trackers in Spanish with Streaming API](/docs/streamingapi/code-snippets/receive-trackers-in-spanish)
+ 
+
+  </div>
+  </div>
+  
+<br/>
+<br/>
+<br/>
+ 
+</div>
+<br/>

@@ -1,6 +1,7 @@
 ---
 id: sentiment-analysis-on-topics
 title: Sentiment Analysis on Topics (Beta)
+slug: /async-api/code-snippets/sentiment-analysis-on-topics/
 ---
 
 import Tabs from '@theme/Tabs';

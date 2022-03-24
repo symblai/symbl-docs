@@ -11,14 +11,16 @@ slug: /management-api/trackers/get-tracker/
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-:::note Trackers Management UI
-You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
-:::
-
 You can GET Trackers in the following ways with the Management API:
 - [GET All Trackers](#get-all-trackers)
 - [GET Tracker by ID](#get-tracker-by-id)
 - [GET Tracker by name](#get-tracker-by-name)
+
+:::info Trackers Management UI
+You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
+:::
+
+
 
 ## GET All Trackers
 

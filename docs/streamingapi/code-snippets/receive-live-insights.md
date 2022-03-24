@@ -1,7 +1,7 @@
 ---
 id: receive-ai-insights
 title: Receive Live AI Insights
-slug: /streamingapi/code-snippets/receive-live-insights
+slug: /streamingapi/code-snippets/receive-live-insights/
 ---
 
 import Tabs from '@theme/Tabs';

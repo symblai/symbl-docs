@@ -11,6 +11,10 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 14 March 2022
+
+![api update](/img/api-update.png) 
+- **Enabling All Trackers with Streaming API**: Streaming API now supports enabling all the Trackers associated with an account. [Read more here](/docs/streaming-api/api-reference/#using-trackers). <br/>
 
 ### 8 Feb 2022
 

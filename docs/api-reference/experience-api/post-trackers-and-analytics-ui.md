@@ -2,7 +2,7 @@
 id: post-trackers-and-analytics-ui
 title: POST Trackers and Analytics UI
 sidebar_label: POST Trackers and Analytics UI
-
+slug: /api-reference/experience-api/post-trackers-and-analytics-ui/
 ---
 
 import Tabs from '@theme/Tabs';

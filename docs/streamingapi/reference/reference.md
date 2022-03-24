@@ -13,12 +13,16 @@ import TabItem from '@theme/TabItem';
 Symbl's Streaming API is based on the WebSocket protocol and can be used for real-time use-cases where both the audio and its results need to be available in real-time. 
 
 :::info
-Currently, Streaming API is supported in English only. However, the support for Spanish is available as a part of Symbl Labs. 
+Currently, Streaming API is supported in English only. However, the support for Spanish is available as a part of [Symbl Labs](/docs/labs/). 
 ::: 
 
 ## Request Parameters
 
-#### Endpoint
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
+### Endpoint
 
 `wss://api.symbl.ai/v1/streaming/{CONVERSATION_ID}?access_token=ACCESS_TOKEN`
 
@@ -30,14 +34,15 @@ The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated
 
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```type``` | Optional | start_request, stop_request, modify_request | Type of message
+```type``` | Mandatory | `start_request`, `stop_request` | Type of message. 
+```type``` | Optional | `modify_request` | Type of message. Allows you to modify the request. See the [Modify Request](#modify-request) section below for more details.
 ```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
-```customVocabulary``` | Optional | List of String | An array of strings containing a vocabulary specific to your company, products, or phrases. 
+```customVocabulary``` | Optional | List of String | An array of strings containing vocabulary specific to your company, products, or phrases. 
 ```config``` | Optional | Find the supported value [here](#config) | Configuration for this request. [See the config section below for more details](#config).
 ```speaker``` | Optional  | Find the supported value [here](#speaker) | Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details](#speaker).
 ```noConnectionTimeout``` | Optional |  Between `0` to `1800` seconds | The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> <br/> For example,  when this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
 ```disconnectOnStopRequest``` | Optional | `true` or `false` | This parameter allows you to set your Streaming API connection in such a way that even when the `stop_request` is sent. The connection does not drop-off, only the processing is stopped and the `conversationId` and connection is kept live for `1800` seconds by default. You can always override this value by passing the `disconnectOnStopRequest` parameter. <br/> <br/> This allows you to stop and start the Streaming API processing without dropping the WebSocket connection, so that you can stop and resume the processing in the middle of a call and optimize the Streaming API usage costs. <br/> <br/> The default value is `true`. |
-```disconnectOnStopRequestTimeout``` | Optional | Between `0` to `3600` seconds | This parameter allows you to override the idle time out (if a WebSocket connection is idle for 30 minutes). Set this parameter with a value between `0` to `3600` seconds. If the idle connection needs to be kept alive beyond `3600` seconds, you have to restart the connection at `3600` seconds elapsed. <br/> <br/> If the value is passed as `0`, the WebSocket connection is dropped when `stop_request` is received. The default value is `1800`.
+```disconnectOnStopRequestTimeout``` | Optional | Between `0` to `1800` seconds | This parameter allows you to override the idle time out (if a WebSocket connection is idle for 30 minutes). Set this parameter with a value between `0` to `1800` seconds. If the idle connection needs to be kept alive beyond `1800` seconds, you have to restart the connection at `1800` seconds elapsed. <br/> <br/> If the value is passed as `0`, the WebSocket connection is dropped when `stop_request` is received. The default value is `1800`.
 
 ##### Code Example
 
@@ -96,8 +101,8 @@ Field | Required | Supported value | Default Value | Description
 
 Field  | Required | Supported Value
 ---------- | ------- |  -------
-```userId``` | false | Any user identifier for the user.
-```name``` | false | Display name of the user.
+```userId``` | Optional | Any user identifier for the user.
+```name``` | Optional | Display name of the user.
 
 ##### Code Example
 
@@ -135,7 +140,7 @@ Field  | Required | Supported Value
 
 ## Connection Establishment
 
-This is a WebSocket endpoint, and it starts as an HTTP request that contains HTTP headers that indicate the client's desire to upgrade the connection to a WebSocket instead of using HTTP semantics. The server indicates its willingness to participate in the WebSocket connection by returning an HTTP 101 Switching Protocols response. After the exchange of this handshake, both client and service keep the socket open and begin using a message-based protocol to send and receive information. 
+This is a WebSocket endpoint, and it starts as an HTTP request that contains HTTP headers that indicate the client's desire to upgrade the connection to a WebSocket instead of using HTTP semantics. The server indicates its willingness to participate in the WebSocket connection by returning an HTTP 101 Switching Protocols response. After the exchange of this handshake, both client and server keep the socket open and begin using a message-based protocol to send and receive information. 
 
 Please refer to [WebSocket Specification RFC 6455](https://tools.ietf.org/html/rfc6455) for a more in-depth understanding of the Handshake process.
 
@@ -161,7 +166,7 @@ Please refer to [WebSocket Specification RFC 6455](https://tools.ietf.org/html/r
 
 This is a request to start the processing after the connection is established. Right after this message has been sent, the audio should be streamed, any binary audio streamed before the receipt of this message will be ignored.
 
-To get direct access to the mic, we're going to use an API in the WebRTC specification called `getUserMedia()`.
+To get direct access to the mic, we are going to use an API in the WebRTC specification called `getUserMedia()`.
 
 Once the code is running, start speaking and you should see the `message_response` and `insight_response` messages getting printed on the console.
 
@@ -223,7 +228,7 @@ setTimeout(() => {
 ### Modify Request​
 The `modify_request` allows you to modify the request during Streaming API call, i.e., after the WebSocket connection has established, if there is a device change event. 
 
-Using the `type` field with the supported value `modify_request` you can update the sample rate and encoding based on the new device information in the same conversation itself.
+Using the `type` field with the supported value `modify_request`, you can update the sample rate and encoding based on the new device information in the same conversation itself.
 
 ```js
   setTimeout(() => {
@@ -249,10 +254,10 @@ Using the `type` field with the supported value `modify_request` you can update 
 ## Messages
 
 ### Message Formats
-Client and Server both can send messages after the connection is established. According to RFC 6455, WebSocket messages can have either text or a binary encoding. The two encodings use different on-the-wire formats. Each format is optimized for efficient encoding, transmission, and decoding of the message payload.
+Client and server can both send messages after the connection is established. According to RFC 6455, WebSocket messages can have either text or a binary encoding. The two encodings use different on-the-wire formats. Each format is optimized for efficient encoding, transmission, and decoding of the message payload.
 
 #### Text Message
-Text messages over WebSocket must use UTF-8 encoding. Text Message is the serialized JSON message. Every text message has a type field to specify the type or the purpose of the message.
+Text messages over WebSocket must use UTF-8 encoding. Text message is the serialized JSON message. Every text message has a type field to specify the type or the purpose of the message.
 
 #### Binary Message
 Binary WebSocket messages carry a binary payload. For the Real-time API, audio is transmitted to the service by using binary messages. All other messages are the Text messages.
@@ -271,11 +276,9 @@ This section describes the messages that originate in Service and are sent to th
 Service sends mainly two types of messages (`message_response`, `insight_response`) to the client as soon as they're available.
 
 ### Message Response
-The `message_response` contains the processed messages as soon as they're ready and available, in the processing of the continuous audio stream. This message does not contain any insights.
+The `message_response` contains the processed messages as soon as they are ready and available, in the processing of the continuous audio stream. This message does not contain any insights.
 
-
-
-Example of the `message_response` object
+Example of the `message_response` object:
 
 
 ```js
@@ -354,9 +357,9 @@ Example of the `insight_response` object
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-Symbl provides a real-time Streaming API for processing audio content in real time. You can also capture Trackers for a conversation in real time. For more details on Trackers, refer to the documentation [here](/docs/concepts/trackers). 
+Symbl provides a real-time Streaming API for processing audio content in real-time. You can also capture Trackers for a conversation in real-time. For more details on Trackers, refer to the [Trackers](/docs/concepts/trackers) documentation. 
 
-Below is an example that shows how to pass Trackers in the config object for the `startRealtimeRequest` of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
+Below is an example that shows how to pass Trackers in the `config` object for the `startRealtimeRequest` of the Symbl’s JavaScript SDK. This example also shows how to consume the results of the detected Trackers in real-time.
 
 Below is the code snippet:
 
@@ -379,7 +382,8 @@ const connection = await sdk.startRealtimeRequest({
         confidenceThreshold: 0.7,
         sampleRateHertz: 48000,
         trackers: {
-            "interimResults": true
+            "interimResults": true,
+            "enableAllTrackers": true 
         }
     },
     speaker: {
@@ -429,7 +433,7 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
 3. `trackers`: The **Trackers** to be detected in real-time for that conversation.<!--  Follows the same structure as shown in the Trackers section. -->
 
-4. `config`: The config object encapsulates the metadata for the WebSocket API’s session.
+4. `config`: The `config` object encapsulates the metadata for the WebSocket API session.
 
   a. `meetingTitle`: The title for this conversation or meeting.
 
@@ -437,7 +441,9 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
   c. `sampleRateHertz`: The sample rate of the incoming audio data which is being pushed to Symbl.
 
-  d. `trackers`: `{ interimResults }`: The `interimResults` flag tells Symbl to send the `tracker` results as soon as they are detected. If false, the `tracker` results are detected for the finalized transcription responses.
+  d. `trackers.interimResults`| The `interimResults` flag tells Symbl to send the tracker results as soon as they are detected. If `false`, the tracker results are detected for the finalized transcription responses.
+  
+  e. `trackers.enableAllTrackers`| The `enableAllTrackers` parameter must be sent to detect all the Trackers. The purpose of this flag is to enable detection of all the Trackers created with the Management API that maintains your entities with Symbl at the account level.
 
 5. `speaker`: The details of the speaker in this conversation.
 
@@ -449,9 +455,48 @@ Let’s go over all the parameters passed in the configuration object in the abo
 
   a. `onTrackerResponse`: This function is invoked when Symbl detects a Tracker in real-time. The structure of the **Tracker** object is shown in the above code snippet.
 
+### Tracker Response
+
+The following response is returned when Tracker object is passed in the Streaming API:
+
+```js
+"trackers":[
+      {
+         "name":"Documents Tracker",
+         "matches":[
+            {
+               "type":"vocabulary",
+               "value":"Documents",
+               "messageRefs":[
+                  {
+                     "id":"53867534-0459-4d22-b590-984ee82166aa",
+                     "text":"Anyways, so I will submit documents tomorrow.",
+                     "offset":26
+                  },
+                  {
+                     "id":"4d20d90c-50a7-4594-bb10-2995dcd4bbd1",
+                     "text":"I will submit documents tomorrow.",
+                     "offset":14
+                  }
+               ],
+            }
+```
+
+Field Name  | Description 
+---------- | ------- |  
+`name` | The name of the Tracker detected. | 
+`matches` | Array of match objects which contain the references to messages and insights detected in that conversation. |
+`type` | The match type for the text. In the above example, the match is of type `vocabulary`. |
+`value` | The textual value of the vocabulary for which this match was detected. |
+`messageRefs` | Array of messages for which this Tracker was detected. |
+`messageRefs.id`| The unique identifier of the message. |
+`messageRefs.text` | The text body of the message. |
+`messageRefs.offset`| The closest match of the text in the message. Offset of -1 means that an exact match for that specific vocabulary wasn’t found and this was the similar match. An offset value greater than 0 indicates an exact match for the tracker in the payload of the message.
+
+
 ### Streaming API Logs
 
-You can view the logs of your Streaming API request on your Symbl Platform account. To view the logs, sign in to [Symbl Platform](https://platform.symbl.ai/#/login). The logs provide the following:
+You can view the logs of your Streaming API request on your Symbl Platform account. To view the logs, sign in to [Symbl Platform](https://platform.symbl.ai/#/login). The logs provide the following details:
 
 - Connection ID
 

@@ -16,15 +16,15 @@ For more details on identifying members by [Speaker Events or Active Talker even
 
 For more details on identifying members by [independent audio stream integration using Websocket.](/docs/streamingapi/overview/configuration)
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/members`
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"
