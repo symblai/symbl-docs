@@ -22,6 +22,9 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 This API returns all the action items that are enriched with corresponding contexts.
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -29,10 +32,6 @@ This API returns all the action items that are enriched with corresponding conte
 
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 
 <Tabs

@@ -41,16 +41,17 @@ You can enable custom vocabulary in Topics API by passing the query parameter `c
 :::note Backward Compatibility
 We recommend you to use the parameter `customTopicVocabulary` instead of `customVocabulary` with the Topics API as we are standardizing our API nomenclature.
 :::
+
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/topics`
 
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

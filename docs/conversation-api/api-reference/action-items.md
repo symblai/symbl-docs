@@ -11,14 +11,13 @@ import TabItem from '@theme/TabItem';
 
 This API returns a list of all the action items generated from the conversation.
 
-An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to act in the future.
-
-These actions can be definitive in nature and owned with a commitment to working on a presentation, sharing a file, completing a task, etc.
-Or they can be non-definitive like an idea, suggestion or an opinion that could be worked upon.
+An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to act in the future. These actions can be definitive in nature and owned with a commitment to working on a task such as creating the presentation, sharing a file, completing a task, etc. Or they can be non-definitive like an idea, suggestion or an opinion that could be worked upon.
 
 All action items are generated with action phrases, assignees and due dates so that you can build workflow automation with your own tools.
 
+### Authentication
 
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -26,11 +25,6 @@ All action items are generated with action phrases, assignees and due dates so t
 
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
-
 
 <Tabs
   defaultValue="cURL"
@@ -155,8 +149,8 @@ Header Name  | Required | Description
             ],
             "from": {
                 "id": "c99e7baf-8d9c-4668-ae08-6bd3384bc642",
-                "name": "Surbhi",
-                "userId": "surbhirathore@symbl.ai"
+                "name": "Lucy",
+                "userId": "lucy@example.com"
             },
             "definitive": true,
             "assignee": {
@@ -172,11 +166,11 @@ Field  | Description
 ---------- | ------- |
 ```id``` | Unique conversation identifier.
 ```text``` | The text of the Action Item.
-```type``` | Response type. Default is `action_item`.
+```type``` | Response type. The default value is `action_item`.
 ```score``` | Confidence score of the action item. Value from 0 - 1.
 ```messageIds``` | Unique message identifiers of the corresponding messages.
 ```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
-```definitive``` | Boolean indicating if the action-item is definitive or not.
+```definitive``` | Boolean indicating if the action item is definitive or not. Implies that the action item is conclusive and not open-ended. For e.g, ‘I will complete this task today’ is a definitive sentence.
 ```phrases``` | List of detected phrases with `type` - phrase type and `text` - corresponding text. The `action_phrase` type represents the actionable part of an insight.
 ```assignee``` | This field contains the name and email of the person assigned to the Action Item.
 

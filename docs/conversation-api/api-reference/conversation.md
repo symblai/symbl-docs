@@ -13,18 +13,15 @@ This API returns the conversation meta-data like meeting name, member name and e
 
 It returns data for a specific conversation (using `conversationId`). If you wish to get all the conversations, see [GET All Conversations](/docs/conversation-api/all-conversations) page. 
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}`
 
-
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
-
 
 <Tabs
   defaultValue="cURL"

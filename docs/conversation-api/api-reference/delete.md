@@ -14,17 +14,15 @@ This API permanently deletes conversation and all related entities such as messa
 NOTE: Once delete operation is successful, all information associated with the Conversation ID is permanently lost and cannot be recovered later.
 :::
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### HTTP Request
 
 `DELETE https://api.symbl.ai/v1/conversations/{conversationId}`
 
-
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
-
 
 <Tabs
   defaultValue="cURL"

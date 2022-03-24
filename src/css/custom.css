@@ -75,6 +75,7 @@ html[data-theme='dark'] .menu>ul>li>a.menu__link.menu__link--sublist {
   background-size: 23px;
 }
 
+
 /*
 .menu .menu__link--sublist:after {
   background-size: 1.5rem 1.5rem;
@@ -436,3 +437,55 @@ th:empty {
  .button3 {background-color: #d0d8e2;} /* Blue */
  .button4 {background-color: #acc7f0;} /* Blue */
   
+ .sdk-card-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, 400px);  
+ }
+
+ .sdk-card {
+  width:360px;
+  margin: 1.25rem;
+  padding: 1.5rem;
+  display:flex;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none; 
+  font-size: var(--font-size-normal);
+  color:black;
+  border-radius: 10px;
+}
+
+.sdk-card1-bg {
+  background-color: #e0ebe0;
+}
+
+.sdk-card2-bg {
+  background-color: #c1e7f3;
+}
+
+.sdk-card3-bg {
+  background-color: #acc7f0;
+}
+
+.sdk-card4-bg {
+  background-color: #d0d8e2;
+}
+
+.sdk-card:hover {
+  text-decoration: none;
+  color:black;
+  box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme='dark'] .sdk-card:hover {
+  box-shadow: 0px 5px 40px rgba(11, 69, 146, 0.1);
+}
+
+.sdk-card-logo {
+  height: 50px;
+}
+
+.sdk-card-header{
+  margin-left:25px;
+  margin-bottom: 0px;
+} 
