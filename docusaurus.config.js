@@ -259,26 +259,31 @@ module.exports = {
           label: "API Reference",
           to: '/api-reference/getting-started/',
           position: "left",
+          activeBaseRegex: "docs/(api-reference|async-api/overview|streamingapi/introduction|streaming-api/api-reference|subscribe-api|telephony/introduction|telephony-api|conversation-api/api-reference|management-api|developer-tools/(authentication|error|postman|sample-apps))",
         }, 
         {
           label: "SDKs",
           to: '/sdk-intro/',
           position: "left",
+          activeBaseRegex: "docs/(javascript-sdk|python-sdk|sdk-intro)"
         },
         {
           label: "Tutorials",
           to: '/tutorials/',
           position: "left",
+          activeBaseRegex: "docs/(tutorials|streamingapi/(code-snippets|tutorials)|async-api/(code-snippets|tutorials)|telephony/(code-snippets|tutorials)|best-practices/best-practices-trackers)|pre-built-ui/(tuning-summary-page|custom-domain|user-engagement-analytics|supported-tracking-events)|concepts/(websockets|pstn-and-sip)"
         },            
         {
           label: "Integrations",
           to: '/integrations/integrations-intro/',
           position: "left",
+          activeBaseRegex: 'docs/integrations'
         },
         {
           label: "Labs",
           to: '/labs/',
           position: "left",
+          activeBaseRegex: "docs/(labs|conversation-api/comprehensive-action-items|concepts/redaction-pii|guides/abstract-topics-labs)"
         },
         {
           label: "Support",
