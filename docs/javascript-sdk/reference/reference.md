@@ -239,6 +239,7 @@ Name | Description
 #### Code Example
 
 ```js
+const {sdk, SpeakerEvent} = require("@symblai/symbl-js);
 const speakerEvent = new SpeakerEvent();
 speakerEvent.type = SpeakerEvent.types.startedSpeaking;
 speakerEvent.user = {
