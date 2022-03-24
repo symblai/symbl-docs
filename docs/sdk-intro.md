@@ -43,10 +43,6 @@ Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing
 </a>
 </div>
 
-<!-- &nbsp; 
-&nbsp; 
-&nbsp; -->
-
 <br/>
 <br/>
 
