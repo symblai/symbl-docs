@@ -1,17 +1,17 @@
 
-# on:
-#   push:
-#     branches:
-#     - 'experiment'
+on:
+  push:
+    branches:
+    - 'experiment'
 
-# jobs:
-#   build:
-#     name: Build
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Repository Dispatch
-#       uses: peter-evans/repository-dispatch@v1
-#       with:
-#         token: ${{ secrets.REPO_ACCESS_TOKEN }}
-#         repository: ${{ secrets.REPO_NAME }}
-#         event-type: build-experiment
+jobs:
+  trigger-circleci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger exiting circleci job
+        uses: zivkaziv/circleci-trigger-github-action@master
+        with:
+          token: ${{ secrets.CCI_DOCS_TOKEN }}
+          branch: experiment
+          org: rammerai
+          repo: docs-v1
