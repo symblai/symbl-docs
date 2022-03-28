@@ -389,13 +389,26 @@ th:empty {
   width: 200%;
   background-color: #c7ebc0;
  }
+
  .card2 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
+    padding: 26px;
     text-align: left;
     width: 200%;
-    background-color: #FFA500
+    background-color: #FFA500;
+    border-radius: 30px;
+    transition:0.3s;
  }
+
+ html[data-theme='dark'] .card2 {
+   color:black;
+ }
+ 
+ .card2:hover{
+  box-shadow: 5px 10px 8px #888888;
+ }
+
+
 
  .card1:hover {
   box-shadow: 0 8px 16px 0 rgba(214, 215, 221, 0.2);
@@ -489,3 +502,48 @@ html[data-theme='dark'] .sdk-card:hover {
   margin-left:25px;
   margin-bottom: 0px;
 } 
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -1.25rem;
+    margin-top: 0;
+}
+
+.intro-card {
+  width:360px;
+  margin: 1.25rem;
+  padding: 1.5rem;
+  display:flex;
+  flex-direction: column;
+  text-decoration: none; 
+  font-size: var(--font-size-normal);
+  color:black;
+  background-color: #F0F1F5;
+  transition:0.3s;
+  border-radius: 10px;
+}
+
+.intro-card:hover{
+  box-shadow: 5px 10px 8px #888888;
+  text-decoration: none;
+  color:black;
+}
+
+html[data-theme="dark"] .intro-card{
+  color:white;
+  background-color: #262833;
+}
+
+.intro-card > ul {
+  list-style-type: none;
+}
+
+.tutorial-button {
+  color:black;
+}
+
+.tutorial-button:hover {
+  color:black;
+}
+

@@ -11,20 +11,23 @@ slug: /
 Whether you're looking to understand Symbl's capabilities or get started with 
 our APIs or SDKs, we've got you covered!
 
-<div class="row">
-  <div class="column">
-    <div class="card"><a href="/docs/api-reference/getting-started"><h4>API Reference</h4>Browse through our APIs, learn how they work and get detailed descriptions and sample codes for each endpoint.</a></div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/docs/sdk-intro"><h4>SDK</h4>Add Symbl capabilities directly to your web and mobile applications with our robust SDKs available in popular languages. </a>
-  </div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/docs/tutorials"><h4>Tutorials</h4>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools and applications. </a></div>
-  </div>
-  <div class="column">
-    <div class="card"><a href="/guides"><h4>Guides</h4>Learn about Symbl's capabilities, understand business use-cases and discover Conversation Intelligence applications across industries.</a></div>
-  </div>
+<div class="card-container">
+  <a href="/docs/api-reference/getting-started" class="intro-card">
+    <h3>API Reference</h3>
+    <p>Browse through our APIs, learn how they work and get detailed descriptions and sample codes for each endpoint.</p>
+  </a>
+  <a href="/docs/sdk-intro" class="intro-card">
+    <h3>SDK</h3>
+    <p>Add Symbl capabilities directly to your web and mobile applications with our robust SDKs available in popular languages.</p>
+  </a>
+  <a href="/docs/tutorials" class="intro-card">
+    <h3>Tutorials</h3>
+    <p>Find step-by-step instructions on how to implement Symbl with your native video, audio and text conversation tools and applications.</p>
+  </a>
+  <a href="/guides" class="intro-card">
+    <h3>Guides</h3>
+    <p>Learn about Symbl's capabilities, understand business use-cases and discover Conversation Intelligence applications across industries.</p>
+  </a>
 </div>
 
 ## Getting Started with Symbl
@@ -66,14 +69,15 @@ Also, check out our features in the [Labs section](/docs/labs) that are currentl
 
 <div class="row">
   <div class="column">
-    <div class="card2"> <h3><br/>Try it in Postman</h3> Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!<br/>
-<br/>
+  <div class="card2">
+  <h3>Try it in Postman</h3>
+  <p>Our public collection in Postman has pre-configured API requests that gets you up-and-running in a jiffy. Try it now!</p>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
+  [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)
 
-***If you're new to Postman, watch this [video tutorial](/docs/developer-tools/postman#how-to-use-symbl-postman-collection) to learn how***. 
-
-   </div>
+  <b><i>If you're new to Postman, watch this <a href="/docs/developer-tools/postman#how-to-use-symbl-postman-collection"> video tutorial </a> to learn how</i></b>
   </div>
-  </div>
+  </div>    
+</div>
+
 
