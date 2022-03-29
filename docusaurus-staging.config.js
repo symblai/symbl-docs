@@ -231,7 +231,7 @@ module.exports = {
 
     colorMode:
     {
-      defaultMode: 'light',
+      defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: true
     },
