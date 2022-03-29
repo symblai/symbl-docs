@@ -114,7 +114,7 @@ The following fields cannot be updated/deleted:
 
 ### Request Body
 
-Given below is an example of the request along with optional query parameters. For a complete list of query parameters and their description, see the [table](#query-parameters) below.
+Given below is an example of the request body:
 
 ```json
 {
