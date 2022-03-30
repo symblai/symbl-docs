@@ -263,6 +263,12 @@ Header Name  | Required | Description
 ```Content-Type	``` | Mandatory | `application/json`
 ```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
+Header Name  | Description
+---------- | ------- |
+```Authorization```  | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type	``` | `application/json`
+```x-api-key``` | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+
 ### Request Body
 
 ```json
@@ -294,10 +300,10 @@ Header Name  | Required | Description
 ```
 ### Request Body Parameters
 
-Field | Required | Type |  Description
----------- | ------- | ------- |  ------- |
-```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
-```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
+Field |  Description
+---------- | ------- |
+```name```    ![api update](/img/optional-3.png) | Your meeting name. Default name set to `conversationId`.
+```detectPhrases``` ![api update](/img/mandatory-2.png) | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
 ```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
 ```entities``` | Optional | List | Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities).
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
