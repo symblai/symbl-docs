@@ -44,12 +44,13 @@ From the root directory of your project, run the following command to add `symbl
 ```bash
 $ npm i --save symbl-node
 ```
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### <a name="retrieve-credentials"></a>Retrieve your credentials
 
 Your credentials include your appId and appSecret. You can find them on the home page of the platform.
 ![credentials page](/img/credentials.png)
-
 
 ### <a name="init-sdk"></a>Initialize SDK
 

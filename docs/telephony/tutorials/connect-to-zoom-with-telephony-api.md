@@ -53,6 +53,8 @@ From the root directory of your project, run the following command to add `@symb
 ```bash
 npm i --save @symblai/symbl-js
 ```
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### Retrieve your Symbl API credentials
 
