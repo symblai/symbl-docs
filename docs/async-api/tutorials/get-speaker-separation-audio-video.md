@@ -47,14 +47,15 @@ This snippet shows a cURL command for consuming the Async Video URL-based API wh
 The below example uses the Async Video URL API, but Speaker Separation can be achieved with other Async Audio/Video APIs in the same way.
 :::
 
-* `AUTH_TOKEN` needs to be replaced with the Bearer token generated during [our authentication process](/docs/developer-tools/authentication).
-
-* For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
+For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
 
 
 :::caution
 You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
 :::
+
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 #### Code Example
 
