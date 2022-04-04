@@ -374,7 +374,7 @@ So, if you send a 120-second file with 3 speaker separated channels, the total d
 ### Using Webhook 
 ---
 
-The `webhookUrl` will be used to send the status of job created for uploaded audio url. Every time the status of the job changes it will be notified on the WebhookUrl.
+The `webhookUrl` will be used to send the status of the job created for uploaded audio URL. Every time the status of the job changes it will be notified on the Webhook Url. The user's server should respond with the status code 200 on receiving the `webhookUrl` update. This will prevent Symbl from resending the same update.
 
 ##### Code Example
 
@@ -389,6 +389,40 @@ Field | Description
 | ------- | -------
 ```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api).
 ```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]).
+
+##### Sample User Server Simulation
+
+Here is a sample code that simulates a local server "api" endpoint for `webhookUrl`:
+
+```js
+const express = require('express');
+const app = express();
+app.listen(9000, () => console.log('Listening at 9000'));
+app.use(express.static('public'));
+app.use(express.json({limit:'1mb'}));
+app.post('/api',(request,response) => {
+    let currentDate = new Date();
+    let data = request.body;
+    console.log('datetime:',currentDate,' jobId:',data.id,' status:', data.status);
+    response.json({
+        status:200
+    });
+    }
+)
+```
+
+Let's say your server runs on `localhost:9000`, then use `ngrok` to make your localhost and the "api" handle the Symbl Async API request by printing the events received from the request. Run `ngrok http 9000` and then pass the url `https://.../` with the "api" string address to the Async request through `webhookUrl`. For example: `https://0bd1-2601-600-8780-9280-181a-4525-3a3f-882d.ngrok.io/api`. Run your localhost server and then send the Async API request through the ngrok `webhookUrl`. You will receive the following status from your localhost server:
+
+```shell
+Listening at 9000
+
+datetime: 2021-11-10T03:29:34.998Z  jobId: f4535f3f-9b7c-458b-a47a-cc84b916d9e6  status: scheduled
+
+datetime: 2021-11-10T03:29:35.526Z  jobId: f4535f3f-9b7c-458b-a47a-cc84b916d9e6  status: in_progress
+
+datetime: 2021-11-10T03:31:39.777Z  jobId: f4535f3f-9b7c-458b-a47a-cc84b916d9e6  status: completed
+```
+
 
 ### API Limit Error
 
