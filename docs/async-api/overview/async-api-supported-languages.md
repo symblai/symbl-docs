@@ -1,5 +1,4 @@
 ---
-<<<<<<< HEAD:docs/async-api/overview/async-api-supported-languages.md
 id: async-api-supported-languages
 title: What languages does Async API Support?
 sidebar_label: Languages Supported
@@ -99,7 +98,6 @@ It can be useful in any use case where you have access to a video file of any ty
 |`PUT` | `https://api.symbl.ai/v1/process/video/url/{conversationId}` | [Reference](/docs/async-api/overview/video/put-video-url)
 
 ## Supported Languages
->>>>>>> a168d5a (New updates):async-api/reference/reference.md
 
 The Async Audio and Async Video APIs can work with languages other than English.
 
