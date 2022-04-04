@@ -1,5 +1,15 @@
+const YAML = require('yaml');
+const fs = require('fs');
+const spec = fs.readFileSync('./symblSwagger.yml', 'utf-8');
+const {
+redocPlugin,
+sitePlugin
+} = require('./redoc-plugin/index');
+
 module.exports = {
   plugins: [
+    redocPlugin,
+    sitePlugin,
     'docusaurus-plugin-moesif',
     // 'docusaurus-plugin-sass',
     [
@@ -201,6 +211,9 @@ module.exports = {
   organizationName: 'symbl.ai', // Usually your GitHub org/user-name.
   projectName: 'docs-v1', // Usually your repo name.
   onBrokenLinks: 'warn',
+  customFields: {
+    apiSpec: YAML.parse(spec)
+  },
   scripts: [
     {
       src: '/docs/js/hotjar.js',
