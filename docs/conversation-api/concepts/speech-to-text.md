@@ -4,6 +4,7 @@ title: Speech-to-Text
 description: Get real-time speech-to-text data and analytics from your conversations with Symbl.ai APIs. Learn more.
 sidebar_label: Introduction
 slug: /concepts/speech-to-text/
+pagination_label: Speech-to-text
 ---
 
 <head>

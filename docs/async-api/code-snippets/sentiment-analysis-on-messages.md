@@ -36,6 +36,9 @@ In this example, we will process an audio file (in .wav format) via Async Audio 
 
 To view the complete reference, see [Async API documentation](/docs/async-api/introduction). 
 
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### Example API Endpoint
 
 `POST https://api.symbl.ai/v1/process/audio`

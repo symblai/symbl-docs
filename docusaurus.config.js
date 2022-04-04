@@ -227,13 +227,14 @@ module.exports = {
     munchkin: {
       applicationId: process.env.MUNCHKIN_ID,
     },
-    announcementBar: {
-      id: 'new_docs_announcement', // Any value that will identify this message.
-      content:'New Release Announcement: We have released the Symbl-Agora Marketplace extension with Agora SDK for Android applications. Head to our Integrations section to learn more.',
-      backgroundColor: '#fafbfc', // Defaults to `#fff`.
-      textColor: '#091E42', // Defaults to `#000`.
-      isCloseable: true, // Defaults to `true`.
-    },
+
+       // announcementBar: {
+         // id: 'new_docs_announcement', // Any value that will identify this message.
+         // content:'New Release Announcement: We have released the Symbl-Agora Marketplace extension with Agora SDK for Android applications. Head to our Integrations section to learn more.',
+         // backgroundColor: '#fafbfc', // Defaults to `#fff`.
+         // textColor: '#091E42', // Defaults to `#000`.
+         // isCloseable: true, // Defaults to `true`.
+       // },
 
     colorMode:
     {

@@ -4,6 +4,7 @@ title: Async API
 description: Symbl.ai Async APIs provides a REST interface for submitting any recorded or saved conversations for transcription. Check out our Async APIs documentation to get started.
 sidebar_label: Introduction
 slug: /async-api/introduction/
+pagination_label: Async API
 ---
 
 <head>

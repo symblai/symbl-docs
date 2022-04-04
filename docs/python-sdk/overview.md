@@ -3,6 +3,7 @@ id: python-sdk
 title: Symbl Python SDK 
 sidebar_label: Introduction
 slug: /python-sdk/overview/
+pagination_label: Python SDK
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

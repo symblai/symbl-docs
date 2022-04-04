@@ -40,11 +40,15 @@ When we're connecting to the Web Socket, we can define which language we use in 
 }
 ```
 
-#### <a name="code-example-1"></a>Full Code Example
 
 :::info
 The <strong>Symbl SDK (Node.js)</strong> snippet must be run using Node.js, while the <strong>Native Javascript</strong> snippet can be run in your web browser.
 :::
+
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
+#### <a name="code-example-1"></a>Full Code Example
 
 <Tabs
   defaultValue="cURL"

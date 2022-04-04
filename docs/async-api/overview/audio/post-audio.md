@@ -15,6 +15,9 @@ It can be utilized for any use case where you have access to recorded audio and 
 
 Use this API to upload your file and generate a Conversation ID. If you want to append additional audio information to the same Conversation ID.
 
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### API Endpoint
 
 `POST https://api.symbl.ai/v1/process/audio`
@@ -22,8 +25,6 @@ Use this API to upload your file and generate a Conversation ID. If you want to 
 ### Example API Call
 
 The sample request accepts just the raw audio file from the data with the MIME typeset in the Content-Type Header. The audio file should only have Mono Channel.
-
-Before using the Async Audio API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"

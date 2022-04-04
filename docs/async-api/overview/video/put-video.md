@@ -22,15 +22,14 @@ If there are multiple requests are submitted for the same Conversation ID, all t
 in order to maintain the order of the requests for the conversation.
 :::
 
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### API Endpoint
 
 `PUT https://api.symbl.ai/v1/process/video/:conversationId`
 
 ### Example API Call
-
-:::info
-Before using the Async Video API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

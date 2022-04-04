@@ -9,7 +9,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-## Endpoint
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP REQUEST
 
