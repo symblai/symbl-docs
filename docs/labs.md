@@ -3,7 +3,7 @@ id: labs-intro
 title: Symbl Labs
 sidebar_label: Symbl Labs
 slug: /labs/
- 
+pagination_next: null 
 ---
 ---
 Symbl Labs is our experimental wing designed to share our bleeding edge AI research on human conversations with anyone who wants to explore its limits.

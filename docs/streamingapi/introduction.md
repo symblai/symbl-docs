@@ -4,6 +4,7 @@ title: Streaming API
 description: Streaming API can provide real-time transcription and extract actionable insights from your conversations. Learn how to implement Symbl.ai’s Streaming API now.
 sidebar_label: Introduction
 slug: /streamingapi/introduction/
+pagination_label: Streaming API
 ---
 
 <head>

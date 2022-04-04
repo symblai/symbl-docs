@@ -3,6 +3,7 @@ id: trackers
 title: Trackers (Beta)
 sidebar_label: Introduction
 slug: /concepts/trackers/
+pagination_label: Trackers
 ---
 
 import Tabs from '@theme/Tabs';

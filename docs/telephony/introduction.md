@@ -4,6 +4,7 @@ title: Telephony API
 description: Telephony API enables developers to add Symbl.ai to bridges and join VoIP calls to get real-time intelligence. Check out the Telephony API tutorials to help you get started.
 sidebar_label: Introduction
 slug: /telephony/introduction/
+pagination_label: Telephony API
 ---
 
 <head>
