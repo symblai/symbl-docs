@@ -2,7 +2,7 @@
 id: python-sdk-async-api
 title: Async Text API 
 sidebar_label: Text API
-slug: /python-sdk/async-api
+slug: /python-sdk/async-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

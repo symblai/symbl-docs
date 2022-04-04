@@ -1,6 +1,7 @@
 ---
 id: post-audio
 title: POST Audio API
+slug: /async-api/overview/audio/post-audio/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,6 +15,9 @@ It can be utilized for any use case where you have access to recorded audio and 
 
 Use this API to upload your file and generate a Conversation ID. If you want to append additional audio information to the same Conversation ID.
 
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### API Endpoint
 
 `POST https://api.symbl.ai/v1/process/audio`
@@ -21,8 +25,6 @@ Use this API to upload your file and generate a Conversation ID. If you want to 
 ### Example API Call
 
 The sample request accepts just the raw audio file from the data with the MIME typeset in the Content-Type Header. The audio file should only have Mono Channel.
-
-Before using the Async Audio API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"
@@ -219,7 +221,7 @@ Parameters | Required | Type | Description
 ``` mode``` | Optional | String | Accepts `phone` or `default`.`phone` mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).<br />`default` mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).<br />When you don't pass this parameter `default` is selected automatically.
 ```trackers``` <font color="orange"> BETA</font> | Optional | List | A `tracker` entity containing name and vocabulary (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
-```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use `https://api-labs.symbl.ai` as the base URL.
+```enableSummary```<font color="blue"> ALPHA </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL.
 ```enableSpeakerDiarization``` | Optional | Boolean | Whether the diarization should be enabled for this conversation. Pass this as `true` to enable Speaker Separation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
 ```diarizationSpeakerCount``` | Optional | String | The number of unique speakers in this conversation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
 

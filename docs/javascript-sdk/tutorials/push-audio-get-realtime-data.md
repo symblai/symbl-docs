@@ -1,7 +1,7 @@
 ---
 id: push-audio-get-real-time-data
 title: Live speech to text and AI insights on local server
-slug: /javascript-sdk/tutorials/receive-ai-insights-from-your-computer
+slug: /javascript-sdk/tutorials/receive-ai-insights-from-your-computer/
 ---
 
 ---
@@ -36,7 +36,7 @@ In this guide you will learn the following:
     * [Handlers (handlers)](#handlers-handlers)
     * [Full Configuration Object](#full-configuration-object)
 * [Handle the audio stream](#handle-the-audio-stream)
-* [Process speech using device's microphone](#process-speech-using-devices-microphone)
+* [Process speech using device's microphone](#process-speech-using-the-devices-microphone)
 * [Test](#test)
 * [Grabbing the Conversation ID](#grabbing-the-conversation-id)
 * [Full Code Sample](#full-code-sample)
@@ -395,11 +395,11 @@ handlers: {
     }]
     ```
 
-    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageCallback` this would also return every speaker's insights in case of multiple streams.
+    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageResponse` this would also return every speaker's insights in case of multiple streams.
 
     **View the examples for `onInsightResponse` [here](#insight-types-insighttypes).**
 
-    * `onTrackerResponse`: This callback provides you with any of the detected trackers in real-time as they are detected.  As with the `onMessageCallback` this would also return every tracker in case of multiple streams.
+    * `onTrackerResponse`: This callback provides you with any of the detected trackers in real-time as they are detected.  As with the `onMessageResponse` this would also return every tracker in case of multiple streams.
 
     #### onTrackerResponse JSON Response Example
 
@@ -426,7 +426,7 @@ handlers: {
     ]
     ```
 
-    * `onTopicResponse`: This callback provides you with any of the detected topics in real-time as they are detected.  As with the `onMessageCallback` this would also return every topic in case of multiple streams.
+    * `onTopicResponse`: This callback provides you with any of the detected topics in real-time as they are detected.  As with the `onMessageResponse` this would also return every topic in case of multiple streams.
 
     #### onTopicResponse JSON Response Example
 

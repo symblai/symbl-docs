@@ -2,7 +2,7 @@
 id: action-items
 title: GET Action Items
 sidebar_label: GET Action Items
-slug: /conversation-api/action-items
+slug: /conversation-api/action-items/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,14 +11,13 @@ import TabItem from '@theme/TabItem';
 
 This API returns a list of all the action items generated from the conversation.
 
-An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to act in the future.
-
-These actions can be definitive in nature and owned with a commitment to working on a presentation, sharing a file, completing a task, etc.
-Or they can be non-definitive like an idea, suggestion or an opinion that could be worked upon.
+An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to act in the future. These actions can be definitive in nature and owned with a commitment to working on a task such as creating the presentation, sharing a file, completing a task, etc. Or they can be non-definitive like an idea, suggestion or an opinion that could be worked upon.
 
 All action items are generated with action phrases, assignees and due dates so that you can build workflow automation with your own tools.
 
+### Authentication
 
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -26,11 +25,6 @@ All action items are generated with action phrases, assignees and due dates so t
 
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
-
 
 <Tabs
   defaultValue="cURL"
@@ -118,50 +112,52 @@ Header Name  | Required | Description
 
 ```javascript
 {
-  "actionItems": [
-    {
-      "id": "6603306467065856",
-      "text": "Surbhi Rathore can schedule a visit from one of our technicians for tomorrow afternoon at 1:00 PM.",
-      "type": "action_item",
-      "score": 0.9602078494794586,
-      "messageIds": [
-        "5175845967626240"
-      ],
-      "entities": [
+    "actionItems": [
         {
-          "type": "datetime",
-          "text": "tomorrow afternoon at 1:00 pm",
-          "offset": 68,
-          "value": "2021-10-31 13:00:00"
-        },
-        {
-          "type": "person",
-          "text": "Surbhi Rathore",
-          "offset": 0,
-          "value": {
-            "assignee": true,
-            "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
-            "name": "Surbhi Rathore",
-            "userId": "surbhi@example.com"
-          }
+            "id": "4567077831573504",
+            "text": "Vikram you need to work on figuring out a plan in which we can make this hackathon work for our customers first, and then Kunal then can go out and implement it for the rest of the world.",
+            "type": "action_item",
+            "score": 0.9456050585275944,
+            "messageIds": [
+                "4854542482014208"
+            ],
+            "entities": [
+                {
+                    "type": "person",
+                    "text": "Vikram",
+                    "offset": 0,
+                    "value": {
+                        "assignee": true,
+                        "name": "Vikram"
+                    }
+                },
+                {
+                    "type": "person",
+                    "text": "Kunal",
+                    "offset": 122,
+                    "value": {
+                        "assignee": true,
+                        "name": "Kunal"
+                    }
+                }
+            ],
+            "phrases": [
+                {
+                    "type": "action_phrase",
+                    "text": "make this hackathon work for our customers first"
+                }
+            ],
+            "from": {
+                "id": "c99e7baf-8d9c-4668-ae08-6bd3384bc642",
+                "name": "Lucy",
+                "userId": "lucy@example.com"
+            },
+            "definitive": true,
+            "assignee": {
+                "name": "Vikram"
+            }
         }
-      ],
-      "phrases": [],
-      "from": {
-        "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
-        "name": "Surbhi Rathore",
-        "userId": "surbhi@example.com"
-      },
-      "definitive": false,
-      "assignee": {
-        "id": "4f6de4aa-05e5-4697-b8ea-7a962eecfd77",
-        "name": "Surbhi Rathore",
-        "email": "surbhi@example.com"
-      },
-      "dueBy": "2021-10-31T20:00:00.000Z"
-    }
-  ]
-}
+]
 ```
 
 ### Response Parameters
@@ -170,11 +166,11 @@ Field  | Description
 ---------- | ------- |
 ```id``` | Unique conversation identifier.
 ```text``` | The text of the Action Item.
-```type``` | Response type. Default is `action_item`.
+```type``` | Response type. The default value is `action_item`.
 ```score``` | Confidence score of the action item. Value from 0 - 1.
 ```messageIds``` | Unique message identifiers of the corresponding messages.
 ```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
-```definitive``` | Boolean indicating if the action-item is definitive or not.
+```definitive``` | Boolean indicating if the action item is definitive or not. Implies that the action item is conclusive and not open-ended. For e.g, ‘I will complete this task today’ is a definitive sentence.
 ```phrases``` | List of detected phrases with `type` - phrase type and `text` - corresponding text. The `action_phrase` type represents the actionable part of an insight.
 ```assignee``` | This field contains the name and email of the person assigned to the Action Item.
 

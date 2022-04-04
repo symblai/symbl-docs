@@ -95,7 +95,7 @@ module.exports = {
   ]
 },
 {
-  label: "Summarization (Beta)",
+  label: "Summarization (Alpha)",
   type: 'category',
   items: [
     'conversation-api/concepts/summarization',
@@ -248,11 +248,7 @@ items: [
 },
 {
   type: 'doc',
-  id: 'async-api/reference/reference',
-  customProps: {
-    hash: '#supported-languages',
-    label: 'Supported Languages',
-  },
+  id: 'async-api/reference/supported-languages',
 },
 {
   id: "async-api/overview/jobs-api",
@@ -329,6 +325,7 @@ items: [
     'conversation-api/api-reference/transcript',
     'conversation-api/api-reference/trackers',
     'conversation-api/api-reference/summary'
+
   ],
 },
 {
@@ -403,13 +400,12 @@ id: 'developer-tools/postman',
   items: [
     'streamingapi/code-snippets/start-and-stop-streaming-api-connection',
     'streamingapi/tutorials/get-real-time-transcription',
-    'javascript-sdk/tutorials/push-audio-get-real-time-data',
+    'streamingapi/tutorials/get-real-time-data',
     'streamingapi/tutorials/get-real-time-sentiment-analysis',
     'streamingapi/code-snippets/detect-key-phrases',
     'streamingapi/code-snippets/receive-live-captioning',
     'streamingapi/code-snippets/receive-live-topics',
     'streamingapi/code-snippets/receive-ai-insights',
-    'streamingapi/code-snippets/consume-trackers',
     'streamingapi/code-snippets/receive-speech-to-text-for-different-languages',
     'streamingapi/code-snippets/receive-trackers-in-spanish',
   ],
@@ -444,13 +440,26 @@ id: 'developer-tools/postman',
   ],
 },
 {
-  label: 'Summary API (Beta)',
+  label: 'Summary API (Alpha)',
   type: 'category',
   collapsed: true,
   items: [
     'tutorials/summarization/getting-summary',
     'tutorials/summarization/refreshing-summary',
     'tutorials/summarization/adding-speaker-info',
+  ],
+},
+{
+  label: 'Trackers API (Beta)',
+  type: 'category',
+  collapsed: true,
+  items: [
+    'tutorials/trackers/create-trackers-async-api',
+    'tutorials/trackers/create-trackers-streaming-api',
+    'tutorials/trackers/consuming-trackers-async-api',
+    'tutorials/trackers/consuming-trackers-streaming-api',
+    'tutorials/trackers/consuming-trackers-management-api',
+    'best-practices/best-practices-trackers',
   ],
 },
  {
@@ -503,11 +512,17 @@ id: 'developer-tools/postman',
    "telephony/concepts/concepts",
   ],
 },
-// this is a duplicate as the code is buggy
+// this is a duplicate code because the code is buggy
 {
-type: "doc",
-id: "faq"
+  label: 'Concepts',
+  type: 'category',
+  collapsed: true,
+  items: [
+    "streamingapi/concepts",
+   "telephony/concepts/concepts",
+  ],
 },
+
 ],
 
 // Integrations Tab
@@ -650,47 +665,9 @@ SDKsidebar: [{
     ]
   },
   {
-    label: "Web SDK (Beta)",
-    type: "category",
-    collapsed: false,
-    items: [
-      'web-sdk/web-sdk',
-      {
-        type: 'category',
-        label: 'Streaming API',
-        items: [
-          {
-            type: 'category',
-            label: 'Tutorials',
-            items: [
-              'web-sdk/transcribing-live-audio-through-microphone',
-              'web-sdk/passing-custom-sourcenode',
-              'web-sdk/passing-custom-ondevicechange-handler',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'Code Snippets',
-            items: [
-              'web-sdk/reconnecting-real-time',
-              'web-sdk/muting-and-unmuting-connected-device',
-              'web-sdk/subscribe-to-realtime',
-              'web-sdk/stop-realtime-connection',
-            ],
-          },
-        
-        ]
-      },
-      {
-        type: 'doc',
-        id: 'web-sdk/web-sdk-reference',
-      }, 
-    ]
-  }, 
- {
-  type: 'doc',
-  id: 'developer-tools/postman',
- },
+    type: 'doc',
+    id: 'python-sdk/python-sdk-reference', // added because of buggy code
+  },
  ],
 
 
@@ -705,7 +682,6 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'conversation-api/concepts/comprehensive-action-items',
     'conversation-api/api-reference/comprehensive-action-items',
     ],
  },
@@ -722,7 +698,7 @@ LabsSidebar: [{
   type: 'category',
   collapsed: true,
   items: [
-    'guides/abstract-topics',
+    'labs/abstract-topics-labs',
   ],
  },
   
@@ -748,6 +724,62 @@ Communitysidebar: [{
 ChangelogSidebar: [{
   id: "changelog",
   type: "doc",
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#14-march-2022',
+    label: '14 March 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#8-feb-2022',
+    label: '8 Feb 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#31-jan-2022',
+    label: '31 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#13-jan-2022',
+    label: '13 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#11-jan-2022',
+    label: '11 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#10-jan-2022',
+    label: '10 Jan 2022',
+  }
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#28-dec-2021',
+    label: '28 Dec 2021',
+  }
 },
 {
   type: 'doc',

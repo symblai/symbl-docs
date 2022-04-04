@@ -1,6 +1,7 @@
 ---
 id: receive-entities
 title: Receive Entities From Conversation
+slug: /async-api/code-snippets/receive-entities/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -18,11 +19,10 @@ While we provide you with a default video URL for the API to process, which can 
 You must wait for the job to complete processing before you proceed with getting the Conversation Intelligence. If you immediately make a GET request to Conversation API, it is possible that you'll receive incomplete insights. Therefore, ensure that you wait for the job to complete.
 :::
 
-### Request Example
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
-:::info
-Before using the Async API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
+### Request Example
 
 <Tabs
   defaultValue="cURL"

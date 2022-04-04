@@ -2,7 +2,7 @@
 id: python-sdk-async-video
 title: Async Video API 
 sidebar_label: Video API
-slug: /python-sdk/async-video
+slug: /python-sdk/async-video/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -93,7 +93,7 @@ print(conversation_object.get_topics())
 Use the code given below to process video calls with the Python SDK and generate conversation insights such as speech-to-text, topics, follow-ups, action items, questions. It can be utilized for any use case where you have access to recorded video stored publicly as a URL and want to extract insights and other conversational attributes supported by Symbl. 
 
 :::info
-The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
+The URL provided must be a publicly available URL. Currently we do not support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.
 :::
 
 ```py

@@ -2,7 +2,8 @@
 id: support
 title: Support
 sidebar_label: Support
-slug: /support
+slug: /support/
+pagination_next: null
 ---
 
 --- 

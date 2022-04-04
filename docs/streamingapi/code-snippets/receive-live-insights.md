@@ -1,6 +1,7 @@
 ---
 id: receive-ai-insights
 title: Receive Live AI Insights
+slug: /streamingapi/code-snippets/receive-live-insights/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -129,7 +130,7 @@ If successful you should receive a response in the console.
 const accessToken = accessToken;
 // Refer to the Authentication section for how to generate the accessToken: https://docs.symbl.ai/docs/developer-tools/authentication
 const uniqueMeetingId = btoa("user@example.com"); // btoa will take a string and generate a unique ID
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);
 
@@ -178,6 +179,9 @@ ws.onopen = (event) => {
   }));
 };
 ```
+:::note Backward Compatibility
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
+:::
 
 #### Connect Mic
 
@@ -234,7 +238,7 @@ If successful you should receive a response in the console.
 
 * `handlers`: This object has the callback functions for different events
 
-    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageCallback` this would also return every speaker's insights in case of multiple streams.
+    * `onInsightResponse`: This callback provides you with any of the detected insights in real-time as they are detected. As with the `onMessageResponse` this would also return every speaker's insights in case of multiple streams.
 
     ```js
     [{
@@ -297,7 +301,7 @@ If successful you should receive a response in the console.
     }]
     ```
 
+## See Also
 
-
-
-
+- [Receive live captioning](/docs/streamingapi/code-snippets/receive-live-captioning)
+- [Receive live topics](/docs/streamingapi/code-snippets/receive-live-topics)

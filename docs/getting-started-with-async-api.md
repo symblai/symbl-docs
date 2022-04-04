@@ -1,7 +1,7 @@
 ---
 id: getting-started-with-async-api
 title: Getting started with Async API
-slug: /getting-started-with-async-api
+slug: /getting-started-with-async-api/
 show_sidebar: true
 ---
 import Tabs from '@theme/Tabs';

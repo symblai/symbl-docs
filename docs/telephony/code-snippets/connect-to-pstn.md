@@ -1,6 +1,7 @@
 ---
 id: connect-to-pstn
 title: Connect to a PSTN connection to get Speech to Text and AI Insights
+slug: /telephony/code-snippets/connect-to-pstn/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,11 +12,14 @@ import TabItem from '@theme/TabItem';
 
 The following code example shows how you can connect the Telephony API to your cell phone or any other type of phone number using PSTN (**Currently, only US phone numbers work**). Making a phone call is also the quickest way to test Symbl’s Telephony API. It can make an outbound call to a phone number using a traditional public switched telephony network ([PSTN](https://en.wikipedia.org/wiki/Public_switched_telephone_network)).
 
-#### <a name="code-example-1"></a>Code Example
-
 :::info
 The <strong>Symbl SDK (Node.js)</strong> snippet must be run using Node.js, while the <strong>Native Javascript</strong> snippet can be run in your web browser.
 :::
+
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
+#### <a name="code-example-1"></a>Code Example
 
 <Tabs
   defaultValue="cURL"

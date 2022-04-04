@@ -2,7 +2,8 @@
 id: questions
 title: Questions
 sidebar_label: Introduction
-slug: /concepts/questions
+slug: /concepts/questions/
+pagination_label: Questions
 ---
 
 import Tabs from '@theme/Tabs';

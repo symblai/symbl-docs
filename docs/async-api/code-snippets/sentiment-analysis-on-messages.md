@@ -1,6 +1,7 @@
 ---
 id: sentiment-analysis-on-messages 
 title: Sentiment Analysis on Messages (Beta)
+slug: /async-api/code-snippets/sentiment-analysis-on-messages/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -34,6 +35,9 @@ The first step is to use Symbl (text, audio, and video) Async APIs to process yo
 In this example, we will process an audio file (in .wav format) via Async Audio APIs. You can do the same for text conversations and video conversations as well. 
 
 To view the complete reference, see [Async API documentation](/docs/async-api/introduction). 
+
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### Example API Endpoint
 

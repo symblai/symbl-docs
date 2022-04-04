@@ -2,7 +2,8 @@
 id: action-items
 title: Action Items
 sidebar_label: Action Items
-slug: /concepts/action-items
+slug: /concepts/action-items/
+pagination_label: Action Items
 ---
 
 import Tabs from '@theme/Tabs';

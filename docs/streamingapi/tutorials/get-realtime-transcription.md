@@ -1,7 +1,7 @@
 ---
 id: get-real-time-transcription
 title: Live speech to text and AI insights on browser 
-slug: /streamingapi/tutorials/receive-ai-insights-from-your-web-browser
+slug: /streamingapi/tutorials/receive-ai-insights-from-your-web-browser/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -54,8 +54,11 @@ Check the example below:
  */
 const accessToken = accessToken;
 const uniqueMeetingId = btoa("user@example.com");
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 ```
+:::note Backward Compatibility
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
+:::
 
 ## Create the WebSocket
 
@@ -274,7 +277,7 @@ Here's the complete code sample below which you can also [view on GitHub](https:
  */
 const accessToken = ""
 const uniqueMeetingId = btoa("user@example.com")
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);
 

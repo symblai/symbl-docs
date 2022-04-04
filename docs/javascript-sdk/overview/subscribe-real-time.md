@@ -2,7 +2,7 @@
 id: subscribe-real-time
 title: Subscribe to real-time Events
 sidebar_label: Subscribe to real-time Events
-slug: /javascript-sdk/code-snippets/subscribe-real-time
+slug: /javascript-sdk/code-snippets/subscribe-real-time/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

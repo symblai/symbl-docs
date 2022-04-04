@@ -1,6 +1,7 @@
 ---
 id: how-to-use-sentiment-analysis
 title: How To Use Sentiment Analysis (Beta)
+slug: /async-api/code-snippets/how-to-use-sentiment-analysis/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -22,11 +23,10 @@ You must wait for the job to complete processing before you proceed with getting
 
 While we provide you with a default video URL for the API to process, which can be downloaded [here](https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4), you can replace that with any other video URL.
 
-### Request Example
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
-:::info
-Before using the Async API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
+### Request Example
 
 <Tabs
   defaultValue="cURL"

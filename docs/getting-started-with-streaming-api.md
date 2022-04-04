@@ -1,7 +1,7 @@
 ---
 id: getting-started-with-streaming-api
 title: Getting started with Streaming API
-slug: /getting-started-with-streaming-api
+slug: /getting-started-with-streaming-api/
 ---
 
 import Tabs from '@theme/Tabs';

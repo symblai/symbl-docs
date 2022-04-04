@@ -2,7 +2,7 @@
 id: python-sdk-telephony-sip
 title: Using Python SDK with Telephony API on SIP 
 sidebar_label: Using SIP
-slug: /python-sdk/python-sdk-telephony-sips
+slug: /python-sdk/python-sdk-telephony-sips/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: post-video
 title: POST Video API
+slug: /async-api/overview/video/post-video/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,13 +17,13 @@ It can be useful in any use case where you have access to the video file of any 
 This API supports only <b>mp4</b> file formats. If you have any other type of file, you need to first convert the file to the supported format in order to use the API.
 :::
 
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
 ### API Endpoint
 `POST https://api.symbl.ai/v1/process/video`
 
-
 ### Example API Call
-
-Before using the Async Video API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
 
 <Tabs
   defaultValue="cURL"
@@ -65,7 +66,7 @@ const params = {
   // 'customVocabulary': ['Platform', 'Discussion', 'Targets'],
   // <Optional, list| custom_vocabulary_list> |Contains a list of words and phrases that provide hints to the speech recognition task.
 
-  // 'detectPhrases': True,
+  // 'detectPhrases': true,
   // <Optional, boolean| detect_phrases> |Accepted values are true & false. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.
 
   // 'languageCode': "en-US"
@@ -139,7 +140,7 @@ params = {
     # 'customVocabulary': ['Platform', 'Discussion', 'Targets'],
     # <Optional, list| custom_vocabulary_list> |Contains a list of words and phrases that provide hints to the speech recognition task.
 
-    # 'detectPhrases': True,
+    # 'detectPhrases': true,
     # <Optional, boolean| detect_phrases> |Accepted values are true & false. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.
 
     # 'languageCode': "en-US"
@@ -197,7 +198,7 @@ Parameter | Required | Type | Description
 ```channelMetadata```| Optional | Object[] | This object parameter contains two variables `speaker` and `channel` to specify which speaker corresponds to which channel. This object only works when `enableSeparateRecognitionPerChannel` query param is set to `true`. Read more in the [Channel Metadata](#channel-metadata) section below. 
 ```trackers``` <font color="orange"> BETA</font> | Optional | List | A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
 ```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
-```enableSummary```<font color="blue"> LABS </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API (Labs)](/conversation-api/summary). Ensure that you use the base URL as `https://api-labs.symbl.ai`.
+```enableSummary```<font color="blue"> ALPHA </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL.
 ```enableSpeakerDiarization``` | Optional | Boolean | Whether the diarization should be enabled for this conversation. Pass this as `true` to enable Speaker Separation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
 ```diarizationSpeakerCount``` | Optional | String | The number of unique speakers in this conversation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
 
