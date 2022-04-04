@@ -120,7 +120,8 @@ exit()
                     "type": "date",
                     "text": "today",
                     "offset": 28,
-                    "value": "2020-06-22"
+                    "start": "2022-03-24 16:00:00",
+                    "end": "2022-03-24 20:00:00"
                 },
                 {
                     "type": "person",
