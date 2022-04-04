@@ -16,7 +16,6 @@ Symbl's Streaming API is based on the WebSocket protocol and can be used for rea
 Currently, Streaming API is supported in English only. However, the support for Spanish is available as a part of [Symbl Labs](/docs/labs/). 
 ::: 
 
-## Request Parameters
 
 ### Authentication
 
@@ -24,11 +23,13 @@ Before using this API, you must generate your authentication token (`AUTH_TOKEN`
 
 ### Endpoint
 
-`wss://api.symbl.ai/v1/streaming/{CONVERSATION_ID}?access_token=ACCESS_TOKEN`
+`wss://api.symbl.ai/v1/streaming/{CONNECTION_ID}?access_token=ACCESS_TOKEN`
 
 :::note Backward Compatibility
 The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
 :::
+
+### Request Parameters
 
 #### <a name="message-body"></a>Main Message Body
 
