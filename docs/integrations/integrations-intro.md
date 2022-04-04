@@ -2,6 +2,7 @@
 id: integrations-intro
 title: Integrations
 slug: /integrations/integrations-intro/
+pagination_next: null
 ---
 
 import Tabs from '@theme/Tabs';

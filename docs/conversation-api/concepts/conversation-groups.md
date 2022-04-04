@@ -2,6 +2,7 @@
 id: conversation-groups
 title: Conversation Groups (Beta)
 sidebar_label: Introduction
+pagination_label: Conversation Groups
 slug: /concepts/conversation-groups/
 ---
 
