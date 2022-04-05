@@ -19,7 +19,7 @@ Our documentation site is built using [Docusaurus 2](https://v2.docusaurus.io/),
 
 ## Points to Note
 
-- To submit Pull Requests (PRs), always use the `develop` as the base branch.
+- To submit Pull Requests (PRs), always use the `develop` as the base branch .
 - We merge changes to master on a weekly basis.
 - Go through our [Code of Conduct](https://github.com/symblai/symbl-docs/blob/develop/CODE_OF_CONDUCT.md) for general best practices to foster community. 
 - We follow the writing guidelines of [Microsoft Styleguide](https://docs.microsoft.com/en-us/style-guide/welcome/) and [Google Developer Documentation Style guide](https://developers.google.com/style) so ensure you refer to the same for any editorial guidance for writing and syntax.
