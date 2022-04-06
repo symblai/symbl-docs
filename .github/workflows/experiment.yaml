@@ -5,13 +5,13 @@ on:
     - 'experiment'
 
 jobs:
-  build:
-    name: Build
+  trigger-circleci:
     runs-on: ubuntu-latest
     steps:
-    - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v1
-      with:
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: ${{ secrets.REPO_NAME }}
-        event-type: build-experiment
+      - name: Trigger exiting circleci job
+        uses: zivkaziv/circleci-trigger-github-action@master
+        with:
+          token: ${{ secrets.CCI_DOCS_TOKEN }}
+          branch: experiment
+          org: rammerai
+          repo: docs-v1
