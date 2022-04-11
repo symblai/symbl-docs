@@ -13,7 +13,7 @@ The PUT Async Text API allows you to process any text payload to append the tran
 It can be useful in cases where you have new information like chats, emails or messages which keep generating for single entity. Using this API, you can add all the new entity data to the existing Conversation ID (`conversationId`).
 
 :::info
-If there are multiple requests are submitted for the same Conversation ID, all the requests will be processed synchronously in order to maintain the order of the requests for the conversation.
+If multiple requests are submitted for the same Conversation ID, all the requests are processed synchronously in order to maintain the order of the requests for the conversation.
 :::
 
 ### Authentication
@@ -336,7 +336,7 @@ Field | Required | Type |  Description
 ---------- | ------- | ------- |  ------- |
 ```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
 ```messages``` | Mandatory | List | Input Messages to look for insights. [See the messages section below for more details.](#messages)
-```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
+```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range >=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
 ```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of a conversation. These sentences can be found using the Conversation's  Messages API. The default value is `false`.
 ```entities``` | Optional | List |  Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
