@@ -41,11 +41,11 @@ To create a conversation group, make a POST request to Symbl using the following
 
 #### Request Body Parameters
 
-| Parameter | Data Type | Description | Required | Values Accepted | 
-|--------|----------|---- | --- | ------| 
-`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
-`description` | String | Description to capture any additional details of the group and its purpose. | Optional | The maximum length of string allowed 512 characters.
-`criteria` | String / RSQL format | Criteria in RSQL format that should be applied to group conversations under this group. | Mandatory | Valid RSQL string. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
+Parameter |  Description
+---------- | ------- |
+```name``` | String, mandatory <br/><br/> Name of the group. String with no special characters is allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters. <br/><br/> Example: `"name": "Calls made by John"`
+```description``` | String, optional <br/><br/> Description to capture any additional details of the group and its purpose. The maximum length of string allowed `512` characters. <br/><br/> Example: `"description": "All the conversations made by agent John Doe are captured in this Group."`
+```criteria``` | String / RSQL format, mandatory <br/><br/> Criteria in RSQL format that should be applied to group conversations under this group. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser). <br/><br/> Example: `"criteria": "conversation.metadata.agentId==johndoe"`
 
 #### Response Body
 
@@ -115,21 +115,21 @@ Additional operations like filtering, sorting, or aggregate can be performed whi
 
 #### Path Parameters
 
-| Parameter | Required | Description |
-|--------|----------|---- |
-`groupId` | Mandatory | Unique ID of the group created using Management API’s Create Group API endpoint. |
+Parameter |  Description
+---------- | ------- |
+```groupId``` | String, mandatory <br/><br/> Unique ID of the group created using Management API’s Create Group API endpoint.
 
 #### Query Parameters
 
-| Parameter | Data Type | Description | Required | Default Value | 
-|--------|--------|---------------|-----|---|
-`limit` | Integer (int16) | Specifies a non-negative integer `count`, to indicate that no more than `count` items in the result will be returned. `limit` set to `0` returns 0 items in the result. | Optional | 20.<br/>Value accepted is between `0` to `65536` | 
-`offset` | Integer (int16) | Specifies a non-negative number of items to skip before applying `limit`. | Optional | 0 | 
-`order` | String / enum | Specifies the order in which the results should be sorted. The `order` is applied on the `startTime` field of the associated Conversation entity. | Optional | `asc`. Values accepted are `asc` and `desc`.
-`startTime` | String / [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format | Specifies the start of the datetime range for the results to be returned. This `startTime` is associated with the `startTime` field of the associated Conversation entity. If `startTime` is not mentioned, then `startTime` is calculated as - `startTime = endTime - duration('7 days')`.| Optional | `startTime = endTime - duration('7 days')`. Values accepted are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted strings with value less than current timestamp and less than `endTime`. |
-`endTime` | String / [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format | Specifies the end of the date time range for the results to be returned. This `endTime` is associated with the `endTime` field of the associated Conversation entity. If `endTime` is not mentioned, then the current timestamp is considered as `endTime` automatically. | Optional | `endTime = currentDatetime()`. Values accepted are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted strings with value less than current timestamp and greater than `startTime`.|
-`sort` | String | Specifies one or more fields to be used to sort the results. | Optional | `conversation.startTime` | |
-`filter` | String / RSQL format | Specifies a filter string in RSQL format to filter the results. <br/> - Filter parameter should be a valid RSQL string however it can't have OR logical Operator. <br/> - Filter parameter can not have more than 2 parameters in it's filters. There is no limit on filters though, so user can add any number of filters using maximum of two parameters.| Optional | `conversation.startDate <= {currentTimestamp - 7 days}`.
+Parameter |  Description
+---------- | ------- |
+```limit``` | Integer (int16), optional <br/><br/> Specifies a non-negative integer `count`, to indicate that no more than `count` items in the result will be returned. `limit` set to `0` returns 0 items in the result. Value accepted is between `0` to `65536`. Default value is `20`. <br/><br/> Example: `"limit": 10`
+```offset``` | 	Integer (int16), optional <br/><br/> Specifies a non-negative number of items to skip before applying `limit`. Default value is `0`. <br/><br/> Example: `"offset": 2`
+```order``` | String / enum, optional <br/><br/> Specifies the order in which the results should be sorted. The `order` is applied on the `startTime` field of the associated Conversation entity. Values accepted are `asc` and `desc`. Default value is `asc`. <br/><br/> Example: `"order": "desc"`
+```startTime``` | String / [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, optional <br/><br/> Specifies the start of the datetime range for the results to be returned. This `startTime` is associated with the `startTime` field of the associated Conversation entity. If `startTime` is not mentioned, then `startTime` is calculated as - `startTime = endTime - duration('7 days')`. <br/><br/> Values accepted are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted strings with value less than current timestamp and less than `endTime`. <br/><br/> Example: `"startTime": "2021-02-27T15:53:05.594Z"`
+```endTime``` | String / [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format, optional <br/><br/> Specifies the end of the date time range for the results to be returned. This `endTime` is associated with the `endTime` field of the associated Conversation entity. If `endTime` is not mentioned, then the current timestamp is considered as `endTime` automatically. <br/><br/> Values accepted are [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) formatted strings with value less than current timestamp and greater than `startTime`. <br/><br/> Example: `"endTime": "2021-02-27T16:18:05.048Z"`
+```sort``` | String, optional <br/><br/> 	Specifies one or more fields to be used to sort the results. The default value is `conversation.startTime`. <br/><br/> Example: `"sort": "conversation.startTime"`
+```filter``` | String / RSQL format, optional <br/><br/> Specifies a filter string in RSQL format to filter the results. <br/> - Filter parameter should be a valid RSQL string however it can't have OR logical Operator. <br/> - Filter parameter can not have more than 2 parameters in it's filters. There is no limit on filters though, so user can add any number of filters using maximum of two parameters. The default value is `conversation.startDate <= {currentTimestamp - 7 days}`.
 
 :::note
 When no filter is provided, it falls back to the default criteria of `startTime` and `endTime`. 
