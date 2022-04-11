@@ -181,13 +181,13 @@ Here is a breakdown of the request options for the Telephony API endpoint:
 
 #### Main Request Body
 
-Field  | Type | Description
----------- | ------- | -------
-```operation``` | string | enum([start, stop]) - Start or Stop connection
-```endpoint``` | object | Object containing Type of the session - either pstn or sip, phoneNumber which is the meeting number symbl should call with country code prepended and dtmf which is the conference passcode. [See endpoint section below](#endpoint-config).
-```actions``` | array | actions that should be performed while this connection is active. Currently only one action is supported - sendSummaryEmail. [See actions section below](#actions).
-```data``` | object | Object containing a session object which has a field name corresponding to the name of the meeting. [See data section below](#data).
-```timezone``` | string | The timezone name which comes from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). [See timezone section below](#timezone).
+Field  | Description
+---------- | ------- 
+```operation``` | string <br/><br/> enum([start, stop]) - Start or Stop connection <br/><br/> Example: `"operation": "start"`
+```endpoint``` | object <br/><br/>  Object containing Type of the session - either pstn or sip, phoneNumber which is the meeting number symbl should call with country code prepended and dtmf which is the conference passcode. [See endpoint section below](#endpoint-config). <br/><br/> Example: `"endpoint": "type" : "pstn", "phoneNumber": phoneNumber, "dtmf": dtmfSequence`
+```actions``` | array <br/><br/>  actions that should be performed while this connection is active. Currently only one action is supported - sendSummaryEmail. [See actions section below](#actions). <br/><br/> Example: `"actions": "invokeOn": "stop", "name": "sendSummaryEmail", "parameters": "emails": "user@example.com"`
+```data``` | object <br/><br/>  Object containing a session object which has a field name corresponding to the name of the meeting. [See data section below](#data). <br/><br/> Example: `"data" : "session": "name" : "My Meeting"`
+```timezone``` | string <br/><br/> The timezone name which comes from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). [See timezone section below](#timezone). <br/><br/> Example: `"timezone": "Asia/Tokyo"`
 
 ##### Code Example
 
@@ -204,11 +204,11 @@ Field  | Type | Description
 
 #### Endpoint Config
 
-Field  | Required | Supported Value | Description
----------- | ------- |  ------- |  -------
-`type` | Yes | enum(["sip", "pstn"]) | Defines the type of connection. Only [SIP](/docs/concepts/pstn-and-sip#sip-session-initiation-protocol) and [PSTN](/docs/concepts/pstn-and-sip#pstn-public-switched-telephone-networks) supported.
-`phoneNumber` | Yes | String | Phone number to be used to dial in to in E.164 format i.e. special characters like () or - and leading + or international access codes like 001 or 00 must be omitted. For e.g. - US number should look like 14082924837, whereas UK number should look like 447082924837.
-`dtmf` | No | String | DTMF sequence to be sent after call is received (ex: `939293#`)
+Field  | Description
+---------- | ------- 
+`type` | enum(["sip", "pstn"], mandatory <br/><br/> Defines the type of connection. Only [SIP](/docs/concepts/pstn-and-sip#sip-session-initiation-protocol) and [PSTN](/docs/concepts/pstn-and-sip#pstn-public-switched-telephone-networks) supported. <br/><br/> Example: `"type" : "pstn"`
+`phoneNumber` | String, mandatory <br/><br/> Phone number to be used to dial in to in E.164 format i.e. special characters like () or - and leading + or international access codes like 001 or 00 must be omitted. For e.g. - US number should look like 14082924837, whereas UK number should look like 447082924837. <br/><br/> Example: `"phoneNumber": phoneNumber`
+`dtmf` | String, optional <br/><br/>DTMF sequence to be sent after call is received (ex: `939293#`) <br/><br/> Example: `"dtmf": dtmfSequence`
 
 ##### Code Example
 
@@ -224,12 +224,12 @@ Field  | Required | Supported Value | Description
 
 #### Actions
 
-Field  | Required | Supported Value | Description
----------- | ------- |  ------- |  -------
-`invokeOn` | Yes | enum(["start", "stop"]) | Event type on which the action should be performed.
-`name` | Yes | String |  Name of the action that needs to be invoked. Only `sendSummaryEmail` is currently supported.
-`parameters` | Yes | Object  | Object with required input parameter data for invocation of the specified action.
-`parameters.emails` | Yes | String[] | An array of emails.
+Field  | Description
+---------- | ------- 
+`invokeOn` | enum(["start", "stop"]) mandatory <br/><br/> Event type on which the action should be performed. <br/><br/> Example: `"invokeOn": "stop"`
+`name` | String, mandatory <br/><br/>  Name of the action that needs to be invoked. Only `sendSummaryEmail` is currently supported. <br/><br/> Example: `"name": "sendSummaryEmail"`
+`parameters` | Object, mandatory <br/><br/> Object with required input parameter data for invocation of the specified action. <br/><br/> Example: `"parameters": "emails": "user@example.com"`
+`parameters.emails` | String[], mandatory <br/><br/> An array of emails. <br/><br/> Example: `"emails": "user@example.com"`
 
 
 ##### Code Example
@@ -250,10 +250,10 @@ Field  | Required | Supported Value | Description
 
 #### Data
 
-Field  | Required | Supported Value | Description
----------- | ------- |  ------- |  -------
-`session` | No | String | Contains information about the meeting.
-`session.name` | No | String | The name of the meeting.
+Field  | Description
+---------- | ------- 
+`session` | String, optional <br/><br/> Contains information about the meeting. <br/><br/> Example: `session": "name" : "My Meeting"`
+`session.name` | String, optional <br/><br/> The name of the meeting. <br/><br/> Example: `"name" : "My Meeting"`
 
 ##### Code Example
 
@@ -270,10 +270,10 @@ Field  | Required | Supported Value | Description
 #### Timezone
 
 
-Field  | Required | Supported Value | Description
----------- | ------- |  ------- |  -------
-`timezone` | No | String | The timezone name which comes from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-
+Field  | Description
+---------- | ------- 
+`timezone` | String, optional <br/><br/>  The timezone name which comes from the [IANA TZ database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). <br/><br/> Example: `"timezone": "Asia/Tokyo"`
+ 
 ##### Code Example
 
 ```js
@@ -320,7 +320,7 @@ Field | Description
 ```eventUrl``` | REST API to push speaker events as the conversation is in progress, to add additional speaker context in the conversation. Example - In an on-going meeting, you can push speaker events
 ```resultWebSocketUrl``` | Same as eventUrl but over WebSocket. The latency of events is lower with a dedicated WebSocket connection.ct
 ```connectionId``` | Ephemeral connection identifier of the request, to uniquely identify the telephony connection. Once the connection is stopped using “stop” operation, or is closed due to some other reason, the connectionId is no longer valid
-```conversationId``` | Represents the conversation - this is the ID that needs to be used in conversation api to access the conversation
+```conversationId``` | Represents the conversation - this is the ID that needs to be used in conversation api to access the conversation 
 
 #### Code Example
 
