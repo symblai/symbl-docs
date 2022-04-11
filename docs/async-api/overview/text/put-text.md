@@ -13,7 +13,7 @@ The PUT Async Text API allows you to process any text payload to append the tran
 It can be useful in cases where you have new information like chats, emails or messages which keep generating for single entity. Using this API, you can add all the new entity data to the existing Conversation ID (`conversationId`).
 
 :::info
-If there are multiple requests are submitted for the same Conversation ID, all the requests will be processed synchronously in order to maintain the order of the requests for the conversation.
+If multiple requests are submitted for the same Conversation ID, all the requests are processed synchronously in order to maintain the order of the requests for the conversation.
 :::
 
 ### Authentication
@@ -218,7 +218,7 @@ payload = {
 
     "confidenceThreshold": 0.6,  # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
 
-    "detectPhrases": true,  # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+    "detectPhrases": "true",  # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
     "messages": [
         {
             "payload": {
@@ -269,7 +269,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("PUT", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
+response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
     # Successful API execution

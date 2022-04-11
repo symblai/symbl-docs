@@ -18,8 +18,7 @@ This API supports only <b>mp4</b> file formats video. If you have any other type
 :::
 
 :::note
-If there are multiple requests are submitted for the same Conversation ID, all the requests will be processed synchronously
-in order to maintain the order of the requests for the conversation.
+If multiple requests are submitted for the same Conversation ID, all the requests are processed synchronously in order to maintain the order of the requests for the conversation.
 :::
 
 ### Authentication
@@ -218,6 +217,7 @@ Parameter |  Description
 ```enableSummary```<font color="blue"> ALPHA </font> | Boolean, optional  <br/><br/> Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL. <br/><br/> Example: `"enableSummary": true`  
 ```enableSpeakerDiarization``` | Boolean, optional  <br/><br/>  Whether the diarization should be enabled for this conversation. Pass this as `true` to enable Speaker Separation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. <br/><br/> Example: `  "enableSeparateRecognitionPerChannel": true`
 ```diarizationSpeakerCount``` | Integer, optional <br/><br/> The number of unique speakers in this conversation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. <br/><br/> Example: `diarizationSpeakerCount=$NUMBER_OF_UNIQUE_SPEAKERS"`
+
 
 ### Response 
 

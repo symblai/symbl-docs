@@ -18,8 +18,7 @@ This API supports only <b>mp4</b> file formats video. If you have any other type
 :::
 
 :::note
-If there are multiple requests are submitted for the same Conversation ID all the requests will be processed synchronously
-in order to maintain the order of the requests for the conversation.
+If multiple requests are submitted for the same Conversation ID, all the requests are processed synchronously in order to maintain the order of the requests for the conversation.
 :::
 
 ### Authentication

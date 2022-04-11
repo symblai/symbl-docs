@@ -14,8 +14,7 @@ It can be useful in any use case where you have access to multiple recorded audi
 
 
 :::important
-If there are multiple requests are submitted for the same Conversation ID, all the requests will be processed synchronously
-in order to maintain the order of the requests for the conversation.
+If multiple requests are submitted for the same Conversation ID, all the requests are processed synchronously in order to maintain the order of the requests for the conversation.
 :::
 
 ### Authentication

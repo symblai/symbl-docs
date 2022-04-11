@@ -25,6 +25,8 @@ We store transcripts, insights, and metadata of the conversation, which is persi
 For trial, [Streaming API](/docs/streamingapi/introduction) has a limit of 2 concurrent connections, and [Async APIs](/docs/async-api/overview/introduction) has a limit of 2 concurrent jobs. After you upgrade your account, it has a limit of 50 concurrent connections for Streaming API and 50 concurrent jobs for Async API.
 If you are looking to scale, and need more concurrent jobs than this limit, please contact us at support@symbl.ai.
 
+### What happens when multiple requests are sent for the same Conversation ID?
+If multiple requests are submitted for the same Conversation ID, all the requests are processed synchronously in order to maintain the order of the requests for the conversation.
 
 ### What is the maximum length of meeting duration the [Async API](/docs/async-api/overview/introduction) supports?  
 
