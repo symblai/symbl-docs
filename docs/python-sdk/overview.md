@@ -94,7 +94,7 @@ In the example given below, we are calling the real-time audio processing servic
 local_path = r'c:/Users/john/Downloads/business_meeting.mp3'
 
 conversation_object = symbl.Audio.process_file(
-file_path=local_path
+file_path=local_path)
 
 ```
 
