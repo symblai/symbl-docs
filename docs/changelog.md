@@ -11,6 +11,22 @@ import TabItem from '@theme/TabItem';
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
 
+### 12 April 2022
+
+![sdk](/img/sdk-icon.png) <br/>
+- **Availability of a new Web SDK package** that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser.  <br/>
+[Read more here](/docs/web-sdk/overview). <br/><br/>
+  #### Known Issues
+  - When an empty array is passed for `insightTypes` on `createConnection`, users still get those insights available on “ON” handlers for `questions`, `topics`, `action_items`, `follow_ups`.
+  - Web SDK does not show any errors when users do not pass or use or send invalid(v4 format) `connectionID` to subscribe to existing stream.
+  - If a user loses network for 30-40 seconds, the WebSocket connection does not recover with `noConnectionTimeout: 900`.
+  - If 2nd speaker joins the existing stream and passes the tracker object, Streaming API only returns the trackers that were passed by the original speaker.
+  - When the WebSocket Connection breaks and when the user switches network change from wifi to mobile hotspot, the connection does not recover.
+  - Web SDK does not handle Safari browser seamlessly.
+  - `session_modified` hander is not supported.  
+  - Update Element is working for `Linear16` but not for `OPUS`.
+
+
 ### 14 March 2022
 
 ![api update](/img/api-update.png) 
@@ -192,3 +208,4 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 
 
 ### [Connect with us on Slack](https://symbldotai.slack.com/join/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA#/shared-invite/email) 💬
+
