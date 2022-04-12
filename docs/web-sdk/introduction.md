@@ -21,9 +21,9 @@ The following web browser supported with the Web SDK are given below:
 
 Operating System | Chrome | Edge | Firefox | Safari | ------ 
 ---------- | ------- | ------- | ------
-macOS | ✅ | - | ✅ | - | ✅
-Windows | ✅ | ✅ | ✅ |  | ✅
-Linux| ✅ | - | ✅ | - | -
+macOS | ✅ | - | ✅ | ✅ | 
+Windows | ✅ | ✅ | ✅ | ✅ |
+Linux| ✅ | - | ✅ | ✅ | 
 
 
 :::caution note 
