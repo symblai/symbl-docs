@@ -22,6 +22,10 @@ Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing
 &nbsp; 
 
 <div class="sdk-card-container">
+<a class="sdk-card sdk-card3-bg" href="/docs/web-sdk/overview">
+    <img class="sdk-card-logo" src={WebSdkLogo}></img>
+    <h3 class="sdk-card-header">Web SDK</h3>
+</a>
 <a class="sdk-card sdk-card1-bg" href="/docs/javascript-sdk/introduction">
     <img class="sdk-card-logo" src={JavaScriptLogo}></img>
     <h3 class="sdk-card-header">JavaScript</h3>
@@ -31,12 +35,6 @@ Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing
     <img class="sdk-card-logo" src={PythonLogo}></img>
     <h3 class="sdk-card-header">Python</h3>
 </a>
-
-<a class="sdk-card sdk-card3-bg" href="https://github.com/symblai/symbl-web-sdk">
-    <img class="sdk-card-logo" src={WebSdkLogo}></img>
-    <h3 class="sdk-card-header">Web SDK</h3>
-</a>
-
 <a class="sdk-card sdk-card4-bg" href="https://github.com/ranjancse26/symbl-csharp-sdk">
     <img class="sdk-card-logo" src={CsharpLogo}></img>
     <h3 class="sdk-card-header">C#</h3>
@@ -50,4 +48,5 @@ Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing
 *The C# SDK is not maintained as a part of Symbl's official repository yet. While you can utilize this SDK, support for the same is not available at this point.*  
 
 ---
+
 
