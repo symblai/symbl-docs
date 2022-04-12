@@ -19,8 +19,8 @@ The Web SDK is currently available with Symbl’s Streaming and Subscribe APIs.
 ### Supported Browsers
 The following web browser supported with the Web SDK are given below: 
 
-Operating System | Chrome | Edge | Firefox | Safari | ------ 
----------- | ------- | ------- | ------
+Operating System | Chrome | Edge | Firefox | Safari |
+---------- | ------- | ------- | ------ | ------ |
 macOS | ✅ | - | ✅ | ✅ | 
 Windows | ✅ | ✅ | ✅ | ✅ |
 Linux| ✅ | - | ✅ | ✅ | 
