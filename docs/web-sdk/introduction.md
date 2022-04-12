@@ -19,14 +19,15 @@ The Web SDK is currently available with Symbl’s Streaming and Subscribe APIs.
 ### Supported Browsers
 The following web browser supported with the Web SDK are given below: 
 
-Operating System | Chrome | Edge | Firefox | Brave| ------ 
+Operating System | Chrome | Edge | Firefox | Safari | ------ 
 ---------- | ------- | ------- | ------
-macOS | ✅ | ✅ | ✅ | - | 
-Windows | ✅ | ✅ | ✅ | ✅ |  
-Linux| ✅ | - | ✅ | - | 
+macOS | ✅ | - | ✅ | - | ✅
+Windows | ✅ | ✅ | ✅ |  | ✅
+Linux| ✅ | - | ✅ | - | -
+
 
 :::caution note 
-Currently, the support for Safari browser is not available. 
+Currently, the OPUS encoder support in Safari browser is not available. 
 :::
 
 ### Supported Languages
@@ -85,10 +86,9 @@ You can import the Web SDK in ES5 and ES6 syntax:
 <TabItem value="es5">
 
 ```js
-var Symbl = require('@symblai/symbl-web-sdk');
-var symbl = Symbl({
+const {Symbl} = require('@symblai/symbl-web-sdk');
+const symbl = Symbl({
   accesssToken: '<YOUR ACCESS TOKEN>'
-});
 });
 ```
 
@@ -97,8 +97,8 @@ var symbl = Symbl({
 <TabItem value="es6">
 
 ```js
-import Symbl from '@symblai/symbl-web-sdk';
-var symbl = Symbl({
+import { Symbl } from '@symblai/symbl-web-sdk';
+const symbl = Symbl({
   accesssToken: '<YOUR ACCESS TOKEN>'
 });
 
@@ -115,7 +115,7 @@ The following code shows an example configuration for Web SDK. All fields are op
   disconnectOnStopRequest: false,
   disconnectOnStopRequestTimeout: 1800,
   noConnectionTimeout: 900,
-  insightTypes: ["follow_up", "action_item"],
+  insightTypes: ["follow_up", "action_item", "question"],
   config: {
       meetingTitle: "Mic Test", // Name for meeting
       confidenceThreshold: 0.7, //Minimum confidence score set for the API to consider an insight as valid.
