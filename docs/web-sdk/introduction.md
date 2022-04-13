@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-The Web SDK allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
+The Web SDK is a Typescript application that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
 
 :::info
 The Web SDK is currently available with Symbl’s Streaming and Subscribe APIs. 
