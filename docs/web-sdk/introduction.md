@@ -10,6 +10,10 @@ import TabItem from '@theme/TabItem';
 
 ---
 
+:::note In Beta Phase
+This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::
+
 The Web SDK allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
 
 :::info
