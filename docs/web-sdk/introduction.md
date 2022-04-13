@@ -60,6 +60,14 @@ You can also import the file into your HTML appliaction using our CDN.\
 <script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/latest/symbl.min.js"></script>
 ```
 
+You would then access the `Symbl` class via the `window` method:
+
+```js
+const Symbl = window.Symbl;
+const symbl = new Symbl({
+  accessToken: "< YOUR ACCESS TOKEN >"
+});
+```
 
 :::note
 For production environemtns we recommend using the Versioned CDN.
