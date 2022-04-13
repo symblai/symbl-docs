@@ -36,7 +36,7 @@ Before using the Web SDK you must [Sign up with Symbl.ai](https://platform.symbl
 
 ## Installation
 
-**Using npm**
+### Using npm
 
 Install the Web SDK using `npm` with the following command:
 
@@ -44,11 +44,25 @@ Install the Web SDK using `npm` with the following command:
 npm i  @symblai/symbl-web-sdk
 ```
 
-:::note
-You must have the latest version of npm package installed. If you don’t have it, run the following commands to get the latest: 
-```shell
-npm install
+### CDN
+
+You can also import the file into your HTML appliaction using our CDN.\
+
+#### Versioned CDN
+
+```html
+<script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/v1.0.0/symbl.min.js"></script>
 ```
+
+#### Latest CDN
+
+```html
+<script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/latest/symbl.min.js"></script>
+```
+
+
+:::note
+For production environemtns we recommend using the Versioned CDN.
 :::
 
 ## Authentication
