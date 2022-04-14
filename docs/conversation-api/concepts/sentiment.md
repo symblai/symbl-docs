@@ -4,6 +4,7 @@ title: Sentiment Analysis (Beta)
 sidebar_label: Introduction
 description: Sentiment API enables developers to detect positive or negative sentiment from conversations in real-time. Learn more.
 slug: /concepts/sentiment-analysis/
+pagination_label: Sentiment Analysis
 ---
 
 <head>

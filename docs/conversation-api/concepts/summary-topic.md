@@ -4,6 +4,7 @@ title: Topics
 description: Automatically identify and extract topics from conversations with Symbl.ai's Topic API.
 sidebar_label: Introduction
 slug: /concepts/topics/
+pagination_label: Topics
 ---
 
 <head>

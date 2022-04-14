@@ -302,7 +302,7 @@ Parameters | Required | Type | Description
 ---------- | ------- | ------- | -------
 ```url``` | Mandatory | String | A valid url string. The URL must be a publicly accessible url.
 ```customVocabulary``` | Optional | String[] | Contains a list of words and phrases that provide hints to the speech recognition task.
-```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
+```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range >=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
 ```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. It's a boolean value where the default value is `false`.
 ```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
 ```webhookUrl``` | Optional | String | Webhook URL on which job updates to be sent. This should be after the API call is made. For Webhook payload, refer to the [Using Webhook](#using-webhook) section below. 

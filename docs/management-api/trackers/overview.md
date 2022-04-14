@@ -3,6 +3,7 @@ id: trackers-overview
 title: Trackers API (Beta)
 sidebar_label: Introduction
 slug: /management-api/trackers/overview/
+pagination_label: Trackers API
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

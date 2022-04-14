@@ -3,6 +3,7 @@ id: ui-components
 title: Reusable and Customizable UI Components
 sidebar_label: Introduction
 slug: /conversation-api/concepts/ui-components/
+pagination_label: Reusable and Customizable UI Components
 ---
 
 import Tabs from '@theme/Tabs';

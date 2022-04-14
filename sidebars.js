@@ -552,6 +552,23 @@ SDKsidebar: [{
   type: "doc",
  },
  {
+  label: "Web SDK",
+  type: "category",
+  collapsed: false,
+  items: [
+    'web-sdk/web-sdk',
+    {
+      type: 'category',
+      label: 'Streaming API',
+      items: [
+        'web-sdk/web-sdk-getting-live-transcripts',
+        'web-sdk/web-sdk-sending-external-audio-streams',
+        'web-sdk/web-sdk-updating-audio-streams',
+      ],
+    },
+  ]
+},
+ {
   label: "Javascript SDK",
   collapsed: false,
   type: "category",
@@ -724,6 +741,14 @@ Communitysidebar: [{
 ChangelogSidebar: [{
   id: "changelog",
   type: "doc",
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#12-april-2022',
+    label: '12 April 2022',
+  }
 },
 {
   type: 'doc',
@@ -921,4 +946,3 @@ ChangelogSidebar: [{
 },
 ],
  };
-

@@ -201,7 +201,7 @@ payload = {
     "confidenceThreshold": 0.6,
     # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
 
-    "detectPhrases": true,
+    "detectPhrases": "true",
     # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
 
     "messages": [
@@ -238,7 +238,7 @@ responses = {
     500: 'Something went wrong! Please contact support@symbl.ai'
 }
 
-response = requests.request("POST", url, headers=headers, data=json.dumps(payload), params=json.dumps(params)))
+response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
 
 if response.status_code == 201:
     # Successful API execution
@@ -299,7 +299,7 @@ Field | Required | Type |  Description
 ---------- | ------- | ------- |  ------- |
 ```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
 ```detectPhrases```| Optional | Boolean | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`.
-```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
+```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range >=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
 ```entities``` | Optional | List | Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities).
 ```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
 ```messages``` | Mandatory | list |  Input Messages to look for insights. [See the messages section below for more details.](#messages)

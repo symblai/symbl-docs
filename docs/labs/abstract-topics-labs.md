@@ -3,6 +3,7 @@ id: abstract-topics-labs
 title: Abstract Topics (Labs)
 sidebar_label: Introduction
 slug: /guides/abstract-topics-labs/
+pagination_label: Abstract Topics
 ---
 
 import Tabs from '@theme/Tabs';

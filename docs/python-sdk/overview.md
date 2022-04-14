@@ -3,6 +3,7 @@ id: python-sdk
 title: Symbl Python SDK 
 sidebar_label: Introduction
 slug: /python-sdk/overview/
+pagination_label: Python SDK
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -93,7 +94,7 @@ In the example given below, we are calling the real-time audio processing servic
 local_path = r'c:/Users/john/Downloads/business_meeting.mp3'
 
 conversation_object = symbl.Audio.process_file(
-file_path=local_path
+file_path=local_path)
 
 ```
 

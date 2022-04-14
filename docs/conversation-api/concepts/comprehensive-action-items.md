@@ -2,6 +2,7 @@
 id: comprehensive-action-items
 title: Comprehensive Action Items (Labs)
 sidebar_label: Introduction
+pagination_label: Comprehensive Action Items
 slug: /concepts/comprehensive-action-items/
 ---
 

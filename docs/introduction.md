@@ -3,6 +3,7 @@ id: introduction
 title: Symbl Documentation
 sidebar_label: Documentation
 slug: /
+pagination_next: null
 ---
 ---
 
