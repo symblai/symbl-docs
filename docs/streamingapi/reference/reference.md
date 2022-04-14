@@ -33,7 +33,7 @@ The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated
 
 #### <a name="message-body"></a>Main Message Body
 
-Parameter |  Description
+Field      |  Description
 ---------- | ------- |
 ```type``` | String, mandatory <br/><br/> Type of message. <br/><br/> Example: `"type": "start_request"`, `"type": "stop_request"`. 
 ```type```| String, optional <br/><br/> Type of message. Allows you to modify the request. See the [Modify Request](#modify-request) section below for more details. <br/><br/> Example: `"type": modify_request`
@@ -60,7 +60,7 @@ Parameter |  Description
 
 #### <a name="config"></a>Config
 
-Parameter |  Description
+Field      |  Description
 ---------- | ------- |
 ```confidenceThreshold``` | `>=0.5` to `<=1.0`, optional <br/><br/>Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range `<=0.5` to `<=1.0` (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`. <br/><br/> Example: `"confidenceThreshold": 0.9`
 ```speechRecognition```| Find the supported value [here](#speech-recognition), optional <br/><br/> See the Speech Recognition section [below](#speech-recognition).
@@ -83,7 +83,7 @@ Parameter |  Description
 
 ####  <a name="speech-recognition"></a>Speech Recognition
 
-Parameter |  Description
+Field      |  Description
 ---------- | ------- |
 ```encoding``` | String, optional <br/><br/> Audio Encoding in which the audio will be sent over the WebSocket. Supported values are `LINEAR16`, `FLAC`, `MULAW`, and `Opus`. Default value is `LINEAR16`. <br/><br/> Example: `"encoding": "FLAC"`
 ```sampleRateHertz``` | Number, optional <br/><br/> The rate of the incoming audio stream. The following are supported with the sample rates: <br/> encoding `LINEAR16` for sample rates `8000` to `48000`, <br/> encoding `FLAC` for sample rates `16000 ` and above, <br/> encoding `MULAW` for sample rates `8000`, <br/> encoding `Opus` for sample rates `16000` to `48000`. <br/><br/> Example: `"sampleRateHertz": 32000`
@@ -102,7 +102,7 @@ Parameter |  Description
 
 ####  <a name="speaker"></a>Speaker
 
-Parameter |  Description
+Field      |  Description
 ---------- | ------- |
 ```userId``` | String, optional <br/><br/> Any user identifier for the user. <br/><br/> Example: `"userId": "jane.doe@example.com"`
 ```name``` | String, optional <br/><br/> Display name of the user. <br/><br/> Example: `"name": "Jane"`

@@ -24,17 +24,17 @@ Make a PUT request to the following API:
 
 ### Request Headers
 
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Mandatory | `application/json` 
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+Header Name |  Description
+---------- | ------- |
+```Authorization``` | mandatory <br/><br/> `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type``` | mandatory <br/><br/> `application/json` 
+```x-api-key``` | optional <br/><br/>  DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
 #### Path Parameters
 
-| Parameter | Required | Description |
-|--------|----------|---- |
-`groupId` | Mandatory | Unique ID of the group created using Management API’s Create Group API endpoint. |
+Parameter |  Description
+---------- | ------- |
+```groupId``` | String, mandatory <br/><br/> Unique ID of the group created using Management API’s Create Group API endpoint.
 
 ### Request Body
 
@@ -61,12 +61,12 @@ Given below is another sample request containing more than one `criteria`. You c
 
 ### Request Parameters
 
-| Parameter | Data Type | Description | Required | Values Accepted | 
-|--------|----------|---- | --- | ------| 
-`id` | String | `id` is the unique identifier of the Conversation Group you are tying to update. | Mandatory | 
-`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
-`description` | String | Description to capture any additional details of the group and its purpose. | Optional | The maximum length of string allowed 512 characters.
-`criteria` | String / RSQL format | Criteria in RSQL format that should be applied to group conversations under this group. | Mandatory | Valid RSQL string. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
+Parameter |  Description
+---------- | ------- |
+```id``` | String, mandatory <br/><br/> `id` is the unique identifier of the Conversation Group you are tying to update.
+```name``` | String, mandatory <br/><br/> Name of the group. String with no special characters is allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters. <br/><br/> Example: `"name": "Calls made by John"`
+```description``` | String, optional <br/><br/> Description to capture any additional details of the group and its purpose. The maximum length of string allowed `512` characters. <br/><br/> Example: `"description": "All the conversations made by agent John Doe are captured in this Group."`
+```criteria``` | String / RSQL format, mandatory <br/><br/> Criteria in RSQL format that should be applied to group conversations under this group. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser). <br/><br/> Example: `"criteria": "conversation.metadata.agentId==johndoe"`
 
 ### Response Body
 
