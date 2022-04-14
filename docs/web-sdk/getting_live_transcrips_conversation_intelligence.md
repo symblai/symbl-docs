@@ -27,7 +27,7 @@ See the list of web browsers supported in the [Browsers Supported](/docs/web-sdk
 Install the Web SDK using npm with the following command:
 
 ```shell 
-npm i  @symblai/symbl-web-sdk
+npm i  @symblai/symbl-web-sdk@1.0.0
 ```
 :::note
 You must have the latest version of npm package installed. If you don’t have it, run the following commands to get the latest: 
@@ -124,3 +124,4 @@ Field | Required | Supported value | Default Value | Description
 ```meetingTitle``` | Optional | | | The name of the meeting.
 
 For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 
+
