@@ -36,15 +36,15 @@ Currently, Speaker Diarization is available for English and Spanish languages on
 
 To enable Speaker Separation in the Async Audio or Video API is as simple as adding these query parameters to the URL:
 
-Parameter Name  | Type | Description
----------- | ------- |  ------- |
-`enableSpeakerDiarization` | Boolean | Will enable the speaker separation for the audio or video data under consideration.
-`diarizationSpeakerCount` | Integer | Sets the number of unique speakers in the audio or video data under consideration.
+Parameter Name  | Description
+---------- |  ------- |
+`enableSpeakerDiarization` | Boolean <br></br> Will enable the speaker separation for the audio or video data under consideration.
+`diarizationSpeakerCount` | Integer <br></br> Sets the number of unique speakers in the audio or video data under consideration.
 
 This snippet shows a cURL command for consuming the Async Video URL-based API which takes in the URL for a publicly available URL of a Video File:
 
 :::info
-The below example uses the Async Video URL API, but Speaker Separation can be achieved with other Async Audio/Video APIs in the same way.
+The example below uses the [Async Video URL API](/docs/async-api/overview/video/post-video-url), but Speaker Separation can be achieved with other [Async Audio/Video APIs](/docs/async-api/introduction#endpoints) in the same way with the `enableSpeakerDiarization` and `diarizationSpeakerCount` parameters.
 :::
 
 For accuracy, `NUMBER_OF_UNIQUE_SPEAKERS` should match the number of unique speakers in the Audio/Video data.
