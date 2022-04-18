@@ -138,7 +138,6 @@ sdk.init({
       const connectionId = connection.connectionId;
       console.log("Successfully connected.", connectionId);
       console.log('Conversation ID', connection.conversationId);
-      console.log('Full Conection Object', JSON.stringify(connection, null, 2));
     })
     .catch((err) => {
        console.error("Error while starting the connection", err);

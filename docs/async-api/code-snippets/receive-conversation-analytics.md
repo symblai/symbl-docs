@@ -149,7 +149,7 @@ const responses = {
 
 request.post(videoOption, (err, response, body) => {
   const statusCode = response.statusCode;
-  if (error || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+  if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
     throw new Error(responses[statusCode]);
   }
   console.log('Status code: ', statusCode);
