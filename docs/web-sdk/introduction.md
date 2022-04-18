@@ -178,7 +178,7 @@ try {
     await connection.stopProcessing();
     
     // Closes the WebSocket connection.
-    connection.disconect();
+    connection.disconnect();
 } catch(e) {
     // Handle errors here.
 }
@@ -217,7 +217,7 @@ try {
     await symbl.wait(60000);;
     
     // Closes the WebSocket connection.
-    connection.disconect();
+    connection.disconnect();
 } catch(e) {
     // Handle errors here.
 }
@@ -277,7 +277,7 @@ try {
     await connection.stopProcessing();
     
     // Closes the WebSocket connection.
-    connection.disconect();
+    connection.disconnect();
 } catch(e) {
     // Handle errors here.
 }
@@ -344,7 +344,7 @@ try {
     await connection.stopProcessing();
     
     // Closes the WebSocket connection.
-    connection.disconect();
+    connection.disconnect();
 } catch(e) {
     // Handle errors here.
 }
@@ -388,7 +388,7 @@ You can pass any of the following connection configuration parameters:
     
 Field  | Required | Supported Value | Description
 ---------- | ------- |  ------- |  -------
-```id``` | Optional* | Should match this regex: `/^[\da-z]{64,128}$/i` | The ID for the current session. *If not provided, a UUID will be generated for you.
+```id``` | Optional* | Should match this regex: `/^[a-zA-Z0-9-]{6,64}$/` | The ID for the current session. *If not provided, a UUID will be generated for you.
 ```insightTypes``` | Optional | action_item, question | Types of insights to return. If not provided, no insights will be returned.
 ```customVocabulary``` | Optional | List of String | An array of strings containing vocabulary specific to your company, products, or phrases. 
 ```config``` | Optional | Find the supported value [here](#config) | Configuration for this request. [See the config section below for more details](#config).
@@ -531,7 +531,7 @@ Field  | Required | Supported Value
 
 ## Events / Callbacks
 
-Both the conection and audio stream objects have an [`on`](#startprocessingoptions-streamingapiconnectionconfig) method which can be used to subscribe to events and perform callbacks.
+Both the connection and audio stream objects have an [`on`](#startprocessingoptions-streamingapiconnectionconfig) method which can be used to subscribe to events and perform callbacks.
 
 ### Connection Events
 
