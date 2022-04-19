@@ -1,0 +1,61 @@
+apis:
+  openapi:
+    root: symblSwagger.yml
+lint:
+  extends:
+    - recommended
+  rules:
+    no-ambiguous-paths: error
+    no-unused-components: error
+    operation-2xx-response: error
+    operation-operationId: error
+    operation-singular-tag: error
+    operation-4xx-response: off
+    paths-kebab-case: error
+    tag-description: off
+    custom-rules/description-punctuation: error
+    custom-rules/has-sdk-operation-name: error
+    custom-rules/no-unused-tags: warn
+  decorators:
+    products-bundler/bundle: error
+features.openapi:
+  corsProxyUrl: https://cors.redoc.ly/
+  showConsole: true
+  pagination: section
+  theme:
+    logo:
+      gutter: 20px 30px 14px 30px
+    colors:
+      primary:
+        main: '#0044D4'
+      text:
+        primary: '#0D2B3E'
+    typography:
+      headings:
+        fontFamily: Roboto
+      fontFamily: 'Roboto, Verdana, Geneva, sans-serif'
+      fontSize: 14px
+      code:
+        fontFamily: '"Courier New",monospace'
+      rightPanelHeading:
+        color: white
+    rightPanel:
+      backgroundColor: '#505A6F'
+    codeBlock:
+      backgroundColor: '#0D2B3E'
+    links:
+      color: '#6CC496'
+  htmlTemplate: ./web/index.html
+  generateCodeSamples:
+    languages:
+      - lang: curl
+      - lang: Node.js
+      - lang: C#
+      - lang: Python
+      - lang: Java
+      - lang: Go
+      - lang: Ruby
+      - lang: PHP
+  schemaExpansionLevel: '2'
+  maxDisplayedEnumValues: 10
+  expandResponses: '200,201'

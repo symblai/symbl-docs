@@ -52,6 +52,15 @@ info:
       is why Streaming API is not included in this collection. <a href="https://docs.symbl.ai/docs/streamingapi/overview/introduction">Learn
       more</a> about Streaming API.</h2>',
   }
+  
+  servers: 
+  - url: 'https://api-sandbox.rebilly.com/organizations/{organizationId}'
+    description: Sandbox server
+    variables:
+      organizationId:
+        default: unknown
+        description: Your organization ID.
+
 host: api.symbl.ai
 basePath: /
 schemes: [https]
