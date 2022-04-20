@@ -130,6 +130,10 @@ paths:
           description: Invalid Credentials were used to generate the access token.
           schema:
             properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message         
       x-codeSamples:
         - lang: Python
           source: >
@@ -290,9 +294,266 @@ paths:
                     userId: john@example.com
           required: true
       responses:
-        default:
-          description: default
-          schema: {}
+        "200":
+          description: Created.
+          schema:
+            properties:
+              conversationId:
+                type: string
+                example: your_conversation_id
+                description: Conversation ID.
+              jobId:
+                type: string
+                example: your_job_id
+                description: Job ID.
+        "400":
+          description: Bad Request! Please refer docs for correct input fields.
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message   
+        "401":
+          description: Unauthorized. Please generate a new access token.
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message   
+        "404":
+          description: The conversation and/or it's metadata you asked could not be found, please check the input provided
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message   
+        "429":
+          description: Maximum number of concurrent jobs reached. Please wait for some requests to complete.
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message                                                   
+        "500":
+          description: Something went wrong! Please contact support@symbl.ai
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message                      
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --location --request POST 'https://api.symbl.ai/v1/process/text' \
+            --header "Authorization: Bearer $AUTH_TOKEN" \
+            # Set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "Business Meeting",
+              "detectPhrases": "true",
+              "confidenceThreshold": 0.6,
+              "messages": [
+                {
+                  "duration": {
+                    "startTime": "2020-07-21T16:04:19.99Z",
+                    "endTime": "2020-07-21T16:04:20.99Z"
+                  },
+                  "payload": {
+                    "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you are providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family? Thanks a lot.  Thanks for calling good catching up.  Talk soon.",
+                    "contentType": "text/plain"
+                  },
+                  "from": {
+                    "name": "John",
+                    "userId": "john@example.com"
+                  }
+                }
+              ]
+            }'
+        - lang: 'JavaScript'
+          source: |
+            const authToken = AUTH_TOKEN;
+
+            const payload = {
+              // <Optional,String| your_meeting_name by default conversationId>
+              "name": "Business Meeting",
+              // <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
+              "confidenceThreshold": 0.6,
+              // <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+              "detectPhrases": true,
+              "messages": [
+                {
+
+                  // <Optional, object| Duration object containing startTime and/or endTime for the transcript.>, e.g.
+                  "duration": {
+                    "startTime": "2020-07-21T16:04:19.99Z",
+                    "endTime": "2020-07-21T16:04:20.99Z"
+                  },
+                  "payload": {
+                    "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you're providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family?  That's it.  Thanks a lot.  Thanks for calling good catching up.  Talk soon.",
+                    "contentType": "text/plain"
+                  },
+                  // <Optional, object| Information about the User information i.e. name and/or userId, produced the content of this message.>
+                  "from": {
+                    "name": "John",
+                    "userId": "john@example.com"
+                  }
+                }
+              ]
+            }
+
+            const responses = {
+              400: 'Bad Request! Please refer docs for correct input fields.',
+              401: 'Unauthorized. Please generate a new access token.',
+              404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+              429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+              500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            const fetchData = {
+              method: "POST",
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(payload),
+            }
+
+            fetch(`https://api.symbl.ai/v1/process/text`, fetchData).then(response => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error(responses[response.status]);
+              }
+            }).then(response => {
+              console.log('response', response);
+            }).catch(error => {
+              console.error(error);
+            });
+        - lang: 'NodeJS'
+          source: |
+            const request = require('request');
+            // set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+            const authToken = AUTH_TOKEN;
+
+            const options = {
+              'method': 'POST',
+              'url': 'https://api.symbl.ai/v1/process/text',
+              'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+              },
+              body: JSON.stringify({
+                // <Optional,String| your_meeting_name by default conversationId>
+                "name": "Business Meeting",
+                // <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
+                "confidenceThreshold": 0.6,
+                // <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+                "detectPhrases": true,
+                "messages": [
+                  {
+
+                    // <Optional, object| Duration object containing startTime and/or endTime for the transcript.>, e.g.
+                    "duration": {
+                      "startTime": "2020-07-21T16:04:19.99Z",
+                      "endTime": "2020-07-21T16:04:20.99Z"
+                    },
+                    "payload": {
+                      "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you're providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family?  That's it.  Thanks a lot.  Thanks for calling good catching up.  Talk soon.",
+                      "contentType": "text/plain"
+                    },
+                    // <Optional, object| Information about the User information i.e. name and/or userId, produced the content of this message.>
+                    "from": {
+                      "name": "John",
+                      "userId": "john@example.com"
+                    }
+                  }
+                ]
+              })
+            };
+
+            const responses = {
+              400: 'Bad Request! Please refer docs for correct input fields.',
+              401: 'Unauthorized. Please generate a new access token.',
+              404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+              429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+              500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            request(options, function (error, response) {
+              const statusCode = response.statusCode;
+              if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+                throw new Error(responses[statusCode]);
+              }
+              console.log('Status code: ', statusCode);
+              console.log('Body', response.body);
+            });
+        - lang: 'Python'  
+          source: |
+            import json
+            import requests
+
+            url = "https://api.symbl.ai/v1/process/text"
+
+            payload = {
+                "name": "Business Meeting",  # <Optional,String| your_meeting_name by default conversationId>
+
+                "confidenceThreshold": 0.6,
+                # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
+
+                "detectPhrases": "true",
+                # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+
+                "messages": [
+                    {
+                        "duration": {"startTime": "2020-07-21T16:04:19.99Z", "endTime": "2020-07-21T16:04:20.99Z"},
+                        # <Optional, object| Duration object containing startTime and/or endTime for the transcript.>, e.g.
+                        "payload": {
+                            "content": "Hello.  So this is a live demo that we are trying to give very we are going to show how the platform detects various insights can do transcription in real-time and also the different topics of discussions, which would be generated after the call is over, and they will be an email that will be sent to the inbox.  So that is the idea.  So I am going to do a quick conversation.  I would say where I will demonstrate all of this great catching up.  Thanks for calling good to hear.  From you.  And I would love to hear more about what you have to offer?  I will set up a time and appointment probably sometime tomorrow evening where we can go over the documents that you're providing.  I love all the plants.  I just need to discuss with my family in terms of which one will we go forward with it?  It very excited to hear from you and the discount and look forward to talking sharply.  I have a quick question though.  Is there basically website?  Where I can go to and look at all these details myself.  It will be very helpful.  Can you also share the quotation to me on email so that I can go ahead and talk about it with my other kind of folks in the family?  That's it.  Thanks a lot.  Thanks for calling good catching up.  Talk soon.",
+                            "contentType": "text/plain"
+                        },
+                        "from": {"name": "John", "userId": "john@example.com"}
+                        # <Optional, object| Information about the User information i.e. name and/or userId, produced the content of this message.>
+                    }
+                ]
+            }
+
+            # set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+            access_token = 'your_access_token'
+
+            headers = {
+                'Authorization': 'Bearer ' + access_token,
+                'Content-Type': 'application/json'
+            }
+
+            # webhookUrl = <Optional, string| your_webhook_url| Webhook url on which job updates to be sent. (This should be post API)>" e.g https://yourdomain.com/jobs/callback
+            # if webhookUrl is not None:
+            #   url += "?webhookUrl" + webhookUrl  
+
+            responses = {
+                400: 'Bad Request! Please refer docs for correct input fields.',
+                401: 'Unauthorized. Please generate a new access token.',
+                404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+                429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+                500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            response = requests.request("POST", url, headers=headers, data=json.dumps(payload))
+
+            if response.status_code == 201:
+                # Successful API execution
+                print("conversationId => " + response.json()['conversationId'])  # ID to be used with Conversation API.
+                print("jobId => " + response.json()['jobId'])  # ID to be used with Job API.
+            elif response.status_code in responses.keys():
+                print(responses[response.status_code])  # Expected error occurred
+            else:
+                print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+            exit()
   /v1/process/text/%7B%7Bconversation_id%7D%7D:
     put:
       tags:
@@ -718,7 +979,154 @@ paths:
 
         ```status``` |  Current status of the job. (Valid statuses - [
         scheduled, in_progress, completed, failed ])
+      x-codeSamples:
+        - lang: 'cURL'
+          source: |
+            curl --location --request POST "https://api.symbl.ai/v1/process/audio?name=Business%20Meeting&confidenceThreshold=0.6" \
+            --header 'Content-Type: audio/wav' \
+            --header "Authorization: Bearer $AUTH_TOKEN" \
+            --data-binary '@/file/location/audio.wav'
 
+            # MP3 File
+            curl --location --request POST "https://api.symbl.ai/v1/process/audio?name=Business%20Meeting&confidenceThreshold=0.6" \
+            --header 'Content-Type: audio/mpeg' \
+            --header "Authorization: Bearer $AUTH_TOKEN" \
+            --data-binary '@/file/location/audio.mp3'
+
+        - lang: 'NodeJS'
+          source: |
+            const request = require('request');
+            const fs = require('fs');
+
+            const authToken = AUTH_TOKEN;
+            const webhookUrl = WEBHOOK_URL;
+            const audioFileStream = fs.createReadStream('/file/location/audio.wav');
+
+            const params = {
+              'name': "BusinessMeeting",
+              // <Optional, string| your_conversation_name | Your meeting name. Default name set to conversationId.>
+
+              // 'webhookUrl': "https://yourdomain.com/jobs/callback",
+              // <Optional, string| your_webhook_url| Webhook url on which job updates to be sent. (This should be post API)>
+
+              // 'customVocabulary': ['Platform', 'Discussion', 'Targets'],
+              // <Optional, list| custom_vocabulary_list> |Contains a list of words and phrases that provide hints to the speech recognition task.
+
+              'confidenceThreshold': 0.6,
+              // <Optional, double| confidence_threshold | Minimum required confidence for the insight to be recognized.>
+
+              // 'detectPhrases': True,
+              // <Optional, boolean| detect_phrases> |Accepted values are true & false. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.
+
+              // 'enableSeparateRecognitionPerChannel': True,
+              // "<Optional, boolean| enable_separate_recognition_per_channel> |Enables Speaker Separated Channel audio processing. Accepts true or false.
+
+              // 'channelMetadata': [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@example.com"}}],
+              // ["<Optional, boolean| channel_metadata> |This object parameter contains two variables speaker and channel to specific which speaker corresponds to which channel. This object only works when enableSeparateRecognitionPerChannel query param is set to true."
+
+              // 'languageCode': "en-US"  // <Optional, boolean| language_code> |code of language of recording.
+            }
+            const audioOption = {
+              url: 'https://api.symbl.ai/v1/process/audio',
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'audio/wav'
+              },
+              qs: params,
+              json: true,
+            };
+
+            const responses = {
+              400: 'Bad Request! Please refer docs for correct input fields.',
+              401: 'Unauthorized. Please generate a new access token.',
+              404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+              429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+              500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            audioFileStream.pipe(request.post(audioOption, (err, response, body) => {
+              const statusCode = response.statusCode;
+              if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+                throw new Error(responses[statusCode]);
+              }
+              console.log('Status code: ', statusCode);
+              console.log('Body', response.body);
+            }));
+
+        - lang: 'Python'
+          source: |
+            import json
+            import requests
+
+            url = "https://api.symbl.ai/v1/process/audio"
+
+            payload = None
+            numberOfBytes = 0
+
+            try:
+                audio_file = open('destination/of/file/file.wav', 'rb')  # use (r"path/to/file") when using windows path
+                payload = audio_file.read()
+                numberOfBytes = len(payload)
+            except FileNotFoundError:
+                print("Could not read the file provided.")
+                exit()
+
+            # set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+            access_token = 'your_access_token'
+
+            headers = {
+                'Authorization': 'Bearer ' + access_token,
+                'Content-Length': str(numberOfBytes),  # This should correctly indicate the length of the request body in bytes.
+                'Content-Type': 'audio/wav'
+                # This is OPTIONAL field which describes the format and codec of the provided audio data. Accepted values are audio/wav, audio/mpeg, audio/mp3 and audio/wave only. If your audio is in formats other than don't use this field.
+            }
+
+            params = {
+                'name': "BusinessMeeting",
+                # <Optional, string| your_conversation_name | Your meeting name. Default name set to conversationId.>
+
+                # 'webhookUrl': "https://yourdomain.com/jobs/callback",
+                # <Optional, string| your_webhook_url| Webhook url on which job updates to be sent. (This should be post API)>
+
+                # 'customVocabulary': ['Platform', 'Discussion', 'Targets'],
+                # <Optional, list| custom_vocabulary_list> |Contains a list of words and phrases that provide hints to the speech recognition task.
+
+                'confidenceThreshold': 0.6,
+                # <Optional, double| confidence_threshold | Minimum required confidence for the insight to be recognized.>
+
+                # 'detectPhrases': True,
+                # <Optional, boolean| detect_phrases> |Accepted values are true & false. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.
+
+                # 'enableSeparateRecognitionPerChannel': True,
+                # "<Optional, boolean| enable_separate_recognition_per_channel> |Enables Speaker Separated Channel audio processing. Accepts true or false.
+
+                # 'channelMetadata': [{"channel": 1, "speaker": {"name": "Robert Bartheon", "email": "robertbartheon@example.com"}}],
+                # ["<Optional, boolean| channel_metadata> |This object parameter contains two variables speaker and channel to specific which speaker corresponds to which channel. This object only works when enableSeparateRecognitionPerChannel query param is set to true."
+
+                # 'languageCode': "en-US"
+                # <Optional, boolean| language_code> |code of language of recording.
+            }
+
+            responses = {
+                400: 'Bad Request! Please refer docs for correct input fields.',
+                401: 'Unauthorized. Please generate a new access token.',
+                404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+                429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+                500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            response = requests.request("POST", url, headers=headers, data=payload)
+
+            if response.status_code == 201:
+                # Successful API execution
+                print("conversationId => " + response.json()['conversationId'])  # ID to be used with Conversation API.
+                print("jobId => " + response.json()['jobId'])  # ID to be used with Job API.
+            elif response.status_code in responses.keys():
+                print(responses[response.status_code])  # Expected error occurred
+            else:
+                print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+            exit()
       operationId: Audio-SubmitNewAudioFile(wav_mp3)
       parameters:
         - name: x-api-key
@@ -728,9 +1136,59 @@ paths:
           default: "{{api_token}}"
           description: x-api-key
       responses:
-        default:
-          description: default
-          schema: {}
+        "200":
+          description: Created.
+          schema:
+            properties:
+              conversationId:
+                type: string
+                example: your_conversation_id
+                description: Conversation ID.
+              jobId:
+                type: string
+                example: your_job_id
+                description: Job ID.
+        "400":
+          description: Bad Request! Please refer docs for correct input fields.
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message   
+        "401":
+          description: Unauthorized. Please generate a new access token.
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message   
+        "404":
+          description: The conversation and/or it's metadata you asked could not be found, please check the input provided
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message   
+        "429":
+          description: Maximum number of concurrent jobs reached. Please wait for some requests to complete.
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message                                                   
+        "500":
+          description: Something went wrong! Please contact support@symbl.ai
+          schema:
+            properties:
+              message:
+                type: string
+                example: Erorr Message
+                description: Error message  
+                
   /v1/process/audio/%7B%7Bconversation_id%7D%7D:
     put:
       tags:

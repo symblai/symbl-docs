@@ -11,28 +11,63 @@ export default function ApiPlayground() {
                 <RedocStandalone spec={siteConfig.customFields.apiSpec} options={{
                     scrollYOffset: '.navbar', // makes the fixed sidebar and scrolling play nicey with docusaurus navbar
                     theme: {
-                        colors: {
-                            primary: {
-                                main: '#25c2a0'
-                            }
-                        },
-                        typography: {
-                            fontSize: 'var(--ifm-font-size-base)',
-                            lineHeight: 'var(--ifm-line-height-base)',
-                            fontFamily: 'var(--ifm-font-family-base)',
-                            headings: {
-                                fontFamily: 'var(--ifm-font-family-base)',
-                                fontWeight: 'var(--ifm-heading-font-weight)'
+                          "breakpoints": {
+                            "small": "10rem",
+                            "medium": "40rem",
+                            "large": "85rem"
+                          },
+                          "colors": {
+                            "primary": {
+                              "main": "rgba(246, 20, 63, 1)",
+                              "light": "rgba(246, 20, 63, 0.42)"
                             },
-                            code: {
-                                lineHeight: 'var(--ifm-pre-line-height)',
-                                fontFamily: 'var(--ifm-font-family-monospace)'
+                            "success": {
+                              "main": "rgba(28, 184, 65, 1)",
+                              "light": "#81ec9a",
+                              "dark": "#083312",
+                              "contrastText": "#000"
+                            },
+                            "text": {
+                              "primary": "rgba(0, 0, 0, 1)",
+                              "secondary": "#4d4d4d"
+                            },
+                            "http": {
+                              "get": "rgba(0, 200, 219, 1)",
+                              "post": "rgba(28, 184, 65, 1)",
+                              "put": "rgba(255, 187, 0, 1)",
+                              "delete": "rgba(254, 39, 35, 1)"
                             }
-                        },
-                        sidebar: {
-                            width: '300px' // about the same as the sidebar in the docs area, for consistency
+                          },
+                          "typography": {
+                            "fontSize": "16px",
+                            "fontFamily": "Fira Sans, Roboto, sans-serif",
+                            "optimizeSpeed": true,
+                            "smoothing": "antialiased",
+                            "headings": {
+                              "fontWeight": "bold",
+                              "lineHeight": "1em"
+                            },
+                            "code": {
+                              "fontWeight": "600",
+                              "color": "rgba(92, 62, 189, 1)",
+                              "wrap": true
+                            },
+                            "links": {
+                              "color": "rgba(246, 20, 63, 1)",
+                              "visited": "rgba(246, 20, 63, 1)",
+                              "hover": "#fa768f"
+                            }
+                          },
+                          "sidebar": {
+                            "width": "300px",
+                            "textColor": "#000000",
+                          },
+                          "rightPanel": {
+                            "backgroundColor": "rgba(55, 53, 71, 1)",
+                            "textColor": "#ffffff"
+                          }
                         }
-                    }
+                      
                 }}/>
             </main>
         </Layout>
