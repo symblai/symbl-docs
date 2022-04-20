@@ -38,7 +38,7 @@ Before using this API, you must generate your authentication token (`AUTH_TOKEN`
 <TabItem value="cURL">
 
 ```sh
-curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/messages?sentiment=true" \
+curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/messages?sentiment=true&verbose=true" \
     -H "Authorization: Bearer $AUTH_TOKEN"
 ```
 
@@ -52,7 +52,7 @@ const authToken = AUTH_TOKEN;
 const conversationId = CONVERSATION_ID;
 
 request.get({
-    url: `https://api.symbl.ai/v1/conversations/${conversationId}/messages?sentiment=true` ,
+    url: `https://api.symbl.ai/v1/conversations/${conversationId}/messages?sentiment=true&verbose=true` ,
     headers: { 'Authorization': `Bearer ${authToken}` },
     json: true
 }, (err, response, body) => {
