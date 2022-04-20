@@ -270,7 +270,7 @@ module.exports = {
       items: [
         {
           label: "API Reference",
-          to: '/api-reference/getting-started/',
+          to: '/api-reference/',
           position: "left",
           activeBaseRegex: "docs/(api-reference|async-api/(overview|introduction|reference)|streamingapi/introduction|streaming-api/api-reference|subscribe-api|telephony/introduction|telephony-api|conversation-api/api-reference|management-api|developer-tools/(authentication|error|postman|sample-apps))",
         }, 

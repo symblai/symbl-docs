@@ -1,133 +1,254 @@
 swagger: "2.0"
 info:
-  {
-    version: 1.0.0,
-    title: Symbl API,
-    description: 'Symbl''s contextual conversation
-      intelligence platform provides scalable, secure speech recognition and contextual
-      analytics to build differentiated experiences from voice, video or text data in
-      realtime. Generate action items, questions, appointments, topic hierarchy, topics,
-      sentiments, action phrases and your custom entities and so much more without any
-      upfront training data. We give you the comprehensive suite of APIs, machine learning
-      infrastructure and customizable experiences to analyze and act on the human conversation
-      data at scale.
+  version: 1.0.0
+  title: Symbl API
+  description: >-
+    Symbl's contextual conversation intelligence platform provides scalable,
+    secure speech recognition and contextual analytics to build differentiated
+    experiences from voice, video or text data in realtime. Generate action
+    items, questions, appointments, topic hierarchy, topics, sentiments, action
+    phrases and your custom entities and so much more without any upfront
+    training data. We give you the comprehensive suite of APIs, machine learning
+    infrastructure and customizable experiences to analyze and act on the human
+    conversation data at scale.
 
 
-      # Authentication
+    # Authentication
 
 
-      Make sure to get your app id and app secret from https://platform.symbl.ai. Use
-      them to generate your auth token which is required to make any API call.
+    Make sure to get your app id and app secret from https://platform.symbl.ai.
+    Use them to generate your auth token which is required to make any API call.
 
 
-      # Async APIs
+    # Async APIs
 
-      The Async API provides a REST interface to allow you to run a job asynchronously
-      in order to process insights out of **audio and video files and textual conversations**
-      (Transcripts, Chats, Emails etc.).
-
-
-      # Telephony API
+    The Async API provides a REST interface to allow you to run a job
+    asynchronously in order to process insights out of **audio and video files
+    and textual conversations** (Transcripts, Chats, Emails etc.).
 
 
-      Use the `Start Connection` endpoint to start a connection with Symbl either over
-      a **phone call or conference over PSTN or a SIP** using a Dial-in Phone Number
-      or SIP URI with support for DTMF.
+    # Telephony API
 
 
-      Use the `Stop Connection` endpoint to end the call and close the connection. This
-      will send you an email with all the generated insights from your conversation.
+    Use the `Start Connection` endpoint to start a connection with Symbl either
+    over a **phone call or conference over PSTN or a SIP** using a Dial-in Phone
+    Number or SIP URI with support for DTMF.
+
+
+    Use the `Stop Connection` endpoint to end the call and close the connection.
+    This will send you an email with all the generated insights from your
+    conversation.
 
 
 
-      # Streaming API
+    # Streaming API
 
 
-      Streaming API is a WebSocket based real-time API by Symbl that provides the direct,
-      fastest and most accurate of all other interfaces to push the audio stream in
-      real-time, and get the results back as soon as they''re available.
+    Streaming API is a WebSocket based real-time API by Symbl that provides the
+    direct, fastest and most accurate of all other interfaces to push the audio
+    stream in real-time, and get the results back as soon as they're available.
 
 
-      <h2>Postman does not support the WebSocket protocol for collections yet, which
-      is why Streaming API is not included in this collection. <a href="https://docs.symbl.ai/docs/streamingapi/overview/introduction">Learn
-      more</a> about Streaming API.</h2>',
-  }
-  
-  servers: 
-  - url: 'https://api-sandbox.rebilly.com/organizations/{organizationId}'
-    description: Sandbox server
-    variables:
-      organizationId:
-        default: unknown
-        description: Your organization ID.
-
+    <h2>Postman does not support the WebSocket protocol for collections yet,
+    which is why Streaming API is not included in this collection. <a
+    href="https://docs.symbl.ai/docs/streamingapi/overview/introduction">Learn
+    more</a> about Streaming API.</h2>
 host: api.symbl.ai
 basePath: /
-schemes: [https]
+schemes:
+  - https
 consumes: []
-produces: [application/json]
+produces:
+  - application/json
+x-tagGroups:
+- name: Authentication
+  tags:
+    - Generate Token
+- name: Async API
+  tags:
+    - Text APIs
+    - Audio APIs
+    - Video APIs
+
 paths:
   /oauth2/token:generate:
     post:
+      tags:
+        - Generate Token
       summary: Generate Token (Authenticate)
-      description:
-        "Generate the access token which is required for making any API
-        call. You must execute this API before executing any other API.
+      description: >-
+        Generate the access token which is required for making any API call. You
+        must execute this API before executing any other API.
 
 
         Replace your `appId` and `appSecret` values in the request body.
 
 
-        You can find your account credentials on Symbl Console - [https://platform.symbl.ai](https://platform.symbl.ai)"
+        You can find your account credentials on Symbl Console -
+        [https://platform.symbl.ai](https://platform.symbl.ai)
       operationId: GenerateToken(authenticate)
       parameters:
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              type: { type: string, description: type }
-              appId: { type: string, description: appId }
-              appSecret: { type: string, description: appSecret }
+              type:
+                type: string
+                description: type
+              appId:
+                type: string
+                description: appId
+              appSecret:
+                type: string
+                description: appSecret
             default:
-              { type: application, appId: __appId__, appSecret: __appSecret__ }
+              type: application
+              appId: __appId__
+              appSecret: __appSecret__
           required: true
       responses:
-        default:
-          description: default
-          schema: {}
+        "200":
+          description: Access Token was generated succesfully.
+          schema:
+            properties:
+              accessToken:
+                type: string
+                example: access token
+                description: Access token generated.
+              expiresIn:
+                type: integer
+                example: 600
+                description: Expiry time of access token.
+        "401":
+          description: Invalid Credentials were used to generate the access token.
+          schema:
+            properties:
+      x-codeSamples:
+        - lang: Python
+          source: >
+            import requests
+
+            import json
+
+
+            url = "https://api.symbl.ai/oauth2/token:generate"
+
+
+            appId = "your_app_id"  # App Id found in your platform
+
+            appSecret = "your_app_secret"  # App Id found in your platform
+
+
+            payload = {
+                "type": "application",
+                "appId": appId,
+                "appSecret": appSecret
+            }
+
+            headers = {
+                'Content-Type': 'application/json'
+            }
+
+
+            responses = {
+                400: 'Bad Request! Please refer docs for correct input fields.',
+                401: 'Unauthorized. Please generate a new access token.',
+                404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+                429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+                500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+
+            response = requests.request("POST", url, headers=headers,
+            data=json.dumps(payload))
+
+
+            if response.status_code == 200:
+                # Successful API execution
+                print("accessToken => " + response.json()['accessToken'])  # accessToken of the user
+                print("expiresIn => " + str(response.json()['expiresIn']))  # Expiry time in accessToken
+            elif response.status_code in responses.keys():
+                print(responses[response.status_code], response.text)  # Expected error occurred
+            else:
+                print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+            exit()
+        - lang: NodeJS
+          source: |
+            const request = require('request');
+
+            const appId = APP_ID;
+            const appSecret = APP_SECRET;
+
+            const authOptions = {
+              method: 'post',
+              url: "https://api.symbl.ai/oauth2/token:generate",
+              body: {
+                type: "application",
+                appId: appId,
+                appSecret: appSecret
+              },
+              json: true
+            };
+
+            request(authOptions, (err, res, body) => {
+              if (err) {
+                console.error('error posting json: ', err);
+                throw err
+              }
+
+              console.log(JSON.stringify(body, null, 2));
+            });
   /v1/process/text:
     post:
+      tags:
+        - Text APIs
       summary: Text (Short Transcript) - Submit New Conversation
-      description:
-        "# Submit Text Conversation\nSubmit the Request with Text Conversation\
-        \ Payload. \n\nIt can be useful in any use case where you have access to the\
-        \ textual content of a type of conversation, and you want to extract the insightful\
-        \ items supported by the Conversation API.\n\nLearn More about <a href=\"\
-        https://docs.symbl.ai/docs/async-api/overview/text/post-text\">Async Text\
-        \ API</a>\n\n## Request Body\nJSON body with an array of messages.\n\n## Response\
-        \ Body\nIn response, `conversationId` and `jobId` are returned.\n`jobId` can\
-        \ be used to get updates on the job status.\n`conversationId` can be used\
-        \ with the Conversation API to get all the insights, topics and processed\
-        \ messages etc.\n\n"
+      description: >+
+        # Submit Text Conversation
+
+        Submit the Request with Text Conversation Payload. 
+
+
+        It can be useful in any use case where you have access to the textual
+        content of a type of conversation, and you want to extract the
+        insightful items supported by the Conversation API.
+
+
+        Learn More about <a
+        href="https://docs.symbl.ai/docs/async-api/overview/text/post-text">Async
+        Text API</a>
+
+
+        ## Request Body
+
+        JSON body with an array of messages.
+
+
+        ## Response Body
+
+        In response, `conversationId` and `jobId` are returned.
+
+        `jobId` can be used to get updates on the job status.
+
+        `conversationId` can be used with the Conversation API to get all the
+        insights, topics and processed messages etc.
+
       operationId: Text(shortTranscript)-SubmitNewConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
         - name: body
           in: body
           schema:
@@ -141,43 +262,32 @@ paths:
                     payload:
                       type: object
                       properties:
-                        content: { type: string, description: content }
-                        contentType: { type: string, description: contentType }
+                        content:
+                          type: string
+                          description: content
+                        contentType:
+                          type: string
+                          description: contentType
                       description: payload
                     from:
                       type: object
                       properties:
-                        name: { type: string, description: name }
-                        userId: { type: string, description: userId }
+                        name:
+                          type: string
+                          description: name
+                        userId:
+                          type: string
+                          description: userId
                       description: from
                 description: messages
             default:
               messages:
                 - payload:
-                    {
-                      content:
-                        "Hello.  So this is a live \n demo that we are trying
-                        to give very we are going to show how the platform detects various
-                        insights can do transcription in real time and also the different
-                        topics of discussions, which would be generated after the call is
-                        over, and they will be an email that will be sent to the inbox.  So
-                        that is the idea.  So I am going to do a quick conversation.  I
-                        would say where I will demonstrate all of this great catching up.  Thanks
-                        for calling good to hear.  From you.  And I would love to hear more
-                        about what you have to offer?  I will set up a time and appointment
-                        probably sometime tomorrow evening where we can go over the documents
-                        that you''re providing.  I love all the plants.  I just need to
-                        discuss with my family in terms of which one will we go forward
-                        with it?  It very excited to hear from you and the discount and
-                        look forward to talking sharply.  I have a quick question though.  Is
-                        there basically website?  Where I can go to and look at all these
-                        details myself.  It will be very helpful.  Can you also share the
-                        quotation to me on email so that I can go ahead and talk about it
-                        with my other kind of folks in the family?  That''s it.  Thanks
-                        a lot.  Thanks for calling good catching up.  Talk soon.",
-                      contentType: text/plain,
-                    }
-                  from: { name: John, userId: john@example.com }
+                    content: Hello.
+                    contentType: text/plain
+                  from:
+                    name: John
+                    userId: john@example.com
           required: true
       responses:
         default:
@@ -185,31 +295,55 @@ paths:
           schema: {}
   /v1/process/text/%7B%7Bconversation_id%7D%7D:
     put:
+      tags:
+        - Text APIs
       summary: Text - Append to Existing Conversation
-      description:
-        "# Append Text Conversation\nThe PUT Async Text API allows you\
-        \ to process any text payload to append the transcription of the previous\
-        \ conversation.\n\nIt can be useful in cases where you have new information\
-        \ like chats, emails, or messages which keep generating for a single entity.\
-        \ Using this API, you can add all the new entity data to the existing `conversationId`\n\
-        \n<h4>The `conversationId` of the conversation processed from any channels\
-        \ (Realtime, Audio/Video Files or Text Content) are allowed.</h4>\n\n\nLearn\
-        \ More about <a href=\"https://docs.symbl.ai/docs/async-api/overview/text/post-text\"\
-        >Async Text API</a>\n\n## Request Body\nJSON body with an array of messages.\n\
-        \n# Response\nIn response, `conversationId` and jobId are returned.\n\n`jobId`\
-        \ can be used to get updates on the job status. \n\n`conversationId` can be\
-        \ used with the Conversation API to get all the insights, topics and processed\
-        \ messages, etc.\n"
+      description: >
+        # Append Text Conversation
+
+        The PUT Async Text API allows you to process any text payload to append
+        the transcription of the previous conversation.
+
+
+        It can be useful in cases where you have new information like chats,
+        emails, or messages which keep generating for a single entity. Using
+        this API, you can add all the new entity data to the existing
+        `conversationId`
+
+
+        <h4>The `conversationId` of the conversation processed from any channels
+        (Realtime, Audio/Video Files or Text Content) are allowed.</h4>
+
+
+
+        Learn More about <a
+        href="https://docs.symbl.ai/docs/async-api/overview/text/post-text">Async
+        Text API</a>
+
+
+        ## Request Body
+
+        JSON body with an array of messages.
+
+
+        # Response
+
+        In response, `conversationId` and jobId are returned.
+
+
+        `jobId` can be used to get updates on the job status. 
+
+
+        `conversationId` can be used with the Conversation API to get all the
+        insights, topics and processed messages, etc.
       operationId: Text-AppendToExistingConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
         - name: body
           in: body
           schema:
@@ -223,251 +357,582 @@ paths:
                     payload:
                       type: object
                       properties:
-                        content: { type: string, description: content }
+                        content:
+                          type: string
+                          description: content
                       description: payload
                     from:
                       type: object
                       properties:
-                        userId: { type: string, description: userId }
-                        name: { type: string, description: name }
+                        userId:
+                          type: string
+                          description: userId
+                        name:
+                          type: string
+                          description: name
                       description: from
                 description: messages
             default:
               messages:
                 - payload:
-                    { content: Thanks Natalia. It was great talking with you as
-                        well. Looking forward. }
-                  from: { userId: steve@abccorp.com, name: Steve }
+                    content: >-
+                      Thanks Natalia. It was great talking with you as well.
+                      Looking forward.
+                  from:
+                    userId: steve@abccorp.com
+                    name: Steve
                 - payload:
-                    { content: Thanks Natalia. It was great talking with you as
-                        well. Looking forward. }
-                  from: { userId: steve@abccorp.com, name: Steve }
+                    content: >-
+                      Thanks Natalia. It was great talking with you as well.
+                      Looking forward.
+                  from:
+                    userId: steve@abccorp.com
+                    name: Steve
           required: true
       responses:
         default:
           description: default
           schema: {}
+      x-codeSamples:
+        - lang: "cURL"
+          source: |
+            curl --location --request PUT "https://api.symbl.ai/v1/process/text/$CONVERSATION_ID" \
+            --header "Authorization: Bearer $AUTH_TOKEN" \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "detectPhrases": "true",
+              "messages": [
+                {
+                  "payload": {
+                    "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                  },
+                  "from": {
+                    "userId": "natalia@example.com",
+                    "name": "Natalia"
+                  },
+                  "duration":{
+                    "startTime":"2020-07-21T16:02:19.01Z",
+                    "endTime":"2020-07-21T16:04:19.99Z"
+                  }
+                },
+                {
+                  "payload": {
+                    "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
+                  },
+                  "from": {
+                    "userId": "mike@abccorp.com",
+                    "name": "Mike"
+                  },
+                  "duration":{
+                    "startTime":"2020-07-21T16:04:19.99Z",
+                    "endTime":"2020-07-21T16:04:20.99Z"
+                  }
+                }
+              ]
+            }'
+        - lang: "Node JS"
+          source: |
+            const request = require('request');
+            const conversationId = CONVERSATION_ID;
+            const authToken = AUTH_TOKEN;
+
+            const options = {
+              'method': 'PUT',
+              'url': `https://api.symbl.ai/v1/process/text/${conversationId}`,
+              'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
+              },
+              'body': JSON.stringify({
+                "customEntities": [{"customType": "Hiring Process", "text": "internships"}],
+                "detectPhrases":true,
+                "messages": [
+                  {
+                    "payload": {
+                      "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                    },
+                    "from": {
+                      "userId": "natalia@example.com",
+                      "name": "Natalia"
+                    },
+                    "duration":{
+                      "startTime":"2020-07-21T16:02:19.01Z",
+                      "endTime":"2020-07-21T16:04:19.99Z"
+                    }
+                  },
+                  {
+                    "payload": {
+                      "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
+                    },
+                    "from": {
+                      "userId": "mike@abccorp.com",
+                      "name": "Mike"
+                    },
+                    "duration":{
+                      "startTime":"2020-07-21T16:04:19.99Z",
+                      "endTime":"2020-07-21T16:04:20.99Z"
+                    }
+                  }
+                ],
+                "confidenceThreshold": 0.5
+              })
+            };
+
+            request(options, function (error, response) {
+              if (err) throw new Error(error);
+              console.log(response.body);
+            });
+
+        - lang: "Native JavaScript"
+          source: |
+            const authToken = AUTH_TOKEN;
+            const conversationId = CONVERSATION_ID;
+
+            const payload = {
+              "customEntities": [{"customType": "Hiring Process", "text": "internships"}],
+              "detectPhrases":true,
+              "messages": [
+                {
+                  "payload": {
+                    "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                  },
+                  "from": {
+                    "userId": "natalia@example.com",
+                    "name": "Natalia"
+                  },
+                  "duration":{
+                    "startTime":"2020-07-21T16:02:19.01Z",
+                    "endTime":"2020-07-21T16:04:19.99Z"
+                  }
+                },
+                {
+                  "payload": {
+                    "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
+                  },
+                  "from": {
+                    "userId": "mike@abccorp.com",
+                    "name": "Mike"
+                  },
+                  "duration":{
+                    "startTime":"2020-07-21T16:04:19.99Z",
+                    "endTime":"2020-07-21T16:04:20.99Z"
+                  }
+                }
+              ],
+              "confidenceThreshold": 0.5
+            }
+
+            const responses = {
+              400: 'Bad Request! Please refer docs for correct input fields.',
+              401: 'Unauthorized. Please generate a new access token.',
+              404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+              429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+              500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            const fetchData = {
+              method: "PUT",
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(payload),
+            }
+
+            fetch(`https://api.symbl.ai/v1/process/text/${conversationId}`, fetchData).then(response => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error(responses[response.status]);
+              }
+            }).then(response => {
+              console.log('response', response);
+            }).catch(error => {
+              console.error(error);
+            });
+        - lang: "Python"
+          source: |
+            import requests
+            import json
+
+            baseUrl = "https://api.symbl.ai/v1/process/text/"
+            conversationId = 'your_conversation_id'  # Generated using Submit text end point
+
+            url = baseUrl + conversationId
+
+            payload = {
+                "name": "Business Meeting",  # <Optional,String| your_meeting_name by default conversationId>
+
+                "confidenceThreshold": 0.6,  # <Optional,double| Minimum required confidence for the insight to be recognized. Value ranges between 0.0 to 1.0. Default value is 0.5.>
+
+                "detectPhrases": "true",  # <Optional,boolean| It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.>
+                "messages": [
+                    {
+                        "payload": {
+                            "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                        },
+                        "from": {
+                            "userId": "natalia@example.com",
+                            "name": "Natalia"
+                        },
+                        "duration": {
+                            "startTime": "2020-07-21T16:02:19.01Z",
+                            "endTime": "2020-07-21T16:04:19.99Z"
+                        }
+                    },
+                    {
+                        "payload": {
+                            "content": "Hey Natalia, thanks for reaching out. I am connecting you with Steve who handles recruitments for us."
+                        },
+                        "from": {
+                            "userId": "mike@abccorp.com",
+                            "name": "Mike"
+                        },
+                        "duration": {
+                            "startTime": "2020-07-21T16:04:19.99Z",
+                            "endTime": "2020-07-21T16:04:20.99Z"
+                        }
+                    }
+                ]
+            }
+
+            # set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+            access_token = 'your_access_token'
+
+            headers = {
+                'Authorization': 'Bearer ' + access_token,
+                'Content-Type': 'application/json'
+            }
+
+            # webhookUrl = "https://yourdomain.com/jobs/callback",  #<Optional, string| your_webhook_url| Webhook url on which job updates to be sent. (This should be post API)>
+            # if webhookUrl is not None:
+            #   url += "?webhookUrl=" + webhookUrl
+
+            responses = {
+                400: 'Bad Request! Please refer docs for correct input fields.',
+                401: 'Unauthorized. Please generate a new access token.',
+                404: 'conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+                429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+                500: 'Something went wrong! Please contact support@symbl.ai'
+            }
+
+            response = requests.request("PUT", url, headers=headers, data=json.dumps(payload))
+
+            if response.status_code == 201:
+                # Successful API execution
+                print("conversationId => " + response.json()['conversationId'])  # ID to be used with Conversation API.
+                print("jobId => " + response.json()['jobId'])  # ID to be used with Job API.
+            elif response.status_code in responses.keys():
+                print(responses[response.status_code])  # Expected error occurred
+            else:
+                print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
+
+            exit()
   /v1/process/audio:
     post:
+      tags:
+        - Audio APIs
       summary: Audio - Submit New Audio File (wav/mp3)
-      description:
-        "# Submit Audio File\nThe Async Audio API allows you to process\
-        \ an audio file.\n\nIt can be utilized for any use case where you have access\
-        \ to recorded audio and want to extract insights and other conversational\
-        \ attributes supported by Symbl's Conversation API.\n\nUse this API to upload\
-        \ your file and generate a `conversationId`. If you want to append additional\
-        \ audio information to the same `conversationId`\n\nLearn More about <a href=\"\
-        https://docs.symbl.ai/docs/async-api/overview/audio/post-audio\">Async Audio\
-        \ API</a>.\n\n## Request Body\nThe binary payload of a file audio file.\n\n\
-        >Notice that the content type is \"binary\", which allows you to select a\
-        \ file you want to upload.\n\n## Query Params\n\nParameters | Required | Description\n\
-        ---------- | ------- | -------\n```name``` | No | Your meeting name. Default\
-        \ name set to `conversationId`.\n```webhookUrl``` | No | Webhook url on which\
-        \ job updates to be sent. This should be POST endpoint.\n```customVocabulary```\
-        \ | No | Contains a list of words and phrases that provide hints to the speech\
-        \ recognition task.\n``` entities``` | No |   Input custom entities which\
-        \ can be detected in your conversation using Entities' API. For example, check\
-        \ the sample code on right.\n```detectPhrases```| No | Accepted values are\
-        \ `true` & `false`. It shows Actionable Phrases in each sentence of conversation.\
-        \ These sentences can be found in the Conversation's Messages API.\n```enableSeparateRecognitionPerChannel```\
-        \ | No | Enables Speaker Separated Channel audio processing. Accepts `true`\
-        \ or `false`.\n ```channelMetadata``` | No |  This object parameter contains\
-        \ two variables `speaker` and `channel` to specific which speaker corresponds\
-        \ to which channel. This object **only** works when `enableSeparateRecognitionPerChannel`\
-        \ query param is set to `true`.\n ```languageCode```| No |  We accept different\
-        \ languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages)\
-        \ as per your requirement.\n\n## Response\nIn response, conversationId and\
-        \ jobId are returned.\n\n`jobId` can be used to get updates on the job status.\n\
-        \n`conversationId` can be used with the Conversation API to get all the insights,\
-        \ topics and processed messages etc.\n\n## Webhook Payload\n`webhookUrl` will\
-        \ be used to send the status of job created for uploaded audio. Every time\
-        \ the status of the job changes it will be notified on the `webhookUrl`\n\n\
-        Field | Description\n------- | -------\n```jobId``` | ID to be used with Job\
-        \ API\n```status``` |  Current status of the job. (Valid statuses - [ scheduled,\
-        \ in_progress, completed, failed ])\n\n"
+      description: >+
+        # Submit Audio File
+
+        The Async Audio API allows you to process an audio file.
+
+
+        It can be utilized for any use case where you have access to recorded
+        audio and want to extract insights and other conversational attributes
+        supported by Symbl's Conversation API.
+
+
+        Use this API to upload your file and generate a `conversationId`. If you
+        want to append additional audio information to the same `conversationId`
+
+
+        Learn More about <a
+        href="https://docs.symbl.ai/docs/async-api/overview/audio/post-audio">Async
+        Audio API</a>.
+
+
+        ## Request Body
+
+        The binary payload of a file audio file.
+
+
+        >Notice that the content type is "binary", which allows you to select a
+        file you want to upload.
+
+
+        ## Query Params
+
+
+        Parameters | Required | Description
+
+        ---------- | ------- | -------
+
+        ```name``` | No | Your meeting name. Default name set to
+        `conversationId`.
+
+        ```webhookUrl``` | No | Webhook url on which job updates to be sent.
+        This should be POST endpoint.
+
+        ```customVocabulary``` | No | Contains a list of words and phrases that
+        provide hints to the speech recognition task.
+
+        ``` entities``` | No |   Input custom entities which can be detected in
+        your conversation using Entities' API. For example, check the sample
+        code on right.
+
+        ```detectPhrases```| No | Accepted values are `true` & `false`. It shows
+        Actionable Phrases in each sentence of conversation. These sentences can
+        be found in the Conversation's Messages API.
+
+        ```enableSeparateRecognitionPerChannel``` | No | Enables Speaker
+        Separated Channel audio processing. Accepts `true` or `false`.
+         ```channelMetadata``` | No |  This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` query param is set to `true`.
+         ```languageCode```| No |  We accept different languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages) as per your requirement.
+
+        ## Response
+
+        In response, conversationId and jobId are returned.
+
+
+        `jobId` can be used to get updates on the job status.
+
+
+        `conversationId` can be used with the Conversation API to get all the
+        insights, topics and processed messages etc.
+
+
+        ## Webhook Payload
+
+        `webhookUrl` will be used to send the status of job created for uploaded
+        audio. Every time the status of the job changes it will be notified on
+        the `webhookUrl`
+
+
+        Field | Description
+
+        ------- | -------
+
+        ```jobId``` | ID to be used with Job API
+
+        ```status``` |  Current status of the job. (Valid statuses - [
+        scheduled, in_progress, completed, failed ])
+
       operationId: Audio-SubmitNewAudioFile(wav_mp3)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
           schema: {}
   /v1/process/audio/%7B%7Bconversation_id%7D%7D:
     put:
+      tags:
+        - Audio APIs   
       summary: Audio - Append to existing Conversation
-      description:
-        "# Append Audio File\nThe Async Audio API allows you to process\
-        \ an additional audio file to the previous conversation, append the transcription\
-        \ and get conversational insights for updated conversation.\n\nIt can be useful\
-        \ in any use case where you have access to multiple audio files of any type\
-        \ of conversation, and you want to extract the insightful items supported\
-        \ by the Conversation API.\n\n>The conversationId of the conversation processed\
-        \ from any channels (Realtime, Audio/Video Files or Text Content) are allowed.\n\
-        \nLearn More about <a href=\"https://docs.symbl.ai/docs/async-api/overview/audio/put-audio\"\
-        >Async Audio API</a>.\n\n\n## Request Body\nThe binary payload of a file audio\
-        \ file.\n\n>Notice that the content type is \"binary\", which allows you to\
-        \ select a file you want to upload.\n\n\n## Path Params\nParameter  | value\n\
-        ---------- | -------\nconversationId | conversationId which is provided by\
-        \ the first request submitted using POST async audio API\n\n## Query Params\n\
-        \nParameters | Required | Description\n---------- | ------- | -------\n`name`\
-        \ | No | Your meeting name. Default name set to `conversationId`.\n```webhookUrl```\
-        \ | No | Webhook url on which job updates to be sent. This should be POST\
-        \ endpoint.\n```customVocabulary``` | No | Contains a list of words and phrases\
-        \ that provide hints to the speech recognition task.\n``` entities``` | No\
-        \ |   Input custom entities which can be detected in your conversation using\
-        \ Entities' API. For example, check the sample code on right.\n```detectPhrases```|\
-        \ No | Accepted values are `true` & `false`. It shows Actionable Phrases in\
-        \ each sentence of the conversation. These sentences can be found in the Conversation's\
-        \ Messages API.\n```enableSeparateRecognitionPerChannel``` | No | Enables\
-        \ Speaker Separated Channel audio processing. Accepts `true` or `false`.\n\
-        \ ```channelMetadata``` | No |  This object parameter contains two variables\
-        \ `speaker` and `channel` to specific which speaker corresponds to which channel.\
-        \ This object **only** works when `enableSeparateRecognitionPerChannel` query\
-        \ param is set to `true`.\n ```languageCode```| No |  We accept different\
-        \ languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages)\
-        \ as per your requirement.\n\n# Response\nIn response, conversationId and\
-        \ jobId are returned.\n\n`jobId` can be used to get updates on the job status.\n\
-        \n`conversationId` can be used with the Conversation API to get all the insights,\
-        \ topics and processed messages etc.\n\n## Webhook Payload\n\n`webhookUrl`\
-        \ will be used to send the status of job created for uploaded audio. Every\
-        \ time the status of the job changes it will be notified on the `webhookUrl`.\n\
-        \n Parameter  | value\n ---------- | -------\n `jobId` | ID to be used with\
-        \ Job API.\n`status` | Current status of the job. (Valid statuses - [ scheduled,\
-        \ in_progress, completed, failed ])\n\n ## channelMetadata Object\n\n```\n\
-        \ {\n   \"channelMetadata\": [\n     {\n       \"channel\": 1,\n       \"\
-        speaker\": {\n         \"name\": \"Robert Bartheon\",\n         \"email\"\
-        : \"robertbartheon@gmail.com\"\n       }\n     },\n     {\n       \"channel\"\
-        : 2,\n       \"speaker\": {\n         \"name\": \"Arya Stark\",\n        \
-        \ \"email\": \"aryastark@gmail.com\"\n       }\n     }\n   ]\n }\n```\n\n\
-        \ `channelMetadata` object has the following members:\n\n Field | Description\n\
-        \ ------- | -------\n ```channel``` | This denotes the channel number in the\
-        \ audio file. Each channel will contain independent speaker's voice data.\n\
-        \ ```speaker``` | This is the wrapper object which defines the speaker for\
-        \ this channel.\n\n `speaker`  has the following members:\n\n Field | Description\n\
-        \ ------- | -------\n ```name``` |  Name of the speaker.\n ```email``` | Email\
-        \ address of the speaker.\n\n\n>Billing for a speaker separated channel audio\
-        \ file happens according to the number of channels present in the audio files.\
-        \ The duration for billing will be calculated according to the below formula:\n\
-        \n>`totalDuration = duration_of_the_audio_file * total_number_of_channels`\n\
-        \n>So if you send a 120-second file with 3 speaker separated channels, the\
-        \ total duration for billing would be 360 seconds or 6 minutes.\n"
+      description: >
+        # Append Audio File
+
+        The Async Audio API allows you to process an additional audio file to
+        the previous conversation, append the transcription and get
+        conversational insights for updated conversation.
+
+
+        It can be useful in any use case where you have access to multiple audio
+        files of any type of conversation, and you want to extract the
+        insightful items supported by the Conversation API.
+
+
+        >The conversationId of the conversation processed from any channels
+        (Realtime, Audio/Video Files or Text Content) are allowed.
+
+
+        Learn More about <a
+        href="https://docs.symbl.ai/docs/async-api/overview/audio/put-audio">Async
+        Audio API</a>.
+
+
+
+        ## Request Body
+
+        The binary payload of a file audio file.
+
+
+        >Notice that the content type is "binary", which allows you to select a
+        file you want to upload.
+
+
+
+        ## Path Params
+
+        Parameter  | value
+
+        ---------- | -------
+
+        conversationId | conversationId which is provided by the first request
+        submitted using POST async audio API
+
+
+        ## Query Params
+
+
+        Parameters | Required | Description
+
+        ---------- | ------- | -------
+
+        `name` | No | Your meeting name. Default name set to `conversationId`.
+
+        ```webhookUrl``` | No | Webhook url on which job updates to be sent.
+        This should be POST endpoint.
+
+        ```customVocabulary``` | No | Contains a list of words and phrases that
+        provide hints to the speech recognition task.
+
+        ``` entities``` | No |   Input custom entities which can be detected in
+        your conversation using Entities' API. For example, check the sample
+        code on right.
+
+        ```detectPhrases```| No | Accepted values are `true` & `false`. It shows
+        Actionable Phrases in each sentence of the conversation. These sentences
+        can be found in the Conversation's Messages API.
+
+        ```enableSeparateRecognitionPerChannel``` | No | Enables Speaker
+        Separated Channel audio processing. Accepts `true` or `false`.
+         ```channelMetadata``` | No |  This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` query param is set to `true`.
+         ```languageCode```| No |  We accept different languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages) as per your requirement.
+
+        # Response
+
+        In response, conversationId and jobId are returned.
+
+
+        `jobId` can be used to get updates on the job status.
+
+
+        `conversationId` can be used with the Conversation API to get all the
+        insights, topics and processed messages etc.
+
+
+        ## Webhook Payload
+
+
+        `webhookUrl` will be used to send the status of job created for uploaded
+        audio. Every time the status of the job changes it will be notified on
+        the `webhookUrl`.
+
+         Parameter  | value
+         ---------- | -------
+         `jobId` | ID to be used with Job API.
+        `status` | Current status of the job. (Valid statuses - [ scheduled,
+        in_progress, completed, failed ])
+
+         ## channelMetadata Object
+
+        ```
+         {
+           "channelMetadata": [
+             {
+               "channel": 1,
+               "speaker": {
+                 "name": "Robert Bartheon",
+                 "email": "robertbartheon@gmail.com"
+               }
+             },
+             {
+               "channel": 2,
+               "speaker": {
+                 "name": "Arya Stark",
+                 "email": "aryastark@gmail.com"
+               }
+             }
+           ]
+         }
+        ```
+
+         `channelMetadata` object has the following members:
+
+         Field | Description
+         ------- | -------
+         ```channel``` | This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data.
+         ```speaker``` | This is the wrapper object which defines the speaker for this channel.
+
+         `speaker`  has the following members:
+
+         Field | Description
+         ------- | -------
+         ```name``` |  Name of the speaker.
+         ```email``` | Email address of the speaker.
+
+
+        >Billing for a speaker separated channel audio file happens according to
+        the number of channels present in the audio files. The duration for
+        billing will be calculated according to the below formula:
+
+
+        >`totalDuration = duration_of_the_audio_file * total_number_of_channels`
+
+
+        >So if you send a 120-second file with 3 speaker separated channels, the
+        total duration for billing would be 360 seconds or 6 minutes.
       operationId: Audio-AppendToExistingConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
           schema: {}
   /v1/process/audio/url:
     post:
+      tags:
+        - Audio APIs    
       summary: Audio(URL)  - Submit New Conversation
-      description:
-        "# Submit New Audio File URL:\n\nThe Async Audio URL API takes\
-        \ in a url link of your audio to proccess it.\n\nIt can be utilized for any\
-        \ use case where you have access to recorded audio stored publicly as URL\
-        \ and want to extract insights and other conversational attributes supported\
-        \ by Symbl's Conversation API.\n\n>The URL provided must be a publicly available\
-        \ URL. Currently we do not any support any redirected links, shortened links\
-        \ (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.\n\
-        \nLearn More about <a href=\"https://docs.symbl.ai/docs/async-api/overview/audio/post-audio-url\"\
-        >Async Audio API</a>.\n\n## Request Body\nParameters | Required | Description\n\
-        ---------- | ------- | -------\n```url``` | Yes |  A valid URL string. The\
-        \ URL must be a publicly accessible URL.\n```customVocabulary``` | No | Contains\
-        \ a list of words and phrases that provide hints to the speech recognition\
-        \ task.\n```confidenceThreshold``` | No | Minimum required confidence for\
-        \ the insight to be recognized.  Value range from 0.0 to 1.0. The default\
-        \ value is 0.5.\n```detectPhrases```| No | It shows Actionable Phrases in\
-        \ each sentence of conversation. These sentences can be found using the Conversation's\
-        \  Messages API. It's a boolean value where the default value is `false`.\n\
-        ```name``` | No | Your meeting name. Default name set to `conversationId`.\n\
-        ```webhookUrl``` | No | Webhook URL on which job updates to be sent. This\
-        \ should be post API.\n``` entities``` | No |   Input custom entities which\
-        \ can be detected in your conversation using Entities' API. For example, check\
-        \ the sample code on right.\n ```languageCode```| No |  We accept different\
-        \ languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages)\
-        \ as per your requirement.\n```enableSeparateRecognitionPerChannel``` | No\
-        \ | Enables Speaker Separated Channel audio processing. Accepts `true` or\
-        \ `false`.\n```channelMetadata``` | No | This object parameter contains two\
-        \ variables `speaker` and `channel` to specify which speaker corresponds to\
-        \ which channel. This object **only** works when `enableSeparateRecognitionPerChannel`\
-        \ is set to `true`.\n\n#### channelMetadata Object\n\n```json\n{\n  \"channelMetadata\"\
-        : [\n    {\n      \"channel\": 1,\n      \"speaker\": {\n        \"name\"\
-        : \"Robert Bartheon\",\n        \"email\": \"robertbartheon@gmail.com\"\n\
-        \      }\n    },\n    {\n      \"channel\": 2,\n      \"speaker\": {\n   \
-        \     \"name\": \"Arya Stark\",\n        \"email\": \"aryastark@gmail.com\"\
-        \n      }\n    }\n  ]\n}\n```\n\n`channelMetadata` object has the following\
-        \ members:\n\nField | Description\n------- | -------\n```channel``` | This\
-        \ denotes the channel number in the audio file. Each channel will contain\
-        \ independent speaker's voice data.\n```speaker``` | This is the wrapper object\
-        \ which defines the speaker for this channel.\n\n`speaker`  has the following\
-        \ members:\n\nField | Description\n------- | -------\n```name``` |  Name of\
-        \ the speaker.\n```email``` | Email address of the speaker.\n\n\n>Billing\
-        \ for a speaker separated channel audio file happens according to the number\
-        \ of channels present in the audio files. The duration for billing will be\
-        \ calculated according to the below formula:\n\n>`totalDuration = duration_of_the_audio_file\
-        \ * total_number_of_channels`\n\n>So if you send a 120-second file with 3\
-        \ speaker separated channels, the total duration for billing would be 360\
-        \ seconds or 6 minutes.\n\n#### Webhook object\n\n`webhookUrl` will be used\
-        \ to send the status of the job created for the uploaded audio URL. Every\
-        \ time the status of the job changes it will be notified on the `webhookUrl`.\n\
-        \nField | Description\n------- | -------\n```jobId``` | ID to be used with\
-        \ Job API\n```status``` |  Current status of the job. (Valid statuses - [\
-        \ scheduled, in_progress, completed, failed ])\n\n## Response Object on Success\n\
-        Field | Description\n------- | -------\nconversationId\t|ID to be used with\
-        \ Conversation API <br/>\njobId\t        |ID to be used with Job API <br/>\n\
-        \n"
+      description: "# Submit New Audio File URL:\n\nThe Async Audio URL API takes in a url link of your audio to proccess it.\n\nIt can be utilized for any use case where you have access to recorded audio stored publicly as URL and want to extract insights and other conversational attributes supported by Symbl's Conversation API.\n\n>The URL provided must be a publicly available URL. Currently we do not any support any redirected links, shortened links (e.g. bit.ly), YouTube, Vimeo, or links from any audio/video platforms.\n\nLearn More about <a href=\"https://docs.symbl.ai/docs/async-api/overview/audio/post-audio-url\">Async Audio API</a>.\n\n## Request Body\nParameters | Required | Description\n---------- | ------- | -------\n```url``` | Yes |  A valid URL string. The URL must be a publicly accessible URL.\n```customVocabulary``` | No | Contains a list of words and phrases that provide hints to the speech recognition task.\n```confidenceThreshold``` | No | Minimum required confidence for the insight to be recognized.  Value range from 0.0 to 1.0. The default value is 0.5.\n```detectPhrases```| No | It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. It's a boolean value where the default value is `false`.\n```name``` | No | Your meeting name. Default name set to `conversationId`.\n```webhookUrl``` | No | Webhook URL on which job updates to be sent. This should be post API.\n``` entities``` | No |   Input custom entities which can be detected in your conversation using Entities' API. For example, check the sample code on right.\n ```languageCode```| No |  We accept different languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages) as per your requirement.\n```enableSeparateRecognitionPerChannel``` | No | Enables Speaker Separated Channel audio processing. Accepts `true` or `false`.\n```channelMetadata``` | No | This object parameter contains two variables `speaker` and `channel` to specify which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` is set to `true`.\n\n#### channelMetadata Object\n\n```json\n{\n  \"channelMetadata\": [\n    {\n      \"channel\": 1,\n      \"speaker\": {\n        \"name\": \"Robert Bartheon\",\n        \"email\": \"robertbartheon@gmail.com\"\n      }\n    },\n    {\n      \"channel\": 2,\n      \"speaker\": {\n        \"name\": \"Arya Stark\",\n        \"email\": \"aryastark@gmail.com\"\n      }\n    }\n  ]\n}\n```\n\n`channelMetadata` object has the following members:\n\nField | Description\n------- | -------\n```channel``` | This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data.\n```speaker``` | This is the wrapper object which defines the speaker for this channel.\n\n`speaker`  has the following members:\n\nField | Description\n------- | -------\n```name``` |  Name of the speaker.\n```email``` | Email address of the speaker.\n\n\n>Billing for a speaker separated channel audio file happens according to the number of channels present in the audio files. The duration for billing will be calculated according to the below formula:\n\n>`totalDuration = duration_of_the_audio_file * total_number_of_channels`\n\n>So if you send a 120-second file with 3 speaker separated channels, the total duration for billing would be 360 seconds or 6 minutes.\n\n#### Webhook object\n\n`webhookUrl` will be used to send the status of the job created for the uploaded audio URL. Every time the status of the job changes it will be notified on the `webhookUrl`.\n\nField | Description\n------- | -------\n```jobId``` | ID to be used with Job API\n```status``` |  Current status of the job. (Valid statuses - [ scheduled, in_progress, completed, failed ])\n\n## Response Object on Success\nField | Description\n------- | -------\nconversationId\t|ID to be used with Conversation API <br/>\njobId\t        |ID to be used with Job API <br/>\n\n"
       operationId: Audio(url)-SubmitNewConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              url: { type: string, description: url }
+              url:
+                type: string
+                description: url
               confidenceThreshold:
-                {
-                  type: number,
-                  format: float,
-                  description: confidenceThreshold,
-                }
+                type: number
+                format: float
+                description: confidenceThreshold
               timezoneOffset:
-                { type: integer, format: int32, description: timezoneOffset }
+                type: integer
+                format: int32
+                description: timezoneOffset
             default:
-              {
-                url: "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav",
-                confidenceThreshold: 0.6,
-                timezoneOffset: 0,
-              }
+              url: >-
+                https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav
+              confidenceThreshold: 0.6
+              timezoneOffset: 0
           required: true
       responses:
         default:
@@ -475,102 +940,214 @@ paths:
           schema: {}
   /v1/process/audio/url/%7B%7Bconversation_id%7D%7D:
     put:
+      tags:
+        - Audio APIs    
       summary: Audio(URL)  -  Append to existing Conversation
-      description:
-        "# Append Audio File URL:\n\nThe Async Audio URL API allows you\
-        \ to append an additional audio URL to the previous conversation, append the\
-        \ transcription, and get conversational insights for an updated conversation.\n\
-        \nIt can be useful in any use case where you have access to multiple recorded\
-        \ audio stored publicly as URL of any type of conversation, and you want to\
-        \ extract the insightful items supported by the Conversation API.\n\n>If there\
-        \ are multiple requests are submitted for the same conversationId, all the\
-        \ requests will be processed synchronously in order to maintain the order\
-        \ of the requests for the conversation.\n\nLearn More about <a href=\"https://docs.symbl.ai/docs/async-api/overview/audio/put-audio-url\"\
-        >Async Audio API</a>.\n\n## Path Params\n\nParameter | value\n--------- |\
-        \ ----------\n```conversationId``` | conversationId which is provided by the\
-        \ first request submitted using POST async audio API.\n\n## Request Body\n\
-        \nParameters | Required | Description\n---------- | ------- | -------\n```url```\
-        \ | Yes |  A valid URL string. The URL must be a publicly accessible URL.\n\
-        ```customVocabulary``` | No | Contains a list of words and phrases that provide\
-        \ hints to the speech recognition task.\n```confidenceThreshold``` | No |\
-        \ Minimum required confidence for the insight to be recognized.  Value range\
-        \ from 0.0 to 1.0. The default value is 0.5.\n```detectPhrases```| No | It\
-        \ shows Actionable Phrases in each sentence of conversation. These sentences\
-        \ can be found using the Conversation's  Messages API. It's a boolean value\
-        \ where the default value is `false`.\n```name``` | No | Your meeting name.\
-        \ Default name set to `conversationId`.\n```webhookUrl``` | No | Webhook URL\
-        \ on which job updates to be sent. This should be post API.\n``` entities```\
-        \ | No |   Input custom entities which can be detected in your conversation\
-        \ using Entities' API. For example, check the sample code on right.\n ```languageCode```|\
-        \ No |  We accept different languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages)\
-        \ as per your requirement.\n```enableSeparateRecognitionPerChannel``` | No\
-        \ | Enables Speaker Separated Channel audio processing. Accepts `true` or\
-        \ `false`.\n```channelMetadata``` | No | This object parameter contains two\
-        \ variables `speaker` and `channel` to specify which speaker corresponds to\
-        \ which channel. This object **only** works when `enableSeparateRecognitionPerChannel`\
-        \ is set to `true`.\n\n\n### channelMetadata Object\n```json\n{\n  \"channelMetadata\"\
-        : [\n    {\n      \"channel\": 1,\n      \"speaker\": {\n        \"name\"\
-        : \"Robert Bartheon\",\n        \"email\": \"robertbartheon@gmail.com\"\n\
-        \      }\n    },\n    {\n      \"channel\": 2,\n      \"speaker\": {\n   \
-        \     \"name\": \"Arya Stark\",\n        \"email\": \"aryastark@gmail.com\"\
-        \n      }\n    }\n  ]\n}\n```\n\n`channelMetadata` object has the following\
-        \ members:\n\nField | Description\n------- | -------\n```channel``` | This\
-        \ denotes the channel number in the audio file. Each channel will contain\
-        \ independent speaker's voice data.\n```speaker``` | This is the wrapper object\
-        \ which defines the speaker for this channel.\n\n`speaker`  has the following\
-        \ members:\n\nField | Description\n------- | -------\n```name``` |  Name of\
-        \ the speaker.\n```email``` | Email address of the speaker.\n\n>Billing for\
-        \ a speaker separated channel audio file happens according to the number of\
-        \ channels present in the audio files. The duration for billing will be calculated\
-        \ according to the below formula:\n\n>`totalDuration = duration_of_the_audio_file\
-        \ * total_number_of_channels`\n\n>So if you send a 120-second file with 3\
-        \ speaker separated channels, the total duration for billing would be 360\
-        \ seconds or 6 minutes.\n\n\n## Webhook Payload\n\n`webhookUrl` will be used\
-        \ to send the status of the job created for uploaded audio. Every time the\
-        \ status of the job changes it will be notified on the `webhookUrl`.\n\nField\
-        \ | Description\n------ | ---------\n```jobId``` | ID to be used with Job\
-        \ API\n```status``` | Current status of the job. (Valid statuses - [ `scheduled`,\
-        \ `in_progress`, `completed`, `failed` ])\n\n## Response Object\n\nField \
-        \ | Description\n---------- | -------\n```conversationId``` | ID to be used\
-        \ with  Conversation API.\n```jobId``` | ID to be used with Jobs API."
+      description: >-
+        # Append Audio File URL:
+
+
+        The Async Audio URL API allows you to append an additional audio URL to
+        the previous conversation, append the transcription, and get
+        conversational insights for an updated conversation.
+
+
+        It can be useful in any use case where you have access to multiple
+        recorded audio stored publicly as URL of any type of conversation, and
+        you want to extract the insightful items supported by the Conversation
+        API.
+
+
+        >If there are multiple requests are submitted for the same
+        conversationId, all the requests will be processed synchronously in
+        order to maintain the order of the requests for the conversation.
+
+
+        Learn More about <a
+        href="https://docs.symbl.ai/docs/async-api/overview/audio/put-audio-url">Async
+        Audio API</a>.
+
+
+        ## Path Params
+
+
+        Parameter | value
+
+        --------- | ----------
+
+        ```conversationId``` | conversationId which is provided by the first
+        request submitted using POST async audio API.
+
+
+        ## Request Body
+
+
+        Parameters | Required | Description
+
+        ---------- | ------- | -------
+
+        ```url``` | Yes |  A valid URL string. The URL must be a publicly
+        accessible URL.
+
+        ```customVocabulary``` | No | Contains a list of words and phrases that
+        provide hints to the speech recognition task.
+
+        ```confidenceThreshold``` | No | Minimum required confidence for the
+        insight to be recognized.  Value range from 0.0 to 1.0. The default
+        value is 0.5.
+
+        ```detectPhrases```| No | It shows Actionable Phrases in each sentence
+        of conversation. These sentences can be found using the Conversation's 
+        Messages API. It's a boolean value where the default value is `false`.
+
+        ```name``` | No | Your meeting name. Default name set to
+        `conversationId`.
+
+        ```webhookUrl``` | No | Webhook URL on which job updates to be sent.
+        This should be post API.
+
+        ``` entities``` | No |   Input custom entities which can be detected in
+        your conversation using Entities' API. For example, check the sample
+        code on right.
+         ```languageCode```| No |  We accept different languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages) as per your requirement.
+        ```enableSeparateRecognitionPerChannel``` | No | Enables Speaker
+        Separated Channel audio processing. Accepts `true` or `false`.
+
+        ```channelMetadata``` | No | This object parameter contains two
+        variables `speaker` and `channel` to specify which speaker corresponds
+        to which channel. This object **only** works when
+        `enableSeparateRecognitionPerChannel` is set to `true`.
+
+
+
+        ### channelMetadata Object
+
+        ```json
+
+        {
+          "channelMetadata": [
+            {
+              "channel": 1,
+              "speaker": {
+                "name": "Robert Bartheon",
+                "email": "robertbartheon@gmail.com"
+              }
+            },
+            {
+              "channel": 2,
+              "speaker": {
+                "name": "Arya Stark",
+                "email": "aryastark@gmail.com"
+              }
+            }
+          ]
+        }
+
+        ```
+
+
+        `channelMetadata` object has the following members:
+
+
+        Field | Description
+
+        ------- | -------
+
+        ```channel``` | This denotes the channel number in the audio file. Each
+        channel will contain independent speaker's voice data.
+
+        ```speaker``` | This is the wrapper object which defines the speaker for
+        this channel.
+
+
+        `speaker`  has the following members:
+
+
+        Field | Description
+
+        ------- | -------
+
+        ```name``` |  Name of the speaker.
+
+        ```email``` | Email address of the speaker.
+
+
+        >Billing for a speaker separated channel audio file happens according to
+        the number of channels present in the audio files. The duration for
+        billing will be calculated according to the below formula:
+
+
+        >`totalDuration = duration_of_the_audio_file * total_number_of_channels`
+
+
+        >So if you send a 120-second file with 3 speaker separated channels, the
+        total duration for billing would be 360 seconds or 6 minutes.
+
+
+
+        ## Webhook Payload
+
+
+        `webhookUrl` will be used to send the status of the job created for
+        uploaded audio. Every time the status of the job changes it will be
+        notified on the `webhookUrl`.
+
+
+        Field | Description
+
+        ------ | ---------
+
+        ```jobId``` | ID to be used with Job API
+
+        ```status``` | Current status of the job. (Valid statuses - [
+        `scheduled`, `in_progress`, `completed`, `failed` ])
+
+
+        ## Response Object
+
+
+        Field  | Description
+
+        ---------- | -------
+
+        ```conversationId``` | ID to be used with  Conversation API.
+
+        ```jobId``` | ID to be used with Jobs API.
       operationId: Audio(url)-AppendToExistingConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              url: { type: string, description: url }
+              url:
+                type: string
+                description: url
               confidenceThreshold:
-                {
-                  type: number,
-                  format: float,
-                  description: confidenceThreshold,
-                }
+                type: number
+                format: float
+                description: confidenceThreshold
               timezoneOffset:
-                { type: integer, format: int32, description: timezoneOffset }
+                type: integer
+                format: int32
+                description: timezoneOffset
             default:
-              {
-                url: "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav",
-                confidenceThreshold: 0.6,
-                timezoneOffset: 0,
-              }
+              url: >-
+                https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav
+              confidenceThreshold: 0.6
+              timezoneOffset: 0
           required: true
       responses:
         default:
@@ -578,8 +1155,11 @@ paths:
           schema: {}
   /v1/process/video:
     post:
+      tags:
+        - Video APIs   
       summary: Video - Submit New Video File (mp4)
-      description: "# About this API
+      description: >-
+        # About this API
 
         Submit the MP4 Video file for processing.
 
@@ -602,43 +1182,43 @@ paths:
         `jobId` can be used to get updates on the job status.
 
 
-        `conversationId` can be used with the Conversation API to get all the insights,
-        topics and processed messages etc.
+        `conversationId` can be used with the Conversation API to get all the
+        insights, topics and processed messages etc.
 
 
-        Read More: [https://docs.symbl.ai/#text-api](https://docs.symbl.ai/#video-api)"
+        Read More:
+        [https://docs.symbl.ai/#text-api](https://docs.symbl.ai/#video-api)
       operationId: Video-SubmitNewVideoFile(mp4)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: video/mp4,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: video/mp4
+          description: Content-Type
       responses:
         default:
           description: default
           schema: {}
   /v1/process/video/%7B%7Bconversation_id%7D%7D:
     put:
+      tags:
+        - Video APIs      
       summary: Video - Append to Existing Conversation
-      description: "# About this API
+      description: >-
+        # About this API
 
         Append to existing Conversation with MP4 Video file.
 
 
-        ><h4>The conversationId of the conversation processed from any channels (Realtime,
-        Audio/Video Files or Text Content) are allowed.</h4>
+        ><h4>The conversationId of the conversation processed from any channels
+        (Realtime, Audio/Video Files or Text Content) are allowed.</h4>
 
 
         ## Request Body
@@ -659,101 +1239,71 @@ paths:
         `jobId` can be used to get updates on the job status.
 
 
-        `conversationId` can be used with the Conversation API to get all the insights,
-        topics and processed messages etc.
+        `conversationId` can be used with the Conversation API to get all the
+        insights, topics and processed messages etc.
 
 
-        Read More: [https://docs.symbl.ai/#text-api](https://docs.symbl.ai/#video-api)"
+        Read More:
+        [https://docs.symbl.ai/#text-api](https://docs.symbl.ai/#video-api)
       operationId: Video-AppendToExistingConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: video/mp4,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: video/mp4
+          description: Content-Type
       responses:
         default:
           description: default
           schema: {}
   /v1/process/video/url:
     post:
+      tags:
+        - Video APIs       
       summary: Video (URL)  - Submit New Conversation
-      description:
-        "# About this API:\n\nThe Async Video URL API allows you to process\
-        \ a mp4 video and return the full text transcript along with conversational\
-        \ insights. \nIt can be utilized for any use case where you have access to\
-        \ recorded video stored publicly as URL and want to extract insights and \n\
-        other conversational attributes supported by Symbl's Conversation API. \n\n\
-        # HTTP REQUEST\nPOST https://api.symbl.ai/v1/process/video/url\n\n# Request\
-        \ Headers\n|Header Name\t  |Required|Value                           | <br/>\n\
-        ---\n|x-api-key\t       |Yes\t   |your_auth_token                 |<br/>\n\
-        |Content-Type      |Yes\t   |Accepted value application/json | <br/>\n\n#\
-        \ Request Body\n|Field\t           | Required|Type\t|Description |<br/>\n\
-        ---\n|url\t               |Yes\t     |String|A valid url string. The URL must\
-        \ be a publicly accessible url. |<br/>\n|customVocabulary   |No\t     |list\
-        \  |Contains a list of words and phrases that provide hints to the speech\
-        \ recognition task. |<br/>\n|confidenceThreshold|No\t     |double|Minimum\
-        \ required confidence for the insight to be recognized. |<br/>\n\n# Query\
-        \ Params\n|Parameter\t|Required|Value <br/>\n---\n|webhookUrl\t|No\t     |\
-        \ Webhook url on which job updates to be sent. (This should be post API) <br/>\n\
-        \n\nWebhookUrl will be used to send the status of job created for uploaded\
-        \ video url. Every time the status of the job changes it will be \nnotified\
-        \ on the WebhookUrl.\n\n# Response Object on Success\n|Field\t        |Description\
-        \ |<br/>\n---\n|conversationId\t|ID to be used with Conversation API| <br/>\n\
-        |jobId\t        |ID to be used with Job API |<br/>\n\n\n## Webhook Payload\n\
-        |Field |Description|\n---\n|jobId |ID to be used with Job API|<br/>\n|status|Current\
-        \ status of the job. (Valid statuses - [ scheduled, in_progress, completed,\
-        \ failed ])|<br/>\n\n## For more: https://docs.symbl.ai/?shell#video-api (Please\
-        \ find POST Asnyc Video URL API in Table of Contents)"
+      description: "# About this API:\n\nThe Async Video URL API allows you to process a mp4 video and return the full text transcript along with conversational insights. \nIt can be utilized for any use case where you have access to recorded video stored publicly as URL and want to extract insights and \nother conversational attributes supported by Symbl's Conversation API. \n\n# HTTP REQUEST\nPOST https://api.symbl.ai/v1/process/video/url\n\n# Request Headers\n|Header Name\t  |Required|Value                           | <br/>\n---\n|x-api-key\t       |Yes\t   |your_auth_token                 |<br/>\n|Content-Type      |Yes\t   |Accepted value application/json | <br/>\n\n# Request Body\n|Field\t           | Required|Type\t|Description |<br/>\n---\n|url\t               |Yes\t     |String|A valid url string. The URL must be a publicly accessible url. |<br/>\n|customVocabulary   |No\t     |list  |Contains a list of words and phrases that provide hints to the speech recognition task. |<br/>\n|confidenceThreshold|No\t     |double|Minimum required confidence for the insight to be recognized. |<br/>\n\n# Query Params\n|Parameter\t|Required|Value <br/>\n---\n|webhookUrl\t|No\t     | Webhook url on which job updates to be sent. (This should be post API) <br/>\n\n\nWebhookUrl will be used to send the status of job created for uploaded video url. Every time the status of the job changes it will be \nnotified on the WebhookUrl.\n\n# Response Object on Success\n|Field\t        |Description |<br/>\n---\n|conversationId\t|ID to be used with Conversation API| <br/>\n|jobId\t        |ID to be used with Job API |<br/>\n\n\n## Webhook Payload\n|Field |Description|\n---\n|jobId |ID to be used with Job API|<br/>\n|status|Current status of the job. (Valid statuses - [ scheduled, in_progress, completed, failed ])|<br/>\n\n## For more: https://docs.symbl.ai/?shell#video-api (Please find POST Asnyc Video URL API in Table of Contents)"
       operationId: Video(url)-SubmitNewConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              url: { type: string, description: url }
+              url:
+                type: string
+                description: url
               confidenceThreshold:
-                {
-                  type: number,
-                  format: float,
-                  description: confidenceThreshold,
-                }
+                type: number
+                format: float
+                description: confidenceThreshold
               timezoneOffset:
-                { type: integer, format: int32, description: timezoneOffset }
+                type: integer
+                format: int32
+                description: timezoneOffset
             default:
-              {
-                url: "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4",
-                confidenceThreshold: 0.6,
-                timezoneOffset: 0,
-              }
+              url: >-
+                https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4
+              confidenceThreshold: 0.6
+              timezoneOffset: 0
           required: true
       responses:
         default:
@@ -761,75 +1311,45 @@ paths:
           schema: {}
   /v1/process/video/url/%7B%7Bconversation_id%7D%7D:
     put:
+      tags:
+        - Video APIs       
       summary: Video(URL)  -  Append to existing Conversation
-      description:
-        "# About this API:\n\nThe Async Video URL API allows you to process\
-        \ an additional video file to the previous conversation, append the transcription\
-        \ and \nget conversational insights for updated conversation. It can be useful\
-        \ in any use case where you have access to multiple recorded video \nstored\
-        \ publicly as URL of any type of conversation, and you want to extract the\
-        \ insightful items supported by the Conversation API. \n\n# HTTP REQUEST\n\
-        PUT https://api.symbl.ai/v1/process/video/url/:conversationId\n\n# Request\
-        \ Headers\n|Header Name\t  |Required|Value                           | <br/>\n\
-        ---\n|x-api-key\t       |Yes\t   |your_auth_token                 |<br/>\n\
-        |Content-Type      |Yes\t   |Accepted value application/json | <br/>\n\n#\
-        \ Request Body\n|Field\t           | Required|Type\t|Description <br/>\n---\n\
-        |url\t               |Yes\t     |String|A valid url string. The URL must be\
-        \ a publicly accessible url. <br/>\n|customVocabulary   |No\t     |list  |Contains\
-        \ a list of words and phrases that provide hints to the speech recognition\
-        \ task. <br/>\n|confidenceThreshold|No\t     |double|Minimum required confidence\
-        \ for the insight to be recognized. <br/>\n\n## Path Params\n|Parameter\t\
-        \    |value|\n---\n|conversationId\t|conversationId which is provided by the\
-        \ first request submitted using POST async video API|\n\n\n# Query Params\n\
-        |Parameter\t|Required|Value |<br/>\n---\n|webhookUrl\t|No\t     | Webhook\
-        \ url on which job updates to be sent. (This should be post API) |<br/>\n\n\
-        \nWebhookUrl will be used to send the status of job created for uploaded video\
-        \ url. Every time the status of the job changes it will be \nnotified on the\
-        \ WebhookUrl.\n\n# Response Object on Success\n|Field\t        |Description\
-        \ <br/>\n---\n|conversationId\t|ID to be used with Conversation API <br/>\n\
-        |jobId\t        |ID to be used with Job API <br/>\n\n## Webhook Payload\n\
-        |Field |Description|\n---\n|jobId |ID to be used with Job API|<br/>\n|status|Current\
-        \ status of the job. (Valid statuses - [ scheduled, in_progress, completed,\
-        \ failed ])|<br/>\n\n## For more: https://docs.symbl.ai/?shell#video-api (Please\
-        \ find PUT Async Video URL API in Table of Contents)"
+      description: "# About this API:\n\nThe Async Video URL API allows you to process an additional video file to the previous conversation, append the transcription and \nget conversational insights for updated conversation. It can be useful in any use case where you have access to multiple recorded video \nstored publicly as URL of any type of conversation, and you want to extract the insightful items supported by the Conversation API. \n\n# HTTP REQUEST\nPUT https://api.symbl.ai/v1/process/video/url/:conversationId\n\n# Request Headers\n|Header Name\t  |Required|Value                           | <br/>\n---\n|x-api-key\t       |Yes\t   |your_auth_token                 |<br/>\n|Content-Type      |Yes\t   |Accepted value application/json | <br/>\n\n# Request Body\n|Field\t           | Required|Type\t|Description <br/>\n---\n|url\t               |Yes\t     |String|A valid url string. The URL must be a publicly accessible url. <br/>\n|customVocabulary   |No\t     |list  |Contains a list of words and phrases that provide hints to the speech recognition task. <br/>\n|confidenceThreshold|No\t     |double|Minimum required confidence for the insight to be recognized. <br/>\n\n## Path Params\n|Parameter\t    |value|\n---\n|conversationId\t|conversationId which is provided by the first request submitted using POST async video API|\n\n\n# Query Params\n|Parameter\t|Required|Value |<br/>\n---\n|webhookUrl\t|No\t     | Webhook url on which job updates to be sent. (This should be post API) |<br/>\n\n\nWebhookUrl will be used to send the status of job created for uploaded video url. Every time the status of the job changes it will be \nnotified on the WebhookUrl.\n\n# Response Object on Success\n|Field\t        |Description <br/>\n---\n|conversationId\t|ID to be used with Conversation API <br/>\n|jobId\t        |ID to be used with Job API <br/>\n\n## Webhook Payload\n|Field |Description|\n---\n|jobId |ID to be used with Job API|<br/>\n|status|Current status of the job. (Valid statuses - [ scheduled, in_progress, completed, failed ])|<br/>\n\n## For more: https://docs.symbl.ai/?shell#video-api (Please find PUT Async Video URL API in Table of Contents)"
       operationId: Video(url)-AppendToExistingConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              url: { type: string, description: url }
+              url:
+                type: string
+                description: url
               confidenceThreshold:
-                {
-                  type: number,
-                  format: float,
-                  description: confidenceThreshold,
-                }
+                type: number
+                format: float
+                description: confidenceThreshold
               timezoneOffset:
-                { type: integer, format: int32, description: timezoneOffset }
+                type: integer
+                format: int32
+                description: timezoneOffset
             default:
-              {
-                url: "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4",
-                confidenceThreshold: 0.6,
-                timezoneOffset: 0,
-              }
+              url: >-
+                https://symbltestdata.s3.us-east-2.amazonaws.com/sample_video_file.mp4
+              confidenceThreshold: 0.6
+              timezoneOffset: 0
           required: true
       responses:
         default:
@@ -838,31 +1358,29 @@ paths:
   /v1/job/%7B%7Bjob_id%7D%7D:
     get:
       summary: Check Request Status (Job status)
-      description: "# About this API
+      description: >-
+        # About this API
 
-        Check the status of the Async Request job using `jobId` returned after successful
-        submission of any Async API.
+        Check the status of the Async Request job using `jobId` returned after
+        successful submission of any Async API.
 
 
-        Read More: [https://docs.symbl.ai/#job-api](https://docs.symbl.ai/#job-api)"
+        Read More:
+        [https://docs.symbl.ai/#job-api](https://docs.symbl.ai/#job-api)
       operationId: CheckRequestStatus(jobStatus)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -870,71 +1388,60 @@ paths:
   /v1/endpoint:connect:
     post:
       summary: Start Connection (PSTN)
-      description:
-        "# About this API\nTelephony API Telephony to connect to a PSTN\
-        \ endpoint and start the connection and start processing.\n\n## Prerequisite\n\
-        You must generate access token by executing `Generate Token` request under\
-        \ Authentication folder.\n\n## \\_\\_phone_number\\_\\_\nReplace value for\
-        \ `phoneNumber` in request body with a valid US/Canada phone number or a preferred\
-        \ dial-in US/Canada phone number of your conferencing platform. Include country\
-        \ code, example - \"19998887777\", where '1' is country code for US/Canada\n\
-        \n## \\_\\_dtmf_sequence\\_\\_\nReplace value for `dtmf` in with your joining\
-        \ sequence. Usually only required if dialing in to conferencing platform or\
-        \ phone number with IVR.\nExamples - \"7733445566#\" or \"7733445566#,,7734#\"\
-        \n\nIf DTMF sequence is not required, delete this field.\n\n## \\_\\_email_address\\\
-        _\\_ (Email Addresses)\nOptionally, add list of valid email addresses under\
-        \ sendSummaryEmail `actions`. If added, an email will be sent at the end of\
-        \ the call.\n\n## \\_\\_name_of_this_call\\_\\_\nGive name to your meeting/call.\n\
-        \n## Participants\nOptionally, send participants in the meeting/call, by adding\
-        \ `users` array.\n<pre>\n    <code>\n\t\t\"users\": [{\n\t\t\t\"user\": {\n\
-        \t\t\t\t\"name\": \"John\",\n\t\t\t\t\"userId\": \"john@example.com\",\n\t\
-        \t\t\t\"role\": \"organizer\"\n\t\t\t}\n\t\t\t}, \n\t\t\t{\n\t\t\t\"user\"\
-        : {\n\t\t\t\t\"name\": \"Mary\",\n\t\t\t\t\"userId\": \"mary@example.com\"\
-        \n\t\t\t}\n\t\t}]\n    <code>\n</pre>"
+      description: "# About this API\nTelephony API Telephony to connect to a PSTN endpoint and start the connection and start processing.\n\n## Prerequisite\nYou must generate access token by executing `Generate Token` request under Authentication folder.\n\n## \\_\\_phone_number\\_\\_\nReplace value for `phoneNumber` in request body with a valid US/Canada phone number or a preferred dial-in US/Canada phone number of your conferencing platform. Include country code, example - \"19998887777\", where '1' is country code for US/Canada\n\n## \\_\\_dtmf_sequence\\_\\_\nReplace value for `dtmf` in with your joining sequence. Usually only required if dialing in to conferencing platform or phone number with IVR.\nExamples - \"7733445566#\" or \"7733445566#,,7734#\"\n\nIf DTMF sequence is not required, delete this field.\n\n## \\_\\_email_address\\_\\_ (Email Addresses)\nOptionally, add list of valid email addresses under sendSummaryEmail `actions`. If added, an email will be sent at the end of the call.\n\n## \\_\\_name_of_this_call\\_\\_\nGive name to your meeting/call.\n\n## Participants\nOptionally, send participants in the meeting/call, by adding `users` array.\n<pre>\n    <code>\n\t\t\"users\": [{\n\t\t\t\"user\": {\n\t\t\t\t\"name\": \"John\",\n\t\t\t\t\"userId\": \"john@example.com\",\n\t\t\t\t\"role\": \"organizer\"\n\t\t\t}\n\t\t\t}, \n\t\t\t{\n\t\t\t\"user\": {\n\t\t\t\t\"name\": \"Mary\",\n\t\t\t\t\"userId\": \"mary@example.com\"\n\t\t\t}\n\t\t}]\n    <code>\n</pre>"
       operationId: StartConnection(pstn)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              operation: { type: string, description: operation }
+              operation:
+                type: string
+                description: operation
               endpoint:
                 type: object
                 properties:
-                  type: { type: string, description: type }
-                  phoneNumber: { type: string, description: phoneNumber }
-                  dtmf: { type: string, description: dtmf }
+                  type:
+                    type: string
+                    description: type
+                  phoneNumber:
+                    type: string
+                    description: phoneNumber
+                  dtmf:
+                    type: string
+                    description: dtmf
                 description: endpoint
               actions:
                 type: array
                 items:
                   type: object
                   properties:
-                    invokeOn: { type: string, description: invokeOn }
-                    name: { type: string, description: name }
+                    invokeOn:
+                      type: string
+                      description: invokeOn
+                    name:
+                      type: string
+                      description: name
                     parameters:
                       type: object
                       properties:
                         emails:
                           type: array
-                          items: { type: string }
+                          items:
+                            type: string
                           description: emails
                       description: parameters
                 description: actions
@@ -944,24 +1451,26 @@ paths:
                   session:
                     type: object
                     properties:
-                      name: { type: string, description: name }
+                      name:
+                        type: string
+                        description: name
                     description: session
                 description: data
             default:
               operation: start
               endpoint:
-                {
-                  type: pstn,
-                  phoneNumber: __phone_number__,
-                  dtmf: __dtmf_sequence__,
-                }
+                type: pstn
+                phoneNumber: __phone_number__
+                dtmf: __dtmf_sequence__
               actions:
                 - invokeOn: stop
                   name: sendSummaryEmail
                   parameters:
-                    emails: [__email_address__]
+                    emails:
+                      - __email_address__
               data:
-                session: { name: __name_of_this_call__ }
+                session:
+                  name: __name_of_this_call__
           required: true
       responses:
         default:
@@ -973,29 +1482,28 @@ paths:
       description: Text Experience UI
       operationId: TextExperienceUi
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              name: { type: string, description: name }
-            default: { name: verbose-text-summary }
+              name:
+                type: string
+                description: name
+            default:
+              name: verbose-text-summary
           required: true
       responses:
         default:
@@ -1007,14 +1515,12 @@ paths:
       description: Conversation Data
       operationId: ConversationData
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1024,14 +1530,12 @@ paths:
       description: Delete Conversation
       operationId: DeleteConversation
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1041,36 +1545,50 @@ paths:
       description: Update Conversations
       operationId: UpdateConversations
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
         - name: body
           in: body
           schema:
             type: object
             properties:
-              type: { type: string, description: type }
-              name: { type: string, description: name }
-              startTime: { type: string, description: startTime }
-              endTime: { type: string, description: endTime }
+              type:
+                type: string
+                description: type
+              name:
+                type: string
+                description: name
+              startTime:
+                type: string
+                description: startTime
+              endTime:
+                type: string
+                description: endTime
               members:
                 type: array
                 items:
                   type: object
                   properties:
-                    name: { type: string, description: name }
-                    email: { type: string, description: email }
+                    name:
+                      type: string
+                      description: name
+                    email:
+                      type: string
+                      description: email
                 description: members
               metadata:
                 type: object
                 properties:
-                  key: { type: string, description: key }
-                  agentId: { type: string, description: agentId }
+                  key:
+                    type: string
+                    description: key
+                  agentId:
+                    type: string
+                    description: agentId
                 description: metadata
             default:
               type: meeting
@@ -1078,9 +1596,13 @@ paths:
               startTime: "2021-02-24T15:53:05.594Z"
               endTime: "2021-02-24T16:18:05.048Z"
               members:
-                - { name: Mary, email: mary@example.com }
-                - { name: Mary, email: mary@example.com }
-              metadata: { key: value, agentId: johndoe }
+                - name: Mary
+                  email: mary@example.com
+                - name: Mary
+                  email: mary@example.com
+              metadata:
+                key: value
+                agentId: johndoe
           required: true
       responses:
         default:
@@ -1092,14 +1614,12 @@ paths:
       description: All Conversations
       operationId: AllConversations
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1110,14 +1630,12 @@ paths:
       description: Messages (Transcript)
       operationId: Messages(transcript)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1128,29 +1646,28 @@ paths:
       description: Formatted Transcript
       operationId: FormattedTranscript
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              contentType: { type: string, description: contentType }
-            default: { contentType: text/markdown }
+              contentType:
+                type: string
+                description: contentType
+            default:
+              contentType: text/markdown
           required: true
       responses:
         default:
@@ -1162,14 +1679,12 @@ paths:
       description: Members (Participants/Attendees)
       operationId: Members(participants_attendees)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1177,42 +1692,64 @@ paths:
   /v1/conversations/%7B%7Bconversation_id%7D%7D/members/%7B%7Bmember_id%7D%7D:
     put:
       summary: Update Members
-      description:
-        "## Defination\nUpdate an existing member in an conversation. This\
-        \ API can be used for updating the unique speakers detected as members from\
-        \ diarization as well.\n\n\n## Endpoint:\nhttps://docs.symbl.ai/?shell#put-update-members\n\
-        \n\n## Sample Request:\n\ncurl --location --request PUT 'https://api.symbl.ai/v1/conversations/{conversationId}/members/fc9b35cd-361f-41c6-9029-0944d21c7150'\
-        \ --header 'Content-Type: application/json' --header 'x-api-key: <valid-generated-token'\
-        \ --data-raw '{\n    \"id\": \"fc9b35cd-361f-41c6-9029-0944d21c7150\",\n \
-        \   \"email\": \"john@example.com\",\n    \"name\": \"John\"\n}'"
+      description: >-
+        ## Defination
+
+        Update an existing member in an conversation. This API can be used for
+        updating the unique speakers detected as members from diarization as
+        well.
+
+
+
+        ## Endpoint:
+
+        https://docs.symbl.ai/?shell#put-update-members
+
+
+
+        ## Sample Request:
+
+
+        curl --location --request PUT
+        'https://api.symbl.ai/v1/conversations/{conversationId}/members/fc9b35cd-361f-41c6-9029-0944d21c7150'
+        --header 'Content-Type: application/json' --header 'x-api-key:
+        <valid-generated-token' --data-raw '{
+            "id": "fc9b35cd-361f-41c6-9029-0944d21c7150",
+            "email": "john@example.com",
+            "name": "John"
+        }'
       operationId: UpdateMembers
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              id: { type: string, description: id }
-              email: { type: string, description: email }
-              name: { type: string, description: name }
+              id:
+                type: string
+                description: id
+              email:
+                type: string
+                description: email
+              name:
+                type: string
+                description: name
             default:
-              { id: "{{member_id}}", email: john@example.com, name: John }
+              id: "{{member_id}}"
+              email: john@example.com
+              name: John
           required: true
       responses:
         default:
@@ -1221,32 +1758,46 @@ paths:
   /v1/conversations/%7B%7Bconversation_id%7D%7D/speakers:
     put:
       summary: Update Speaker Events
-      description:
-        "## Defination\nUpdate an existing member in an conversation. This\
-        \ API can be used for updating the unique speakers detected as members from\
-        \ diarization as well.\n\n\n## Endpoint:\nhttps://docs.symbl.ai/?shell#put-update-members\n\
-        \n\n## Sample Request:\n\ncurl --location --request PUT 'https://api.symbl.ai/v1/conversations/{conversationId}/members/fc9b35cd-361f-41c6-9029-0944d21c7150'\
-        \ --header 'Content-Type: application/json' --header 'x-api-key: <valid-generated-token'\
-        \ --data-raw '{\n    \"id\": \"fc9b35cd-361f-41c6-9029-0944d21c7150\",\n \
-        \   \"email\": \"john@example.com\",\n    \"name\": \"John\"\n}'"
+      description: >-
+        ## Defination
+
+        Update an existing member in an conversation. This API can be used for
+        updating the unique speakers detected as members from diarization as
+        well.
+
+
+
+        ## Endpoint:
+
+        https://docs.symbl.ai/?shell#put-update-members
+
+
+
+        ## Sample Request:
+
+
+        curl --location --request PUT
+        'https://api.symbl.ai/v1/conversations/{conversationId}/members/fc9b35cd-361f-41c6-9029-0944d21c7150'
+        --header 'Content-Type: application/json' --header 'x-api-key:
+        <valid-generated-token' --data-raw '{
+            "id": "fc9b35cd-361f-41c6-9029-0944d21c7150",
+            "email": "john@example.com",
+            "name": "John"
+        }'
       operationId: UpdateSpeakerEvents
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
@@ -1257,57 +1808,69 @@ paths:
                 items:
                   type: object
                   properties:
-                    type: { type: string, description: type }
+                    type:
+                      type: string
+                      description: type
                     user:
                       type: object
                       properties:
-                        id: { type: string, description: id }
-                        name: { type: string, description: name }
-                        email: { type: string, description: email }
+                        id:
+                          type: string
+                          description: id
+                        name:
+                          type: string
+                          description: name
+                        email:
+                          type: string
+                          description: email
                       description: user
                     offset:
                       type: object
                       properties:
                         seconds:
-                          { type: integer, format: int32, description: seconds }
+                          type: integer
+                          format: int32
+                          description: seconds
                         nanos:
-                          { type: integer, format: int32, description: nanos }
+                          type: integer
+                          format: int32
+                          description: nanos
                       description: offset
                 description: speakerEvents
             default:
               speakerEvents:
                 - type: stopped_speaking
                   user:
-                    {
-                      id: 4194eb50-357d-4712-a02d-94215ead2104,
-                      name: Richard,
-                      email: Richard@example.com,
-                    }
-                  offset: { seconds: 20, nanos: 5000000000 }
+                    id: 4194eb50-357d-4712-a02d-94215ead2104
+                    name: Richard
+                    email: Richard@example.com
+                  offset:
+                    seconds: 20
+                    nanos: 5000000000
                 - type: stopped_speaking
                   user:
-                    {
-                      id: 4194eb50-357d-4712-a02d-94215ead1064,
-                      name: Derek,
-                      email: Derek@example.com,
-                    }
-                  offset: { seconds: 15, nanos: 5000000000 }
+                    id: 4194eb50-357d-4712-a02d-94215ead1064
+                    name: Derek
+                    email: Derek@example.com
+                  offset:
+                    seconds: 15
+                    nanos: 5000000000
                 - type: started_speaking
                   user:
-                    {
-                      id: 4194eb50-357d-4712-a02d-94215ead2104,
-                      name: Richard,
-                      email: Richard@example.com,
-                    }
-                  offset: { seconds: 10, nanos: 5000000000 }
+                    id: 4194eb50-357d-4712-a02d-94215ead2104
+                    name: Richard
+                    email: Richard@example.com
+                  offset:
+                    seconds: 10
+                    nanos: 5000000000
                 - type: stopped_speaking
                   user:
-                    {
-                      id: 4194eb50-357d-4712-a02d-94215ead2104,
-                      name: Richard,
-                      email: Richard@example.com,
-                    }
-                  offset: { seconds: 20, nanos: 5000000000 }
+                    id: 4194eb50-357d-4712-a02d-94215ead2104
+                    name: Richard
+                    email: Richard@example.com
+                  offset:
+                    seconds: 20
+                    nanos: 5000000000
           required: true
       responses:
         default:
@@ -1316,27 +1879,24 @@ paths:
   /v1/conversations/%7B%7Bconversation_id%7D%7D/trackers-detected:
     get:
       summary: Trackers Detected
-      description:
-        This API allows you to get all the [Trackers](https://docs.symbl.ai/docs/concepts/trackers)
-        from your conversation.
+      description: >-
+        This API allows you to get all the
+        [Trackers](https://docs.symbl.ai/docs/concepts/trackers) from your
+        conversation.
       operationId: TrackersDetected
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -1347,14 +1907,12 @@ paths:
       description: Topics
       operationId: Topics
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1365,14 +1923,12 @@ paths:
       description: Action Items
       operationId: ActionItems
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1383,14 +1939,12 @@ paths:
       description: Retrieve any follow up insights detected by a conversationId
       operationId: FollowUps
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1401,14 +1955,12 @@ paths:
       description: Questions
       operationId: Questions
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1419,14 +1971,12 @@ paths:
       description: Analytics
       operationId: Analytics
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1437,14 +1987,12 @@ paths:
       description: Entities
       operationId: Entities
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1455,29 +2003,23 @@ paths:
       description: Trackers (with Name)
       operationId: Trackers(withName)
       parameters:
-        - {
-            name: name,
-            default: "{trackerName}",
-            in: query,
-            type: string,
-            required: true,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
+        - name: name
+          default: "{trackerName}"
+          in: query
+          type: string
+          required: true
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
       responses:
         default:
           description: default
@@ -1487,22 +2029,18 @@ paths:
       description: Trackers - Submit a new Tracker
       operationId: Trackers-SubmitANewTracker
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
@@ -1510,21 +2048,23 @@ paths:
             items:
               type: object
               properties:
-                name: { type: string, description: name }
+                name:
+                  type: string
+                  description: name
                 vocabulary:
                   type: array
-                  items: { type: string }
+                  items:
+                    type: string
                   description: vocabulary
               default:
                 name: Promotion Mention Tracker
-                vocabulary: [
-                    We have a special promotion going on if you book this before,
-                    I can offer you a discount of 10 20 percent you being a new customer
-                    for us,
-                    We have our month special this month,
-                    We have a sale right
-                    now on,
-                  ]
+                vocabulary:
+                  - We have a special promotion going on if you book this before
+                  - >-
+                    I can offer you a discount of 10 20 percent you being a new
+                    customer for us
+                  - We have our month special this month
+                  - We have a sale right now on
           required: true
       responses:
         default:
@@ -1536,22 +2076,18 @@ paths:
       description: Trackers (with ID)
       operationId: Trackers(withId)
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -1561,22 +2097,18 @@ paths:
       description: Trackers (with ID)
       operationId: Trackers(withId)33
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -1586,44 +2118,43 @@ paths:
       description: Trackers - Append to an existing Tracker
       operationId: Trackers-AppendToAnExistingTracker
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              id: { type: string, description: id }
-              name: { type: string, description: name }
+              id:
+                type: string
+                description: id
+              name:
+                type: string
+                description: name
               vocabulary:
                 type: array
-                items: { type: string }
+                items:
+                  type: string
                 description: vocabulary
             default:
               id: "{trackerId}"
               name: COVID-19 Tracker
               vocabulary:
-                [
-                  covid,
-                  cover your mouth with a mask,
-                  coughing,
-                  social distancing,
-                  vaccine,
-                ]
+                - covid
+                - cover your mouth with a mask
+                - coughing
+                - social distancing
+                - vaccine
           required: true
       responses:
         default:
@@ -1635,37 +2166,38 @@ paths:
       description: Create Conversation Groups
       operationId: CreateConversationGroups
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              name: { type: string, description: name }
-              description: { type: string, description: description }
-              criteria: { type: string, description: criteria }
+              name:
+                type: string
+                description: name
+              description:
+                type: string
+                description: description
+              criteria:
+                type: string
+                description: criteria
             default:
-              {
-                name: Calls made by John,
-                description: All the conversations made
-                  by the agent John Doe are captured in this Group.,
-                criteria: conversation.metadata.agentId==johndoe,
-              }
+              name: Calls made by John
+              description: >-
+                All the conversations made by the agent John Doe are captured in
+                this Group.
+              criteria: conversation.metadata.agentId==johndoe
           required: true
       responses:
         default:
@@ -1677,22 +2209,18 @@ paths:
       description: Read Conversation Groups
       operationId: ReadConversationGroups
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -1702,22 +2230,18 @@ paths:
       description: Delete Conversation Groups
       operationId: DeleteConversationGroups
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -1727,34 +2251,42 @@ paths:
       description: Update Conversation Groups
       operationId: UpdateConversationGroups
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
         - name: body
           in: body
           schema:
             type: object
             properties:
-              id: { type: string, description: id }
-              name: { type: string, description: name }
-              description: { type: string, description: description }
-              criteria: { type: string, description: criteria }
+              id:
+                type: string
+                description: id
+              name:
+                type: string
+                description: name
+              description:
+                type: string
+                description: description
+              criteria:
+                type: string
+                description: criteria
             default:
-              { id: "{groupId}", name: Calls made by John, description: All the
-                  conversations made by the agent John Doe are captured under this Group., criteria: conversation.metadata.agentId==johndoe }
+              id: "{groupId}"
+              name: Calls made by John
+              description: >-
+                All the conversations made by the agent John Doe are captured
+                under this Group.
+              criteria: conversation.metadata.agentId==johndoe
           required: true
       responses:
         default:
@@ -1766,22 +2298,18 @@ paths:
       description: Read Multiple Conversation Groups
       operationId: ReadMultipleConversationGroups
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
@@ -1792,22 +2320,18 @@ paths:
       description: Comprehensive Action Items
       operationId: ComprehensiveActionItems
       parameters:
-        - {
-            name: x-api-key,
-            in: header,
-            required: true,
-            type: string,
-            default: "{{api_token}}",
-            description: x-api-key,
-          }
-        - {
-            name: Content-Type,
-            in: header,
-            required: true,
-            type: string,
-            default: application/json,
-            description: Content-Type,
-          }
+        - name: x-api-key
+          in: header
+          required: true
+          type: string
+          default: "{{api_token}}"
+          description: x-api-key
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
       responses:
         default:
           description: default
