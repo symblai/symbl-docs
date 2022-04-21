@@ -54,7 +54,6 @@ var Symbl = require('@symblai/symbl-web-sdk');
 var symbl = Symbl({
   accesssToken: '<YOUR ACCESS TOKEN>'
 });
-});
 ```
 
  </TabItem>
@@ -66,7 +65,6 @@ import Symbl from '@symblai/symbl-web-sdk';
 var symbl = Symbl({
   accesssToken: '<YOUR ACCESS TOKEN>'
 });
-
 ```
 </TabItem>
 </Tabs>
@@ -86,6 +84,7 @@ const symbl = new Symbl(({
 The code below shows the configuration as well as the Streaming API functions that will enable you to start live connection and receive Conversation Intelligence: 
 
 ```js
+try {
    // Open a Symbl Streaming API WebSocket Connection.
     const connection = await symbl.createConnection();
     
