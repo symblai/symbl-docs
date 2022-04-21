@@ -23,20 +23,20 @@ Use Symbl's SDKs to directly add Symbl's capabilities onto your web conferencing
 
 <div class="sdk-card-container">
 <a class="sdk-card sdk-card3-bg" href="/docs/web-sdk/overview">
-    <img class="sdk-card-logo" src={WebSdkLogo}></img>
+    <img style={{height: 50}} class="sdk-card-logo" src={WebSdkLogo}></img>
     <h3 class="sdk-card-header">Web SDK</h3>
 </a>
 <a class="sdk-card sdk-card1-bg" href="/docs/javascript-sdk/introduction">
-    <img class="sdk-card-logo" src={JavaScriptLogo}></img>
+    <img style={{height: 50}} class="sdk-card-logo" src={JavaScriptLogo}></img>
     <h3 class="sdk-card-header">JavaScript</h3>
 </a>
 
 <a class="sdk-card sdk-card2-bg" href="/docs/python-sdk/overview">
-    <img class="sdk-card-logo" src={PythonLogo}></img>
+    <img style={{height: 50}} class="sdk-card-logo" src={PythonLogo}></img>
     <h3 class="sdk-card-header">Python</h3>
 </a>
 <a class="sdk-card sdk-card4-bg" href="https://github.com/ranjancse26/symbl-csharp-sdk">
-    <img class="sdk-card-logo" src={CsharpLogo}></img>
+    <img style={{height: 50}} class="sdk-card-logo" src={CsharpLogo}></img>
     <h3 class="sdk-card-header">C#</h3>
 </a>
 </div>

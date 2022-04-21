@@ -273,25 +273,25 @@ Header Name | Required | Description
 ```
 ### Request Body Parameters
 
-Field | Required | Type | Description
------ | -------  | -------- | ------- |
-```url``` | Mandatory  | String | A valid URL string. The URL must be a publicly accessible URL.
-```customVocabulary``` | Optional | String[] | Contains a list of words and phrases that provide hints to the speech recognition task.
-```confidenceThreshold``` | Optional | Double | Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range >=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`.
-```detectPhrases```| Optional | Boolean | It shows [Actionable Phrases](/docs/concepts/action-items) in each sentence of conversation. These sentences can be found using the [Conversation's Messages API](/docs/conversation-api/messages). Accepts `true` or `false`.
-```name``` | Optional | String | Your meeting name. Default name set to `conversationId`.
-```webhookUrl``` | Optional | String | Webhook URL on which job updates to be sent. This should be after the API call is made. For Webhook payload, refer to the [Using Webhook](#using-webhook) section below. 
-```entities``` | Optional | Object[] | Input custom entities which can be detected in your conversation using [Entities API](/docs/conversation-api/entities).
-```detectEntities``` | Optional | Boolean | Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation.
-```languageCode```| Optional | String | We accept different languages. Please [check language Code](/docs/async-api/overview/async-api-supported-languages) as per your requirement.
-``` mode``` | Optional  | String | Accepts `phone` or `default`. `phone` mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).<br />`default` mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).<br />When you don't pass this parameter `default` is selected automatically.
-```enableSeparateRecognitionPerChannel```| Optional | Boolean | Enables Speaker Separated Channel video processing. Accepts `true` or `false` values.
-```channelMetadata```| Optional | Object[] | This object parameter contains two variables `speaker` and `channel` to specify which speaker corresponds to which channel. This object only works when `enableSeparateRecognitionPerChannel` query param is set to `true`. Read more in the [Channel Metadata](#channel-metadata) section below. 
-```trackers```<font color="orange"> BETA</font>| Optional | List | A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. 
-```enableAllTrackers```<font color="orange"> BETA </font> | Optional | Boolean | Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API.This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
-```enableSummary```<font color="blue"> ALPHA </font> | Optional | Boolean | Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL.
-```enableSpeakerDiarization``` | Optional | Boolean | Whether the diarization should be enabled for this conversation. Pass this as `true` to enable Speaker Separation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
-```diarizationSpeakerCount``` | Optional | String | The number of unique speakers in this conversation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. 
+Parameter |  Description
+---------- | ------- | 
+```url``` | String, mandatory <br/><br/> A valid url string. The URL must be a publicly accessible url. <br/><br/> Exampple: `"url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav"`
+```customVocabulary``` | String, optional <br/><br/> Contains a list of words and phrases that provide hints to the speech recognition task. <br/><br/> Exampple: `"customVocabulary":  "Platform", "Discussion"`
+```confidenceThreshold``` | Double, optional <br/><br/> Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`. <br/><br/> Example: `"confidenceThreshold": 0.6`
+```detectPhrases```| Boolean, optional <br/><br/> It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`. <br/><br/> Example: `"detectPhrases": true`
+```name``` | String, optional <br/><br/> Your meeting name. Default name set to `conversationId`. <br/><br/> Example: `name: "Sales call"`, `name: "Customer call"`. 
+```webhookUrl``` | String, optional <br/><br/> Webhook URL on which job updates to be sent. This should be after making the API request. See the [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) for more. <br/><br/> Example: `"""jobId"": ""9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"", ""status"": ""in_progress"""`
+```entities``` | Object, optional  <br/><br/>  Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities). <br/><br/> Example: `"entities": "customType": "Company Executives", "value": "Marketing director", "text": "Marketing director"`
+```detectEntities``` | Boolean, optional  <br/><br/> Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation. <br/><br/> Example: `"detectEntities": true`
+ ```languageCode```| String, optional <br/><br/> We accept different languages. Please [check language Code](/docs/async-api/overview/async-api-supported-languages) as per your requirement. <br/><br/> Example: `"languageCode": "en-US"`
+  ``` mode``` | String, optional <br/><br/> Accepts `phone` or `default`. `phone` mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).<br />`default` mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).<br />When you don't pass this parameter `default` is selected automatically. <br/><br/> Example: `"mode": "phone"` 
+```enableSeparateRecognitionPerChannel``` | Boolean, optional  <br/><br/> Enables Speaker Separated Channel audio processing. Accepts `true` or `false`. <br/><br/> Example: `"enableSeparateRecognitionPerChannel": true`
+```channelMetadata``` | Object, optional  <br/><br/> This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` is set to `true`. Learn more in the [Channel Metadata](#channel-metadata) section below. <br/><br/> Example: `"channelMetadata": "channel": 1, "speaker": "name": "Robert Bartheon", "email": "robertbartheon@example.com"`
+```trackers```<font color="orange"> BETA </font> | List, optional  <br/><br/> A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. <br/><br/> Example: `"trackers": "name": "Promotion Mention", "vocabulary": "We have a special promotion going on if you book this before"`
+```enableAllTrackers```<font color="orange"> BETA </font> | Boolean, optional  <br/><br/> Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag).  <br/><br/> Example: `"enableAllTrackers": true`  
+```enableSummary```<font color="blue"> ALPHA </font> | Boolean, optional  <br/><br/> Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL. <br/><br/> Example: `"enableSummary": true`  
+```enableSpeakerDiarization``` | Boolean, optional  <br/><br/>  Whether the diarization should be enabled for this conversation. Pass this as `true` to enable Speaker Separation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. <br/><br/> Example: `  "enableSeparateRecognitionPerChannel": true`
+```diarizationSpeakerCount``` | Integer, optional <br/><br/> The number of unique speakers in this conversation. To learn more, refer to the [Speaker Separation](#speaker-separation) section below. <br/><br/> Example: `diarizationSpeakerCount=$NUMBER_OF_UNIQUE_SPEAKERS"`
 
 ### Response
 
@@ -303,8 +303,8 @@ Field | Required | Type | Description
 ```
 Field | Description
 ---------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
-`jobId` | ID to be used with Job API.
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). <br/><br/> Example: `"conversationId": "5815170693595136"`
+`jobId` | ID to be used with Job API. <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
 
 #### Channel Metadata
 
@@ -334,17 +334,17 @@ Given below is an example of a `channelMetadata` object:
 
 `channelMetadata` object has following members:
 
-Field | Required | Type | Description
-| ------- | ------- | ------- | --------
-```channel``` | Mandatory | Integer | This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data.
-```speaker``` | Mandatory | String | This is the wrapper object which defines the speaker for this channel.
+Field | Description
+| ------- | ------- 
+```channel``` | Integer, mandatory <br/><br/> This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data. <br/><br/> Example: `"channel": 1`
+```speaker``` | String, mandatory <br/><br/> This is the wrapper object which defines the speaker for this channel. <br/><br/> Example: `"speaker": "name": "Robert Bartheon",  "email": "robertbartheon@example.com"`
 
 `speaker`  has the following members:
 
-Field | Required | Type | Description
-| ------- | ------- | ------- | ------
-```name``` | Optional | String | Name of the speaker.
-```email``` | Optional | String | Email address of the speaker.
+Field | Description
+| ------- | ------- 
+```name``` | String, optional <br/><br/> Name of the speaker. <br/><br/> Example: `"name": "Robert Bartheon"`
+```email``` | String, optional <br/><br/> Email address of the speaker. <br/><br/> Example: `"email": "robertbartheon@example.com"`
 
 ### Speaker Separation
 ---
@@ -387,8 +387,8 @@ The `webhookUrl` will be used to send the status of job created for uploaded aud
 
 Field | Description
 | ------- | -------
-```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api).
-```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]).
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
+```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) <br/><br/> Example: `"status": "in_progress"`
 
 ### API Limit Error
 
