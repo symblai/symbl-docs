@@ -86,35 +86,44 @@ const symbl = new Symbl(({
 The code below shows the configuration as well as the Streaming API functions that will enable you to start live connection and receive Conversation Intelligence: 
 
 ```js
-const connectionConfig = {
-  disconnectOnStopRequest: false,
-  disconnectOnStopRequestTimeout: 1800,
-  noConnectionTimeout: 900,
-  insightTypes: ["follow_up", "action_item"],
-  config: {
-      meetingTitle: "Mic Test", // Name for meeting
-      confidenceThreshold: 0.7, //Minimum confidence score set for the API to consider an insight as valid.
-      timezoneOffset: 480, // Offset in minutes from UTC
-      languageCode: "en-US",
- 
-      encoding: "OPUS",// Also supports LINEAR16
-      sampleRateHertz: 48000 // Rate of the incoming audio stream. Make sure the correct sample rate is provided for best results
-  },
-  trackers: [{
-      name: "Promotion Mention", // Name of the Tracker
-      vocabulary: ["We have a special promotion going on", "We have a sale right now on", "offer"] // Words or phrases that should be tracked
-  }],
-  speaker: {
-      userId: "john@example.com", // Unique identifier of the speaker
-      name: "john"
-  }
+   // Open a Symbl Streaming API WebSocket Connection.
+    const connection = await symbl.createConnection();
+    
+    // Start processing audio from your default input device.
+    await connection.startProcessing({
+      config: {
+        encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+      }
+    });
+
+    // Retrieve real-time transcription from the conversation
+    connection.on("speech_recognition", (speechData) => {
+      const { punctuated } = speechData;
+      const name = speechData.user ? speechData.user.name : "User";
+      console.log(`${name}: `, punctuated.transcript);
+    });
+
+    // Retrieve the topics of the conversation in real-time.
+    connection.on("topic", (topicData) => {
+      topicData.forEach((topic) => {
+        console.log("Topic: " + topic.phrases);
+      });
+    });
+    
+    // This is just a helper method meant for testing purposes.
+    // Waits 60 seconds before continuing to the next API call.
+    await symbl.wait(60000);
+    
+    // Stops processing audio, but keeps the WebSocket connection open.
+    await connection.stopProcessing();
+    
+    // Closes the WebSocket connection.
+    connection.disconnect();
+} catch(e) {
+    // Handle errors here.
 }
- 
-const connection = await symbl.createConnection(id)  //this creates connection with streaming API
- 
-await connection.startProcessing(connectionConfig) //this starts processing
 ```
-#### Configuration Parameters 
+### Configuration Parameters 
 You can pass any of the following `config` parameters:
 
 Field | Required | Supported value | Default Value | Description
@@ -124,3 +133,18 @@ Field | Required | Supported value | Default Value | Description
 ```meetingTitle``` | Optional | | | The name of the meeting.
 
 For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 
+
+### Getting Conversation Intelligence
+You can get the following Conversation Intelligence in real-time with the Web SDK:
+
+**[Get Topics](/docs/conversation-api/get-topics)**<br />
+Topics provide a quick overview of the key things that were talked about in the conversation.
+
+**[Get Action Items](/docs/conversation-api/action-items)**<br />
+An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action, e.g. set up a meeting, share a file, complete a task, etc.
+
+**[Get Follow-ups](/docs/conversation-api/follow-ups)**<br />
+This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
+**[Get Trackers](/docs/conversation-api/follow-ups)**<br />
+Trackers allow you to identify messages that contain specific phrases or sentences. 
