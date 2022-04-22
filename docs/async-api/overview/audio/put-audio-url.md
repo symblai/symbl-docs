@@ -313,8 +313,8 @@ Parameter | Description
 
 Parameter |  Description
 ---------- | ------- | 
-```url``` | String, mandatory <br/><br/> A valid url string. The URL must be a publicly accessible url. <br/><br/> Exampple: `"url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav"`
-```customVocabulary``` | String, optional <br/><br/> Contains a list of words and phrases that provide hints to the speech recognition task. <br/><br/> Exampple: `"customVocabulary":  "Platform", "Discussion"`
+```url``` | String, mandatory <br/><br/> A valid url string. The URL must be a publicly accessible url. <br/><br/> Example: `"url": "https://symbltestdata.s3.us-east-2.amazonaws.com/sample_audio_file.wav"`
+```customVocabulary``` | String, optional <br/><br/> Contains a list of words and phrases that provide hints to the speech recognition task. <br/><br/> Example: `"customVocabulary":  "Platform", "Discussion"`
 ```confidenceThreshold``` | Double, optional <br/><br/> Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`. <br/><br/> Example: `"confidenceThreshold": 0.6`
 ```detectPhrases```| Boolean, optional <br/><br/> It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`. <br/><br/> Example: `"detectPhrases": true`
 ```name``` | String, optional <br/><br/> Your meeting name. Default name set to `conversationId`. <br/><br/> Example: `name: "Sales call"`, `name: "Customer call"`. 
