@@ -124,3 +124,4 @@ Field | Required | Supported value | Default Value | Description
 ```meetingTitle``` | Optional | | | The name of the meeting.
 
 For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 
+
