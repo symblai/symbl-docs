@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This API help you find explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question.
+This API helps you find explicit question or request for information that comes up during the conversation. Whether answered or not, all questions are recognized. 
 
 ### Authentication
 
