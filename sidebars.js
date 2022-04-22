@@ -553,7 +553,7 @@ module.exports = {
    type: "doc",
   },
   {
-   label: "Web SDK",
+   label: "Web SDK (Beta)",
    collapsed: false,
    type: "category",
    items: [

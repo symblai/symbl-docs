@@ -1,6 +1,6 @@
 ---
 id: web-sdk
-title: Symbl Web SDK 
+title: Symbl Web SDK (Beta)
 sidebar_label: Introduction
 slug: /web-sdk/overview/
 pagination_label: Web SDK
