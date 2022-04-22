@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This tutorial provides step-by-step instructions on how to receive live transcripts and Conversation Intelligence such as action items, topics, questions, trackers, and more using the Web SDK. 
+This tutorial provides step-by-step instructions on how to receive live transcripts and Conversation Intelligence such as Action Items, Topics, Follow Ups, Questions, and Trackers using the Web SDK. 
 
 ### Prerequisites 
 
@@ -21,7 +21,7 @@ Following are the prerequisites for using the Web SDK:
 
 See the list of web browsers supported in the [Browsers Supported](/docs/web-sdk/overview/#supported-browsers) section. 
 
-### Step 1: Install the Web SDK
+### Install the Web SDK
 #### Using npm 
 
 Install the Web SDK using npm with the following command:
@@ -36,7 +36,7 @@ npm install
 ```
 :::
 
-### Step 2: Import and Initialize 
+### Import and Initialize 
 You can import the Web SDK in ES5 and ES6 syntax using the following code:
 
 <Tabs
@@ -80,7 +80,7 @@ const symbl = new Symbl(({
     // logLevel: 'debug' // Sets which log level you want to view
 });
 ```
-### Step 3: Set Configuration and Start Connection
+### Set Configuration and Start Connection
 The code below shows the configuration as well as the Streaming API functions that will enable you to start live connection and receive Conversation Intelligence: 
 
 ```js
@@ -94,8 +94,36 @@ try {
         encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
       }
     });
+    
+    // This is just a helper method meant for testing purposes.
+    // Waits 60 seconds before continuing to the next API call.
+    await symbl.wait(60000);
+}
+```
+For more information on the configuration parameters, see [Configuration Reference](/docs/web-sdk/web-sdk-reference/configuration-reference/).
 
-    // Retrieve real-time transcription from the conversation
+### Create Connection and Start Processing
+The code below shows the `symbl.createConnection()` function that allows you to create a WebSocket Streaming API connection. The function `connection.startProcessing` processes your audio from your input device. 
+
+```js
+{
+   // Open a Symbl Streaming API WebSocket Connection.
+    const connection = await symbl.createConnection();
+    
+    // Start processing audio from your default input device.
+    await connection.startProcessing({
+      config: {
+        encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+      }
+    });
+```
+ 
+
+### Get Live Transcripts and Conversation Intelligence 
+The `connection.on` function retrieves live Transcripts and Conversation Intelligence like Topics, Action Items, Follow Ups, and Trackers. 
+
+```js
+ // Retrieve real-time transcription from the conversation
     connection.on("speech_recognition", (speechData) => {
       const { punctuated } = speechData;
       const name = speechData.user ? speechData.user.name : "User";
@@ -108,11 +136,37 @@ try {
         console.log("Topic: " + topic.phrases);
       });
     });
-    
-    // This is just a helper method meant for testing purposes.
-    // Waits 60 seconds before continuing to the next API call.
-    await symbl.wait(60000);
-    
+  ```
+
+You can get the following Conversation Intelligence in real-time with the Web SDK:
+
+- **[Get Transcripts](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#speech-recognition-object)**<br />
+You can get live transcripts of the audio using this callback. 
+
+- **[Get Finalized Transcripts](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#message-response-object)**<br />
+You can get the "finalized" transcription data.
+
+- **[Get Topics](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#topic-response-object)**<br />
+Topics provide a quick overview of the key things that were talked about in the conversation.
+
+- **[Get Action Items](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#action-item-response-object)**<br />
+An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action, e.g. set up a meeting, share a file, complete a task, etc.
+
+- **[Get Follow-ups](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#follow-up-response-object)**<br />
+This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
+- **[Get Questions](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#question-response-object)**<br />
+Any explicit question or request for information that comes up during the conversation. 
+
+- **[Get Trackers](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#tracker-response-object)**<br />
+Trackers allow you to identify messages that contain specific phrases or sentences. 
+
+To learn more about the insight callbacks, see [Events and Callbacks Reference](docs/web-sdk/web-sdk-reference/events-and-callbacks/). 
+
+### Stop Processing and Close Connection
+The code given below stops the audio processing from your device and allows you to close the WebSocket Streaming API connection:
+
+```js
     // Stops processing audio, but keeps the WebSocket connection open.
     await connection.stopProcessing();
     
@@ -120,30 +174,5 @@ try {
     connection.disconnect();
 } catch(e) {
     // Handle errors here.
-}
 ```
-### Configuration Parameters 
-You can pass any of the following `config` parameters:
 
-Field | Required | Supported value | Default Value | Description
----------- | ------- | ------- |  ------- |  ------- |
-```confidenceThreshold``` | Optional  | >=0.5 to <=1.0 | 0.5 | Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range >=0.5 to <=1 (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`.
-```speechRecognition``` | Optional | | | See Speech Recognition details on the [Speech Recognition](https://docs.symbl.ai/docs/streaming-api/api-reference/#speech-recognition) section.
-```meetingTitle``` | Optional | | | The name of the meeting.
-
-For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 
-
-### Getting Conversation Intelligence
-You can get the following Conversation Intelligence in real-time with the Web SDK:
-
-**[Get Topics](/docs/conversation-api/get-topics)**<br />
-Topics provide a quick overview of the key things that were talked about in the conversation.
-
-**[Get Action Items](/docs/conversation-api/action-items)**<br />
-An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action, e.g. set up a meeting, share a file, complete a task, etc.
-
-**[Get Follow-ups](/docs/conversation-api/follow-ups)**<br />
-This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
-
-**[Get Trackers](/docs/conversation-api/follow-ups)**<br />
-Trackers allow you to identify messages that contain specific phrases or sentences. 

@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-The Web SDK is a Typescript application that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
+The Web SDK is a TypeScript application that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
 
 :::info
 The Web SDK is currently available with Symbl’s [Streaming API](/docs/streamingapi/introduction/) and [Subscribe APIs](/docs/subscribe-api/). 
@@ -24,7 +24,7 @@ The Web SDK is currently available with Symbl’s [Streaming API](/docs/streamin
 Find the source code here: https://github.com/symblai/symbl-web-sdk 
 
 ## Supported Browsers
-The following web browser supported with the Web SDK are given below: 
+The following web browsers are supported with the Web SDK: 
 
 Operating System | Chrome | Edge | Firefox | Safari |
 ---------- | ------- | ------- | ------ | ------ |
@@ -39,7 +39,7 @@ Currently, the OPUS encoder support in Safari browser is not available.
 
 ## Prerequisites
 
-Before using the Web SDK you must [Sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values, which is used for authentication.
+Before using the Web SDK you must [sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values, which is used for authentication.
 
 ## Installation
 
@@ -77,12 +77,13 @@ const symbl = new Symbl({
 ```
 
 :::note
-For production environemtns we recommend using the Versioned CDN.
+For production environments, we recommend using the Versioned CDN.
 :::
 
 ## Authentication
 
-To initialize the Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/). Alternatively, you can use the App ID and App Secret from the [Symbl Platform](https://platform.symbl.ai). **Using the App ID and App Secret is not meant for production usage, as those are meant be secret.**
+To initialize the Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/). Alternatively, you can use the App ID and App Secret from the [Symbl Platform](https://platform.symbl.ai). 
+**Using the App ID and App Secret is not meant for production usage, as those are meant be secret.**
 
 
 The code given below initializes the Web SDK:
@@ -187,15 +188,45 @@ try {
 }
 ```
 
-## Known Issues
+:::info Known Issues
 
 In this version of the Web SDK, a few Known Issues have been observed. You can see the complete list of Known Issues [here](/docs/changelog/#known-issues).
-
+:::
 
 ## Read more
 
-- [Getting Live Transcripts and Conversation Intelligence](/docs/web-sdk/web-sdk-getting-live-transcripts/)
-- [Sending external Audio Streams](/docs/web-sdk/web-sdk-sending-external-audio-streams/)
-- [Updating Audio Source Mid-Stream](/docs/web-sdk/web-sdk-updating-audio-streams/)
+### Tutorials
+
+We have prepared a list of tutorials to help you understand how to use Symbl's Web SDK.
+
+#### Streaming API Tutorials
+
+* [Getting Live Transcripts and Conversation Intelligence](/docs/web-sdk/web-sdk-getting-live-transcripts/)
 
 
+### Code Snippets
+
+#### Streaming API Code Snippets
+
+* [Subscribing to an Existing Connection](/docs/web-sdk/code-snippets/subscribing-to-existing-connection)
+* [Sending external Audio Streams](/docs/web-sdk/web-sdk-sending-external-audio-streams)
+* [Handing Device Change](/docs/web-sdk/code-snippets/handling-device-change)
+* [Processing Data from Audio File](/docs/web-sdk/code-snippets/processing-data-from-audio-file/)
+
+### SDK Reference
+
+Supported methods and events for the Symbl Web SDK are listed below:
+
+* [Web SDK Reference](/docs/web-sdk/web-sdk-reference/web-sdk-reference/)
+* [Events and Callbacks](/docs/web-sdk/web-sdk-reference/events-and-callbacks/)
+    * [Connection Events](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#connection-events)
+    * [Audio Stream Events](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#audiostream-events)
+    * [Global Events](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#global-events)
+    * [Speech Recognition Object](/docs/javascript-sdk/reference#ontopicresponse)
+    * [Message Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#message-response-object)
+    * [Topics Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#topic-response-object)
+    * [Action Items Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#action-item-response-object)
+    * [Follow-ups Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#follow-up-response-object)
+    * [Questions Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#question-response-object)
+    * [Trackers Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#tracker-response-object)
+* [Configuration Reference](/docs/web-sdk/web-sdk-reference/configuration-reference)

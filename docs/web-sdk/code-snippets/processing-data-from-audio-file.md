@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-You can process audio from an audio file using the [`attachAudioSourceElement`](#attachaudiosourceelementaudiosourcedomelement) method on the [AudioStream](#audiostream-class)
+You can process audio from an audio file using the [`attachAudioSourceElement`](/docs/web-sdk/web-sdk-reference/web-sdk-reference/#attachaudiosourceelementaudiosourcedomelement) method on the [AudioStream](/docs/web-sdk/web-sdk-reference/web-sdk-reference/#audiostream-class).
 
 :::caution note 
 Currently, only LINEAR16 encoding is supported for audio elements. Opus support will be addressed in a later update.
