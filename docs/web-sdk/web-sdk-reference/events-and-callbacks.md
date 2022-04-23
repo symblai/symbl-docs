@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Both the connection and audio stream objects have an [`on`](#startprocessingoptions-streamingapiconnectionconfig) method which can be used to subscribe to events and perform callbacks.
+Both the connection and audio stream objects have an [`on`](/web-sdk/web-sdk-reference/web-sdk-reference/#oneventname-eventtypes-callback-function) method which can be used to subscribe to events and perform callbacks.
 
 ### Connection Events
 

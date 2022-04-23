@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Symbl Class
 
-The Symbl class takes in an optional [SymblConfig](#symbl-config). **If no config is passed, you must authenticate later using the `init` method.**
+The Symbl class takes in an optional [SymblConfig](/web-sdk/web-sdk-reference/configuration-reference/#symbl-configuration). **If no config is passed, you must authenticate later using the `init` method.**
 
 ### `init(symblConfig: SymblConfig)`
 
@@ -48,7 +48,7 @@ const connection = symbl.createConnection("abc123");
 
 ### `createAndStartNewConnection(options: StreamingAPIConnectionConfig, audioStream?: AudioStream)`
 
-Accepts a required [Connection Config](#connection-configuration) object and an optional instance of [AudioStream](#audiostream-class).
+Accepts a required [Connection Config](/web-sdk/web-sdk-reference/configuration-reference/#connection-configuration) object and an optional instance of [AudioStream](#audiostream-class).
 
 Opens a new connection and starts processing audio.
 
@@ -126,7 +126,7 @@ connection.disconnect();
 
 ### `startProcessing(options: StreamingAPIConnectionConfig)`
 
-Accepts a required [Connection Config](#connection-configuration)
+Accepts a required [Connection Config](/web-sdk/web-sdk-reference/configuration-reference/#connection-configuration)
 
 Triggers the streaming connection to begin processing audio through Symbl websocket
 
@@ -161,6 +161,8 @@ connection.startProcessing({
 ### `on(eventName: EventTypes, callback: Function)`
 
 Subscribe to an event and perform a callback when it's fired.
+
+Checkout out our [Events / Callbacks Reference](/web-sdk/web-sdk-reference/events-and-callbacks/) for more information.
 
 #### Example
 

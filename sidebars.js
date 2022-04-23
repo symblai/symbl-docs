@@ -572,10 +572,21 @@ module.exports = {
            type: 'category',
            label: 'Code Snippets',
            items: [
-             'web-sdk/code-snippets/subscribing-to-existing-connection',
              'web-sdk/web-sdk-sending-external-audio-streams',
              'web-sdk/code-snippets/handling-device-change',
              'web-sdk/code-snippets/processing-data-from-audio-file',
+           ],
+         },
+       ],
+     },
+     {
+       type: 'category',
+       label: 'Subscribe API',
+       items: [{
+           type: 'category',
+           label: 'Code Snippets',
+           items: [
+             'web-sdk/code-snippets/subscribing-to-existing-connection',
            ],
          },
        ],

@@ -12,7 +12,7 @@ This page contains the details of the **Connection Configuration** and the **Sym
 
 ### Connection Configuration
 
-The following code shows an example connection configuration for Web SDK. The connection configuration is passed into the Streaming API connection during the [`startProcessing`](#startprocessingoptions-streamingapiconnectionconfig) method. 
+The following code shows an example connection configuration for Web SDK. The connection configuration is passed into the Streaming API connection during the [`startProcessing`](/web-sdk/web-sdk-reference/web-sdk-reference/#startprocessingoptions-streamingapiconnectionconfig) method. 
 
 ```js
 const connectionConfig = {
@@ -177,10 +177,21 @@ const connectionConfig = {
 
 ### Symbl Configuration
 
-Field  | Required | Supported Value
+Field  | Required | Description
 ---------- | ------- |  -------
 ```accessToken``` | Optional | The access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/). Recommended method for production environments. *Cannot be paired with `appId` or `appSecret`.
 ```appId``` | Optional | The App ID from the [Symbl Platform](https://platform.symbl.ai). We only recommend using this on non-production environments. *Must be paired with `appSecret`.
 ```appSecret``` | Optional | The App Secret from the [Symbl Platform](https://platform.symbl.ai). We only recommend using this on non-production environments. *Must be paired with `appId`.
+```reconnectOnError``` | Optional | `false` by default. If true, will attempt to reconnect to the WebSocket if disconnected by error. 
 ```basePath``` | Optional | The base path of the Symbl API. By default it is `https://api.symbl.ai`.
 ```logLevel``` | Optional | The log level you wish to view in the console. Supported values are `error`,`warn`,`debug`,`info`,`log`,`trace`.
+
+#### Code Example
+
+```js
+const symbl = new Symbl({
+  accessToken: " < YOUR ACCESS TOKEN >",
+  reconnectOnError: true,
+  logLevel: "debug"
+});
+```

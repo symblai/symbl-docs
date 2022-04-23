@@ -27,7 +27,7 @@ See the list of web browsers supported in the [Browsers Supported](/docs/web-sdk
 Install the Web SDK using npm with the following command:
 
 ```shell 
-npm i  @symblai/symbl-web-sdk@1.0.0
+npm i  @symblai/symbl-web-sdk
 ```
 :::note
 You must have the latest version of npm package installed. If you don’t have it, run the following commands to get the latest: 
@@ -40,7 +40,7 @@ npm install
 You can import the Web SDK in ES5 and ES6 syntax using the following code:
 
 <Tabs
-  defaultValue="es5"
+  defaultValue="es6"
   values={[
     { label: 'ES5', value: 'es5', },
     { label: 'ES6', value: 'es6', },
@@ -50,10 +50,7 @@ You can import the Web SDK in ES5 and ES6 syntax using the following code:
 <TabItem value="es5">
 
 ```js
-var Symbl = require('@symblai/symbl-web-sdk');
-var symbl = Symbl({
-  accesssToken: '<YOUR ACCESS TOKEN>'
-});
+var Symbl = require('@symblai/symbl-web-sdk').Symbl;
 ```
 
  </TabItem>
@@ -61,10 +58,7 @@ var symbl = Symbl({
 <TabItem value="es6">
 
 ```js
-import Symbl from '@symblai/symbl-web-sdk';
-var symbl = Symbl({
-  accesssToken: '<YOUR ACCESS TOKEN>'
-});
+import {Symbl} from '@symblai/symbl-web-sdk';
 ```
 </TabItem>
 </Tabs>
@@ -78,65 +72,47 @@ const symbl = new Symbl(({
     // accessToken: '<your Access Token>', // Can be used instead of appId and appSecret
     // basePath: '<your custom base path>',// optional
     // logLevel: 'debug' // Sets which log level you want to view
+    // reconnectOnError: false // If true, will attempt to reconnect if disconnected via error.
 });
 ```
-### Set Configuration and Start Connection
+### Create Connection and Start Processing Audio
+
 The code below shows the configuration as well as the Streaming API functions that will enable you to start live connection and receive Conversation Intelligence: 
 
 ```js
-try {
-   // Open a Symbl Streaming API WebSocket Connection.
-    const connection = await symbl.createConnection();
-    
-    // Start processing audio from your default input device.
-    await connection.startProcessing({
-      config: {
-        encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
-      }
-    });
-    
-    // This is just a helper method meant for testing purposes.
-    // Waits 60 seconds before continuing to the next API call.
-    await symbl.wait(60000);
-}
+// Open a Symbl Streaming API WebSocket Connection.
+const connection = await symbl.createConnection();
+
+// Start processing audio from your default input device.
+await connection.startProcessing({
+  config: {
+    encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+  }
+});
 ```
+
 For more information on the configuration parameters, see [Configuration Reference](/docs/web-sdk/web-sdk-reference/configuration-reference/).
-
-### Create Connection and Start Processing
-The code below shows the `symbl.createConnection()` function that allows you to create a WebSocket Streaming API connection. The function `connection.startProcessing` processes your audio from your input device. 
-
-```js
-{
-   // Open a Symbl Streaming API WebSocket Connection.
-    const connection = await symbl.createConnection();
-    
-    // Start processing audio from your default input device.
-    await connection.startProcessing({
-      config: {
-        encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
-      }
-    });
-```
  
 
-### Get Live Transcripts and Conversation Intelligence 
-The `connection.on` function retrieves live Transcripts and Conversation Intelligence like Topics, Action Items, Follow Ups, and Trackers. 
+### Get Live Transcripts and Conversation Intelligence
+
+The [`connection.on`](/web-sdk/web-sdk-reference/web-sdk-reference/#oneventname-eventtypes-callback-function) function retrieves live Transcripts and Conversation Intelligence like Topics, Action Items, Follow Ups, and Trackers. 
 
 ```js
- // Retrieve real-time transcription from the conversation
-    connection.on("speech_recognition", (speechData) => {
-      const { punctuated } = speechData;
-      const name = speechData.user ? speechData.user.name : "User";
-      console.log(`${name}: `, punctuated.transcript);
-    });
+// Retrieve real-time transcription from the conversation
+connection.on("speech_recognition", (speechData) => {
+  const { punctuated } = speechData;
+  const name = speechData.user ? speechData.user.name : "User";
+  console.log(`${name}: `, punctuated.transcript);
+});
 
-    // Retrieve the topics of the conversation in real-time.
-    connection.on("topic", (topicData) => {
-      topicData.forEach((topic) => {
-        console.log("Topic: " + topic.phrases);
-      });
-    });
-  ```
+// Retrieve the topics of the conversation in real-time.
+connection.on("topic", (topicData) => {
+  topicData.forEach((topic) => {
+    console.log("Topic: " + topic.phrases);
+  });
+});
+```
 
 You can get the following Conversation Intelligence in real-time with the Web SDK:
 
@@ -163,10 +139,76 @@ Trackers allow you to identify messages that contain specific phrases or sentenc
 
 To learn more about the insight callbacks, see [Events and Callbacks Reference](docs/web-sdk/web-sdk-reference/events-and-callbacks/). 
 
-### Stop Processing and Close Connection
-The code given below stops the audio processing from your device and allows you to close the WebSocket Streaming API connection:
+
+### Waiting 60 seconds before disconnecitng
+
+The `symbl.wait` method is a helper method that will wait for the milliseconds you provide before moving on to the next line.
+
+`symbl.wait` is only meant for testing and should not be used in a production environment.
 
 ```js
+// This is just a helper method meant for testing purposes.
+// Waits 60 seconds before continuing to the next API call.
+await symbl.wait(60000);
+```
+
+
+### Stop Processing and Close Connection
+
+The code given below stops the audio processing from your device and allows you to close the Streaming API WebSocket connection:
+
+
+```js
+// Stops processing audio, but keeps the WebSocket connection open.
+await connection.stopProcessing();
+
+// Closes the WebSocket connection.
+connection.disconnect();
+```
+
+## Full Code Sample
+
+```js
+import { Symbl } from "@symblai/symbl-web-sdk";
+
+try {
+
+    // We recommend to remove appId and appSecret authentication for production applications.
+    // See authentication section for more details
+    const symbl = new Symbl({
+        appId: '<your App ID>',
+        appSecret: '<your App Secret>',
+        // accessToken: '<your Access Toknen>'
+    });
+    
+    // Open a Symbl Streaming API WebSocket Connection.
+    const connection = await symbl.createConnection();
+    
+    // Start processing audio from your default input device.
+    await connection.startProcessing({
+      config: {
+        encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+      }
+    });
+
+    // Retrieve real-time transcription from the conversation
+    connection.on("speech_recognition", (speechData) => {
+      const { punctuated } = speechData;
+      const name = speechData.user ? speechData.user.name : "User";
+      console.log(`${name}: `, punctuated.transcript);
+    });
+
+    // Retrieve the topics of the conversation in real-time.
+    connection.on("topic", (topicData) => {
+      topicData.forEach((topic) => {
+        console.log("Topic: " + topic.phrases);
+      });
+    });
+    
+    // This is just a helper method meant for testing purposes.
+    // Waits 60 seconds before continuing to the next API call.
+    await symbl.wait(60000);
+    
     // Stops processing audio, but keeps the WebSocket connection open.
     await connection.stopProcessing();
     
@@ -174,5 +216,6 @@ The code given below stops the audio processing from your device and allows you 
     connection.disconnect();
 } catch(e) {
     // Handle errors here.
+}
 ```
 

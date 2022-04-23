@@ -208,10 +208,13 @@ We have prepared a list of tutorials to help you understand how to use Symbl's W
 
 #### Streaming API Code Snippets
 
-* [Subscribing to an Existing Connection](/docs/web-sdk/code-snippets/subscribing-to-existing-connection)
 * [Sending external Audio Streams](/docs/web-sdk/web-sdk-sending-external-audio-streams)
 * [Handing Device Change](/docs/web-sdk/code-snippets/handling-device-change)
 * [Processing Data from Audio File](/docs/web-sdk/code-snippets/processing-data-from-audio-file/)
+
+#### Subscribe API Code Snippets
+
+* [Subscribing to an Existing Connection](/docs/web-sdk/code-snippets/subscribing-to-existing-connection)
 
 ### SDK Reference
 

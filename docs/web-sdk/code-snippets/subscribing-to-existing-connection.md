@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-To subscribe to an existing connection, you can use the [`subscribeToConnection`](#subscribetoconnectionsessionid-string) method with the Subscribe API. 
+To subscribe to an existing connection, you can use the [`subscribeToConnection`](/web-sdk/web-sdk-reference/web-sdk-reference/#subscribetoconnectionsessionid-string) method with the Subscribe API. 
 
 The Subscribe API allows you to connect to a conversation or a meeting in listen-only mode. Read more about Subscribe API [here](/docs/subscribe-api/). 
 
