@@ -1,4 +1,4 @@
-organization: @symblai
+organization: symblai
 apis:
   openapi:
     root: symblSwagger.yml

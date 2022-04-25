@@ -16,6 +16,9 @@ export default function ApiPlayground() {
                             "medium": "40rem",
                             "large": "85rem"
                           },
+                          "panels": {
+                            "backgroundColor": "#000",
+                          },
                           "colors": {
                             "primary": {
                               "main": "rgba(246, 20, 63, 1)",
@@ -49,7 +52,8 @@ export default function ApiPlayground() {
                             },
                             "code": {
                               "fontWeight": "600",
-                              "color": "rgba(92, 62, 189, 1)",
+                              // "color": "rgba(92, 62, 189, 1)",
+                              "color": "#000",
                               "wrap": true
                             },
                             "links": {
@@ -63,6 +67,7 @@ export default function ApiPlayground() {
                             "textColor": "#000000",
                           },
                           "rightPanel": {
+                            
                             "backgroundColor": "rgba(55, 53, 71, 1)",
                             "textColor": "#ffffff"
                           }
