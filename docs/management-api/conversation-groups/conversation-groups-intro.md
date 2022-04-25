@@ -1,8 +1,9 @@
 ---
 id: conversation-groups-intro
 title: Conversation Groups (Beta)
-sidebar_label: Overview 
+sidebar_label: Introduction 
 slug: /management-api/conversation-groups/conversation-groups-intro/
+pagination_label: Conversation Groups
 ---
 
 import Tabs from '@theme/Tabs';

@@ -61,7 +61,7 @@ Field  | Required | Supported Value | Description
 
 Field | Required | Supported value | Default Value | Description
 ---------- | ------- | ------- |  ------- |  ------- |
-```confidenceThreshold``` | false  | <=0.5 to <=1.0 | 0.5 | Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range <=0.5 to <=1.0 (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`.
+```confidenceThreshold``` | false  | <=0.5 to <=1.0 | 0.5 | Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range >=0.5 to <=1 (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`.
 ```speechRecognition``` | false | | | See Speech Recognition section [below](#speech-recognition).
 ```meetingTitle``` | false | | | The name of the meeting.
 

@@ -420,6 +420,7 @@ id: 'developer-tools/postman',
     'async-api/tutorials/generate-pre-built-ui-from-video-recordings',
     'async-api/code-snippets/receive-conversation-analytics',
     'async-api/tutorials/get-speaker-separation-audio-video',
+    'async-api/tutorials/append-to-existing-conversation',
     'async-api/code-snippets/receive-entities',
     'async-api/code-snippets/receive-speech-to-text-and-ai-insights',
     'async-api/code-snippets/sentiment-analysis-on-topics',
@@ -551,6 +552,23 @@ SDKsidebar: [{
   id: "sdk-intro",
   type: "doc",
  },
+ {
+  label: "Web SDK",
+  type: "category",
+  collapsed: false,
+  items: [
+    'web-sdk/web-sdk',
+    {
+      type: 'category',
+      label: 'Streaming API',
+      items: [
+        'web-sdk/web-sdk-getting-live-transcripts',
+        'web-sdk/web-sdk-sending-external-audio-streams',
+        'web-sdk/web-sdk-updating-audio-streams',
+      ],
+    },
+  ]
+},
  {
   label: "Javascript SDK",
   collapsed: false,
@@ -724,6 +742,14 @@ Communitysidebar: [{
 ChangelogSidebar: [{
   id: "changelog",
   type: "doc",
+},
+{
+  type: 'doc',
+  id: 'changelog',
+  customProps: {
+    hash: '#12-april-2022',
+    label: '12 April 2022',
+  }
 },
 {
   type: 'doc',
@@ -921,4 +947,3 @@ ChangelogSidebar: [{
 },
 ],
  };
-

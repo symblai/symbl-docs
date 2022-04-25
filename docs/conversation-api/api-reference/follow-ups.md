@@ -108,7 +108,7 @@ exit()
     "followUps": [
         {
             "id": "4526427164639111",
-            "text": "We need to have the meeting today, and we're going to talk about how to run a product strategy Workshop is by Richard Holmes.",
+            "text": "We need to have the meeting today, and we're going to talk about the how to run a product strategy workshop conducted by Richard Holmes yesterday evening. There is a meeting with the customer in the afternoon as well.",
             "type": "follow_up",
             "score": 0.8660254037851491,
             "messageIds": [
@@ -120,6 +120,20 @@ exit()
                     "text": "today",
                     "offset": 28,
                     "value": "2020-06-22"
+                },
+                {
+                    "type": "datetimerange",
+                    "text": "yesterday evening",
+                    "offset": 67,
+                    "start": "2020-06-21 16:00:00",
+                    "end": "2020-06-21 20:00:00" 
+                },
+                {
+                    "type": "timerange",
+                    "text": "afternoon",
+                    "offset": 34,
+                    "start": "12:00:00",
+                    "end": "15:00:00" 
                 },
                 {
                     "type": "person",

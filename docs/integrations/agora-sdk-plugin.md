@@ -191,7 +191,7 @@ The following table lists the parameters and their descriptions used in the samp
 | `symbl_token_api` | The URL for secure token generation.
 | `symbl_meeting_encoding` | The audio encoding in which the audio will be sent over the WebSocket connection.
 | `symbl_meeting_sampleRateHertz` | The rate of the incoming audio stream.
-| `symbl_confidence_threshold` | The minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range <=0.5 to <=1.0 (greater than or equal to 0.5 and less than or equal to 1.0.). Default value is 0.5.
+| `symbl_confidence_threshold` | The minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range >=0.5 to <=1 (greater than or equal to 0.5 and less than or equal to 1.0.). Default value is 0.5.
 
 You would have to call the method above during the initialization of the Agora Engine in your application.
  

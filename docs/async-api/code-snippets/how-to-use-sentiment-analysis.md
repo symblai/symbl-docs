@@ -26,6 +26,8 @@ While we provide you with a default video URL for the API to process, which can 
 ### Authentication
 Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
+For Node.js sample you need to install the node package `request`. You can do that via with `npm install request`.
+
 ### Request Example
 
 <Tabs
@@ -153,7 +155,7 @@ const responses = {
 
 request.post(videoOption, (err, response, body) => {
   const statusCode = response.statusCode;
-  if (error || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
+  if (err || Object.keys(responses).indexOf(statusCode.toString()) !== -1) {
     throw new Error(responses[statusCode]);
   }
   console.log('Status code: ', statusCode);
