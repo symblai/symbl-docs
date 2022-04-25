@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This tutorial provides step-by-step instructions on how to receive live transcripts and Conversation Intelligence such as action items, topics, questions, trackers, and more using the Web SDK. 
+This tutorial provides step-by-step instructions on how to receive live transcripts and Conversation Intelligence such as Action Items, Topics, Follow Ups, Questions, and Trackers using the Web SDK. 
 
 ### Prerequisites 
 
@@ -21,13 +21,13 @@ Following are the prerequisites for using the Web SDK:
 
 See the list of web browsers supported in the [Browsers Supported](/docs/web-sdk/overview/#supported-browsers) section. 
 
-### Step 1: Install the Web SDK
+### Install the Web SDK
 #### Using npm 
 
 Install the Web SDK using npm with the following command:
 
 ```shell 
-npm i  @symblai/symbl-web-sdk@1.0.0
+npm i  @symblai/symbl-web-sdk
 ```
 :::note
 You must have the latest version of npm package installed. If you don’t have it, run the following commands to get the latest: 
@@ -36,11 +36,11 @@ npm install
 ```
 :::
 
-### Step 2: Import and Initialize 
+### Import and Initialize 
 You can import the Web SDK in ES5 and ES6 syntax using the following code:
 
 <Tabs
-  defaultValue="es5"
+  defaultValue="es6"
   values={[
     { label: 'ES5', value: 'es5', },
     { label: 'ES6', value: 'es6', },
@@ -50,11 +50,7 @@ You can import the Web SDK in ES5 and ES6 syntax using the following code:
 <TabItem value="es5">
 
 ```js
-var Symbl = require('@symblai/symbl-web-sdk');
-var symbl = Symbl({
-  accesssToken: '<YOUR ACCESS TOKEN>'
-});
-});
+var Symbl = require('@symblai/symbl-web-sdk').Symbl;
 ```
 
  </TabItem>
@@ -62,11 +58,7 @@ var symbl = Symbl({
 <TabItem value="es6">
 
 ```js
-import Symbl from '@symblai/symbl-web-sdk';
-var symbl = Symbl({
-  accesssToken: '<YOUR ACCESS TOKEN>'
-});
-
+import {Symbl} from '@symblai/symbl-web-sdk';
 ```
 </TabItem>
 </Tabs>
@@ -80,47 +72,150 @@ const symbl = new Symbl(({
     // accessToken: '<your Access Token>', // Can be used instead of appId and appSecret
     // basePath: '<your custom base path>',// optional
     // logLevel: 'debug' // Sets which log level you want to view
+    // reconnectOnError: false // If true, will attempt to reconnect if disconnected via error.
 });
 ```
-### Step 3: Set Configuration and Start Connection
+### Create Connection and Start Processing Audio
+
 The code below shows the configuration as well as the Streaming API functions that will enable you to start live connection and receive Conversation Intelligence: 
 
 ```js
-const connectionConfig = {
-  disconnectOnStopRequest: false,
-  disconnectOnStopRequestTimeout: 1800,
-  noConnectionTimeout: 900,
-  insightTypes: ["follow_up", "action_item"],
+// Open a Symbl Streaming API WebSocket Connection.
+const connection = await symbl.createConnection();
+
+// Start processing audio from your default input device.
+await connection.startProcessing({
   config: {
-      meetingTitle: "Mic Test", // Name for meeting
-      confidenceThreshold: 0.7, //Minimum confidence score set for the API to consider an insight as valid.
-      timezoneOffset: 480, // Offset in minutes from UTC
-      languageCode: "en-US",
- 
-      encoding: "OPUS",// Also supports LINEAR16
-      sampleRateHertz: 48000 // Rate of the incoming audio stream. Make sure the correct sample rate is provided for best results
-  },
-  trackers: [{
-      name: "Promotion Mention", // Name of the Tracker
-      vocabulary: ["We have a special promotion going on", "We have a sale right now on", "offer"] // Words or phrases that should be tracked
-  }],
-  speaker: {
-      userId: "john@example.com", // Unique identifier of the speaker
-      name: "john"
+    encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
   }
-}
- 
-const connection = await symbl.createConnection(id)  //this creates connection with streaming API
- 
-await connection.startProcessing(connectionConfig) //this starts processing
+});
 ```
-#### Configuration Parameters 
-You can pass any of the following `config` parameters:
 
-Field | Required | Supported value | Default Value | Description
----------- | ------- | ------- |  ------- |  ------- |
-```confidenceThreshold``` | Optional  | >=0.5 to <=1.0 | 0.5 | Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range >=0.5 to <=1 (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`.
-```speechRecognition``` | Optional | | | See Speech Recognition details on the [Speech Recognition](https://docs.symbl.ai/docs/streaming-api/api-reference/#speech-recognition) section.
-```meetingTitle``` | Optional | | | The name of the meeting.
+For more information on the configuration parameters, see [Configuration Reference](/docs/web-sdk/web-sdk-reference/configuration-reference/).
+ 
 
-For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 
+### Get Live Transcripts and Conversation Intelligence
+
+The [`connection.on`](/web-sdk/web-sdk-reference/web-sdk-reference/#oneventname-eventtypes-callback-function) function retrieves live Transcripts and Conversation Intelligence like Topics, Action Items, Follow Ups, and Trackers. 
+
+```js
+// Retrieve real-time transcription from the conversation
+connection.on("speech_recognition", (speechData) => {
+  const { punctuated } = speechData;
+  const name = speechData.user ? speechData.user.name : "User";
+  console.log(`${name}: `, punctuated.transcript);
+});
+
+// Retrieve the topics of the conversation in real-time.
+connection.on("topic", (topicData) => {
+  topicData.forEach((topic) => {
+    console.log("Topic: " + topic.phrases);
+  });
+});
+```
+
+You can get the following Conversation Intelligence in real-time with the Web SDK:
+
+- **[Get Transcripts](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#speech-recognition-object)**<br />
+You can get live transcripts of the audio using this callback. 
+
+- **[Get Finalized Transcripts](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#message-response-object)**<br />
+You can get the "finalized" transcription data.
+
+- **[Get Topics](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#topic-response-object)**<br />
+Topics provide a quick overview of the key things that were talked about in the conversation.
+
+- **[Get Action Items](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#action-item-response-object)**<br />
+An action item is a specific outcome recognized in the conversation that requires one or more people in the conversation to take a specific action, e.g. set up a meeting, share a file, complete a task, etc.
+
+- **[Get Follow-ups](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#follow-up-response-object)**<br />
+This is a category of action items with a connotation to follow-up a request or a task like sending an email or making a phone call or booking an appointment or setting up a meeting.
+
+- **[Get Questions](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#question-response-object)**<br />
+Any explicit question or request for information that comes up during the conversation. 
+
+- **[Get Trackers](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#tracker-response-object)**<br />
+Trackers allow you to identify messages that contain specific phrases or sentences. 
+
+To learn more about the insight callbacks, see [Events and Callbacks Reference](docs/web-sdk/web-sdk-reference/events-and-callbacks/). 
+
+
+### Waiting 60 seconds before disconnecitng
+
+The `symbl.wait` method is a helper method that will wait for the milliseconds you provide before moving on to the next line.
+
+`symbl.wait` is only meant for testing and should not be used in a production environment.
+
+```js
+// This is just a helper method meant for testing purposes.
+// Waits 60 seconds before continuing to the next API call.
+await symbl.wait(60000);
+```
+
+
+### Stop Processing and Close Connection
+
+The code given below stops the audio processing from your device and allows you to close the Streaming API WebSocket connection:
+
+
+```js
+// Stops processing audio, but keeps the WebSocket connection open.
+await connection.stopProcessing();
+
+// Closes the WebSocket connection.
+connection.disconnect();
+```
+
+## Full Code Sample
+
+```js
+import { Symbl } from "@symblai/symbl-web-sdk";
+
+try {
+
+    // We recommend to remove appId and appSecret authentication for production applications.
+    // See authentication section for more details
+    const symbl = new Symbl({
+        appId: '<your App ID>',
+        appSecret: '<your App Secret>',
+        // accessToken: '<your Access Toknen>'
+    });
+    
+    // Open a Symbl Streaming API WebSocket Connection.
+    const connection = await symbl.createConnection();
+    
+    // Start processing audio from your default input device.
+    await connection.startProcessing({
+      config: {
+        encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+      }
+    });
+
+    // Retrieve real-time transcription from the conversation
+    connection.on("speech_recognition", (speechData) => {
+      const { punctuated } = speechData;
+      const name = speechData.user ? speechData.user.name : "User";
+      console.log(`${name}: `, punctuated.transcript);
+    });
+
+    // Retrieve the topics of the conversation in real-time.
+    connection.on("topic", (topicData) => {
+      topicData.forEach((topic) => {
+        console.log("Topic: " + topic.phrases);
+      });
+    });
+    
+    // This is just a helper method meant for testing purposes.
+    // Waits 60 seconds before continuing to the next API call.
+    await symbl.wait(60000);
+    
+    // Stops processing audio, but keeps the WebSocket connection open.
+    await connection.stopProcessing();
+    
+    // Closes the WebSocket connection.
+    connection.disconnect();
+} catch(e) {
+    // Handle errors here.
+}
+```
+
