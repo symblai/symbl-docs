@@ -91,7 +91,7 @@ To connect to a Zoom call you need something called a DTMF Sequence. *In simple 
 For Zoom a DTMF Sequence is made up of two items:
 
 * The Zoom Meeting ID ([read here](https://support.zoom.us/hc/en-us/articles/201362193-Joining-a-meeting) for information on what the Zoom Meeting ID is.)
-* The Zoom Participant ID (optional). This is uncommon. If the Zoom Meeting requires a partipant ID, set it as the value of the `ZOOM_PARTICIPANT_ID` variable. [Read more here](https://support.zoom.us/hc/en-us/articles/201362663-Joining-a-meeting-or-webinar-by-phone).
+* The Zoom Participant ID (optional). This is uncommon. If the Zoom Meeting requires a participant ID, set it as the value of the `ZOOM_PARTICIPANT_ID` variable. [Read more here](https://support.zoom.us/hc/en-us/articles/201362663-Joining-a-meeting-or-webinar-by-phone).
 * The Zoom Meeting Passcode (optional). If there is no Zoom Meeting Passcode just make the variable an empty string.
 
 :::info

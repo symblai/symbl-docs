@@ -13,7 +13,7 @@ You can get Speech-to-Text asynchronously for recorded conversations or after th
 
 ## Tutorials
 
-Refer to the following tutorials for code snippets and step-by-step instuctions:
+Refer to the following tutorials for code snippets and step-by-step instructions:
 
 ### Async APIs
 

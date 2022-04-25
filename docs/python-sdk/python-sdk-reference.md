@@ -52,7 +52,7 @@ Returns conversation object.
 Name | Required | Description
 -----|------------ | --------
 `file_path`| Mandatory | A valid path to a file.
-`conversation_id`| Mandatory | Unique identifiier of the previous conversation to which appending the current conversation.
+`conversation_id`| Mandatory | Unique identifier of the previous conversation to which appending the current conversation.
 `content_type`| Optional| Parameter defining the content_type of audio. Acceptable values are `audio/wav`, `audio/mp3`, `audio/mpeg`. Leave it blank if you're not sure about the `content_type` of file.
 `credentials` | Optional | Don't add this parameter if you have symbl.conf file in your home directory or working directory.
 `wait`| Optional |  Accepts a Boolean value. By default set to `true`. Value False will execute the function `submit_audio` on a separate thread making it a non-blocking API call (Has callback support).
@@ -412,7 +412,7 @@ You can subscribe to the following events for Streaming API by the connection ob
 - `topic_response`:- It will generate an event whenever a topic is identified in any transcription.
 - `message`:- (Part of streaming API only), It will generate an event for live transcriptions. It will include isFinal property which will be False initially, meaning the transcription is not finalized.
 
-Example of subcribing to events:
+Example of subscribing to events:
 
 ```py
 events = {

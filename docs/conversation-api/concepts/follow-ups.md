@@ -107,7 +107,7 @@ fetch(request)
 
 ## Tutorials
 
-Refer to the following tutorials for code snippets and step-by-step instuctions:
+Refer to the following tutorials for code snippets and step-by-step instructions:
 
 ### Streaming API
 
