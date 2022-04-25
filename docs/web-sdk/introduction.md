@@ -89,7 +89,7 @@ To initialize the Web SDK, you can pass in an access token generated using [Symb
 The code given below initializes the Web SDK:
 
 ```js
-await symbl.init({
+const symbl = new Symbl({
     accessToken: '<your Access Token>'
     // appId: '<your App ID>', // Should only be used for development environment
     // appSecret: '<your App Secret>', // Should only be used for development environment
