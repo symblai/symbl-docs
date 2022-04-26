@@ -320,17 +320,22 @@ module.exports = {
 
     footer:
     {
-      style: 'dark',
       links: [
         {
           title: 'Resources',
           items: [
-
+            {
+              label: "Glossary",
+              to: "/glossary",
+            },
+            {
+              label: "Changelog",
+              to: "/changelog",
+            },
             {
               label: 'Free Sign Up',
               to: 'https://platform.symbl.ai/#/signup',
             },
-
             {
               label: 'Blog',
               to: 'https://symbl.ai/blog',
@@ -350,8 +355,29 @@ module.exports = {
             href: 'https://www.youtube.com/channel/UCpqOyNdFI0kASCZL-eCnkcA/videos',
           }, ],
         },
-
+        {
+          title: "Social",
+          items: [
+            {
+              label: "GitHub",
+              href: "https://github.com/symblai/symbl-docs",
+            },
+            {
+              label: "Twitter",
+              href: "https://twitter.com/symbldotai",
+            },
+            {
+              label: "Linkedin",
+              href: "https://www.linkedin.com/company/symbldotai/mycompany/",
+            },
+          ],
+        },
       ],
+      logo: {
+        alt: "Algolia",
+        src: "img/symbl-logo-dark.webp",
+        srcDark: "/img/symbl-logo-white.png",
+      },
       copyright: `© ${new Date().getFullYear()} Symbl.ai All rights reserved.`,
     }
   },
