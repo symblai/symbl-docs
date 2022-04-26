@@ -15,6 +15,9 @@
   --ifm-color-primary-lighter: #5a91ea;
   --ifm-color-primary-lightest: #80aaef;
   --ifm-code-font-size: 95%;
+  --ifm-menu-color-background-hover: #1c3a67;
+  --ifm-menu-color-background-active: #1c3a67;
+  
 }
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
@@ -75,6 +78,17 @@ html[data-theme='dark'] .menu>ul>li>a.menu__link.menu__link--sublist {
   background-size: 23px;
 }
 
+li.menu__list-item a:hover {
+  color: #fff;
+}
+
+html[data-theme='dark'] li.menu__list-item a:hover {
+  color: #fff;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: #fff;
+}
 
 /*
 .menu .menu__link--sublist:after {
