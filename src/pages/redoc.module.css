@@ -37,3 +37,8 @@ html[data-theme='dark'] label > span {
 html[data-theme='dark'] scrollbar-container {
     color:#000
 }
+
+
+td {
+    padding:10px !important;
+}
