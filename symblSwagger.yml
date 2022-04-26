@@ -50,19 +50,22 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               type: object
               properties:
                 type:
                   type: string
                   description: type
+                  default: application
                 appId:
                   type: string
                   description: appId
+                  default: appId
                 appSecret:
                   type: string
                   description: appSecret
+                  default: appSecret
         required: true
       responses:
         200:
@@ -231,7 +234,7 @@ paths:
           default: '{{api_token}}'
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               type: object
               properties:
@@ -630,7 +633,7 @@ paths:
           type: string
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               type: object
               properties:
@@ -957,7 +960,7 @@ paths:
           type: string
           default: '{{api_token}}'
       requestBody:
-        content:
+        content:            
           audio/wav:
             schema:
               type: string
@@ -1339,7 +1342,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json:
             schema:
               type: object
               properties:
@@ -1477,7 +1480,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -1644,7 +1647,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -1720,7 +1723,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -1816,7 +1819,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -1901,7 +1904,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -1953,7 +1956,7 @@ paths:
           default: '{{api_token}}'
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -2087,7 +2090,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -2164,7 +2167,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -2225,7 +2228,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -2975,7 +2978,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: array
               items:
@@ -3046,7 +3049,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -3118,7 +3121,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
@@ -3188,7 +3191,7 @@ paths:
           default: application/json
       requestBody:
         content:
-          '*/*':
+          application/json':
             schema:
               type: object
               properties:
