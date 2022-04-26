@@ -24,6 +24,8 @@
     "@docusaurus/theme-common": "^2.0.0-beta.16",
     "@docusaurus/theme-search-algolia": "^2.0.0-beta.16",
     "@lilib/hooks": "^0.1.1",
+    "@stoplight/elements": "^7.5.17",
+    "buffer": "^6.0.3",
     "caniuse-lite": "^1.0.30001294",
     "clsx": "^1.1.1",
     "docusaurus-plugin-hotjar": "0.0.2",
@@ -31,10 +33,13 @@
     "docusaurus-plugin-munchkin": "0.0.1",
     "docusaurus2-dotenv": "^1.4.0",
     "dotenv": "^14.3.2",
+    "path": "^0.12.7",
     "postcss": "^8.4.5",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "stream": "^0.0.2",
+    "url": "^0.11.0",
     "webpack": "^5.65.0"
   },
   "browserslist": {
