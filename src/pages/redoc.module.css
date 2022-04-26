@@ -1,0 +1,39 @@
+html[data-theme='dark'] h1{
+    color: #fff;
+}
+
+html[data-theme='dark'] h2{
+    color: #fff;
+}
+
+html[data-theme='dark'] h3{
+    color: #fff;
+}
+
+html[data-theme='dark'] h4{
+    color: #fff;
+}
+
+html[data-theme='dark'] h5{
+    color: #fff;
+}
+
+html[data-theme='dark'] p{
+    color: #fff;
+}
+
+html[data-theme='dark'] code {
+    background-color: aliceblue;
+}
+
+html[data-theme='dark'] span {
+    color: #fff;
+}
+
+html[data-theme='dark'] label > span {
+    color:#000
+}
+
+html[data-theme='dark'] scrollbar-container {
+    color:#000
+}

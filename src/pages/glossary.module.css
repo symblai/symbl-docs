@@ -4,6 +4,7 @@ html {
 
 .glossaryIndex {
     display:flex;
+    flex-wrap: wrap;
     flex-direction:row;
     padding: 2rem;
     background-color: rgb(20,38,72);

@@ -14,7 +14,10 @@
   --ifm-color-primary-light: #4e89e8;
   --ifm-color-primary-lighter: #5a91ea;
   --ifm-color-primary-lightest: #80aaef;
+  --ifm-pre-background: #333E4B;
   --ifm-code-font-size: 95%;
+  --ifm-menu-color-background-hover: #0175ff;
+  --ifm-menu-color-background-active: #0175ff;
 }
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
@@ -47,10 +50,10 @@ a {
   cursor: pointer;
 }
 
-
 html[data-theme='dark'] .menu__list .menu__list {
   border-left: 1px solid #202020;
 }
+
 a.menu__link.menu__link {
   display: flex;
   flex-direction: row;
@@ -75,6 +78,17 @@ html[data-theme='dark'] .menu>ul>li>a.menu__link.menu__link--sublist {
   background-size: 23px;
 }
 
+li.menu__list-item a:hover {
+  color: #fff;
+}
+
+html[data-theme='dark'] li.menu__list-item a:hover {
+  color: #fff;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: #fff;
+}
 
 /*
 .menu .menu__link--sublist:after {

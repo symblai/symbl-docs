@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {RedocStandalone} from 'redoc';
+import styles from "./redoc.module.css";
 
 export default function ApiPlayground() {
     const {siteConfig} = useDocusaurusContext();
@@ -21,8 +22,9 @@ export default function ApiPlayground() {
                           },
                           "colors": {
                             "primary": {
-                              "main": "rgba(246, 20, 63, 1)",
-                              "light": "rgba(246, 20, 63, 0.42)"
+                              // "main": "rgba(246, 20, 63, 1)",
+                              "light": "rgba(255,0,0, 1)",
+                              "dark": "rgba(255,255,255,1)"
                             },
                             "success": {
                               "main": "rgba(28, 184, 65, 1)",
@@ -32,6 +34,7 @@ export default function ApiPlayground() {
                             },
                             "text": {
                               "primary": "rgba(0, 0, 0, 1)",
+                              "light": "rgba(255,255,255,1)", 
                               "secondary": "#4d4d4d"
                             },
                             "http": {
@@ -57,9 +60,9 @@ export default function ApiPlayground() {
                               "wrap": true
                             },
                             "links": {
-                              "color": "rgba(246, 20, 63, 1)",
-                              "visited": "rgba(246, 20, 63, 1)",
-                              "hover": "#fa768f"
+                              "color": "rgba(0, 0, 255, 1)",
+                              "visited": "rgba(0, 0, 255, 1)",
+                              "hover": "rgb(0,255,0)"
                             }
                           },
                           "sidebar": {
@@ -67,10 +70,9 @@ export default function ApiPlayground() {
                             "textColor": "#000000",
                           },
                           "rightPanel": {
-                            
                             "backgroundColor": "rgba(55, 53, 71, 1)",
                             "textColor": "#ffffff"
-                          }
+                          },
                         }
                       
                 }}/>
