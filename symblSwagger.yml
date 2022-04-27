@@ -36,9 +36,8 @@ x-tagGroups:
   - Text APIs
   - Audio APIs
   - Video APIs
-- name: Conversation API
-  tags:
-  - Conversation APIs
+  - Conversation API
+  
 
 paths:
   /oauth2/token:generate:
@@ -262,7 +261,7 @@ paths:
                   type: string
                   description: Your meeting name. 
                   default: 'Sales Call'
-                  example: 'Sales Call'
+                  example: 'name: Sales Call'
                 detectPhrases:
                   type: boolean
                   description: It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API.
@@ -285,7 +284,7 @@ paths:
                         properties:
                           content:
                             type: string
-                            example: Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!
+                            example: Hi Mike, Natalia here. Hope you don't mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!
                             description: Input Messages to look for insights.
                       from:
                         type: object
@@ -687,7 +686,7 @@ paths:
             "messages": [
               {
                 "payload": {
-                  "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                  "content": "Hi Mike, Natalia here. Hope you don't mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
                 },
                 "from": {
                   "userId": "natalia@example.com",
@@ -732,7 +731,7 @@ paths:
               "messages": [
                 {
                   "payload": {
-                    "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                    "content": "Hi Mike, Natalia here. Hope you don't mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
                   },
                   "from": {
                     "userId": "natalia@example.com",
@@ -776,7 +775,7 @@ paths:
             "messages": [
               {
                 "payload": {
-                  "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                  "content": "Hi Mike, Natalia here. Hope you don't mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
                 },
                 "from": {
                   "userId": "natalia@example.com",
@@ -851,7 +850,7 @@ paths:
               "messages": [
                   {
                       "payload": {
-                          "content": "Hi Mike, Natalia here. Hope you don’t mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
+                          "content": "Hi Mike, Natalia here. Hope you don't mind me reaching out. Who would be the best possible person to discuss internships and student recruitment at ABC Corp? Would you mind pointing me toward the right person and the best way to reach them? Thanks in advance for your help, I really appreciate it!"
                       },
                       "from": {
                           "userId": "natalia@example.com",
@@ -1123,14 +1122,11 @@ paths:
 
       requestBody:
         content:            
-          multipart/form-data:
+          audio/wav:
             schema:
-              properties:
-                file:
-                  type: string
-                  format: binary  
-                  description: Audio File
-
+              type: string
+              format: binary  
+              description: Audio File
       responses:
         200:
           description: Created.
@@ -1939,365 +1935,366 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/job/{conversationId}:
-    get:
-      summary: Check Request Status (Job status)
-      description: |-
-        # About this API
-        Check the status of the Async Request job using `jobId` returned after successful submission of any Async API.
+    
+  # /v1/job/{conversationId}:
+  #   get:
+  #     summary: Check Request Status (Job status)
+  #     description: |-
+  #       # About this API
+  #       Check the status of the Async Request job using `jobId` returned after successful submission of any Async API.
 
-        Read More: [https://docs.symbl.ai/#job-api](https://docs.symbl.ai/#job-api)
-      operationId: CheckRequestStatus(jobStatus)
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/endpoint:connect:
-    post:
-      summary: Start Connection (PSTN)
-      description: "# About this API\nTelephony API Telephony to connect to a PSTN\
-        \ endpoint and start the connection and start processing.\n\n## Prerequisite\n\
-        You must generate access token by executing `Generate Token` request under\
-        \ Authentication folder.\n\n## \\_\\_phone_number\\_\\_\nReplace value for\
-        \ `phoneNumber` in request body with a valid US/Canada phone number or a preferred\
-        \ dial-in US/Canada phone number of your conferencing platform. Include country\
-        \ code, example - \"19998887777\", where '1' is country code for US/Canada\n\
-        \n## \\_\\_dtmf_sequence\\_\\_\nReplace value for `dtmf` in with your joining\
-        \ sequence. Usually only required if dialing in to conferencing platform or\
-        \ phone number with IVR.\nExamples - \"7733445566#\" or \"7733445566#,,7734#\"\
-        \n\nIf DTMF sequence is not required, delete this field.\n\n## \\_\\_email_address\\\
-        _\\_ (Email Addresses)\nOptionally, add list of valid email addresses under\
-        \ sendSummaryEmail `actions`. If added, an email will be sent at the end of\
-        \ the call.\n\n## \\_\\_name_of_this_call\\_\\_\nGive name to your meeting/call.\n\
-        \n## Participants\nOptionally, send participants in the meeting/call, by adding\
-        \ `users` array.\n<pre>\n    <code>\n\t\t\"users\": [{\n\t\t\t\"user\": {\n\
-        \t\t\t\t\"name\": \"John\",\n\t\t\t\t\"userId\": \"john@example.com\",\n\t\
-        \t\t\t\"role\": \"organizer\"\n\t\t\t}\n\t\t\t}, \n\t\t\t{\n\t\t\t\"user\"\
-        : {\n\t\t\t\t\"name\": \"Mary\",\n\t\t\t\t\"userId\": \"mary@example.com\"\
-        \n\t\t\t}\n\t\t}]\n    <code>\n</pre>"
-      operationId: StartConnection(pstn)
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                operation:
-                  type: string
-                  description: operation
-                endpoint:
-                  type: object
-                  properties:
-                    type:
-                      type: string
-                      description: type
-                    phoneNumber:
-                      type: string
-                      description: phoneNumber
-                    dtmf:
-                      type: string
-                      description: dtmf
-                  description: endpoint
-                actions:
-                  type: array
-                  description: actions
-                  items:
-                    type: object
-                    properties:
-                      invokeOn:
-                        type: string
-                        description: invokeOn
-                      name:
-                        type: string
-                        description: name
-                      parameters:
-                        type: object
-                        properties:
-                          emails:
-                            type: array
-                            description: emails
-                            items:
-                              type: string
-                        description: parameters
-                data:
-                  type: object
-                  properties:
-                    session:
-                      type: object
-                      properties:
-                        name:
-                          type: string
-                          description: name
-                      description: session
-                  description: data
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-  /v1/conversations/{conversationId}/experiences:
-    post:
-      tags:
-      - Conversation APIs    
-      summary: Text Experience UI
-      description: Text Experience UI
-      operationId: TextExperienceUi
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: name
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-  /v1/conversations/{conversationId}:
-    get:
-      tags:
-      - Conversation APIs    
-      summary: Conversation Data
-      description: Conversation Data
-      operationId: ConversationData
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-    put:
-      summary: Update Conversations
-      description: Update Conversations
-      operationId: UpdateConversations
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                type:
-                  type: string
-                  description: type
-                name:
-                  type: string
-                  description: name
-                startTime:
-                  type: string
-                  description: startTime
-                endTime:
-                  type: string
-                  description: endTime
-                members:
-                  type: array
-                  description: members
-                  items:
-                    type: object
-                    properties:
-                      name:
-                        type: string
-                        description: name
-                      email:
-                        type: string
-                        description: email
-                metadata:
-                  type: object
-                  properties:
-                    key:
-                      type: string
-                      description: key
-                    agentId:
-                      type: string
-                      description: agentId
-                  description: metadata
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-    delete:
-      summary: Delete Conversation
-      description: Delete Conversation
-      operationId: DeleteConversation
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/conversations:
-    get:
-      tags:
-      - Conversation APIs    
-      summary: All Conversations
-      description: All Conversations
-      operationId: AllConversations
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/conversations/{conversationId}/messages:
-    get:
-      tags:
-      - Conversation APIs    
-      summary: Messages (Transcript)
-      description: Messages (Transcript)
-      operationId: Messages(transcript)
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/conversations/{conversationId}/transcript:
-    post:
-      tags:
-      - Conversation APIs    
-      summary: Formatted Transcript
-      description: Formatted Transcript
-      operationId: FormattedTranscript
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                contentType:
-                  type: string
-                  description: contentType
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
+  #       Read More: [https://docs.symbl.ai/#job-api](https://docs.symbl.ai/#job-api)
+  #     operationId: CheckRequestStatus(jobStatus)
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/endpoint:connect:
+  #   post:
+  #     summary: Start Connection (PSTN)
+  #     description: "# About this API\nTelephony API Telephony to connect to a PSTN\
+  #       \ endpoint and start the connection and start processing.\n\n## Prerequisite\n\
+  #       You must generate access token by executing `Generate Token` request under\
+  #       \ Authentication folder.\n\n## \\_\\_phone_number\\_\\_\nReplace value for\
+  #       \ `phoneNumber` in request body with a valid US/Canada phone number or a preferred\
+  #       \ dial-in US/Canada phone number of your conferencing platform. Include country\
+  #       \ code, example - \"19998887777\", where '1' is country code for US/Canada\n\
+  #       \n## \\_\\_dtmf_sequence\\_\\_\nReplace value for `dtmf` in with your joining\
+  #       \ sequence. Usually only required if dialing in to conferencing platform or\
+  #       \ phone number with IVR.\nExamples - \"7733445566#\" or \"7733445566#,,7734#\"\
+  #       \n\nIf DTMF sequence is not required, delete this field.\n\n## \\_\\_email_address\\\
+  #       _\\_ (Email Addresses)\nOptionally, add list of valid email addresses under\
+  #       \ sendSummaryEmail `actions`. If added, an email will be sent at the end of\
+  #       \ the call.\n\n## \\_\\_name_of_this_call\\_\\_\nGive name to your meeting/call.\n\
+  #       \n## Participants\nOptionally, send participants in the meeting/call, by adding\
+  #       \ `users` array.\n<pre>\n    <code>\n\t\t\"users\": [{\n\t\t\t\"user\": {\n\
+  #       \t\t\t\t\"name\": \"John\",\n\t\t\t\t\"userId\": \"john@example.com\",\n\t\
+  #       \t\t\t\"role\": \"organizer\"\n\t\t\t}\n\t\t\t}, \n\t\t\t{\n\t\t\t\"user\"\
+  #       : {\n\t\t\t\t\"name\": \"Mary\",\n\t\t\t\t\"userId\": \"mary@example.com\"\
+  #       \n\t\t\t}\n\t\t}]\n    <code>\n</pre>"
+  #     operationId: StartConnection(pstn)
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               operation:
+  #                 type: string
+  #                 description: operation
+  #               endpoint:
+  #                 type: object
+  #                 properties:
+  #                   type:
+  #                     type: string
+  #                     description: type
+  #                   phoneNumber:
+  #                     type: string
+  #                     description: phoneNumber
+  #                   dtmf:
+  #                     type: string
+  #                     description: dtmf
+  #                 description: endpoint
+  #               actions:
+  #                 type: array
+  #                 description: actions
+  #                 items:
+  #                   type: object
+  #                   properties:
+  #                     invokeOn:
+  #                       type: string
+  #                       description: invokeOn
+  #                     name:
+  #                       type: string
+  #                       description: name
+  #                     parameters:
+  #                       type: object
+  #                       properties:
+  #                         emails:
+  #                           type: array
+  #                           description: emails
+  #                           items:
+  #                             type: string
+  #                       description: parameters
+  #               data:
+  #                 type: object
+  #                 properties:
+  #                   session:
+  #                     type: object
+  #                     properties:
+  #                       name:
+  #                         type: string
+  #                         description: name
+  #                     description: session
+  #                 description: data
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  # /v1/conversations/{conversationId}/experiences:
+  #   post:
+  #     tags:
+  #     - Conversation APIs    
+  #     summary: Text Experience UI
+  #     description: Text Experience UI
+  #     operationId: TextExperienceUi
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               name:
+  #                 type: string
+  #                 description: name
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  # /v1/conversations/{conversationId}:
+  #   get:
+  #     tags:
+  #     - Conversation APIs    
+  #     summary: Conversation Data
+  #     description: Conversation Data
+  #     operationId: ConversationData
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #   put:
+  #     summary: Update Conversations
+  #     description: Update Conversations
+  #     operationId: UpdateConversations
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               type:
+  #                 type: string
+  #                 description: type
+  #               name:
+  #                 type: string
+  #                 description: name
+  #               startTime:
+  #                 type: string
+  #                 description: startTime
+  #               endTime:
+  #                 type: string
+  #                 description: endTime
+  #               members:
+  #                 type: array
+  #                 description: members
+  #                 items:
+  #                   type: object
+  #                   properties:
+  #                     name:
+  #                       type: string
+  #                       description: name
+  #                     email:
+  #                       type: string
+  #                       description: email
+  #               metadata:
+  #                 type: object
+  #                 properties:
+  #                   key:
+  #                     type: string
+  #                     description: key
+  #                   agentId:
+  #                     type: string
+  #                     description: agentId
+  #                 description: metadata
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  #   delete:
+  #     summary: Delete Conversation
+  #     description: Delete Conversation
+  #     operationId: DeleteConversation
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/conversations:
+  #   get:
+  #     tags:
+  #     - Conversation APIs    
+  #     summary: All Conversations
+  #     description: All Conversations
+  #     operationId: AllConversations
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/conversations/{conversationId}/messages:
+  #   get:
+  #     tags:
+  #     - Conversation APIs    
+  #     summary: Messages (Transcript)
+  #     description: Messages (Transcript)
+  #     operationId: Messages(transcript)
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/conversations/{conversationId}/transcript:
+  #   post:
+  #     tags:
+  #     - Conversation APIs    
+  #     summary: Formatted Transcript
+  #     description: Formatted Transcript
+  #     operationId: FormattedTranscript
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               contentType:
+  #                 type: string
+  #                 description: contentType
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
   /v1/conversations/{conversationId}/members:
     get:
       tags:
@@ -2510,7 +2507,7 @@ paths:
         description: x-api-key
         schema:
           type: string
-
+          default: '{{api_token}}'
       - name: conversationId
         in: path
         description: Conversation ID from the Async API response.
@@ -2703,6 +2700,7 @@ paths:
         description: x-api-key
         schema:
           type: string
+          default: '{{api_token}}'                    
       - name: conversationId
         in: path
         description: Conversation ID from the Async API response.
@@ -2824,7 +2822,7 @@ paths:
                             description: List of detected entity objects in the insight with type - entity type and text - corresponding text.
                         definitive:
                           type: boolean
-                          description: Boolean indicating if the action item is definitive or not. Implies that the action item is conclusive and not open-ended. For e.g, ‘I will complete this task today’ is a definitive sentence.
+                          description: Boolean indicating if the action item is definitive or not. Implies that the action item is conclusive and not open-ended. For e.g, 'I will complete this task today' is a definitive sentence.
                         phrases:
                           type: array
                           items:
@@ -2935,6 +2933,7 @@ paths:
         description: x-api-key
         schema:
           type: string
+          default: '{{api_token}}'
       - name: conversationId
         in: path
         description: Conversation ID from the Async API response.
@@ -3096,424 +3095,424 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/{conversationId}/entities:
-    get:
-      tags:
-      - Conversation APIs    
-      summary: Entities
-      description: Entities
-      operationId: Entities
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/manage/trackers:
-    get:
-      summary: Trackers (with Name)
-      description: Trackers (with Name)
-      operationId: Trackers(withName)
-      parameters:
-      - name: name
-        in: query
-        required: true
-        schema:
-          type: string
-          default: '{trackerName}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-    post:
-      summary: Trackers - Submit a new Tracker
-      description: Trackers - Submit a new Tracker
-      operationId: Trackers-SubmitANewTracker
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: array
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    description: name
-                  vocabulary:
-                    type: array
-                    description: vocabulary
-                    items:
-                      type: string
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-  /v1/manage/tracker/{trackerId}:
-    get:
-      summary: Trackers (with ID)
-      description: Trackers (with ID)
-      operationId: Trackers(withId)
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-    put:
-      summary: Trackers - Append to an existing Tracker
-      description: Trackers - Append to an existing Tracker
-      operationId: Trackers-AppendToAnExistingTracker
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: id
-                name:
-                  type: string
-                  description: name
-                vocabulary:
-                  type: array
-                  description: vocabulary
-                  items:
-                    type: string
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-    delete:
-      summary: Trackers (with ID)
-      description: Trackers (with ID)
-      operationId: Trackers(withId)33
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/manage/group:
-    post:
-      summary: Create Conversation Groups
-      description: Create Conversation Groups
-      operationId: CreateConversationGroups
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  description: name
-                description:
-                  type: string
-                  description: description
-                criteria:
-                  type: string
-                  description: criteria
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-  /v1/manage/group/{groupId}:
-    get:
-      summary: Read Conversation Groups
-      description: Read Conversation Groups
-      operationId: ReadConversationGroups
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-    put:
-      summary: Update Conversation Groups
-      description: Update Conversation Groups
-      operationId: UpdateConversationGroups
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      requestBody:
-        content:
-          application/json':
-            schema:
-              type: object
-              properties:
-                id:
-                  type: string
-                  description: id
-                name:
-                  type: string
-                  description: name
-                description:
-                  type: string
-                  description: description
-                criteria:
-                  type: string
-                  description: criteria
-        required: true
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-      x-codegen-request-body-name: body
-    delete:
-      summary: Delete Conversation Groups
-      description: Delete Conversation Groups
-      operationId: DeleteConversationGroups
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/manage/groups:
-    get:
-      summary: Read Multiple Conversation Groups
-      description: Read Multiple Conversation Groups
-      operationId: ReadMultipleConversationGroups
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/conversations/{conversationId}/comprehensive/action-items:
-    get:
-      summary: Comprehensive Action Items
-      description: Comprehensive Action Items
-      operationId: ComprehensiveActionItems
-      parameters:
-      - name: x-api-key
-        in: header
-        description: x-api-key
-        required: true
-        schema:
-          type: string
-          default: '{{api_token}}'
-      - name: Content-Type
-        in: header
-        description: Content-Type
-        required: true
-        schema:
-          type: string
-          default: application/json
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/conversations/{conversationId}/summary:
-    get:
-      summary: Summary
-      description: Summary
-      operationId: Summary
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
-  /v1/conversations/{conversationId}/abstract-topics:
-    get:
-      summary: Abstract Topics
-      description: Abstract Topics
-      operationId: AbstractTopics
-      responses:
-        default:
-          description: default
-          content:
-            application/json:
-              schema:
-                type: object
+  # /v1/conversations/{conversationId}/entities:
+  #   get:
+  #     tags:
+  #     - Conversation APIs    
+  #     summary: Entities
+  #     description: Entities
+  #     operationId: Entities
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/manage/trackers:
+  #   get:
+  #     summary: Trackers (with Name)
+  #     description: Trackers (with Name)
+  #     operationId: Trackers(withName)
+  #     parameters:
+  #     - name: name
+  #       in: query
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{trackerName}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #   post:
+  #     summary: Trackers - Submit a new Tracker
+  #     description: Trackers - Submit a new Tracker
+  #     operationId: Trackers-SubmitANewTracker
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: array
+  #             items:
+  #               type: object
+  #               properties:
+  #                 name:
+  #                   type: string
+  #                   description: name
+  #                 vocabulary:
+  #                   type: array
+  #                   description: vocabulary
+  #                   items:
+  #                     type: string
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  # /v1/manage/tracker/{trackerId}:
+  #   get:
+  #     summary: Trackers (with ID)
+  #     description: Trackers (with ID)
+  #     operationId: Trackers(withId)
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #   put:
+  #     summary: Trackers - Append to an existing Tracker
+  #     description: Trackers - Append to an existing Tracker
+  #     operationId: Trackers-AppendToAnExistingTracker
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               id:
+  #                 type: string
+  #                 description: id
+  #               name:
+  #                 type: string
+  #                 description: name
+  #               vocabulary:
+  #                 type: array
+  #                 description: vocabulary
+  #                 items:
+  #                   type: string
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  #   delete:
+  #     summary: Trackers (with ID)
+  #     description: Trackers (with ID)
+  #     operationId: Trackers(withId)33
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/manage/group:
+  #   post:
+  #     summary: Create Conversation Groups
+  #     description: Create Conversation Groups
+  #     operationId: CreateConversationGroups
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               name:
+  #                 type: string
+  #                 description: name
+  #               description:
+  #                 type: string
+  #                 description: description
+  #               criteria:
+  #                 type: string
+  #                 description: criteria
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  # /v1/manage/group/{groupId}:
+  #   get:
+  #     summary: Read Conversation Groups
+  #     description: Read Conversation Groups
+  #     operationId: ReadConversationGroups
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #   put:
+  #     summary: Update Conversation Groups
+  #     description: Update Conversation Groups
+  #     operationId: UpdateConversationGroups
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     requestBody:
+  #       content:
+  #         application/json':
+  #           schema:
+  #             type: object
+  #             properties:
+  #               id:
+  #                 type: string
+  #                 description: id
+  #               name:
+  #                 type: string
+  #                 description: name
+  #               description:
+  #                 type: string
+  #                 description: description
+  #               criteria:
+  #                 type: string
+  #                 description: criteria
+  #       required: true
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  #     x-codegen-request-body-name: body
+  #   delete:
+  #     summary: Delete Conversation Groups
+  #     description: Delete Conversation Groups
+  #     operationId: DeleteConversationGroups
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/manage/groups:
+  #   get:
+  #     summary: Read Multiple Conversation Groups
+  #     description: Read Multiple Conversation Groups
+  #     operationId: ReadMultipleConversationGroups
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/conversations/{conversationId}/comprehensive/action-items:
+  #   get:
+  #     summary: Comprehensive Action Items
+  #     description: Comprehensive Action Items
+  #     operationId: ComprehensiveActionItems
+  #     parameters:
+  #     - name: x-api-key
+  #       in: header
+  #       description: x-api-key
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: '{{api_token}}'
+  #     - name: Content-Type
+  #       in: header
+  #       description: Content-Type
+  #       required: true
+  #       schema:
+  #         type: string
+  #         default: application/json
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/conversations/{conversationId}/summary:
+  #   get:
+  #     summary: Summary
+  #     description: Summary
+  #     operationId: Summary
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
+  # /v1/conversations/{conversationId}/abstract-topics:
+  #   get:
+  #     summary: Abstract Topics
+  #     description: Abstract Topics
+  #     operationId: AbstractTopics
+  #     responses:
+  #       default:
+  #         description: default
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: object
 
 components:
   securitySchemes:
@@ -3524,4 +3523,3 @@ components:
 
 security:
   - bearerAuth: []
-
