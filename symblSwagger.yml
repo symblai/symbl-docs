@@ -930,33 +930,6 @@ paths:
 
         >Notice that the content type is "binary", which allows you to select a file you want to upload.
 
-        ## Query Params
-
-        Parameters | Required | Description
-        ---------- | ------- | -------
-        ```name``` | No | Your meeting name. Default name set to `conversationId`.
-        ```webhookUrl``` | No | Webhook url on which job updates to be sent. This should be POST endpoint.
-        ```customVocabulary``` | No | Contains a list of words and phrases that provide hints to the speech recognition task.
-        ``` entities``` | No |   Input custom entities which can be detected in your conversation using Entities' API. For example, check the sample code on right.
-        ```detectPhrases```| No | Accepted values are `true` & `false`. It shows Actionable Phrases in each sentence of conversation. These sentences can be found in the Conversation's Messages API.
-        ```enableSeparateRecognitionPerChannel``` | No | Enables Speaker Separated Channel audio processing. Accepts `true` or `false`.
-         ```channelMetadata``` | No |  This object parameter contains two variables `speaker` and `channel` to specific which speaker corresponds to which channel. This object **only** works when `enableSeparateRecognitionPerChannel` query param is set to `true`.
-         ```languageCode```| No |  We accept different languages. Please [check language Code](https://docs.symbl.ai/docs/async-api/overview/async-api-supported-languages) as per your requirement.
-
-        ## Response
-        In response, conversationId and jobId are returned.
-
-        `jobId` can be used to get updates on the job status.
-
-        `conversationId` can be used with the Conversation API to get all the insights, topics and processed messages etc.
-
-        ## Webhook Payload
-        `webhookUrl` will be used to send the status of job created for uploaded audio. Every time the status of the job changes it will be notified on the `webhookUrl`
-
-        Field | Description
-        ------- | -------
-        ```jobId``` | ID to be used with Job API
-        ```status``` |  Current status of the job. (Valid statuses - [ scheduled, in_progress, completed, failed ])
       operationId: Audio-SubmitNewAudioFile(wav_mp3)
       parameters:
       - name: Content-Length
@@ -3514,12 +3487,12 @@ paths:
   #             schema:
   #               type: object
 
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT  # optional, for documentation purposes only
+# components:
+#   securitySchemes:
+#     bearerAuth:
+#       type: http
+#       scheme: bearer
+#       bearerFormat: JWT  # optional, for documentation purposes only
 
-security:
-  - bearerAuth: []
+# security:
+#   - bearerAuth: []
