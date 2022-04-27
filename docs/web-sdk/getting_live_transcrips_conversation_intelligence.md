@@ -85,6 +85,7 @@ const connection = await symbl.createConnection();
 
 // Start processing audio from your default input device.
 await connection.startProcessing({
+  insightTypes: ["question", "action_item", "follow_up"],
   config: {
     encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
   }
@@ -142,14 +143,14 @@ To learn more about the insight callbacks, see [Events and Callbacks Reference](
 
 ### Waiting 60 seconds before disconnecitng
 
-The `symbl.wait` method is a helper method that will wait for the milliseconds you provide before moving on to the next line.
+The `Symbl.wait` method is a helper method that will wait for the milliseconds you provide before moving on to the next line.
 
-`symbl.wait` is only meant for testing and should not be used in a production environment.
+`Symbl.wait` is only meant for testing and should not be used in a production environment.
 
 ```js
 // This is just a helper method meant for testing purposes.
 // Waits 60 seconds before continuing to the next API call.
-await symbl.wait(60000);
+await Symbl.wait(60000);
 ```
 
 

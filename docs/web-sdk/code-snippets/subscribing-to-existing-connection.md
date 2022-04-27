@@ -44,7 +44,7 @@ try {
     
     // This is just a helper method meant for testing purposes.
     // Waits 60 seconds before continuing to the next API call.
-    await symbl.wait(60000);;
+    await Symbl.wait(60000);;
     
     // Closes the WebSocket connection.
     connection.disconnect();

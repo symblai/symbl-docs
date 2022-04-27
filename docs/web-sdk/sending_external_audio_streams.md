@@ -55,6 +55,7 @@ try {
     
     // Open a Symbl Streaming API WebSocket Connection.
     const connection = await symbl.createAndStartNewConnection({
+      insightTypes: ["question", "action_item", "follow_up"],
       config: {
         encoding: "LINEAR16",
         sampleRateHertz: sampleRate
@@ -70,7 +71,7 @@ try {
     
     // This is just a helper method meant for testing purposes.
     // Waits 60 seconds before continuing to the next API call.
-    await symbl.wait(60000);
+    await Symbl.wait(60000);
     
     // Stops processing audio, but keeps the WebSocket connection open.
     await connection.stopProcessing();

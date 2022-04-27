@@ -40,11 +40,13 @@ try {
 
     // Attach audio element to AudioStream
     const audioStream = new LINEAR16AudioStream();
-    audioStream.attachAudioSourceElement(myAudioElement);
+    await audioStream.attachAudioSourceElement(myAudioElement);
 
     // Create connection and start processing audio
-    const connection = symbl.createConnection("abc123", audioStream);
-    connection.startProcessing({
+    const connection = await symbl.createConnection("abc123", audioStream);
+
+    await connection.startProcessing({
+      insightTypes: ["question", "action_item", "follow_up"],
       config: {
         encoding: "LINEAR16"
       }
@@ -64,7 +66,7 @@ try {
     
     // This is just a helper method meant for testing purposes.
     // Waits 60 seconds before continuing to the next API call.
-    await symbl.wait(60000);
+    await Symbl.wait(60000);
     
     // Stops processing audio, but keeps the WebSocket connection open.
     await connection.stopProcessing();
