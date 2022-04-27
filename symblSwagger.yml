@@ -978,6 +978,7 @@ paths:
         description: DEPRECATED. The JWT token you get from our authentication process.
         schema:
           type: string
+          default: '{{api_token}}'                              
       # - name: name
       #   in: query
       #   description: Your meeting name.
@@ -1122,11 +1123,14 @@ paths:
 
       requestBody:
         content:            
-          audio/wav:
+          multipart/form-data:
             schema:
-              type: string
-              format: binary  
-              description: Audio File
+              properties:
+                file:
+                  type: string
+                  format: binary  
+                  description: Audio File
+
       responses:
         200:
           description: Created.
