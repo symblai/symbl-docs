@@ -2,6 +2,7 @@
 id: jobs-api
 title: What is the Job API?
 sidebar_label: Get Job Status
+slug: /async-api/overview/jobs-api/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -70,9 +71,9 @@ request.get({
 ```
 
 
-#### Response Parameters
+#### Response Fields
 
-Parameter  | Description
----------- | ------- |
+Field    | Description
+-------- | ------- |
 ```id``` | The ID of the Job.
 ```status``` | Is one of type `scheduled`, `in_progress`, `completed`, `failed`.

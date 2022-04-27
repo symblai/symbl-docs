@@ -2,7 +2,7 @@
 id: follow-ups
 title: GET Follow-Ups
 sidebar_label: GET Follow-Ups
-slug: /conversation-api/follow-ups
+slug: /conversation-api/follow-ups/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,16 +16,15 @@ This is a category of [Action Items](/docs/conversation-api/action-items) with a
 a task like sending an email or making a phone call or booking an appointment
 or setting up a meeting.
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/follow-ups`
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"
@@ -109,7 +108,7 @@ exit()
     "followUps": [
         {
             "id": "4526427164639111",
-            "text": "We need to have the meeting today, and we're going to talk about how to run a product strategy Workshop is by Richard Holmes.",
+            "text": "We need to have the meeting today, and we're going to talk about the how to run a product strategy workshop conducted by Richard Holmes yesterday evening. There is a meeting with the customer in the afternoon as well.",
             "type": "follow_up",
             "score": 0.8660254037851491,
             "messageIds": [
@@ -121,6 +120,20 @@ exit()
                     "text": "today",
                     "offset": 28,
                     "value": "2020-06-22"
+                },
+                {
+                    "type": "datetimerange",
+                    "text": "yesterday evening",
+                    "offset": 67,
+                    "start": "2020-06-21 16:00:00",
+                    "end": "2020-06-21 20:00:00" 
+                },
+                {
+                    "type": "timerange",
+                    "text": "afternoon",
+                    "offset": 34,
+                    "start": "12:00:00",
+                    "end": "15:00:00" 
                 },
                 {
                     "type": "person",

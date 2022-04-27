@@ -1,6 +1,7 @@
 ---
 id: receive-speech-to-text-for-different-languages
 title: Receive Speech to Text for a different language in a conversation
+slug: /streamingapi/code-snippets/receive-speech-to-text-for-different-languages/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,7 +13,7 @@ This example goes over how you can use the Symbl Streaming API to receive a spee
 
 :::note
 Currently, we only support English language in Streaming & Telephony API. 
-We support languages other than English only for our enterprise plan.
+The support for Spanish language is also available in Streaming API in the Labs environment.
 Please feel free to reach out to us at support@symbl.ai for any queries.
 :::
 
@@ -162,7 +163,7 @@ If successful you should receive a response in the console.
 const accessToken = accessToken;
 // Refer to the Authentication section for how to generate the accessToken: https://docs.symbl.ai/docs/developer-tools/authentication
 const uniqueMeetingId = btoa("user@example.com"); // btoa will take a string and generate a unique ID
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);
 
@@ -206,6 +207,9 @@ ws.onopen = (event) => {
   }));
 };
 ```
+:::note Backward Compatibility
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
+:::
 
 #### Connect Mic
 

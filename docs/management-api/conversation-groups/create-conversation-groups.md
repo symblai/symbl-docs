@@ -2,7 +2,7 @@
 id: create-conversation-groups
 title: Create Conversation Groups
 sidebar_label: POST Conversation Groups 
-slug: /management-api/conversation-groups/create-conversation-groups
+slug: /management-api/conversation-groups/create-conversation-groups/
 ---
 
 import Tabs from '@theme/Tabs';

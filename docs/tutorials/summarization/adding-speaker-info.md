@@ -1,8 +1,8 @@
 ---
 id: adding-speaker-info
-title: Providing Speaker Information to generate Summary (Beta)
+title: Providing Speaker Information to generate Summary
 sidebar_label: Providing Speaker Information to generate Summary 
-slug: /tutorials/summarization/adding-speaker-info
+slug: /tutorials/summarization/adding-speaker-info/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,8 +10,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::note In Alpha Phase
+This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
 Summaries are generated best when used with Speaker information captured in the conversation. It is highly recommended that you send us the speaker information to use this feature effectively.

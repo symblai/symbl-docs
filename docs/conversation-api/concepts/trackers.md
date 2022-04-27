@@ -2,7 +2,8 @@
 id: trackers
 title: Trackers (Beta)
 sidebar_label: Introduction
-slug: /concepts/trackers
+slug: /concepts/trackers/
+pagination_label: Trackers
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,7 +17,7 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 
 ## What is a Tracker?
 
-Trackers are user-defined enities that allow you to track the occurrences of any characteristics or events in a conversation with just a few examples. You can track critical moments in a conversation across several use cases in both real-time as the conversation is in-progress as well as asynchronously after the conversation is over from recordings. Some use cases for Trackers are when a customer is unhappy, when someone is rude, potential sales opportunity so you can identify emerging trends and gauge the nature of interactions. 
+Trackers are user-defined entities that allow you to track the occurrences of any characteristics or events in a conversation with just a few examples. You can track critical moments in a conversation across several use cases in both real-time as the conversation is in-progress as well as asynchronously after the conversation is over from recordings. Some use cases for Trackers are when a customer is unhappy, when someone is rude, potential sales opportunity so you can identify emerging trends and gauge the nature of interactions. 
 
 ## How Trackers Work
 
@@ -80,7 +81,7 @@ Operation  | Endpoint
 ---------- | -------
 Create Tracker | [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
 Create Trackers in Bulk | [`POST` v1/manage/trackers](/management-api/trackers/create-tracker#bulk-create-trackers-api)
-Get Tracker with ID| [`GET`v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
+Get Tracker with ID| [`GET` v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
 Get Tracker with name | [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
@@ -89,12 +90,71 @@ Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers
 Currently, Trackers is supported with Symbl’s Async APIs and Streaming APIs.
 :::
 
-## Tutorials
+### Trackers Management UI 
 
-- [How to create a Tracker](/docs/management-api/trackers/overview#consuming-trackers-with-management-api)
-- [How to create Trackers with Async API](/docs/management-api/trackers/overview#consuming-trackers-with-async-apis)
-- [How to create Trackers with Streaming API](/docs/management-api/trackers/overview#consuming-trackers-with-streaming-api)
-- [Viewing detected Trackers with Async API](/docs/async-api/code-snippets/track-phrases-in-a-conversation/#view-detected-trackers)
-- [Detect Key Phrases with Streaming API](/docs/streamingapi/code-snippets/detect-key-phrases/#ontrackerresponse-json-response-example)
-- [How to create Trackers in Bulk](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk)
-- [How to receive Trackers in Spanish with Streaming API](/docs/streamingapi/code-snippets/receive-trackers-in-spanish)
+You can create, view, edit, and delete Trackers via the Trackers Management UI. To access this feature, log in to the [Symbl Platform](https://platform.symbl.ai/#/login). 
+
+The following capabilities are supported in the Trackers Management UI:
+
+- Create Trackers
+- View Trackers
+- Edit Trackers
+- Delete Trackers
+
+![img-tracker-ui](/img/tracker-ui-1.png)
+
+:::tip
+The Trackers Management UI allows you to copy the Tracker ID with the copy button and use it directly in your code. 
+
+1. Go to created Tracker and click on the select option. The edit options shows up. 
+
+![copy-tracker-id](/img/copy-tracker-id.png)
+2. Click **Copy ID**. This copies the Tracker ID in the following format:
+
+`{"trackers":[{"id":"4807227589263360"}]}`
+:::
+
+:::important
+**Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the Trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:` are not allowed.<br/>
+**Vocabulary terms**: We recommend that you add at least 5 and a maximum of 50 vocabulary terms per Tracker.<br/>
+**Trackers limitation**: You can create up to 500 Trackers per account. 
+:::
+
+Read more
+---
+
+<div class="row">
+  <div class="column">
+    <div class="card21"><h4>API Reference</h4>
+
+* [`POST` v1/manage/tracker](/management-api/trackers/create-tracker)
+* [`GET` v1/manage/tracker/{trackerId}](/management-api/trackers/get-tracker#get-tracker-by-id)
+* [`GET` v1/manage/trackers?&name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
+* [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
+* [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+
+<br/></div>
+  </div>
+   <div class="column">
+    <div class="card21"><h4>Tutorials</h4>
+
+ 
+* [How to create and use Trackers- Trackers Management API](/docs/tutorials/trackers/consuming-trackers-management-api/)
+* [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
+* [Creating Trackers with Streaming API](/docs/tutorials/trackers/create-trackers-streaming-api/)
+* [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
+* [Viewing detected Trackers with Async API](/docs/async-api/code-snippets/track-phrases-in-a-conversation/#view-detected-trackers)
+* [Detect Key Phrases with Streaming API](/docs/streamingapi/code-snippets/detect-key-phrases/#ontrackerresponse-json-response-example)
+* [How to create Trackers in Bulk](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk)
+* [How to receive Trackers in Spanish with Streaming API](/docs/streamingapi/code-snippets/receive-trackers-in-spanish)
+ 
+
+  </div>
+  </div>
+  
+<br/>
+<br/>
+<br/>
+ 
+</div>
+<br/>

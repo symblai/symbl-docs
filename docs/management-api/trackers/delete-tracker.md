@@ -2,7 +2,7 @@
 id: delete-tracker
 title: Delete Tracker 
 sidebar_label: DELETE Tracker 
-slug: /management-api/trackers/delete-tracker
+slug: /management-api/trackers/delete-tracker/
 ---
 
 ---
@@ -11,10 +11,10 @@ slug: /management-api/trackers/delete-tracker
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
-The Delete Tracker API will delete the Tracker entity against the `trackerId` provided. 
+This API will delete the Tracker entity against the `trackerId` provided. 
 
-:::info
-Currently, the Tracker entities can be consumed in the [Async APIs](/docs/async-api/introduction) only. Support for the other APIs will be added soon.
+:::info Trackers Management UI
+You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
 :::
 
 ### API Endpoint 

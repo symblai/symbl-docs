@@ -2,7 +2,8 @@
 id: introduction
 title: Management API (Beta)
 sidebar_label: Introduction
-slug: /management-api/introduction
+slug: /management-api/introduction/
+pagination_label: Management API
 ---
 :::note In Beta Phase
 This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
@@ -32,6 +33,10 @@ Get Tracker with ID| [`GET`v1/manage/tracker/{trackerId}](/management-api/tracke
 Get Tracker with name | [`GET` v1/manage/trackers?name={trackerName}](/management-api/trackers/get-tracker#get-tracker)
 Update Tracker| [`PUT`v1/manage/tracker/{trackerId}](/management-api/trackers/update-tracker)
 Delete Tracker| [`DELETE`v1/manage/tracker/{trackerId}](/management-api/trackers/delete-tracker)
+
+:::info Trackers Management UI
+You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
+:::
 
 ### Conversation Groups Management APIs
 

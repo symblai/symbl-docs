@@ -1,7 +1,7 @@
 ---
 id: start-and-stop-streaming-api-connection
 title: Start and Stop Streaming API Connection
-slug: /streamingapi/code-snippets/start-and-stop-connection
+slug: /streamingapi/code-snippets/start-and-stop-connection/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -108,7 +108,7 @@ If successful you should receive a response in the console.
 const accessToken = accessToken;
 // Refer to the Authentication section for how to generate the accessToken: https://docs.symbl.ai/docs/developer-tools/authentication
 const uniqueMeetingId = btoa("user@example.com"); // btoa will take a string and generate a unique ID
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);
 
@@ -152,6 +152,9 @@ ws.onopen = (event) => {
   }));
 };
 ```
+:::note Backward Compatibility
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
+:::
 
 #### Testing
 

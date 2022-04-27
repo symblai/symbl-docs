@@ -2,7 +2,7 @@
 id: python-sdk-reference
 title: Python SDK Reference
 sidebar_label: Python SDK Reference
-slug: /python-sdk/python-sdk-reference
+slug: /python-sdk/python-sdk-reference/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -217,7 +217,7 @@ To see an example of the usage of `put_members` functionality, go to out [GitHub
 
 ### conversation_object.put_speakers_events(parameters={})
 
-`parameters`:- (mandatory) takes a dictionary which contains `speakerEvents`. For list of parameters accepted, see [Speaker Events Object](https://docs.symbl.ai/docs/conversation-api/speaker-events/#speaker-event-object) page.
+`parameters`:- (mandatory) takes a dictionary which contains `speakerEvents`. For list of parameters accepted, see [Speaker Events Object](/docs/conversation-api/speaker-events/#speaker-event-object) page.
 
 This API provides the functionality to update Speakers in a conversation after it has been processed.
 

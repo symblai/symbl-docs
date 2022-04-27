@@ -2,7 +2,7 @@
 id: subscribe
 title: Subscribe API (Beta)
 sidebar_label: Request Parameters 
-slug: /subscribe-api
+slug: /subscribe-api/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -23,7 +23,7 @@ While users connected on websocket are charged per user, the listen-only partici
 This can be turned on or off for a conversation, on demand. 
 
 :::info
-The Subscribe APIs does not have a limit to the number of participants that can join. You can seamlessly add up to 10,000 participants. 
+The Subscribe API allows you to add up to 10,000 participants per call. 
 :::
 
 ### API Endpoint

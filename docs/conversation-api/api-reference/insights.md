@@ -2,7 +2,7 @@
 id: insights
 title: GET Insights
 sidebar_label: GET Insights
-slug: /conversation-api/insights
+slug: /conversation-api/insights/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,6 +11,10 @@ import TabItem from '@theme/TabItem';
 ---
 
 Returns all the insights in a conversation including Topics, Questions and Action Items
+
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -29,10 +33,6 @@ Field  | Description
 ```assignee``` | if an action item is generated, this field contains the name and email of the person assigned to it
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

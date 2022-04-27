@@ -2,7 +2,7 @@
 id: questions
 title: GET Questions
 sidebar_label: GET Questions
-slug: /conversation-api/questions
+slug: /conversation-api/questions/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,17 +10,17 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-This API help you find explicit question or request for information that comes up during the conversation, whether answered or not, is recognized as a question.
+This API helps you find explicit question or request for information that comes up during the conversation. Whether answered or not, all questions are recognized. 
+
+### Authentication
+
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/questions`
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 <Tabs
   defaultValue="cURL"

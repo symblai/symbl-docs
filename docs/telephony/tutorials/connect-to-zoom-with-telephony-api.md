@@ -1,7 +1,7 @@
 ---
 id: connect-to-zoom-with-telephony-api
 title: Real Time AI insights From Zoom Call
-slug: /telephony/tutorials/connect-to-zoom
+slug: /telephony/tutorials/connect-to-zoom/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 This guide uses a **PSTN** connection to connect to Zoom. **PSTN** audio quality maxes out to 8KHz. You can also use a **[SIP-based connection](/docs/concepts/pstn-and-sip#sip-session-initiation-protocol)**, which captures audio at 16KHz and above.
 :::
 
-[Symbl’s Telephony API](https://docs.symbl.ai/?shell#telephony-api) allows you to connect to any conference call system using PSTN or SIP networks. In this guide, we will walk you through how to get a live transcription and real-time AI insights, such as [follow-ups](/docs/concepts/follow-ups), [action items](/docs/concepts/action-items), [topics](/docs/concepts/topics) and [questions](/docs/conversation-api/questions), of a Zoom call using a PSTN connection. This application uses the Symbl Javascript SDK which requires the `@symblai/symbl-js` node package. You must have an active Zoom call (no one has to be in it but yourself) and whatever you speak in the Zoom call will be taken by our API and processed for conversational insights.
+[Symbl’s Telephony API](/docs/telephony/introduction) allows you to connect to any conference call system using PSTN or SIP networks. In this guide, we will walk you through how to get a live transcription and real-time AI insights, such as [follow-ups](/docs/concepts/follow-ups), [action items](/docs/concepts/action-items), [topics](/docs/concepts/topics) and [questions](/docs/conversation-api/questions), of a Zoom call using a PSTN connection. This application uses the Symbl Javascript SDK which requires the `@symblai/symbl-js` node package. You must have an active Zoom call (no one has to be in it but yourself) and whatever you speak in the Zoom call will be taken by our API and processed for conversational insights.
 
 :::info
 You must make sure your Zoom call allows phone dial-in for this example to work correctly.
@@ -53,6 +53,8 @@ From the root directory of your project, run the following command to add `@symb
 ```bash
 npm i --save @symblai/symbl-js
 ```
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### Retrieve your Symbl API credentials
 
@@ -245,6 +247,17 @@ sdk.init({
       console.log('Conversation ID', connection.conversationId);
       console.log('Full Conection Object', connection);
       console.log("Calling into Zoom now, please wait about 30-60 seconds.");
+
+      // Scheduling stop endpoint call after 60 seconds
+      setTimeout(() => {
+        sdk.stopEndpoint({
+          connectionId: connection.connectionId
+        }).then(() => {
+          console.log('Stopped the connection with connectionID:', connectionId);
+          console.log('Conversation ID for Stopped Connection:', connection.conversationId);
+          console.log('Full Stop Conection Object:', connection);
+        }).catch(err => console.error('Error while stopping the connection.', err));
+      }, 60000);
     })
     .catch((err) => {
        console.error("Error while starting the connection", err);

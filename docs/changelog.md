@@ -2,7 +2,7 @@
 id: changelog
 title: Changelog
 sidebar_label: Changelog
-slug: /changelog
+slug: /changelog/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,6 +10,65 @@ import TabItem from '@theme/TabItem';
 --- 
 
 We continuously add new features and enhancements, fix critical bugs, and regularly deploy changes to improve performance. Keep a tab of our latest updates on this page.
+
+### 12 April 2022
+
+![sdk](/img/sdk-icon.png) <br/>
+- **Availability of a new Web SDK package** that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser.  <br/>
+[Read more here](/docs/web-sdk/overview). <br/><br/>
+  #### Known Issues
+  - When an empty array is passed for `insightTypes` on `createConnection`, users still get those insights available on “ON” handlers for `questions`, `topics`, `action_items`, `follow_ups`.
+  - Web SDK does not show any errors when users do not pass or use or send invalid(v4 format) `connectionID` to subscribe to existing stream.
+  - If a user loses network for 30-40 seconds, the WebSocket connection does not recover with `noConnectionTimeout: 900`.
+  - If 2nd speaker joins the existing stream and passes the tracker object, Streaming API only returns the trackers that were passed by the original speaker.
+  - When the WebSocket Connection breaks and when the user switches network change from wifi to mobile hotspot, the connection does not recover.
+  - Web SDK does not handle Safari browser seamlessly.
+  - `session_modified` hander is not supported.  
+  - Update Element is working for `Linear16` but not for `OPUS`.
+
+
+### 14 March 2022
+
+![api update](/img/api-update.png) 
+- **Enabling All Trackers with Streaming API**: Streaming API now supports enabling all the Trackers associated with an account. [Read more here](/docs/streaming-api/api-reference/#using-trackers). <br/>
+
+### 8 Feb 2022
+
+![api update](/img/api-update.png) 
+- **Trackers Limit Increase**: Increased Tracker creation limit to 500 per account. <br/>
+- **Summarization Alpha Release**: Summary API is now available in the Alpha release phase. 
+- **Relative timestamp for Messages API** <font color="orange"> (LABS): </font><br/> Added support for the parameters `timeOffset` and `duration` the Messages API. [Read more here](/docs/conversation-api/messages).
+- **Nomenclature Change**: Change of name for the parameter `customVocabulary` for Topics API to `customTopicVocabulary`. Backward compatibility available. 
+
+### 31 Jan 2022
+
+![api update](/img/api-update.png) 
+- **Trackers Management UI**: You can create, view, edit, and delete Trackers via the Trackers Management UI. To access this feature, log in to [Symbl Platform](https://platform.symbl.ai/#/login). <br/>
+[Read more here](/docs/concepts/trackers#trackers-management-ui).
+
+### 13 Jan 2022
+
+![api update](/img/api-update.png) 
+- **Streaming API Opus Support**: Added support for Opus for Streaming API with 48000 Hz sample rate.<br/>
+- **Streaming API parameters available in GA**: Availability of the following Streaming API parameters from Labs to GA: `noConnectionTimeout`, `disconnectOnStopRequest` and `disconnectOnStopRequestTimeout`.
+
+### 11 Jan 2022
+
+![api update](/img/api-update.png) 
+- **Streaming API Logs**: You can view the log details of all your Streaming API requests. To access this feature, log in to [Symbl Platform](https://platform.symbl.ai/#/login). <br/>
+[Read more here](/docs/streaming-api/api-reference#streaming-api-logs).
+
+### 10 Jan 2022
+
+![api update](/img/api-update.png) 
+- **Word level confidence score**: You can get word-level confidence score in messages API. <br/>
+[Read more here](/docs/conversation-api/messages#word-level-confidence-score--labs).
+
+### 28 Dec 2021
+
+![api update](/img/api-update.png) 
+- **Added custom vocabulary support in Topics API.** <font color="orange"> (LABS) </font><br/>
+[Read more here](/docs/conversation-api/get-topics#custom-vocabulary-for-topics-labs).
 
 ### 26 Nov 2021
 
@@ -93,8 +152,6 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 - **User Engagement Analytics**: You can get analytics data of your users interactions on the Summary UI via Segment app.<br/>
 [Read more here](/docs/pre-built-ui/user-engagement-analytics).
 
-
-
 ### 13 July 2021
 
 ![summary](/img/summary-ui-icon.png)
@@ -114,8 +171,6 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 ![sdk](/img/sdk-icon.png)
 - Availability of Streaming API with Python SDK. [Read more here](/docs/python-sdk/streaming-api). 
 
----
-
 ### 29 June 2021
 
 ![api update](/img/api-update.png)
@@ -131,15 +186,11 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 - Support for the `readOnly` parameter has been added to avoid unintended editing of the **Summary UI**.
 - Users can now share their own configured URL with their domain name in the iframe implementation.
 
----
-
 ### 31 May 2021
 ![api update](/img/api-update.png)
 
 - Added support for creating Transcripts in SRT format. 
 [Read more here](/docs/conversation-api/transcript/#create-transcript-in-srt).
-
----
 
 ### 22 April 2021
 
@@ -157,3 +208,4 @@ Availability of parameters with Streaming API for keeping the WebSocket connecti
 
 
 ### [Connect with us on Slack](https://symbldotai.slack.com/join/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA#/shared-invite/email) 💬
+

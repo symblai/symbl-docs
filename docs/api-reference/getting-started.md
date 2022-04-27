@@ -2,7 +2,7 @@
 id: api-getting-started
 title: Symbl APIs
 sidebar_label: Introduction
-slug: /api-reference/getting-started
+slug: /api-reference/getting-started/
 ---
 ---
  
@@ -13,10 +13,10 @@ Our REST APIs support all HTTP verbs (or methods, as they are referred to in RES
  
 Symbl provides a suite of APIs for different usecases. Some of them are listed below: <br/>
  
-&nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/reference/reference) allow you to send text, audio or video conversations in recorded format. <br/>
+&nbsp; &nbsp; 👉 &nbsp; [Async APIs](/docs/async-api/introduction) allow you to send text, audio or video conversations in recorded format. <br/>
 &nbsp; &nbsp; 👉 &nbsp; [Streaming APIs](/docs/streamingapi/introduction) allow you to connect Symbl on a live call via WebSocket protocol.<br/>
 &nbsp; &nbsp; 👉 &nbsp; [Telephony APIs](/docs/telephony/introduction) allow you to connect Symbl on an live audio conversation via SIP and PSTN.<br/>
-&nbsp; &nbsp; 👉 &nbsp; [Conversation API](/docs/async-api/reference/reference) allows you to get Conversation Intelligence such as Sentiment Analysis, Action Items, Topics, Trackers, Summary and more. <br/>
+&nbsp; &nbsp; 👉 &nbsp; [Conversation API](/docs/conversation-api/introduction) allows you to get Conversation Intelligence such as Sentiment Analysis, Action Items, Topics, Trackers, Summary and more. <br/>
  
  
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/13497402-108cafc3-da45-4b00-97fe-4819894f58bb?action=collection%2Ffork&collection-url=entityId%3D13497402-108cafc3-da45-4b00-97fe-4819894f58bb%26entityType%3Dcollection%26workspaceId%3D5f563cfe-42ef-4344-a98a-eae13183fb7c)

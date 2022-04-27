@@ -2,7 +2,7 @@
 id: comprehensive-action-items
 title: GET Comprehensive Action Items 
 sidebar_label: GET Comprehensive Action Items 
-slug: /conversation-api/comprehensive-action-items
+slug: /conversation-api/comprehensive-action-items/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,6 +22,9 @@ For any queries or feedback, please contact us at labs@symbl.ai.
 
 This API returns all the action items that are enriched with corresponding contexts.
 
+### Authentication
+
+Before using the Conversation API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### HTTP Request
 
@@ -29,10 +32,6 @@ This API returns all the action items that are enriched with corresponding conte
 
 
 ### Example API Call
-
-:::info
-Before using the Conversation API you must get the authentication token (`AUTH_TOKEN`) from [our authentication process](/docs/developer-tools/authentication).
-:::
 
 
 <Tabs
@@ -153,9 +152,9 @@ Field  | Description
 ```id``` | Unique identifier of the comprehensive action item.
 ```text``` | Text of the comprehensive action item. 
 ```type``` | Response type. Default is `action_item`.
-```score``` | Confidence score of the detected action item. Value from 0 - 1.
+```score``` | Confidence score of the detected action item. Value from 0 - 1. The score shows the relevancy of the action item in the transcript. Higher the confidence score, the more relevant it is.
 ```messageRefs.id``` | Unique identifiers of the corresponding messages from where the action item was derived. You may get multiple message IDs here as Symbl identifies all the relevant messages in the conversation and generates the required action item accordingly.   
 ```entities``` | List of detected entity objects in the insight with `type` - entity type and `text` - corresponding text.
-```definitive``` | Boolean indicating if the action item is definitive or not.
+```definitive``` | Boolean indicating if the action item is definitive or not. Implies that the action item is conclusive and not open-ended. For e.g, ‘I will complete this task today’ is a definitive sentence. 
 ```phrases``` | List of detected phrases with `type` - phrase type and `text` - corresponding text. The `action_phrase` type represents the actionable part of an insight.
 ```assignee``` | This field contains the name and email of the person to whom the action item is assigned.

@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: SIP & PSTN
-slug: /concepts/pstn-and-sip
+slug: /concepts/pstn-and-sip/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: api-reference
 title: Javascript SDK Reference
-slug: /javascript-sdk/reference
+slug: /javascript-sdk/reference/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -54,7 +54,7 @@ Connects to the [Telephony API](/docs/telephony/introduction) endpoint using the
 
 Name | Description
 -----|------------
-`config` | Options specified for the [Telephony API Configuration Object](http://docs.symbl.ai/docs/telephony-api/api-reference#request-parameters).
+`config` | Options specified for the [Telephony API Configuration Object](/docs/telephony-api/api-reference#request-parameters).
 
 #### Returns
 
@@ -124,13 +124,13 @@ sdk.stopEndpoint({
 
 ```startRealtimeRequest (<Streaming API Configuration Object> options)```
 
-Connects to a [Streaming API](/docs/streamingapi/overview/introduction) Web Socket endpoint using the provided configuration options.
+Connects to a [Streaming API](/docs/streamingapi/introduction) Web Socket endpoint using the provided configuration options.
 
 #### Parameters
 
 Name | Description
 -----|------------
-`options` | Options specified for the [Streaming API Configuration Object](https://docs.symbl.ai/docs/streaming-api/api-reference#request-parameters).
+`options` | Options specified for the [Streaming API Configuration Object](/docs/streaming-api/api-reference#request-parameters).
 
 #### Returns
 
@@ -138,7 +138,7 @@ A Promise which is resolved once real-time request has been established.
 
 #### Event Handlers
 
-View the [Event Handlers](##event-handlers-1) section below to view which event handlers can be passed to the real-time connection.
+View the [Event Handlers](#event-handlers-1) section below to view which event handlers can be passed to the real-time connection.
 
 #### Code Example
 
@@ -174,7 +174,7 @@ Subscribes to an existing connection which will fire a callback for every event 
 
 Name | Description
 -----|------------
-`connectionId` | You receive the connection ID after connecting with [startRealtimeRequest](#startRealtimeRequest) or [startEndpoint](#startendpoint).
+`connectionId` | You receive the connection ID after connecting with [startRealtimeRequest](#startrealtimerequest) or [startEndpoint](#startendpoint).
 `callback` | A callback method which will be called on for every new event.
 
 #### Code Example
@@ -232,13 +232,14 @@ SpeakerEvent is a type of event Symbl can accept that provides information about
 
 Name | Description
 -----|------------
-`connectionId` | You receive the connection ID after connecting with [startRealtimeRequest](#startRealtimeRequest) or [startEndpoint](#startendpoint).
+`connectionId` | You receive the connection ID after connecting with [startRealtimeRequest](#startrealtimerequest) or [startEndpoint](#startendpoint).
 `event` | An event (such as a [SpeakerEvent](/docs/javascript-sdk/code-snippets/active-speaker-events/#speaker-event)) which is the event to be pushed onto the connection.
 `callback` | A callback method which will be called on for every new event.
 
 #### Code Example
 
 ```js
+const {sdk, SpeakerEvent} = require("@symblai/symbl-js);
 const speakerEvent = new SpeakerEvent();
 speakerEvent.type = SpeakerEvent.types.startedSpeaking;
 speakerEvent.user = {
@@ -262,7 +263,7 @@ sdk.pushEventOnConnection(
 
 ## Event Handlers
 
-When connecting using [`startRealtimeRequest`](#startRealtimeRequest), you can pass various handlers in the configuration options which be called if the specific event attached to the handler is fired.
+When connecting using [`startRealtimeRequest`](#startrealtimerequest), you can pass various handlers in the configuration options which be called if the specific event attached to the handler is fired.
 
 #### Code Example
 
@@ -395,7 +396,7 @@ The "finalized" messages mean that the automatic speech recognition has finalize
 
 ### onInsightResponse
 
-This callback provides you with any of the detected insights in real-time as they are detected. As with the [`onMessageCallback`](#onmessagecallback) this would also return every speaker's insights in case of multiple streams.
+This callback provides you with any of the detected insights in real-time as they are detected. As with the [`onMessageResponse`](#onmessageresponse) this would also return every speaker's insights in case of multiple streams.
 
 #### onInsightResponse JSON Response Example
 
@@ -462,7 +463,7 @@ This callback provides you with any of the detected insights in real-time as the
 
 ### onTopicResponse
 
-This callback provides you with any of the detected topics in real-time as they are detected.  As with the [`onMessageCallback`](#onmessagecallback) this would also return every topic in case of multiple streams.
+This callback provides you with any of the detected topics in real-time as they are detected.  As with the [`onMessageResponse`](#onmessageresponse) this would also return every topic in case of multiple streams.
 
 #### onTopicResponse JSON Response Example
 
@@ -484,7 +485,7 @@ This callback provides you with any of the detected topics in real-time as they 
 
 ### onTrackerResponse
 
-This callback provides you with any of the detected trackers in real-time as they are detected. As with the [`onMessageCallback`](#onmessagecallback) this would also return every tracker in case of multiple streams.
+This callback provides you with any of the detected trackers in real-time as they are detected. As with the [`onMessageResponse`](#onmessageresponse) this would also return every tracker in case of multiple streams.
 
 #### onTrackerResponse JSON Response Example
 

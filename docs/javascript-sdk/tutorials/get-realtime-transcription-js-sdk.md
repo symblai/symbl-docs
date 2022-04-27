@@ -1,6 +1,7 @@
 ---
 id: get-real-time-transcription-js-sdk
 title: Real-time Output With PSTN Dialing Using Symbl's JavaScript SDK
+slug: /javascript-sdk/tutorials/get-real-time-transcription-js-sdk/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -246,7 +247,7 @@ sdk.pushEventOnConnection(connectionId, speakerEvent.toJSON(), (err) => {
 });
 ```
 
-This example just touches the surface of what you can do with our Streaming API. If you would like to learn more about it you can visit the [Streaming API documentation](/docs/streamingapi/overview/introduction).
+This example just touches the surface of what you can do with our Streaming API. If you would like to learn more about it you can visit the [Streaming API documentation](/docs/streamingapi/introduction).
 
 ## Full Code Example
 

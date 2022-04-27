@@ -1,7 +1,7 @@
 ---
 id: get-live-transcription
 title: Live Transcription From A Phone Call
-slug: /telephony/tutorials/connect-to-phone-call
+slug: /telephony/tutorials/connect-to-phone-call/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ Get a live transcription in your Node.js application by making a call to a valid
 
 This application uses the Symbl Javascript SDK which requires the `symbl-node` node package. 
 
-Making a phone call is also the quickest way to test [Symbl’s Telephony API](https://docs.symbl.ai/?shell#telephony-api). It can make an outbound call to a phone number using a traditional public switched telephony network [(PSTN)](https://en.wikipedia.org/wiki/Public_switched_telephone_network), any [SIP trunks](https://en.wikipedia.org/wiki/SIP_trunking), or SIP endpoints that can be accessed over the internet using a SIP URI.
+Making a phone call is also the quickest way to test [Symbl’s Telephony API](/docs/telephony/introduction). It can make an outbound call to a phone number using a traditional public switched telephony network [(PSTN)](https://en.wikipedia.org/wiki/Public_switched_telephone_network), any [SIP trunks](https://en.wikipedia.org/wiki/SIP_trunking), or SIP endpoints that can be accessed over the internet using a SIP URI.
 
 ### Contents
 
@@ -44,12 +44,13 @@ From the root directory of your project, run the following command to add `symbl
 ```bash
 $ npm i --save symbl-node
 ```
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
 
 ### <a name="retrieve-credentials"></a>Retrieve your credentials
 
 Your credentials include your appId and appSecret. You can find them on the home page of the platform.
 ![credentials page](/img/credentials.png)
-
 
 ### <a name="init-sdk"></a>Initialize SDK
 
@@ -182,7 +183,7 @@ setTimeout(async () => {
 }, 60000); // Change the 60000 with higher value if you want this to continue for more time.
 ```
 
-The `stopEndpoint` will return an updated `connection` object which will have the `conversationId` in the response. You can use `conversationId` to fetch the results even after the call using the [Conversation API](https://docs.symbl.ai/#conversation-api).
+The `stopEndpoint` will return an updated `connection` object which will have the `conversationId` in the response. You can use `conversationId` to fetch the results even after the call using the [Conversation API](/docs/conversation-api/introduction).
 
 
 ## Code Example

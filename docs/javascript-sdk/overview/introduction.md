@@ -2,7 +2,8 @@
 id: introduction
 title: Symbl SDK (Node.js)
 sidebar_label: Introduction
-slug: /javascript-sdk/introduction
+slug: /javascript-sdk/introduction/
+pagination_label: JavaScript SDK
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -2,7 +2,7 @@
 id: text-summary-ui
 title: Text Summary UI
 sidebar_label: Text Summary UI
-
+slug: /pre-built-ui/text-summary-ui/
 ---
 
 import Tabs from '@theme/Tabs';

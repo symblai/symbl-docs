@@ -2,6 +2,7 @@
 id: errors
 title: Error Codes
 sidebar_label: Error Codes
+slug: /developer-tools/errors/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,7 +17,7 @@ Find details on common error codes and how to resolve them below.
 Error Code | Meaning
 ---------- | -------
 200 | OK -- Success.
-201 | Accepted -- Your request is successfully accepted.
+201 | Created -- Your request successfully led to the creation of a resource.
 400 | Bad Request -- Your request is invalid.
 401 | Unauthorized -- Your API key is invalid.
 403 | Forbidden
@@ -49,7 +50,7 @@ Error Code | Description | Resolution
 
 Error Code | Description | Resolution
 ---------- | ------- | ---------
-404 - Not Found | The 409 response code specifies that the Tracker with that specific trackerId does not exist. | Check the trackerId and ensure that it is valid and exists.
+404 - Not Found | The 404 response code specifies that the Tracker with that specific trackerId does not exist. | Check the trackerId and ensure that it is valid and exists.
 
 
 ```bash

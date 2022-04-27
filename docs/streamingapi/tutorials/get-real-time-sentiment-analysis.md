@@ -1,7 +1,7 @@
 ---
 id: get-real-time-sentiment-analysis
 title: Live sentiment analysis
-slug: /streamingapi/tutorials/get-real-time-sentiment-analysis-from-your-web-browser
+slug: /streamingapi/tutorials/get-real-time-sentiment-analysis-from-your-web-browser/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,8 +10,6 @@ import TabItem from '@theme/TabItem';
 ---
 
 In this guide you will learn how to get started with Symbl’s native Streaming API, which is our most accurate API for conversation analysis. Symbl's Streaming API is an API for enabling real-time conversational analysis on voice, video, or chat, or any live streaming directly through your web browser. If you have voice, video, or chat enabled, Symbl's API for streaming enables you to tap the raw conversational data of those streams. In addition to the setting up Symbl.ai's Streaming API, you create a function that logs sentiment analysis in real-time. Sentiment analysis operates through a call to the Message API with a query parameter. 
-
-You can view the complete code sample for this tutorial on [GitHub](https://github.com/symblai/logging-real-time-sentiments):
 
 :::note 
 The code sample you use today runs entirely in the browser without Node.js but requires you to understand HTTP requests.
@@ -52,8 +50,11 @@ Check the example below:
  */
 const accessToken = accessToken;
 const uniqueMeetingId = btoa("user@example.com");
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 ```
+:::note Backward Compatibility
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
+:::
 
 ## Create the WebSocket
 
@@ -320,7 +321,7 @@ Here's the complete code sample below which you can also [view on GitHub](https:
  */
 const accessToken = ""
 const uniqueMeetingId = btoa("user@example.com")
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);
 
@@ -345,7 +346,6 @@ if (data.type === 'message' && data.message.hasOwnProperty('data')) {
     request.send()
     }
 
-};
   if (data.type === 'message_response') {
     for (let message of data.messages) {
       console.log('Transcript (more accurate): ', message.payload.content);

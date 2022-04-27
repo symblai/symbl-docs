@@ -2,6 +2,7 @@
 id: abstract-topics
 title: Abstract Topics (Labs)
 sidebar_label: Introduction
+slug: /guides/abstract-topics/
 ---
 
 import Tabs from '@theme/Tabs';

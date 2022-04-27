@@ -1,16 +1,16 @@
 ---
 id: getting-summary
-title: How to get a Summary using Async API (Beta)
+title: How to get a Summary using Async API
 sidebar_label: Get Summary using Async API
-slug: /tutorials/summarization/getting-summary
+slug: /tutorials/summarization/getting-summary/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::note In Alpha Phase
+This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
 :::
 
 This tutorial provides a step-by-step instructions on how to get a Summary using Async APIs. 
@@ -30,7 +30,7 @@ In the example below, we use Text Async API, however, the same can be used for A
 
 #### Request 
 
-`POST https://api-labs.symbl.ai/v1/process/text?enableSummary=true`
+`POST https://api.symbl.ai/v1/process/text?enableSummary=true`
 
 #### Response
 
@@ -44,10 +44,6 @@ In the example below, we use Text Async API, however, the same can be used for A
 The Async API call will return the `conversationId`. You can use this Conversation ID to get the Summary in the next Step. 
 You must wait for the job to complete before you can get the Summary. 
 
-:::info
-The Conversation ID you receive after processing conversations with production Endpoint can be used to process Summary using the Labs Endpoint.
-:::
-
 ### Step 2: Get Summary with Summary API
 ---
 
@@ -55,11 +51,11 @@ Once you have the `conversationId`, you can send a GET request to the Summary AP
 
 #### Request 
 
-`GET https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary`
+`GET https://api.symbl.ai/v1/conversations/{conversationId}/summary`
 
 #### Example 
 
-`GET https://api-labs.symbl.ai/v1/conversations/5815170693595136/summary`
+`GET https://api.symbl.ai/v1/conversations/5815170693595136/summary`
 
 #### Response
 

@@ -1,6 +1,7 @@
 ---
 id: receive-live-captioning
 title: Receive Live Captioning
+slug: /streamingapi/code-snippets/receive-live-captioning/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -140,7 +141,7 @@ If successful you should receive a response in the console.
 const accessToken = accessToken;
 // Refer to the Authentication section for how to generate the accessToken: https://docs.symbl.ai/docs/developer-tools/authentication
 const uniqueMeetingId = btoa("user@example.com"); // btoa will take a string and generate a unique ID
-const symblEndpoint = `wss://api.symbl.ai/v1/realtime/insights/${uniqueMeetingId}?access_token=${accessToken}`;
+const symblEndpoint = `wss://api.symbl.ai/v1/streaming/${uniqueMeetingId}?access_token=${accessToken}`;
 
 const ws = new WebSocket(symblEndpoint);
 
@@ -190,6 +191,9 @@ ws.onopen = (event) => {
   }));
 };
 ```
+:::note Backward Compatibility
+The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated to `wss://api.symbl.ai/v1/streaming/` to standardize our API nomenclature. This change is backward compatible. However, we recommend you to use the new endpoint. 
+:::
 
 #### Connect Mic
 
@@ -330,7 +334,7 @@ If successful you should receive a response in the console.
   }]
   ```
 
+## See Also
 
-
-
-
+- [Receive live insights](/docs/streamingapi/code-snippets/receive-live-insights)
+- [Receive live topics](/docs/streamingapi/code-snippets/receive-live-topics)

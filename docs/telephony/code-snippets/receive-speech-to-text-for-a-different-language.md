@@ -1,6 +1,7 @@
 ---
 id: receive-speech-to-text-for-a-different-language
 title: Receive Speech-to-Text for a different language in a Conversation
+slug: /telephony/code-snippets/receive-speech-to-text-for-a-different-language/
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -56,11 +57,15 @@ Here you set the language key to Japanese: `"languages": ["ja-JP"],` and the tim
 }
 ```
 
-### <a name="code-example-1"></a>Full Code Example
 
 :::info
 The <strong>Symbl SDK (Node.js)</strong> snippet must be run using Node.js, while the <strong>Native Javascript</strong> snippet can be run in your web browser.
 :::
+
+### Authentication
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+
+### <a name="code-example-1"></a>Full Code Example
 
 <Tabs
   defaultValue="cURL"

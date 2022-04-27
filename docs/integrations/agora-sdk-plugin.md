@@ -1,7 +1,7 @@
 ---
 id: agora-sdk-plugin
 title: Symbl-Agora Marketplace Extension
-slug: /integrations/agora-sdk-plugin
+slug: /integrations/agora-sdk-plugin/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -191,7 +191,7 @@ The following table lists the parameters and their descriptions used in the samp
 | `symbl_token_api` | The URL for secure token generation.
 | `symbl_meeting_encoding` | The audio encoding in which the audio will be sent over the WebSocket connection.
 | `symbl_meeting_sampleRateHertz` | The rate of the incoming audio stream.
-| `symbl_confidence_threshold` | The minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range <=0.5 to <=1.0 (greater than or equal to 0.5 and less than or equal to 1.0.). Default value is 0.5.
+| `symbl_confidence_threshold` | The minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range >=0.5 to <=1 (greater than or equal to 0.5 and less than or equal to 1.0.). Default value is 0.5.
 
 You would have to call the method above during the initialization of the Agora Engine in your application.
  
@@ -782,7 +782,13 @@ public class MainActivity extends AppCompatActivity implements io.agora.rtc2.IMe
    }
 }
 ```
-### API Reference
+
+## Sample Project
+---
+The following sample project provides you an Android mobile app using the Agora Video SDK and the Symbl.ai Extension and it can be used as a reference. Follow the instructions in the README file for setting up, configuring and running the sample mobile app in your own device.
+[Sample Android App Project](https://github.com/symblai/symbl-agora-Android-app).
+
+## API Reference
 ---
 
-Find comprehensive information about our REST APIs in the [API Reference](https://docs.symbl.ai/docs/api-reference/getting-started) section.
+Find comprehensive information about our REST APIs in the [API Reference](/docs/api-reference/getting-started) section.

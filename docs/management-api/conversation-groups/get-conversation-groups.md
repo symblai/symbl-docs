@@ -2,7 +2,7 @@
 id: get-conversation-groups
 title: Get Conversation Groups 
 sidebar_label: GET Conversation Groups
-slug: /management-api/conversation-groups/get-conversation-groups
+slug: /management-api/conversation-groups/get-conversation-groups/
 ---
 
 import Tabs from '@theme/Tabs';
@@ -20,7 +20,7 @@ To fetch multiple Conversation Groups, go to [Get Multiple Conversation Groups](
 
 ### API Endpoint
 
-Make a PUT request to the following API:
+Make a GET request to the following API:
 
 **<font color="orange">GET</font> `https://api.symbl.ai/v1/manage/group/{groupId}`**
 
