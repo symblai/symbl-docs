@@ -16,9 +16,11 @@ This feature is in the Beta phase. If you have any questions, ideas or suggestio
 
 The Web SDK is a TypeScript application that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
 
+
 :::info
 The Web SDK is currently available with Symbl’s [Streaming API](/docs/streamingapi/introduction/) and [Subscribe APIs](/docs/subscribe-api/). 
 :::
+
 
 > **Source Code** <br/> 
 Find the source code here: https://github.com/symblai/symbl-web-sdk 
@@ -43,6 +45,28 @@ Before using the Web SDK you must [sign up with Symbl.ai](https://platform.symbl
 
 ## Installation
 
+=======
+## Supported Browsers
+The following web browser supported with the Web SDK are given below: 
+
+Operating System | Chrome | Edge | Firefox | Safari |
+---------- | ------- | ------- | ------ | ------ |
+macOS | ✅ | - | ✅ | ✅ | 
+Windows | ✅ | ✅ | ✅ | ✅ |
+Linux| ✅ | - | ✅ | ✅ | 
+
+
+:::caution note 
+Currently, the OPUS encoder support in Safari browser is not available. 
+:::
+
+## Prerequisites
+
+Before using the Web SDK you must [Sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values, which is used for authentication.
+
+## Installation
+
+
 ### Using npm
 
 Install the Web SDK using `npm` with the following command:
@@ -62,6 +86,7 @@ You can also import the file into your HTML appliaction using our CDN.
 ```
 
 #### Latest CDN
+
 
 ```html
 <script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/latest/symbl.min.js"></script>
@@ -260,3 +285,4 @@ Supported methods and events for the Symbl Web SDK are listed below:
     * [Questions Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#question-response-object)
     * [Trackers Response Object](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#tracker-response-object)
 * [Configuration Reference](/docs/web-sdk/web-sdk-reference/configuration-reference)
+

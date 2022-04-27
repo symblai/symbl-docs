@@ -237,3 +237,4 @@ View the [Importing](#importing) section for the various ways to import the Web 
 })();
 ```
 
+For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 
