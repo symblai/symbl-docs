@@ -18,38 +18,44 @@ Your Symbl API Credentials, that is, your App ID and App Secret are required for
 
 :::
 
+:::note
+View the [Importing](/web-sdk/overview/#importing) section for the various ways to import the Web SDK.
+:::
+
 ```js
 
-import { Symbl } from "@symblai/symbl-web-sdk";
+(async () => {
 
-try {
+    try {
 
-    // We recommend to remove appId and appSecret authentication for production applications.
-    // See authentication section for more details
-    const symbl = new Symbl({
-        appId: '<your App ID>',
-        appSecret: '<your App Secret>',
-        // accessToken: '<your Access Toknen>'
-    });
-    
-    // Open a Symbl Streaming API WebSocket Connection.
-    const connection = await symbl.subscribeToConnection("<YOUR SESSION ID>");
+        // We recommend to remove appId and appSecret authentication for production applications.
+        // See authentication section for more details
+        const symbl = new Symbl({
+            appId: '<your App ID>',
+            appSecret: '<your App Secret>',
+            // accessToken: '<your Access Toknen>'
+        });
+        
+        // Open a Symbl Streaming API WebSocket Connection.
+        const connection = await symbl.subscribeToConnection("<YOUR SESSION ID>");
 
-    // Retrieve real-time transcription from the conversation
-    connection.on("speech_recognition", (speechData) => {
-      const { punctuated } = speechData;
-      const name = speechData.user ? speechData.user.name : "User";
-      console.log(`${name}: `, punctuated.transcript);
-    });
-    
-    // This is just a helper method meant for testing purposes.
-    // Waits 60 seconds before continuing to the next API call.
-    await symbl.wait(60000);;
-    
-    // Closes the WebSocket connection.
-    connection.disconnect();
-} catch(e) {
-    // Handle errors here.
-}
+        // Retrieve real-time transcription from the conversation
+        connection.on("speech_recognition", (speechData) => {
+          const { punctuated } = speechData;
+          const name = speechData.user ? speechData.user.name : "User";
+          console.log(`${name}: `, punctuated.transcript);
+        });
+        
+        // This is just a helper method meant for testing purposes.
+        // Waits 60 seconds before continuing to the next API call.
+        await Symbl.wait(60000);;
+        
+        // Closes the WebSocket connection.
+        connection.disconnect();
+    } catch(e) {
+        // Handle errors here.
+    }
+
+})();
 
 ```
