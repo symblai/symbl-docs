@@ -45,7 +45,15 @@ Before using the Conversation API you must get the authentication token (`AUTH_T
 
 ```sh
 curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/messages" \
-    -H "Authorization: Bearer $AUTH_TOKEN"
+--header "Authorization: Bearer $AUTH_TOKEN" \
+# Set your access token here. See https://docs.symbl.ai/docs/developer-tools/authentication
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "verbose": True,  
+  // Optional, boolean| Gives you word level timestamps of each sentence.
+  "sentiment": True,
+  // Optional, boolean| Give you sentiment analysis on each message.
+}'
 ```
 
 </TabItem>
@@ -53,16 +61,43 @@ curl "https://api.symbl.ai/v1/conversations/$CONVERSATION_ID/messages" \
 <TabItem value="nodejs">
 
 ```js
-const request = require('request');
 const authToken = AUTH_TOKEN;
 const conversationId = CONVERSATION_ID;
 
-request.get({
-    url: `https://api.symbl.ai/v1/conversations/${conversationId}/messages`,
-    headers: { 'Authorization': `Bearer ${authToken}` },
-    json: true
-}, (err, response, body) => {
-    console.log(body);
+const payload = {
+    // Optional, boolean| Gives you word level timestamps of each sentence.
+    "verbose": True,
+    // Optional, boolean| Give you sentiment analysis on each message.
+    "sentiment": True
+}
+
+const responses = {
+  400: 'Bad Request! Please refer docs for correct input fields.',
+  401: 'Unauthorized. Please generate a new access token.',
+  404: 'The conversation and/or it\'s metadata you asked could not be found, please check the input provided',
+  429: 'Maximum number of concurrent jobs reached. Please wait for some requests to complete.',
+  500: 'Something went wrong! Please contact support@symbl.ai'
+}
+
+const fetchData = {
+  method: "GET",
+  headers: {
+    'Authorization': `Bearer ${authToken}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+}
+
+fetch(`https://api.symbl.ai/v1/conversations/${conversationId}/messages`, fetchData).then(response => {
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw new Error(responses[response.status]);
+  }
+}).then(response => {
+  console.log('response', response);
+}).catch(error => {
+  console.error(error);
 });
 ```
 
