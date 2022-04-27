@@ -59,9 +59,9 @@ Given below is another sample request containing more than one `criteria`. You c
 
 Parameter |  Description
 ---------- | ------- |
-```name``` | String, mandatory <br/><br/> Name of the group. String with no special characters is allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters. <br/><br/> Example: `"name": "Calls made by John"`
-```description``` | String, optional <br/><br/> Description to capture any additional details of the group and its purpose. The maximum length of string allowed `512` characters. <br/><br/> Example: `"description": "All the conversations made by agent John Doe are captured in this Group."`
-```criteria``` | String / RSQL format, mandatory <br/><br/> Criteria in RSQL format that should be applied to group conversations under this group. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser). <br/><br/> Example: `"criteria": "conversation.metadata.agentId==johndoe"`
+```name``` | String, mandatory <br/><br/> Name of the group. String with no special characters is allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
+```description``` | String, optional <br/><br/> Description to capture any additional details of the group and its purpose. The maximum length of string allowed `512` characters.
+```criteria``` | String / RSQL format, mandatory <br/><br/> Criteria in RSQL format that should be applied to group conversations under this group. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
 
 ### Response Body
 

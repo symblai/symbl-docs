@@ -35,15 +35,15 @@ The previous endpoint  `wss://api.symbl.ai/v1/realtime/insights/` is now updated
 
 Field      |  Description
 ---------- | ------- |
-```type``` | String, mandatory <br/><br/> Type of message. <br/><br/> Example: `"type": "start_request"`, `"type": "stop_request"`. 
-```type```| String, optional <br/><br/> Type of message. Allows you to modify the request. See the [Modify Request](#modify-request) section below for more details. <br/><br/> Example: `"type": modify_request`
-```insightTypes``` |	List of String, optional <br/><br/> Types of insights to return. If not provided, no insights will be returned. <br/><br/> Example: `"insightTypes": ["question", "action_item"]`
-```customVocabulary``` | List of String, optional <br/><br/> An array of strings containing vocabulary specific to your company, products, or phrases. <br/><br/> Example: `"customVocabulary": ["acme", "acme-platform"]`
+```type``` | String, mandatory <br/><br/> Type of message.
+```type```| String, optional <br/><br/> Type of message. Allows you to modify the request. See the [Modify Request](#modify-request) section below for more details.
+```insightTypes``` |	List of String, optional <br/><br/> Types of insights to return. If not provided, no insights will be returned.
+```customVocabulary``` | List of String, optional <br/><br/> An array of strings containing vocabulary specific to your company, products, or phrases.
 ```config``` | Find the supported value [here](#config), optional <br/><br/> Configuration for this request. [See the config section below for more details](#config).
 ```speaker``` | Find the supported value [here](#speaker), optional <br/><br/> Speaker identity to use for audio in this WebSocket connection. If omitted, no speaker identification will be used for processing. [See the speaker section below for more details](#speaker).
-```noConnectionTimeout``` | Between `0` to `1800` seconds, optional <br/><br/> The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> <br/> For example,  when this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it. <br/><br/> Example: `"noConnectionTimeout": 360` 
-```disconnectOnStopRequest``` | Boolean, optional <br/><br/> This parameter allows you to set your Streaming API connection in such a way that even when the `stop_request` is sent. The connection does not drop-off, only the processing is stopped and the `conversationId` and connection is kept live for `1800` seconds by default. You can always override this value by passing the `disconnectOnStopRequest` parameter. <br/> <br/> This allows you to stop and start the Streaming API processing without dropping the WebSocket connection, so that you can stop and resume the processing in the middle of a call and optimize the Streaming API usage costs. <br/> <br/> The default value is `true`. <br/><br/> Example: `"disconnectOnStopRequest": false` 
-```disconnectOnStopRequestTimeout``` | 	Between `0` to `1800` seconds, optional <br/><br/> This parameter allows you to override the idle time out (if a WebSocket connection is idle for 30 minutes). Set this parameter with a value between `0` to `1800` seconds. If the idle connection needs to be kept alive beyond `1800` seconds, you have to restart the connection at `1800` seconds elapsed. <br/> <br/> If the value is passed as `0`, the WebSocket connection is dropped when `stop_request` is received. The default value is `1800`. <br/><br/> Example: `"disconnectOnStopRequestTimeout": 600` 
+```noConnectionTimeout``` | Between `0` to `1800` seconds, optional <br/><br/> The buffer time (in seconds) during which the WebSocket API connection stays open even if there’s no Streaming API connection active for that duration. This allows the Speaker to reconnect to the same meeting with the same Subscribers if they lost the connection previously. <br/> <br/> For example,  when this parameter is set to `noConnectionTimeout = 600 secs` and if there is no graceful termination using `stop_request` message sent explicitly when there just one WebSocket connection, the `connectionId` and `conversationId` are kept valid for 600 seconds before finalizing the connection, after which connectionId will be not available to subscribe and `conversationId` will have all the last know information associated with it.
+```disconnectOnStopRequest``` | Boolean, optional <br/><br/> This parameter allows you to set your Streaming API connection in such a way that even when the `stop_request` is sent. The connection does not drop-off, only the processing is stopped and the `conversationId` and connection is kept live for `1800` seconds by default. You can always override this value by passing the `disconnectOnStopRequest` parameter. <br/> <br/> This allows you to stop and start the Streaming API processing without dropping the WebSocket connection, so that you can stop and resume the processing in the middle of a call and optimize the Streaming API usage costs. <br/> <br/> The default value is `true`.
+```disconnectOnStopRequestTimeout``` | 	Between `0` to `1800` seconds, optional <br/><br/> This parameter allows you to override the idle time out (if a WebSocket connection is idle for 30 minutes). Set this parameter with a value between `0` to `1800` seconds. If the idle connection needs to be kept alive beyond `1800` seconds, you have to restart the connection at `1800` seconds elapsed. <br/> <br/> If the value is passed as `0`, the WebSocket connection is dropped when `stop_request` is received. The default value is `1800`.
 
 
 ##### Code Example
@@ -62,9 +62,9 @@ Field      |  Description
 
 Field      |  Description
 ---------- | ------- |
-```confidenceThreshold``` | `>=0.5` to `<=1.0`, optional <br/><br/>Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range `>=0.5` to `<=1.0` (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`. <br/><br/> Example: `"confidenceThreshold": 0.9`
+```confidenceThreshold``` | `>=0.5` to `<=1.0`, optional <br/><br/>Minimum confidence score that you can set for an API to consider it as valid insight. The minimum confidence score should be in the range `>=0.5` to `<=1.0` (greater than or equal to `0.5` and less than or equal to `1.0`.). Default value is `0.5`.
 ```speechRecognition```| Find the supported value [here](#speech-recognition), optional <br/><br/> See the Speech Recognition section [below](#speech-recognition).
-```meetingTitle``` | String, optional <br/><br/> The name of the meeting. <br/><br/> Example: `"meetingTitle": "Client Meeting"`
+```meetingTitle``` | String, optional <br/><br/> The name of the meeting.
 
 
 ##### <a name="config-example"></a>Code Example
@@ -85,8 +85,8 @@ Field      |  Description
 
 Field      |  Description
 ---------- | ------- |
-```encoding``` | String, optional <br/><br/> Audio Encoding in which the audio will be sent over the WebSocket. Supported values are `LINEAR16`, `FLAC`, `MULAW`, and `Opus`. Default value is `LINEAR16`. <br/><br/> Example: `"encoding": "FLAC"`
-```sampleRateHertz``` | Number, optional <br/><br/> The rate of the incoming audio stream. The following are supported with the sample rates: <br/> encoding `LINEAR16` for sample rates `8000` to `48000`, <br/> encoding `FLAC` for sample rates `16000 ` and above, <br/> encoding `MULAW` for sample rates `8000`, <br/> encoding `Opus` for sample rates `16000` to `48000`. <br/><br/> Example: `"sampleRateHertz": 32000`
+```encoding``` | String, optional <br/><br/> Audio Encoding in which the audio will be sent over the WebSocket. Supported values are `LINEAR16`, `FLAC`, `MULAW`, and `Opus`. Default value is `LINEAR16`.
+```sampleRateHertz``` | Number, optional <br/><br/> The rate of the incoming audio stream. The following are supported with the sample rates: <br/> encoding `LINEAR16` for sample rates `8000` to `48000`, <br/> encoding `FLAC` for sample rates `16000 ` and above, <br/> encoding `MULAW` for sample rates `8000`, <br/> encoding `Opus` for sample rates `16000` to `48000`.
  
 
 ##### Code Example
@@ -104,8 +104,8 @@ Field      |  Description
 
 Field      |  Description
 ---------- | ------- |
-```userId``` | String, optional <br/><br/> Any user identifier for the user. <br/><br/> Example: `"userId": "jane.doe@example.com"`
-```name``` | String, optional <br/><br/> Display name of the user. <br/><br/> Example: `"name": "Jane"`
+```userId``` | String, optional <br/><br/> Any user identifier for the user.
+```name``` | String, optional <br/><br/> Display name of the user.
 
 ##### Code Example
 
