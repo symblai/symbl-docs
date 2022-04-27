@@ -38,7 +38,17 @@ html[data-theme='dark'] scrollbar-container {
     color:#000
 }
 
+table {
+    background-color: none !important;
+    border:1px solid black !important;
+}
 
 td {
     padding:10px !important;
+    border:1px solid black;
+}
+
+tr {
+    background-color: none !important;
+    border:1px solid black !important;
 }

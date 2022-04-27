@@ -27,6 +27,19 @@ info:
 servers:
 - url: https://api.symbl.ai
 tags: []
+x-tagGroups:
+- name: Authentication
+  tags:
+  - Generate Token
+- name: Async API
+  tags:
+  - Text APIs
+  - Audio APIs
+  - Video APIs
+- name: Conversation API
+  tags:
+  - Conversation APIs
+
 paths:
   /oauth2/token:generate:
     post:
@@ -224,14 +237,21 @@ paths:
         \ with the Conversation API to get all the insights, topics and processed\
         \ messages etc.\n"
       operationId: Text(shortTranscript)-SubmitNewConversation
+
       parameters:
       - name: x-api-key
         in: header
-        description: x-api-key
+        description: DEPRECATED. The JWT token you get from our authentication process.
+        schema:
+          type: string
+      - name: Content-Type
+        in: header
+        description: application/json
         required: true
         schema:
           type: string
-          default: '{{api_token}}'
+          default: application/json
+
       requestBody:
         content:
           application/json:
@@ -241,8 +261,8 @@ paths:
                 name:
                   type: string
                   description: Your meeting name. 
-                  default: '{{conversationId}}'
-                  example: 'name: Sales Call'
+                  default: 'Sales Call'
+                  example: 'Sales Call'
                 detectPhrases:
                   type: boolean
                   description: It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API.
@@ -252,20 +272,6 @@ paths:
                   format: double
                   description: Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to 0.5 and less than or equal to 1.0.). 
                   default: 0.5
-                entities:
-                  type: object
-                  description: Input custom entities which can be detected in conversation using Entities API.
-                  properties:
-                    customType:
-                      type: string
-                      example: "Company Executives"
-                    values:
-                      type: string
-                      example: "Marketing director"
-                    text:
-                      type: string
-                      example: "Marketing director"
-                      
                 detectEntities:
                   type: boolean
                   default: false
@@ -321,17 +327,19 @@ paths:
                         items: 
                           type: string
                           example: "We have a special promotion going on if you book this before"
-  
-                          
-                  
+
                 enableAllTrackers:
                   type: boolean
                   description: Setting this parameter to true will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.
                   default: false
                 enableSummary:
+                  type: boolean
+                  default: false
+                  description: Setting this parameter to true allows you to generate Summaries using Summary API. Ensure that you use https://api.symbl.ai/ as the base URL.
+                webhookUrl:
                   type: string
-                  description: Webhook URL on which job updates to be sent. This should be after making the API request.
-
+                  description: Webhook URL on which job updates to be sent. This should be after making the API request. 
+                  
       responses:
         200:
           description: Created.
@@ -952,19 +960,173 @@ paths:
         ```status``` |  Current status of the job. (Valid statuses - [ scheduled, in_progress, completed, failed ])
       operationId: Audio-SubmitNewAudioFile(wav_mp3)
       parameters:
-      - name: x-api-key
+      - name: Content-Length
         in: header
-        description: x-api-key
+        description: This should correctly indicate the length of the request body in bytes.
         required: true
         schema:
           type: string
-          default: '{{api_token}}'
+          default: '0'
+      - name: Content-Type
+        in: header
+        description: This is OPTIONAL field which describes the format and codec of the provided audio data. Accepted values are audio/wav, audio/mpeg, audio/mp3 and audio/wave only. If your audio is in a format other than these, do not use this field.
+        schema:
+          type: string
+          default: 'application/json'
+      - name: x-api-key
+        in: header
+        description: DEPRECATED. The JWT token you get from our authentication process.
+        schema:
+          type: string
+      # - name: name
+      #   in: query
+      #   description: Your meeting name.
+      #   schema:
+      #     type: string
+      #     default: '{{conversationId}}'
+      #     example: "Sales call"
+      # - name: customVocabulary
+      #   in: query
+      #   description: Contains a list of words and phrases that provide hints to the speech recognition task.
+      #   schema:
+      #     type: array
+      #     items:
+      #       type: string
+      #       default:  Platform 
+
+        
+      # - name: confidenceThreshold
+      #   in: query
+      #   description: Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to 0.5 and less than or equal to 1.0.). 
+      #   schema:
+      #     type: number
+      #     format: double
+      #     default: 0.5
+      #     example: 0.6
+      # - name: detectPhrases
+      #   in: query
+      #   description: It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's Messages API. Default value is false.
+      #   schema:
+      #     type: boolean
+      #     example: true
+      #     default: false
+      # - name: webhookUrl
+      #   in: query
+      #   description: Webhook URL on which job updates to be sent. This should be after making the API request. See the Webhook section for more.
+      #   schema:
+      #     type: string
+      # - name: entities
+      #   in: query
+      #   description: Input custom entities which can be detected in conversation using Entities API.
+      #   schema:
+      #     type: object
+      #     properties:
+      #       customTypes:
+      #         type: string
+      #         example: Company Executives
+      #       values:
+      #         type: string
+      #         example: Marketing director
+      #       text:
+      #         type: string
+      #         example: Marketing director
+      # - name: detectEntities
+      #   in: query
+      #   description: Default value is false. If not set the Entities API will not return any entities from the conversation.
+      #   schema:
+      #     type: boolean
+      #     example: true
+      #     default: false
+      # - name: languageCode
+      #   in: query
+      #   description: We accept different languages. Please check language Code as per your requirement.
+      #   schema:
+      #     type: string
+      #     example: en-US
+      # - name: mode
+      #   in: query
+      #   description: Accepts phone or default. phone mode is best for audio that is generated from phone call(which is typically recorded at 8khz sampling rate).
+      #                default mode works best for audio generated from video or online meetings(which is typically recorded at 16khz or more sampling rate).
+      #                When you don't pass this parameter default is selected automatically.
+      #   schema:
+      #     type: string
+      #     example: phone
+      # - name: enableSeparateRecognitionPerChannel
+      #   in: query
+      #   description: Enables Speaker Separated Channel audio processing. Accepts true or false.
+      #   schema:
+      #     type: boolean
+      #     example: true          
+      # - name: channelMetadata
+      #   in: query
+      #   description: This object parameter contains two variables speaker and channel to specific which speaker corresponds to which channel. This object only works when enableSeparateRecognitionPerChannel is set to true.
+      #   schema:
+      #     type: object
+      #     properties:
+      #       channel:
+      #         type: integer
+      #         example: 1
+      #       speaker:
+      #         type: object
+      #         properties:
+      #           name:
+      #             type: string
+      #             description: Name of the speaker.
+      #             example: Robert Bartheon
+      #           email:
+      #             type: string
+      #             description: Email address of the speaker.
+      #             example:  robertbartheon@example.com
+      # - name: trackers
+      #   in: query
+      #   description:  A tracker entity containing name and vocabulary (a list of key words and/or phrases to be tracked).
+      #   schema:
+      #     type: array
+      #     items:
+      #       type: object
+      #       properties:
+      #         name:
+      #           type: string
+      #           example:  Promotion Mention
+      #         vocabulary:
+      #           type: string
+      #           example: We have a special promotion going on if you book this before.
+  
+
+      # - name: enableAllTrackers
+      #   in: query
+      #   description: Setting this parameter to true will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.
+      #   schema:
+      #     type: boolean
+      #     example: true
+      #     default:  false 
+      # - name: enableSummary
+      #   in: query
+      #   description: Setting this parameter to true allows you to generate Summaries using Summary API. Ensure that you use https://api.symbl.ai/ as the base URL.
+      #   schema:
+      #     type: boolean
+      #     example: true
+      # - name: enableSpeakerDiarization
+      #   in: query
+      #   description: Whether the diarization should be enabled for this conversation. Pass this as true to enable Speaker Separation.
+      #   schema:
+      #     type: boolean
+      #     example: true
+      # - name: diarizationSpeakerCount
+      #   in: query
+      #   description: The number of unique speakers in this conversation.
+      #   schema:
+      #     type: integer
+      #     example: 3
+
+
       requestBody:
         content:            
           audio/wav:
             schema:
               type: string
               format: binary  
+              description: Audio File
       responses:
         200:
           description: Created.
@@ -972,38 +1134,64 @@ paths:
             application/json:
               schema:
                 type: object
+                properties:
+                  conversationId:
+                    type: string
+                    example: "5815170693595136"
+                  jobId:
+                    type: string
+                    example: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"              
         400:
           description: Bad Request! Please refer docs for correct input fields.
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  message:
+                    type: string
+                    example: Bad Request! Please refer docs for correct input fields.
         401:
           description: Unauthorized. Please generate a new access token.
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized. Please generate a new access token.
         404:
-          description: The conversation and/or it's metadata you asked could not be
-            found, please check the input provided
+          description: The conversation and/or it's metadata you asked could not be found, please check the input provided
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  message:
+                    type: string
+                    example: The conversation and/or it's metadata you asked could not be found, please check the input provided
         429:
-          description: Maximum number of concurrent jobs reached. Please wait for
-            some requests to complete.
+          description: Maximum number of concurrent jobs reached. Please wait for some requests to complete.
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  message:
+                    type: string
+                    example: Maximum number of concurrent jobs reached. Please wait for some requests to complete.
         500:
           description: Something went wrong! Please contact support@symbl.ai
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  message:
+                    type: string
+                    example: Something went wrong! Please contact support@symbl.ai
+
       x-codeSamples:
       - lang: cURL
         source: |
@@ -1150,7 +1338,7 @@ paths:
               print("Unexpected error occurred. Please contact support@symbl.ai" + ", Debug Message => " + str(response.text))
 
           exit()
-  /v1/process/audio/%7B%7Bconversation_id%7D%7D:
+  /v1/process/audio/{conversationId}:
     put:
       tags:
       - Audio APIs
@@ -1366,7 +1554,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/process/audio/url/%7B%7Bconversation_id%7D%7D:
+  /v1/process/audio/url/{conversationId}:
     put:
       tags:
       - Audio APIs
@@ -1550,7 +1738,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/process/video/%7B%7Bconversation_id%7D%7D:
+  /v1/process/video/{conversationId}:
     put:
       tags:
       - Video APIs
@@ -1671,7 +1859,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/process/video/url/%7B%7Bconversation_id%7D%7D:
+  /v1/process/video/url/{conversationId}:
     put:
       tags:
       - Video APIs
@@ -1747,7 +1935,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/job/%7B%7Bjob_id%7D%7D:
+  /v1/job/{conversationId}:
     get:
       summary: Check Request Status (Job status)
       description: |-
@@ -1880,7 +2068,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/experiences:
+  /v1/conversations/{conversationId}/experiences:
     post:
       tags:
       - Conversation APIs    
@@ -1920,7 +2108,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/conversations/%7B%7Bconversation_id%7D%7D:
+  /v1/conversations/{conversationId}:
     get:
       tags:
       - Conversation APIs    
@@ -2044,7 +2232,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/messages:
+  /v1/conversations/{conversationId}/messages:
     get:
       tags:
       - Conversation APIs    
@@ -2066,7 +2254,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/transcript:
+  /v1/conversations/{conversationId}/transcript:
     post:
       tags:
       - Conversation APIs    
@@ -2106,7 +2294,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/members:
+  /v1/conversations/{conversationId}/members:
     get:
       tags:
       - Conversation APIs    
@@ -2128,7 +2316,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/members/%7B%7Bmember_id%7D%7D:
+  /v1/conversations/{conversationId}/members/{memberId}:
     put:
       tags:
       - Conversation APIs    
@@ -2189,7 +2377,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/speakers:
+  /v1/conversations/{conversationId}/speakers:
     put:
       tags:
       - Conversation APIs    
@@ -2275,7 +2463,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/trackers-detected:
+  /v1/conversations/{conversationId}/trackers-detected:
     get:
       tags:
       - Conversation APIs    
@@ -2316,10 +2504,9 @@ paths:
       - name: x-api-key
         in: header
         description: x-api-key
-        required: true
         schema:
           type: string
-          default: '{{api_token}}'
+
       - name: conversationId
         in: path
         description: Conversation ID from the Async API response.
@@ -2500,13 +2687,18 @@ paths:
       description: Action Items
       operationId: ActionItems
       parameters:
-      - name: x-api-key
+      - name: Content-Type
         in: header
-        description: x-api-key
+        description: application/json
         required: true
         schema:
           type: string
-          default: '{{api_token}}'
+          default: application/json
+      - name: x-api-key
+        in: header
+        description: x-api-key
+        schema:
+          type: string
       - name: conversationId
         in: path
         description: Conversation ID from the Async API response.
@@ -2704,7 +2896,7 @@ paths:
                     example: Something went wrong! Please contact support@symbl.ai
 
 
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/follow-ups:
+  /v1/conversations/{conversationId}/follow-ups:
     get:
       tags:
       - Conversation APIs    
@@ -2737,10 +2929,8 @@ paths:
       - name: x-api-key
         in: header
         description: x-api-key
-        required: true
         schema:
           type: string
-          default: '{{api_token}}'
       - name: conversationId
         in: path
         description: Conversation ID from the Async API response.
@@ -2880,7 +3070,7 @@ paths:
 
           exit()
 
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/analytics:
+  /v1/conversations/{conversationId}/analytics:
     get:
       tags:
       - Conversation APIs    
@@ -2902,7 +3092,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/entities:
+  /v1/conversations/{conversationId}/entities:
     get:
       tags:
       - Conversation APIs    
@@ -3001,7 +3191,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/manage/tracker/%7BtrackerId%7D:
+  /v1/manage/tracker/{trackerId}:
     get:
       summary: Trackers (with ID)
       description: Trackers (with ID)
@@ -3143,7 +3333,7 @@ paths:
               schema:
                 type: object
       x-codegen-request-body-name: body
-  /v1/manage/group/%7BgroupId%7D:
+  /v1/manage/group/{groupId}:
     get:
       summary: Read Conversation Groups
       description: Read Conversation Groups
@@ -3269,7 +3459,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/comprehensive/action-items:
+  /v1/conversations/{conversationId}/comprehensive/action-items:
     get:
       summary: Comprehensive Action Items
       description: Comprehensive Action Items
@@ -3296,7 +3486,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/summary:
+  /v1/conversations/{conversationId}/summary:
     get:
       summary: Summary
       description: Summary
@@ -3308,7 +3498,7 @@ paths:
             application/json:
               schema:
                 type: object
-  /v1/conversations/%7B%7Bconversation_id%7D%7D/abstract-topics:
+  /v1/conversations/{conversationId}/abstract-topics:
     get:
       summary: Abstract Topics
       description: Abstract Topics
@@ -3320,16 +3510,14 @@ paths:
             application/json:
               schema:
                 type: object
-components: {}
-x-tagGroups:
-- name: Authentication
-  tags:
-  - Generate Token
-- name: Async API
-  tags:
-  - Text APIs
-  - Audio APIs
-  - Video APIs
-- name: Conversation API
-  tags:
-  - Conversation APIs
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT  # optional, for documentation purposes only
+
+security:
+  - bearerAuth: []
+
