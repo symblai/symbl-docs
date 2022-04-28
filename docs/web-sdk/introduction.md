@@ -82,7 +82,7 @@ You can also import the file into your HTML appliaction using our CDN.
 #### Versioned CDN
 
 ```html
-<script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/v1.0.0/symbl.min.js"></script>
+<script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/v1.0.2/symbl.min.js"></script>
 ```
 
 #### Latest CDN
