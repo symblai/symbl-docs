@@ -38,6 +38,7 @@ connection.on("disconnected", () => {
 | `processing_stopped`         | Audio data processing stopped.                                                    | None                                                                |
 | `conversation_created`       | Conversation is created and an ID is generated.                                   | None                                                               |
 | `conversation_completed`     | Conversation is ended.                                                            | None                                                             |
+| `session_modified`           | When the sample rate of the session is modified.                                  | Returns an object containing the new sample rate.                                                                                                    |
 | `speech_recognition`         | When data is being transferred between the client and server                      | [Speech Recognition Object](#speech-recognition-object) |
 | `message`                     | When the message object is detected.                                              | [Message Response Object](#message-response-object)                                                                                          |
 | `topic`                       | When topics are detected.                                                         | [Topic Response Object](#topic-response-object)                                                                                                          |

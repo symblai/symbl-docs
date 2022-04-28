@@ -312,9 +312,9 @@ Parameter |  Description
 
 Field | Description
 ---------- | ------- 
-```payload``` | Object, mandatory <br/><br/> Input Messages to look for insights. [See the payload section below for more details.](#payload) <br/><br/> Example: `"payload": "content": "Hi Mike, Natalia here...`
-```from``` | Object, optional <br/><br/> Information about the User information produced the content of this message. <br/><br/> Example: `"from": "userId": "natalia@example.com", "name": "Natalia"`
-```duration``` | Object, optional <br/><br/> Duration object containing `startTime` and `endTime` for the transcript. <br/><br/> Example: `"duration": "startTime":"2020-07-21T16:02:19.01Z", "endTime":"2020-07-21T16:04:19.99Z"`
+```payload``` | Object, mandatory <br/><br/> Input Messages to look for insights. [See the payload section below for more details.](#payload) 
+```from``` | Object, optional <br/><br/> Information about the User information produced the content of this message. 
+```duration``` | Object, optional <br/><br/> Duration object containing `startTime` and `endTime` for the transcript. 
 
 ```js
 { 
@@ -350,7 +350,7 @@ Field | Description
 
 Field | Description
 | ------- | -------
-```content``` | String, mandatory <br/><br/> The text content that you want the API to parse. <br/><br/> Example: `"content": "Hi Mike, Natalia here...`
+```content``` | String, mandatory <br/><br/> The text content that you want the API to parse. 
 
 ```js
 {
@@ -364,8 +364,8 @@ Field | Description
 
 Field | Description
 | ------- | -------
-```name``` | String, optional <br/><br/> Name of the user. <br/><br/> Example: `"name": "Mike"`
-```userId``` | String, optional <br/><br/>  A unique identifier of the user. E-mail ID is usually a preferred identifier for the user. <br/><br/> Example: `"userId": "mike@abccorp.com"`
+```name``` | String, optional <br/><br/> Name of the user. 
+```userId``` | String, optional <br/><br/>  A unique identifier of the user. E-mail ID is usually a preferred identifier for the user. 
 
 ```js
 {
@@ -380,9 +380,8 @@ Field | Description
 
 Field | Description
 | ------- | -------
-```startTime``` | DateTime, optional <br/><br/> The start time for the particular text content. <br/><br/> Example: `"startTime":"2020-07-21T16:04:19.99Z"`
-```endTime``` | DateTime, optional <br/><br/> The end time for the particular text content. <br/><br/> Example: `"endTime":"2020-07-21T16:04:20.99Z"`
-
+```startTime``` | DateTime, optional <br/><br/> The start time for the particular text content. 
+```endTime``` | DateTime, optional <br/><br/> The end time for the particular text content.
 ```js
 {
   "duration": {
@@ -405,9 +404,8 @@ WebhookUrl will be used to send the status of job created. Every time the status
 
 Field | Description
 | ------- | -------
-```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
-```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) <br/><br/> Example: `"status": "in_progress"`
-
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). 
+```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) 
 
 ### Response
 
@@ -420,8 +418,8 @@ Field | Description
 
 Field | Description
 ---------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). <br/><br/> Example: `"conversationId": "5815170693595136"`
-`jobId` | ID to be used with Job API. <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
+`jobId` | ID to be used with Job API. 
 
 ### API Limit Error
 

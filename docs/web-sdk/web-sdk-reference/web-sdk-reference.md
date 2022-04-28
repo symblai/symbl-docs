@@ -84,15 +84,15 @@ const connection = symbl.subscribeToConnection(sessionId);
 
 ---
 
-### `wait(time: number, unit: string = TimeUnit.MS)`
+### `Symbl.wait(time: number, unit: string = TimeUnit.MS)`
 
 Waits for provided amount of time in the supplied units (ms, s, min).
 
 #### Example
 
 ```js
-const symbl = new Symbl();
-const connection = symbl.wait(5000);
+// Waits 5 seconds
+await Symbl.wait(5000);
 ```
 
 ## StreamingAPIConnection Class
@@ -170,6 +170,21 @@ Checkout out our [Events / Callbacks Reference](/web-sdk/web-sdk-reference/event
 connection.on('connected', () => {
   console.log('I am connected!');
 })
+```
+
+---
+
+### `modifySampleRate(sampleRateHertz: number)`
+
+Accepts a sample rate in hertz, e.g. `48000`
+
+Updates the sample rate mid-stream and sends out the `session_modified` event
+
+
+#### Example
+
+```js
+connection.modifySampleRate(48000);
 ```
 
 ---

@@ -120,11 +120,11 @@ exit()
 </Tabs>
 
 ### Request Body
-Field | Required | Type | Supported Values | Default | Description
------ | -------  | ---- | -------- | ------- | --------- |
-```id``` | Yes | *string* | | | The unique identifier of the member for this conversation. This can be retrieved from the [members](members) endpoint.
-```name``` | Yes | *string* | | | The name of the member.
-```email``` | No | *string* | | | The Email ID of the member. If specified, this can be used to correctly identify and merge the existing user in case the conversation is appended with a new diarized conversation which has one or more same speakers as the conversation its being appended to.
+Field | Required | Type | Description
+----- | -------  | ---- | --------- |
+```id``` | Yes | String | The unique identifier of the member for this conversation. This can be retrieved from the [members](/docs/conversation-api/members) endpoint.
+```name``` | Yes | String | The name of the member.
+```email``` | No | String | The Email ID of the member. If specified, this can be used to correctly identify and merge the existing user in case the conversation is appended with a new diarized conversation which has one or more same speakers as the conversation its being appended to.
 
 ### Response
 
@@ -138,4 +138,4 @@ Field | Required | Type | Supported Values | Default | Description
 
 Field  | Description
 ---------- | ------- |
-```message``` | A description of the update. This message indicates that the member details have now been updated across the conversation for all the [Messages](messages) and [Action Items](/docs/concepts/action-items), follow-ups and questions. You can also get the updated member from the [members](members) endpoint.
+```message``` | A description of the update. This message indicates that the member details have now been updated across the conversation for all the Messages and Action Items, Follow-Ups and Questions. You can also get the updated member from the Members endpoint.

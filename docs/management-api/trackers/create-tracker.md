@@ -267,6 +267,6 @@ You might find the following tutorials useful:
 - [How to create and use Trackers- Trackers Management API](/docs/tutorials/trackers/consuming-trackers-management-api/)
 - [Creating Trackers with Async APIs](/docs/tutorials/trackers/create-trackers-async-api/)
 - [Creating Trackers with Streaming API](/docs/tutorials/trackers/create-trackers-streaming-api/)
-- [Using Trackers with Async API](/docs/tutorials/trackers/consuming-trackers-async-api//)
+- [Using Trackers with Async API](/docs/tutorials/trackers/consuming-trackers-async-api/)
 - [Using Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
 

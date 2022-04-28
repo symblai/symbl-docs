@@ -194,7 +194,7 @@ Header Name | Required | Value
 
 Parameter | value
 --------- | ----------
-```conversationId``` | Conversation ID which is provided by the first request submitted using [POST Async Video API](post-video).
+```conversationId``` | Conversation ID which is provided by the first request submitted using POST Async Video API.
 
 ### Query Parameters
 
@@ -230,8 +230,8 @@ Parameter |  Description
 
 Field | Description
 ---------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). <br/><br/> Example: `"conversationId": "5815170693595136"`
-`jobId` | ID to be used with Job API. <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). 
+`jobId` | ID to be used with Job API. 
 
 #### Custom Entity
 
@@ -282,15 +282,15 @@ Given below is an example of a `channelMetadata` object:
 
 Field | Description
 | ------- | ------- 
-```channel``` | Integer, mandatory <br/><br/> This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data. <br/><br/> Example: `"channel": 1`
-```speaker``` | String, mandatory <br/><br/> This is the wrapper object which defines the speaker for this channel. <br/><br/> Example: `"speaker": "name": "Robert Bartheon",  "email": "robertbartheon@example.com"`
+```channel``` | Integer, mandatory <br/><br/> This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data. 
+```speaker``` | String, mandatory <br/><br/> This is the wrapper object which defines the speaker for this channel. 
 
 `speaker`  has the following members:
 
 Field | Description
 | ------- | ------- 
-```name``` | String, optional <br/><br/> Name of the speaker. <br/><br/> Example: `"name": "Robert Bartheon"`
-```email``` | String, optional <br/><br/> Email address of the speaker. <br/><br/> Example: `"email": "robertbartheon@example.com"`
+```name``` | String, optional <br/><br/> Name of the speaker. 
+```email``` | String, optional <br/><br/> Email address of the speaker. 
 
 ### Speaker Separation
 ---
@@ -333,8 +333,8 @@ The `webhookUrl` will be used to send the status of job created for uploaded aud
 
 Field | Description
 | ------- | -------
-```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
-```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) <br/><br/> Example: `"status": "in_progress"`
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). 
+```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) 
 
 ### API Limit Error
 ---

@@ -41,7 +41,7 @@ For getting Sentiment Analysis on recorded conversations, use our Async APIs. Yo
 To get Sentiment Analysis, you must connect via Streaming API and send a get request to Conversation API. See the following pages for more:
 
 - [POST Conversation with Streaming API](/docs/streaming-api/api-reference#request-parameters)
-- [POST Conversation with Async API](/docs/async-api/reference/reference)
+- [POST Conversation with Async API](/docs/async-api/introduction)
 - [GET Sentiment Analysis with Speech-to-Text API](/docs/conversation-api/messages#sentiment-analysis-in-messages--beta)
 - [GET Sentiment Analysis with Topics API](/docs/conversation-api/get-topics#sentiment-analysis-in-topics--beta)
 

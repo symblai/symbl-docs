@@ -408,11 +408,22 @@ th:empty {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 26px;
     text-align: left;
-    width: 200%;
+    width:200%;
     background-color: #FFA500;
     border-radius: 30px;
     transition:0.3s;
  }
+
+ @media only screen and (max-width: 600px) {
+  .card2 {
+    width: 100%;
+  }
+}
+
+.twitter-frame {
+  height: 315px; 
+  width: 100%;
+}
 
  html[data-theme='dark'] .card2 {
    color:black;
