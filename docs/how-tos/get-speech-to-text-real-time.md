@@ -53,7 +53,7 @@ The Programmable Symbl'S SDK allows you to add Conversation Intelligence directl
 
 ## API Reference
 
-- [POST Conversation with Async API](/docs/async-api/reference/reference)
+- [POST Conversation with Async API](/docs/async-api/introduction)
 - [POST Conversation with Streaming API](/docs/streaming-api/api-reference#request-parameters)
 - [POST Conversation with Telephony API](/docs/telephony-api/api-reference#endpoint)
 - [GET Speech-to-Text with Conversation API](/docs/conversation-api/messages)

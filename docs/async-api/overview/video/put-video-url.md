@@ -249,7 +249,7 @@ Header Name | Required | Value
 
 Parameter | value
 --------- | ----------
-```conversationId``` | The Conversation ID which is provided by the first request submitted using [POST Async Video API](post-video).
+```conversationId``` | The Conversation ID which is provided by the first request submitted using POST Async Video API.
 
 ### Request Body
 
