@@ -204,12 +204,7 @@ View the [Importing](#importing) section for the various ways to import the Web 
       const connection = await symbl.createConnection();
       
       // Start processing audio from your default input device.
-      await connection.startProcessing({
-        insightTypes: ["question", "action_item", "follow_up"],
-        config: {
-          encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
-        }
-      });
+      await connection.startProcessing();
 
       // Retrieve real-time transcription from the conversation
       connection.on("speech_recognition", (speechData) => {
