@@ -6,7 +6,7 @@ html {
     display:flex;
     flex-direction:row;
     padding: 2rem;
-    background-color: rgb(20,38,72);
+    background-color: rgb(1,117,255);
     justify-content:space-around;
   }
   
