@@ -297,24 +297,24 @@ Header Name  | Required | Description
 
 Parameter |  Description
 ---------- | ------- | 
-```name``` | String, optional <br/><br/> Your meeting name. Default name set to `conversationId`. <br/><br/> Example: `name: "Sales call"`, `name: "Customer call"`. 
-```detectPhrases```| Boolean, optional <br/><br/> It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`. <br/><br/> Example: `"detectPhrases": true`
-```confidenceThreshold``` | Double, optional <br/><br/> Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`. <br/><br/> Example: `"confidenceThreshold": 0.6`
-```entities``` | Object, optional  <br/><br/>  Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities). <br/><br/> Example: `"entities": "customType": "Company Executives", "value": "Marketing director", "text": "Marketing director"`
-```detectEntities``` | Boolean, optional  <br/><br/> Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation. <br/><br/> Example: `"detectEntities": true`
-```messages``` | List, mandatory <br/><br/> Input Messages to look for insights. [See the messages section below for more details.](#messages) <br/><br/> Example: `"messages": "payload": "content": "Hi Mike, Natalia here..."`
-```trackers```<font color="orange"> BETA </font> | List, optional  <br/><br/> A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. <br/><br/> Example: `"trackers": "name": "Promotion Mention", "vocabulary": "We have a special promotion going on if you book this before"`
-```enableAllTrackers```<font color="orange"> BETA </font> | Boolean, optional  <br/><br/> Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag).  <br/><br/> Example: `"enableAllTrackers": true`  
-```enableSummary```<font color="blue"> ALPHA </font> | Boolean, optional  <br/><br/> Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL. <br/><br/> Example: `"enableSummary": true`  
-```webhookUrl``` | String, optional <br/><br/> Webhook URL on which job updates to be sent. This should be after making the API request. See the [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) for more. <br/><br/> Example: `"""jobId"": ""9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"", ""status"": ""in_progress"""`
+```name``` | String, optional <br/><br/> Your meeting name. Default name set to `conversationId`. 
+```detectPhrases```| Boolean, optional <br/><br/> It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`. 
+```confidenceThreshold``` | Double, optional <br/><br/> Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`. 
+```entities``` | Object, optional  <br/><br/>  Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities). 
+```detectEntities``` | Boolean, optional  <br/><br/> Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation. 
+```messages``` | List, mandatory <br/><br/> Input Messages to look for insights. [See the messages section below for more details.](#messages) 
+```trackers```<font color="orange"> BETA </font> | List, optional  <br/><br/> A `tracker` entity containing `name` and `vocabulary` (a list of key words and/or phrases to be tracked). Read more in the [Tracker API](/docs/management-api/trackers/overview) section. `
+```enableAllTrackers```<font color="orange"> BETA </font> | Boolean, optional  <br/><br/> Default value is `false`. Setting this parameter to `true` will enable detection of all the Trackers maintained for your account by the Management API. This will allow Symbl to detect all the available Trackers in a specific Conversation.  Learn about this parameter [here](/docs/management-api/trackers/overview#step-2-submit-files-using-async-api-with-enablealltrackers-flag). 
+```enableSummary```<font color="blue"> ALPHA </font> | Boolean, optional  <br/><br/> Setting this parameter to `true` allows you to generate Summaries using [Summary API](/conversation-api/summary). Ensure that you use `https://api.symbl.ai/` as the base URL. 
+```webhookUrl``` | String, optional <br/><br/> Webhook URL on which job updates to be sent. This should be after making the API request. See the [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) for more. 
 
 #### messages
 
 Field | Description
 ---------- | ------- 
-```payload``` | Object, mandatory <br/><br/> Input Messages to look for insights. [See the payload section below for more details.](#payload) <br/><br/> Example: `"payload": "content": "Hi Mike, Natalia here...`
-```from``` | Object, optional <br/><br/> Information about the User information produced the content of this message. <br/><br/> Example: `"from": "userId": "natalia@example.com", "name": "Natalia"`
-```duration``` | Object, optional <br/><br/> Duration object containing `startTime` and `endTime` for the transcript. <br/><br/> Example: `"duration": "startTime":"2020-07-21T16:02:19.01Z", "endTime":"2020-07-21T16:04:19.99Z"`
+```payload``` | Object, mandatory <br/><br/> Input Messages to look for insights. [See the payload section below for more details.](#payload) 
+```from``` | Object, optional <br/><br/> Information about the User information produced the content of this message. 
+```duration``` | Object, optional <br/><br/> Duration object containing `startTime` and `endTime` for the transcript. 
 
 ```js
 { 
@@ -350,7 +350,7 @@ Field | Description
 
 Field | Description
 | ------- | -------
-```content``` | String, mandatory <br/><br/> The text content that you want the API to parse. <br/><br/> Example: `"content": "Hi Mike, Natalia here...`
+```content``` | String, mandatory <br/><br/> The text content that you want the API to parse. 
 
 ```js
 {
@@ -364,8 +364,8 @@ Field | Description
 
 Field | Description
 | ------- | -------
-```name``` | String, optional <br/><br/> Name of the user. <br/><br/> Example: `"name": "Mike"`
-```userId``` | String, optional <br/><br/>  A unique identifier of the user. E-mail ID is usually a preferred identifier for the user. <br/><br/> Example: `"userId": "mike@abccorp.com"`
+```name``` | String, optional <br/><br/> Name of the user. 
+```userId``` | String, optional <br/><br/>  A unique identifier of the user. E-mail ID is usually a preferred identifier for the user. 
 
 ```js
 {
@@ -380,9 +380,8 @@ Field | Description
 
 Field | Description
 | ------- | -------
-```startTime``` | DateTime, optional <br/><br/> The start time for the particular text content. <br/><br/> Example: `"startTime":"2020-07-21T16:04:19.99Z"`
-```endTime``` | DateTime, optional <br/><br/> The end time for the particular text content. <br/><br/> Example: `"endTime":"2020-07-21T16:04:20.99Z"`
-
+```startTime``` | DateTime, optional <br/><br/> The start time for the particular text content. 
+```endTime``` | DateTime, optional <br/><br/> The end time for the particular text content.
 ```js
 {
   "duration": {
@@ -405,9 +404,8 @@ WebhookUrl will be used to send the status of job created. Every time the status
 
 Field | Description
 | ------- | -------
-```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
-```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) <br/><br/> Example: `"status": "in_progress"`
-
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). 
+```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) 
 
 ### Response
 
@@ -420,8 +418,8 @@ Field | Description
 
 Field | Description
 ---------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). <br/><br/> Example: `"conversationId": "5815170693595136"`
-`jobId` | ID to be used with Job API. <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction).
+`jobId` | ID to be used with Job API. 
 
 ### API Limit Error
 
