@@ -38,8 +38,8 @@ View the [Importing](/web-sdk/overview/#importing) section for the various ways 
           // We recommend to remove appId and appSecret authentication for production applications.
           // See authentication section for more details
           const symbl = new Symbl({
-              appId: '506a3248387971546a547936496666486a4c376236574e4272494572416f3734',
-              appSecret: '5a76566b6e5335776e6a4455695a6a4e3347336750764250534e78394557656e39614748447a5f6b49302d397a4a4c65487572323870386b6e6b743048455245',
+              appId: '<your App ID>',
+              appSecret: '<your App Secret>',
               // accessToken: '<your Access Toknen>'
           });
 
