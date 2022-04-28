@@ -37,4 +37,4 @@ The Text Summary UI displays the following details:
 - [Creating Text Summary UI](/docs/tutorials/pre-built-summary-ui/creating-text-summary-ui)
 - [Tuning your Summary Page](/docs/pre-built-ui/tuning-summary-page)
 - [White label your Summary Page](/docs/tutorials/pre-built-summary-ui/whitelabeling-summary-ui)
-- [Add custom domain to your Summary Page](/docs/tutorials/pre-built-summary-ui/custom-domain)
+- [Add custom domain to your Summary Page](/docs/pre-built-ui/custom-domain/)
