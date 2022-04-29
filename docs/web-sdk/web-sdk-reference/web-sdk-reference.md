@@ -340,10 +340,6 @@ Accepts a required [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/W
 
 Attaches an audio element to the processor and starts processing audio data from the audio file. In order to start processing you need to call `.play()` on the audio element. We recommend doing this after the `processing_started` Event has been fired.
 
-:::caution note 
-Currently, only LINEAR16 encoding is supported for audio elements. Opus support will be addressed in a later update.
-:::
-
 
 #### Example
 
@@ -396,9 +392,6 @@ Accepts a required [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/W
 
 Updates the audio element attached to the audio stream.
 
-:::caution note 
-Currently, only LINEAR16 encoding is supported for audio elements. Opus support will be addressed in a later update.
-:::
 
 #### Example
 
