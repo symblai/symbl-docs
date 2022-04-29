@@ -25,7 +25,9 @@ The Web SDK is currently available with Symbl’s [Streaming API](/docs/streamin
 > **Source Code** <br/> 
 Find the source code here: https://github.com/symblai/symbl-web-sdk 
 
+
 ## Supported Browsers
+
 The following web browsers are supported with the Web SDK: 
 
 Operating System | Chrome | Edge | Firefox | Safari |
@@ -35,34 +37,9 @@ Windows | ✅ | ✅ | ✅ | ✅ |
 Linux| ✅ | - | ✅ | ✅ | 
 
 
-:::caution note 
-Currently, the OPUS encoder support in Safari browser is not available. 
-:::
-
 ## Prerequisites
 
 Before using the Web SDK you must [sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values, which is used for authentication.
-
-## Installation
-
-=======
-## Supported Browsers
-The following web browser supported with the Web SDK are given below: 
-
-Operating System | Chrome | Edge | Firefox | Safari |
----------- | ------- | ------- | ------ | ------ |
-macOS | ✅ | - | ✅ | ✅ | 
-Windows | ✅ | ✅ | ✅ | ✅ |
-Linux| ✅ | - | ✅ | ✅ | 
-
-
-:::caution note 
-Currently, the OPUS encoder support in Safari browser is not available. 
-:::
-
-## Prerequisites
-
-Before using the Web SDK you must [Sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values, which is used for authentication.
 
 ## Installation
 
@@ -136,7 +113,7 @@ const {Symbl} = require('@symblai/symbl-web-sdk');
 <TabItem value="js">
 
 ```js
-import {Symbl} from window;
+const {Symbl} = window;
 ```
 </TabItem>
 </Tabs>
