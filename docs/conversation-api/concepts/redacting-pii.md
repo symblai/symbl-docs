@@ -194,7 +194,7 @@ ws.connect('wss://api-labs.symbl.ai/v1/realtime/insights/MeetingID', null, null,
 });
 
 ```
-Field Name  | Data Type | Description | Required | Default vaule | Allowed values
+Field Name  | Data Type | Description | Required | Default value | Allowed values
 ---------- | ------- | ------ | ----- | ------ | -----
 `identifyContent` | Boolean | Specifies that the PII/PCI data or sensitive content should be identified. | Mandatory |`false` | `true` or `false`. 
 `redactContent` | Boolean | Specifies that the PII/PCI data or sensitive content should be redacted in the transcript and insights. | Mandatory | `false` | `true` or `false`. 

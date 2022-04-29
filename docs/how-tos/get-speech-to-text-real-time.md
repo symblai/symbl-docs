@@ -14,7 +14,7 @@ You can get Speech-to-Text in real-time using Streaming API (for WebSocket Proto
 
 ## Tutorials
 
-Refer to the following tutorials for code snippets and step-by-step instuctions:
+Refer to the following tutorials for code snippets and step-by-step instructions:
 
 ### Streaming API
  

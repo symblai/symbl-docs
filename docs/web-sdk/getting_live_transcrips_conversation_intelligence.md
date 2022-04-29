@@ -66,7 +66,7 @@ import {Symbl} from '@symblai/symbl-web-sdk';
 <TabItem value="js">
 
 ```js
-import {Symbl} from window;
+const {Symbl} = window;
 ```
 </TabItem>
 </Tabs>
@@ -96,6 +96,10 @@ await connection.startProcessing({
   insightTypes: ["question", "action_item", "follow_up"],
   config: {
     encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+  },
+  speaker: {
+    userId: "user@example.com",
+    name: "Your Name Here"
   }
 });
 ```
@@ -120,6 +124,11 @@ connection.on("topic", (topicData) => {
   topicData.forEach((topic) => {
     console.log("Topic: " + topic.phrases);
   });
+});
+
+// Retrive questions from the conversation in real-time.
+connection.on("question", (questionData) => {
+  console.log("Question Found: ", questionData["payload"]["content"]);
 });
 ```
 
@@ -202,8 +211,13 @@ View the [Importing](#importing) section for the various ways to import the Web 
       
       // Start processing audio from your default input device.
       await connection.startProcessing({
+        insightTypes: ["question", "action_item", "follow_up"],
         config: {
           encoding: "OPUS" // Encoding can be "LINEAR16" or "OPUS"
+        },
+        speaker: {
+          userId: "user@example.com",
+          name: "Your Name Here"
         }
       });
 
@@ -220,10 +234,15 @@ View the [Importing](#importing) section for the various ways to import the Web 
           console.log("Topic: " + topic.phrases);
         });
       });
+
+      // Retrive questions from the conversation in real-time.
+      connection.on("question", (questionData) => {
+        console.log("Question Found: ", questionData["payload"]["content"]);
+      });
       
       // This is just a helper method meant for testing purposes.
       // Waits 60 seconds before continuing to the next API call.
-      await symbl.wait(60000);
+      await Symbl.wait(60000);
       
       // Stops processing audio, but keeps the WebSocket connection open.
       await connection.stopProcessing();
@@ -237,3 +256,4 @@ View the [Importing](#importing) section for the various ways to import the Web 
 })();
 ```
 
+For more information, read the [Request Parameters](https://docs.symbl.ai/docs/streaming-api/api-reference/#request-parameters) section of the Streaming API. 

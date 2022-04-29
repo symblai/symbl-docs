@@ -24,17 +24,17 @@ Make a DELETE call to the following API:
 
 ### Request Headers
 
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Mandatory | `application/json` 
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+Header Name |  Description
+---------- | ------- |
+```Authorization``` | mandatory <br/><br/> `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type``` | mandatory <br/><br/> `application/json` 
+```x-api-key``` | optional <br/><br/>  DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
 #### Path Parameters
 
-| Parameter | Required | Description |
-|--------|----------|---- |
-`groupId` | Mandatory | Unique ID of the group created using Management API’s Create Group API endpoint. |
+Parameter |  Description
+---------- | ------- |
+```groupId``` | String, mandatory <br/><br/> Unique ID of the group created using Management API’s Create Group API endpoint.
 
 ### Response Body
 
