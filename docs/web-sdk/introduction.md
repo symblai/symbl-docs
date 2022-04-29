@@ -136,7 +136,7 @@ const {Symbl} = require('@symblai/symbl-web-sdk');
 <TabItem value="js">
 
 ```js
-import {Symbl} from window;
+const {Symbl} = window;
 ```
 </TabItem>
 </Tabs>
