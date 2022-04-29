@@ -27,11 +27,11 @@ Make a POST request to the following API:
 
 ### Request Headers
 
-Header Name  | Required | Description
----------- | ------- |  ------- |
-```Authorization``` | Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type	``` | Mandatory | `application/json` 
-```x-api-key``` | Optional | DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
+Header Name |  Description
+---------- | ------- |
+```Authorization``` | mandatory <br/><br/> `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
+```Content-Type``` | mandatory <br/><br/> `application/json` 
+```x-api-key``` | optional <br/><br/>  DEPRECATED. The JWT token you get from our [authentication process](/docs/developer-tools/authentication).
 
 ### Request Body
 
@@ -57,11 +57,11 @@ Given below is another sample request containing more than one `criteria`. You c
 
 ### Request Parameters
 
-| Parameter | Data Type | Description | Required | Values Accepted | 
-|--------|----------|---- | --- | ------| 
-`name` | String | Name of the group. | Mandatory | String with no special characters allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
-`description` | String | Description to capture any additional details of the group and its purpose. | Optional | The maximum length of string allowed 512 characters.
-`criteria` | String / RSQL format | Criteria in RSQL format that should be applied to group conversations under this group. | Mandatory | Valid RSQL string. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
+Parameter |  Description
+---------- | ------- |
+```name``` | String, mandatory <br/><br/> Name of the group. String with no special characters is allowed, except `-`, `_`, and `”`. The maximum length of string allowed 128 characters.
+```description``` | String, optional <br/><br/> Description to capture any additional details of the group and its purpose. The maximum length of string allowed `512` characters.
+```criteria``` | String / RSQL format, mandatory <br/><br/> Criteria in RSQL format that should be applied to group conversations under this group. For more information on how to write RSQL queries, click [here](https://github.com/jirutka/rsql-parser).
 
 ### Response Body
 

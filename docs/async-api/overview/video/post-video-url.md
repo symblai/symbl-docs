@@ -280,7 +280,7 @@ Parameter |  Description
 ```confidenceThreshold``` | Double, optional <br/><br/> Minimum confidence score that you can set for an API to consider it as a valid insight (action items, follow-ups, topics, and questions). It should be in the range <=0.5 to <=1.0 (i.e., greater than or equal to `0.5` and less than or equal to `1.0`.). The default value is `0.5`. <br/><br/> Example: `"confidenceThreshold": 0.6`
 ```detectPhrases```| Boolean, optional <br/><br/> It shows Actionable Phrases in each sentence of conversation. These sentences can be found using the Conversation's  Messages API. Default value is `false`. <br/><br/> Example: `"detectPhrases": true`
 ```name``` | String, optional <br/><br/> Your meeting name. Default name set to `conversationId`. <br/><br/> Example: `name: "Sales call"`, `name: "Customer call"`. 
-```webhookUrl``` | String, optional <br/><br/> Webhook URL on which job updates to be sent. This should be after making the API request. See the [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) for more. <br/><br/> Example: `"""jobId"": ""9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"", ""status"": ""in_progress"""`
+```webhookUrl``` | String, optional <br/><br/> The URL where Symbl sends an HTTP request to your application when the job status is updated. See the [Webhook section](/docs/async-api/overview/text/post-text#webhookurl) for more. <br/><br/> Example: `"""jobId"": ""9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"", ""status"": ""in_progress"""`
 ```entities``` | Object, optional  <br/><br/>  Input custom entities which can be detected in conversation using [Entities API](/docs/conversation-api/entities). <br/><br/> Example: `"entities": "customType": "Company Executives", "value": "Marketing director", "text": "Marketing director"`
 ```detectEntities``` | Boolean, optional  <br/><br/> Default value is `false`. If not set the [Entities API](/docs/conversation-api/entities) will not return any entities from the conversation. <br/><br/> Example: `"detectEntities": true`
  ```languageCode```| String, optional <br/><br/> We accept different languages. Please [check language Code](/docs/async-api/overview/async-api-supported-languages) as per your requirement. <br/><br/> Example: `"languageCode": "en-US"`
@@ -303,8 +303,8 @@ Parameter |  Description
 ```
 Field | Description
 ---------- | ------- |
-`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). <br/><br/> Example: `"conversationId": "5815170693595136"`
-`jobId` | ID to be used with Job API. <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
+`conversationId` | ID to be used with [Conversation API](/docs/conversation-api/introduction). 
+`jobId` | ID to be used with Job API. 
 
 #### Channel Metadata
 
@@ -336,15 +336,15 @@ Given below is an example of a `channelMetadata` object:
 
 Field | Description
 | ------- | ------- 
-```channel``` | Integer, mandatory <br/><br/> This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data. <br/><br/> Example: `"channel": 1`
-```speaker``` | String, mandatory <br/><br/> This is the wrapper object which defines the speaker for this channel. <br/><br/> Example: `"speaker": "name": "Robert Bartheon",  "email": "robertbartheon@example.com"`
+```channel``` | Integer, mandatory <br/><br/> This denotes the channel number in the audio file. Each channel will contain independent speaker's voice data. 
+```speaker``` | String, mandatory <br/><br/> This is the wrapper object which defines the speaker for this channel. 
 
 `speaker`  has the following members:
 
 Field | Description
 | ------- | ------- 
-```name``` | String, optional <br/><br/> Name of the speaker. <br/><br/> Example: `"name": "Robert Bartheon"`
-```email``` | String, optional <br/><br/> Email address of the speaker. <br/><br/> Example: `"email": "robertbartheon@example.com"`
+```name``` | String, optional <br/><br/> Name of the speaker. 
+```email``` | String, optional <br/><br/> Email address of the speaker. 
 
 ### Speaker Separation
 ---
@@ -387,8 +387,8 @@ The `webhookUrl` will be used to send the status of job created for uploaded aud
 
 Field | Description
 | ------- | -------
-```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). <br/><br/> Example: `"jobId": "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"`
-```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) <br/><br/> Example: `"status": "in_progress"`
+```jobId``` | ID to be used with [Job API](/docs/async-api/overview/jobs-api). 
+```status``` |  Current status of the job. (Valid statuses: [ `scheduled`, `in_progress`, `completed`, `failed` ]) 
 
 ### API Limit Error
 

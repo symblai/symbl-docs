@@ -49,7 +49,7 @@ This API allows you to get Topics for your recorded conversations:
 
 - [POST Conversation with Streaming API](/docs/streaming-api/api-reference#request-parameters)
 - [POST Conversation with Telephony API](/docs/telephony-api/api-reference#endpoint)
-- [POST Conversation with Async API](/docs/async-api/reference/reference)
+- [POST Conversation with Async API](/docs/async-api/introduction)
 - [GET Topics with Conversation API](/docs/conversation-api/get-topics)
 
 <button class="button button1"><a href="/docs/api-reference/getting-started">Go to API Reference</a></button>

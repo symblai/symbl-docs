@@ -25,7 +25,7 @@ The **Comprehensive Action Items API** is similar to the Action Items API, excep
 
 While both are equally powerful in providing Action Items that relate to a discussion, the Comprehensive Action Items API is designed to provide more details such as references to speaker names, context in which the action item was mentioned and an overall comprehensive description of the action items. 
 
-You can use the Action Items API if you wish to relate a message one-to-one with an action item and use the exact sentence from a transcript, or utilize the Comprehensive Action Items API if you require more context to be sent alongwith the original action item, in a comprehensive format.
+You can use the Action Items API if you wish to relate a message one-to-one with an action item and use the exact sentence from a transcript, or utilize the Comprehensive Action Items API if you require more context to be sent along with the original action item, in a comprehensive format.
 
 #### Examples 
  |  | 

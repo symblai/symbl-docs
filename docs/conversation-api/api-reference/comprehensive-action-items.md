@@ -30,6 +30,8 @@ Before using the Conversation API, you must generate your authentication token (
 
 `GET https://api-labs.symbl.ai/v1/conversations/{conversationId}/comprehensive/action-items`
 
+Note that the base URL for all Symbl Labs feature is always `https://api-labs.symbl.ai`
+
 
 ### Example API Call
 

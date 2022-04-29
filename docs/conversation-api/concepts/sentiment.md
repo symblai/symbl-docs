@@ -128,9 +128,9 @@ We have chosen the below polarity ranges wrt sentiment type which covers a wide 
 Polarity Sentiment may vary for your use case. We recommend that you define a threshold that works for you, and then adjust the threshold after testing and verifying the results.
 :::
 
-| polarity         | Suggested Sentiment |
+| Polarity         | Suggested Sentiment |
 | ---------------- | ------------------- |
-| -1.0 => x > -0.3 | negative            |
+| -1.0 => x < -0.3 | negative            |
 | -0.3 => x <= 0.3 | neutral             |
 | 0.3 > x <= 1.0   | positive            |
 

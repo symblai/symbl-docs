@@ -25,7 +25,7 @@ You can also consume the processed results in real-time, which include:
 ## Example with Single Stream
 
 The example below utilises the `mic` package to stream audio in real-time. This will be a single stream of audio obtained through `mic` which may have one or more than one speaker's audio.
-The link to the complete example below can be found [here](https://github.com/symblai/getting-started-samples/blob/master/examples/voice-sdk/realtime-websocket-single-stream.js)
+
 
 ### Import required packages
 
