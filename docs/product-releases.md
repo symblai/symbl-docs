@@ -9,12 +9,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-Release  | Description | SLA | Technical Support | 
------------ | ------- |  ------- | ------- | 
-Alpha | Baseline functionality available, subject to change based on bug fixes and hardening. | No | No | 
-Beta | Mature functionality available, subject to change based on bug fixes, system hardening, and additional functionality. | No | No | 
-General Availability | Intended functionality completed or available. | Yes | Yes | 
-
-:::note 
-We also release products and features as a part of our experimental wing called Labs. Go to the [Labs](https://docs.symbl.ai/docs/labs) section to read more.
-:::
+| Release  | Description |  
+| ----------- | ------- |  ------- | ------- | 
+| Alpha | Baseline functionality available, subject to change based on bug fixes and hardening. No Service Level Agreement (SLA) in effect. No help or support provided. |  
+| Beta | Mature functionality available, subject to change based on bug fixes, system hardening, and new or changed features. No Service Level Agreement (SLA) in effect. Help available at [Support](/docs/upport). |  
+| General Availability (GA) | Intended functions complete and/or available. Service Level Agreement (SLA) in effect. Help available at [Support](/docs/support).  | 
