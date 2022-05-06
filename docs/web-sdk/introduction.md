@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-::: In Beta
+:::info In Beta
 This feature is in Beta. If you have questions or comments, email [mailto:devrelations@symbl.ai](devrelations@symbl.ai).
 :::
 
