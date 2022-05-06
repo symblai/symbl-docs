@@ -134,4 +134,4 @@ In this Python SDK release, you can utilize the following Symbl APIs:
 
 - For additional information about the Python SDK implementation, view our [GitHub README](https://github.com/symblai/symbl-python). 
 - To view a list of examples, view our [GitHub examples folder](https://github.com/symblai/symbl-python/tree/main/example). 
-
+- Some examples for the Python SDK in the documentation use [`lambda`](https://docs.python.org/3/glossary.html#term-lambda) functions.

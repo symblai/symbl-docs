@@ -1,6 +1,7 @@
 ---
 id: web-sdk
 title: Symbl Web SDK (Beta)
+description: Symbl Web SDK provides conversation intelligence for web apps and browser-based applications.
 sidebar_label: Introduction
 slug: /web-sdk/overview/
 pagination_label: Web SDK
@@ -10,25 +11,18 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+::: In Beta
+This feature is in Beta. If you have questions or comments, email [mailto:devrelations@symbl.ai](devrelations@symbl.ai).
 :::
 
-The Web SDK is a TypeScript application that allows you to add Symbl’s Conversation Intelligence into your JavaScript application directly into the browser. It provides a pre-defined set of classes for easy utilization of our Streaming and Subscribe APIs.
+Symbl Web SDK is a TypeScript application that enables you to add Symbl’s Conversation Intelligence into your JavaScript application directly in the browser. It provides a set of classes you can use to access Symbl’s [Streaming API](/docs/streamingapi/introduction/) and [Subscribe APIs](/docs/subscribe-api/). 
 
-
-:::info
-The Web SDK is currently available with Symbl’s [Streaming API](/docs/streamingapi/introduction/) and [Subscribe APIs](/docs/subscribe-api/). 
-:::
-
-
-> **Source Code** <br/> 
-Find the source code here: https://github.com/symblai/symbl-web-sdk 
+Web SDK source code is available at [https://github.com/symblai/symbl-web-sdk](https://github.com/symblai/symbl-web-sdk).
 
 
 ## Supported Browsers
 
-The following web browsers are supported with the Web SDK: 
+Web SDK works with the following web browsers: 
 
 Operating System | Chrome | Edge | Firefox | Safari |
 ---------- | ------- | ------- | ------ | ------ |
@@ -37,24 +31,26 @@ Windows | ✅ | ✅ | ✅ | ✅ |
 Linux| ✅ | - | ✅ | ✅ | 
 
 
-## Prerequisites
+## Before you begin
 
-Before using the Web SDK you must [sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values, which is used for authentication.
+Before using Web SDK [sign up with Symbl.ai](https://platform.symbl.ai) to generate your own App ID and App Secret values for authentication.
 
-## Installation
+Install the latest version of [`npm` package manager (Version 6.0.0 +)](https://www.npmjs.com/package/npm).
 
 
-### Using npm
+## Install or import Web SDK
 
-Install the Web SDK using `npm` with the following command:
+### Install using npm
+
+Install Web SDK using the following 'npm' command:
 
 ```shell
-npm i  @symblai/symbl-web-sdk
+npm i @symblai/symbl-web-sdk
 ```
 
-### CDN
+### Import via CDN
 
-You can also import the file into your HTML appliaction using our CDN.
+You can also import the file into your HTML application using Symbl's CDN. For production environments, Symbl recommends using the Versioned CDN.
 
 #### Versioned CDN
 
@@ -69,7 +65,7 @@ You can also import the file into your HTML appliaction using our CDN.
 <script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/latest/symbl.min.js"></script>
 ```
 
-You would then access the `Symbl` class via the `window` method:
+Then call the `Symbl` class using the `window` method:
 
 ```js
 const Symbl = window.Symbl;
@@ -78,20 +74,17 @@ const symbl = new Symbl({
 });
 ```
 
-:::note
-For production environments, we recommend using the Versioned CDN.
-:::
 
-### Importing
+### Import via browser
 
-You can import the Web SDK in via Browser, ES5 and ES6 syntax:
+You can import the Web SDK in a browser using ES5, ES6, or Native JavaScript:
 
 <Tabs
   defaultValue="es6"
   values={[
     { label: 'ES6', value: 'es6', },
     { label: 'ES5', value: 'es5', },
-    { label: 'Native Javascript', value: 'js', },
+    { label: 'Native JavaScript', value: 'js', },
   ]
 }>
 
@@ -118,13 +111,15 @@ const {Symbl} = window;
 </TabItem>
 </Tabs>
 
+
 ## Authentication
 
-To initialize the Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/). Alternatively, you can use the App ID and App Secret from the [Symbl Platform](https://platform.symbl.ai). 
-**Using the App ID and App Secret is not meant for production usage, as those are meant be secret.**
+To initialize Symbl's Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/).
+
+For testing purposes, you can use your App ID and App Secret from the [Symbl Platform](https://platform.symbl.ai). Do not use the App ID and App Secret in production applications.
 
 
-The code given below initializes the Web SDK:
+To initialize the Web SDK in your application, use the following JavaScript snippet:
 
 ```js
 const symbl = new Symbl({
@@ -136,97 +131,97 @@ const symbl = new Symbl({
 });
 ```
 
-## Getting Started
 
-In order to get started with the Symbl Web SDK, we will start with a basic Hello World implementation.
+## Get Started
 
-### Creating a Hello World Application
+To get started with the Symbl Web SDK, use this HTML and JavaScript audio processing example.
 
-This example will open up a WebSocket connection with the Symbl Streaming API and start processing audio data from the default input device. After 60 seconds the audio will stop being processed and the WebSocket connection will be closed. This is basic usage of the Symbl Streaming API simplified into a few lines a code.
+### Example 
 
-:::note
-View the [Importing](#importing) section for the various ways to import the Web SDK.
-:::
+The following example opens a WebSocket connection with the Symbl Streaming API and starts processing audio data from the default input device (microphone). After 60 seconds this sample code stops audio processing and closes the WebSocket connection.
 
-```js
-(async () => {
 
-  try {
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbl Web SDK example</title>
+  <script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/latest/symbl.min.js"></script>
+  <script>
+    const start = async () => {
 
-      // We recommend to remove appId and appSecret authentication for production applications.
-      // See authentication section for more details
-      const symbl = new Symbl({
-          appId: '<your App ID>',
-          appSecret: '<your App Secret>',
-          // accessToken: '<your Access Toknen>'
-      });
-      
-      // Open a Symbl Streaming API WebSocket Connection.
-      const connection = await symbl.createConnection();
-      
-      // Start processing audio from your default input device.
-      await connection.startProcessing();
 
-      // Retrieve real-time transcription from the conversation
-      connection.on("speech_recognition", (speechData) => {
-        const { punctuated } = speechData;
-        const name = speechData.user ? speechData.user.name : "User";
-        console.log(`${name}: `, punctuated.transcript);
-      });
+      try {
 
-      // Retrieve the topics of the conversation in real-time.
-      connection.on("topic", (topicData) => {
-        topicData.forEach((topic) => {
-          console.log("Topic: " + topic.phrases);
-        });
-      });
-      
-      // This is just a helper method meant for testing purposes.
-      // Waits 60 seconds before continuing to the next API call.
-      await Symbl.wait(60000);
-      
-      // Stops processing audio, but keeps the WebSocket connection open.
-      await connection.stopProcessing();
-      
-      // Closes the WebSocket connection.
-      connection.disconnect();
-  } catch(e) {
-      // Handle errors here.
-  }
-})();
+          // Symbl recommends replacing the App ID and App Secret with an Access Token for authentication in production applications.
+          // For more information about authentication see https://docs.symbl.ai/docs/developer-tools/authentication/.
+          const symbl = new Symbl({
+              appId: '<your App ID>',
+              appSecret: '<your App Secret>',
+              // accessToken: '<your Access Token>' // for production use
+          });
+          
+          // Open a Streaming API WebSocket Connection and start processing audio from your input device.
+          const connection = await symbl.createAndStartNewConnection();
+
+          // Retrieve real-time transcription from the conversation.
+          connection.on("speech_recognition", (speechData) => {
+            const name = speechData.user ? speechData.user.name : "User";
+            const transcript = speechData.punctuated.transcript;
+            console.log(`${name}: `, transcript);
+            document.querySelector("#speechRecognition").innerHTML = `${name}: ${transcript}`;
+          });
+          
+          // This is a helper method for testing purposes.
+          // It waits 60 seconds before continuing to the next API call.
+          await Symbl.wait(60000);
+          
+          // Stops processing audio, but keeps the WebSocket connection open.
+          await connection.stopProcessing();
+          
+          // Closes the WebSocket connection.
+          connection.disconnect();
+      } catch(e) {
+          // Handle errors here.
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <button onclick="javascript: start()">Start Processing</button>
+
+  <p id="speechRecognition">Click <b>Start Processing</b> and begin speaking to see transcription. If prompted, allow access to your microphone. <br> <br> If nothing happens, check your <a href="https://platform.symbl.ai/#/home">Symbl App ID and App Secret</a> in this HTML file on lines 16 and 17 respectively.</p>
+
+</body>
+
+</html>
 ```
 
-:::info Known Issues
+The current version of the Web SDK includes a few [Known Issues](/docs/changelog/#known-issues).
 
-In this version of the Web SDK, a few Known Issues have been observed. You can see the complete list of Known Issues [here](/docs/changelog/#known-issues).
-:::
+## Tutorial
 
-## Read more
-
-### Tutorials
-
-We have prepared a list of tutorials to help you understand how to use Symbl's Web SDK.
-
-#### Streaming API Tutorials
-
-* [Getting Live Transcripts and Conversation Intelligence](/docs/web-sdk/web-sdk-getting-live-transcripts/)
+Learn how to use Web SDK with the Streaming API in [Getting Live Transcripts and Conversation Intelligence](/docs/web-sdk/web-sdk-getting-live-transcripts/).
 
 
-### Code Snippets
+## Code Snippets
 
-#### Streaming API Code Snippets
+### Streaming API Code Snippets
 
 * [Sending external Audio Streams](/docs/web-sdk/web-sdk-sending-external-audio-streams)
 * [Handing Device Change](/docs/web-sdk/code-snippets/handling-device-change)
 * [Processing Data from Audio File](/docs/web-sdk/code-snippets/processing-data-from-audio-file/)
 
-#### Subscribe API Code Snippets
+### Subscribe API Code Snippets
 
 * [Subscribing to an Existing Connection](/docs/web-sdk/code-snippets/subscribing-to-existing-connection)
 
 ### SDK Reference
 
-Supported methods and events for the Symbl Web SDK are listed below:
+Supported methods and events for Web SDK:
 
 * [Web SDK Reference](/docs/web-sdk/web-sdk-reference/web-sdk-reference/)
 * [Events and Callbacks](/docs/web-sdk/web-sdk-reference/events-and-callbacks/)
