@@ -14,7 +14,7 @@ You can send a custom external audio source or audio stream using the `AudioStre
 
 :::info 
 The Web SDK supports the following Audio codecs with the sample rates as mentioned below:
-- `Linear16` - At sample rates of 8000 Hertz, 16000 Hertz, 24000 Hertz, 441000 Hertz, 48000 Hertz.
+- `Linear16` - At sample rates of 8000 Hertz, 16000 Hertz, 24000 Hertz, 441000 Hertz, 48000 Hertz.  
 - `Opus` - At sample rates of 8000 Hertz, 16000 Hertz, 24000 Hertz, and 48000 Hertz.
 If you mention the `AudioStream` without specifying the sample rate, then the default sample rate of 48000 Hertz is considered. 
 :::
