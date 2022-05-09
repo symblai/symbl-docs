@@ -19,7 +19,9 @@ Symbl Web SDK is a TypeScript application that enables you to add Symbl’s Conv
 
 Web SDK source code is available at [https://github.com/symblai/symbl-web-sdk](https://github.com/symblai/symbl-web-sdk).
 
+
 ## Supported Browsers
+
 Web SDK works with the following web browsers: 
 
 Operating System | Chrome | Edge | Firefox | Safari |
@@ -37,7 +39,6 @@ Install the latest version of [`npm` package manager (Version 6.0.0 +)](https://
 
 
 ## Install or import Web SDK
-
 
 ### Install using npm
 
