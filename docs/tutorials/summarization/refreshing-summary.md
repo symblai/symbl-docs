@@ -9,14 +9,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Alpha Phase
-This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Alpha
+This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-When you wish to renegerate a Summary that you generated earlier, you can do so in two ways: 
+To renegerate a Summary previously generated, you can use one of two methods: 
 
-1. [Regenerate the entire Summary](#regenerate-the-summary): This deletes your previously created Summary and replaces it with a new one.
-2. [Regenerate Summary for only new transcripts](#regenerate-summary-for-only-new-transcripts): This generates a Summary for only the new messages of the conversation. 
+1. [Regenerate the entire Summary](#regenerate-the-summary): Deletes any previously created Summary and replaces it with a new one.
+
+1. [Regenerate Summary for only new transcripts](#regenerate-summary-for-only-new-transcripts): Generates a Summary only for new messages of the conversation. 
 
 ## Regenerate the Summary 
 ---

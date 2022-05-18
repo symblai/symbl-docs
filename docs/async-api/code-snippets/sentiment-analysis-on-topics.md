@@ -9,21 +9,19 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-Topics are key drivers of the conversation. They're the most important keywords or phrases used.  The topics algorithm provides a framework for the user to calibrate and precisely model the relationship among the concepts and understand how the semantics of the meetings is talked upon. Sentiment Analysis on topics determines whether the Topics resulting from the conversation are positive, negative, or neutral. 
+Topics are key drivers of conversations. They're the most important keywords or phrases used.  The topics algorithm provides a framework for the user to calibrate and precisely model the relationship among the concepts and understand how the semantics of the meetings is talked upon. Sentiment Analysis on topics determines whether the Topics resulting from the conversation are positive, negative, or neutral. 
 
-:::note
-Currently, with Sentiment Analysis, en-US (English US) is the only language supported.
-:::
+**Note that Sentiment Analysis currently only supports the `en-US` (English US) language.**
 
-To get Sentiment Analysis on Text, follow the steps given below:
+To get Sentiment Analysis on Text, complete the following steps:
 
 ## Prerequisites
 1. Your Symbl API Credentials. You can get these on the [Symbl Platform](https://platform.symbl.ai/#/login). If you're new to the platform, [create an account](https://platform.symbl.ai/?_ga=2.201716818.257081579.1638006100-1289486206.1635166797#/signup) to get started. If you get stuck somewhere, [Slack us](https://symbldotai.slack.com/join/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA#/).
-2. You have generated your access token. To learn how to do the same, check out our [Authentication](/docs/developer-tools/authentication/#step-2-generate-the-access-token) page. 
+1. You have generated your access token. To learn how to do the same, check out our [Authentication](/docs/developer-tools/authentication/#step-2-generate-the-access-token) page. 
 
 ## Step 1: Process conversation with Symbl
 ---

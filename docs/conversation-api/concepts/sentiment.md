@@ -16,8 +16,8 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::note In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
 Sentiment Analysis is the interpretation of the general thought, feeling, or sense of an object or a situation.
@@ -32,7 +32,7 @@ Symbl's Sentiment API works over Speech-to-Text sentences and Topics (or aspect)
 
 ## Sentiment API
 
-To see Sentiment API in action, you need to process a conversation using Symbl. After you process a conversation, you'll receive a **conversation Id** which can be passed in below-mentioned Conversation APIs. All you need to do is pass query parameters `sentiment=true`.
+To see the Sentiment API in action, you need to process a conversation using Symbl. After you process a conversation, you'll receive a **conversation Id** which can be passed to the following Conversation APIs. All you need to do is pass the `conversationId` and query parameters `sentiment=true`.
 
 :::info
 Each continuous sentence spoken by a speaker in conversation is referred to as a Message. **Hence ,we named our Speech to Text API as Messages API**. Messages API returns you a list of messages in a conversation.

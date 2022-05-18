@@ -187,7 +187,7 @@ The following table lists the parameters and their descriptions used in the samp
 | `symbl_platform_url` | The dedicated URL for the Symbl platform. Use `api-agora-1.symbl.ai`.
 | `symbl_app_id` | The Symbl App ID.
 | `symbl_app_secret` | The Symbl App Secret.
-| `symbl_meeting_language_code` | The language code. Currently, en-US (English US) is the only language supported.
+| `symbl_meeting_language_code` | The language code. Currently, `en-US` (English US) is the only language supported.
 | `symbl_token_api` | The URL for secure token generation.
 | `symbl_meeting_encoding` | The audio encoding in which the audio will be sent over the WebSocket connection.
 | `symbl_meeting_sampleRateHertz` | The rate of the incoming audio stream.

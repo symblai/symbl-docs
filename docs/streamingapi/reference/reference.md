@@ -356,13 +356,13 @@ Example of the `insight_response` object
 
 ## Using Trackers
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-Symbl provides a real-time Streaming API for processing audio content in real-time. You can also capture Trackers for a conversation in real-time. For more details on Trackers, refer to the [Trackers](/docs/concepts/trackers) documentation. 
+Symbl provides a real-time Streaming API for processing audio content in real-time. You can also capture Trackers for a conversation in real-time. For details see the [Trackers](/docs/concepts/trackers) documentation. 
 
-Below is an example that shows how to pass Trackers in the `config` object for the `startRealtimeRequest` of the Symbl’s JavaScript SDK. This example also shows how to consume the results of the detected Trackers in real-time.
+The following example shows how to pass Trackers in the `config` object for the `startRealtimeRequest` of the Symbl JavaScript SDK. This example also shows how to consume the results of the detected Trackers in real-time.
 
 Below is the code snippet:
 

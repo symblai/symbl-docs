@@ -10,21 +10,21 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Alpha Phase
-This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Alpha
+This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
 Summaries are generated best when used with Speaker information captured in the conversation. It is highly recommended that you send us the speaker information to use this feature effectively.
 
 You can provide speaker information in one of the following ways:
 
-- #### Async Text API
+### Async Text API
 
 To send the speaker information, you can use the [POST Async Text API](/docs/async-api/overview/text/post-text/) (field `from` with speaker’s name for each `message` submitted). Learn more in the [Async Text API Messages](/docs/async-api/overview/text/post-text/#messages) section.
 
 You can use an email conversation as the input of the transcript content in the Async Text API. You can submit the email content in the request for the Async text API. 
 
-- #### Async Audio/Async Video API
+### Async Audio/Async Video API
 
 You can choose from any of the following ways to provide speaker separation based on your scenario:
 
