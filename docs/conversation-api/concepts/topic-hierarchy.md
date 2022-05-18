@@ -11,15 +11,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-:::info
-This API performs best when the audio is clear and the meeting length is greater than 10 minutes.
-Longer length meetings are broken down by our algorithm in contextually relevant parts which helps in producing
+Note that this API performs best when the audio is clear and the meeting length is greater than ten minutes.
+Longer length meetings are broken down by our algorithm in contextually relevant parts which helps to produce
 high-quality topic hierarchy.
-:::
 
 In any conversation, there can be multiple related topics that get discussed and it is possible to organize them in a hierarchy for better insights and consumption. Symbl's Topic Hierarchy algorithm finds a pattern in the conversation and creates parent (global) topics with each parent topic having multiple child topics nested within it. 
 

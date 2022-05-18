@@ -6,27 +6,23 @@ slug: /tutorials/trackers/consuming-trackers-management-api/
 ---
 
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-
-Trackers can be consumed via the Management API, which takes the onus of maintaining these entities from you and shifts it to Symbl’s backend. The Management API provides an easy-to-consume REST interface for managing these entities. 
+Trackers can be consumed via the Management API, which maintains these entities for you and stores the data on Symbl backend servers. The Management API provides an easy-to-consume REST interface for managing these entities. 
 
 All Trackers created using Management API are saved and can be reused for other operations such as PUT, UPDATE and DELETE. 
+
 To read about the capabilities of the Management API, see the [Management API](/docs/management-api/introduction) page. 
 
-:::note Trackers Management UI
 You can also create, view, edit and delete Trackers via the Trackers Management UI. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
 
 - **Using punctuations**: You can only pass periods `.`, apostrophes `'` and dashes `-` in the trackers vocabulary. Other punctuations like `?`, `,`, `!`, `:`are not allowed.
 - **Vocabulary terms**: You must add atleast 5 and a maximum of 50 vocabulary terms per Tracker.
 - **Trackers limitation**: You can create up to 500 trackers per account. 
-:::
 
-:::tip
 Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
-:::
 
 ### Step 1: Create Trackers
 ---

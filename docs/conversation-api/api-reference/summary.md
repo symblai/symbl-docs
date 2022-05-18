@@ -9,15 +9,15 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Alpha Phase
-This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Alpha
+This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-This API allows you to get a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
+The Summary API provides you with a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
 Currently, Summaries cannot be generated in real-time. Support for creating Summary in real-time will be added soon.  
 
-:::caution
+:::note 
 The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API.
 :::
 

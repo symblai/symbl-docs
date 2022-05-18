@@ -7,15 +7,13 @@ slug: /management-api/trackers/update-tracker/
 
 ----
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-To update an existing Tracker, send a PUT Tracker API request with Management API. This updates a Tracker entity against the `trackerId` which can be consumed in Symbl APIs.
+To update an existing Tracker, send a PUT Tracker API request using the Management API. This updates a Tracker entity against the `trackerId` which can be consumed in Symbl APIs.
 
-:::info Trackers Management UI
-You can create, view, edit and delete Trackers via the Trackers Management UI as well. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login)
-:::
+You can also create, view, edit, and delete Trackers using the Trackers Management UI. To access this feature, log in to the[Symbl Platform](https://platform.symbl.ai/#/login).
 
 ### API Endpoint 
 

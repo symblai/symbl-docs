@@ -9,13 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Alpha Phase
-This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Alpha
+This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-This tutorial provides a step-by-step instructions on how to get a Summary using Async APIs. 
-
-To do this, follow the steps given below.
+This tutorial provides step-by-step instructions about generating a Summary using Async APIs. 
 
 :::note
 - If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary will use temporary labels to assign speakers. For example, it will assign the speakers with labels such as "Speaker 1", "Speaker 2" and so on. In this case, we recommend you to update the labels with actual names using [Speaker Events API](/docs/conversation-api/speaker-events) so you can get a more personalized summary. 

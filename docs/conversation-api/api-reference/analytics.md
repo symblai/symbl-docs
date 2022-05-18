@@ -9,24 +9,16 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Analytics API provides you with functionality like finding speaker ratio, talk time, silence, pace and overlap in
+Analytics API provides functions to find speaker ratio, talk time, silence, pace, and overlap in
 a conversation.
 
-:::info
-This is a Beta API - Undergoing further development.
-If you have any suggestions, idea or questions about this API please reach us at devrelations@symbl.ai.
+:::info In Beta
+TThis feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
+If diarization is enabled and each individual speaker is identified in the conversation, this API shows per speaker talktime, listentime, pace and overlap. If the speaker is not identified or absent, it will be marked as unknown speaker.
 
-:::info
-If diarization is enabled and each individual speaker are identified in the conversation then
-this API will shows speaker wise talktime, listentime, pace and overlap.
-Incase of the speaker is absent, it will be marked as unknown speaker
-:::
-
-
-
-For each conversation it returns:
+For each conversation the Analytics API returns:
 
 1. <strong>Speaker Ratio</strong> - Speaker’s talk and listen ratio and time.
 2. <strong>Talk Time</strong> - Overall duration of the conversation.
