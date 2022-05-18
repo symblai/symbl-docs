@@ -6,17 +6,17 @@ slug: /tutorials/trackers/create-trackers-async-api/
 ---
 
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-Symbl provides a set of Async APIs based on audio, video or text content. For more details on Async APIs refer to the documentation [here](/docs/async-api/introduction). 
+Symbl provides a set of Async APIs based on audio, video, or text content. For more details see [Async API](/docs/async-api/introduction). 
 
-The Trackers once ingested via the request, will then try to detect these in the Conversation. Once the job is complete, you can fetch the Trackers from the Conversation API through the `/trackers` endpoint described below.
+The Trackers, once processed by the request, try to detect Trackers in the Conversation. Once the job is complete, you can fetch the Trackers from the Conversation API through the `/trackers` endpoint described in this article.
 
-:::info Creating Trackers with Management API
-While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
-:::
+**Creating Trackers with Management API**
+
+While you can create Trackers with Async or Streaming APIs, Symbl recommendeds creating Trackers using the Management API. Trackers created using the Management API are saved and can be reused while the same is not possible with Async or Streaming APIs.
 
 ### Async Audio File API
 The Tracker entities should be passed as a **query parameter** in the Async Audio API’s URL as shown below.

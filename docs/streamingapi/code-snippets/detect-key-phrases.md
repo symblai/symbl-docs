@@ -9,15 +9,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-This example goes over how you can use the Symbl Streaming API to detect key prases using the [Trackers API](/docs/streaming-api/api-reference#using-trackers). This example uses both the [Symbl's Javascript SDK](/docs/javascript-sdk/overview/introduction), which is meant to be run using Node.js, and native Javascript which can be run in the browser.
+This example describes how to use the Symbl Streaming API to detect key phrases using the [Trackers API](/docs/streaming-api/api-reference#using-trackers). This example uses both the [Symbl Javascript SDK](/docs/javascript-sdk/overview/introduction), which is meant to be run using Node.js, and native Javascript which can be run in the browser.
 
-:::info
-If you wish to learn more about Trackers you can view our [Trackers Concept Page](/docs/concepts/trackers).
-:::
+To learn more about Trackers you can view our [Trackers Concept Page](/docs/concepts/trackers).
 
 ## Track Phrases
 

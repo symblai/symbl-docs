@@ -6,17 +6,15 @@ slug: /management-api/trackers/create-tracker/
 ---
 
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-The endpoint given below creates a Tracker entity which can be consumed with Symbl APIs. Currently, the Tracker entities can be consumed with the [Async APIs](/docs/tutorials/trackers/create-trackers-async-api/) and [Streaming APIs](/docs/tutorials/trackers/create-trackers-streaming-api) only. Telephony API does not have support for Trackers yet.
+The endpoint given below creates a Tracker entity which can be consumed by Symbl APIs. Currently, the Tracker entities can be consumed with the [Async APIs](/docs/tutorials/trackers/create-trackers-async-api/) and [Streaming APIs](/docs/tutorials/trackers/create-trackers-streaming-api) only. Telephony API does not yet support Trackers.
 
 You can create several Trackers at the same time as a bulk operation. To learn how, see [**Bulk Create Trackers**](#create-trackers-in-bulk) section. You can create up to 500 Trackers per account. 
 
-:::tip Best Practises
-Before creating the Trackers, go through the [Best Practices](#best-practices) section to learn about how to create Trackers.
-:::
+Before creating the Trackers, see the [Best Practices](#best-practices) section to learn more about creating Trackers.
 
 
 ### API Endpoint

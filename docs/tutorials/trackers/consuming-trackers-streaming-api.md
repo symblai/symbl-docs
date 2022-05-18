@@ -6,18 +6,18 @@ slug: /tutorials/trackers/consuming-trackers-streaming-api/
 ---
 
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
+To pass a Tracker in the Streaming API, use the `config` object. 
 
-To pass a Tracker in the Streaming API, utilize the `config` object. 
+The following example shows how to pass Trackers in the `config` object for the `startRealtimeRequest` of the Symbl JavaScript SDK. This example also shows how to consume the results of the detected Trackers in real-time.
 
-Given below is an example that shows how to pass Trackers in the `config` object for the `startRealtimeRequest` of the Symbl’s JS SDK. This example also shows how to consume the results of the detected Trackers in real-time.
+**Using Enable All Trackers functionality**
 
-:::info Using Enable All Trackers functionality
-Additionally, you can pass the parameter `enableAllTrackers` in the `config` object for `trackers` to use all the Trackers linked to your Symbl account. See the sample below to understand how to pass this.
-:::
+Additionally, you can pass the parameter `enableAllTrackers` in the `config` object for `trackers` to use all the Trackers linked to your Symbl account. See the following example for details about how to pass this parameter.
+
 
 :::tip Best Practises
 Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.

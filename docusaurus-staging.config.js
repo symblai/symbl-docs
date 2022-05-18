@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [
-    'docusaurus-plugin-moesif',
+    // 'docusaurus-plugin-moesif',
     // 'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
@@ -201,14 +201,6 @@ module.exports = {
   organizationName: 'symbl.ai', // Usually your GitHub org/user-name.
   projectName: 'docs-v1', // Usually your repo name.
   onBrokenLinks: 'warn',
-  scripts: [
-    {
-      src: '/docs/js/hotjar.js',
-      async: true,
-    },
-    '//unpkg.com/moesif-browser-js@^1/moesif.min.js',
-    '/docs/js/moesif.js',
-  ],
   themeConfig:
   {
 
@@ -234,12 +226,6 @@ module.exports = {
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: true
-    },
-
-    moesif:
-    {
-      applicationId: 'eyJhcHAiOiIxOTg6NDYwIiwidmVyIjoiMi4wIiwib3JnIjoiODg6MTAyMyIsImlhdCI6MTYwNjc4MDgwMH0.HJiVyW2au4JS1Po1RkXIsuuS6uvWd2ED71xgySIyZJY',
-      // Add other Moesif options here.
     },
     "prism":
     {

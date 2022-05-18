@@ -5,17 +5,18 @@ sidebar_label: Introduction
 slug: /management-api/introduction/
 pagination_label: Management API
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-The Management API allows you to access and manage various resources against your Symbl account. The resources created and managed by this API is maintained at the account level.
+The Management API lets you access and manage a number of resources in your Symbl account. The resources created and managed by this API are maintained at the account level.
 
-While the Conversation API is used for managing the data associated with the conversations (generated via the real-time or Async APIs), the Management API is used for managing the data consumed via the Symbl’s APIs. 
+While the Conversation API is used for managing the data associated with the conversations (generated via the real-time or Async APIs), the Management API is used for managing the data consumed via Symbl’s APIs. 
 
 ### Supported Entities
 
-The following entities are currently supported with Management API:
+The following entities are currently supported by the Management API:
 
 - **Trackers**: Trackers allow you to get “contextually similar” occurrences in a conversation so you can identify emerging trends and gauge the nature of the interactions. Read about Trackers and its capabilities, in the [**Trackers**](/concepts/trackers) section. 
 

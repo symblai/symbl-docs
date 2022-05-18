@@ -9,15 +9,13 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
 Sentiment Analysis is the process of determining whether each message/line in a conversation is positive, negative, or neutral. Sentiment analysis on messages combines natural language processing and machine learning procedures to allot sentiment scores to the message.
 
-:::note
-Currently, with Sentiment Analysis, en-US (English US) is the only language supported.
-:::
+**Note that Sentiment Analysis currently only supports the `en-US` (English US) language.**
 
 For Sentiment Analysis on Messages, you need to process your conversation with Symbl and then use conversationId you received in Messages APIs and pass sentiment parameter to get the transcript with the sentiment, polarity, and score. 
 

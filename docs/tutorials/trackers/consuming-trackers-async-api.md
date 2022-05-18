@@ -6,26 +6,25 @@ slug: /tutorials/trackers/consuming-trackers-async-api/
 ---
 
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-This tutorial covers step-by-step information on how to use Trackers with Async API. We have used the example of the [Async Audio URL API](/docs/management-api/trackers/create-tracker#async-audio-url-api) here. However, you can follow the same steps with other Async APIs as well. 
+This tutorial covers step-by-step information about using Trackers with Async API. This document follows the example of the [Async Audio URL API](/docs/management-api/trackers/create-tracker#async-audio-url-api). However, you can also follow the same steps with other Async APIs. 
 
 ### Step 1: Create a Tracker
 ---
 
 The first step is to create a Tracker vocabulary with a set of phrases and keywords that you wish to track and pass the same in the Async API payload.
 
-:::tip
-- Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of the Tracker vocabulary creation.
+Before creating the Trackers, go through the [Best Practices](/docs/best-practices/best-practices-trackers/) document to learn about the dos and don'ts of Tracker vocabulary creation.
 
-- If you want to create multiple trackers, use [Trackers Management API for bulk creation](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk). The Trackers Management API handles all the Trackers you have created at your account level and makes it easy to maintain them.
+If you want to create multiple trackers, use [Trackers Management API for bulk creation](/docs/management-api/trackers/create-tracker#create-trackers-in-bulk). The Trackers Management API handles all the Trackers you have created at your account level and makes them easier to maintain.
 :::
 
 #### Authentication 
 
-Before using the API, ensure that you have your Authentication Token (`AUTH_TOKEN`) handy. To learn about how to get your auth token, see the step-by-step instructions on the [Authentication](/docs/developer-tools/authentication) page.
+Before using the API, make sure that you have your Authentication Token (`AUTH_TOKEN`) handy. To learn about how to get your auth token, see the step-by-step instructions at [Authentication](/docs/developer-tools/authentication).
 
 #### API Endpoint
 

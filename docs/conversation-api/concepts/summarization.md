@@ -16,21 +16,21 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::note In Alpha Phase
-This feature is in the [Alpha](/docs/product-releases) phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Alpha
+This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
 Symbl distills important messages and creates succinct Summaries for long conversations. You can get these Summaries using the [Summary API](/docs/conversation-api/summary).
 
-Summaries help you save time required to grasp the contents of a conversation that has several pages of transcripts.
+Summaries help you save time by analyzing the contents of a conversation that might have several pages of transcripts.
 
-:::info
-Currently, real-time Summaries are not supported.
+:::note Note
+Real-time Summaries are not currently supported.
 :::
 
 ### Example
 
-Given below is an example of a multi-line transcript and its corresponding Summary created by the Summary API:
+The following sample is a multi-line transcript and its corresponding Summary created by the Summary API:
 
 ![Transcript](/img/summary_labs_final.png)
 

@@ -12,10 +12,10 @@ import TabItem from '@theme/TabItem';
 ---
 
 :::info In Beta
-This feature is in Beta. If you have questions or comments, email [devrelations@symbl.ai](mailto:devrelations@symbl.ai).
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-Symbl Web SDK is a TypeScript application that enables you to add Symbl’s Conversation Intelligence into your JavaScript application directly in the browser. It provides a set of classes you can use to access Symbl’s [Streaming API](/docs/streamingapi/introduction/) and [Subscribe APIs](/docs/subscribe-api/). 
+Symbl Web SDK is a TypeScript application that enables you to add Symbl’s Conversation Intelligence into your JavaScript application directly in the browser. It provides a set of classes you can use to access the Symbl [Streaming API](/docs/streamingapi/introduction/) and [Subscribe API](/docs/subscribe-api/). 
 
 Web SDK source code is available at [https://github.com/symblai/symbl-web-sdk](https://github.com/symblai/symbl-web-sdk).
 
@@ -114,7 +114,7 @@ const {Symbl} = window;
 
 ## Authentication
 
-To initialize Symbl's Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/).
+To initialize yjr Symbl Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/).
 
 For testing purposes, you can use your App ID and App Secret from the [Symbl Platform](https://platform.symbl.ai). Do not use the App ID and App Secret in production applications.
 

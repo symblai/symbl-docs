@@ -10,12 +10,11 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info
-This is a Beta API - Undergoing further development.
-If you have any suggestions, idea or questions about this API please reach us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-This API provides you with a functionality to extract entities (custom, location, person, date, number, organization, datetime, daterange etc.) from the conversation.
+The Entities API can extract distinct entities from a conversation, such as location, person, date, number, organization, datetime, daterange, custom entity, and so on.
 
 ### Detecting Entities
 

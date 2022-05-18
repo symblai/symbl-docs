@@ -10,8 +10,8 @@ import TabItem from '@theme/TabItem';
 
 
 ---
-:::note In Beta Phase
-This feature is in the Beta phase. If you have any questions, ideas or suggestions please reach out to us at devrelations@symbl.ai.
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
 You can use the Trackers API with the following:<br/>
@@ -20,9 +20,9 @@ You can use the Trackers API with the following:<br/>
 - [Trackers with Async APIs](/docs/tutorials/trackers/consuming-trackers-async-api/)
 - [Trackers with Streaming API](/docs/tutorials/trackers/consuming-trackers-streaming-api/)
 
-:::info Create Trackers with Management API
-While you can create Trackers with Async or Streaming APIs, it is recommended that you create Trackers using Management API because Trackers created with Management APIs are saved and can be reused while the same is not possible with Async or Streaming APIs. 
-:::
+**Create Trackers with Management API**
+
+While you can create Trackers with Async or Streaming APIs, Symbl recommends that you create Trackers using the Management API. When you create Trackers using the Management API, they are saved and can be reused while the same is not possible with Async or Streaming APIs.
 
 ## API Endpoints
 
