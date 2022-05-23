@@ -9,28 +9,25 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info In Alpha
-This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-This tutorial provides step-by-step instructions about generating a Summary using Async APIs. 
+This tutorial provides step-by-step instructions for generating a Summary using Async APIs. 
 
-:::note
-- If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary will use temporary labels to assign speakers. For example, it will assign the speakers with labels such as "Speaker 1", "Speaker 2" and so on. In this case, we recommend you to update the labels with actual names using [Speaker Events API](/docs/conversation-api/speaker-events) so you can get a more personalized summary. 
-:::
+If you are using the [Speaker Separation](/docs/async-api/tutorials/get-speaker-separation-audio-video/) feature, the Summary uses temporary labels to assign speakers. For example, it assigns the speakers with labels such as **Speaker 1**, **Speaker 2** and so on. In this case, Symbl recommends that you update the labels with actual names using the [Speaker Events API](/docs/conversation-api/speaker-events) to get a more personalized summary. 
 
-### Step 1: Process conversations with Async API with enableSummary=true parameter
----
+## Step 1: Process conversations with Async API using `enableSummary=true` parameter
 
-When you process a text, video or audio conversation with Async API, you must enable the Summarization feature. To do this, set the parameter `enableSummary=true` in the **query** params as shown below.
+When you process a text, video, or audio conversation using Async API, you must enable the Summarization feature. To do this, set the parameter `enableSummary=true` in the **query** params as shown here.
 
-In the example below, we use Text Async API, however, the same can be used for Audio and Video Async APIs as well. 
+This example uses the Text Async API. You can use the same syntax for Audio and Video Async APIs. 
 
-#### Request 
+### Request 
 
 `POST https://api.symbl.ai/v1/process/text?enableSummary=true`
 
-#### Response
+### Response
 
 ```json
 {
@@ -39,25 +36,25 @@ In the example below, we use Text Async API, however, the same can be used for A
 }
 ```
 
-The Async API call will return the `conversationId`. You can use this Conversation ID to get the Summary in the next Step. 
+The Async API call returns a `conversationId`. Use the Conversation ID to get the Summary in the next Step. 
 You must wait for the job to complete before you can get the Summary. 
 
-### Step 2: Get Summary with Summary API
----
 
-Once you have the `conversationId`, you can send a GET request to the Summary API endpoint shown below:
+## Step 2: Get Summary with Summary API
 
-#### Request 
+Once you have the `conversationId`, you can send a GET request to the Summary API endpoint as shown here:
+
+### Request 
 
 `GET https://api.symbl.ai/v1/conversations/{conversationId}/summary`
 
-#### Example 
+### Example 
 
 `GET https://api.symbl.ai/v1/conversations/5815170693595136/summary`
 
-#### Response
+### Response
 
-The response will return the Summary as shown below:
+The response return the Summary as follows:
 
 ```json
 {
@@ -180,14 +177,7 @@ The response will return the Summary as shown below:
 }
 ```
 
-<div class="row">
-  <div class="column">
-    <div class="card"><a href="/docs/conversation-api/summary"><h4>API Reference</h4>To know more about the Response Object descriptions and API parameters, see the Summary API section.</a></div>
-  </div>
-</div>
-<br/>
+### Summary API Reference
 
-### What's Next? 
-
-- [Refreshing the Summary](/docs/tutorials/summarization/refreshing-summary) 
+For more information about the Response Object descriptions and API parameters, see the [Summary API Reference](/docs/conversation-api/summary).
 
