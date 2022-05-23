@@ -10,33 +10,34 @@ import TabItem from '@theme/TabItem';
 
 
 ---
-Symbl uses the [OAuth2.0 Protocol](https://datatracker.ietf.org/doc/html/rfc6749) for Authentication. 
-To begin, get your API Credentials from [Symbl Platform](https://platform.symbl.ai/). Using these credentials you can then generate the Access Token to invoke Symbl API calls. 
+Symbl uses [OAuth2.0 Protocol](https://datatracker.ietf.org/doc/html/rfc6749) for Authentication. 
+To receive API Credentials you need to create an account at [Symbl Platform](https://platform.symbl.ai/). Then you can use your Symbl credentials to generate the Access Token needed to make Symbl API calls. 
 
 ### Step 1: Get your API Credentials
 
-The first step is to get your App ID and App Secret from the Symbl Platform. To do this, follow the steps given below:
+To get your App ID and App Secret from the Symbl Platform:
 
 1. Log into [Symbl Platform](https://platform.symbl.ai/).
-2. From the homepage, copy your **App ID** and **App Secret**.
 
-     ![Transcript](/img/app-secret-app-id-1.png)
+1. From the home page, copy your **App ID** and **App Secret**.
 
-Ensure that you keep this Credentials safe and handy as you need it to generate the Access Token. However, you can always log back in and get the credentials anytime. 
+     ![API Credentials](/img/app-secret-app-id-1.png)
 
-These credentials will be required every time you generate the Access Token. 
+Keep your Credentials safe and private. You need these credentials to generate a Symbl API Access Token. You can retrieve your credentials from the home page at any time. 
+
+These credentials are required every time you generate the Access Token. 
 
 ### Step 2: Generate the Access Token
 
-Once you have your API Credentials, you can generate the Access Token and use it in the API Authorization. 
+Once you have API Credentials, you can generate the Access Token and use it for API Authorization. 
 
 To generate the Access Token, make a POST request to the endpoint:
 `https://api.symbl.ai/oauth2/token:generate`
 
-You must send your App ID and Secret in the request body. See the sample requests below:
+You must send your App ID and Secret in the request body as shown in the following examples:
 
 :::note
-The Node.js code works with Node.js 7+ and browsers. You will need to install the [request library](https://www.npmjs.com/package/request) for the Node.js sample code.
+The Node.js code works with Node.js 7+ and browsers. You need to install the [request library](https://www.npmjs.com/package/request) for the Node.js sample code.
 :::
 
 <Tabs
@@ -101,8 +102,8 @@ import json
 
 url = "https://api.symbl.ai/oauth2/token:generate"
 
-appId = "your_app_id"  # App Id found in your platform
-appSecret = "your_app_secret"  # App Id found in your platform
+appId = "your_app_id"  # Your App Id from the platform home page
+appSecret = "your_app_secret"  # Your App Secret from the platform home page
 
 payload = {
     "type": "application",
@@ -126,7 +127,7 @@ response = requests.request("POST", url, headers=headers, data=json.dumps(payloa
 if response.status_code == 200:
     # Successful API execution
     print("accessToken => " + response.json()['accessToken'])  # accessToken of the user
-    print("expiresIn => " + str(response.json()['expiresIn']))  # Expiry time in accessToken
+    print("expiresIn => " + str(response.json()['expiresIn']))  # Expiration time in accessToken
 elif response.status_code in responses.keys():
     print(responses[response.status_code], response.text)  # Expected error occurred
 else:
@@ -150,13 +151,13 @@ On successful completion, the success message appears as shown below:
  }
 ```
 
-
 `accessToken` - Token to be used for authorization in the Authorization header.
+
 `expiresIn` - Duration in seconds after which the accessToken expires. 
 
-For any invalid `appId` and `appSecret` combination, the HTTP `401 Unauthorized` response code will be returned.
+Any invalid `appId` or `appSecret` combination returns the HTTP **401 Unauthorized** response.
 
-You can now use this `accessToken` to authenticate yourself and invoke Symbl APIs. 
+You can now use this `accessToken` to authenticate yourself and use Symbl APIs. 
 
 :::info
 `expiresIn` is the duration in seconds after which the Access Token expires. The default expiration time is 86400 seconds. You can generate the Token again after the expiration. 
@@ -165,6 +166,6 @@ You can now use this `accessToken` to authenticate yourself and invoke Symbl API
 
 #### Regenerating Access Token
 
-To maximize security, we allow the Access Token to be used only for a default duration of 86400 secs. On the expiry, you can regenerate it using Step 2. 
+To maximize security, Symbl Access Tokens expire in a default duration of 86400 secs. After expiration, you can regenerate it using Step 2. 
 
-Also note that once a token is generated with an initial expiry of 86400, we will hold that in cache until it is near expiration. If you make a request to generate a token and there is still one cached, we will return that token with the remaining expiry time. 
+Note that once a token is generated with an initial expiration time of 86400, the system holds that in cache until it is near expiration. If you make a request to generate a token and there is still one cached, the system returns the token with the remaining expiration time. 

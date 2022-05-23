@@ -9,28 +9,26 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info In Alpha
-This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-To renegerate a Summary previously generated, you can use one of two methods: 
+To renegerate a previously generated Summary, you can use one of two methods: 
 
 1. [Regenerate the entire Summary](#regenerate-the-summary): Deletes any previously created Summary and replaces it with a new one.
 
-1. [Regenerate Summary for only new transcripts](#regenerate-summary-for-only-new-transcripts): Generates a Summary only for new messages of the conversation. 
+1. [Regenerate Summary for only new transcripts](#regenerate-summary-for-only-new-transcripts): Generates a Summary only for new messages in the conversation. 
+
 
 ## Regenerate the Summary 
----
 
-If you wish to regenerate the Summary that was already created, use the flag `refresh=true`. 
+To regenerate the Summary that was already created, use the flag `refresh=true`. 
 
-:::important
 When you regenerate the Summary with `refresh=true` flag, the previous Summary is deleted and a new one is created. 
-:::
 
-### Passing the parameter `refresh=true` in the Summary API 
+### Pass the parameter `refresh=true` in the Summary API 
 
-The parameter `refresh=true` has to be passed as a query parameter in the Summary API as shown below:
+The parameter `refresh=true` must be passed as a query parameter in the Summary API as shown here:
 
 #### Request
 
@@ -161,20 +159,20 @@ The parameter `refresh=true` has to be passed as a query parameter in the Summar
 
 #### Response Object
 
-Parameter | Description | 
----------- | -------
-```id```    | The identifier of the Summary within the scope of the conversation. 
-```messageRefs.id``` | The identifier of each message that makes up a Summary.
-```text```| The text of the Summary.
+| Parameter | Description | 
+| --- | --- |
+| `id` | The identifier of the Summary within the scope of the conversation. |
+| `messageRefs.id` | The identifier of each message that makes up a Summary. |
+| `text` | The text of the Summary. |
+
 
 ## Regenerate Summary for only New Transcripts
----
 
 When you have new or additional transcript messages, you can generate a Summary for only the new transcripts without regenerating the entire Summary. 
 
-### Passing the parameter refresh=false in the Summary API
+### Pass the parameter refresh=false in the Summary API
 
-The parameter `refresh=false` has to be passed as a query parameter in the Summary API as shown below. Use the `conversationID` of the original conversation:
+The parameter `refresh=false` must be passed as a query parameter in the Summary API as shown here. Use the `conversationID` of the original conversation:
 
 #### Request
 
@@ -218,9 +216,6 @@ The parameter `refresh=false` has to be passed as a query parameter in the Summa
 }
 ```
 
-<div class="row">
-  <div class="column">
-    <div class="card"><a href="/docs/conversation-api/summary"><h4>API Reference</h4>To know more about the Response Object descriptions and API parameters, see the Summary API section.</a></div>
-  </div>
-</div>
-<br/>
+### Summary API Reference
+
+For more information about the Response Object descriptions and API parameters, see the [Summary API Reference](/docs/conversation-api/summary).
