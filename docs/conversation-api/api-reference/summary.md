@@ -1,6 +1,6 @@
 ---
 id: summary
-title: GET Summary 
+title: GET Summary (Beta)
 sidebar_label: GET Summary (Beta)
 slug: /conversation-api/summary/
 ---
