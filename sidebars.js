@@ -95,7 +95,7 @@ module.exports = {
    ]
  },
  {
-   label: "Summarization (Alpha)",
+   label: "Summarization (Beta)",
    type: 'category',
    items: [
      'conversation-api/concepts/summarization',
@@ -441,7 +441,7 @@ module.exports = {
    ],
  },
  {
-   label: 'Summary API (Alpha)',
+   label: 'Summary API (Beta)',
    type: 'category',
    collapsed: true,
    items: [
