@@ -340,10 +340,6 @@ Accepts a required [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/W
 
 Attaches an audio element to the processor and starts processing audio data from the audio file. In order to start processing you need to call `.play()` on the audio element. We recommend doing this after the `processing_started` Event has been fired.
 
-:::caution note 
-Currently, only LINEAR16 encoding is supported for audio elements. Opus support will be addressed in a later update.
-:::
-
 
 #### Example
 
@@ -385,7 +381,7 @@ Disconnects processor to cleanly detach the audio source element.
 #### Example
 
 ```js
-audioStream.detachSourceElement();
+audioStream.detachAudioSourceElement();
 ```
 
 ---
@@ -396,14 +392,78 @@ Accepts a required [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/W
 
 Updates the audio element attached to the audio stream.
 
-:::caution note 
-Currently, only LINEAR16 encoding is supported for audio elements. Opus support will be addressed in a later update.
-:::
 
 #### Example
 
 ```js
 audioStream.updateAudioSourceElement(myAudioElement);
+```
+
+---
+
+### `attachVideoSourceElement(audioSourceDomElement)`
+
+Accepts a required [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement) or [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement). A `type` with the Content-Type is required and the `src` attribute is also required. The `src` attribute can be a URL or a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
+
+Attaches a video element to the processor and starts processing audio data from the video file. In order to start processing you need to call `.play()` on the audio element. We recommend doing this after the `processing_started` Event has been fired.
+
+
+#### Example
+
+```js
+// Authenticate with Symbl
+const symbl = new Symbl({
+  accessToken: "< MY ACCESS TOKEN >"
+});
+
+// Create your audio element
+const myVideoElement = document.createElement("video");
+myVideoElement.type = "video/mp4";
+myVidioElement.src = "link-to-file.mp4";
+
+// Attach audio element to AudioStream
+const audioStream = new LINEAR16AudioStream();
+audioStream.attachVideoSourceElement(myVideoElement);
+
+// Create connection and start processing audio
+const connection = symbl.createConnection("abc123", audioStream);
+connection.startProcessing({
+  config: {
+    encoding: "LINEAR16"
+  }
+});
+
+// Play the element once audio is ready to be processed.
+connection.on("processing_started", () => {
+  myAudioElement.play();
+});
+```
+
+---
+
+### `detachVideoSourceElement()`
+
+Disconnects processor to cleanly detach the video source element.
+
+#### Example
+
+```js
+audioStream.detachVideoSourceElement();
+```
+
+---
+
+### `updateVideoSourceElement(videoSourceDomElement)`
+
+Accepts a required [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement) or [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement). A `type` with the Content-Type is required and the `src` attribute is also required. The `src` attribute can be a URL or a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
+
+Updates the video element attached to the audio stream.
+
+
+#### Example
+
+```js
+audioStream.updateVideoSourceElement(myVideoElement);
 ```
 
 ---
