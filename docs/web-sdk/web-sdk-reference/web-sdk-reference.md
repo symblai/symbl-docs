@@ -331,7 +331,7 @@ audioStream.updateAudioDevice("my-device-id");
 ---
 
 :::note
-Make sure to use the appropriate element type for `SourceElement` functions. Different types of `AudioSourceElement` and `VideoSourceElement` are available. 
+Make sure to use the appropriate DOM element type for `SourceElement` functions. Source elements include [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement) and [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement). 
 :::
 
 ### `attachAudioSourceElement(audioSourceDomElement)`
