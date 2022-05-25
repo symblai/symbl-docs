@@ -1,7 +1,7 @@
 ---
 id: summary
-title: GET Summary 
-sidebar_label: GET Summary (Alpha)
+title: GET Summary (Beta)
+sidebar_label: GET Summary (Beta)
 slug: /conversation-api/summary/
 ---
 import Tabs from '@theme/Tabs';
@@ -9,42 +9,37 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-:::info In Alpha
-This feature is in [Alpha](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
+:::info In Beta
+This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-The Summary API provides you with a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
+The Summary API provides a [Summarization](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
-Currently, Summaries cannot be generated in real-time. Support for creating Summary in real-time will be added soon.  
+Currently, Summaries cannot be generated in real-time. Support for creating Summaries in real-time is in development.  
 
-:::note 
-The Summary API generates high-quality Summaries for longer meetings so it is recommended that you use longer meetings with Summary API.
-:::
+The Summary API generates high-quality Summaries for longer meetings. Current best practice is to use the Summary API for longer meetings.
 
-:::note recommendations
+To generate the best Summarization, Symbl recommends:
 
-For generating Summarization, we recommend the following:
-- The number of words in the conversation should be above 85 words. 
-- The speaker information should be passed in generate Summary request. Learn how to provide speaker information in [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/) page. 
-:::
+- The number of words in the conversation should be greater than 85 words.
+
+- Speaker information should be passed in when generating the Summary request. For more information see [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/). 
 
 ### Authentication
 
-Before using this API, you must generate your authentication token (`AUTH_TOKEN`). To learn how to get the authentication token, see the [Authentication](/docs/developer-tools/authentication) page.
+Before using this API, you must generate your authentication token (`AUTH_TOKEN`) as described in [Authentication](/docs/developer-tools/authentication).
 
 ### API Endpoint
 **<font color="orange">GET</font> `https://api.symbl.ai/v1/conversations/{conversationId}/summary`**
 
 ### Request Headers
 
-Header Name  | Required | Value
------------ | ------- |  ------- |
-```Authorization```| Mandatory | `Bearer <token>` The token you get from our [authentication process](/docs/developer-tools/authentication).
-```Content-Type``` | Optional | This header must contain the MIME Type `application/json`. 
+| Header Name  | Required | Value |
+| --- | --- | --- |
+| `Authorization` | Mandatory | `Bearer <token>` is generated when you complete the [authentication process](/docs/developer-tools/authentication). |
+| `Content-Type` | Optional | This header must contain the MIME Type `application/json`. |
 
-:::info
-If you are using `x-api-key` we recommend that you use `Authorization` header instead as `x-api-key` is deprecated. 
-:::
+If you are using `x-api-key` it is deprecated. Symbl recommends using the `Authorization` header instead. 
     
 ### Request Header Sample
 
@@ -87,18 +82,17 @@ request.get({
 
 You can use the `refresh=true` as query parameter in the Summary API for any of the following use-cases:
 
-- **To Regenerate the Summary (Async APIs)** <br/> 
-Summaries can be generated again when you have new discussion items. Use `refresh=true` in [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) as a query param. This will delete the previous Summary and will create a new one. 
+- **Regenerate the Summary (Async APIs)** <br/> 
+Summaries can be generated again when you have new discussion items. Use `refresh=true` in [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) as a query param. This deletes the previous Summary and creates a new one. 
 
-- **To create Summary (Telephony and Streaming APIs)** <br/> 
-If you are using Telephony or Streaming API, after the conversation has ended, use the `refresh=true` parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) to generate the Summary.
+- **Create Summary (Telephony and Streaming APIs)** <br/> 
+If you are using the Telephony or Streaming API, after the conversation has ended, use the `refresh=true` parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) to generate the Summary.
 
-- **To generate Summary for already processed Conversations** <br/>
-If you have already processed a conversation using Async or Real-time APIs (without `EnableSummary` flag) and would like to generate a Summary for it, you can use `refresh=true` as query parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) and use the `conversationId` to get the Summary. 
+- **Generate Summary for already processed Conversations** <br/>
+If you have already processed a conversation using the Async API or Real-time API (without the `EnableSummary` flag) and would like to generate a Summary for it, you can use `refresh=true` as a query parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) and pass the `conversationId` to get the Summary. 
+ 
+You can only generate a Summary for the new messages of a conversation that already has a generated Summary. 
 
-:::info Creating Summary for new Messages 
-You can generate a Summary for only the new messages of a conversation that you have already generated a Summary of. 
-:::
 
 ### Response Body Sample
 
@@ -224,13 +218,17 @@ You can generate a Summary for only the new messages of a conversation that you 
 ```
 ### Response Object
 
-Parameter | Description | 
----------- | -------
-```id```    | The identifier of the Summary within the scope of the conversation. 
-```messageRefs.id``` | The identifier of each message that makes up a Summary.
-```text```| The text of the Summary.
+| Parameter | Description | 
+| --- | --- |
+| `id` | The identifier of the Summary within the scope of the conversation. |
+| `messageRefs.id` | The identifier of each message that makes up a Summary. |
+| `text` | The text of the Summary. |
 
-:::note
-In case of Streaming API and Telephony API, if a conversation is still in-progress or in case of Async API, the job is still in-progress while this API is invoked, it would treat it as “Not Found” error by returning `404 Not Found` HTTP status code with a message indicating that it is in progress. <br/>
-For example, if a conversation with `conversationId` ‘48948598475’ is still in progress, the Summary for it can be generated only after the conversation is complete. Please call this API after the conversation has ended. If you need more help, reach out to us at support@symbl.ai.
-:::
+The following scenarios return a `Not Found` error resulting in a **404 Not Found** HTTP status code with a message indicating that it is in progress:
+
+* If the Streaming API or Telephony API have a conversation that is still in-progress.
+* If an Async API job is still in-progress when the Summary API is invoked.
+
+For example, if a conversation with `conversationId` ‘48948598475’ is still in progress, the Summary for it can be generated only after the conversation is complete. Call the Summary API after the conversation has ended.
+
+If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
