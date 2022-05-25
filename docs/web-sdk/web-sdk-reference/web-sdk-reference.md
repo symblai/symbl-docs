@@ -334,6 +334,10 @@ audioStream.updateAudioDevice("my-device-id");
 
 ---
 
+:::note
+Make sure to use the appropriate element type for `SourceElement` functions. Different types of `AudioSourceElement` and `VideoSourceElement` are available. 
+:::
+
 ### `attachAudioSourceElement(audioSourceDomElement)`
 
 Accepts a required [HTMLAudioElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement) or [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement). A `type` with the Content-Type is required and the `src` attribute is also required. The `src` attribute can be a URL or a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
@@ -405,7 +409,7 @@ audioStream.updateAudioSourceElement(myAudioElement);
 
 Accepts a required [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement) or [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement). A `type` with the Content-Type is required and the `src` attribute is also required. The `src` attribute can be a URL or a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 
-Attaches a video element to the processor and starts processing audio data from the video file. In order to start processing you need to call `.play()` on the audio element. We recommend doing this after the `processing_started` Event has been fired.
+Attaches a video element to the processor and starts processing audio data from the video file. To start processing you need to call `.play()` on the audio element. Symbl recommends doing this after the `processing_started` event has been fired.
 
 
 #### Example
@@ -443,7 +447,7 @@ connection.on("processing_started", () => {
 
 ### `detachVideoSourceElement()`
 
-Disconnects processor to cleanly detach the video source element.
+Disconnects the processor to cleanly detach the video source element.
 
 #### Example
 
