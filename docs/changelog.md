@@ -22,7 +22,7 @@ Symbl continuously adds new features and enhancements, fixes critical bugs, and 
    * Added `logLevel` to [SymblConfig](/docs/web-sdk/web-sdk-reference/configuration-reference/#symbl-configuration).
    * Added separate methods to handle `<video>` and `<audio>` elements in audiostreams. Web SDK now has `attachAudioSourceElement`, `detachAudioSourceElement`, `updateAudioSourceElement`, `attachVideoSourceElement`, `detachVideoSourceElement`, and `updateVideoSourceElement`. Previous versions allowed either `<video>` or `<audio>` elements to be passed into the same `attachAudioSourceElement`, but going forward only the new separate corresponding methods may be used depending on element type.
    * Added `getConversationId()` to `StreamingAPIConnection` and `SubscribeAPIConnection`. These will only be populated after the `conversation_created` event has been fired. For more information on the `conversation_created` event, see [Events and Callbacks](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#connection-events).
-   * Added a `Conversation` object which can also be used to get the conversation ID. This object is attached to `StreamingAPIConnection` and `SubscribeAPIConnection` as `connection.conversation`. Going forward, the `Conversation` object will integrate with our [Conversation APIs](/docs/conversation-api/introduction/).
+   * Added a `Conversation` object which can also be used to get the conversation ID. This object is attached to `StreamingAPIConnection` and `SubscribeAPIConnection` as `connection.conversation`. Going forward, the `Conversation` object will integrate with [Conversation APIs](/docs/conversation-api/introduction/).
 
 * Bug Fixes:
 
