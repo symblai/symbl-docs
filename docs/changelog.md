@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 Symbl continuously adds new features and enhancements, fixes critical bugs, and deploys performance improvements. Track the latest updates on this page.
 
-### 26 April 2022
+### 26 May 2022
 
 ![api update](/img/api-update.png) <br/>
 * **Web SDK (Beta) new release:** Version 1.0.4 of the [Symbl Web SDK (Beta)](/docs/web-sdk/overview/) is now available.
@@ -29,7 +29,7 @@ Symbl continuously adds new features and enhancements, fixes critical bugs, and 
    * Corrected typos in some of the TypeScript types for Topics.
 
 
-### 24 April 2022
+### 24 May 2022
 
 ![api update](/img/api-update.png) <br/>
 * **Summary API Beta release:** The [Summary API](/docs/conversation-api/summary/) is now available in [Beta](/docs/product-releases).
