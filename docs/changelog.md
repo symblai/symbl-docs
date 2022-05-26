@@ -13,7 +13,7 @@ Symbl continuously adds new features and enhancements, fixes critical bugs, and 
 
 ### 26 May 2022
 
-![api update](/img/api-update.png) <br/>
+![sdk](/img/sdk-icon.png) <br/>
 * **Web SDK (Beta) new release:** Version 1.0.4 of the [Symbl Web SDK (Beta)](/docs/web-sdk/overview/) is now available.
 
    * Added extra validation to `startProcessing` arguments.
@@ -23,6 +23,10 @@ Symbl continuously adds new features and enhancements, fixes critical bugs, and 
    * Added separate methods to handle `<video>` and `<audio>` elements in audiostreams. Web SDK now has `attachAudioSourceElement`, `detachAudioSourceElement`, `updateAudioSourceElement`, `attachVideoSourceElement`, `detachVideoSourceElement`, and `updateVideoSourceElement`. Previous versions allowed either `<video>` or `<audio>` elements to be passed into the same `attachAudioSourceElement`, but going forward only the new separate corresponding methods may be used depending on element type.
    * Added `getConversationId()` to `StreamingAPIConnection` and `SubscribeAPIConnection`. These will only be populated after the `conversation_created` event has been fired. For more information on the `conversation_created` event, see [Events and Callbacks](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#connection-events).
    * Added a `Conversation` object which can also be used to get the conversation ID. This object is attached to `StreamingAPIConnection` and `SubscribeAPIConnection` as `connection.conversation`. Going forward, the `Conversation` object will integrate with [Conversation APIs](/docs/conversation-api/introduction/).
+
+* Known Issues:
+
+   * If `disconnectOnStopRequest` is missing or `false`, once `stopProcessing` is called an error message will appear repeatedly warning that the websocket cannot send data.
 
 * Bug Fixes:
 
