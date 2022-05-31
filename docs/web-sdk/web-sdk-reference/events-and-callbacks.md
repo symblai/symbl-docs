@@ -36,8 +36,8 @@ connection.on("disconnected", () => {
 | `stopped_listening`          | Stopped listening to input device.                                                 | None                                                                     |
 | `processing_started`         | Audio data processing successfully started.                                       | None                                                                     |
 | `processing_stopped`         | Audio data processing stopped.                                                    | None                                                                |
-| `conversation_created`       | Conversation is created and an ID is generated.                                   | None                                                               |
-| `conversation_completed`     | Conversation is ended.                                                            | None                                                             |
+| `conversation_created`       | Conversation is created and an ID is generated.                                   | [Conversation Created Response Object](#conversation-created-response-object)                                                               |
+| `conversation_completed`     | Conversation is ended.                                                            | [Conversation Completed Response Object](#conversation-completed-response-object)                                                             |
 | `session_modified`           | When the sample rate of the session is modified.                                  | Returns an object containing the new sample rate.                                                                                                    |
 | `speech_recognition`         | When data is being transferred between the client and server                      | [Speech Recognition Object](#speech-recognition-object) |
 | `message`                     | When the message object is detected.                                              | [Message Response Object](#message-response-object)                                                                                          |
@@ -92,6 +92,51 @@ window.addEventListener("error", (error) => {
 
 
 ### Callback Data Reference
+
+#### Conversation Created Response Object
+
+To retrieve the conversation ID as soon as the conversation is established, use this callback.
+
+```js
+connection.on("conversation_created", (conversationData) => {
+  // Handle conversationData here.
+});
+```
+
+####  JSON Response Example
+
+```js
+{
+  "type": "conversation_created",
+  "data": {
+    "conversationId": "5093011103940608"
+  }
+}
+```
+
+---
+
+#### Conversation Completed Response Object
+
+To retrieve the conversation ID and summaryUrl as soon as the conversation is completed, use this callback.
+
+```js
+connection.on("conversation_completed", (conversationData) => {
+  // Handle conversationData here.
+});
+```
+
+####  JSON Response Example
+
+```js
+{
+  "type": "conversation_completed",
+  "conversationId": "5093011103940608",
+  "summaryUrl": "https://meetinginsights.symbl.ai/meeting/#/eyJ1c2VySWQiOiJjaHJpc3RvcGhlci5zdG9rZXNAc3ltYmwuYWkiLCJuYW1lIjoiQ2hyaXMgU3Rva2VzIiwic2Vzc2lvbklkIjoiNTA5MzAxMTEwMzk0MDYwOCJ9?o=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwOTMwMTExMDM5NDA2MDgiLCJpYXQiOjE2NTQwMjE3OTJ9.5m50EMD6P0N3INu4iXOYXM8vaeh1lO1aNmkEc2Ye804"
+}
+```
+
+---
 
 #### Speech Recognition Object
 
