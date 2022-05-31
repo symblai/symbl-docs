@@ -34,7 +34,7 @@ connection.on("disconnected", () => {
 | `disconnected`                | When the WebSocket connection is disconnected.                                    | None                                                                               |
 | `started_listening`          | Started listening to input device.                                                | None                                                                      |
 | `stopped_listening`          | Stopped listening to input device.                                                 | None                                                                     |
-| `processing_started`         | Audio data processing successfully started.                                       | None                                                                     |
+| `processing_started`         | Audio data processing successfully started.                                       | [Processing Started Response Object](#processing-started-response-object)                                                                     |
 | `processing_stopped`         | Audio data processing stopped.                                                    | None                                                                |
 | `conversation_created`       | Conversation is created and an ID is generated.                                   | [Conversation Created Response Object](#conversation-created-response-object)                                                               |
 | `conversation_completed`     | Conversation is ended.                                                            | [Conversation Completed Response Object](#conversation-completed-response-object)                                                             |
@@ -133,6 +133,29 @@ connection.on("conversation_completed", (conversationData) => {
   "type": "conversation_completed",
   "conversationId": "5093011103940608",
   "summaryUrl": "https://meetinginsights.symbl.ai/meeting/#/eyJ1c2VySWQiOiJjaHJpc3RvcGhlci5zdG9rZXNAc3ltYmwuYWkiLCJuYW1lIjoiQ2hyaXMgU3Rva2VzIiwic2Vzc2lvbklkIjoiNTA5MzAxMTEwMzk0MDYwOCJ9?o=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwOTMwMTExMDM5NDA2MDgiLCJpYXQiOjE2NTQwMjE3OTJ9.5m50EMD6P0N3INu4iXOYXM8vaeh1lO1aNmkEc2Ye804"
+}
+```
+
+---
+
+#### Processing Started Response Object
+
+To retrieve the conversation ID as soon as the audio processing begins, use this callback.
+
+```js
+connection.on("processing_started", (recognitionData) => {
+  // Handle conversationData here.
+});
+```
+
+####  JSON Response Example
+
+```js
+{
+  "type": "recognition_started",
+  "data": {
+    "conversationId": "5093011103940608"
+  }
 }
 ```
 
