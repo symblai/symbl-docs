@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ---
 
-Both the connection and audio stream objects have an [`on`](/web-sdk/web-sdk-reference/web-sdk-reference/#oneventname-eventtypes-callback-function) method which can be used to subscribe to events and perform callbacks.
+Both the connection and audio stream objects have a [`connection.on`](/web-sdk/web-sdk-reference/web-sdk-reference/#oneventname-eventtypes-callback-function) method which can be used to subscribe to events and perform callbacks.
 
 ### Connection Events
 
@@ -28,24 +28,24 @@ connection.on("disconnected", () => {
 });
 ```
 
-| Event                       | Description                                                                       | Callback Data                                                                                                                                                               |
-| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `connected`                   | When the WebSocket connection is successfully established.                        | None                                                                                        |
-| `disconnected`                | When the WebSocket connection is disconnected.                                    | None                                                                               |
-| `started_listening`          | Started listening to input device.                                                | None                                                                      |
-| `stopped_listening`          | Stopped listening to input device.                                                 | None                                                                     |
-| `processing_started`         | Audio data processing successfully started.                                       | [Processing Started Response Object](#processing-started-response-object)                                                                     |
-| `processing_stopped`         | Audio data processing stopped.                                                    | None                                                                |
-| `conversation_created`       | Conversation is created and an ID is generated.                                   | [Conversation Created Response Object](#conversation-created-response-object)                                                               |
-| `conversation_completed`     | Conversation is ended.                                                            | [Conversation Completed Response Object](#conversation-completed-response-object)                                                             |
-| `session_modified`           | When the sample rate of the session is modified.                                  | Returns an object containing the new sample rate.                                                                                                    |
-| `speech_recognition`         | When data is being transferred between the client and server                      | [Speech Recognition Object](#speech-recognition-object) |
-| `message`                     | When the message object is detected.                                              | [Message Response Object](#message-response-object)                                                                                          |
-| `topic`                       | When topics are detected.                                                         | [Topic Response Object](#topic-response-object)                                                                                                          |
-| `tracker`                     | When Trackers are detected.                                                       | [Tracker Response Object](#tracker-response-object)                                                                                                       |
-| `action_item`                | When Action Items are detected.                                                   | [Action Item Response Object](#action-item-response-object)                                                                                          |
-| `follow_up`                  | When follow-ups are detected.                                                     |  [Follow Up Response Object](#action-item-response-object)                                                                                                 |
-| `question`                    | When questions are detected.                                                      | [Question Response Object](#action-item-response-object)                                                                                                    |
+| Event | Description | Callback Data |
+| --- | --- | --- |
+| `connected` | When the WebSocket connection is successfully established. | None |
+| `disconnected` | When the WebSocket connection is disconnected. | None |
+| `started_listening` | Started listening to input device. | None |
+| `stopped_listening` | Stopped listening to input device. | None |
+| `processing_started` | Audio data processing successfully started. | [Processing Started Response Object](#processing-started-response-object) |
+| `processing_stopped` | Audio data processing stopped. | None |
+| `conversation_created` | Conversation is created and an ID is generated. | [Conversation Created Response Object](#conversation-created-response-object) |
+| `conversation_completed` | Conversation is ended. | [Conversation Completed Response Object](#conversation-completed-response-object) |
+| `session_modified` | When the sample rate of the session is modified. | Returns an object containing the new sample rate. |
+| `speech_recognition` | When data is being transferred between the client and server. | [Speech Recognition Object](#speech-recognition-object) |
+| `message` | When the message object is detected. | [Message Response Object](#message-response-object) |
+| `topic` | When topics are detected. | [Topic Response Object](#topic-response-object) |
+| `tracker` | When Trackers are detected. | [Tracker Response Object](#tracker-response-object) |
+| `action_item` | When Action Items are detected. | [Action Item Response Object](#action-item-response-object) |
+| `follow_up` | When follow-ups are detected. | [Follow Up Response Object](#action-item-response-object) |
+| `question` | When questions are detected. | [Question Response Object](#action-item-response-object) |
 
 ### AudioStream Events
 
@@ -66,11 +66,11 @@ connection.audioStream.on("audio_source_disconnected", () => {
 });
 ```
 
-| Event                       | Description                                                                       | Callback Data                                                                                                                                                               |
-| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `audio_source_connected`    | The audio source is connected to Symbl.                                           | Returns the sample rate of the new audio source                                                         |
-| `audio_source_disconnected` | The audio source is connected.                                                    | None                                                 |
-| `audio_source_changed`      | A new default device is detected                                                  | None
+| Event | Description | Callback Data |
+| --- | --- | --- |
+| `audio_source_connected` | The audio source is connected to Symbl. | Returns the sample rate of the new audio source. |
+| `audio_source_disconnected` | The audio source is connected. | None |
+| `audio_source_changed` | A new default device is detected. | None |
 
 ### Global Events
 
@@ -86,9 +86,9 @@ window.addEventListener("error", (error) => {
 })
 ```
 
-| Event                       | Description                                                                       | Callback Data                                                                                                                                                               |
-| --------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `error`                       | Errors recorded when there are potential anti-patterns or non-recommended coding. | The Error Object that was thrown. Will be found in the `callbackData.detail`. 
+| Event | Description | Callback Data |
+| --- | --- | --- |
+| `error` | Errors recorded when there are potential anti-patterns or non-recommended coding. | The Error Object that was thrown. Will be found in the `callbackData.detail`. |
 
 
 ### Callback Data Reference
@@ -118,7 +118,7 @@ connection.on("conversation_created", (conversationData) => {
 
 #### Conversation Completed Response Object
 
-To retrieve the conversation ID and summaryUrl as soon as the conversation is completed, use this callback.
+To retrieve the conversation ID and `summaryUrl` as soon as the conversation is completed, use this callback.
 
 ```js
 connection.on("conversation_completed", (conversationData) => {
@@ -163,7 +163,7 @@ connection.on("processing_started", (recognitionData) => {
 
 #### Speech Recognition Object
 
-To retrieve the real-time transcription results as soon as they are detected. You can use this callback to render live transcription which is specific to the speaker of this audio stream.
+To retrieve the real-time transcription results as soon as they are detected. You can use this callback to render a live transcription which is specific to the speaker of this audio stream.
 
 ```js
 connection.on("speech_recognition", (speechData) => {
@@ -221,9 +221,9 @@ connection.on("speech_recognition", (speechData) => {
 
 #### Message Response Object
 
-This callback function contains the "finalized" transcription data for this speaker and if used with multiple streams with other speakers this callback would also provide their messages.
+This callback function contains the *finalized* transcription data for this speaker and if used with multiple streams with other speakers this callback would also provide their messages.
 
-The "finalized" messages mean that the automatic speech recognition has finalized the state of this part of transcription and has declared it "final". Therefore, this transcription will be more accurate than the [Speech Recognition Object](#speech-recognition-object).
+The *finalized* messages mean that the automatic speech recognition has finalized the state of this part of transcription and has declared it *final*. Therefore, this transcription will be more accurate than the [Speech Recognition Object](#speech-recognition-object).
 
 ```js
 connection.on("message", (data) => {
@@ -267,7 +267,7 @@ connection.on("message", (data) => {
 
 #### Action Item Response Object
 
-This callback provides you with any of the detected action items in real-time as they are detected. As with the [Message Response Object](#message-response-object) this would also return every speaker's action items in case of multiple streams.
+This callback provides you with any of the detected action items in real-time as they are detected. As with the [Message Response Object](#message-response-object) this also returns every speaker's action items in case of multiple streams.
 
 ```js
 connection.on("action_item", (data) => {
@@ -342,7 +342,7 @@ connection.on("action_item", (data) => {
 
 #### Question Response Object
 
-This callback provides you with any of the detected questions in real-time as they are detected. As with the [Message Response Object](#message-response-object) this would also return every speaker's questions in case of multiple streams.
+This callback provides you with any of the detected questions in real-time as they are detected. As with the [Message Response Object](#message-response-object) this also returns every speaker's questions in case of multiple streams.
 
 ```js
 connection.on("question", (data) => {
@@ -396,7 +396,7 @@ connection.on("question", (data) => {
 
 #### Follow Up Response Object
 
-This callback provides you with any of the detected follow ups in real-time as they are detected. As with the [Message Response Object](#message-response-object) this would also return every speaker's follow ups in case of multiple streams.
+This callback provides you with any of the detected follow ups in real-time as they are detected. As with the [Message Response Object](#message-response-object) this also returns every speaker's follow ups in case of multiple streams.
 
 ```js
 connection.on("follow_up", (data) => {
@@ -468,7 +468,7 @@ connection.on("follow_up", (data) => {
 
 #### Topic Response Object
 
-This callback provides you with any of the detected topics in real-time as they are detected.  As with the [Message Response Object](#message-response-object) this would also return every topic in case of multiple streams.
+This callback provides you with any of the detected topics in real-time as they are detected.  As with the [Message Response Object](#message-response-object) this also returns every topic in case of multiple streams.
 
 ```js
 connection.on("topic", (data) => {
@@ -498,7 +498,7 @@ connection.on("topic", (data) => {
 
 #### Tracker Response Object
 
-This callback provides you with any of the detected trackers in real-time as they are detected. As with the [Message Response Object](#message-response-object) this would also return every tracker in case of multiple streams.
+This callback provides you with any of the detected trackers in real-time as they are detected. As with the [Message Response Object](#message-response-object) this also returns every tracker in case of multiple streams.
 
 ```js
 connection.on("tracker", (data) => {
