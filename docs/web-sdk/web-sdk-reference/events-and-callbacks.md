@@ -132,7 +132,7 @@ connection.on("conversation_completed", (conversationData) => {
 {
   "type": "conversation_completed",
   "conversationId": "5093011103940608",
-  "summaryUrl": "https://meetinginsights.symbl.ai/meeting/#/eyJ1c2VySWQiOiJjaHJpc3RvcGhlci5zdG9rZXNAc3ltYmwuYWkiLCJuYW1lIjoiQ2hyaXMgU3Rva2VzIiwic2Vzc2lvbklkIjoiNTA5MzAxMTEwMzk0MDYwOCJ9?o=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwOTMwMTExMDM5NDA2MDgiLCJpYXQiOjE2NTQwMjE3OTJ9.5m50EMD6P0N3INu4iXOYXM8vaeh1lO1aNmkEc2Ye804"
+  "summaryUrl": "https://meetinginsights.symbl.ai/meeting/#/eyJzZXNzaW9uSWQiOiI2NTA0OTI1MTg4MDYzMjMyIiwidmlkZW9VcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vcmFtbWVyLXRyYW5zY3JpcHRpb24tYnVja2V0LzE5MzE0MjMwMjMubXA0In0="
 }
 ```
 
