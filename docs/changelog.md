@@ -1,7 +1,7 @@
 ---
 id: changelog
-title: Changelog
-sidebar_label: Changelog
+title: What's New
+sidebar_label: What's New
 slug: /changelog/
 ---
 import Tabs from '@theme/Tabs';

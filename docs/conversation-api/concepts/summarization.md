@@ -1,5 +1,5 @@
 ---
-id: summary
+id: summarization
 title: Summary API (Beta)
 description: Use Symbl.ai’s Summary API to capture key points in a conversation and create succinct summaries.
 sidebar_label: Introduction

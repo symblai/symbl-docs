@@ -771,7 +771,7 @@ module.exports = {
   },
   ],
   
- // Changelog
+ // What's New
  ChangelogSidebar: [{
    id: "changelog",
    type: "doc",
