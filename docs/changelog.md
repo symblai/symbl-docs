@@ -24,11 +24,11 @@ Symbl continuously adds new features and enhancements, fixes critical bugs, and 
    * Added `getConversationId()` to `StreamingAPIConnection` and `SubscribeAPIConnection`. These will only be populated after the `conversation_created` event has been fired. For more information on the `conversation_created` event, see [Events and Callbacks](/docs/web-sdk/web-sdk-reference/events-and-callbacks/#connection-events).
    * Added a `Conversation` object which can also be used to get the conversation ID. This object is attached to `StreamingAPIConnection` and `SubscribeAPIConnection` as `connection.conversation`. Going forward, the `Conversation` object will integrate with [Conversation APIs](/docs/conversation-api/introduction/).
 
-* Known Issues:
+#### Known Issues:
 
    * If `disconnectOnStopRequest` is missing or `false`, once `stopProcessing` is called an error message will appear repeatedly warning that the websocket cannot send data.
 
-* Bug Fixes:
+#### Bug Fixes:
 
    * Corrected typos in some of the TypeScript types for Topics.
 
