@@ -405,11 +405,11 @@ audioStream.updateAudioSourceElement(myAudioElement);
 
 ---
 
-### `attachVideoSourceElement(audioSourceDomElement)`
+### `attachVideoSourceElement(videoSourceDomElement)`
 
 Accepts a required [HTMLVideoElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLVideoElement) or [HTMLSourceElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSourceElement). A `type` with the Content-Type is required and the `src` attribute is also required. The `src` attribute can be a URL or a [Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob)
 
-Attaches a video element to the processor and starts processing audio data from the video file. To start processing you need to call `.play()` on the audio element. Symbl recommends doing this after the `processing_started` event has been fired.
+Attaches a video element to the processor and starts processing audio data from the video file. To start processing you need to call `.play()` on the video element. Symbl recommends doing this after the `processing_started` event has been fired.
 
 
 #### Example
