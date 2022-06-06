@@ -27,8 +27,8 @@ Web SDK works with the following web browsers:
 Operating System | Chrome | Edge | Firefox | Safari |
 ---------- | ------- | ------- | ------ | ------ |
 macOS | ✅ | - | ✅ | ✅ | 
-Windows | ✅ | ✅ | ✅ | ✅ |
-Linux| ✅ | - | ✅ | ✅ | 
+Windows | ✅ | ✅ | ✅ | - |
+Linux| ✅ | - | ✅ | - | 
 
 
 ## Before you begin
@@ -114,7 +114,7 @@ const {Symbl} = window;
 
 ## Authentication
 
-To initialize yjr Symbl Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/).
+To initialize your Symbl Web SDK, you can pass in an access token generated using [Symbl’s Authentication method](https://docs.symbl.ai/docs/developer-tools/authentication/).
 
 For testing purposes, you can use your App ID and App Secret from the [Symbl Platform](https://platform.symbl.ai). Do not use the App ID and App Secret in production applications.
 
