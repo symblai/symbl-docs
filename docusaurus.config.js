@@ -386,10 +386,10 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
-        googleAnalytics: {
-          trackingID: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
-          anonymizeIP: true,
-        },
+        // googleAnalytics: {
+        //   trackingID: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+        //   anonymizeIP: true,
+        // },
         gtag: {
           trackingID: process.env.GTAG_ID,
           // Optional fields.
