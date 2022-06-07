@@ -287,7 +287,7 @@ module.exports = {
           position: "right",
         },
         {
-          label: "🆕Changelog",
+          label: "🆕What's New",
           ImageData: "/img/tick-mark.png",
           to: '/changelog/',
           position: "right",
