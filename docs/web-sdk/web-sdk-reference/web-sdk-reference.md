@@ -149,11 +149,7 @@ Triggers the streaming connection to stop processing audio through Symbl websock
 #### Example
 
 ```js
-connection.startProcessing({
-  config: {
-    encoding: "OPUS"
-  }
-});
+connection.stopProcessing()
 ```
 
 ---
@@ -167,7 +163,9 @@ Checkout out our [Events / Callbacks Reference](/web-sdk/web-sdk-reference/event
 #### Example
 
 ```js
-connection.stopProcessing()
+connection.on('connected', () => {
+  console.log('I am connected!');
+})
 ```
 
 ---
