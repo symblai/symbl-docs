@@ -106,8 +106,8 @@ Will open a Symbl Streaming API WebSocket connection. If already connected will 
 #### Example
 
 ```js
-const connection = await symbl.createConnection();
-await connection.connect();
+let connection = new StreamingAPIConnection();
+connection.connect();
 ```
 
 ---
@@ -167,9 +167,7 @@ Checkout out our [Events / Callbacks Reference](/web-sdk/web-sdk-reference/event
 #### Example
 
 ```js
-connection.on('connected', () => {
-  console.log('I am connected!');
-})
+connection.stopProcessing()
 ```
 
 ---
