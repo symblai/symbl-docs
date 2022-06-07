@@ -163,7 +163,9 @@ Checkout out our [Events / Callbacks Reference](/web-sdk/web-sdk-reference/event
 #### Example
 
 ```js
-connection.stopProcessing()
+connection.on('connected', () => {
+  console.log('I am connected!');
+})
 ```
 
 ---
