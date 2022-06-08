@@ -31,9 +31,9 @@ symbl.init({
 
 ### `createConnection(sessionId?: string, audioStream?: AudioStream)`
 
-Accepts an optional sessionId and an optional instance of [AudioStream](#audiostream-class).
+Accepts an optional `sessionId` and an optional instance of [AudioStream](#audiostream-class).
 
-Validates that SessionID is unique and then opens a Symbl Streaming API WebSocket connection.
+Validates that `sessionId` is unique and then opens a Symbl Streaming API WebSocket connection.
 
 Returns an instance of [StreamingAPIConnection](#streamingapiconnection-class).
 
@@ -86,7 +86,7 @@ const connection = symbl.subscribeToConnection(sessionId);
 
 ### `Symbl.wait(time: number, unit: string = TimeUnit.MS)`
 
-Waits for provided amount of time in the supplied units (ms, s, min).
+Waits for provided amount of time in the supplied units (`ms`, `s`, `min`).
 
 #### Example
 
@@ -101,7 +101,7 @@ The `StreamingAPIConnection` class represents a Streaming API WebSocket connecti
 
 ### `connect()`
 
-Will open a Symbl Streaming API WebSocket connection. If already connected will log a warning. Once successfully connected, will send out the `connected` event.
+Opens a Symbl Streaming API WebSocket connection. If already connected it logs a warning. Once connected, it sends out the `connected` event.
 
 #### Example
 
@@ -114,7 +114,7 @@ connection.connect();
 
 ### `disconnect()`
 
-Disconnects from Symbl Streaming API WebSocket
+Disconnects from Symbl Streaming API WebSocket.
 
 #### Example
 
@@ -126,9 +126,9 @@ connection.disconnect();
 
 ### `startProcessing(options: StreamingAPIConnectionConfig)`
 
-Accepts a required [Connection Config](/web-sdk/web-sdk-reference/configuration-reference/#connection-configuration)
+Accepts a required [Connection Config](/web-sdk/web-sdk-reference/configuration-reference/#connection-configuration).
 
-Triggers the streaming connection to begin processing audio through Symbl websocket
+Triggers the streaming connection to begin processing audio through Symbl websocket.
 
 #### Example
 
@@ -144,7 +144,7 @@ connection.startProcessing({
 
 ### `stopProcessing()`
 
-Triggers the streaming connection to stop processing audio through Symbl websocket. If `disconnectOnStopRequest` is set to `false` then the WebSocket will be put into a non-processing state which can be resumed later by calling `startProcessing` again. If `disconnectOnStopRequest` is not set or set to `true` the WebSocket connection will need to be re-opened to start processing audio again.
+Triggers the streaming connection to stop processing audio through Symbl websocket. If `disconnectOnStopRequest` is set to `false`, the WebSocket enters a non-processing state which can be resumed later by calling `startProcessing` again. If `disconnectOnStopRequest` is not set or set to `true` the WebSocket connection must be re-opened to start processing audio again.
 
 #### Example
 
@@ -172,9 +172,9 @@ connection.on('connected', () => {
 
 ### `modifySampleRate(sampleRateHertz: number)`
 
-Accepts a sample rate in hertz, e.g. `48000`
+Accepts a sample rate in hertz, such as `48000`.
 
-Updates the sample rate mid-stream and sends out the `session_modified` event
+Updates the sample rate mid-stream and sends out the `session_modified` event.
 
 
 #### Example
@@ -224,7 +224,7 @@ connection.isConnected();
 
 Accepts an [AudioStream](#audiostream-class) instance.
 
-Replaces the existin audio stream with the one provided. Will stop processing if currently processing audio.
+Replaces the existing audio stream with the one provided. Stops processing if currently processing audio.
 
 #### Example
 
@@ -239,20 +239,20 @@ The `SubscribeAPIConnection` class represents a Subscribe API WebSocket connecti
 
 ### `connect()`
 
-Will open a Symbl Subscribe API WebSocket connection. If already connected will log a warning. Once successfully connected, will send out the `connected` event.
+Opens a Symbl Subscribe API WebSocket connection. If already connected it logs a warning. Once connected, it sends out the `connected` event.
 
 #### Example
 
 ```js
-const connection = await symbl.createConnection();
-await connection.connect();
+let connection = new StreamingAPIConnection(id, audioStream);
+connection.connect();
 ```
 
 ---
 
 ### `disconnect()`
 
-Disconnects from Symbl Subscribe API WebSocket
+Disconnects from the Symbl Subscribe API WebSocket.
 
 #### Example
 
