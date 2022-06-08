@@ -128,6 +128,7 @@ const symbl = new Symbl({
     // appSecret: '<your App Secret>', // Should only be used for development environment
     // basePath: '<your custom base path>',// optional
     // logLevel: 'debug' // Sets which log level you want to view
+    // reconnectOnError: true // attempt to reconnect to the WebSocket if disconnected by error
 });
 ```
 
