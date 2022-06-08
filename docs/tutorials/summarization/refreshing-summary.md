@@ -41,7 +41,9 @@ The parameter `refresh=true` must be passed as a query parameter in the Summary 
   "summary": [
     {
       "id": "3498579583479",
-      "text": "John, Mark and Paul need to focus more on the Dev team and on the product. In order to focus on the sales hires, Paul needs to know which geographies they should focus on.",
+      "text": "John, Mark and Paul need to focus more on the Dev team and on the 
+      product. In order to focus on the sales hires, Paul needs to know which 
+      geographies they should focus on.",
       "messageRefs": [
         {
           "id": "248594875984"
@@ -83,7 +85,10 @@ The parameter `refresh=true` must be passed as a query parameter in the Summary 
     },
     {
       "id": "4385738475683",
-      "text": "Mark and Tim will create a link, it will work on their environment and use the same API. The video placement will use a cookie. The idea is to eliminate effort on the consultancy team. Mark suggests a negation using cookies. Rob and Tim agree that it simplifies things on their end.",
+      "text": "Mark and Tim will create a link, it will work on their environment 
+      and use the same API. The video placement will use a cookie. The idea is to 
+      eliminate effort on the consultancy team. Mark suggests a negation using 
+      cookies. Rob and Tim agree that it simplifies things on their end.",
       "messageRefs": [
         {
           "id": "938475984357"
@@ -185,7 +190,11 @@ The parameter `refresh=false` must be passed as a query parameter in the Summary
   "summary": [
     {
       "id": "7298573211590",
-      "text": "Stella, Rob and Mark met to outline the actual requirement for the APIs. They have specified the details in the Product Requirement Documentation. Some of the errors encountered in the past were related to the implementation gaps. Tim will investigate the past errors and share the same with the team",
+      "text": "Stella, Rob and Mark met to outline the actual requirement for 
+      the APIs. They have specified the details in the Product Requirement 
+      Documentation. Some of the errors encountered in the past were related 
+      to the implementation gaps. Tim will investigate the past errors and 
+      share the same with the team",
       "messageRefs": [
         {
           "id": "248594875911"

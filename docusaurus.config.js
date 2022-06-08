@@ -302,7 +302,7 @@ module.exports = {
           position: "right",
         },
         {
-          label: "🆕 Changelog",
+          label: "🆕 What's New",
           ImageData: "/img/tick-mark.png",
           to: '/changelog/',
           position: "right",
@@ -329,7 +329,7 @@ module.exports = {
               to: "/glossary",
             },
             {
-              label: "Changelog",
+              label: "What's New",
               to: "/changelog",
             },
             {
@@ -386,10 +386,10 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
-        googleAnalytics: {
-          trackingID: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
-          anonymizeIP: true,
-        },
+        // googleAnalytics: {
+        //   trackingID: process.env.GOOGLE_ANALYTICS_TRAKING_ID,
+        //   anonymizeIP: true,
+        // },
         gtag: {
           trackingID: process.env.GTAG_ID,
           // Optional fields.

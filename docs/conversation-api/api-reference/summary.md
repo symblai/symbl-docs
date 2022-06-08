@@ -13,17 +13,11 @@ import TabItem from '@theme/TabItem';
 This feature is in [Beta](/docs/product-releases). If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
 :::
 
-The Summary API provides a [Summarization](/docs/concepts/summarization) of important contextual messages in a conversation. 
+Use GET Summary to generate a [Summary](/docs/concepts/summarization) of important contextual messages in a conversation. 
 
-Currently, Summaries cannot be generated in real-time. Support for creating Summaries in real-time is in development.  
+Generating a Summary in real-time results in a summarization up to the point in the conversation when the summary was triggered.
 
-The Summary API generates high-quality Summaries for longer meetings. Current best practice is to use the Summary API for longer meetings.
-
-To generate the best Summarization, Symbl recommends:
-
-- The number of words in the conversation should be greater than 85 words.
-
-- Speaker information should be passed in when generating the Summary request. For more information see [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/). 
+To generate the best Summarization, Symbl recommends passing in Speaker information when requesting the Summary. For more information see [Provide Speaker Information to generate Summary](/docs/tutorials/summarization/adding-speaker-info/). 
 
 ### Authentication
 
@@ -78,20 +72,15 @@ request.get({
 </TabItem>
 </Tabs>
 
-### Using Refresh Parameter
+### Using the Refresh Query Parameter
 
-You can use the `refresh=true` as query parameter in the Summary API for any of the following use-cases:
+If your conversation has an existing summary, you can use the `refresh=true` query parameter in the Summary API:
 
-- **Regenerate the Summary (Async APIs)** <br/> 
-Summaries can be generated again when you have new discussion items. Use `refresh=true` in [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) as a query param. This deletes the previous Summary and creates a new one. 
+| Parameter | Description |
+| --- | --- |
+| `refresh=true` | Passing this parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) replaces the existing summary. | 
 
-- **Create Summary (Telephony and Streaming APIs)** <br/> 
-If you are using the Telephony or Streaming API, after the conversation has ended, use the `refresh=true` parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) to generate the Summary.
-
-- **Generate Summary for already processed Conversations** <br/>
-If you have already processed a conversation using the Async API or Real-time API (without the `EnableSummary` flag) and would like to generate a Summary for it, you can use `refresh=true` as a query parameter in the [Summary API Endpoint](/docs/conversation-api/summary#api-endpoint) and pass the `conversationId` to get the Summary. 
- 
-You can only generate a Summary for the new messages of a conversation that already has a generated Summary. 
+If an existing conversation was processed without the `EnableSummary` flag, you do not need to use the `refresh` parameter. You can generate a summary by passing the `conversationId` as described previously in this article.
 
 
 ### Response Body Sample
@@ -101,7 +90,9 @@ You can only generate a Summary for the new messages of a conversation that alre
   "summary": [
     {
       "id": "3498579583479",
-      "text": "John, Mark and Paul need to focus more on the Dev team and on the product. In order to focus on the sales hires, Paul needs to know which geographies they should focus on.",
+      "text": "John, Mark and Paul need to focus more on the Dev team and on the 
+      product. In order to focus on the sales hires, Paul needs to know which 
+      geographies they should focus on.",
       "messageRefs": [
         {
           "id": "248594875984"
@@ -143,7 +134,10 @@ You can only generate a Summary for the new messages of a conversation that alre
     },
     {
       "id": "4385738475683",
-      "text": "Mark and Tim will create a link, it will work on their environment and use the same API. The video placement will use a cookie. The idea is to eliminate effort on the consultancy team. Mark suggests a negation using cookies. Rob and Tim agree that it simplifies things on their end.",
+      "text": "Mark and Tim will create a link, it will work on their environment 
+      and use the same API. The video placement will use a cookie. The idea is to 
+      eliminate effort on the consultancy team. Mark suggests a negation using 
+      cookies. Rob and Tim agree that it simplifies things on their end.",
       "messageRefs": [
         {
           "id": "938475984357"
@@ -224,11 +218,11 @@ You can only generate a Summary for the new messages of a conversation that alre
 | `messageRefs.id` | The identifier of each message that makes up a Summary. |
 | `text` | The text of the Summary. |
 
-The following scenarios return a `Not Found` error resulting in a **404 Not Found** HTTP status code with a message indicating that it is in progress:
 
-* If the Streaming API or Telephony API have a conversation that is still in-progress.
-* If an Async API job is still in-progress when the Summary API is invoked.
+### Error Messages
 
-For example, if a conversation with `conversationId` ‘48948598475’ is still in progress, the Summary for it can be generated only after the conversation is complete. Call the Summary API after the conversation has ended.
+| Error Message | Description |
+| --- | --- |
+| `404 Not Found` | If the system returns a `Not Found` error it results in this error message. <br /> One cause can be If an Async API job is still in progress when the Summary API is invoked. <br /> <br />  For example, if a conversation is still in progress, the Summary for it can be generated only <br /> after the conversation is complete. Call the Summary API after the conversation has ended. |
 
-If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai).
+If you have questions or comments, email [support@symbl.ai](mailto:support@symbl.ai) or message [symbldotai.slack.com](http://symbldotai.slack.com).
