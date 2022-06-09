@@ -33,8 +33,6 @@ Real-time Summaries are not currently supported.
 The following sample is a multi-line transcript and its corresponding Summary created by the Summary API:
 
 <table>
-    <col />
-    <col />
     <thead>
         <tr>
             <th>
