@@ -98,7 +98,7 @@ The following sample is a multi-line transcript and its corresponding Summary cr
                     both strategies?
                 </p>
             </td>
-            <td>
+            <td class="align-top">
                 <p>
                     Sunita, Liam, and Anh need to focus more on the Dev team and
                     on the product. In order to focus on the sales hire, Anh

@@ -572,3 +572,6 @@ html[data-theme="dark"] .intro-card{
   color:black;
 }
 
+td.align-top {
+  vertical-align: top;
+}
