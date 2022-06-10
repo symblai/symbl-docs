@@ -98,7 +98,7 @@ The following sample is a multi-line transcript and its corresponding Summary cr
                     both strategies?
                 </p>
             </td>
-            <td>
+            <td class="align-top">
                 <p>
                     Sunita, Liam, and Anh need to focus more on the Dev team and
                     on the product. In order to focus on the sales hire, Anh
@@ -109,7 +109,7 @@ The following sample is a multi-line transcript and its corresponding Summary cr
     </tbody>
 </table>
 
-You can enable the Summary API for Async APIs by setting the parameter `enableSummary=true` when processing a conversation via Async API </docs/async-api/introduction/>.
+You can enable the Summary API for Async APIs by setting the parameter `enableSummary=true` when processing a conversation via the [Async API](/docs/async-api/introduction/).
 
 When one of the Async API jobs is complete, you can retrieve the Summary by sending a GET request to the Summary API. For details, see the [GET Summary (Beta) API Reference](/docs/conversation-api/summary).
 
