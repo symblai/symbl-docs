@@ -55,7 +55,7 @@ You can also import the file into your HTML application using Symbl's CDN. For p
 #### Versioned CDN
 
 ```html
-<script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/v1.0.4/symbl.min.js"></script>
+<script src="https://sdk.symbl.ai/js/beta/symbl-web-sdk/v1.0.5/symbl.min.js"></script>
 ```
 
 #### Latest CDN
