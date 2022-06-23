@@ -11,6 +11,18 @@ import TabItem from '@theme/TabItem';
 
 Symbl continuously adds new features and enhancements, fixes critical bugs, and deploys performance improvements. Track the latest updates on this page.
 
+### 22 June 2022
+
+![sdk](/img/sdk-icon.png) <br/>
+* **Web SDK (Beta) new release:** Version 1.0.5 of the [Symbl Web SDK (Beta)](/docs/web-sdk/overview/) is now available.
+
+   * Validation of keys in `StreamingAPIConnectionConfig` when passed into `startProcessing`.
+   * Removed or updated vulnerable NPM dependencies.
+
+#### Bug Fixes:
+
+   * When `disconnect` is called on `StreamingAPIConnection` without first calling `stopProcessing`, there are no longer repeated warning messages.
+
 ### 26 May 2022
 
 ![sdk](/img/sdk-icon.png) <br/>
