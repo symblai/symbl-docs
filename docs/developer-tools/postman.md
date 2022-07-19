@@ -11,10 +11,4 @@ Postman is a desktop and web application that allows you to send HTTP requests f
 
 You need to have `appId` and `appSecret` to use authenticate before you can run any APIs.  You can find your account credentials on [platform home](https://platform.symbl.ai)
 
-## How to use Symbl postman collection?
-
-<p align="left">
-<iframe width="850" height="550" src="https://www.loom.com/embed/407fff46c55344cdae176f10ddb5f3c0" frameborder="0" allowfullscreen mozallowfullscreen ></iframe>
-</p>
-
 Stuck? Free feel to ask us any questions on our [Slack Channel](https://join.slack.com/t/symbldotai/shared_invite/zt-4sic2s11-D3x496pll8UHSJ89cm78CA) or send us an email at developer@symbl.ai.
